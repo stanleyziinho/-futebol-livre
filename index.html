@@ -2,1315 +2,3350 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#07130d">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<title>Futebol Livre Online</title>
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1, viewport-fit=cover"
+>
+
+<meta name="theme-color" content="#06120c">
+
+<meta
+  name="apple-mobile-web-app-capable"
+  content="yes"
+>
+
+<meta
+  name="apple-mobile-web-app-status-bar-style"
+  content="black-translucent"
+>
+
+<meta
+  name="apple-mobile-web-app-title"
+  content="Futebol Livre"
+>
+
+<title>Futebol Livre</title>
 
 <style>
+
 :root{
-  --bg:#07130d;
+  --bg:#06120c;
+  --bg2:#08170f;
+
   --surface:#0d1d15;
-  --surface2:#12271c;
+  --surface2:#10271a;
+  --surface3:#143420;
+
   --text:#f4fff8;
-  --muted:#9eb7a8;
+  --muted:#93aa9b;
+
   --green:#39e27d;
-  --line:#214330;
-  --warn:#f6c85f;
-  --red:#ff7777
+  --green2:#21bb61;
+
+  --red:#ff7373;
+  --yellow:#f6c85f;
+  --blue:#7eb7ff;
+
+  --line:#1d422d;
+
+  --shadow:
+    0 20px 60px rgba(0,0,0,.30);
+
+  --radius:24px;
 }
 
+/* RESET */
+
 *{
-  box-sizing:border-box
+  box-sizing:border-box;
+}
+
+html{
+  background:var(--bg);
+  scroll-behavior:smooth;
 }
 
 body{
   margin:0;
+
+  min-height:100vh;
+
   background:
     radial-gradient(
       circle at 100% -10%,
-      rgba(57,226,125,.16),
-      transparent 35%
+      rgba(57,226,125,.18),
+      transparent 34%
+    ),
+    radial-gradient(
+      circle at -10% 45%,
+      rgba(57,226,125,.06),
+      transparent 28%
     ),
     var(--bg);
 
   color:var(--text);
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-  padding-bottom:90px
+
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
+
+  padding-bottom:
+    calc(100px + env(safe-area-inset-bottom));
 }
 
-header{
+button,
+input,
+a{
+  font:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
+a{
+  color:inherit;
+}
+
+/* HEADER */
+
+.app-header{
+
   position:sticky;
   top:0;
-  z-index:9;
+
+  z-index:50;
 
   display:flex;
-  justify-content:space-between;
   align-items:center;
+  justify-content:space-between;
 
   padding:
-    calc(16px + env(safe-area-inset-top))
+    calc(15px + env(safe-area-inset-top))
     18px
     14px;
 
-  background:rgba(7,19,13,.94);
-  backdrop-filter:blur(18px);
+  background:
+    rgba(6,18,12,.90);
 
-  border-bottom:1px solid rgba(255,255,255,.05)
+  backdrop-filter:
+    blur(22px);
+
+  border-bottom:
+    1px solid rgba(255,255,255,.05);
 }
 
-h1,h2,h3,p{
-  margin:0
+.header-title{
+  min-width:0;
 }
 
 .eyebrow{
-  font-size:10px;
-  letter-spacing:1.5px;
+
   color:var(--green);
+
+  font-size:10px;
+
   font-weight:900;
-  margin-bottom:4px
+
+  letter-spacing:1.8px;
+
+  margin-bottom:4px;
 }
 
-.refresh{
-  width:42px;
-  height:42px;
+.app-header h1{
+
+  margin:0;
+
+  font-size:25px;
+
+  line-height:1;
+
+  letter-spacing:-.7px;
+}
+
+.header-actions{
+  display:flex;
+  gap:8px;
+}
+
+.icon-btn{
+
+  width:44px;
+  height:44px;
 
   border-radius:50%;
-  border:1px solid var(--line);
 
-  background:var(--surface);
+  border:
+    1px solid var(--line);
+
+  background:
+    rgba(13,29,21,.86);
+
   color:white;
 
-  font-size:22px
+  display:grid;
+  place-items:center;
+
+  font-size:20px;
 }
+
+/* MAIN */
 
 main{
-  max-width:780px;
+
+  width:min(820px,100%);
+
   margin:auto;
-  padding:18px
+
+  padding:
+    18px;
 }
 
+/* HERO */
+
 .hero{
-  padding:22px;
-  border-radius:24px;
+
+  position:relative;
+
+  overflow:hidden;
+
+  padding:
+    22px;
+
+  border-radius:
+    28px;
+
+  border:
+    1px solid
+    rgba(57,226,125,.22);
 
   background:
     linear-gradient(
-      140deg,
-      #123d25,
-      #0b2216 62%,
-      #0b1711
+      145deg,
+      #16472a,
+      #0c2919 58%,
+      #08170f
     );
 
-  border:1px solid rgba(57,226,125,.2)
+  box-shadow:
+    var(--shadow);
+}
+
+.hero::after{
+
+  content:"⚽";
+
+  position:absolute;
+
+  right:-20px;
+  bottom:-40px;
+
+  font-size:130px;
+
+  opacity:.045;
+
+  transform:
+    rotate(-10deg);
+}
+
+.hero-tag{
+
+  display:flex;
+
+  align-items:center;
+
+  gap:8px;
+
+  color:#d7ffe5;
+
+  font-size:13px;
+
+  font-weight:800;
+
+  margin-bottom:12px;
+}
+
+.live-dot{
+
+  width:9px;
+  height:9px;
+
+  border-radius:50%;
+
+  background:
+    var(--green);
+
+  box-shadow:
+    0 0 0 7px
+    rgba(57,226,125,.11);
 }
 
 .hero h2{
-  font-size:22px;
-  line-height:1.18
+
+  position:relative;
+
+  z-index:2;
+
+  margin:0;
+
+  max-width:560px;
+
+  font-size:
+    clamp(23px,6vw,32px);
+
+  line-height:1.08;
+
+  letter-spacing:-.8px;
 }
 
 .hero p{
-  margin-top:10px;
 
-  color:#b7cfbf;
+  position:relative;
+
+  z-index:2;
+
+  margin:
+    12px 0 0;
+
+  max-width:600px;
+
+  color:#b9d1c1;
 
   font-size:13px;
-  line-height:1.5
+
+  line-height:1.55;
 }
 
-.tag{
-  font-size:13px;
+/* DASHBOARD */
+
+.dashboard{
+
+  display:grid;
+
+  grid-template-columns:
+    repeat(2,1fr);
+
+  gap:10px;
+
+  margin:
+    16px 0;
+}
+
+.stat{
+
+  padding:
+    15px;
+
+  border:
+    1px solid var(--line);
+
+  border-radius:
+    19px;
+
+  background:
+    rgba(13,29,21,.86);
+}
+
+.stat-label{
+
+  display:block;
+
+  margin-bottom:6px;
+
+  color:
+    var(--muted);
+
+  font-size:
+    10px;
+
+  text-transform:
+    uppercase;
+
+  letter-spacing:
+    .9px;
+
   font-weight:800;
-  color:#d5ffe5;
-  margin-bottom:9px
 }
+
+.stat strong{
+
+  font-size:
+    19px;
+
+  line-height:1;
+}
+
+.stat-green strong{
+  color:var(--green);
+}
+
+.stat-red strong{
+  color:#ff9b9b;
+}
+
+/* SEARCH */
+
+.search-box{
+
+  position:relative;
+
+  margin:
+    5px 0 14px;
+}
+
+.search-box span{
+
+  position:absolute;
+
+  left:15px;
+  top:50%;
+
+  transform:
+    translateY(-50%);
+
+  font-size:17px;
+
+  pointer-events:none;
+}
+
+.search-box input{
+
+  width:100%;
+
+  border:
+    1px solid var(--line);
+
+  outline:none;
+
+  border-radius:
+    17px;
+
+  background:
+    var(--surface);
+
+  color:
+    white;
+
+  padding:
+    14px 15px 14px 44px;
+
+  font-size:
+    14px;
+}
+
+.search-box input::placeholder{
+  color:#748b7c;
+}
+
+/* FILTERS */
 
 .filters{
-  display:flex;
-  gap:8px;
-  overflow:auto;
 
-  padding:18px 0 12px
+  display:flex;
+
+  gap:8px;
+
+  overflow-x:auto;
+
+  padding:
+    1px 0 12px;
+
+  scrollbar-width:none;
+}
+
+.filters::-webkit-scrollbar{
+  display:none;
 }
 
 .chip{
-  border:1px solid var(--line);
 
-  background:var(--surface);
-  color:var(--muted);
+  flex:0 0 auto;
 
-  padding:9px 13px;
+  border:
+    1px solid var(--line);
 
-  border-radius:999px;
+  border-radius:
+    999px;
 
-  font-size:12px;
-  font-weight:800;
+  background:
+    var(--surface);
 
-  white-space:nowrap
+  color:
+    var(--muted);
+
+  padding:
+    10px 14px;
+
+  font-size:
+    12px;
+
+  font-weight:
+    850;
 }
 
 .chip.active{
-  background:var(--green);
-  color:#06210f;
-  border-color:var(--green)
+
+  background:
+    var(--green);
+
+  color:
+    #05200e;
+
+  border-color:
+    var(--green);
 }
 
-.info{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:10px;
+/* CONTROL */
 
-  margin-bottom:24px
+.control-row{
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:
+    space-between;
+
+  gap:12px;
+
+  margin:
+    5px 0 24px;
+
+  padding:
+    14px;
+
+  border:
+    1px solid var(--line);
+
+  border-radius:
+    18px;
+
+  background:
+    var(--surface);
 }
 
-.info>div{
-  background:var(--surface);
+.control-copy strong{
 
-  border:1px solid var(--line);
-  border-radius:17px;
-
-  padding:13px
-}
-
-.info small{
   display:block;
 
-  color:var(--muted);
-
-  font-size:10px;
-
-  margin-bottom:4px;
-
-  text-transform:uppercase
+  font-size:
+    13px;
 }
 
-.info strong{
-  font-size:12px
+.control-copy small{
+
+  display:block;
+
+  margin-top:3px;
+
+  color:
+    var(--muted);
+
+  font-size:
+    10px;
 }
+
+.switch{
+
+  position:relative;
+
+  width:50px;
+  height:29px;
+
+  flex:0 0 auto;
+}
+
+.switch input{
+  display:none;
+}
+
+.slider{
+
+  position:absolute;
+
+  inset:0;
+
+  border-radius:
+    99px;
+
+  background:
+    #1b3324;
+
+  border:
+    1px solid var(--line);
+
+  transition:
+    .25s;
+}
+
+.slider::before{
+
+  content:"";
+
+  position:absolute;
+
+  width:21px;
+  height:21px;
+
+  left:3px;
+  top:3px;
+
+  border-radius:50%;
+
+  background:white;
+
+  transition:
+    .25s;
+}
+
+.switch input:checked + .slider{
+
+  background:
+    var(--green);
+}
+
+.switch input:checked + .slider::before{
+
+  transform:
+    translateX(21px);
+
+  background:
+    #05200e;
+}
+
+/* SECTION TITLE */
 
 .section-head{
-  display:flex;
-  justify-content:space-between;
-  align-items:end;
 
-  margin-bottom:12px
+  display:flex;
+
+  align-items:flex-end;
+
+  justify-content:
+    space-between;
+
+  gap:12px;
+
+  margin:
+    4px 0 13px;
 }
 
 .section-head h3{
-  font-size:23px
+
+  margin:0;
+
+  font-size:
+    24px;
+
+  letter-spacing:
+    -.5px;
 }
 
-.count{
-  background:var(--surface2);
-  color:var(--green);
+.counter{
 
-  font-weight:900;
+  min-width:
+    36px;
 
-  border-radius:999px;
+  height:
+    36px;
 
-  padding:6px 10px
+  padding:
+    0 11px;
+
+  display:grid;
+
+  place-items:center;
+
+  border-radius:
+    999px;
+
+  background:
+    var(--surface2);
+
+  color:
+    var(--green);
+
+  font-weight:
+    900;
 }
+
+/* GAMES */
 
 .games{
+
   display:grid;
-  gap:12px
+
+  gap:13px;
 }
 
-.card{
+.game-card{
+
+  position:relative;
+
+  overflow:hidden;
+
+  padding:
+    17px;
+
+  border:
+    1px solid var(--line);
+
+  border-radius:
+    23px;
+
   background:
     linear-gradient(
       180deg,
-      var(--surface),
-      #0a1911
+      #0f2117,
+      #09180f
     );
 
-  border:1px solid var(--line);
-  border-radius:22px;
-
-  padding:17px
+  box-shadow:
+    0 8px 26px
+    rgba(0,0,0,.12);
 }
 
-.row{
+.game-card.favorite{
+
+  border-color:
+    rgba(57,226,125,.52);
+
+  box-shadow:
+    0 0 0 1px
+    rgba(57,226,125,.05),
+    0 15px 40px
+    rgba(0,0,0,.16);
+}
+
+.game-top{
+
   display:flex;
-  justify-content:space-between;
+
   align-items:center;
-  gap:10px
+
+  justify-content:
+    space-between;
+
+  gap:10px;
 }
 
 .competition{
-  font-size:11px;
-  color:var(--muted);
 
-  font-weight:900;
+  overflow:hidden;
 
-  text-transform:uppercase
+  text-overflow:
+    ellipsis;
+
+  white-space:
+    nowrap;
+
+  color:
+    var(--muted);
+
+  font-size:
+    10px;
+
+  text-transform:
+    uppercase;
+
+  letter-spacing:
+    .75px;
+
+  font-weight:
+    900;
 }
 
-.pill{
-  font-size:10px;
-  font-weight:900;
+.card-actions{
 
-  padding:6px 9px;
+  display:flex;
 
-  border-radius:999px;
+  align-items:center;
 
-  background:rgba(255,255,255,.06)
+  gap:7px;
 }
 
-.pill.live{
-  background:rgba(255,119,119,.12);
-  color:#ffaaaa
+.status-pill{
+
+  padding:
+    6px 9px;
+
+  border-radius:
+    999px;
+
+  background:
+    rgba(255,255,255,.05);
+
+  color:
+    #bbc9bf;
+
+  font-size:
+    10px;
+
+  font-weight:
+    900;
+
+  white-space:
+    nowrap;
 }
 
-.pill.free{
-  background:rgba(57,226,125,.12);
-  color:#7af5a8
+.status-pill.live{
+
+  background:
+    rgba(255,115,115,.13);
+
+  color:
+    #ffaaaa;
 }
 
-.pill.none{
-  color:#bdc9c1
+.status-pill.upcoming{
+
+  background:
+    rgba(126,183,255,.11);
+
+  color:
+    #a9ceff;
 }
 
-.teams{
-  margin:16px 0
+.status-pill.finished{
+
+  background:
+    rgba(255,255,255,.05);
+
+  color:
+    #9ba9a0;
+}
+
+.favorite-btn{
+
+  width:32px;
+  height:32px;
+
+  border:none;
+
+  border-radius:
+    50%;
+
+  background:
+    rgba(255,255,255,.05);
+
+  color:
+    #758b7d;
+
+  font-size:
+    18px;
+}
+
+.favorite-btn.active{
+  color:#ffe473;
+}
+
+/* MATCH */
+
+.match{
+
+  display:grid;
+
+  grid-template-columns:
+    minmax(0,1fr)
+    auto
+    minmax(0,1fr);
+
+  gap:
+    12px;
+
+  align-items:center;
+
+  margin:
+    19px 0;
 }
 
 .team{
-  font-size:19px;
-  font-weight:900
+
+  min-width:0;
+
+  text-align:center;
+}
+
+.team-logo{
+
+  width:50px;
+  height:50px;
+
+  margin:
+    0 auto 9px;
+
+  object-fit:
+    contain;
+
+  border-radius:
+    50%;
+
+  background:
+    rgba(255,255,255,.04);
+}
+
+.team-logo-fallback{
+
+  width:50px;
+  height:50px;
+
+  margin:
+    0 auto 9px;
+
+  display:grid;
+
+  place-items:center;
+
+  border-radius:
+    50%;
+
+  border:
+    1px solid var(--line);
+
+  background:
+    var(--surface2);
+
+  font-weight:
+    900;
+
+  color:
+    var(--green);
+}
+
+.team-name{
+
+  overflow:hidden;
+
+  display:
+    -webkit-box;
+
+  -webkit-line-clamp:
+    2;
+
+  -webkit-box-orient:
+    vertical;
+
+  font-size:
+    13px;
+
+  line-height:
+    1.25;
+
+  font-weight:
+    850;
+}
+
+.middle-score{
+
+  min-width:
+    62px;
+
+  text-align:center;
 }
 
 .score{
-  font-size:26px;
-  color:var(--green);
 
-  font-weight:900;
+  font-size:
+    27px;
 
-  margin:8px 0
+  letter-spacing:
+    -1px;
+
+  font-weight:
+    950;
+
+  color:
+    var(--green);
 }
 
-.x{
-  font-size:11px;
-  color:#6f8b79;
+.score-x{
 
-  font-weight:900;
+  font-size:
+    14px;
 
-  margin:3px 0
+  color:
+    #718879;
+
+  font-weight:
+    900;
 }
 
-.meta{
-  color:var(--muted);
+.kickoff{
 
-  font-size:12px;
-  line-height:1.5
+  margin-top:
+    4px;
+
+  color:
+    var(--muted);
+
+  font-size:
+    10px;
 }
 
-.actions{
+/* STREAM AREA */
+
+.stream-box{
+
   display:flex;
-  gap:8px;
 
-  margin-top:14px;
+  justify-content:
+    space-between;
 
-  flex-wrap:wrap
+  align-items:center;
+
+  gap:
+    10px;
+
+  padding-top:
+    13px;
+
+  border-top:
+    1px solid
+    rgba(255,255,255,.055);
 }
 
-.btn{
-  flex:1;
-  min-width:145px;
+.stream-info{
+
+  min-width:0;
+}
+
+.stream-info small{
+
+  display:block;
+
+  color:
+    var(--muted);
+
+  font-size:
+    9px;
+
+  text-transform:
+    uppercase;
+
+  margin-bottom:
+    3px;
+}
+
+.stream-info strong{
+
+  display:block;
+
+  font-size:
+    11px;
+
+  overflow:hidden;
+
+  text-overflow:
+    ellipsis;
+
+  white-space:
+    nowrap;
+}
+
+.watch-actions{
+
+  display:flex;
+
+  gap:
+    6px;
+}
+
+.small-btn{
 
   text-decoration:none;
+
+  padding:
+    9px 10px;
+
+  border-radius:
+    12px;
+
+  border:
+    1px solid var(--line);
+
+  background:
+    var(--surface2);
+
+  color:
+    #d6eadc;
+
+  font-size:
+    10px;
+
+  font-weight:
+    850;
+
+  white-space:
+    nowrap;
+}
+
+.small-btn.primary{
+
+  background:
+    var(--green);
+
+  border-color:
+    var(--green);
+
+  color:
+    #05200e;
+}
+
+/* EMPTY */
+
+.empty{
+
   text-align:center;
 
-  padding:12px;
+  padding:
+    42px 20px;
 
-  border-radius:14px;
+  border:
+    1px dashed var(--line);
 
-  font-weight:900;
+  border-radius:
+    22px;
 
-  border:1px solid var(--line)
+  color:
+    var(--muted);
 }
 
-.btn-primary{
-  background:var(--green);
-  color:#06210f;
-  border-color:var(--green)
+.empty span{
+
+  display:block;
+
+  margin-bottom:
+    8px;
+
+  font-size:
+    36px;
 }
 
-.btn-secondary{
-  background:#13241a;
-  color:#d6e6dc
+.hidden{
+  display:none!important;
 }
 
-.providers{
-  margin-top:30px
+/* PROVIDERS */
+
+.providers-section{
+
+  margin-top:
+    32px;
 }
 
-.grid{
+.provider-grid{
+
   display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:10px
+
+  grid-template-columns:
+    repeat(2,1fr);
+
+  gap:
+    10px;
 }
 
-.provider{
+.provider-card{
+
   display:block;
 
   text-decoration:none;
 
-  color:white;
+  padding:
+    16px;
 
-  background:var(--surface);
+  border:
+    1px solid var(--line);
 
-  border:1px solid var(--line);
-  border-radius:18px;
+  border-radius:
+    19px;
 
-  padding:15px
+  background:
+    var(--surface);
 }
 
-.provider small{
+.provider-icon{
+
+  margin-bottom:
+    9px;
+
+  font-size:
+    24px;
+}
+
+.provider-card strong{
+
   display:block;
 
-  color:var(--muted);
-
-  margin-top:4px
+  font-size:
+    14px;
 }
 
-.note,.error{
-  margin-top:20px;
+.provider-card small{
 
-  padding:16px;
+  display:block;
 
-  border-radius:18px;
+  margin-top:
+    4px;
 
-  background:var(--surface);
+  color:
+    var(--muted);
 
-  border:1px solid var(--line);
+  font-size:
+    10px;
 
-  font-size:12px;
-  line-height:1.5;
+  line-height:
+    1.35;
+}
 
-  color:var(--muted)
+/* INFO */
+
+.info-note{
+
+  margin-top:
+    28px;
+
+  padding:
+    17px;
+
+  border:
+    1px solid var(--line);
+
+  border-radius:
+    20px;
+
+  background:
+    var(--surface);
+
+  color:
+    var(--muted);
+
+  font-size:
+    11px;
+
+  line-height:
+    1.55;
 }
 
 .error{
-  border-color:#5a2b2b;
-  color:#ffc1c1
+
+  margin-bottom:
+    15px;
+
+  padding:
+    14px;
+
+  border:
+    1px solid #5b2e2e;
+
+  border-radius:
+    17px;
+
+  background:
+    rgba(255,115,115,.07);
+
+  color:
+    #ffc5c5;
+
+  font-size:
+    11px;
 }
 
-nav{
+/* BOTTOM NAV */
+
+.bottom-nav{
+
   position:fixed;
+
+  z-index:60;
 
   left:0;
   right:0;
   bottom:0;
 
   display:grid;
-  grid-template-columns:repeat(3,1fr);
+
+  grid-template-columns:
+    repeat(4,1fr);
 
   padding:
-    8px
-    12px
-    calc(8px + env(safe-area-inset-bottom));
+    8px 10px
+    calc(
+      8px +
+      env(safe-area-inset-bottom)
+    );
 
-  background:rgba(7,19,13,.96);
+  border-top:
+    1px solid
+    rgba(255,255,255,.055);
 
-  backdrop-filter:blur(20px);
+  background:
+    rgba(5,16,10,.95);
 
-  border-top:1px solid rgba(255,255,255,.05)
+  backdrop-filter:
+    blur(22px);
 }
 
-nav button{
-  background:none;
+.nav-item{
+
   border:none;
 
-  color:#7c9585;
+  background:none;
 
-  padding:6px;
+  color:#738a7a;
 
-  font-size:11px;
-  font-weight:800
+  padding:
+    5px;
+
+  font-size:
+    10px;
+
+  font-weight:
+    850;
 }
 
-nav button.active{
-  color:var(--green)
+.nav-item span{
+
+  display:block;
+
+  margin-bottom:
+    3px;
+
+  font-size:
+    19px;
 }
 
-.hidden{
-  display:none!important
+.nav-item.active{
+  color:var(--green);
 }
 
-.empty{
+/* DESKTOP */
+
+@media(min-width:700px){
+
+  .dashboard{
+    grid-template-columns:
+      repeat(4,1fr);
+  }
+
+  .provider-grid{
+    grid-template-columns:
+      repeat(4,1fr);
+  }
+
+  .hero{
+    padding:28px;
+  }
+
+  .game-card{
+    padding:20px;
+  }
+
+}
+
+/* LOADING */
+
+.loading{
+
+  padding:
+    40px 0;
+
   text-align:center;
 
-  color:var(--muted);
+  color:
+    var(--muted);
 
-  padding:25px
+  font-size:
+    12px;
 }
+
+.spinner{
+
+  width:28px;
+  height:28px;
+
+  margin:
+    0 auto 12px;
+
+  border-radius:
+    50%;
+
+  border:
+    3px solid
+    var(--surface3);
+
+  border-top-color:
+    var(--green);
+
+  animation:
+    spin .8s linear infinite;
+}
+
+@keyframes spin{
+  to{
+    transform:
+      rotate(360deg);
+  }
+}
+
 </style>
 </head>
 
 <body>
 
-<header>
+<header class="app-header">
 
-<div>
-<div class="eyebrow">FUTEBOL AO VIVO</div>
-<h1>Futebol Livre Online</h1>
-</div>
+  <div class="header-title">
 
-<button class="refresh" id="refresh">
-↻
-</button>
+    <div class="eyebrow">
+      FUTEBOL AO VIVO
+    </div>
+
+    <h1>
+      Futebol Livre
+    </h1>
+
+  </div>
+
+  <div class="header-actions">
+
+    <button
+      class="icon-btn"
+      id="refreshBtn"
+      title="Atualizar"
+    >
+      ↻
+    </button>
+
+  </div>
 
 </header>
 
 <main>
 
-<section class="hero">
+  <section class="hero">
 
-<div class="tag">
-● Dados reais de partidas
-</div>
+    <div class="hero-tag">
 
-<h2>
-Jogos reais do dia e atalhos para fontes oficiais gratuitas.
-</h2>
+      <span class="live-dot"></span>
 
-<p>
-O app consulta placares e agenda online.
-Quando houver transmissão gratuita oficial conhecida,
-você pode abrir o canal correspondente.
-</p>
+      Agenda e placares reais
 
-</section>
+    </div>
 
-<div class="filters">
+    <h2>
+      Seu painel de futebol
+      em um só lugar.
+    </h2>
 
-<button class="chip active" data-filter="all">
-Todos
-</button>
+    <p>
+      Acompanhe jogos do dia,
+      favoritos, placares e encontre
+      rapidamente fontes oficiais gratuitas
+      quando disponíveis.
+    </p>
 
-<button class="chip" data-filter="live">
-Ao vivo
-</button>
+  </section>
 
-<button class="chip" data-filter="today">
-Hoje
-</button>
+  <section class="dashboard">
 
-<button class="chip" data-filter="brazil">
-Brasil
-</button>
+    <div class="stat">
 
-<button class="chip" data-filter="continental">
-Libertadores
-</button>
+      <span class="stat-label">
+        Jogos
+      </span>
 
-</div>
+      <strong id="totalGames">
+        0
+      </strong>
 
-<section class="info">
+    </div>
 
-<div>
+    <div class="stat stat-red">
 
-<small>
-Atualização
-</small>
+      <span class="stat-label">
+        Ao vivo
+      </span>
 
-<strong id="updated">
-—
-</strong>
+      <strong id="liveGames">
+        0
+      </strong>
 
-</div>
+    </div>
 
-<div>
+    <div class="stat stat-green">
 
-<small>
-Fonte de jogos
-</small>
+      <span class="stat-label">
+        Brasil
+      </span>
 
-<strong>
-ESPN pública
-</strong>
+      <strong id="brazilGames">
+        0
+      </strong>
 
-</div>
+    </div>
 
-</section>
+    <div class="stat">
 
-<div
-id="errorBox"
-class="error hidden">
-</div>
+      <span class="stat-label">
+        Favoritos
+      </span>
 
-<section>
+      <strong id="favoriteCount">
+        0
+      </strong>
 
-<div class="section-head">
+    </div>
 
-<div>
+  </section>
 
-<div class="eyebrow">
-PARTIDAS
-</div>
+  <div class="search-box">
 
-<h3>
-Jogos
-</h3>
+    <span>
+      🔎
+    </span>
 
-</div>
+    <input
+      id="searchInput"
+      type="search"
+      placeholder="Buscar time ou campeonato"
+      autocomplete="off"
+    >
 
-<span
-class="count"
-id="count">
-0
-</span>
+  </div>
 
-</div>
+  <div class="filters">
 
-<div
-id="games"
-class="games">
-</div>
+    <button
+      class="chip active"
+      data-filter="all"
+    >
+      Todos
+    </button>
 
-<div
-id="empty"
-class="empty hidden">
+    <button
+      class="chip"
+      data-filter="live"
+    >
+      🔴 Ao vivo
+    </button>
 
-Nenhum jogo encontrado neste filtro.
+    <button
+      class="chip"
+      data-filter="favorites"
+    >
+      ⭐ Favoritos
+    </button>
 
-</div>
+    <button
+      class="chip"
+      data-filter="brazil"
+    >
+      🇧🇷 Brasil
+    </button>
 
-</section>
+    <button
+      class="chip"
+      data-filter="libertadores"
+    >
+      🏆 Libertadores
+    </button>
 
-<section
-class="providers"
-id="providersSection">
+    <button
+      class="chip"
+      data-filter="europe"
+    >
+      🇪🇺 Europa
+    </button>
 
-<div class="section-head">
+  </div>
 
-<div>
+  <div class="control-row">
 
-<div class="eyebrow">
-FONTES
-</div>
+    <div class="control-copy">
 
-<h3>
-Canais oficiais gratuitos
-</h3>
+      <strong>
+        Ocultar jogos encerrados
+      </strong>
 
-</div>
+      <small>
+        Mostra somente partidas relevantes
+      </small>
 
-</div>
+    </div>
 
-<div class="grid">
+    <label class="switch">
 
-<a
-class="provider"
-href="https://www.youtube.com/@getv"
-target="_blank">
+      <input
+        type="checkbox"
+        id="hideFinished"
+      >
 
-<strong>
-ge TV
-</strong>
+      <span class="slider"></span>
 
-<small>
-YouTube oficial
-</small>
+    </label>
 
-</a>
+  </div>
 
-<a
-class="provider"
-href="https://www.youtube.com/@CazeTV"
-target="_blank">
+  <div
+    id="errorBox"
+    class="error hidden"
+  ></div>
 
-<strong>
-CazéTV
-</strong>
+  <section id="gamesSection">
 
-<small>
-YouTube oficial
-</small>
+    <div class="section-head">
 
-</a>
+      <div>
 
-<a
-class="provider"
-href="https://www.youtube.com/@CBF"
-target="_blank">
+        <div class="eyebrow">
+          PARTIDAS
+        </div>
 
-<strong>
-CBF
-</strong>
+        <h3>
+          Jogos de hoje
+        </h3>
 
-<small>
-YouTube oficial
-</small>
+      </div>
 
-</a>
+      <span
+        class="counter"
+        id="visibleCount"
+      >
+        0
+      </span>
 
-<a
-class="provider"
-href="https://www.plus.fifa.com/"
-target="_blank">
+    </div>
 
-<strong>
-FIFA+
-</strong>
+    <div
+      id="loading"
+      class="loading"
+    >
 
-<small>
-Conteúdo gratuito selecionado
-</small>
+      <div class="spinner"></div>
 
-</a>
+      Carregando partidas...
 
-</div>
+    </div>
 
-</section>
+    <div
+      id="games"
+      class="games"
+    ></div>
 
-<section class="note">
+    <div
+      id="emptyState"
+      class="empty hidden"
+    >
 
-<strong style="color:white">
-Observação:
-</strong>
+      <span>
+        ⚽
+      </span>
 
-<br>
+      Nenhuma partida encontrada.
 
-Os dados de partidas vêm de endpoints públicos.
-Algumas competições podem não responder em determinados momentos.
+    </div>
 
-</section>
+  </section>
+
+  <section
+    class="providers-section"
+    id="providersSection"
+  >
+
+    <div class="section-head">
+
+      <div>
+
+        <div class="eyebrow">
+          ONDE ASSISTIR
+        </div>
+
+        <h3>
+          Fontes oficiais
+        </h3>
+
+      </div>
+
+    </div>
+
+    <div class="provider-grid">
+
+      <a
+        class="provider-card"
+        href="https://www.youtube.com/@getv"
+        target="_blank"
+        rel="noopener"
+      >
+
+        <div class="provider-icon">
+          🟢
+        </div>
+
+        <strong>
+          ge TV
+        </strong>
+
+        <small>
+          Canal oficial gratuito
+          no YouTube
+        </small>
+
+      </a>
+
+      <a
+        class="provider-card"
+        href="https://www.youtube.com/@CazeTV"
+        target="_blank"
+        rel="noopener"
+      >
+
+        <div class="provider-icon">
+          📺
+        </div>
+
+        <strong>
+          CazéTV
+        </strong>
+
+        <small>
+          Transmissões esportivas
+          gratuitas
+        </small>
+
+      </a>
+
+      <a
+        class="provider-card"
+        href="https://www.youtube.com/@CBF"
+        target="_blank"
+        rel="noopener"
+      >
+
+        <div class="provider-icon">
+          🇧🇷
+        </div>
+
+        <strong>
+          CBF
+        </strong>
+
+        <small>
+          Conteúdo oficial
+          do futebol brasileiro
+        </small>
+
+      </a>
+
+      <a
+        class="provider-card"
+        href="https://www.plus.fifa.com/"
+        target="_blank"
+        rel="noopener"
+      >
+
+        <div class="provider-icon">
+          🌎
+        </div>
+
+        <strong>
+          FIFA+
+        </strong>
+
+        <small>
+          Conteúdo e transmissões
+          selecionadas
+        </small>
+
+      </a>
+
+    </div>
+
+  </section>
+
+  <section class="info-note">
+
+    <strong style="color:white">
+      Sobre as transmissões
+    </strong>
+
+    <br><br>
+
+    O aplicativo não hospeda,
+    desbloqueia ou retransmite jogos.
+
+    Os botões de transmissão
+    direcionam para pesquisas
+    e canais oficiais.
+
+    Uma opção gratuita só deve ser
+    tratada como confirmada quando
+    publicada pelo detentor oficial
+    dos direitos.
+
+  </section>
 
 </main>
 
-<nav>
+<nav class="bottom-nav">
 
-<button
-class="active"
-id="navGames">
+  <button
+    class="nav-item active"
+    id="navGames"
+  >
 
-⚽
-<br>
-Jogos
+    <span>⚽</span>
 
-</button>
+    Jogos
 
-<button
-id="navSources">
+  </button>
 
-📺
-<br>
-Fontes
+  <button
+    class="nav-item"
+    id="navFavorites"
+  >
 
-</button>
+    <span>⭐</span>
 
-<button
-id="navTop">
+    Favoritos
 
-⬆️
-<br>
-Topo
+  </button>
 
-</button>
+  <button
+    class="nav-item"
+    id="navSources"
+  >
+
+    <span>📺</span>
+
+    Fontes
+
+  </button>
+
+  <button
+    class="nav-item"
+    id="navTop"
+  >
+
+    <span>⬆️</span>
+
+    Topo
+
+  </button>
 
 </nav>
 
 <script>
 
+/* =========================
+   CONFIGURAÇÃO
+========================= */
+
 const leagues = [
 
-{
-slug:"bra.1",
-name:"Brasileirão Série A",
-group:"brazil"
-},
+  {
+    slug:"bra.1",
+    name:"Brasileirão Série A",
+    group:"brazil"
+  },
 
-{
-slug:"bra.2",
-name:"Brasileirão Série B",
-group:"brazil"
-},
+  {
+    slug:"bra.2",
+    name:"Brasileirão Série B",
+    group:"brazil"
+  },
 
-{
-slug:"bra.copa_do_brazil",
-name:"Copa do Brasil",
-group:"brazil"
-},
+  {
+    slug:"bra.copa_do_brazil",
+    name:"Copa do Brasil",
+    group:"brazil"
+  },
 
-{
-slug:"conmebol.libertadores",
-name:"Libertadores",
-group:"continental"
-},
+  {
+    slug:"conmebol.libertadores",
+    name:"Libertadores",
+    group:"libertadores"
+  },
 
-{
-slug:"conmebol.sudamericana",
-name:"Sul-Americana",
-group:"continental"
-},
+  {
+    slug:"conmebol.sudamericana",
+    name:"Sul-Americana",
+    group:"southamerica"
+  },
 
-{
-slug:"uefa.champions",
-name:"Champions League",
-group:"world"
-},
+  {
+    slug:"uefa.champions",
+    name:"Champions League",
+    group:"europe"
+  },
 
-{
-slug:"eng.1",
-name:"Premier League",
-group:"world"
-},
+  {
+    slug:"eng.1",
+    name:"Premier League",
+    group:"europe"
+  },
 
-{
-slug:"esp.1",
-name:"LaLiga",
-group:"world"
-}
+  {
+    slug:"esp.1",
+    name:"LaLiga",
+    group:"europe"
+  }
 
 ];
+
+
+/* =========================
+   ESTADO
+========================= */
 
 let allGames = [];
 
-let filter = "all";
+let currentFilter =
+  "all";
+
+let searchText =
+  "";
+
+let hideFinished =
+  false;
+
+let favorites =
+  JSON.parse(
+    localStorage.getItem(
+      "futebolLivreFavorites"
+    )
+    ||
+    "[]"
+  );
+
+
+/* =========================
+   HELPERS
+========================= */
 
 const $ =
-s =>
-document.querySelector(s);
+  selector =>
+    document.querySelector(
+      selector
+    );
 
 const $$ =
-s =>
-[
-...document.querySelectorAll(s)
-];
+  selector =>
+    [
+      ...document.querySelectorAll(
+        selector
+      )
+    ];
 
-function ymdLocal(
-d = new Date()
+
+function localDate(){
+
+  const d =
+    new Date();
+
+  const y =
+    d.getFullYear();
+
+  const m =
+    String(
+      d.getMonth()+1
+    ).padStart(
+      2,
+      "0"
+    );
+
+  const day =
+    String(
+      d.getDate()
+    ).padStart(
+      2,
+      "0"
+    );
+
+  return(
+    `${y}${m}${day}`
+  );
+
+}
+
+
+function formatTime(
+  iso
 ){
 
-const y =
-d.getFullYear();
+  const d =
+    new Date(
+      iso
+    );
 
-const m =
-String(
-d.getMonth()+1
-).padStart(
-2,
-"0"
-);
+  if(
+    Number.isNaN(
+      d.getTime()
+    )
+  ){
 
-const day =
-String(
-d.getDate()
-).padStart(
-2,
-"0"
-);
+    return "—";
 
-return `${y}${m}${day}`;
+  }
+
+  return(
+    d.toLocaleTimeString(
+      "pt-BR",
+      {
+        hour:"2-digit",
+        minute:"2-digit"
+      }
+    )
+  );
 
 }
 
-function fmtTime(
-iso
+
+function normalize(
+  text=""
 ){
 
-const d =
-new Date(
-iso
-);
+  return(
+    text
+      .normalize(
+        "NFD"
+      )
+      .replace(
+        /[\u0300-\u036f]/g,
+        ""
+      )
+      .toLowerCase()
+      .trim()
+  );
 
-return d.toLocaleTimeString(
-"pt-BR",
-{
-hour:"2-digit",
-minute:"2-digit"
 }
-);
 
-}
 
-function isToday(
-iso
+function isLive(
+  game
 ){
 
-const d =
-new Date(
-iso
-);
+  const state =
+    String(
+      game.statusState
+      ||
+      ""
+    ).toLowerCase();
 
-const n =
-new Date();
-
-return(
-d.getFullYear() === n.getFullYear()
-&&
-d.getMonth() === n.getMonth()
-&&
-d.getDate() === n.getDate()
-);
+  return(
+    [
+      "in",
+      "live",
+      "inprogress",
+      "in_progress"
+    ].includes(
+      state
+    )
+  );
 
 }
 
-function liveStatus(
-status
+
+function isFinished(
+  game
 ){
 
-return[
-"in",
-"inprogress",
-"in_progress",
-"live"
-].includes(
-String(
-status || ""
-).toLowerCase()
-);
+  const state =
+    String(
+      game.statusState
+      ||
+      ""
+    ).toLowerCase();
+
+  const name =
+    String(
+      game.statusName
+      ||
+      ""
+    ).toLowerCase();
+
+  return(
+    state === "post"
+    ||
+    name.includes(
+      "final"
+    )
+    ||
+    game.completed === true
+  );
 
 }
+
+
+function favoriteGame(
+  game
+){
+
+  return(
+    favorites.includes(
+      String(
+        game.id
+      )
+    )
+  );
+
+}
+
+
+function updateFavorites(){
+
+  localStorage.setItem(
+    "futebolLivreFavorites",
+    JSON.stringify(
+      favorites
+    )
+  );
+
+  render();
+
+}
+
+
+function toggleFavorite(
+  id
+){
+
+  id =
+    String(
+      id
+    );
+
+  if(
+    favorites.includes(
+      id
+    )
+  ){
+
+    favorites =
+      favorites.filter(
+        item =>
+          item !== id
+      );
+
+  }else{
+
+    favorites.push(
+      id
+    );
+
+  }
+
+  updateFavorites();
+
+}
+
+
+/* =========================
+   STATUS
+========================= */
+
+function statusInfo(
+  game
+){
+
+  if(
+    isLive(
+      game
+    )
+  ){
+
+    return{
+      text:
+        game.detail
+        ||
+        "AO VIVO",
+
+      className:
+        "live"
+    };
+
+  }
+
+  if(
+    isFinished(
+      game
+    )
+  ){
+
+    return{
+      text:
+        "ENCERRADO",
+
+      className:
+        "finished"
+    };
+
+  }
+
+  return{
+    text:
+      game.detail
+      ||
+      formatTime(
+        game.date
+      ),
+
+    className:
+      "upcoming"
+  };
+
+}
+
+
+/* =========================
+   ESPN
+========================= */
 
 function extractEvent(
-e,
-league
+  event,
+  league
 ){
 
-const comp =
-e.competitions?.[0];
+  const competition =
+    event.competitions?.[0];
 
-const competitors =
-comp?.competitors || [];
+  const competitors =
+    competition?.competitors
+    ||
+    [];
 
-const home =
-competitors.find(
-c =>
-c.homeAway === "home"
-);
+  const home =
+    competitors.find(
+      item =>
+        item.homeAway
+        ===
+        "home"
+    );
 
-const away =
-competitors.find(
-c =>
-c.homeAway === "away"
-);
+  const away =
+    competitors.find(
+      item =>
+        item.homeAway
+        ===
+        "away"
+    );
 
-const status =
-e.status?.type?.state
-||
-e.status?.type?.name
-||
-"";
+  return{
 
-return{
+    id:
+      event.id,
 
-id:
-e.id,
+    leagueSlug:
+      league.slug,
 
-leagueSlug:
-league.slug,
+    league:
+      league.name,
 
-leagueName:
-league.name,
+    group:
+      league.group,
 
-group:
-league.group,
+    home:
+      home?.team?.displayName
+      ||
+      "Mandante",
 
-home:
-home?.team?.displayName
-||
-"Mandante",
+    away:
+      away?.team?.displayName
+      ||
+      "Visitante",
 
-away:
-away?.team?.displayName
-||
-"Visitante",
+    homeAbbr:
+      home?.team?.abbreviation
+      ||
+      "",
 
-homeScore:
-home?.score
-??
-"",
+    awayAbbr:
+      away?.team?.abbreviation
+      ||
+      "",
 
-awayScore:
-away?.score
-??
-"",
+    homeLogo:
+      home?.team?.logo
+      ||
+      "",
 
-date:
-e.date,
+    awayLogo:
+      away?.team?.logo
+      ||
+      "",
 
-status:
-status,
+    homeScore:
+      home?.score
+      ??
+      "",
 
-detail:
-e.status?.type?.shortDetail
-||
-e.status?.type?.description
-||
-"",
+    awayScore:
+      away?.score
+      ??
+      "",
 
-links:
-e.links
-||
-[]
+    date:
+      event.date,
 
-};
+    statusState:
+      event.status?.type?.state
+      ||
+      "",
+
+    statusName:
+      event.status?.type?.name
+      ||
+      "",
+
+    detail:
+      event.status?.type?.shortDetail
+      ||
+      event.status?.type?.description
+      ||
+      "",
+
+    completed:
+      event.status?.type?.completed
+      ||
+      false
+
+  };
 
 }
+
 
 async function loadLeague(
-league
+  league
 ){
 
-const date =
-ymdLocal();
+  const url =
+    `https://site.api.espn.com/apis/site/v2/sports/soccer/${league.slug}/scoreboard?dates=${localDate()}`;
 
-const url =
-`https://site.api.espn.com/apis/site/v2/sports/soccer/${league.slug}/scoreboard?dates=${date}`;
+  const response =
+    await fetch(
+      url,
+      {
+        cache:"no-store"
+      }
+    );
 
-const res =
-await fetch(
-url,
-{
-cache:"no-store"
+  if(
+    !response.ok
+  ){
+
+    throw new Error(
+      `${league.name}: ${response.status}`
+    );
+
+  }
+
+  const data =
+    await response.json();
+
+  return(
+    (
+      data.events
+      ||
+      []
+    )
+    .map(
+      event =>
+        extractEvent(
+          event,
+          league
+        )
+    )
+  );
+
 }
-);
 
-if(
-!res.ok
+
+/* =========================
+   STREAMS
+========================= */
+
+function youtubeSearch(
+  game,
+  provider
 ){
 
-throw new Error(
-`${league.name}: HTTP ${res.status}`
-);
+  const query =
+    encodeURIComponent(
+      `${game.home} ${game.away} ao vivo ${provider}`
+    );
+
+  return(
+    `https://www.youtube.com/results?search_query=${query}`
+  );
 
 }
 
-const data =
-await res.json();
 
-return(
-data.events
-||
-[]
-).map(
-e =>
-extractEvent(
-e,
-league
-)
-);
-
-}
-
-function officialSearchUrl(
-game,
-provider
+function generalSearch(
+  game
 ){
 
-const q =
-encodeURIComponent(
-`${game.home} ${game.away} ao vivo ${provider}`
-);
+  const query =
+    encodeURIComponent(
+      `${game.home} ${game.away} onde assistir grátis oficial`
+    );
 
-return(
-`https://www.youtube.com/results?search_query=${q}`
-);
+  return(
+    `https://www.google.com/search?q=${query}`
+  );
 
 }
+
+
+/* =========================
+   LOGO
+========================= */
+
+function logoHtml(
+  logo,
+  abbreviation
+){
+
+  if(
+    logo
+  ){
+
+    return`
+      <img
+        class="team-logo"
+        src="${logo}"
+        alt=""
+        loading="lazy"
+        onerror="
+          this.style.display='none';
+          this.nextElementSibling.style.display='grid';
+        "
+      >
+
+      <div
+        class="team-logo-fallback"
+        style="display:none"
+      >
+        ${
+          abbreviation
+          ||
+          "FC"
+        }
+      </div>
+    `;
+
+  }
+
+  return`
+    <div
+      class="team-logo-fallback"
+    >
+      ${
+        abbreviation
+        ||
+        "FC"
+      }
+    </div>
+  `;
+
+}
+
+
+/* =========================
+   FILTRO
+========================= */
+
+function filteredGames(){
+
+  let games =
+    [
+      ...allGames
+    ];
+
+
+  if(
+    hideFinished
+  ){
+
+    games =
+      games.filter(
+        game =>
+          !isFinished(
+            game
+          )
+      );
+
+  }
+
+
+  if(
+    currentFilter
+    ===
+    "live"
+  ){
+
+    games =
+      games.filter(
+        game =>
+          isLive(
+            game
+          )
+      );
+
+  }
+
+
+  if(
+    currentFilter
+    ===
+    "favorites"
+  ){
+
+    games =
+      games.filter(
+        game =>
+          favoriteGame(
+            game
+          )
+      );
+
+  }
+
+
+  if(
+    currentFilter
+    ===
+    "brazil"
+  ){
+
+    games =
+      games.filter(
+        game =>
+          game.group
+          ===
+          "brazil"
+      );
+
+  }
+
+
+  if(
+    currentFilter
+    ===
+    "libertadores"
+  ){
+
+    games =
+      games.filter(
+        game =>
+          game.group
+          ===
+          "libertadores"
+      );
+
+  }
+
+
+  if(
+    currentFilter
+    ===
+    "europe"
+  ){
+
+    games =
+      games.filter(
+        game =>
+          game.group
+          ===
+          "europe"
+      );
+
+  }
+
+
+  if(
+    searchText
+  ){
+
+    const search =
+      normalize(
+        searchText
+      );
+
+    games =
+      games.filter(
+        game =>
+
+          normalize(
+            game.home
+          ).includes(
+            search
+          )
+
+          ||
+
+          normalize(
+            game.away
+          ).includes(
+            search
+          )
+
+          ||
+
+          normalize(
+            game.league
+          ).includes(
+            search
+          )
+
+      );
+
+  }
+
+
+  games.sort(
+    (
+      a,
+      b
+    ) => {
+
+      const favA =
+        favoriteGame(
+          a
+        )
+        ?
+        1
+        :
+        0;
+
+      const favB =
+        favoriteGame(
+          b
+        )
+        ?
+        1
+        :
+        0;
+
+
+      if(
+        favA
+        !==
+        favB
+      ){
+
+        return(
+          favB
+          -
+          favA
+        );
+
+      }
+
+
+      const liveA =
+        isLive(
+          a
+        )
+        ?
+        1
+        :
+        0;
+
+      const liveB =
+        isLive(
+          b
+        )
+        ?
+        1
+        :
+        0;
+
+
+      if(
+        liveA
+        !==
+        liveB
+      ){
+
+        return(
+          liveB
+          -
+          liveA
+        );
+
+      }
+
+
+      const brazilA =
+        a.group
+        ===
+        "brazil"
+        ?
+        1
+        :
+        0;
+
+      const brazilB =
+        b.group
+        ===
+        "brazil"
+        ?
+        1
+        :
+        0;
+
+
+      if(
+        brazilA
+        !==
+        brazilB
+      ){
+
+        return(
+          brazilB
+          -
+          brazilA
+        );
+
+      }
+
+
+      return(
+        new Date(
+          a.date
+        )
+        -
+        new Date(
+          b.date
+        )
+      );
+
+    }
+  );
+
+
+  return games;
+
+}
+
+
+/* =========================
+   CARD
+========================= */
+
+function gameCard(
+  game
+){
+
+  const favorite =
+    favoriteGame(
+      game
+    );
+
+  const status =
+    statusInfo(
+      game
+    );
+
+  const hasScore =
+    game.homeScore
+    !==
+    ""
+    ||
+    game.awayScore
+    !==
+    "";
+
+  const scoreHtml =
+    hasScore
+    ?
+    `
+      <div class="score">
+        ${
+          game.homeScore
+          ||
+          0
+        }
+        ×
+        ${
+          game.awayScore
+          ||
+          0
+        }
+      </div>
+    `
+    :
+    `
+      <div class="score-x">
+        X
+      </div>
+    `;
+
+  return`
+
+  <article
+    class="
+      game-card
+      ${
+        favorite
+        ?
+        "favorite"
+        :
+        ""
+      }
+    "
+  >
+
+    <div class="game-top">
+
+      <span class="competition">
+
+        ${game.league}
+
+      </span>
+
+      <div class="card-actions">
+
+        <span
+          class="
+            status-pill
+            ${status.className}
+          "
+        >
+
+          ${status.text}
+
+        </span>
+
+        <button
+          class="
+            favorite-btn
+            ${
+              favorite
+              ?
+              "active"
+              :
+              ""
+            }
+          "
+          onclick="
+            toggleFavorite(
+              '${game.id}'
+            )
+          "
+          aria-label="Favoritar"
+        >
+
+          ${
+            favorite
+            ?
+            "★"
+            :
+            "☆"
+          }
+
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="match">
+
+      <div class="team">
+
+        ${logoHtml(
+          game.homeLogo,
+          game.homeAbbr
+        )}
+
+        <div class="team-name">
+          ${game.home}
+        </div>
+
+      </div>
+
+
+      <div class="middle-score">
+
+        ${scoreHtml}
+
+        <div class="kickoff">
+
+          ${formatTime(
+            game.date
+          )}
+
+        </div>
+
+      </div>
+
+
+      <div class="team">
+
+        ${logoHtml(
+          game.awayLogo,
+          game.awayAbbr
+        )}
+
+        <div class="team-name">
+          ${game.away}
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="stream-box">
+
+      <div class="stream-info">
+
+        <small>
+          Transmissão
+        </small>
+
+        <strong>
+          Verificar fonte oficial
+        </strong>
+
+      </div>
+
+
+      <div class="watch-actions">
+
+        <a
+          class="small-btn"
+          href="${
+            youtubeSearch(
+              game,
+              "ge TV"
+            )
+          }"
+          target="_blank"
+          rel="noopener"
+        >
+          ge TV
+        </a>
+
+        <a
+          class="small-btn"
+          href="${
+            youtubeSearch(
+              game,
+              "CazéTV"
+            )
+          }"
+          target="_blank"
+          rel="noopener"
+        >
+          CazéTV
+        </a>
+
+        <a
+          class="small-btn primary"
+          href="${
+            generalSearch(
+              game
+            )
+          }"
+          target="_blank"
+          rel="noopener"
+        >
+          Onde assistir
+        </a>
+
+      </div>
+
+    </div>
+
+  </article>
+
+  `;
+
+}
+
+
+/* =========================
+   DASHBOARD
+========================= */
+
+function renderStats(){
+
+  $("#totalGames")
+    .textContent =
+    allGames.length;
+
+
+  $("#liveGames")
+    .textContent =
+    allGames.filter(
+      isLive
+    ).length;
+
+
+  $("#brazilGames")
+    .textContent =
+    allGames.filter(
+      game =>
+        game.group
+        ===
+        "brazil"
+    ).length;
+
+
+  $("#favoriteCount")
+    .textContent =
+    favorites.length;
+
+}
+
+
+/* =========================
+   RENDER
+========================= */
 
 function render(){
 
-let rows =
-allGames.filter(
-g => {
+  renderStats();
 
-if(
-filter === "live"
-){
+  const games =
+    filteredGames();
 
-return liveStatus(
-g.status
-);
+  $("#visibleCount")
+    .textContent =
+    games.length;
 
-}
 
-if(
-filter === "today"
-){
+  $("#games")
+    .innerHTML =
+    games
+      .map(
+        game =>
+          gameCard(
+            game
+          )
+      )
+      .join(
+        ""
+      );
 
-return isToday(
-g.date
-);
 
-}
-
-if(
-filter === "brazil"
-){
-
-return(
-g.group === "brazil"
-);
-
-}
-
-if(
-filter === "continental"
-){
-
-return(
-g.leagueSlug
-===
-"conmebol.libertadores"
-);
+  $("#emptyState")
+    .classList.toggle(
+      "hidden",
+      games.length
+      >
+      0
+    );
 
 }
 
-return true;
 
-}
-).sort(
-(a,b) =>
-new Date(
-a.date
-)
--
-new Date(
-b.date
-)
-);
-
-$("#count").textContent =
-rows.length;
-
-$("#empty").classList.toggle(
-"hidden",
-rows.length > 0
-);
-
-$("#games").innerHTML =
-rows.map(
-g => {
-
-const live =
-liveStatus(
-g.status
-);
-
-const score =
-(
-g.homeScore !== ""
-||
-g.awayScore !== ""
-)
-?
-`
-<div class="score">
-${g.homeScore || 0}
-×
-${g.awayScore || 0}
-</div>
-`
-:
-"";
-
-return`
-
-<article class="card">
-
-<div class="row">
-
-<span class="competition">
-${g.leagueName}
-</span>
-
-<span class="pill ${live ? "live" : "none"}">
-
-${live
-?
-"● AO VIVO"
-:
-(
-g.detail
-||
-"AGENDADO"
-)
-}
-
-</span>
-
-</div>
-
-<div class="teams">
-
-<div class="team">
-${g.home}
-</div>
-
-${score || '<div class="x">X</div>'}
-
-<div class="team">
-${g.away}
-</div>
-
-</div>
-
-<div class="meta">
-
-🕒
-${fmtTime(g.date)}
-
-<br>
-
-${g.detail
-?
-`Status: ${g.detail}`
-:
-""
-}
-
-</div>
-
-<div class="actions">
-
-<a
-class="btn btn-secondary"
-target="_blank"
-href="${officialSearchUrl(g,"ge TV")}">
-
-Buscar ge TV
-
-</a>
-
-<a
-class="btn btn-secondary"
-target="_blank"
-href="${officialSearchUrl(g,"CazéTV")}">
-
-Buscar CazéTV
-
-</a>
-
-</div>
-
-</article>
-
-`;
-
-}
-).join("");
-
-}
+/* =========================
+   REFRESH
+========================= */
 
 async function refresh(){
 
-$("#refresh").disabled =
-true;
+  $("#refreshBtn")
+    .disabled =
+    true;
 
-$("#errorBox").classList.add(
-"hidden"
-);
+  $("#loading")
+    .classList.remove(
+      "hidden"
+    );
 
-const results =
-await Promise.allSettled(
-leagues.map(
-loadLeague
-)
-);
+  $("#games")
+    .innerHTML =
+    "";
 
-allGames =
-results.flatMap(
-r =>
-r.status === "fulfilled"
-?
-r.value
-:
-[]
-);
+  $("#errorBox")
+    .classList.add(
+      "hidden"
+    );
 
-const failed =
-results.filter(
-r =>
-r.status === "rejected"
-);
+
+  const results =
+    await Promise.allSettled(
+      leagues.map(
+        loadLeague
+      )
+    );
+
+
+  allGames =
+    results.flatMap(
+      result =>
+        result.status
+        ===
+        "fulfilled"
+        ?
+        result.value
+        :
+        []
+    );
+
+
+  const failed =
+    results.filter(
+      result =>
+        result.status
+        ===
+        "rejected"
+    );
+
+
+  if(
+    failed.length
+  ){
+
+    $("#errorBox")
+      .textContent =
+      `Algumas competições não responderam agora (${failed.length}/${leagues.length}). O restante foi carregado normalmente.`;
+
+    $("#errorBox")
+      .classList.remove(
+        "hidden"
+      );
+
+  }
+
+
+  $("#loading")
+    .classList.add(
+      "hidden"
+    );
+
+
+  $("#refreshBtn")
+    .disabled =
+    false;
+
+
+  render();
+
+}
+
+
+/* =========================
+   EVENTOS
+========================= */
+
+$$(".chip")
+  .forEach(
+    button => {
+
+      button.addEventListener(
+        "click",
+        () => {
+
+          $$(".chip")
+            .forEach(
+              item =>
+                item.classList.remove(
+                  "active"
+                )
+            );
+
+          button.classList.add(
+            "active"
+          );
+
+          currentFilter =
+            button.dataset.filter;
+
+          render();
+
+        }
+      );
+
+    }
+  );
+
+
+$("#searchInput")
+  .addEventListener(
+    "input",
+    event => {
+
+      searchText =
+        event.target.value;
+
+      render();
+
+    }
+  );
+
+
+$("#hideFinished")
+  .addEventListener(
+    "change",
+    event => {
+
+      hideFinished =
+        event.target.checked;
+
+      localStorage.setItem(
+        "hideFinished",
+        hideFinished
+        ?
+        "1"
+        :
+        "0"
+      );
+
+      render();
+
+    }
+  );
+
+
+$("#refreshBtn")
+  .addEventListener(
+    "click",
+    refresh
+  );
+
+
+$("#navGames")
+  .addEventListener(
+    "click",
+    () => {
+
+      currentFilter =
+        "all";
+
+      $$(".chip")
+        .forEach(
+          item =>
+            item.classList.remove(
+              "active"
+            )
+        );
+
+      document
+        .querySelector(
+          '[data-filter="all"]'
+        )
+        .classList.add(
+          "active"
+        );
+
+      render();
+
+      $("#gamesSection")
+        .scrollIntoView(
+          {
+            behavior:"smooth"
+          }
+        );
+
+    }
+  );
+
+
+$("#navFavorites")
+  .addEventListener(
+    "click",
+    () => {
+
+      currentFilter =
+        "favorites";
+
+      $$(".chip")
+        .forEach(
+          item =>
+            item.classList.remove(
+              "active"
+            )
+        );
+
+      document
+        .querySelector(
+          '[data-filter="favorites"]'
+        )
+        .classList.add(
+          "active"
+        );
+
+      render();
+
+      $("#gamesSection")
+        .scrollIntoView(
+          {
+            behavior:"smooth"
+          }
+        );
+
+    }
+  );
+
+
+$("#navSources")
+  .addEventListener(
+    "click",
+    () => {
+
+      $("#providersSection")
+        .scrollIntoView(
+          {
+            behavior:"smooth"
+          }
+        );
+
+    }
+  );
+
+
+$("#navTop")
+  .addEventListener(
+    "click",
+    () => {
+
+      window.scrollTo(
+        {
+          top:0,
+          behavior:"smooth"
+        }
+      );
+
+    }
+  );
+
+
+/* =========================
+   INICIALIZAÇÃO
+========================= */
+
+const savedHideFinished =
+  localStorage.getItem(
+    "hideFinished"
+  );
 
 if(
-failed.length
+  savedHideFinished
+  ===
+  "1"
 ){
 
-$("#errorBox").textContent =
-`Algumas competições não responderam agora (${failed.length}/${leagues.length}). O restante foi carregado normalmente.`;
+  hideFinished =
+    true;
 
-$("#errorBox").classList.remove(
-"hidden"
-);
-
-}
-
-$("#updated").textContent =
-new Date().toLocaleTimeString(
-"pt-BR",
-{
-hour:"2-digit",
-minute:"2-digit"
-}
-);
-
-$("#refresh").disabled =
-false;
-
-render();
+  $("#hideFinished")
+    .checked =
+    true;
 
 }
 
-$$(".chip").forEach(
-b =>
-b.onclick =
-() => {
-
-$$(".chip").forEach(
-x =>
-x.classList.remove(
-"active"
-)
-);
-
-b.classList.add(
-"active"
-);
-
-filter =
-b.dataset.filter;
-
-render();
-
-}
-);
-
-$("#refresh").onclick =
-refresh;
-
-$("#navGames").onclick =
-() =>
-window.scrollTo(
-{
-top:0,
-behavior:"smooth"
-}
-);
-
-$("#navSources").onclick =
-() =>
-$("#providersSection").scrollIntoView(
-{
-behavior:"smooth"
-}
-);
-
-$("#navTop").onclick =
-() =>
-window.scrollTo(
-{
-top:0,
-behavior:"smooth"
-}
-);
 
 refresh();
 
