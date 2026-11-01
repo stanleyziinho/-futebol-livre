@@ -1,33 +1,1320 @@
-FUTEBOL AO VIVO
-Futebol Livre Online
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#07130d">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>Futebol Livre Online</title>
+
+<style>
+:root{
+  --bg:#07130d;
+  --surface:#0d1d15;
+  --surface2:#12271c;
+  --text:#f4fff8;
+  --muted:#9eb7a8;
+  --green:#39e27d;
+  --line:#214330;
+  --warn:#f6c85f;
+  --red:#ff7777
+}
+
+*{
+  box-sizing:border-box
+}
+
+body{
+  margin:0;
+  background:
+    radial-gradient(
+      circle at 100% -10%,
+      rgba(57,226,125,.16),
+      transparent 35%
+    ),
+    var(--bg);
+
+  color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  padding-bottom:90px
+}
+
+header{
+  position:sticky;
+  top:0;
+  z-index:9;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  padding:
+    calc(16px + env(safe-area-inset-top))
+    18px
+    14px;
+
+  background:rgba(7,19,13,.94);
+  backdrop-filter:blur(18px);
+
+  border-bottom:1px solid rgba(255,255,255,.05)
+}
+
+h1,h2,h3,p{
+  margin:0
+}
+
+.eyebrow{
+  font-size:10px;
+  letter-spacing:1.5px;
+  color:var(--green);
+  font-weight:900;
+  margin-bottom:4px
+}
+
+.refresh{
+  width:42px;
+  height:42px;
+
+  border-radius:50%;
+  border:1px solid var(--line);
+
+  background:var(--surface);
+  color:white;
+
+  font-size:22px
+}
+
+main{
+  max-width:780px;
+  margin:auto;
+  padding:18px
+}
+
+.hero{
+  padding:22px;
+  border-radius:24px;
+
+  background:
+    linear-gradient(
+      140deg,
+      #123d25,
+      #0b2216 62%,
+      #0b1711
+    );
+
+  border:1px solid rgba(57,226,125,.2)
+}
+
+.hero h2{
+  font-size:22px;
+  line-height:1.18
+}
+
+.hero p{
+  margin-top:10px;
+
+  color:#b7cfbf;
+
+  font-size:13px;
+  line-height:1.5
+}
+
+.tag{
+  font-size:13px;
+  font-weight:800;
+  color:#d5ffe5;
+  margin-bottom:9px
+}
+
+.filters{
+  display:flex;
+  gap:8px;
+  overflow:auto;
+
+  padding:18px 0 12px
+}
+
+.chip{
+  border:1px solid var(--line);
+
+  background:var(--surface);
+  color:var(--muted);
+
+  padding:9px 13px;
+
+  border-radius:999px;
+
+  font-size:12px;
+  font-weight:800;
+
+  white-space:nowrap
+}
+
+.chip.active{
+  background:var(--green);
+  color:#06210f;
+  border-color:var(--green)
+}
+
+.info{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+
+  margin-bottom:24px
+}
+
+.info>div{
+  background:var(--surface);
+
+  border:1px solid var(--line);
+  border-radius:17px;
+
+  padding:13px
+}
+
+.info small{
+  display:block;
+
+  color:var(--muted);
+
+  font-size:10px;
+
+  margin-bottom:4px;
+
+  text-transform:uppercase
+}
+
+.info strong{
+  font-size:12px
+}
+
+.section-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+
+  margin-bottom:12px
+}
+
+.section-head h3{
+  font-size:23px
+}
+
+.count{
+  background:var(--surface2);
+  color:var(--green);
+
+  font-weight:900;
+
+  border-radius:999px;
+
+  padding:6px 10px
+}
+
+.games{
+  display:grid;
+  gap:12px
+}
+
+.card{
+  background:
+    linear-gradient(
+      180deg,
+      var(--surface),
+      #0a1911
+    );
+
+  border:1px solid var(--line);
+  border-radius:22px;
+
+  padding:17px
+}
+
+.row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px
+}
+
+.competition{
+  font-size:11px;
+  color:var(--muted);
+
+  font-weight:900;
+
+  text-transform:uppercase
+}
+
+.pill{
+  font-size:10px;
+  font-weight:900;
+
+  padding:6px 9px;
+
+  border-radius:999px;
+
+  background:rgba(255,255,255,.06)
+}
+
+.pill.live{
+  background:rgba(255,119,119,.12);
+  color:#ffaaaa
+}
+
+.pill.free{
+  background:rgba(57,226,125,.12);
+  color:#7af5a8
+}
+
+.pill.none{
+  color:#bdc9c1
+}
+
+.teams{
+  margin:16px 0
+}
+
+.team{
+  font-size:19px;
+  font-weight:900
+}
+
+.score{
+  font-size:26px;
+  color:var(--green);
+
+  font-weight:900;
+
+  margin:8px 0
+}
+
+.x{
+  font-size:11px;
+  color:#6f8b79;
+
+  font-weight:900;
+
+  margin:3px 0
+}
+
+.meta{
+  color:var(--muted);
+
+  font-size:12px;
+  line-height:1.5
+}
+
+.actions{
+  display:flex;
+  gap:8px;
+
+  margin-top:14px;
+
+  flex-wrap:wrap
+}
+
+.btn{
+  flex:1;
+  min-width:145px;
+
+  text-decoration:none;
+  text-align:center;
+
+  padding:12px;
+
+  border-radius:14px;
+
+  font-weight:900;
+
+  border:1px solid var(--line)
+}
+
+.btn-primary{
+  background:var(--green);
+  color:#06210f;
+  border-color:var(--green)
+}
+
+.btn-secondary{
+  background:#13241a;
+  color:#d6e6dc
+}
+
+.providers{
+  margin-top:30px
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:10px
+}
+
+.provider{
+  display:block;
+
+  text-decoration:none;
+
+  color:white;
+
+  background:var(--surface);
+
+  border:1px solid var(--line);
+  border-radius:18px;
+
+  padding:15px
+}
+
+.provider small{
+  display:block;
+
+  color:var(--muted);
+
+  margin-top:4px
+}
+
+.note,.error{
+  margin-top:20px;
+
+  padding:16px;
+
+  border-radius:18px;
+
+  background:var(--surface);
+
+  border:1px solid var(--line);
+
+  font-size:12px;
+  line-height:1.5;
+
+  color:var(--muted)
+}
+
+.error{
+  border-color:#5a2b2b;
+  color:#ffc1c1
+}
+
+nav{
+  position:fixed;
+
+  left:0;
+  right:0;
+  bottom:0;
+
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+
+  padding:
+    8px
+    12px
+    calc(8px + env(safe-area-inset-bottom));
+
+  background:rgba(7,19,13,.96);
+
+  backdrop-filter:blur(20px);
+
+  border-top:1px solid rgba(255,255,255,.05)
+}
+
+nav button{
+  background:none;
+  border:none;
+
+  color:#7c9585;
+
+  padding:6px;
+
+  font-size:11px;
+  font-weight:800
+}
+
+nav button.active{
+  color:var(--green)
+}
+
+.hidden{
+  display:none!important
+}
+
+.empty{
+  text-align:center;
+
+  color:var(--muted);
+
+  padding:25px
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div>
+<div class="eyebrow">FUTEBOL AO VIVO</div>
+<h1>Futebol Livre Online</h1>
+</div>
+
+<button class="refresh" id="refresh">
 ↻
+</button>
+
+</header>
+
+<main>
+
+<section class="hero">
+
+<div class="tag">
 ● Dados reais de partidas
+</div>
+
+<h2>
 Jogos reais do dia e atalhos para fontes oficiais gratuitas.
-O app consulta placares e agenda online. Quando houver transmissão gratuita oficial conhecida, você pode abrir o canal correspondente.
+</h2>
+
+<p>
+O app consulta placares e agenda online.
+Quando houver transmissão gratuita oficial conhecida,
+você pode abrir o canal correspondente.
+</p>
+
+</section>
+
+<div class="filters">
+
+<button class="chip active" data-filter="all">
 Todos
+</button>
+
+<button class="chip" data-filter="live">
 Ao vivo
+</button>
+
+<button class="chip" data-filter="today">
 Hoje
+</button>
+
+<button class="chip" data-filter="brazil">
 Brasil
+</button>
+
+<button class="chip" data-filter="continental">
 Libertadores
-ATUALIZAÇÃO
+</button>
+
+</div>
+
+<section class="info">
+
+<div>
+
+<small>
+Atualização
+</small>
+
+<strong id="updated">
 —
-FONTE DE JOGOS
-ESPN pública*
+</strong>
+
+</div>
+
+<div>
+
+<small>
+Fonte de jogos
+</small>
+
+<strong>
+ESPN pública
+</strong>
+
+</div>
+
+</section>
+
+<div
+id="errorBox"
+class="error hidden">
+</div>
+
+<section>
+
+<div class="section-head">
+
+<div>
+
+<div class="eyebrow">
 PARTIDAS
+</div>
+
+<h3>
 Jogos
+</h3>
+
+</div>
+
+<span
+class="count"
+id="count">
 0
+</span>
+
+</div>
+
+<div
+id="games"
+class="games">
+</div>
+
+<div
+id="empty"
+class="empty hidden">
+
+Nenhum jogo encontrado neste filtro.
+
+</div>
+
+</section>
+
+<section
+class="providers"
+id="providersSection">
+
+<div class="section-head">
+
+<div>
+
+<div class="eyebrow">
 FONTES
+</div>
+
+<h3>
 Canais oficiais gratuitos
+</h3>
+
+</div>
+
+</div>
+
+<div class="grid">
+
+<a
+class="provider"
+href="https://www.youtube.com/@getv"
+target="_blank">
+
+<strong>
 ge TV
+</strong>
+
+<small>
 YouTube oficial
+</small>
+
+</a>
+
+<a
+class="provider"
+href="https://www.youtube.com/@CazeTV"
+target="_blank">
+
+<strong>
 CazéTV
+</strong>
+
+<small>
 YouTube oficial
+</small>
+
+</a>
+
+<a
+class="provider"
+href="https://www.youtube.com/@CBF"
+target="_blank">
+
+<strong>
 CBF
+</strong>
+
+<small>
 YouTube oficial
+</small>
+
+</a>
+
+<a
+class="provider"
+href="https://www.plus.fifa.com/"
+target="_blank">
+
+<strong>
 FIFA+
+</strong>
+
+<small>
 Conteúdo gratuito selecionado
-*Observação técnica: os endpoints usados para agenda/placar são públicos, mas não são uma API oficial documentada para desenvolvedores; por isso podem mudar. Para produção comercial, troque por uma API esportiva contratada.
+</small>
+
+</a>
+
+</div>
+
+</section>
+
+<section class="note">
+
+<strong style="color:white">
+Observação:
+</strong>
+
+<br>
+
+Os dados de partidas vêm de endpoints públicos.
+Algumas competições podem não responder em determinados momentos.
+
+</section>
+
+</main>
+
+<nav>
+
+<button
+class="active"
+id="navGames">
+
 ⚽
+<br>
 Jogos
+
+</button>
+
+<button
+id="navSources">
+
 📺
+<br>
 Fontes
+
+</button>
+
+<button
+id="navTop">
+
+⬆️
+<br>
+Topo
+
+</button>
+
+</nav>
+
+<script>
+
+const leagues = [
+
+{
+slug:"bra.1",
+name:"Brasileirão Série A",
+group:"brazil"
+},
+
+{
+slug:"bra.2",
+name:"Brasileirão Série B",
+group:"brazil"
+},
+
+{
+slug:"bra.copa_do_brazil",
+name:"Copa do Brasil",
+group:"brazil"
+},
+
+{
+slug:"conmebol.libertadores",
+name:"Libertadores",
+group:"continental"
+},
+
+{
+slug:"conmebol.sudamericana",
+name:"Sul-Americana",
+group:"continental"
+},
+
+{
+slug:"uefa.champions",
+name:"Champions League",
+group:"world"
+},
+
+{
+slug:"eng.1",
+name:"Premier League",
+group:"world"
+},
+
+{
+slug:"esp.1",
+name:"LaLiga",
+group:"world"
+}
+
+];
+
+let allGames = [];
+
+let filter = "all";
+
+const $ =
+s =>
+document.querySelector(s);
+
+const $$ =
+s =>
+[
+...document.querySelectorAll(s)
+];
+
+function ymdLocal(
+d = new Date()
+){
+
+const y =
+d.getFullYear();
+
+const m =
+String(
+d.getMonth()+1
+).padStart(
+2,
+"0"
+);
+
+const day =
+String(
+d.getDate()
+).padStart(
+2,
+"0"
+);
+
+return `${y}${m}${day}`;
+
+}
+
+function fmtTime(
+iso
+){
+
+const d =
+new Date(
+iso
+);
+
+return d.toLocaleTimeString(
+"pt-BR",
+{
+hour:"2-digit",
+minute:"2-digit"
+}
+);
+
+}
+
+function isToday(
+iso
+){
+
+const d =
+new Date(
+iso
+);
+
+const n =
+new Date();
+
+return(
+d.getFullYear() === n.getFullYear()
+&&
+d.getMonth() === n.getMonth()
+&&
+d.getDate() === n.getDate()
+);
+
+}
+
+function liveStatus(
+status
+){
+
+return[
+"in",
+"inprogress",
+"in_progress",
+"live"
+].includes(
+String(
+status || ""
+).toLowerCase()
+);
+
+}
+
+function extractEvent(
+e,
+league
+){
+
+const comp =
+e.competitions?.[0];
+
+const competitors =
+comp?.competitors || [];
+
+const home =
+competitors.find(
+c =>
+c.homeAway === "home"
+);
+
+const away =
+competitors.find(
+c =>
+c.homeAway === "away"
+);
+
+const status =
+e.status?.type?.state
+||
+e.status?.type?.name
+||
+"";
+
+return{
+
+id:
+e.id,
+
+leagueSlug:
+league.slug,
+
+leagueName:
+league.name,
+
+group:
+league.group,
+
+home:
+home?.team?.displayName
+||
+"Mandante",
+
+away:
+away?.team?.displayName
+||
+"Visitante",
+
+homeScore:
+home?.score
+??
+"",
+
+awayScore:
+away?.score
+??
+"",
+
+date:
+e.date,
+
+status:
+status,
+
+detail:
+e.status?.type?.shortDetail
+||
+e.status?.type?.description
+||
+"",
+
+links:
+e.links
+||
+[]
+
+};
+
+}
+
+async function loadLeague(
+league
+){
+
+const date =
+ymdLocal();
+
+const url =
+`https://site.api.espn.com/apis/site/v2/sports/soccer/${league.slug}/scoreboard?dates=${date}`;
+
+const res =
+await fetch(
+url,
+{
+cache:"no-store"
+}
+);
+
+if(
+!res.ok
+){
+
+throw new Error(
+`${league.name}: HTTP ${res.status}`
+);
+
+}
+
+const data =
+await res.json();
+
+return(
+data.events
+||
+[]
+).map(
+e =>
+extractEvent(
+e,
+league
+)
+);
+
+}
+
+function officialSearchUrl(
+game,
+provider
+){
+
+const q =
+encodeURIComponent(
+`${game.home} ${game.away} ao vivo ${provider}`
+);
+
+return(
+`https://www.youtube.com/results?search_query=${q}`
+);
+
+}
+
+function render(){
+
+let rows =
+allGames.filter(
+g => {
+
+if(
+filter === "live"
+){
+
+return liveStatus(
+g.status
+);
+
+}
+
+if(
+filter === "today"
+){
+
+return isToday(
+g.date
+);
+
+}
+
+if(
+filter === "brazil"
+){
+
+return(
+g.group === "brazil"
+);
+
+}
+
+if(
+filter === "continental"
+){
+
+return(
+g.leagueSlug
+===
+"conmebol.libertadores"
+);
+
+}
+
+return true;
+
+}
+).sort(
+(a,b) =>
+new Date(
+a.date
+)
+-
+new Date(
+b.date
+)
+);
+
+$("#count").textContent =
+rows.length;
+
+$("#empty").classList.toggle(
+"hidden",
+rows.length > 0
+);
+
+$("#games").innerHTML =
+rows.map(
+g => {
+
+const live =
+liveStatus(
+g.status
+);
+
+const score =
+(
+g.homeScore !== ""
+||
+g.awayScore !== ""
+)
+?
+`
+<div class="score">
+${g.homeScore || 0}
+×
+${g.awayScore || 0}
+</div>
+`
+:
+"";
+
+return`
+
+<article class="card">
+
+<div class="row">
+
+<span class="competition">
+${g.leagueName}
+</span>
+
+<span class="pill ${live ? "live" : "none"}">
+
+${live
+?
+"● AO VIVO"
+:
+(
+g.detail
+||
+"AGENDADO"
+)
+}
+
+</span>
+
+</div>
+
+<div class="teams">
+
+<div class="team">
+${g.home}
+</div>
+
+${score || '<div class="x">X</div>'}
+
+<div class="team">
+${g.away}
+</div>
+
+</div>
+
+<div class="meta">
+
+🕒
+${fmtTime(g.date)}
+
+<br>
+
+${g.detail
+?
+`Status: ${g.detail}`
+:
+""
+}
+
+</div>
+
+<div class="actions">
+
+<a
+class="btn btn-secondary"
+target="_blank"
+href="${officialSearchUrl(g,"ge TV")}">
+
+Buscar ge TV
+
+</a>
+
+<a
+class="btn btn-secondary"
+target="_blank"
+href="${officialSearchUrl(g,"CazéTV")}">
+
+Buscar CazéTV
+
+</a>
+
+</div>
+
+</article>
+
+`;
+
+}
+).join("");
+
+}
+
+async function refresh(){
+
+$("#refresh").disabled =
+true;
+
+$("#errorBox").classList.add(
+"hidden"
+);
+
+const results =
+await Promise.allSettled(
+leagues.map(
+loadLeague
+)
+);
+
+allGames =
+results.flatMap(
+r =>
+r.status === "fulfilled"
+?
+r.value
+:
+[]
+);
+
+const failed =
+results.filter(
+r =>
+r.status === "rejected"
+);
+
+if(
+failed.length
+){
+
+$("#errorBox").textContent =
+`Algumas competições não responderam agora (${failed.length}/${leagues.length}). O restante foi carregado normalmente.`;
+
+$("#errorBox").classList.remove(
+"hidden"
+);
+
+}
+
+$("#updated").textContent =
+new Date().toLocaleTimeString(
+"pt-BR",
+{
+hour:"2-digit",
+minute:"2-digit"
+}
+);
+
+$("#refresh").disabled =
+false;
+
+render();
+
+}
+
+$$(".chip").forEach(
+b =>
+b.onclick =
+() => {
+
+$$(".chip").forEach(
+x =>
+x.classList.remove(
+"active"
+)
+);
+
+b.classList.add(
+"active"
+);
+
+filter =
+b.dataset.filter;
+
+render();
+
+}
+);
+
+$("#refresh").onclick =
+refresh;
+
+$("#navGames").onclick =
+() =>
+window.scrollTo(
+{
+top:0,
+behavior:"smooth"
+}
+);
+
+$("#navSources").onclick =
+() =>
+$("#providersSection").scrollIntoView(
+{
+behavior:"smooth"
+}
+);
+
+$("#navTop").onclick =
+() =>
+window.scrollTo(
+{
+top:0,
+behavior:"smooth"
+}
+);
+
+refresh();
+
+</script>
+
+</body>
+</html>
