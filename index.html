@@ -26,6 +26,22 @@
   content="Futebol Livre"
 >
 
+<link
+  rel="manifest"
+  href="manifest.json"
+>
+
+<link
+  rel="icon"
+  href="icon.svg"
+  type="image/svg+xml"
+>
+
+<link
+  rel="apple-touch-icon"
+  href="icon.svg"
+>
+
 <title>Futebol Livre</title>
 
 <style>
@@ -55,7 +71,6 @@ html{
 
 body{
   margin:0;
-
   min-height:100vh;
 
   background:
@@ -102,17 +117,12 @@ a{
 /* HEADER */
 
 .app-header{
-
   position:sticky;
-
   top:0;
-
   z-index:100;
 
   display:flex;
-
   align-items:center;
-
   justify-content:space-between;
 
   padding:
@@ -135,40 +145,26 @@ a{
 }
 
 .brand-small{
-
   color:var(--green);
-
   font-size:9px;
-
   font-weight:950;
-
   letter-spacing:1.8px;
 }
 
 .app-header h1{
-
   margin:4px 0 0;
-
   font-size:25px;
-
   letter-spacing:-.8px;
 }
 
 .refresh-btn{
-
   width:44px;
-
   height:44px;
 
   border-radius:50%;
+  border:1px solid var(--line);
 
-  border:
-    1px solid
-    var(--line);
-
-  background:
-    var(--surface);
-
+  background:var(--surface);
   color:white;
 
   font-size:21px;
@@ -178,23 +174,15 @@ a{
 /* MAIN */
 
 main{
-
-  width:
-    min(
-      860px,
-      100%
-    );
-
+  width:min(860px,100%);
   margin:auto;
-
   padding:16px;
 }
 
 
-/* HERO COM JOGADORES REAIS */
+/* HERO */
 
 .hero{
-
   position:relative;
 
   min-height:390px;
@@ -209,32 +197,24 @@ main{
 
   margin-bottom:16px;
 
-  background:
-    #07170e;
+  background:#07170e;
 }
 
 .hero-photo{
-
   position:absolute;
-
   inset:0;
 
   background-image:
-    url(
-      "https://f.rpp-noticias.io/2023/01/19/022602_1377161.jpg?imgdimension=n_xlarge"
-    );
+    url("https://f.rpp-noticias.io/2023/01/19/022602_1377161.jpg?imgdimension=n_xlarge");
 
   background-size:cover;
-
   background-position:center 37%;
 
   transform:scale(1.03);
 }
 
 .hero-shade{
-
   position:absolute;
-
   inset:0;
 
   background:
@@ -255,9 +235,7 @@ main{
 }
 
 .hero-green{
-
   position:absolute;
-
   inset:0;
 
   background:
@@ -269,9 +247,7 @@ main{
 }
 
 .hero-content{
-
   position:relative;
-
   z-index:5;
 
   max-width:520px;
@@ -280,9 +256,7 @@ main{
 }
 
 .hero-label{
-
   display:inline-flex;
-
   align-items:center;
 
   gap:8px;
@@ -301,16 +275,12 @@ main{
   color:#dffff0;
 
   font-size:10px;
-
   font-weight:950;
-
   letter-spacing:.8px;
 }
 
 .hero-dot{
-
   width:8px;
-
   height:8px;
 
   border-radius:50%;
@@ -323,7 +293,6 @@ main{
 }
 
 .hero h2{
-
   margin:
     18px 0
     12px;
@@ -338,7 +307,6 @@ main{
     );
 
   line-height:.96;
-
   letter-spacing:-2px;
 
   text-shadow:
@@ -347,16 +315,13 @@ main{
 }
 
 .hero p{
-
   max-width:450px;
 
   margin:0;
 
-  color:
-    #d2e7d9;
+  color:#d2e7d9;
 
   font-size:13px;
-
   line-height:1.55;
 
   text-shadow:
@@ -365,26 +330,20 @@ main{
 }
 
 .hero-actions{
-
   display:flex;
-
   gap:9px;
 
   margin-top:21px;
 }
 
 .hero-btn{
-
   min-height:45px;
 
   display:flex;
-
   align-items:center;
-
   justify-content:center;
 
-  padding:
-    0 15px;
+  padding:0 15px;
 
   border-radius:14px;
 
@@ -398,23 +357,17 @@ main{
   color:white;
 
   font-size:11px;
-
   font-weight:950;
 }
 
 .hero-btn.primary{
-
-  border-color:
-    var(--green);
-
-  background:
-    var(--green);
-
+  border-color:var(--green);
+  background:var(--green);
   color:#04200d;
 }
 
 
-/* VIEW */
+/* VIEWS */
 
 .view{
   display:none;
@@ -428,11 +381,8 @@ main{
 /* STATS */
 
 .stats{
-
   display:grid;
-
-  grid-template-columns:
-    repeat(2,1fr);
+  grid-template-columns:repeat(2,1fr);
 
   gap:9px;
 
@@ -440,21 +390,16 @@ main{
 }
 
 .stat{
-
   padding:14px;
 
-  border:
-    1px solid
-    var(--line);
+  border:1px solid var(--line);
 
   border-radius:19px;
 
-  background:
-    var(--surface);
+  background:var(--surface);
 }
 
 .stat small{
-
   display:block;
 
   margin-bottom:5px;
@@ -462,9 +407,7 @@ main{
   color:var(--muted);
 
   font-size:9px;
-
   font-weight:950;
-
   letter-spacing:.9px;
 }
 
@@ -488,18 +431,14 @@ main{
 /* SEARCH */
 
 .search{
-
   position:relative;
-
   margin-bottom:12px;
 }
 
 .search span{
-
   position:absolute;
 
   left:14px;
-
   top:50%;
 
   transform:
@@ -507,7 +446,6 @@ main{
 }
 
 .search input{
-
   width:100%;
 
   padding:
@@ -518,14 +456,11 @@ main{
 
   outline:none;
 
-  border:
-    1px solid
-    var(--line);
+  border:1px solid var(--line);
 
   border-radius:17px;
 
-  background:
-    var(--surface);
+  background:var(--surface);
 
   color:white;
 }
@@ -534,7 +469,6 @@ main{
 /* CHIPS */
 
 .chips{
-
   display:flex;
 
   gap:8px;
@@ -551,7 +485,6 @@ main{
 }
 
 .chip{
-
   flex:0 0 auto;
 
   padding:
@@ -560,28 +493,19 @@ main{
 
   border-radius:999px;
 
-  border:
-    1px solid
-    var(--line);
+  border:1px solid var(--line);
 
-  background:
-    var(--surface);
+  background:var(--surface);
 
-  color:
-    var(--muted);
+  color:var(--muted);
 
   font-size:11px;
-
   font-weight:900;
 }
 
 .chip.active{
-
-  background:
-    var(--green);
-
-  border-color:
-    var(--green);
+  background:var(--green);
+  border-color:var(--green);
 
   color:#04200d;
 }
@@ -590,61 +514,47 @@ main{
 /* SETTINGS */
 
 .settings{
-
   display:grid;
-
   gap:9px;
 
   margin-bottom:20px;
 }
 
 .setting{
-
   display:flex;
-
   align-items:center;
-
   justify-content:space-between;
 
   gap:12px;
 
   padding:14px;
 
-  border:
-    1px solid
-    var(--line);
+  border:1px solid var(--line);
 
   border-radius:18px;
 
-  background:
-    var(--surface);
+  background:var(--surface);
 }
 
 .setting strong{
-
   display:block;
-
   font-size:12px;
 }
 
 .setting small{
-
   display:block;
 
   margin-top:3px;
 
-  color:
-    var(--muted);
+  color:var(--muted);
 
   font-size:9px;
 }
 
 .switch{
-
   position:relative;
 
   width:49px;
-
   height:29px;
 
   flex:0 0 auto;
@@ -655,14 +565,10 @@ main{
 }
 
 .slider{
-
   position:absolute;
-
   inset:0;
 
-  border:
-    1px solid
-    var(--line);
+  border:1px solid var(--line);
 
   border-radius:999px;
 
@@ -670,17 +576,14 @@ main{
 }
 
 .slider::before{
-
   content:"";
 
   position:absolute;
 
   left:3px;
-
   top:3px;
 
   width:21px;
-
   height:21px;
 
   border-radius:50%;
@@ -691,13 +594,10 @@ main{
 }
 
 .switch input:checked + .slider{
-
-  background:
-    var(--green);
+  background:var(--green);
 }
 
 .switch input:checked + .slider::before{
-
   transform:
     translateX(20px);
 
@@ -708,11 +608,8 @@ main{
 /* SECTION */
 
 .section-head{
-
   display:flex;
-
   align-items:flex-end;
-
   justify-content:space-between;
 
   gap:10px;
@@ -723,48 +620,37 @@ main{
 }
 
 .eyebrow{
-
   display:block;
 
   margin-bottom:4px;
 
-  color:
-    var(--green);
+  color:var(--green);
 
   font-size:9px;
-
   font-weight:950;
-
   letter-spacing:1.6px;
 }
 
 .section-head h3{
-
   margin:0;
 
   font-size:25px;
 }
 
 .counter{
-
   min-width:38px;
-
   height:38px;
 
-  padding:
-    0 11px;
+  padding:0 11px;
 
   display:grid;
-
   place-items:center;
 
   border-radius:999px;
 
-  background:
-    var(--surface2);
+  background:var(--surface2);
 
-  color:
-    var(--green);
+  color:var(--green);
 
   font-weight:950;
 }
@@ -773,19 +659,14 @@ main{
 /* GAME */
 
 .games{
-
   display:grid;
-
   gap:12px;
 }
 
 .game{
-
   padding:16px;
 
-  border:
-    1px solid
-    var(--line);
+  border:1px solid var(--line);
 
   border-radius:23px;
 
@@ -798,46 +679,35 @@ main{
 }
 
 .game.priority{
-
   box-shadow:
     inset 4px 0
     var(--green);
 }
 
 .game-head{
-
   display:flex;
-
   align-items:center;
-
   justify-content:space-between;
 
   gap:10px;
 }
 
 .competition{
-
-  color:
-    var(--muted);
+  color:var(--muted);
 
   font-size:10px;
-
   font-weight:950;
-
   letter-spacing:.8px;
 }
 
 .game-right{
-
   display:flex;
-
   align-items:center;
 
   gap:6px;
 }
 
 .status{
-
   padding:
     6px 9px;
 
@@ -846,27 +716,21 @@ main{
   background:
     rgba(255,255,255,.055);
 
-  color:
-    #a7b7ad;
+  color:#a7b7ad;
 
   font-size:9px;
-
   font-weight:950;
 }
 
 .status.live{
-
   background:
     rgba(255,110,110,.13);
 
-  color:
-    #ffaaaa;
+  color:#ffaaaa;
 }
 
 .star{
-
   width:32px;
-
   height:32px;
 
   border:0;
@@ -876,8 +740,7 @@ main{
   background:
     rgba(255,255,255,.055);
 
-  color:
-    #748b7d;
+  color:#748b7d;
 
   font-size:18px;
 }
@@ -887,7 +750,6 @@ main{
 }
 
 .match{
-
   display:grid;
 
   grid-template-columns:
@@ -902,16 +764,12 @@ main{
 }
 
 .team{
-
   min-width:0;
-
   text-align:center;
 }
 
 .team img{
-
   width:51px;
-
   height:51px;
 
   object-fit:contain;
@@ -920,13 +778,10 @@ main{
 }
 
 .logo-fallback{
-
   width:51px;
-
   height:51px;
 
   display:grid;
-
   place-items:center;
 
   margin:
@@ -934,59 +789,44 @@ main{
 
   border-radius:50%;
 
-  border:
-    1px solid
-    var(--line);
+  border:1px solid var(--line);
 
-  background:
-    var(--surface2);
+  background:var(--surface2);
 
-  color:
-    var(--green);
+  color:var(--green);
 
   font-size:10px;
-
   font-weight:950;
 }
 
 .team-name{
-
   font-size:13px;
-
   font-weight:900;
 
   line-height:1.25;
 }
 
 .score-box{
-
   min-width:68px;
-
   text-align:center;
 }
 
 .score{
-
-  color:
-    var(--green);
+  color:var(--green);
 
   font-size:28px;
-
   font-weight:950;
 }
 
 .time{
-
   margin-top:3px;
 
-  color:
-    var(--muted);
+  color:var(--muted);
 
   font-size:10px;
 }
 
 .notice{
-
   margin-bottom:10px;
 
   padding:
@@ -997,25 +837,20 @@ main{
   background:
     rgba(255,255,255,.045);
 
-  color:
-    var(--muted);
+  color:var(--muted);
 
   font-size:10px;
-
   font-weight:850;
 }
 
 .notice.finished{
-
   background:
     rgba(255,216,103,.08);
 
-  color:
-    #ffe89b;
+  color:#ffe89b;
 }
 
 .game-buttons{
-
   display:grid;
 
   grid-template-columns:
@@ -1031,7 +866,6 @@ main{
 }
 
 .action{
-
   padding:
     10px 8px;
 
@@ -1049,23 +883,18 @@ main{
   text-align:center;
 
   font-size:10px;
-
   font-weight:900;
 }
 
 .action.primary{
+  background:var(--green);
 
-  background:
-    var(--green);
-
-  border-color:
-    var(--green);
+  border-color:var(--green);
 
   color:#04200d;
 }
 
 .action.premiere{
-
   background:#19121f;
 
   border-color:#4c355a;
@@ -1074,7 +903,6 @@ main{
 }
 
 .action.highlight{
-
   background:#27210e;
 
   border-color:#6a591f;
@@ -1083,7 +911,6 @@ main{
 }
 
 .action.details{
-
   background:#102033;
 
   border-color:#284a69;
@@ -1095,7 +922,6 @@ main{
 /* TABLE */
 
 .league-select{
-
   width:100%;
 
   margin-bottom:12px;
@@ -1104,44 +930,35 @@ main{
 
   border-radius:15px;
 
-  border:
-    1px solid
-    var(--line);
+  border:1px solid var(--line);
 
   outline:none;
 
-  background:
-    var(--surface);
+  background:var(--surface);
 
   color:white;
 }
 
 .table-wrap{
-
   overflow-x:auto;
 
-  border:
-    1px solid
-    var(--line);
+  border:1px solid var(--line);
 
   border-radius:20px;
 }
 
 table{
-
   width:100%;
 
   min-width:650px;
 
   border-collapse:collapse;
 
-  background:
-    var(--surface);
+  background:var(--surface);
 }
 
 th,
 td{
-
   padding:
     11px 9px;
 
@@ -1155,15 +972,11 @@ td{
 }
 
 th{
-
-  color:
-    var(--muted);
-
+  color:var(--muted);
   font-size:9px;
 }
 
 .team-cell{
-
   min-width:190px;
 
   text-align:left;
@@ -1172,25 +985,20 @@ th{
 }
 
 .table-team{
-
   display:flex;
-
   align-items:center;
 
   gap:8px;
 }
 
 .table-team img{
-
   width:27px;
-
   height:27px;
 
   object-fit:contain;
 }
 
 tr.mine{
-
   background:
     rgba(57,226,125,.075);
 }
@@ -1199,7 +1007,6 @@ tr.mine{
 /* TV E FILMES */
 
 .media-grid{
-
   display:grid;
 
   grid-template-columns:
@@ -1209,11 +1016,9 @@ tr.mine{
 }
 
 .media-card{
-
   position:relative;
 
   display:flex;
-
   flex-direction:column;
 
   min-height:200px;
@@ -1222,9 +1027,7 @@ tr.mine{
 
   overflow:hidden;
 
-  border:
-    1px solid
-    var(--line);
+  border:1px solid var(--line);
 
   border-radius:22px;
 
@@ -1239,15 +1042,11 @@ tr.mine{
 }
 
 .network-logo-wrap{
-
   width:64px;
-
   height:64px;
 
   display:flex;
-
   align-items:center;
-
   justify-content:center;
 
   margin-bottom:11px;
@@ -1263,23 +1062,19 @@ tr.mine{
 }
 
 .network-logo{
-
   width:48px;
-
   height:48px;
 
   object-fit:contain;
 }
 
 .media-icon{
-
   font-size:29px;
 
   margin-bottom:10px;
 }
 
 .media-badge{
-
   align-self:flex-start;
 
   padding:
@@ -1292,43 +1087,34 @@ tr.mine{
   background:
     rgba(57,226,125,.1);
 
-  color:
-    var(--green);
+  color:var(--green);
 
   font-size:8px;
-
   font-weight:950;
 }
 
 .media-badge.live{
-
   background:
     rgba(255,100,100,.1);
 
-  color:
-    #ffaaaa;
+  color:#ffaaaa;
 }
 
 .media-badge.paid{
-
   background:
     rgba(216,179,255,.1);
 
-  color:
-    var(--purple);
+  color:var(--purple);
 }
 
 .media-badge.kids{
-
   background:
     rgba(255,190,110,.11);
 
-  color:
-    #ffc884;
+  color:#ffc884;
 }
 
 .media-card h4{
-
   margin:
     0 0
     6px;
@@ -1337,25 +1123,19 @@ tr.mine{
 }
 
 .media-card p{
-
   flex:1;
 
   margin:0;
 
-  color:
-    var(--muted);
+  color:var(--muted);
 
   font-size:10px;
-
   line-height:1.45;
 }
 
 .media-open{
-
   display:flex;
-
   align-items:center;
-
   justify-content:space-between;
 
   margin-top:12px;
@@ -1367,14 +1147,11 @@ tr.mine{
     rgba(255,255,255,.05);
 
   font-size:9px;
-
   font-weight:900;
 }
 
 .media-open span:last-child{
-
-  color:
-    var(--green);
+  color:var(--green);
 
   font-size:17px;
 }
@@ -1384,14 +1161,12 @@ tr.mine{
 
 .loading,
 .empty{
-
   padding:
     35px 18px;
 
   text-align:center;
 
-  color:
-    var(--muted);
+  color:var(--muted);
 
   border:
     1px dashed
@@ -1404,13 +1179,10 @@ tr.mine{
 /* BOTTOM NAV */
 
 .bottom-nav{
-
   position:fixed;
 
   left:0;
-
   right:0;
-
   bottom:0;
 
   z-index:120;
@@ -1439,7 +1211,6 @@ tr.mine{
 }
 
 .nav-btn{
-
   padding:
     5px 2px;
 
@@ -1447,16 +1218,13 @@ tr.mine{
 
   background:none;
 
-  color:
-    #73897b;
+  color:#73897b;
 
   font-size:9px;
-
   font-weight:900;
 }
 
 .nav-btn span{
-
   display:block;
 
   margin-bottom:2px;
@@ -1465,9 +1233,7 @@ tr.mine{
 }
 
 .nav-btn.active{
-
-  color:
-    var(--green);
+  color:var(--green);
 }
 
 
@@ -1495,6 +1261,7 @@ tr.mine{
 
 <body>
 
+
 <header class="app-header">
 
   <div>
@@ -1521,7 +1288,6 @@ tr.mine{
 
 <main>
 
-<!-- HERO -->
 
 <section class="hero">
 
@@ -1574,12 +1340,11 @@ tr.mine{
 </section>
 
 
-<!-- JOGOS -->
-
 <section
   id="viewGames"
   class="view active"
 >
+
 
 <section class="stats">
 
@@ -1806,8 +1571,6 @@ tr.mine{
 </section>
 
 
-<!-- TABELA -->
-
 <section
   id="viewTable"
   class="view"
@@ -1890,19 +1653,12 @@ tr.mine{
   </th>
 
   <th>PTS</th>
-
   <th>J</th>
-
   <th>V</th>
-
   <th>E</th>
-
   <th>D</th>
-
   <th>GP</th>
-
   <th>GC</th>
-
   <th>SG</th>
 
 </tr>
@@ -1917,8 +1673,6 @@ tr.mine{
 
 </section>
 
-
-<!-- TV -->
 
 <section
   id="viewTv"
@@ -1983,8 +1737,6 @@ tr.mine{
 </section>
 
 
-<!-- FILMES -->
-
 <section
   id="viewMovies"
   class="view"
@@ -2047,8 +1799,6 @@ tr.mine{
 
 </section>
 
-
-<!-- FAVORITOS -->
 
 <section
   id="viewFavorites"
@@ -2137,10 +1887,6 @@ tr.mine{
 
 <script>
 
-/* =========================
-   LIGAS
-========================= */
-
 const leagues = [
 
   {
@@ -2195,30 +1941,20 @@ const leagues = [
 
 
 const priorityTeams = [
-
   "cruzeiro",
-
   "atletico mineiro",
-
   "atlético mineiro",
-
   "atletico-mg",
-
   "atlético-mg"
-
 ];
 
-
-/* =========================
-   TV
-========================= */
 
 const tvChannels = [
 
   {
     name:"TV Globo",
     domain:"globoplay.globo.com",
-    description:"TV Globo ao vivo pelo Globoplay. A disponibilidade pode depender da conta ou região.",
+    description:"TV Globo pelo Globoplay. Disponibilidade pode variar por conta e região.",
     badge:"GLOBOPLAY",
     badgeClass:"paid",
     category:"aberta",
@@ -2228,7 +1964,7 @@ const tvChannels = [
   {
     name:"SBT",
     domain:"sbt.com.br",
-    description:"Programação oficial do SBT ao vivo.",
+    description:"Programação oficial do SBT.",
     badge:"AO VIVO • GRÁTIS",
     badgeClass:"live",
     category:"aberta",
@@ -2238,7 +1974,7 @@ const tvChannels = [
   {
     name:"Band",
     domain:"band.com.br",
-    description:"Programação oficial da Band ao vivo.",
+    description:"Programação oficial da Band.",
     badge:"AO VIVO",
     badgeClass:"live",
     category:"aberta",
@@ -2258,7 +1994,7 @@ const tvChannels = [
   {
     name:"RedeTV!",
     domain:"redetv.uol.com.br",
-    description:"Programação oficial da RedeTV! ao vivo.",
+    description:"Programação oficial da RedeTV!.",
     badge:"AO VIVO • GRÁTIS",
     badgeClass:"live",
     category:"aberta",
@@ -2268,7 +2004,7 @@ const tvChannels = [
   {
     name:"TV Cultura",
     domain:"cultura.uol.com.br",
-    description:"Programação oficial da TV Cultura ao vivo.",
+    description:"Programação oficial da TV Cultura.",
     badge:"AO VIVO • GRÁTIS",
     badgeClass:"live",
     category:"aberta",
@@ -2288,27 +2024,17 @@ const tvChannels = [
   {
     name:"TV Gazeta",
     domain:"tvgazeta.com.br",
-    description:"Programação da TV Gazeta ao vivo 24 horas.",
-    badge:"AO VIVO • GRÁTIS",
+    description:"Programação da TV Gazeta.",
+    badge:"AO VIVO",
     badgeClass:"live",
     category:"aberta",
     url:"https://www.tvgazeta.com.br/aovivo/"
   },
 
   {
-    name:"Rede Minas",
-    domain:"redeminas.tv",
-    description:"Programação e conteúdo da Rede Minas.",
-    badge:"MINAS GERAIS",
-    badgeClass:"",
-    category:"aberta",
-    url:"https://redeminas.tv/"
-  },
-
-  {
     name:"ge TV",
     domain:"ge.globo.com",
-    description:"Canal esportivo digital com futebol e programas.",
+    description:"Futebol e programação esportiva.",
     badge:"ESPORTES",
     badgeClass:"",
     category:"esportes",
@@ -2318,7 +2044,7 @@ const tvChannels = [
   {
     name:"CazéTV",
     domain:"youtube.com",
-    description:"Jogos e eventos esportivos gratuitos quando disponíveis.",
+    description:"Jogos e eventos esportivos.",
     badge:"ESPORTES • GRÁTIS",
     badgeClass:"",
     category:"esportes",
@@ -2328,7 +2054,7 @@ const tvChannels = [
   {
     name:"Canal GOAT",
     domain:"youtube.com",
-    description:"Futebol e transmissões esportivas oficiais.",
+    description:"Futebol e transmissões esportivas.",
     badge:"ESPORTES",
     badgeClass:"",
     category:"esportes",
@@ -2338,7 +2064,7 @@ const tvChannels = [
   {
     name:"CBF",
     domain:"cbf.com.br",
-    description:"Seleções brasileiras e competições oficiais.",
+    description:"Seleções brasileiras e conteúdo oficial.",
     badge:"FUTEBOL",
     badgeClass:"",
     category:"esportes",
@@ -2368,7 +2094,7 @@ const tvChannels = [
   {
     name:"ge",
     domain:"ge.globo.com",
-    description:"Notícias, resultados e mercado da bola.",
+    description:"Notícias e resultados.",
     badge:"NOTÍCIAS",
     badgeClass:"",
     category:"noticias",
@@ -2378,7 +2104,7 @@ const tvChannels = [
   {
     name:"R7 Esportes",
     domain:"r7.com",
-    description:"Notícias esportivas da Record/R7.",
+    description:"Notícias esportivas.",
     badge:"NOTÍCIAS",
     badgeClass:"",
     category:"noticias",
@@ -2388,7 +2114,7 @@ const tvChannels = [
   {
     name:"Band Esportes",
     domain:"band.com.br",
-    description:"Notícias e programas esportivos da Band.",
+    description:"Notícias e programas esportivos.",
     badge:"NOTÍCIAS",
     badgeClass:"",
     category:"noticias",
@@ -2398,16 +2124,12 @@ const tvChannels = [
 ];
 
 
-/* =========================
-   ENTRETENIMENTO
-========================= */
-
 const entertainment = [
 
   {
     name:"Mercado Play",
     icon:"▶️",
-    description:"Filmes e séries grátis com anúncios.",
+    description:"Filmes e séries grátis.",
     badge:"GRÁTIS",
     badgeClass:"",
     category:"filmes",
@@ -2427,7 +2149,7 @@ const entertainment = [
   {
     name:"Samsung TV Plus",
     icon:"📡",
-    description:"Canais gratuitos em aparelhos Samsung compatíveis.",
+    description:"Canais gratuitos em aparelhos compatíveis.",
     badge:"GRÁTIS",
     badgeClass:"",
     category:"filmes",
@@ -2437,7 +2159,7 @@ const entertainment = [
   {
     name:"YouTube Kids",
     icon:"🧒",
-    description:"Conteúdo infantil em ambiente dedicado.",
+    description:"Conteúdo infantil.",
     badge:"INFANTIL",
     badgeClass:"kids",
     category:"kids",
@@ -2447,7 +2169,7 @@ const entertainment = [
   {
     name:"Turma da Mônica",
     icon:"🐰",
-    description:"Desenhos e histórias da Turma da Mônica.",
+    description:"Desenhos da Turma da Mônica.",
     badge:"DESENHOS",
     badgeClass:"kids",
     category:"kids",
@@ -2457,7 +2179,7 @@ const entertainment = [
   {
     name:"Mundo Bita",
     icon:"🎪",
-    description:"Músicas e animações infantis.",
+    description:"Músicas e animações.",
     badge:"INFANTIL",
     badgeClass:"kids",
     category:"kids",
@@ -2467,7 +2189,7 @@ const entertainment = [
   {
     name:"Galinha Pintadinha",
     icon:"🐔",
-    description:"Músicas e desenhos infantis.",
+    description:"Músicas e desenhos.",
     badge:"INFANTIL",
     badgeClass:"kids",
     category:"kids",
@@ -2477,7 +2199,7 @@ const entertainment = [
   {
     name:"Pocoyo",
     icon:"💙",
-    description:"Episódios infantis em português.",
+    description:"Desenhos em português.",
     badge:"DESENHOS",
     badgeClass:"kids",
     category:"kids",
@@ -2487,7 +2209,7 @@ const entertainment = [
   {
     name:"Peppa Pig",
     icon:"🐷",
-    description:"Episódios e compilações em português.",
+    description:"Episódios em português.",
     badge:"DESENHOS",
     badgeClass:"kids",
     category:"kids",
@@ -2497,7 +2219,7 @@ const entertainment = [
   {
     name:"Masha e o Urso",
     icon:"🐻",
-    description:"Desenhos e episódios infantis.",
+    description:"Episódios infantis.",
     badge:"DESENHOS",
     badgeClass:"kids",
     category:"kids",
@@ -2507,7 +2229,7 @@ const entertainment = [
   {
     name:"O Show da Luna",
     icon:"🔭",
-    description:"Ciência, curiosidade e animação.",
+    description:"Animação educativa.",
     badge:"EDUCATIVO",
     badgeClass:"kids",
     category:"kids",
@@ -2517,7 +2239,7 @@ const entertainment = [
   {
     name:"Bob Zoom",
     icon:"🐜",
-    description:"Música e conteúdo para crianças.",
+    description:"Música infantil.",
     badge:"INFANTIL",
     badgeClass:"kids",
     category:"kids",
@@ -2525,19 +2247,9 @@ const entertainment = [
   },
 
   {
-    name:"Pinkfong",
-    icon:"🦊",
-    description:"Músicas e animações infantis.",
-    badge:"INFANTIL",
-    badgeClass:"kids",
-    category:"kids",
-    url:"https://www.youtube.com/results?search_query=Pinkfong+portugues+oficial"
-  },
-
-  {
     name:"Prime Video",
     icon:"📦",
-    description:"Filmes, séries e esportes.",
+    description:"Filmes e séries.",
     badge:"ASSINATURA",
     badgeClass:"paid",
     category:"paid",
@@ -2547,7 +2259,7 @@ const entertainment = [
   {
     name:"Disney+",
     icon:"✨",
-    description:"Disney, Marvel, Pixar e ESPN.",
+    description:"Disney, Pixar e ESPN.",
     badge:"ASSINATURA",
     badgeClass:"paid",
     category:"paid",
@@ -2557,7 +2269,7 @@ const entertainment = [
   {
     name:"Netflix",
     icon:"🎬",
-    description:"Filmes, séries e documentários.",
+    description:"Filmes e séries.",
     badge:"ASSINATURA",
     badgeClass:"paid",
     category:"paid",
@@ -2567,7 +2279,7 @@ const entertainment = [
   {
     name:"Max",
     icon:"💜",
-    description:"Filmes e séries para assinantes.",
+    description:"Filmes e séries.",
     badge:"ASSINATURA",
     badgeClass:"paid",
     category:"paid",
@@ -2576,10 +2288,6 @@ const entertainment = [
 
 ];
 
-
-/* =========================
-   ESTADO
-========================= */
 
 let allGames = [];
 
@@ -2634,10 +2342,6 @@ const $$ =
       )
     ];
 
-
-/* =========================
-   HELPERS
-========================= */
 
 function normalize(
   value=""
@@ -2799,10 +2503,6 @@ function isPriority(
 
 }
 
-
-/* =========================
-   API JOGOS
-========================= */
 
 function parseGame(
   event,
@@ -2991,10 +2691,6 @@ async function refreshGames(){
 }
 
 
-/* =========================
-   FAVORITOS
-========================= */
-
 function toggleFavorite(
   id
 ){
@@ -3014,9 +2710,7 @@ function toggleFavorite(
     favorites =
       favorites.filter(
         item =>
-          item
-          !==
-          id
+          item !== id
       );
 
   }else{
@@ -3040,10 +2734,6 @@ function toggleFavorite(
 
 }
 
-
-/* =========================
-   LINKS
-========================= */
 
 function youtubeSearch(
   query
@@ -3074,10 +2764,6 @@ function googleSearch(
 
 }
 
-
-/* =========================
-   LOGO TIMES
-========================= */
 
 function teamLogo(
   url,
@@ -3120,10 +2806,6 @@ function teamLogo(
 
 }
 
-
-/* =========================
-   GAME CARD
-========================= */
 
 function gameCard(
   game
@@ -3173,13 +2855,9 @@ function gameCard(
 
   const score =
     (
-      game.homeScore
-      !==
-      ""
+      game.homeScore !== ""
       ||
-      game.awayScore
-      !==
-      ""
+      game.awayScore !== ""
     )
     ?
     `${game.homeScore || 0} × ${game.awayScore || 0}`
@@ -3188,7 +2866,6 @@ function gameCard(
 
 
   let notice = "";
-
   let buttons = "";
 
 
@@ -3199,9 +2876,7 @@ function gameCard(
     notice = `
 
       <div class="notice finished">
-
         🎬 Partida encerrada — veja os melhores momentos
-
       </div>
 
     `;
@@ -3217,6 +2892,7 @@ function gameCard(
           )
         }"
         target="_blank"
+        rel="noopener"
       >
         🎬 Melhores momentos
       </a>
@@ -3230,6 +2906,7 @@ function gameCard(
           )
         }"
         target="_blank"
+        rel="noopener"
       >
         📊 Detalhes
       </a>
@@ -3265,6 +2942,7 @@ function gameCard(
           )
         }"
         target="_blank"
+        rel="noopener"
       >
         ge TV
       </a>
@@ -3278,6 +2956,7 @@ function gameCard(
           )
         }"
         target="_blank"
+        rel="noopener"
       >
         CazéTV
       </a>
@@ -3286,9 +2965,7 @@ function gameCard(
 
 
     if(
-      game.group
-      ===
-      "brazil"
+      game.group === "brazil"
     ){
 
       buttons += `
@@ -3297,6 +2974,7 @@ function gameCard(
           class="action premiere"
           href="https://globoplay.globo.com/canais/premiere/"
           target="_blank"
+          rel="noopener"
         >
           🔒 Premiere
         </a>
@@ -3316,6 +2994,7 @@ function gameCard(
           )
         }"
         target="_blank"
+        rel="noopener"
       >
         ${
           live
@@ -3337,9 +3016,7 @@ function gameCard(
       class="
         game
         ${
-          isPriority(
-            game
-          )
+          isPriority(game)
           ?
           "priority"
           :
@@ -3351,9 +3028,7 @@ function gameCard(
       <div class="game-head">
 
         <span class="competition">
-
           ${game.league}
-
         </span>
 
 
@@ -3371,9 +3046,7 @@ function gameCard(
               }
             "
           >
-
             ${status}
-
           </span>
 
 
@@ -3394,7 +3067,6 @@ function gameCard(
               )
             "
           >
-
             ${
               fav
               ?
@@ -3402,7 +3074,6 @@ function gameCard(
               :
               "☆"
             }
-
           </button>
 
         </div>
@@ -3412,7 +3083,6 @@ function gameCard(
 
       <div class="match">
 
-
         <div class="team">
 
           ${teamLogo(
@@ -3421,9 +3091,7 @@ function gameCard(
           )}
 
           <div class="team-name">
-
             ${game.home}
-
           </div>
 
         </div>
@@ -3432,19 +3100,11 @@ function gameCard(
         <div class="score-box">
 
           <div class="score">
-
             ${score}
-
           </div>
 
           <div class="time">
-
-            ${
-              formatTime(
-                game.date
-              )
-            }
-
+            ${formatTime(game.date)}
           </div>
 
         </div>
@@ -3458,13 +3118,10 @@ function gameCard(
           )}
 
           <div class="team-name">
-
             ${game.away}
-
           </div>
 
         </div>
-
 
       </div>
 
@@ -3473,11 +3130,8 @@ function gameCard(
 
 
       <div class="game-buttons">
-
         ${buttons}
-
       </div>
-
 
     </article>
 
@@ -3485,10 +3139,6 @@ function gameCard(
 
 }
 
-
-/* =========================
-   FILTER
-========================= */
 
 function filteredGames(){
 
@@ -3514,9 +3164,7 @@ function filteredGames(){
 
 
   if(
-    gameFilter
-    ===
-    "live"
+    gameFilter === "live"
   ){
 
     list =
@@ -3528,26 +3176,20 @@ function filteredGames(){
 
 
   if(
-    gameFilter
-    ===
-    "brazil"
+    gameFilter === "brazil"
   ){
 
     list =
       list.filter(
         game =>
-          game.group
-          ===
-          "brazil"
+          game.group === "brazil"
       );
 
   }
 
 
   if(
-    gameFilter
-    ===
-    "favorites"
+    gameFilter === "favorites"
   ){
 
     list =
@@ -3559,17 +3201,13 @@ function filteredGames(){
 
 
   if(
-    gameFilter
-    ===
-    "europe"
+    gameFilter === "europe"
   ){
 
     list =
       list.filter(
         game =>
-          game.group
-          ===
-          "europe"
+          game.group === "europe"
       );
 
   }
@@ -3591,89 +3229,55 @@ function filteredGames(){
           normalize(
             game.home
           )
-          .includes(
-            q
-          )
+          .includes(q)
           ||
           normalize(
             game.away
           )
-          .includes(
-            q
-          )
+          .includes(q)
           ||
           normalize(
             game.league
           )
-          .includes(
-            q
-          )
+          .includes(q)
       );
 
   }
 
 
   list.sort(
-    (
-      a,
-      b
-    ) => {
-
+    (a,b) => {
 
       if(
-        isPriority(
-          a
-        )
-        !==
-        isPriority(
-          b
-        )
+        isPriority(a) !== isPriority(b)
       ){
 
         return(
-          isPriority(
-            b
-          )
+          isPriority(b)
           -
-          isPriority(
-            a
-          )
+          isPriority(a)
         );
 
       }
 
 
       if(
-        isLive(
-          a
-        )
-        !==
-        isLive(
-          b
-        )
+        isLive(a) !== isLive(b)
       ){
 
         return(
-          isLive(
-            b
-          )
+          isLive(b)
           -
-          isLive(
-            a
-          )
+          isLive(a)
         );
 
       }
 
 
       return(
-        new Date(
-          a.date
-        )
+        new Date(a.date)
         -
-        new Date(
-          b.date
-        )
+        new Date(b.date)
       );
 
     }
@@ -3684,10 +3288,6 @@ function filteredGames(){
 
 }
 
-
-/* =========================
-   RENDER JOGOS
-========================= */
 
 function renderGames(){
 
@@ -3714,9 +3314,7 @@ function renderGames(){
   allGames
   .filter(
     game =>
-      game.group
-      ===
-      "brazil"
+      game.group === "brazil"
   )
   .length;
 
@@ -3740,9 +3338,7 @@ function renderGames(){
         game
       )
   )
-  .join(
-    ""
-  );
+  .join("");
 
 
   $("#gamesEmpty")
@@ -3769,9 +3365,7 @@ function renderGames(){
         game
       )
   )
-  .join(
-    ""
-  );
+  .join("");
 
 
   $("#favoritesEmpty")
@@ -3784,10 +3378,6 @@ function renderGames(){
 
 }
 
-
-/* =========================
-   CLASSIFICAÇÃO
-========================= */
 
 function statValue(
   stats,
@@ -3937,13 +3527,9 @@ async function loadStandings(){
         const mine =
           priorityTeams.some(
             item =>
-              normalize(
-                name
-              )
+              normalize(name)
               .includes(
-                normalize(
-                  item
-                )
+                normalize(item)
               )
           );
 
@@ -3953,7 +3539,6 @@ async function loadStandings(){
           <tr class="${mine ? "mine" : ""}">
 
             <td>
-
               ${
                 statValue(
                   stats,
@@ -3962,9 +3547,7 @@ async function loadStandings(){
                 ||
                 index+1
               }
-
             </td>
-
 
             <td class="team-cell">
 
@@ -3984,38 +3567,14 @@ async function loadStandings(){
 
             </td>
 
-
-            <td>
-              ${statValue(stats,["points","PTS"])}
-            </td>
-
-            <td>
-              ${statValue(stats,["gamesPlayed","GP"])}
-            </td>
-
-            <td>
-              ${statValue(stats,["wins","W"])}
-            </td>
-
-            <td>
-              ${statValue(stats,["ties","draws","D"])}
-            </td>
-
-            <td>
-              ${statValue(stats,["losses","L"])}
-            </td>
-
-            <td>
-              ${statValue(stats,["pointsFor","goalsFor","GF"])}
-            </td>
-
-            <td>
-              ${statValue(stats,["pointsAgainst","goalsAgainst","GA"])}
-            </td>
-
-            <td>
-              ${statValue(stats,["pointDifferential","goalDifference","GD"])}
-            </td>
+            <td>${statValue(stats,["points","PTS"])}</td>
+            <td>${statValue(stats,["gamesPlayed","GP"])}</td>
+            <td>${statValue(stats,["wins","W"])}</td>
+            <td>${statValue(stats,["ties","draws","D"])}</td>
+            <td>${statValue(stats,["losses","L"])}</td>
+            <td>${statValue(stats,["pointsFor","goalsFor","GF"])}</td>
+            <td>${statValue(stats,["pointsAgainst","goalsAgainst","GA"])}</td>
+            <td>${statValue(stats,["pointDifferential","goalDifference","GD"])}</td>
 
           </tr>
 
@@ -4023,9 +3582,7 @@ async function loadStandings(){
 
       }
     )
-    .join(
-      ""
-    );
+    .join("");
 
 
     $("#standingsWrap")
@@ -4049,10 +3606,6 @@ async function loadStandings(){
 }
 
 
-/* =========================
-   LOGO EMISSORAS
-========================= */
-
 function networkLogo(
   domain
 ){
@@ -4063,10 +3616,6 @@ function networkLogo(
 
 }
 
-
-/* =========================
-   TV CARD
-========================= */
 
 function tvCard(
   item
@@ -4102,23 +3651,17 @@ function tvCard(
           ${item.badgeClass || ""}
         "
       >
-
         ${item.badge}
-
       </div>
 
 
       <h4>
-
         ${item.name}
-
       </h4>
 
 
       <p>
-
         ${item.description}
-
       </p>
 
 
@@ -4141,10 +3684,6 @@ function tvCard(
 }
 
 
-/* =========================
-   ENTERTAINMENT CARD
-========================= */
-
 function entertainmentCard(
   item
 ){
@@ -4159,9 +3698,7 @@ function entertainmentCard(
     >
 
       <div class="media-icon">
-
         ${item.icon}
-
       </div>
 
 
@@ -4171,23 +3708,17 @@ function entertainmentCard(
           ${item.badgeClass || ""}
         "
       >
-
         ${item.badge}
-
       </div>
 
 
       <h4>
-
         ${item.name}
-
       </h4>
 
 
       <p>
-
         ${item.description}
-
       </p>
 
 
@@ -4210,24 +3741,16 @@ function entertainmentCard(
 }
 
 
-/* =========================
-   RENDER TV
-========================= */
-
 function renderTv(){
 
   const list =
-    tvFilter
-    ===
-    "all"
+    tvFilter === "all"
     ?
     tvChannels
     :
     tvChannels.filter(
       item =>
-        item.category
-        ===
-        tvFilter
+        item.category === tvFilter
     );
 
 
@@ -4237,31 +3760,21 @@ function renderTv(){
   .map(
     tvCard
   )
-  .join(
-    ""
-  );
+  .join("");
 
 }
 
 
-/* =========================
-   RENDER FILMES
-========================= */
-
 function renderMovies(){
 
   const list =
-    movieFilter
-    ===
-    "all"
+    movieFilter === "all"
     ?
     entertainment
     :
     entertainment.filter(
       item =>
-        item.category
-        ===
-        movieFilter
+        item.category === movieFilter
     );
 
 
@@ -4271,16 +3784,10 @@ function renderMovies(){
   .map(
     entertainmentCard
   )
-  .join(
-    ""
-  );
+  .join("");
 
 }
 
-
-/* =========================
-   NAV
-========================= */
 
 function openView(
   name
@@ -4319,36 +3826,38 @@ function openView(
   if(
     nav
   ){
+
     nav.classList.add(
       "active"
     );
+
   }
 
 
   if(
-    name
-    ===
-    "Table"
+    name === "Table"
   ){
+
     loadStandings();
+
   }
 
 
   if(
-    name
-    ===
-    "Tv"
+    name === "Tv"
   ){
+
     renderTv();
+
   }
 
 
   if(
-    name
-    ===
-    "Movies"
+    name === "Movies"
   ){
+
     renderMovies();
+
   }
 
 
@@ -4361,10 +3870,6 @@ function openView(
 
 }
 
-
-/* =========================
-   EVENTS
-========================= */
 
 $$(".nav-btn")
 .forEach(
@@ -4575,19 +4080,11 @@ $("#refreshBtn")
 );
 
 
-/* =========================
-   AUTO UPDATE
-========================= */
-
 setInterval(
   refreshGames,
   60000
 );
 
-
-/* =========================
-   START
-========================= */
 
 renderTv();
 
@@ -4596,6 +4093,54 @@ renderMovies();
 refreshGames();
 
 </script>
+
+
+<!-- PWA / INSTALAÇÃO -->
+
+<script>
+
+if(
+  "serviceWorker"
+  in navigator
+){
+
+  window.addEventListener(
+    "load",
+    () => {
+
+      navigator
+        .serviceWorker
+        .register(
+          "./service-worker.js"
+        )
+        .then(
+          registration => {
+
+            console.log(
+              "Futebol Livre PWA ativo:",
+              registration.scope
+            );
+
+          }
+        )
+        .catch(
+          error => {
+
+            console.error(
+              "Erro ao registrar PWA:",
+              error
+            );
+
+          }
+        );
+
+    }
+  );
+
+}
+
+</script>
+
 
 </body>
 </html>
