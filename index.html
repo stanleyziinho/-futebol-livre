@@ -23,7 +23,7 @@
 
 <meta
   name="apple-mobile-web-app-title"
-  content="Futebol Livre"
+  content="Stanley Sports"
 >
 
 <link rel="manifest" href="manifest.json">
@@ -39,7 +39,7 @@
   href="icon.svg"
 >
 
-<title>Futebol Livre</title>
+<title>Stanley Sports</title>
 
 <style>
 
@@ -293,7 +293,6 @@ main{
     );
 
   line-height:.96;
-
   letter-spacing:-2px;
 
   text-shadow:
@@ -423,8 +422,7 @@ main{
   left:14px;
   top:50%;
 
-  transform:
-    translateY(-50%);
+  transform:translateY(-50%);
 }
 
 .search input{
@@ -488,100 +486,7 @@ main{
 .chip.active{
   background:var(--green);
   border-color:var(--green);
-
   color:#04200d;
-}
-
-
-/* SETTINGS */
-
-.settings{
-  display:grid;
-  gap:9px;
-
-  margin-bottom:20px;
-}
-
-.setting{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-
-  gap:12px;
-
-  padding:14px;
-
-  border:1px solid var(--line);
-
-  border-radius:18px;
-
-  background:var(--surface);
-}
-
-.setting strong{
-  display:block;
-  font-size:12px;
-}
-
-.setting small{
-  display:block;
-
-  margin-top:3px;
-
-  color:var(--muted);
-
-  font-size:9px;
-}
-
-.switch{
-  position:relative;
-
-  width:49px;
-  height:29px;
-
-  flex:0 0 auto;
-}
-
-.switch input{
-  display:none;
-}
-
-.slider{
-  position:absolute;
-  inset:0;
-
-  border:1px solid var(--line);
-
-  border-radius:999px;
-
-  background:#173121;
-}
-
-.slider::before{
-  content:"";
-
-  position:absolute;
-
-  left:3px;
-  top:3px;
-
-  width:21px;
-  height:21px;
-
-  border-radius:50%;
-
-  background:white;
-
-  transition:.2s;
-}
-
-.switch input:checked + .slider{
-  background:var(--green);
-}
-
-.switch input:checked + .slider::before{
-  transform:translateX(20px);
-  background:#04200d;
 }
 
 
@@ -594,9 +499,7 @@ main{
 
   gap:10px;
 
-  margin:
-    18px 0
-    12px;
+  margin:18px 0 12px;
 }
 
 .eyebrow{
@@ -682,13 +585,11 @@ main{
 .game-right{
   display:flex;
   align-items:center;
-
   gap:6px;
 }
 
 .status{
-  padding:
-    6px 9px;
+  padding:6px 9px;
 
   border-radius:999px;
 
@@ -745,8 +646,7 @@ main{
 
   align-items:center;
 
-  margin:
-    19px 0;
+  margin:19px 0;
 }
 
 .team{
@@ -770,8 +670,7 @@ main{
   display:grid;
   place-items:center;
 
-  margin:
-    0 auto 8px;
+  margin:0 auto 8px;
 
   border-radius:50%;
 
@@ -788,7 +687,6 @@ main{
 .team-name{
   font-size:13px;
   font-weight:900;
-
   line-height:1.25;
 }
 
@@ -823,7 +721,8 @@ main{
   margin-bottom:10px;
 
   padding:
-    10px 11px;
+    10px
+    11px;
 
   border-radius:13px;
 
@@ -841,13 +740,6 @@ main{
     rgba(255,216,103,.08);
 
   color:#ffe89b;
-}
-
-.notice.live{
-  background:
-    rgba(255,100,100,.08);
-
-  color:#ffb5b5;
 }
 
 .notice.waiting{
@@ -883,9 +775,7 @@ main{
   padding:
     11px 8px;
 
-  border:
-    1px solid
-    var(--line);
+  border:1px solid var(--line);
 
   border-radius:13px;
 
@@ -901,33 +791,25 @@ main{
 
 .action.primary{
   background:var(--green);
-
   border-color:var(--green);
-
   color:#04200d;
 }
 
 .action.highlight{
   background:#27210e;
-
   border-color:#6a591f;
-
   color:#ffe68e;
 }
 
 .action.details{
   background:#102033;
-
   border-color:#284a69;
-
   color:#b9d9ff;
 }
 
 .action.premiere{
   background:#2a173a;
-
   border-color:#6f3c90;
-
   color:#e5c1ff;
 }
 
@@ -973,7 +855,8 @@ table{
 th,
 td{
   padding:
-    11px 9px;
+    11px
+    9px;
 
   border-bottom:
     1px solid
@@ -990,14 +873,15 @@ th{
 
 .team-cell{
   min-width:190px;
+
   text-align:left;
+
   font-weight:850;
 }
 
 .table-team{
   display:flex;
   align-items:center;
-
   gap:8px;
 }
 
@@ -1072,8 +956,7 @@ th{
 .media-badge{
   align-self:flex-start;
 
-  padding:
-    5px 8px;
+  padding:5px 8px;
 
   margin-bottom:8px;
 
@@ -1097,6 +980,7 @@ th{
 
 .media-card h4{
   margin:0 0 6px;
+
   font-size:15px;
 }
 
@@ -1130,6 +1014,7 @@ th{
 
 .media-open span:last-child{
   color:var(--green);
+
   font-size:17px;
 }
 
@@ -1139,7 +1024,8 @@ th{
 .loading,
 .empty{
   padding:
-    35px 18px;
+    35px
+    18px;
 
   text-align:center;
 
@@ -1170,7 +1056,8 @@ th{
     repeat(5,1fr);
 
   padding:
-    7px 4px
+    7px
+    4px
     calc(
       7px +
       env(safe-area-inset-bottom)
@@ -1245,7 +1132,7 @@ th{
     </div>
 
     <h1>
-      Futebol Livre
+      Stanley Sports
     </h1>
 
   </div>
@@ -1275,7 +1162,7 @@ th{
 
       <span class="hero-dot"></span>
 
-      SUA CENTRAL ESPORTIVA
+      STANLEY SPORTS
 
     </div>
 
@@ -1565,8 +1452,10 @@ th{
 
 </div>
 
-
-<div class="media-grid" id="tvGrid"></div>
+<div
+  class="media-grid"
+  id="tvGrid"
+></div>
 
 </section>
 
@@ -1591,7 +1480,6 @@ th{
   </div>
 
 </div>
-
 
 <div
   class="media-grid"
@@ -1689,10 +1577,6 @@ th{
 
 <script>
 
-/* ==================================================
-   LIGAS
-================================================== */
-
 const leagues = [
 
   {
@@ -1747,17 +1631,15 @@ const leagues = [
 
 
 const priorityTeams = [
+
   "cruzeiro",
   "atletico mineiro",
   "atlético mineiro",
   "atletico-mg",
   "atlético-mg"
+
 ];
 
-
-/* ==================================================
-   TV
-================================================== */
 
 const tvChannels = [
 
@@ -1913,10 +1795,6 @@ const entertainment = [
 ];
 
 
-/* ==================================================
-   ESTADO
-================================================== */
-
 let allGames = [];
 
 let gameFilter = "all";
@@ -1926,7 +1804,7 @@ let searchText = "";
 let favorites =
   JSON.parse(
     localStorage.getItem(
-      "flFavorites"
+      "stanleySportsFavorites"
     )
     ||
     "[]"
@@ -1949,13 +1827,7 @@ const $$ =
     ];
 
 
-/* ==================================================
-   HELPERS
-================================================== */
-
-function normalize(
-  value=""
-){
+function normalize(value=""){
 
   return(
     String(value)
@@ -1970,9 +1842,7 @@ function normalize(
 }
 
 
-function dateKey(
-  offsetDays=0
-){
+function dateKey(offsetDays=0){
 
   const d =
     new Date();
@@ -2005,14 +1875,10 @@ function dateKey(
 }
 
 
-function formatTime(
-  iso
-){
+function formatTime(iso){
 
   const d =
-    new Date(
-      iso
-    );
+    new Date(iso);
 
   return(
     d.toLocaleTimeString(
@@ -2027,14 +1893,10 @@ function formatTime(
 }
 
 
-function formatDayLabel(
-  iso
-){
+function formatDayLabel(iso){
 
   const d =
-    new Date(
-      iso
-    );
+    new Date(iso);
 
   const today =
     new Date();
@@ -2078,9 +1940,7 @@ function formatDayLabel(
 }
 
 
-function isLive(
-  game
-){
+function isLive(game){
 
   return(
     [
@@ -2100,9 +1960,7 @@ function isLive(
 }
 
 
-function isFinished(
-  game
-){
+function isFinished(game){
 
   return(
     String(
@@ -2120,26 +1978,7 @@ function isFinished(
 }
 
 
-function isScheduled(
-  game
-){
-
-  return(
-    !isLive(game)
-    &&
-    !isFinished(game)
-  );
-
-}
-
-
-/* ==================================================
-   15 MINUTOS
-================================================== */
-
-function minutesUntilKickoff(
-  game
-){
+function minutesUntilKickoff(game){
 
   const kickoff =
     new Date(
@@ -2163,9 +2002,7 @@ function minutesUntilKickoff(
 }
 
 
-function shouldShowBroadcasters(
-  game
-){
+function shouldShowBroadcasters(game){
 
   if(
     isFinished(game)
@@ -2196,13 +2033,7 @@ function shouldShowBroadcasters(
 }
 
 
-/* ==================================================
-   MANTER ENCERRADO POR 24H
-================================================== */
-
-function keepFinishedFor24Hours(
-  game
-){
+function keepFinishedFor24Hours(game){
 
   if(
     !isFinished(game)
@@ -2217,11 +2048,6 @@ function keepFinishedFor24Hours(
     )
     .getTime();
 
-
-  /*
-    Estimativa:
-    duração máxima aproximada do evento = 3 horas.
-  */
 
   const estimatedEnd =
     kickoff
@@ -2260,9 +2086,7 @@ function keepFinishedFor24Hours(
 }
 
 
-function isFavorite(
-  game
-){
+function isFavorite(game){
 
   return(
     favorites.includes(
@@ -2273,9 +2097,7 @@ function isFavorite(
 }
 
 
-function isPriority(
-  game
-){
+function isPriority(game){
 
   const text =
     normalize(
@@ -2294,10 +2116,6 @@ function isPriority(
 
 }
 
-
-/* ==================================================
-   ESPN
-================================================== */
 
 function parseGame(
   event,
@@ -2448,9 +2266,7 @@ async function fetchLeagueByDate(
 }
 
 
-async function fetchLeague(
-  league
-){
+async function fetchLeague(league){
 
   const yesterday =
     await fetchLeagueByDate(
@@ -2526,10 +2342,6 @@ async function refreshGames(){
     );
 
 
-  /*
-    Remove partidas encerradas há mais de 24h
-  */
-
   allGames =
     allGames.filter(
       keepFinishedFor24Hours
@@ -2546,13 +2358,7 @@ async function refreshGames(){
 }
 
 
-/* ==================================================
-   LINKS
-================================================== */
-
-function youtubeSearch(
-  query
-){
+function youtubeSearch(query){
 
   return(
     "https://www.youtube.com/results?search_query="
@@ -2565,9 +2371,7 @@ function youtubeSearch(
 }
 
 
-function googleSearch(
-  query
-){
+function googleSearch(query){
 
   return(
     "https://www.google.com/search?q="
@@ -2580,13 +2384,7 @@ function googleSearch(
 }
 
 
-/* ==================================================
-   FAVORITOS
-================================================== */
-
-function toggleFavorite(
-  id
-){
+function toggleFavorite(id){
 
   id =
     String(id);
@@ -2610,7 +2408,7 @@ function toggleFavorite(
 
 
   localStorage.setItem(
-    "flFavorites",
+    "stanleySportsFavorites",
     JSON.stringify(
       favorites
     )
@@ -2621,10 +2419,6 @@ function toggleFavorite(
 
 }
 
-
-/* ==================================================
-   LOGOS
-================================================== */
 
 function teamLogo(
   logo,
@@ -2668,13 +2462,7 @@ function teamLogo(
 }
 
 
-/* ==================================================
-   CARD
-================================================== */
-
-function gameCard(
-  game
-){
+function gameCard(game){
 
   const live =
     isLive(game);
@@ -2777,8 +2565,6 @@ function gameCard(
   let buttons = "";
 
 
-/* ENCERRADO */
-
   if(
     ended
   ){
@@ -2827,8 +2613,6 @@ function gameCard(
 
   }
 
-
-/* A MAIS DE 15 MIN */
 
   else if(
     !showBroadcasters
@@ -2890,8 +2674,6 @@ function gameCard(
 
   }
 
-
-/* 15 MIN ANTES OU AO VIVO */
 
   else{
 
@@ -3127,10 +2909,6 @@ function gameCard(
 }
 
 
-/* ==================================================
-   FILTROS
-================================================== */
-
 function filteredGames(){
 
   let list =
@@ -3258,11 +3036,6 @@ function filteredGames(){
       }
 
 
-      /*
-        Jogos futuros em ordem crescente.
-        Encerrados mais recentes primeiro.
-      */
-
       if(
         isFinished(a)
         &&
@@ -3309,10 +3082,6 @@ function filteredGames(){
 
 }
 
-
-/* ==================================================
-   RENDER
-================================================== */
 
 function renderGames(){
 
@@ -3401,10 +3170,6 @@ function renderGames(){
 
 }
 
-
-/* ==================================================
-   TABELA
-================================================== */
 
 function statValue(
   stats,
@@ -3628,13 +3393,7 @@ async function loadStandings(){
 }
 
 
-/* ==================================================
-   TV
-================================================== */
-
-function networkLogo(
-  domain
-){
+function networkLogo(domain){
 
   return(
     `https://www.google.com/s2/favicons?domain_url=https://${domain}&sz=128`
@@ -3707,10 +3466,6 @@ function renderTv(){
 }
 
 
-/* ==================================================
-   FILMES
-================================================== */
-
 function renderMovies(){
 
   $("#movieGrid")
@@ -3771,13 +3526,7 @@ function renderMovies(){
 }
 
 
-/* ==================================================
-   NAV
-================================================== */
-
-function openView(
-  name
-){
+function openView(name){
 
   $$(".view")
   .forEach(
@@ -3829,10 +3578,6 @@ function openView(
 
 }
 
-
-/* ==================================================
-   EVENTOS
-================================================== */
 
 $$(".nav-btn")
 .forEach(
@@ -3918,20 +3663,11 @@ $("#refreshBtn")
 );
 
 
-/*
-  Atualiza também os botões conforme
-  o relógio se aproxima dos 15 minutos.
-*/
-
 setInterval(
   renderGames,
   30000
 );
 
-
-/*
-  Atualiza dados ESPN a cada 60 segundos.
-*/
 
 setInterval(
   refreshGames,
@@ -3939,20 +3675,12 @@ setInterval(
 );
 
 
-/* ==================================================
-   START
-================================================== */
-
 renderTv();
 
 renderMovies();
 
 refreshGames();
 
-</script>
-
-
-<script>
 
 if(
   "serviceWorker"
