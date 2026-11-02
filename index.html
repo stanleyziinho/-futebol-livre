@@ -1,6 +1,8 @@
 <!doctype html>
 <html lang="pt-BR">
+
 <head>
+
 <meta charset="utf-8">
 
 <meta
@@ -8,38 +10,68 @@
   content="width=device-width,initial-scale=1,viewport-fit=cover"
 >
 
-<meta name="theme-color" content="#031008">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Stanley Sports">
+<meta
+  name="theme-color"
+  content="#031008"
+>
 
-<link rel="manifest" href="manifest.json">
-<link rel="icon" href="stanley-sports-icon-192.png">
-<link rel="apple-touch-icon" href="stanley-sports-apple-180.png">
+<meta
+  name="apple-mobile-web-app-capable"
+  content="yes"
+>
 
-<title>Stanley Sports</title>
+<meta
+  name="apple-mobile-web-app-status-bar-style"
+  content="black-translucent"
+>
+
+<meta
+  name="apple-mobile-web-app-title"
+  content="Stanley Sports"
+>
+
+<link
+  rel="manifest"
+  href="manifest.json"
+>
+
+<link
+  rel="icon"
+  href="stanley-sports-icon-192.png"
+>
+
+<link
+  rel="apple-touch-icon"
+  href="stanley-sports-apple-180.png"
+>
+
+<title>
+  Stanley Sports
+</title>
 
 <style>
+
 :root{
   --bg:#031008;
-  --bg-soft:#05150b;
-  --card:#0a1d12;
-  --card-2:#0f2919;
-  --card-3:#153420;
-  --border:#1d5031;
+  --bg2:#04150a;
+  --card:#0b2114;
+  --card2:#102b1b;
+  --card3:#173823;
+  --border:#1d5934;
 
-  --green:#38e47d;
-  --green-soft:#86f5ae;
+  --green:#37e67d;
+  --green2:#78f0a4;
 
-  --gold:#ffd45a;
-  --orange:#ffad5b;
-  --red:#ff7d7d;
-  --blue:#9aceff;
+  --gold:#ffd257;
+  --blue:#9ed0ff;
+  --red:#ff8f94;
 
-  --text:#f5fff8;
-  --muted:#8da696;
+  --text:#f4fff7;
+  --muted:#8fa697;
 
-  --shadow:0 18px 60px rgba(0,0,0,.28);
+  --shadow:
+    0 18px 60px
+    rgba(0,0,0,.32);
 }
 
 *{
@@ -53,8 +85,16 @@ html{
 
 body{
   margin:0;
+
   min-height:100vh;
-  background:linear-gradient(180deg,#031008,#04130a);
+
+  background:
+    linear-gradient(
+      180deg,
+      var(--bg),
+      #04140a
+    );
+
   color:var(--text);
 
   font-family:
@@ -65,13 +105,16 @@ body{
     Arial,
     sans-serif;
 
-  padding-bottom:calc(92px + env(safe-area-inset-bottom));
+  padding-bottom:
+    calc(
+      92px +
+      env(safe-area-inset-bottom)
+    );
 }
 
 button,
 input,
-select,
-a{
+select{
   font:inherit;
 }
 
@@ -81,11 +124,13 @@ button{
 
 a{
   color:inherit;
+  text-decoration:none;
 }
 
 main{
-  width:min(860px,100%);
+  width:min(900px,100%);
   margin:auto;
+
   padding:16px;
 }
 
@@ -97,57 +142,72 @@ main{
   display:block;
 }
 
-/* ==============================
-   HEADER
-============================== */
+/* HEADER */
 
 .app-header{
   position:sticky;
   top:0;
+
   z-index:1000;
 
   display:flex;
-  align-items:center;
   justify-content:space-between;
+  align-items:center;
 
   padding:
-    calc(10px + env(safe-area-inset-top))
+    calc(
+      10px +
+      env(safe-area-inset-top)
+    )
     16px
     10px;
 
-  background:rgba(3,16,8,.96);
+  background:
+    rgba(3,16,8,.96);
 
-  backdrop-filter:blur(24px);
-  -webkit-backdrop-filter:blur(24px);
+  backdrop-filter:
+    blur(22px);
 
-  border-bottom:1px solid rgba(255,255,255,.05);
+  -webkit-backdrop-filter:
+    blur(22px);
+
+  border-bottom:
+    1px solid
+    rgba(255,255,255,.05);
 }
 
 .header-brand{
   display:flex;
   align-items:center;
-  gap:11px;
+
+  gap:10px;
 }
 
 .header-logo{
   width:52px;
   height:52px;
-  border-radius:15px;
 
   object-fit:cover;
 
-  border:1px solid rgba(56,228,125,.30);
+  border-radius:15px;
+
+  border:
+    1px solid
+    rgba(55,230,125,.3);
 }
 
 .brand-small{
   color:var(--green);
+
   font-size:8px;
   font-weight:950;
-  letter-spacing:1.6px;
+
+  letter-spacing:1.5px;
 }
 
 .app-header h1{
   margin:3px 0 0;
+
   font-size:22px;
 }
 
@@ -159,30 +219,35 @@ main{
   place-items:center;
 
   border-radius:50%;
-  border:1px solid var(--border);
+
+  border:
+    1px solid
+    var(--border);
 
   background:var(--card);
+
   color:#fff;
 
   font-size:21px;
 }
 
-/* ==============================
-   HERO
-============================== */
+
+/* HERO */
 
 .hero{
   position:relative;
-  overflow:hidden;
 
   min-height:380px;
 
-  margin-bottom:17px;
+  overflow:hidden;
+
+  margin-bottom:18px;
 
   border-radius:30px;
-  border:1px solid rgba(56,228,125,.28);
 
-  background:#07160e;
+  border:
+    1px solid
+    rgba(55,230,125,.25);
 
   box-shadow:var(--shadow);
 }
@@ -191,12 +256,15 @@ main{
   position:absolute;
   inset:0;
 
-  background-image:url(
-    "https://f.rpp-noticias.io/2023/01/19/022602_1377161.jpg?imgdimension=n_xlarge"
-  );
+  background-image:
+    url(
+      "https://f.rpp-noticias.io/2023/01/19/022602_1377161.jpg?imgdimension=n_xlarge"
+    );
 
   background-size:cover;
-  background-position:center 38%;
+
+  background-position:
+    center 38%;
 }
 
 .hero-shade{
@@ -219,37 +287,46 @@ main{
 
 .hero-content{
   position:relative;
-  z-index:3;
 
-  max-width:540px;
+  z-index:2;
 
-  padding:27px 23px;
+  max-width:560px;
+
+  padding:
+    27px 23px;
 }
 
-.hero-mini-logo{
+.hero-logo{
   width:76px;
   height:76px;
 
-  border-radius:20px;
   object-fit:cover;
+
+  border-radius:20px;
 }
 
 .hero-label{
   display:inline-flex;
   align-items:center;
-  gap:8px;
+
+  gap:7px;
 
   margin-top:15px;
 
-  padding:8px 11px;
+  padding:
+    8px 11px;
 
   border-radius:999px;
 
-  background:rgba(0,0,0,.42);
+  border:
+    1px solid
+    rgba(55,230,125,.24);
 
-  border:1px solid rgba(56,228,125,.25);
+  background:
+    rgba(0,0,0,.4);
 
   font-size:10px;
+
   font-weight:950;
 }
 
@@ -261,30 +338,44 @@ main{
 
   background:var(--green);
 
-  box-shadow:0 0 12px var(--green);
+  box-shadow:
+    0 0 13px
+    var(--green);
 }
 
 .hero h2{
-  margin:18px 0 12px;
+  margin:
+    18px
+    0
+    12px;
 
-  font-size:clamp(37px,10vw,56px);
-  line-height:.95;
+  font-size:
+    clamp(
+      37px,
+      10vw,
+      56px
+    );
+
+  line-height:.96;
+
   letter-spacing:-2px;
 }
 
 .hero p{
   margin:0;
 
-  color:#d3e5d9;
+  color:#d2e6d8;
 
   font-size:13px;
+
   line-height:1.55;
 }
 
 .hero-actions{
   display:flex;
-  gap:9px;
   flex-wrap:wrap;
+
+  gap:9px;
 
   margin-top:22px;
 }
@@ -292,111 +383,51 @@ main{
 .hero-btn{
   min-height:45px;
 
-  padding:0 16px;
+  padding:
+    0 16px;
 
   border-radius:14px;
 
-  border:1px solid rgba(255,255,255,.14);
+  border:
+    1px solid
+    rgba(255,255,255,.12);
 
-  background:rgba(0,0,0,.48);
+  background:
+    rgba(0,0,0,.45);
 
   color:#fff;
 
   font-size:11px;
+
   font-weight:950;
 }
 
 .hero-btn.primary{
   background:var(--green);
+
   color:#03210d;
-  border-color:var(--green);
+
+  border-color:
+    var(--green);
 }
 
 .hero-btn.gold{
   color:var(--gold);
 
-  border-color:rgba(255,212,90,.45);
+  border-color:
+    rgba(255,210,87,.4);
 
-  background:rgba(255,212,90,.10);
+  background:
+    rgba(255,210,87,.09);
 }
 
-/* ==============================
-   COMMON
-============================== */
 
-.section-title-row,
-.section-head{
-  display:flex;
-  justify-content:space-between;
-  align-items:flex-end;
-
-  gap:10px;
-
-  margin:18px 0 12px;
-}
-
-.section-title-row small,
-.eyebrow{
-  display:block;
-
-  margin-bottom:4px;
-
-  color:var(--green);
-
-  font-size:9px;
-  font-weight:950;
-  letter-spacing:1.5px;
-}
-
-.section-title-row h3,
-.section-head h3{
-  margin:0;
-  font-size:23px;
-}
-
-.section-title-row>span{
-  color:var(--muted);
-  font-size:9px;
-}
-
-.loading,
-.empty{
-  padding:35px 18px;
-
-  border-radius:20px;
-
-  border:1px dashed var(--border);
-
-  color:var(--muted);
-
-  text-align:center;
-
-  line-height:1.5;
-}
-
-.counter{
-  min-width:38px;
-  height:38px;
-
-  display:grid;
-  place-items:center;
-
-  border-radius:999px;
-
-  background:var(--card-2);
-
-  color:var(--green);
-
-  font-weight:950;
-}
-
-/* ==============================
-   PREMIUM HOME
-============================== */
+/* PREMIUM BANNER */
 
 .premium-home{
   display:flex;
   align-items:center;
+
   gap:12px;
 
   padding:16px;
@@ -405,18 +436,20 @@ main{
 
   border-radius:22px;
 
-  border:1px solid rgba(255,212,90,.30);
+  border:
+    1px solid
+    rgba(255,210,87,.3);
 
   background:
     linear-gradient(
       135deg,
-      rgba(255,212,90,.10),
-      rgba(56,228,125,.04)
+      rgba(255,210,87,.1),
+      rgba(55,230,125,.04)
     );
 }
 
 .premium-home-icon{
-  font-size:33px;
+  font-size:32px;
 }
 
 .premium-home-text{
@@ -429,6 +462,7 @@ main{
   color:var(--gold);
 
   font-size:8px;
+
   font-weight:950;
 }
 
@@ -451,9 +485,11 @@ main{
 }
 
 .premium-home-btn{
-  padding:10px 12px;
+  padding:
+    10px 12px;
 
   border:0;
+
   border-radius:12px;
 
   background:var(--gold);
@@ -461,102 +497,78 @@ main{
   color:#2b2200;
 
   font-size:9px;
+
   font-weight:950;
 }
 
-/* ==============================
-   SHORTCUTS
-============================== */
 
-.sports-shortcuts{
+/* TITLES */
+
+.section-head{
   display:flex;
+
+  justify-content:space-between;
+  align-items:flex-end;
 
   gap:10px;
 
-  overflow-x:auto;
-
-  padding-bottom:8px;
-
-  scrollbar-width:none;
+  margin:
+    19px 0
+    12px;
 }
 
-.sports-shortcuts::-webkit-scrollbar{
-  display:none;
-}
+.eyebrow{
+  display:block;
 
-.sport-shortcut{
-  flex:0 0 146px;
-
-  min-height:138px;
-
-  display:flex;
-  flex-direction:column;
-  justify-content:space-between;
-
-  padding:14px;
-
-  border-radius:20px;
-
-  border:1px solid var(--border);
-
-  background:
-    linear-gradient(
-      145deg,
-      #10291a,
-      #08160e
-    );
-
-  text-decoration:none;
-}
-
-.sport-shortcut-icon{
-  width:44px;
-  height:44px;
-
-  display:grid;
-  place-items:center;
-
-  border-radius:14px;
-
-  background:rgba(56,228,125,.10);
-
-  font-size:23px;
-}
-
-.sport-shortcut h4{
-  margin:12px 0 5px;
-  font-size:13px;
-}
-
-.sport-shortcut p{
-  margin:0;
-
-  color:var(--muted);
-
-  font-size:9px;
-  line-height:1.35;
-}
-
-.sport-shortcut-open{
-  margin-top:10px;
+  margin-bottom:4px;
 
   color:var(--green);
 
   font-size:9px;
-  font-weight:900;
+
+  font-weight:950;
+
+  letter-spacing:1.4px;
 }
 
-/* ==============================
-   STATS
-============================== */
+.section-head h3{
+  margin:0;
+
+  font-size:24px;
+}
+
+.counter{
+  min-width:39px;
+  height:39px;
+
+  display:grid;
+
+  place-items:center;
+
+  border-radius:999px;
+
+  background:var(--card2);
+
+  color:var(--green);
+
+  font-weight:950;
+}
+
+
+/* STATS */
 
 .stats{
   display:grid;
-  grid-template-columns:repeat(2,1fr);
+
+  grid-template-columns:
+    repeat(
+      2,
+      1fr
+    );
 
   gap:9px;
 
-  margin:17px 0 13px;
+  margin-bottom:14px;
 }
 
 .stat{
@@ -564,7 +576,9 @@ main{
 
   border-radius:19px;
 
-  border:1px solid var(--border);
+  border:
+    1px solid
+    var(--border);
 
   background:var(--card);
 }
@@ -577,6 +591,7 @@ main{
   color:var(--muted);
 
   font-size:9px;
+
   font-weight:950;
 }
 
@@ -596,9 +611,8 @@ main{
   color:var(--gold);
 }
 
-/* ==============================
-   SEARCH + CHIPS
-============================== */
+
+/* SEARCH */
 
 .search{
   position:relative;
@@ -612,17 +626,24 @@ main{
   left:14px;
   top:50%;
 
-  transform:translateY(-50%);
+  transform:
+    translateY(-50%);
 }
 
 .search input{
   width:100%;
 
-  padding:14px 15px 14px 44px;
+  padding:
+    14px
+    15px
+    14px
+    44px;
 
   border-radius:17px;
 
-  border:1px solid var(--border);
+  border:
+    1px solid
+    var(--border);
 
   outline:none;
 
@@ -631,6 +652,9 @@ main{
   color:#fff;
 }
 
+
+/* CHIPS */
+
 .chips{
   display:flex;
 
@@ -638,7 +662,7 @@ main{
 
   overflow-x:auto;
 
-  padding-bottom:13px;
+  padding-bottom:12px;
 
   scrollbar-width:none;
 }
@@ -650,17 +674,22 @@ main{
 .chip{
   flex:0 0 auto;
 
-  padding:10px 14px;
+  padding:
+    10px
+    14px;
 
   border-radius:999px;
 
-  border:1px solid var(--border);
+  border:
+    1px solid
+    var(--border);
 
   background:var(--card);
 
   color:var(--muted);
 
   font-size:11px;
+
   font-weight:900;
 }
 
@@ -669,15 +698,37 @@ main{
 
   color:#03200c;
 
-  border-color:var(--green);
+  border-color:
+    var(--green);
 }
 
-/* ==============================
-   GAME CARD
-============================== */
+
+/* LOADING */
+
+.loading,
+.empty{
+  padding:
+    34px 18px;
+
+  border-radius:20px;
+
+  border:
+    1px dashed
+    var(--border);
+
+  color:var(--muted);
+
+  text-align:center;
+
+  line-height:1.5;
+}
+
+
+/* GAMES */
 
 .games{
   display:grid;
+
   gap:12px;
 }
 
@@ -686,7 +737,9 @@ main{
 
   border-radius:24px;
 
-  border:1px solid var(--border);
+  border:
+    1px solid
+    var(--border);
 
   background:
     linear-gradient(
@@ -694,33 +747,22 @@ main{
       #0d2416,
       #08170e
     );
+
+  box-shadow:
+    0 10px 30px
+    rgba(0,0,0,.12);
 }
 
 .game.heart-team{
-  border-color:rgba(255,212,90,.55);
-}
-
-.heart-label{
-  display:inline-block;
-
-  margin-bottom:10px;
-
-  padding:6px 8px;
-
-  border-radius:999px;
-
-  background:rgba(255,212,90,.10);
-
-  color:var(--gold);
-
-  font-size:8px;
-  font-weight:950;
+  border-color:
+    rgba(255,210,87,.5);
 }
 
 .game-head{
   display:flex;
-  align-items:center;
+
   justify-content:space-between;
+  align-items:center;
 
   gap:8px;
 }
@@ -729,54 +771,86 @@ main{
   color:var(--muted);
 
   font-size:10px;
+
   font-weight:950;
 }
 
 .game-right{
   display:flex;
+
   align-items:center;
-  gap:6px;
+
+  gap:7px;
 }
 
 .status{
-  padding:6px 9px;
+  padding:
+    6px 9px;
 
   border-radius:999px;
 
-  background:rgba(255,255,255,.055);
+  background:
+    rgba(255,255,255,.055);
 
   color:#a9b9ae;
 
   font-size:9px;
+
   font-weight:950;
 }
 
 .status.live{
-  background:rgba(255,100,100,.12);
+  background:
+    rgba(255,100,100,.12);
+
   color:#ffaaaa;
 }
 
 .status.scheduled{
-  background:rgba(148,202,255,.09);
-  color:#b8dcff;
+  background:
+    rgba(158,208,255,.09);
+
+  color:#bddcff;
 }
 
 .star{
-  width:32px;
-  height:32px;
+  width:34px;
+  height:34px;
 
   border:0;
+
   border-radius:50%;
 
-  background:rgba(255,255,255,.055);
+  background:
+    rgba(255,255,255,.055);
 
-  color:#72877a;
+  color:#718478;
 
-  font-size:18px;
+  font-size:19px;
 }
 
 .star.active{
   color:var(--gold);
+}
+
+.heart-label{
+  display:inline-block;
+
+  margin-bottom:10px;
+
+  padding:
+    6px 8px;
+
+  border-radius:999px;
+
+  background:
+    rgba(255,210,87,.1);
+
+  color:var(--gold);
+
+  font-size:8px;
+
+  font-weight:950;
 }
 
 .match{
@@ -791,7 +865,8 @@ main{
 
   align-items:center;
 
-  margin:19px 0;
+  margin:
+    19px 0;
 }
 
 .team{
@@ -799,49 +874,56 @@ main{
 }
 
 .team-logo-wrap{
-  width:58px;
-  height:58px;
+  width:60px;
+  height:60px;
 
   display:grid;
+
   place-items:center;
 
-  margin:0 auto 8px;
+  margin:
+    0 auto
+    8px;
 }
 
 .team-logo{
-  max-width:54px;
-  max-height:54px;
+  max-width:57px;
+  max-height:57px;
 
   object-fit:contain;
 }
 
 .team-logo-fallback{
-  width:52px;
-  height:52px;
+  width:54px;
+  height:54px;
 
   display:grid;
+
   place-items:center;
 
   border-radius:50%;
 
-  border:1px solid var(--border);
+  border:
+    1px solid
+    var(--border);
 
-  background:var(--card-2);
+  background:var(--card2);
 
   color:var(--green);
 
-  font-size:12px;
   font-weight:950;
 }
 
 .team-name{
   font-size:13px;
+
   font-weight:900;
+
   line-height:1.25;
 }
 
 .score-box{
-  min-width:77px;
+  min-width:80px;
 
   text-align:center;
 }
@@ -849,14 +931,16 @@ main{
 .score{
   color:var(--green);
 
-  font-size:29px;
+  font-size:30px;
+
   font-weight:950;
 }
 
-.kickoff-label{
+.kickoff{
   color:var(--blue);
 
-  font-size:11px;
+  font-size:12px;
+
   font-weight:900;
 }
 
@@ -868,168 +952,231 @@ main{
   font-size:10px;
 }
 
-.notice{
+
+/* GE BOX */
+
+.ge-loading{
   margin-bottom:10px;
 
-  padding:10px 11px;
-
-  border-radius:13px;
-
-  background:rgba(255,255,255,.045);
-
-  color:var(--muted);
-
-  font-size:10px;
-  font-weight:850;
-  line-height:1.45;
-}
-
-.notice.finished{
-  background:rgba(255,212,90,.07);
-  color:#ffe798;
-}
-
-.notice.waiting{
-  background:rgba(148,202,255,.07);
-  color:#c0ddff;
-}
-
-.notice.ready{
-  background:rgba(56,228,125,.08);
-  color:#b7ffcf;
-}
-
-.broadcast-box{
-  margin-bottom:10px;
-
-  padding:12px;
+  padding:
+    11px 12px;
 
   border-radius:15px;
 
-  background:#0c2114;
+  background:
+    rgba(158,208,255,.07);
 
-  border:1px solid rgba(56,228,125,.15);
+  color:#c4e1ff;
+
+  font-size:10px;
+
+  font-weight:850;
 }
 
-.broadcast-title{
-  margin-bottom:8px;
+.ge-info-box{
+  margin-bottom:11px;
 
+  padding:13px;
+
+  border-radius:17px;
+
+  border:
+    1px solid
+    rgba(55,230,125,.22);
+
+  background:
+    linear-gradient(
+      145deg,
+      #102d1b,
+      #0a2013
+    );
+}
+
+.ge-info-title{
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  gap:8px;
+
+  margin-bottom:9px;
+}
+
+.ge-info-title strong{
   color:var(--green);
 
-  font-size:9px;
-  font-weight:950;
+  font-size:10px;
 }
 
-.broadcast-list{
+.ge-source{
+  color:var(--muted);
+
+  font-size:8px;
+}
+
+.channel-list{
   display:flex;
+
   flex-wrap:wrap;
 
   gap:6px;
 }
 
-.broadcast-chip{
-  padding:7px 9px;
+.channel{
+  padding:
+    7px 9px;
 
   border-radius:999px;
 
-  background:rgba(255,255,255,.055);
+  background:
+    rgba(255,255,255,.055);
 
-  color:#dce9e0;
+  color:#e7f2ea;
 
   font-size:9px;
-  font-weight:850;
+
+  font-weight:900;
 }
 
-.broadcast-chip.verified{
-  border:1px solid rgba(56,228,125,.25);
+.channel.free{
+  color:var(--green);
+
+  border:
+    1px solid
+    rgba(55,230,125,.28);
 }
+
+.ge-extra-row{
+  display:flex;
+
+  flex-wrap:wrap;
+
+  gap:7px;
+
+  margin-top:10px;
+}
+
+.ge-extra{
+  padding:
+    7px 9px;
+
+  border-radius:10px;
+
+  background:
+    rgba(255,255,255,.04);
+
+  color:#c9dad0;
+
+  font-size:8px;
+}
+
+
+/* BUTTONS */
 
 .game-buttons{
   display:grid;
-  grid-template-columns:repeat(2,1fr);
+
+  grid-template-columns:
+    repeat(
+      2,
+      1fr
+    );
 
   gap:7px;
 
   padding-top:11px;
 
-  border-top:1px solid rgba(255,255,255,.05);
+  border-top:
+    1px solid
+    rgba(255,255,255,.05);
 }
 
 .action{
-  min-height:43px;
+  min-height:44px;
 
   display:flex;
+
   align-items:center;
   justify-content:center;
 
-  padding:10px 8px;
+  padding:
+    10px 8px;
 
   border-radius:13px;
 
-  border:1px solid var(--border);
+  border:
+    1px solid
+    var(--border);
 
-  background:var(--card-2);
+  background:var(--card2);
 
   color:#fff;
 
   text-align:center;
-  text-decoration:none;
 
   font-size:10px;
+
   font-weight:900;
 }
 
 .action.primary{
   background:var(--green);
+
   color:#03200c;
-}
-
-.action.highlight{
-  background:#28210d;
-  color:#ffe58d;
-}
-
-.action.details{
-  background:#102033;
-  color:#b9d9ff;
 }
 
 .action.analysis{
   background:
     linear-gradient(
       135deg,
-      #332a0b,
-      #181607
+      #342b0b,
+      #171407
     );
 
   color:var(--gold);
 
-  border-color:rgba(255,212,90,.45);
+  border-color:
+    rgba(255,210,87,.4);
 }
 
-/* ==============================
-   TABLE
-============================== */
+.action.ge{
+  background:#11281b;
 
-.league-select,
-.premium-select{
+  color:#a8ffca;
+}
+
+.action.free{
+  background:
+    linear-gradient(
+      135deg,
+      #17b95b,
+      #37e67d
+    );
+
+  color:#03200c;
+}
+
+
+/* TABLE */
+
+.league-select{
   width:100%;
+
+  margin-bottom:12px;
 
   padding:13px;
 
   border-radius:15px;
 
-  border:1px solid var(--border);
-
-  outline:none;
+  border:
+    1px solid
+    var(--border);
 
   background:var(--card);
 
   color:#fff;
-}
-
-.league-select{
-  margin-bottom:12px;
 }
 
 .table-wrap{
@@ -1037,7 +1184,9 @@ main{
 
   border-radius:20px;
 
-  border:1px solid var(--border);
+  border:
+    1px solid
+    var(--border);
 }
 
 table{
@@ -1052,13 +1201,16 @@ table{
 
 th,
 td{
-  padding:11px 9px;
+  padding:
+    11px 9px;
+
+  border-bottom:
+    1px solid
+    rgba(255,255,255,.045);
 
   text-align:center;
 
   font-size:10px;
-
-  border-bottom:1px solid rgba(255,255,255,.045);
 }
 
 th{
@@ -1071,6 +1223,7 @@ th{
 
 .table-team{
   display:flex;
+
   align-items:center;
 
   gap:8px;
@@ -1083,28 +1236,35 @@ th{
   object-fit:contain;
 }
 
-/* ==============================
-   MEDIA
-============================== */
+
+/* TV */
 
 .media-grid{
   display:grid;
-  grid-template-columns:repeat(2,1fr);
+
+  grid-template-columns:
+    repeat(
+      2,
+      1fr
+    );
 
   gap:10px;
 }
 
 .media-card{
-  min-height:190px;
+  min-height:185px;
 
   display:flex;
+
   flex-direction:column;
 
   padding:16px;
 
   border-radius:22px;
 
-  border:1px solid var(--border);
+  border:
+    1px solid
+    var(--border);
 
   background:
     linear-gradient(
@@ -1112,15 +1272,14 @@ th{
       #0d2416,
       #08170e
     );
-
-  text-decoration:none;
 }
 
 .network-logo-wrap{
-  width:64px;
-  height:64px;
+  width:63px;
+  height:63px;
 
   display:flex;
+
   align-items:center;
   justify-content:center;
 
@@ -1141,7 +1300,7 @@ th{
 .media-icon{
   margin-bottom:10px;
 
-  font-size:29px;
+  font-size:30px;
 }
 
 .media-badge{
@@ -1149,20 +1308,25 @@ th{
 
   margin-bottom:8px;
 
-  padding:5px 8px;
+  padding:
+    5px 8px;
 
   border-radius:999px;
 
-  background:rgba(56,228,125,.10);
+  background:
+    rgba(55,230,125,.1);
 
   color:var(--green);
 
   font-size:8px;
+
   font-weight:950;
 }
 
 .media-card h4{
-  margin:0 0 6px;
+  margin:
+    0 0
+    6px;
 }
 
 .media-card p{
@@ -1173,33 +1337,40 @@ th{
   color:var(--muted);
 
   font-size:10px;
+
   line-height:1.45;
 }
 
 .media-open{
   display:flex;
+
   justify-content:space-between;
 
   margin-top:12px;
 
   padding-top:10px;
 
-  border-top:1px solid rgba(255,255,255,.05);
+  border-top:
+    1px solid
+    rgba(255,255,255,.05);
 
   font-size:9px;
+
   font-weight:900;
 }
 
-/* ==============================
-   PREMIUM PAGE
-============================== */
+
+/* PREMIUM */
 
 .premium-hero{
-  padding:26px 20px;
+  padding:
+    26px 20px;
 
   border-radius:28px;
 
-  border:1px solid rgba(255,212,90,.36);
+  border:
+    1px solid
+    rgba(255,210,87,.36);
 
   background:
     linear-gradient(
@@ -1218,20 +1389,25 @@ th{
 
   margin-top:12px;
 
-  padding:7px 10px;
+  padding:
+    7px 10px;
 
   border-radius:999px;
 
-  background:rgba(255,212,90,.12);
+  background:
+    rgba(255,210,87,.12);
 
   color:var(--gold);
 
   font-size:8px;
+
   font-weight:950;
 }
 
 .premium-hero h2{
-  margin:13px 0 8px;
+  margin:
+    13px 0
+    8px;
 
   font-size:32px;
 }
@@ -1239,70 +1415,29 @@ th{
 .premium-hero p{
   margin:0;
 
-  color:#cddbd1;
+  color:#cbdad0;
 
   font-size:12px;
+
   line-height:1.55;
-}
-
-.premium-status-card{
-  margin-top:16px;
-
-  padding:15px;
-
-  border-radius:18px;
-
-  background:rgba(0,0,0,.25);
-
-  border:1px solid rgba(255,255,255,.08);
-}
-
-.premium-status-row{
-  display:flex;
-  justify-content:space-between;
-}
-
-.premium-status-card small{
-  color:var(--muted);
-
-  font-size:8px;
-}
-
-.premium-status-card strong{
-  display:block;
-
-  margin-top:4px;
-
-  color:var(--gold);
-}
-
-.premium-price{
-  text-align:right;
-}
-
-.premium-price span{
-  display:block;
-
-  color:var(--muted);
-
-  font-size:8px;
 }
 
 .activate-premium{
   width:100%;
 
-  margin-top:15px;
+  margin-top:16px;
 
   padding:14px;
 
   border:0;
+
   border-radius:15px;
 
   background:
     linear-gradient(
       90deg,
       var(--gold),
-      #fff0a6
+      #fff0a7
     );
 
   color:#251d00;
@@ -1315,306 +1450,68 @@ th{
     linear-gradient(
       90deg,
       var(--green),
-      #86f5ae
+      #8bf4b0
     );
 
   color:#03200c;
 }
 
-.premium-note{
-  margin-top:9px;
 
-  text-align:center;
+/* MODAL */
 
-  color:var(--muted);
-
-  font-size:8px;
-}
-
-.premium-grid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-
-  gap:10px;
-
-  margin-top:15px;
-}
-
-.premium-feature{
-  min-height:150px;
-
-  padding:15px;
-
-  border-radius:21px;
-
-  border:1px solid var(--border);
-
-  background:
-    linear-gradient(
-      145deg,
-      #0d2316,
-      #08170e
-    );
-}
-
-.premium-feature-icon{
-  font-size:27px;
-}
-
-.premium-feature h4{
-  margin:8px 0 5px;
-}
-
-.premium-feature p{
-  margin:0;
-
-  color:var(--muted);
-
-  font-size:9px;
-}
-
-.feature-status{
-  display:inline-block;
-
-  margin-top:10px;
-
-  padding:5px 7px;
-
-  border-radius:999px;
-
-  background:rgba(56,228,125,.10);
-
-  color:var(--green);
-
-  font-size:7px;
-  font-weight:950;
-}
-
-.feature-status.soon{
-  color:var(--gold);
-}
-
-.premium-tool{
-  margin-top:16px;
-
-  padding:17px;
-
-  border-radius:22px;
-
-  border:1px solid var(--border);
-
-  background:var(--card);
-}
-
-.premium-tool-head{
-  display:flex;
-  justify-content:space-between;
-
-  margin-bottom:14px;
-}
-
-.premium-tool-head small{
-  color:var(--gold);
-
-  font-size:8px;
-  font-weight:950;
-}
-
-.premium-tool-head h3{
-  margin:4px 0 0;
-}
-
-.premium-tool-head p{
-  margin:5px 0 0;
-
-  color:var(--muted);
-
-  font-size:9px;
-}
-
-.tool-icon{
-  font-size:30px;
-}
-
-.save-team-btn{
-  width:100%;
-
-  margin-top:10px;
-
-  padding:12px;
-
-  border:0;
-  border-radius:13px;
-
-  background:var(--green);
-
-  color:#03200c;
-
-  font-weight:950;
-}
-
-.heart-selected{
-  display:none;
-
-  margin-top:12px;
-
-  padding:14px;
-
-  border-radius:16px;
-
-  background:rgba(255,212,90,.08);
-}
-
-.heart-selected.active{
-  display:block;
-}
-
-.heart-selected small{
-  color:var(--muted);
-
-  font-size:8px;
-}
-
-.heart-selected strong{
-  display:block;
-
-  margin-top:4px;
-
-  color:var(--gold);
-}
-
-/* ==============================
-   AGENDA
-============================== */
-
-.agenda-days{
-  display:flex;
-
-  gap:7px;
-
-  overflow-x:auto;
-}
-
-.agenda-day{
-  flex:0 0 76px;
-
-  padding:10px 7px;
-
-  border-radius:14px;
-
-  border:1px solid var(--border);
-
-  background:var(--card-2);
-
-  color:var(--muted);
-
-  text-align:center;
-}
-
-.agenda-day.active{
-  background:var(--green);
-  color:#03200c;
-}
-
-.agenda-day strong,
-.agenda-day span{
-  display:block;
-}
-
-.agenda-day span{
-  margin-top:3px;
-
-  font-size:8px;
-}
-
-.agenda-games{
-  display:grid;
-
-  gap:8px;
-}
-
-.agenda-game{
-  display:grid;
-
-  grid-template-columns:
-    1fr
-    auto
-    1fr;
-
-  gap:8px;
-
-  padding:12px;
-
-  border-radius:15px;
-
-  background:var(--card-2);
-}
-
-.agenda-team{
-  font-size:10px;
-  font-weight:850;
-}
-
-.agenda-team.right{
-  text-align:right;
-}
-
-.agenda-time{
-  color:var(--green);
-
-  font-size:10px;
-}
-
-.agenda-league{
-  grid-column:1/-1;
-
-  color:var(--muted);
-
-  font-size:8px;
-
-  text-align:center;
-}
-
-/* ==============================
-   MODAL PREMIUM V52
-============================== */
-
-.analysis-modal{
+.modal{
   position:fixed;
+
   inset:0;
 
   z-index:9999;
 
   display:none;
+
   align-items:flex-end;
 
-  background:rgba(0,0,0,.84);
+  background:
+    rgba(0,0,0,.84);
 
-  backdrop-filter:blur(12px);
-  -webkit-backdrop-filter:blur(12px);
+  backdrop-filter:
+    blur(12px);
+
+  -webkit-backdrop-filter:
+    blur(12px);
 }
 
-.analysis-modal.active{
+.modal.active{
   display:flex;
 }
 
-.analysis-sheet{
+.modal-sheet{
   width:100%;
 
-  max-height:100dvh;
+  max-height:
+    100dvh;
 
   overflow-y:auto;
 
-  overscroll-behavior:contain;
-
   padding:
-    calc(18px + env(safe-area-inset-top))
+    calc(
+      18px +
+      env(safe-area-inset-top)
+    )
     16px
-    calc(34px + env(safe-area-inset-bottom));
+    calc(
+      34px +
+      env(safe-area-inset-bottom)
+    );
 
-  border-radius:32px 32px 0 0;
+  border-radius:
+    32px
+    32px
+    0
+    0;
 
-  border-top:1px solid rgba(255,212,90,.42);
+  border-top:
+    1px solid
+    rgba(255,210,87,.42);
 
   background:
     linear-gradient(
@@ -1622,104 +1519,86 @@ th{
       #0b1c11,
       #041009
     );
-
-  box-shadow:0 -30px 90px rgba(0,0,0,.45);
 }
 
-.analysis-top{
+.modal-top{
   position:sticky;
 
-  top:calc(-18px - env(safe-area-inset-top));
+  top:
+    calc(
+      -18px -
+      env(safe-area-inset-top)
+    );
 
   z-index:30;
 
   display:flex;
-  align-items:center;
+
   justify-content:space-between;
+  align-items:center;
 
   gap:10px;
 
   margin:
-    calc(-18px - env(safe-area-inset-top))
+    calc(
+      -18px -
+      env(safe-area-inset-top)
+    )
     -16px
     14px;
 
   padding:
-    calc(22px + env(safe-area-inset-top))
+    calc(
+      22px +
+      env(safe-area-inset-top)
+    )
     16px
     14px;
 
   background:
-    linear-gradient(
-      180deg,
-      #0b1c11 0%,
-      rgba(11,28,17,.985) 80%,
-      rgba(11,28,17,.95) 100%
-    );
+    rgba(11,28,17,.98);
 
-  border-bottom:1px solid rgba(255,255,255,.035);
+  border-bottom:
+    1px solid
+    rgba(255,255,255,.04);
 }
 
-.analysis-title small{
+.modal-title small{
   color:var(--gold);
 
   font-size:8px;
+
   font-weight:950;
-  letter-spacing:.9px;
 }
 
-.analysis-title h2{
-  margin:6px 0 0;
+.modal-title h2{
+  margin:
+    5px 0
+    0;
 
-  font-size:clamp(27px,8vw,38px);
-  line-height:1.05;
+  font-size:
+    clamp(
+      27px,
+      8vw,
+      38px
+    );
 }
 
-.close-analysis{
-  flex:0 0 auto;
-
-  width:48px;
-  height:48px;
+.close-modal{
+  width:49px;
+  height:49px;
 
   border-radius:50%;
 
-  border:1px solid var(--border);
+  border:
+    1px solid
+    var(--border);
 
-  background:var(--card-2);
+  background:var(--card2);
 
   color:#fff;
 
   font-size:19px;
-}
-
-.analysis-source-row{
-  display:flex;
-  flex-wrap:wrap;
-
-  gap:7px;
-
-  margin-bottom:13px;
-}
-
-.source-chip{
-  padding:7px 10px;
-
-  border-radius:999px;
-
-  background:rgba(255,212,90,.08);
-
-  color:var(--gold);
-
-  font-size:8px;
-  font-weight:950;
-}
-
-.source-chip.green{
-  color:var(--green);
-}
-
-.source-chip.blue{
-  color:var(--blue);
 }
 
 .analysis-match{
@@ -1745,50 +1624,24 @@ th{
   text-align:center;
 
   font-size:13px;
+
   font-weight:900;
-  line-height:1.25;
-}
-
-.analysis-team-logo-wrap{
-  width:64px;
-  height:64px;
-
-  display:grid;
-  place-items:center;
-
-  margin:0 auto 8px;
 }
 
 .analysis-team img{
-  max-width:60px;
-  max-height:60px;
+  width:64px;
+  height:64px;
 
   object-fit:contain;
-}
 
-.analysis-logo-fallback{
-  width:56px;
-  height:56px;
-
-  display:grid;
-  place-items:center;
-
-  border-radius:50%;
-
-  background:var(--card-2);
-
-  border:1px solid rgba(56,228,125,.08);
-
-  color:var(--green);
-
-  font-size:17px;
-  font-weight:950;
+  margin-bottom:7px;
 }
 
 .analysis-vs{
   color:var(--gold);
 
   font-size:21px;
+
   font-weight:950;
 }
 
@@ -1799,113 +1652,54 @@ th{
 
   border-radius:22px;
 
-  border:1px solid var(--border);
+  border:
+    1px solid
+    var(--border);
 
   background:#0c2215;
 }
 
 .analysis-section h3{
-  margin:0 0 13px;
+  margin:
+    0 0
+    13px;
 
-  font-size:clamp(20px,6vw,29px);
-}
-
-/* ==============================
-   RESUMO EXECUTIVO
-============================== */
-
-.executive-card{
-  margin-top:13px;
-
-  padding:17px;
-
-  border-radius:23px;
-
-  border:1px solid rgba(255,212,90,.40);
-
-  background:
-    linear-gradient(
-      135deg,
-      #17220d,
-      #0b1d12
+  font-size:
+    clamp(
+      20px,
+      6vw,
+      29px
     );
 }
 
-.executive-label{
-  color:var(--gold);
+.source-row{
+  display:flex;
 
-  font-size:8px;
-  font-weight:950;
-  letter-spacing:.6px;
-}
-
-.executive-title{
-  margin:8px 0 13px;
-
-  font-size:clamp(21px,6vw,29px);
-  font-weight:950;
-}
-
-.executive-pills{
-  display:grid;
-
-  grid-template-columns:repeat(3,1fr);
+  flex-wrap:wrap;
 
   gap:7px;
+
+  margin-bottom:13px;
 }
 
-.executive-pill{
-  min-width:0;
+.source-chip{
+  padding:
+    7px 10px;
 
-  padding:11px 7px;
+  border-radius:999px;
 
-  border-radius:15px;
+  background:
+    rgba(55,230,125,.09);
 
-  background:rgba(255,255,255,.05);
-
-  text-align:center;
-}
-
-.executive-pill small{
-  display:block;
-
-  min-height:22px;
-
-  color:var(--muted);
-
-  font-size:7px;
-}
-
-.executive-pill strong{
-  display:block;
-
-  margin-top:5px;
-
-  font-size:clamp(11px,3.4vw,15px);
-
-  overflow-wrap:anywhere;
-}
-
-.executive-pill.green strong{
   color:var(--green);
+
+  font-size:8px;
+
+  font-weight:950;
 }
 
-.executive-pill.gold strong{
-  color:var(--gold);
-}
 
-.executive-text{
-  margin:13px 0 0;
-
-  color:#d4e3d9;
-
-  font-size:11px;
-  line-height:1.6;
-}
-
-/* ==============================
-   PROBABILIDADES
-============================== */
+/* PROBABILITY */
 
 .probability-list{
   display:grid;
@@ -1933,11 +1727,12 @@ th{
 .prob-track{
   height:10px;
 
+  overflow:hidden;
+
   border-radius:999px;
 
-  background:rgba(255,255,255,.06);
-
-  overflow:hidden;
+  background:
+    rgba(255,255,255,.06);
 }
 
 .prob-fill{
@@ -1953,13 +1748,14 @@ th{
 }
 
 .prob-value{
-  min-width:42px;
+  min-width:43px;
 
   text-align:right;
 
   color:var(--green);
 
   font-size:18px;
+
   font-weight:950;
 }
 
@@ -1967,311 +1763,246 @@ th{
   color:var(--gold);
 }
 
-/* ==============================
-   COMPARATIVO
-============================== */
 
-.compare-list{
-  display:grid;
+/* SUMMARY */
 
-  gap:10px;
+.executive{
+  margin-top:13px;
+
+  padding:17px;
+
+  border-radius:23px;
+
+  border:
+    1px solid
+    rgba(255,210,87,.4);
+
+  background:
+    linear-gradient(
+      135deg,
+      #17220d,
+      #0b1d12
+    );
 }
 
-.compare-box{
-  padding:12px;
-
-  border-radius:16px;
-
-  background:var(--card-2);
-}
-
-.compare-header{
-  display:flex;
-  justify-content:space-between;
-
-  gap:12px;
-
-  color:var(--muted);
+.executive-label{
+  color:var(--gold);
 
   font-size:8px;
 
-  margin-bottom:8px;
+  font-weight:950;
 }
 
-.compare-values{
+.executive h3{
+  margin:
+    8px 0
+    13px;
+
+  font-size:
+    clamp(
+      22px,
+      6vw,
+      30px
+    );
+}
+
+.exec-grid{
   display:grid;
-  grid-template-columns:1fr 1fr;
+
+  grid-template-columns:
+    repeat(
+      3,
+      1fr
+    );
 
   gap:7px;
 }
 
-.compare-value{
-  padding:10px;
+.exec-box{
+  padding:
+    11px 7px;
 
-  border-radius:12px;
+  border-radius:15px;
 
-  background:rgba(255,255,255,.04);
-
-  text-align:center;
-
-  font-size:18px;
-  font-weight:950;
-}
-
-/* ==============================
-   ÚLTIMOS 5
-============================== */
-
-.team-form-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-
-  gap:9px;
-}
-
-.team-form-card{
-  padding:13px;
-
-  border-radius:17px;
-
-  background:var(--card-2);
-}
-
-.team-form-card>small{
-  display:block;
-
-  color:var(--muted);
-
-  font-size:8px;
-}
-
-.form-score{
-  display:block;
-
-  margin:8px 0;
-
-  color:var(--green);
-
-  font-size:25px;
-}
-
-.mini-stat-line{
-  display:flex;
-  justify-content:space-between;
-
-  gap:10px;
-
-  margin-top:7px;
-
-  padding-top:7px;
-
-  border-top:1px solid rgba(255,255,255,.05);
-
-  color:var(--muted);
-
-  font-size:8px;
-}
-
-.mini-stat-line b{
-  color:#fff;
-}
-
-/* ==============================
-   GOLS
-============================== */
-
-.market-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-
-  gap:8px;
-}
-
-.market-card{
-  padding:13px 7px;
-
-  border-radius:16px;
-
-  background:var(--card-2);
+  background:
+    rgba(255,255,255,.05);
 
   text-align:center;
 }
 
-.market-card small{
+.exec-box small{
   display:block;
 
-  min-height:24px;
+  min-height:22px;
 
   color:var(--muted);
 
   font-size:7px;
 }
 
-.market-card strong{
+.exec-box strong{
   display:block;
 
   margin-top:5px;
 
-  font-size:20px;
-}
-
-.market-value.high{
   color:var(--green);
-}
 
-.market-value.medium{
-  color:var(--gold);
-}
-
-.market-value.low{
-  color:var(--orange);
-}
-
-/* ==============================
-   CONFIDENCE
-============================== */
-
-.confidence-card{
-  padding:14px;
-
-  border-radius:16px;
-
-  background:var(--card-2);
-}
-
-.confidence-top{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-
-  gap:10px;
-
-  margin-bottom:10px;
-}
-
-.confidence-top span{
-  color:var(--muted);
-
-  font-size:9px;
-}
-
-.confidence-top strong{
-  text-align:right;
-
-  font-size:18px;
-}
-
-.confidence-track{
-  height:10px;
-
-  border-radius:999px;
-
-  background:rgba(255,255,255,.06);
-
-  overflow:hidden;
-}
-
-.confidence-fill{
-  height:100%;
-
-  border-radius:999px;
-
-  background:
-    linear-gradient(
-      90deg,
-      var(--gold),
-      var(--green)
+  font-size:
+    clamp(
+      11px,
+      3.4vw,
+      15px
     );
 }
 
-/* ==============================
-   TENDÊNCIA
-============================== */
+.exec-box.gold strong{
+  color:var(--gold);
+}
 
-.trend-card,
-.stanley-summary{
-  padding:15px;
+.executive p{
+  margin:
+    13px 0
+    0;
+
+  color:#d4e3d9;
+
+  font-size:11px;
+
+  line-height:1.6;
+}
+
+
+/* LINEUPS */
+
+.lineup-team{
+  padding:14px;
+
+  margin-top:10px;
 
   border-radius:17px;
 
-  background:rgba(255,212,90,.07);
+  background:var(--card2);
 }
 
-.trend-card small,
-.stanley-summary small{
-  display:block;
-
-  color:var(--gold);
-
-  font-size:8px;
-  font-weight:950;
+.lineup-team:first-child{
+  margin-top:0;
 }
 
-.trend-card strong,
-.stanley-summary strong{
-  display:block;
-
-  margin-top:7px;
+.lineup-team h4{
+  margin:
+    0 0
+    5px;
 
   font-size:17px;
 }
 
-.trend-card p,
-.stanley-summary p{
-  margin:8px 0 0;
+.coach{
+  color:var(--gold);
+
+  font-size:9px;
+
+  font-weight:900;
+}
+
+.lineup-title{
+  margin-top:13px;
+
+  color:var(--green);
+
+  font-size:8px;
+
+  font-weight:950;
+}
+
+.lineup-text{
+  margin-top:6px;
+
+  color:#e4f0e8;
+
+  font-size:11px;
+
+  line-height:1.6;
+}
+
+.lineup-detail{
+  margin-top:10px;
+
+  padding-top:10px;
+
+  border-top:
+    1px solid
+    rgba(255,255,255,.05);
+
+  color:var(--muted);
+
+  font-size:9px;
+
+  line-height:1.5;
+}
+
+.lineup-detail b{
+  color:#fff;
+}
+
+
+/* TREND */
+
+.trend-card{
+  padding:15px;
+
+  border-radius:17px;
+
+  background:
+    rgba(255,210,87,.07);
+}
+
+.trend-card small{
+  color:var(--gold);
+
+  font-size:8px;
+
+  font-weight:950;
+}
+
+.trend-card strong{
+  display:block;
+
+  margin-top:7px;
+
+  font-size:18px;
+}
+
+.trend-card p{
+  margin:
+    8px 0
+    0;
 
   color:#d3ded6;
 
   font-size:11px;
+
   line-height:1.55;
 }
 
-.analysis-warning{
+.warning{
   margin-top:13px;
 
   padding:13px;
 
   border-radius:15px;
 
-  background:rgba(255,212,90,.06);
+  background:
+    rgba(255,210,87,.06);
 
   color:#ffe9a7;
 
   font-size:9px;
+
   line-height:1.5;
 }
 
-.analysis-loading,
-.analysis-error{
-  padding:42px 15px;
 
-  text-align:center;
-
-  color:var(--muted);
-}
-
-.analysis-error{
-  color:#ffb1b1;
-}
-
-.analysis-partial{
-  padding:13px;
-
-  margin-top:13px;
-
-  border-radius:15px;
-
-  background:rgba(148,202,255,.07);
-
-  color:#c7e2ff;
-
-  font-size:9px;
-  line-height:1.5;
-}
-
-/* ==============================
-   BOTTOM NAV
-============================== */
+/* BOTTOM NAV */
 
 .bottom-nav{
   position:fixed;
@@ -2284,20 +2015,31 @@ th{
 
   display:grid;
 
-  grid-template-columns:repeat(6,1fr);
+  grid-template-columns:
+    repeat(
+      6,
+      1fr
+    );
 
   padding:
     7px
     2px
-    calc(7px + env(safe-area-inset-bottom));
+    calc(
+      7px +
+      env(safe-area-inset-bottom)
+    );
 
-  background:rgba(3,15,8,.98);
+  background:
+    rgba(3,15,8,.98);
 
-  border-top:1px solid rgba(255,255,255,.04);
+  border-top:
+    1px solid
+    rgba(255,255,255,.04);
 }
 
 .nav-btn{
-  padding:5px 1px;
+  padding:
+    5px 1px;
 
   border:0;
 
@@ -2306,6 +2048,7 @@ th{
   color:#718679;
 
   font-size:8px;
+
   font-weight:900;
 }
 
@@ -2323,33 +2066,41 @@ th{
   color:var(--gold);
 }
 
+
 @media(min-width:720px){
 
   .stats{
-    grid-template-columns:repeat(4,1fr);
+    grid-template-columns:
+      repeat(
+        4,
+        1fr
+      );
   }
 
   .media-grid{
-    grid-template-columns:repeat(4,1fr);
+    grid-template-columns:
+      repeat(
+        4,
+        1fr
+      );
   }
 
-  .premium-grid{
-    grid-template-columns:repeat(3,1fr);
-  }
-
-  .analysis-sheet{
+  .modal-sheet{
     width:720px;
 
     margin:auto;
 
     max-height:96vh;
   }
-
 }
+
 </style>
+
 </head>
 
+
 <body>
+
 
 <header class="app-header">
 
@@ -2367,16 +2118,18 @@ th{
         FUTEBOL • TV • ENTRETENIMENTO
       </div>
 
-      <h1>Stanley Sports</h1>
+      <h1>
+        Stanley Sports
+      </h1>
 
     </div>
 
   </div>
 
+
   <button
     class="refresh-btn"
     id="refreshBtn"
-    aria-label="Atualizar"
   >
     ↻
   </button>
@@ -2385,6 +2138,7 @@ th{
 
 
 <main>
+
 
 <section class="hero">
 
@@ -2395,7 +2149,7 @@ th{
   <div class="hero-content">
 
     <img
-      class="hero-mini-logo"
+      class="hero-logo"
       src="stanley-sports-logo.png"
       alt=""
     >
@@ -2413,9 +2167,9 @@ th{
     </h2>
 
     <p>
-      Jogos, placares, tabelas, TV,
-      programas esportivos, análises Premium
-      e entretenimento.
+      Placares, transmissão,
+      Tempo Real, escalações,
+      tabelas e análise Premium.
     </p>
 
     <div class="hero-actions">
@@ -2461,11 +2215,11 @@ th{
       </small>
 
       <strong>
-        Grátis durante o lançamento
+        Grátis no lançamento
       </strong>
 
       <span id="premiumHomeStatus">
-        Ative para liberar análises exclusivas.
+        Ative para liberar análises.
       </span>
 
     </div>
@@ -2478,33 +2232,6 @@ th{
     </button>
 
   </div>
-
-
-  <div class="section-title-row">
-
-    <div>
-
-      <small>
-        ACESSO RÁPIDO
-      </small>
-
-      <h3>
-        Canais esportivos
-      </h3>
-
-    </div>
-
-    <span>
-      Deslize →
-    </span>
-
-  </div>
-
-
-  <div
-    id="sportsShortcuts"
-    class="sports-shortcuts"
-  ></div>
 
 
   <div class="stats">
@@ -2521,6 +2248,7 @@ th{
 
     </div>
 
+
     <div class="stat">
 
       <small>
@@ -2536,6 +2264,7 @@ th{
 
     </div>
 
+
     <div class="stat">
 
       <small>
@@ -2550,6 +2279,7 @@ th{
       </strong>
 
     </div>
+
 
     <div class="stat">
 
@@ -2571,7 +2301,9 @@ th{
 
   <div class="search">
 
-    <span>🔎</span>
+    <span>
+      🔎
+    </span>
 
     <input
       id="searchInput"
@@ -2664,7 +2396,7 @@ th{
     class="empty"
     style="display:none"
   >
-    ⚽ Nenhuma partida encontrada.
+    Nenhuma partida encontrada.
   </div>
 
 </section>
@@ -2727,15 +2459,6 @@ th{
 
 
   <div
-    id="standingsError"
-    class="empty"
-    style="display:none"
-  >
-    Não foi possível carregar a tabela.
-  </div>
-
-
-  <div
     id="standingsWrap"
     class="table-wrap"
     style="display:none"
@@ -2746,19 +2469,13 @@ th{
       <thead>
 
         <tr>
-
           <th>#</th>
-
-          <th style="text-align:left">
-            TIME
-          </th>
-
+          <th>TIME</th>
           <th>PTS</th>
           <th>J</th>
           <th>V</th>
           <th>E</th>
           <th>D</th>
-
         </tr>
 
       </thead>
@@ -2868,7 +2585,7 @@ th{
     id="favoritesEmpty"
     class="empty"
   >
-    ⭐ Favorite uma partida para ela aparecer aqui.
+    ⭐ Favorite uma partida.
   </div>
 
 </section>
@@ -2896,44 +2613,11 @@ th{
     </h2>
 
     <p>
-      Análises pré-jogo, probabilidades,
-      tendência de gols, agenda,
-      favoritos e personalização.
+      Análises estatísticas,
+      provável escalação,
+      forma recente,
+      probabilidades e tendências.
     </p>
-
-
-    <div class="premium-status-card">
-
-      <div class="premium-status-row">
-
-        <div>
-
-          <small>
-            SEU PLANO
-          </small>
-
-          <strong id="premiumPlanStatus">
-            Premium não ativado
-          </strong>
-
-        </div>
-
-        <div class="premium-price">
-
-          <strong>
-            R$ 0
-          </strong>
-
-          <span>
-            durante o lançamento
-          </span>
-
-        </div>
-
-      </div>
-
-    </div>
-
 
     <button
       id="activatePremiumBtn"
@@ -2943,261 +2627,10 @@ th{
       👑 Ativar Premium grátis
     </button>
 
-
-    <div class="premium-note">
-      Nenhum pagamento será solicitado durante o lançamento.
-    </div>
-
-  </div>
-
-
-  <div class="premium-grid">
-
-    <div class="premium-feature">
-
-      <div class="premium-feature-icon">
-        🔥
-      </div>
-
-      <h4>
-        Análise pré-jogo
-      </h4>
-
-      <p>
-        Probabilidades, forma,
-        ataque e defesa.
-      </p>
-
-      <span class="feature-status">
-        DISPONÍVEL
-      </span>
-
-    </div>
-
-
-    <div class="premium-feature">
-
-      <div class="premium-feature-icon">
-        ⚽
-      </div>
-
-      <h4>
-        Tendência de gols
-      </h4>
-
-      <p>
-        Over, ambas marcam
-        e médias recentes.
-      </p>
-
-      <span class="feature-status">
-        DISPONÍVEL
-      </span>
-
-    </div>
-
-
-    <div class="premium-feature">
-
-      <div class="premium-feature-icon">
-        📌
-      </div>
-
-      <h4>
-        Resumo Stanley
-      </h4>
-
-      <p>
-        Leitura rápida dos
-        principais sinais.
-      </p>
-
-      <span class="feature-status">
-        DISPONÍVEL
-      </span>
-
-    </div>
-
-
-    <div class="premium-feature">
-
-      <div class="premium-feature-icon">
-        📅
-      </div>
-
-      <h4>
-        Agenda completa
-      </h4>
-
-      <p>
-        Próximas partidas por dia.
-      </p>
-
-      <span class="feature-status">
-        DISPONÍVEL
-      </span>
-
-    </div>
-
-
-    <div class="premium-feature">
-
-      <div class="premium-feature-icon">
-        ❤️
-      </div>
-
-      <h4>
-        Time do coração
-      </h4>
-
-      <p>
-        Destaque automático
-        para seu clube.
-      </p>
-
-      <span class="feature-status">
-        DISPONÍVEL
-      </span>
-
-    </div>
-
-
-    <div class="premium-feature">
-
-      <div class="premium-feature-icon">
-        🔔
-      </div>
-
-      <h4>
-        Alertas push
-      </h4>
-
-      <p>
-        Início, gols
-        e resultados.
-      </p>
-
-      <span class="feature-status soon">
-        EM BREVE
-      </span>
-
-    </div>
-
-  </div>
-
-
-  <div class="premium-tool">
-
-    <div class="premium-tool-head">
-
-      <div>
-
-        <small>
-          PERSONALIZAÇÃO
-        </small>
-
-        <h3>
-          ❤️ Time do coração
-        </h3>
-
-        <p>
-          Escolha seu clube para destacar as partidas.
-        </p>
-
-      </div>
-
-      <div class="tool-icon">
-        ❤️
-      </div>
-
-    </div>
-
-
-    <select
-      id="heartTeamSelect"
-      class="premium-select"
-    >
-
-      <option value="">
-        Selecione seu time
-      </option>
-
-    </select>
-
-
-    <button
-      class="save-team-btn"
-      onclick="saveHeartTeam()"
-    >
-      Salvar time do coração
-    </button>
-
-
-    <div
-      id="heartSelected"
-      class="heart-selected"
-    >
-
-      <small>
-        SEU TIME
-      </small>
-
-      <strong id="heartSelectedName"></strong>
-
-    </div>
-
-  </div>
-
-
-  <div class="premium-tool">
-
-    <div class="premium-tool-head">
-
-      <div>
-
-        <small>
-          AGENDA PREMIUM
-        </small>
-
-        <h3>
-          📅 Próximos 7 dias
-        </h3>
-
-        <p>
-          Acompanhe as partidas programadas.
-        </p>
-
-      </div>
-
-      <div class="tool-icon">
-        📅
-      </div>
-
-    </div>
-
-
-    <div
-      id="agendaDays"
-      class="agenda-days"
-    ></div>
-
-
-    <div
-      id="agendaLoading"
-      class="loading"
-    >
-      Ative o Premium para liberar a agenda.
-    </div>
-
-
-    <div
-      id="agendaGames"
-      class="agenda-games"
-    ></div>
-
   </div>
 
 </section>
+
 
 </main>
 
@@ -3255,31 +2688,33 @@ th{
 </nav>
 
 
+<!-- MODAL -->
+
 <div
-  id="analysisModal"
-  class="analysis-modal"
+  id="mainModal"
+  class="modal"
 >
 
-  <div class="analysis-sheet">
+  <div class="modal-sheet">
 
-    <div class="analysis-top">
+    <div class="modal-top">
 
-      <div class="analysis-title">
+      <div class="modal-title">
 
-        <small>
-          STANLEY SPORTS PREMIUM
+        <small id="modalSmall">
+          STANLEY SPORTS
         </small>
 
-        <h2>
-          🔥 Análise da partida
+        <h2 id="modalTitle">
+          Detalhes
         </h2>
 
       </div>
 
 
       <button
-        class="close-analysis"
-        onclick="closeAnalysis()"
+        class="close-modal"
+        onclick="closeModal()"
       >
         ✕
       </button>
@@ -3287,13 +2722,7 @@ th{
     </div>
 
 
-    <div id="analysisContent">
-
-      <div class="analysis-loading">
-        Carregando análise...
-      </div>
-
-    </div>
+    <div id="modalContent"></div>
 
   </div>
 
@@ -3302,15 +2731,13 @@ th{
 
 <script>
 
-/* ==========================================================
-   STANLEY SPORTS V52
-========================================================== */
+/* =========================================================
+   STANLEY SPORTS V53
+========================================================= */
 
-const APP_VERSION = "52.0";
+const APP_VERSION = "53.0";
 
-const PREMIUM_LAUNCH_FREE = true;
-
-const ANALYSIS_WORKER =
+const WORKER =
   "https://stanley-sports-api.phwdjnnr9m.workers.dev";
 
 
@@ -3318,12 +2745,6 @@ let premiumActive =
   localStorage.getItem(
     "stanleySportsPremium"
   ) === "active";
-
-
-let heartTeam =
-  localStorage.getItem(
-    "stanleySportsHeartTeam"
-  ) || "";
 
 
 let favorites =
@@ -3336,22 +2757,16 @@ let favorites =
 
 let allGames = [];
 
-let agendaGamesData = [];
-
 let gameFilter = "all";
 
 let searchText = "";
 
-let agendaLoaded = false;
 
-let agendaSelectedOffset = 0;
-
-
-const analysisCache =
+const geCache =
   new Map();
 
 
-const broadcastCache =
+const analysisCache =
   new Map();
 
 
@@ -3371,117 +2786,66 @@ const $$ =
     ];
 
 
-/* ==========================================================
-   ATALHOS
-========================================================== */
-
-const sportsShortcuts = [
-
-  {
-    name:"Os Donos da Bola",
-    icon:"🎙️",
-    description:"Debate, futebol e opinião.",
-    url:"https://www.youtube.com/results?search_query=Os+Donos+da+Bola+oficial"
-  },
-
-  {
-    name:"Jogo Aberto",
-    icon:"⚽",
-    description:"Notícias e debate esportivo.",
-    url:"https://www.youtube.com/@JogoAberto"
-  },
-
-  {
-    name:"Alterosa Esporte",
-    icon:"🔵",
-    description:"Futebol mineiro.",
-    url:"https://www.alterosa.com.br/programas/alterosa-esporte/"
-  },
-
-  {
-    name:"ge TV",
-    icon:"🟢",
-    description:"Conteúdo esportivo oficial.",
-    url:"https://www.youtube.com/@getv"
-  },
-
-  {
-    name:"CazéTV",
-    icon:"📺",
-    description:"Esportes e transmissões.",
-    url:"https://www.youtube.com/@CazeTV"
-  },
-
-  {
-    name:"Canal GOAT",
-    icon:"🐐",
-    description:"Futebol e transmissões.",
-    url:"https://www.youtube.com/@canalgoatbr"
-  }
-
-];
-
-
-/* ==========================================================
-   CAMPEONATOS
-========================================================== */
+/* =========================================================
+   LEAGUES
+========================================================= */
 
 const leagues = [
 
   {
     slug:"bra.1",
     name:"Brasileirão Série A",
-    group:"brazil"
+    group:"brazil",
   },
 
   {
     slug:"bra.2",
     name:"Brasileirão Série B",
-    group:"brazil"
+    group:"brazil",
   },
 
   {
     slug:"bra.copa_do_brazil",
     name:"Copa do Brasil",
-    group:"brazil"
+    group:"brazil",
   },
 
   {
     slug:"conmebol.libertadores",
     name:"Libertadores",
-    group:"southamerica"
+    group:"southamerica",
   },
 
   {
     slug:"conmebol.sudamericana",
     name:"Sul-Americana",
-    group:"southamerica"
+    group:"southamerica",
   },
 
   {
     slug:"uefa.champions",
     name:"Champions League",
-    group:"europe"
+    group:"europe",
   },
 
   {
     slug:"eng.1",
     name:"Premier League",
-    group:"europe"
+    group:"europe",
   },
 
   {
     slug:"esp.1",
     name:"LaLiga",
-    group:"europe"
-  }
+    group:"europe",
+  },
 
 ];
 
 
-/* ==========================================================
+/* =========================================================
    TV
-========================================================== */
+========================================================= */
 
 const tvChannels = [
 
@@ -3490,7 +2854,7 @@ const tvChannels = [
     domain:"globoplay.globo.com",
     badge:"GLOBOPLAY",
     description:"Acesso oficial pelo Globoplay.",
-    url:"https://globoplay.globo.com/"
+    url:"https://globoplay.globo.com/",
   },
 
   {
@@ -3498,7 +2862,7 @@ const tvChannels = [
     domain:"sbt.com.br",
     badge:"AO VIVO",
     description:"Programação oficial.",
-    url:"https://sbt.com.br/ao-vivo"
+    url:"https://sbt.com.br/ao-vivo",
   },
 
   {
@@ -3506,47 +2870,31 @@ const tvChannels = [
     domain:"band.com.br",
     badge:"AO VIVO",
     description:"Programação oficial.",
-    url:"https://www.band.com.br/ao-vivo"
+    url:"https://www.band.com.br/ao-vivo",
   },
 
   {
     name:"Record",
     domain:"record.r7.com",
     badge:"OFICIAL",
-    description:"Conteúdo oficial Record.",
-    url:"https://record.r7.com/"
-  },
-
-  {
-    name:"RedeTV!",
-    domain:"redetv.uol.com.br",
-    badge:"AO VIVO",
-    description:"Programação oficial.",
-    url:"https://www.redetv.uol.com.br/aovivo/"
-  },
-
-  {
-    name:"TV Cultura",
-    domain:"cultura.uol.com.br",
-    badge:"AO VIVO",
-    description:"TV Cultura oficial.",
-    url:"https://cultura.uol.com.br/aovivo/"
+    description:"Conteúdo oficial.",
+    url:"https://record.r7.com/",
   },
 
   {
     name:"ge TV",
     domain:"youtube.com",
     badge:"ESPORTES",
-    description:"Conteúdo esportivo oficial.",
-    url:"https://www.youtube.com/@getv"
+    description:"Canal esportivo oficial.",
+    url:"https://www.youtube.com/@getv",
   },
 
   {
     name:"CazéTV",
     domain:"youtube.com",
     badge:"ESPORTES",
-    description:"Futebol e esportes.",
-    url:"https://www.youtube.com/@CazeTV"
+    description:"Transmissões oficiais.",
+    url:"https://www.youtube.com/@CazeTV",
   },
 
   {
@@ -3554,7 +2902,7 @@ const tvChannels = [
     domain:"youtube.com",
     badge:"ESPORTES",
     description:"Futebol e transmissões.",
-    url:"https://www.youtube.com/@canalgoatbr"
+    url:"https://www.youtube.com/@canalgoatbr",
   },
 
   {
@@ -3562,15 +2910,15 @@ const tvChannels = [
     domain:"globoplay.globo.com",
     badge:"ASSINATURA",
     description:"Acesso oficial pelo Globoplay.",
-    url:"https://globoplay.globo.com/canais/premiere/"
-  }
+    url:"https://globoplay.globo.com/canais/premiere/",
+  },
 
 ];
 
 
-/* ==========================================================
-   ENTRETENIMENTO
-========================================================== */
+/* =========================================================
+   MOVIES
+========================================================= */
 
 const entertainment = [
 
@@ -3579,15 +2927,15 @@ const entertainment = [
     icon:"▶️",
     badge:"GRÁTIS",
     description:"Filmes e séries grátis.",
-    url:"https://play.mercadolivre.com.br/"
+    url:"https://play.mercadolivre.com.br/",
   },
 
   {
     name:"Plex",
     icon:"🎞️",
     badge:"GRÁTIS",
-    description:"Filmes e canais gratuitos.",
-    url:"https://watch.plex.tv/pt-BR"
+    description:"Filmes e canais grátis.",
+    url:"https://watch.plex.tv/pt-BR",
   },
 
   {
@@ -3595,15 +2943,15 @@ const entertainment = [
     icon:"🧸",
     badge:"INFANTIL",
     description:"Conteúdo infantil.",
-    url:"https://www.youtubekids.com/"
+    url:"https://www.youtubekids.com/",
   },
 
   {
     name:"Turma da Mônica",
     icon:"🐰",
     badge:"DESENHOS",
-    description:"Conteúdo infantil oficial.",
-    url:"https://www.youtube.com/results?search_query=Turma+da+Monica+oficial"
+    description:"Conteúdo oficial.",
+    url:"https://www.youtube.com/results?search_query=Turma+da+Monica+oficial",
   },
 
   {
@@ -3611,7 +2959,7 @@ const entertainment = [
     icon:"🎪",
     badge:"INFANTIL",
     description:"Músicas e animações.",
-    url:"https://www.youtube.com/results?search_query=Mundo+Bita+oficial"
+    url:"https://www.youtube.com/results?search_query=Mundo+Bita+oficial",
   },
 
   {
@@ -3619,15 +2967,7 @@ const entertainment = [
     icon:"🐔",
     badge:"INFANTIL",
     description:"Músicas infantis.",
-    url:"https://www.youtube.com/results?search_query=Galinha+Pintadinha+oficial"
-  },
-
-  {
-    name:"Pinkfong",
-    icon:"🦊",
-    badge:"INFANTIL",
-    description:"Músicas e desenhos.",
-    url:"https://www.youtube.com/results?search_query=Pinkfong+oficial"
+    url:"https://www.youtube.com/results?search_query=Galinha+Pintadinha+oficial",
   },
 
   {
@@ -3635,7 +2975,7 @@ const entertainment = [
     icon:"🎬",
     badge:"ASSINATURA",
     description:"Filmes e séries.",
-    url:"https://www.primevideo.com/"
+    url:"https://www.primevideo.com/",
   },
 
   {
@@ -3643,33 +2983,17 @@ const entertainment = [
     icon:"🏰",
     badge:"ASSINATURA",
     description:"Filmes e desenhos.",
-    url:"https://www.disneyplus.com/"
+    url:"https://www.disneyplus.com/",
   },
-
-  {
-    name:"Netflix",
-    icon:"🎞️",
-    badge:"ASSINATURA",
-    description:"Filmes e séries.",
-    url:"https://www.netflix.com/"
-  },
-
-  {
-    name:"Max",
-    icon:"🍿",
-    badge:"ASSINATURA",
-    description:"Filmes e séries.",
-    url:"https://www.max.com/"
-  }
 
 ];
 
 
-/* ==========================================================
+/* =========================================================
    HELPERS
-========================================================== */
+========================================================= */
 
-function normalize(value=""){
+function normalize(value="") {
 
   return String(value)
     .normalize("NFD")
@@ -3678,69 +3002,43 @@ function normalize(value=""){
       ""
     )
     .toLowerCase();
-
 }
 
 
-function sameTeam(a,b){
+function apiDate(iso) {
+
+  const date =
+    new Date(iso);
 
   return (
-    normalize(a)
-    ===
-    normalize(b)
-  );
-
-}
-
-
-function safeNumber(
-  value,
-  fallback=0
-){
-
-  const number =
-    Number(value);
-
-  return (
-    Number.isFinite(number)
-    ?
-    number
-    :
-    fallback
-  );
-
-}
-
-
-function hasNumber(value){
-
-  return (
-    value !== null
-    &&
-    value !== undefined
-    &&
-    value !== ""
-    &&
-    Number.isFinite(
-      Number(
-        String(value)
-        .replace("%","")
+    `${date.getFullYear()}-${
+      String(
+        date.getMonth()+1
       )
-    )
+      .padStart(
+        2,
+        "0"
+      )
+    }-${
+      String(
+        date.getDate()
+      )
+      .padStart(
+        2,
+        "0"
+      )
+    }`
   );
-
 }
 
 
-function dateKey(offset=0){
+function dateKey(offset=0) {
 
   const date =
     new Date();
 
   date.setDate(
-    date.getDate()
-    +
-    offset
+    date.getDate()+offset
   );
 
   return (
@@ -3762,53 +3060,23 @@ function dateKey(offset=0){
       )
     }`
   );
-
 }
 
 
-function apiDate(iso){
-
-  const date =
-    new Date(iso);
-
-  return (
-    `${date.getFullYear()}-${
-      String(
-        date.getMonth()+1
-      )
-      .padStart(
-        2,
-        "0"
-      )
-    }-${
-      String(
-        date.getDate()
-      )
-      .padStart(
-        2,
-        "0"
-      )
-    }`
-  );
-
-}
-
-
-function formatTime(iso){
+function formatTime(iso) {
 
   return new Date(iso)
     .toLocaleTimeString(
       "pt-BR",
       {
         hour:"2-digit",
-        minute:"2-digit"
+        minute:"2-digit",
       }
     );
-
 }
 
 
-function formatDayLabel(iso){
+function formatDayLabel(iso) {
 
   const date =
     new Date(iso);
@@ -3816,51 +3084,31 @@ function formatDayLabel(iso){
   const today =
     new Date();
 
-  const yesterday =
-    new Date();
-
-  yesterday.setDate(
-    today.getDate()-1
-  );
-
-
-  if(
+  if (
     date.toDateString()
     ===
     today.toDateString()
-  ){
+  ) {
     return "Hoje";
   }
 
-
-  if(
-    date.toDateString()
-    ===
-    yesterday.toDateString()
-  ){
-    return "Ontem";
-  }
-
-
-  return date
-    .toLocaleDateString(
-      "pt-BR",
-      {
-        day:"2-digit",
-        month:"2-digit"
-      }
-    );
-
+  return date.toLocaleDateString(
+    "pt-BR",
+    {
+      day:"2-digit",
+      month:"2-digit",
+    }
+  );
 }
 
 
-function isLive(game){
+function isLive(game) {
 
   return [
     "in",
     "live",
     "inprogress",
-    "in_progress"
+    "in_progress",
   ]
   .includes(
     String(
@@ -3868,11 +3116,10 @@ function isLive(game){
     )
     .toLowerCase()
   );
-
 }
 
 
-function isFinished(game){
+function isFinished(game) {
 
   return (
     String(
@@ -3881,133 +3128,64 @@ function isFinished(game){
     .toLowerCase()
     ===
     "post"
-
     ||
-
     game.completed === true
   );
-
 }
 
 
-function isHeartGame(game){
-
-  return (
-    !!heartTeam
-    &&
-    (
-      sameTeam(
-        game.home,
-        heartTeam
-      )
-      ||
-      sameTeam(
-        game.away,
-        heartTeam
-      )
-    )
-  );
-
-}
-
-
-function isFavorite(game){
+function isFavorite(game) {
 
   return favorites.includes(
     String(game.id)
   );
-
 }
 
 
-function minutesUntilKickoff(game){
+function initials(name="") {
 
-  return Math.floor(
-    (
-      new Date(game.date)
-      .getTime()
-      -
-      Date.now()
+  return String(name)
+    .split(" ")
+    .filter(Boolean)
+    .slice(0,2)
+    .map(
+      item =>
+        item[0]
     )
-    /
-    60000
-  );
-
+    .join("")
+    .toUpperCase();
 }
 
 
-function shouldCheckBroadcasts(game){
+function percentNumber(value) {
 
-  if(
-    isFinished(game)
-  ){
-    return false;
-  }
-
-
-  if(
-    isLive(game)
-  ){
-    return true;
-  }
-
-
-  const minutes =
-    minutesUntilKickoff(game);
-
-
-  return (
-    minutes <= 15
-    &&
-    minutes >= -240
+  return Math.max(
+    0,
+    Math.min(
+      100,
+      Number(
+        String(value || 0)
+          .replace("%","")
+      ) || 0
+    )
   );
-
 }
 
 
-function keepFinishedFor24Hours(game){
-
-  if(
-    !isFinished(game)
-  ){
-    return true;
-  }
-
-
-  return (
-    Date.now()
-    <=
-    new Date(game.date)
-    .getTime()
-    +
-    27
-    *
-    60
-    *
-    60
-    *
-    1000
-  );
-
-}
-
-
-/* ==========================================================
+/* =========================================================
    ESPN
-========================================================== */
+========================================================= */
 
 function parseGame(
   event,
   league
-){
+) {
 
   const competition =
     event.competitions?.[0];
 
-
   const competitors =
     competition?.competitors || [];
-
 
   const home =
     competitors.find(
@@ -4015,43 +3193,38 @@ function parseGame(
         item.homeAway === "home"
     );
 
-
   const away =
     competitors.find(
       item =>
         item.homeAway === "away"
     );
 
-
   return {
 
     id:event.id,
 
-    league:league.name,
+    league:
+      league.name,
 
-    leagueSlug:league.slug,
+    leagueSlug:
+      league.slug,
 
-    group:league.group,
+    group:
+      league.group,
 
     home:
-      home?.team?.displayName
-      ||
+      home?.team?.displayName ||
       "Mandante",
 
     away:
-      away?.team?.displayName
-      ||
+      away?.team?.displayName ||
       "Visitante",
 
     homeLogo:
-      home?.team?.logo
-      ||
-      "",
+      home?.team?.logo || "",
 
     awayLogo:
-      away?.team?.logo
-      ||
-      "",
+      away?.team?.logo || "",
 
     homeScore:
       Number(
@@ -4066,31 +3239,23 @@ function parseGame(
     date:event.date,
 
     state:
-      event.status?.type?.state
-      ||
-      "",
+      event.status?.type?.state || "",
 
     detail:
-      event.status?.type?.shortDetail
-      ||
-      "",
+      event.status?.type?.shortDetail || "",
 
     completed:
-      event.status?.type?.completed
-      ||
-      false
-
+      event.status?.type?.completed || false,
   };
-
 }
 
 
-async function fetchLeagueByDate(
+async function fetchLeague(
   league,
   date
-){
+) {
 
-  try{
+  try {
 
     const response =
       await fetch(
@@ -4098,22 +3263,17 @@ async function fetchLeagueByDate(
         `https://site.api.espn.com/apis/site/v2/sports/soccer/${league.slug}/scoreboard?dates=${date}`,
 
         {
-          cache:"no-store"
+          cache:"no-store",
         }
 
       );
 
-
-    if(
-      !response.ok
-    ){
+    if (!response.ok) {
       return [];
     }
 
-
     const data =
       await response.json();
-
 
     return (
       data.events || []
@@ -4126,29 +3286,24 @@ async function fetchLeagueByDate(
         )
     );
 
-  }
-  catch(error){
-
-    console.error(
-      "ESPN scoreboard:",
-      error
-    );
+  } catch {
 
     return [];
   }
-
 }
 
 
-async function fetchAllLeaguesDate(offset){
+async function fetchAllLeaguesDate(
+  offset
+) {
 
   const results =
-    await Promise.allSettled(
+    await Promise.all(
 
       leagues.map(
 
         league =>
-          fetchLeagueByDate(
+          fetchLeague(
             league,
             dateKey(offset)
           )
@@ -4157,148 +3312,401 @@ async function fetchAllLeaguesDate(offset){
 
     );
 
-
   const map =
     new Map();
 
-
   results
-  .flatMap(
-
-    result =>
-
-      result.status === "fulfilled"
-      ?
-      result.value
-      :
-      []
-
-  )
-  .forEach(
-
-    game =>
-      map.set(
-        String(game.id),
-        game
-      )
-
-  );
-
+    .flat()
+    .forEach(
+      game =>
+        map.set(
+          String(game.id),
+          game
+        )
+    );
 
   return [
     ...map.values()
   ];
-
 }
 
 
-async function refreshGames(){
+async function refreshGames() {
 
   $("#gamesLoading")
-  .style.display =
-    "block";
-
+    .style.display =
+      "block";
 
   const [
     yesterday,
     today
   ] =
     await Promise.all([
-
       fetchAllLeaguesDate(-1),
-
-      fetchAllLeaguesDate(0)
-
+      fetchAllLeaguesDate(0),
     ]);
-
 
   const map =
     new Map();
-
 
   [
     ...yesterday,
     ...today
   ]
   .forEach(
-
     game =>
       map.set(
         String(game.id),
         game
       )
-
   );
-
 
   allGames =
     [
       ...map.values()
-    ]
-    .filter(
-      keepFinishedFor24Hours
-    );
-
+    ];
 
   $("#gamesLoading")
-  .style.display =
-    "none";
-
+    .style.display =
+      "none";
 
   renderGames();
 
-  populateHeartTeams();
-
-  verifyBroadcastsForVisibleGames();
-
+  /*
+   * V53:
+   * busca dados do ge
+   * antecipadamente.
+   */
+  enrichBrazilGames();
 }
 
 
-/* ==========================================================
-   LOGOS
-========================================================== */
+/* =========================================================
+   GE DATA
+========================================================= */
 
-function initials(name){
+async function fetchGeInfo(game) {
 
-  return String(
-    name || "FC"
-  )
-  .split(" ")
-  .filter(Boolean)
-  .slice(0,2)
-  .map(
-    word =>
-      word[0]
-  )
-  .join("")
-  .toUpperCase();
+  const key =
+    String(game.id);
 
+  const cached =
+    geCache.get(key);
+
+  if (
+    cached &&
+    Date.now() -
+    cached.time <
+    30 * 60 * 1000
+  ) {
+    return cached.data;
+  }
+
+  try {
+
+    const url =
+      `${WORKER}/?mode=ge` +
+      `&home=${
+        encodeURIComponent(
+          game.home
+        )
+      }` +
+      `&away=${
+        encodeURIComponent(
+          game.away
+        )
+      }` +
+      `&date=${
+        apiDate(
+          game.date
+        )
+      }`;
+
+    const response =
+      await fetch(
+        url,
+        {
+          cache:"no-store",
+        }
+      );
+
+    const data =
+      await response.json();
+
+    geCache.set(
+      key,
+      {
+        time:Date.now(),
+        data,
+      }
+    );
+
+    return data;
+
+  } catch (error) {
+
+    console.warn(
+      "GE enrichment:",
+      error
+    );
+
+    return null;
+  }
 }
 
 
-function teamLogoHTML(
+/* =========================================================
+   ENRICH BRAZIL
+========================================================= */
+
+async function enrichBrazilGames() {
+
+  /*
+   * Limita consultas simultâneas.
+   */
+  const games =
+    allGames.filter(
+      game =>
+        game.group === "brazil" &&
+        !isFinished(game)
+    );
+
+  const concurrency = 3;
+
+  let index = 0;
+
+  async function worker() {
+
+    while (
+      index < games.length
+    ) {
+
+      const game =
+        games[
+          index++
+        ];
+
+      await fetchGeInfo(
+        game
+      );
+
+      const card =
+        document.getElementById(
+          `ge-${game.id}`
+        );
+
+      if (card) {
+
+        card.outerHTML =
+          geBoxHTML(game);
+      }
+    }
+  }
+
+  await Promise.all(
+    Array.from(
+      {
+        length:
+          Math.min(
+            concurrency,
+            games.length
+          )
+      },
+      worker
+    )
+  );
+
+  renderGames();
+}
+
+
+/* =========================================================
+   GE DISPLAY
+========================================================= */
+
+function geBoxHTML(game) {
+
+  if (
+    game.group !== "brazil" ||
+    isFinished(game)
+  ) {
+    return "";
+  }
+
+  const cached =
+    geCache.get(
+      String(game.id)
+    );
+
+  if (!cached) {
+
+    return `
+      <div
+        class="ge-loading"
+        id="ge-${game.id}"
+      >
+        🔎 Procurando transmissão,
+        Tempo Real e escalações...
+      </div>
+    `;
+  }
+
+  const info =
+    cached.data;
+
+  if (
+    !info ||
+    !info.found
+  ) {
+
+    return `
+      <div
+        class="ge-loading"
+        id="ge-${game.id}"
+      >
+        📡 Transmissão ainda não confirmada
+        pela fonte consultada.
+      </div>
+    `;
+  }
+
+  const channels =
+    info.broadcasts || [];
+
+  return `
+    <div
+      class="ge-info-box"
+      id="ge-${game.id}"
+    >
+
+      <div class="ge-info-title">
+
+        <strong>
+          📺 Onde assistir
+        </strong>
+
+        <span class="ge-source">
+          Fonte: ge
+        </span>
+
+      </div>
+
+
+      ${
+        channels.length
+        ?
+        `
+          <div class="channel-list">
+
+            ${
+              channels
+                .map(
+                  channel => `
+                    <span
+                      class="
+                        channel
+                        ${
+                          isFreeChannel(channel)
+                          ?
+                          "free"
+                          :
+                          ""
+                        }
+                      "
+                    >
+                      ${channel}
+                    </span>
+                  `
+                )
+                .join("")
+            }
+
+          </div>
+        `
+        :
+        `
+          <div
+            style="
+              color:var(--muted);
+              font-size:9px;
+            "
+          >
+            Nenhuma emissora identificada.
+          </div>
+        `
+      }
+
+
+      <div class="ge-extra-row">
+
+        ${
+          info.realtimeUrl
+          ?
+          `
+            <span class="ge-extra">
+              ⏱️ Tempo Real disponível
+            </span>
+          `
+          :
+          ""
+        }
+
+
+        ${
+          info.hasLineups
+          ?
+          `
+            <span class="ge-extra">
+              👥 Prováveis escalações
+            </span>
+          `
+          :
+          ""
+        }
+
+      </div>
+
+    </div>
+  `;
+}
+
+
+function isFreeChannel(
+  channel
+) {
+
+  const name =
+    normalize(channel);
+
+  return (
+    name.includes("caze") ||
+    name.includes("ge tv") ||
+    name.includes("goat")
+  );
+}
+
+
+/* =========================================================
+   TEAM LOGO
+========================================================= */
+
+function teamLogo(
   logo,
   name
-){
+) {
 
-  const short =
-    initials(name);
-
-
-  if(!logo){
+  if (!logo) {
 
     return `
       <div class="team-logo-wrap">
 
         <div class="team-logo-fallback">
-          ${short}
+          ${initials(name)}
         </div>
 
       </div>
     `;
-
   }
-
 
   return `
     <div class="team-logo-wrap">
@@ -4317,720 +3725,149 @@ function teamLogoHTML(
         class="team-logo-fallback"
         style="display:none"
       >
-        ${short}
+        ${initials(name)}
       </div>
 
     </div>
   `;
-
 }
 
 
-function analysisLogo(
-  espnLogo,
-  apiLogo,
-  name
-){
-
-  const primary =
-    espnLogo || "";
-
-
-  const secondary =
-    apiLogo || "";
-
-
-  const short =
-    initials(name);
-
-
-  if(
-    !primary
-    &&
-    !secondary
-  ){
-
-    return `
-      <div class="analysis-team-logo-wrap">
-
-        <div class="analysis-logo-fallback">
-          ${short}
-        </div>
-
-      </div>
-    `;
-
-  }
-
-
-  return `
-    <div class="analysis-team-logo-wrap">
-
-      <img
-        src="${primary || secondary}"
-        alt="${name}"
-        data-secondary="${secondary}"
-        onerror="
-          if(
-            this.dataset.secondary
-            &&
-            this.src !== this.dataset.secondary
-          ){
-            this.src=this.dataset.secondary;
-            this.dataset.secondary='';
-          }
-          else{
-            this.style.display='none';
-            this.nextElementSibling.style.display='grid';
-          }
-        "
-      >
-
-      <div
-        class="analysis-logo-fallback"
-        style="display:none"
-      >
-        ${short}
-      </div>
-
-    </div>
-  `;
-
-}
-
-
-/* ==========================================================
+/* =========================================================
    LINKS
-========================================================== */
+========================================================= */
 
-function youtubeSearch(query){
-
-  return (
-    "https://www.youtube.com/results?search_query="
-    +
-    encodeURIComponent(query)
-  );
-
-}
-
-
-function googleSearch(query){
+function googleSearch(query) {
 
   return (
-    "https://www.google.com/search?q="
-    +
+    "https://www.google.com/search?q=" +
     encodeURIComponent(query)
   );
-
 }
 
 
-/* ==========================================================
-   FAVORITOS
-========================================================== */
+function youtubeSearch(query) {
 
-function toggleFavorite(id){
-
-  id =
-    String(id);
-
-
-  favorites =
-    favorites.includes(id)
-    ?
-    favorites.filter(
-      item =>
-        item !== id
-    )
-    :
-    [
-      ...favorites,
-      id
-    ];
-
-
-  localStorage.setItem(
-    "stanleySportsFavorites",
-    JSON.stringify(
-      favorites
-    )
+  return (
+    "https://www.youtube.com/results?search_query=" +
+    encodeURIComponent(query)
   );
-
-
-  renderGames();
-
 }
 
 
-/* ==========================================================
-   TRANSMISSÕES
-========================================================== */
-
-function cleanBroadcastName(name){
-
-  const text =
-    String(
-      name || ""
-    )
-    .trim();
-
-
-  if(!text){
-    return "";
-  }
-
-
-  const normalized =
-    normalize(text);
-
-
-  if(
-    normalized.includes("premiere")
-  ){
-    return "Premiere";
-  }
-
-
-  if(
-    normalized.includes("globoplay")
-  ){
-    return "Globoplay";
-  }
-
-
-  if(
-    normalized === "globo"
-    ||
-    normalized.includes("tv globo")
-  ){
-    return "TV Globo";
-  }
-
-
-  if(
-    normalized.includes("sportv")
-  ){
-    return "SporTV";
-  }
-
-
-  if(
-    normalized.includes("disney")
-  ){
-    return "Disney+";
-  }
-
-
-  if(
-    normalized.includes("paramount")
-  ){
-    return "Paramount+";
-  }
-
-
-  if(
-    normalized.includes("caze")
-  ){
-    return "CazéTV";
-  }
-
-
-  if(
-    normalized.includes("ge tv")
-    ||
-    normalized.includes("getv")
-  ){
-    return "ge TV";
-  }
-
-
-  if(
-    normalized.includes("goat")
-  ){
-    return "Canal GOAT";
-  }
-
-
-  return text;
-
-}
-
-
-function collectBroadcastStrings(
-  value,
-  result=[],
-  parentKey=""
-){
-
-  if(
-    value === null
-    ||
-    value === undefined
-  ){
-    return result;
-  }
-
-
-  if(
-    typeof value === "string"
-  ){
-
-    const key =
-      normalize(parentKey);
-
-
-    if(
-      key.includes("broadcast")
-      ||
-      key.includes("network")
-    ){
-      result.push(value);
-    }
-
-
-    return result;
-  }
-
-
-  if(
-    Array.isArray(value)
-  ){
-
-    value.forEach(
-
-      item =>
-        collectBroadcastStrings(
-          item,
-          result,
-          parentKey
-        )
-
-    );
-
-    return result;
-  }
-
-
-  if(
-    typeof value === "object"
-  ){
-
-    Object.entries(value)
-    .forEach(
-
-      ([key,item]) => {
-
-        const keyNorm =
-          normalize(key);
-
-
-        if(
-          (
-            keyNorm === "name"
-            ||
-            keyNorm === "displayname"
-            ||
-            keyNorm === "shortname"
-          )
-          &&
-          (
-            normalize(parentKey)
-            .includes("broadcast")
-            ||
-            normalize(parentKey)
-            .includes("network")
-          )
-          &&
-          typeof item === "string"
-        ){
-          result.push(item);
-        }
-
-
-        collectBroadcastStrings(
-          item,
-          result,
-          `${parentKey}.${key}`
-        );
-
-      }
-
-    );
-
-  }
-
-
-  return result;
-
-}
-
-
-function extractBroadcasts(data){
-
-  const raw = [];
-
-
-  const roots = [
-
-    data?.header?.competitions?.[0]?.broadcasts,
-
-    data?.broadcasts,
-
-    data?.gameInfo?.broadcasts,
-
-    data?.header?.competitions?.[0]
-
-  ];
-
-
-  roots.forEach(
-
-    root =>
-      collectBroadcastStrings(
-        root,
-        raw,
-        "broadcast"
-      )
-
-  );
-
-
-  const blocked = [
-
-    "national",
-    "regional",
-    "international",
-    "domestic",
-    "television",
-    "streaming",
-    "tv",
-    "radio",
-    "web"
-
-  ];
-
-
-  const cleaned =
-    raw
-    .map(
-      cleanBroadcastName
-    )
-    .filter(Boolean)
-    .filter(
-
-      name =>
-        !blocked.includes(
-          normalize(name)
-        )
-
-    );
-
-
-  return [
-    ...new Set(cleaned)
-  ];
-
-}
-
-
-async function fetchGameSummary(game){
-
-  try{
-
-    const response =
-      await fetch(
-
-        `https://site.api.espn.com/apis/site/v2/sports/soccer/${game.leagueSlug}/summary?event=${game.id}`,
-
-        {
-          cache:"no-store"
-        }
-
-      );
-
-
-    if(!response.ok){
-      return null;
-    }
-
-
-    return await response.json();
-
-  }
-  catch{
-
-    return null;
-  }
-
-}
-
-
-async function fetchVerifiedBroadcasts(game){
-
-  const id =
-    String(game.id);
-
+/* =========================================================
+   CARD BUTTONS
+========================================================= */
+
+function geActionButtons(game) {
 
   const cached =
-    broadcastCache.get(id);
-
-
-  if(
-    cached
-    &&
-    Date.now()
-    -
-    cached.time
-    <
-    10
-    *
-    60
-    *
-    1000
-  ){
-    return cached.channels;
-  }
-
-
-  const summary =
-    await fetchGameSummary(game);
-
-
-  const channels =
-    summary
-    ?
-    extractBroadcasts(summary)
-    :
-    [];
-
-
-  broadcastCache.set(
-
-    id,
-
-    {
-      time:Date.now(),
-      channels
-    }
-
-  );
-
-
-  return channels;
-
-}
-
-
-function broadcastBoxHTML(game){
-
-  if(
-    isFinished(game)
-  ){
-    return "";
-  }
-
-
-  if(
-    !shouldCheckBroadcasts(game)
-  ){
-
-    return `
-      <div class="notice waiting">
-
-        📺 A transmissão será verificada
-        15 minutos antes do início.
-
-      </div>
-    `;
-
-  }
-
-
-  const cached =
-    broadcastCache.get(
+    geCache.get(
       String(game.id)
     );
 
+  const info =
+    cached?.data;
 
-  if(!cached){
+  let html = "";
 
-    return `
-      <div
-        class="notice ready"
-        id="broadcast-${game.id}"
+  if (
+    info?.freeStream?.available &&
+    info.freeStream.url
+  ) {
+
+    html += `
+      <a
+        class="action free"
+        href="${info.freeStream.url}"
+        target="_blank"
+        rel="noopener"
       >
-        🔎 Verificando transmissão oficial...
-      </div>
+        ▶️ Assistir grátis
+      </a>
     `;
-
   }
 
+  if (
+    info?.realtimeUrl
+  ) {
 
-  if(
-    !cached.channels.length
-  ){
-
-    return `
-      <div
-        class="notice waiting"
-        id="broadcast-${game.id}"
+    html += `
+      <a
+        class="action ge"
+        href="${info.realtimeUrl}"
+        target="_blank"
+        rel="noopener"
       >
-
-        📡 Nenhuma emissora confirmada
-        pela fonte consultada.
-
-      </div>
+        ⏱️ Tempo Real ge
+      </a>
     `;
-
   }
 
+  if (
+    info?.hasLineups
+  ) {
 
-  return `
-    <div
-      class="broadcast-box"
-      id="broadcast-${game.id}"
-    >
-
-      <div class="broadcast-title">
-        ✓ TRANSMISSÃO INFORMADA
-      </div>
-
-      <div class="broadcast-list">
-
-        ${
-          cached.channels
-          .map(
-            channel => `
-              <span class="broadcast-chip verified">
-                📺 ${channel}
-              </span>
-            `
+    html += `
+      <button
+        class="action ge"
+        onclick="
+          openLineups(
+            '${game.id}'
           )
-          .join("")
-        }
+        "
+      >
+        👥 Escalações
+      </button>
+    `;
+  }
 
-      </div>
-
-    </div>
-  `;
-
+  return html;
 }
 
 
-async function verifyBroadcastsForVisibleGames(){
-
-  const games =
-    allGames.filter(
-      shouldCheckBroadcasts
-    );
-
-
-  await Promise.allSettled(
-
-    games.map(
-
-      async game => {
-
-        await fetchVerifiedBroadcasts(game);
-
-
-        const container =
-          document.getElementById(
-            `broadcast-${game.id}`
-          );
-
-
-        if(container){
-
-          const temp =
-            document.createElement(
-              "div"
-            );
-
-
-          temp.innerHTML =
-            broadcastBoxHTML(game);
-
-
-          const replacement =
-            temp.firstElementChild;
-
-
-          if(replacement){
-            container.replaceWith(replacement);
-          }
-
-        }
-
-      }
-
-    )
-
-  );
-
-}
-
-
-/* ==========================================================
+/* =========================================================
    GAME CARD
-========================================================== */
+========================================================= */
 
-function gameCard(game){
+function gameCard(game) {
 
   const live =
     isLive(game);
 
-
-  const ended =
+  const finished =
     isFinished(game);
-
 
   const favorite =
     isFavorite(game);
 
-
-  const heart =
-    isHeartGame(game);
-
-
-  let statusText =
+  let status =
     "AGENDADO";
-
 
   let statusClass =
     "scheduled";
 
+  if (live) {
 
-  if(ended){
-
-    statusText =
-      "ENCERRADO";
-
-    statusClass =
-      "";
-
-  }
-
-
-  if(live){
-
-    statusText =
-      game.detail
-      ||
+    status =
+      game.detail ||
       "AO VIVO";
 
     statusClass =
       "live";
-
   }
 
+  if (finished) {
+
+    status =
+      "ENCERRADO";
+
+    statusClass =
+      "";
+  }
 
   const center =
-    (
-      live
-      ||
-      ended
-    )
+    live || finished
     ?
     `
       <div class="score">
@@ -5043,137 +3880,78 @@ function gameCard(game){
     `
     :
     `
-      <div class="kickoff-label">
-
-        ${
-          formatDayLabel(
-            game.date
-          )
-        }
-
+      <div class="kickoff">
+        ${formatDayLabel(game.date)}
       </div>
     `;
-
-
-  let notice = "";
 
   let buttons = "";
 
-
-  if(ended){
-
-    notice = `
-      <div class="notice finished">
-
-        🎬 Partida encerrada —
-        veja os melhores momentos.
-
-      </div>
-    `;
-
+  if (finished) {
 
     buttons = `
 
       <a
-        class="action highlight"
+        class="action"
         href="${
           youtubeSearch(
             `${game.home} ${game.away} melhores momentos oficial`
           )
         }"
         target="_blank"
-        rel="noopener"
       >
         🎬 Melhores momentos
       </a>
 
-
-      <a
-        class="action details"
-        href="${
-          googleSearch(
-            `${game.home} ${game.away} resultado estatísticas`
-          )
-        }"
-        target="_blank"
-        rel="noopener"
-      >
-        📊 Detalhes
-      </a>
-
-
       <button
         class="action analysis"
         onclick="
-          openPremiumAnalysis(
+          openAnalysis(
             '${game.id}'
           )
         "
       >
         👑 Análise Premium
       </button>
-
     `;
 
-  }
-  else{
-
-    notice =
-      broadcastBoxHTML(game);
-
+  } else {
 
     buttons = `
+
+      ${
+        geActionButtons(
+          game
+        )
+      }
 
       <a
         class="action primary"
         href="${
           googleSearch(
-            `${game.home} ${game.away} onde assistir hoje`
+            `${game.home} ${game.away} onde assistir`
           )
         }"
         target="_blank"
-        rel="noopener"
       >
         🔎 Onde assistir
       </a>
 
-
       <button
         class="action analysis"
         onclick="
-          openPremiumAnalysis(
+          openAnalysis(
             '${game.id}'
           )
         "
       >
         👑 Análise Premium
       </button>
-
     `;
-
   }
 
-
   return `
-    <article
-      class="
-        game
-        ${heart ? "heart-team" : ""}
-      "
-    >
-
-      ${
-        heart
-        ?
-        `
-          <div class="heart-label">
-            ❤️ SEU TIME DO CORAÇÃO
-          </div>
-        `
-        :
-        ""
-      }
-
+    <article class="game">
 
       <div class="game-head">
 
@@ -5184,15 +3962,26 @@ function gameCard(game){
 
         <div class="game-right">
 
-          <span class="status ${statusClass}">
-            ${statusText}
+          <span
+            class="
+              status
+              ${statusClass}
+            "
+          >
+            ${status}
           </span>
 
 
           <button
             class="
               star
-              ${favorite ? "active" : ""}
+              ${
+                favorite
+                ?
+                "active"
+                :
+                ""
+              }
             "
             onclick="
               toggleFavorite(
@@ -5200,7 +3989,13 @@ function gameCard(game){
               )
             "
           >
-            ${favorite ? "★" : "☆"}
+            ${
+              favorite
+              ?
+              "★"
+              :
+              "☆"
+            }
           </button>
 
         </div>
@@ -5213,7 +4008,7 @@ function gameCard(game){
         <div class="team">
 
           ${
-            teamLogoHTML(
+            teamLogo(
               game.homeLogo,
               game.home
             )
@@ -5231,13 +4026,7 @@ function gameCard(game){
           ${center}
 
           <div class="time">
-
-            ${
-              formatTime(
-                game.date
-              )
-            }
-
+            ${formatTime(game.date)}
           </div>
 
         </div>
@@ -5246,7 +4035,7 @@ function gameCard(game){
         <div class="team">
 
           ${
-            teamLogoHTML(
+            teamLogo(
               game.awayLogo,
               game.away
             )
@@ -5261,7 +4050,11 @@ function gameCard(game){
       </div>
 
 
-      ${notice}
+      ${
+        geBoxHTML(
+          game
+        )
+      }
 
 
       <div class="game-buttons">
@@ -5272,163 +4065,109 @@ function gameCard(game){
 
     </article>
   `;
-
 }
 
 
-/* ==========================================================
+/* =========================================================
    FILTER
-========================================================== */
+========================================================= */
 
-function filteredGames(){
+function filteredGames() {
 
   let list =
-    [
-      ...allGames
-    ];
+    [...allGames];
 
-
-  if(
+  if (
     gameFilter === "live"
-  ){
+  ) {
 
     list =
       list.filter(
         isLive
       );
-
   }
 
-
-  if(
+  if (
     gameFilter === "brazil"
-  ){
+  ) {
 
     list =
       list.filter(
         game =>
           game.group === "brazil"
       );
-
   }
 
-
-  if(
-    gameFilter === "favorites"
-  ){
-
-    list =
-      list.filter(
-        isFavorite
-      );
-
-  }
-
-
-  if(
+  if (
     gameFilter === "europe"
-  ){
+  ) {
 
     list =
       list.filter(
         game =>
           game.group === "europe"
       );
-
   }
 
-
-  if(searchText){
-
-    const query =
-      normalize(searchText);
-
+  if (
+    gameFilter === "favorites"
+  ) {
 
     list =
       list.filter(
-
-        game =>
-
-          normalize(game.home)
-          .includes(query)
-
-          ||
-
-          normalize(game.away)
-          .includes(query)
-
-          ||
-
-          normalize(game.league)
-          .includes(query)
-
+        isFavorite
       );
-
   }
 
+  if (searchText) {
+
+    const query =
+      normalize(
+        searchText
+      );
+
+    list =
+      list.filter(
+        game =>
+          normalize(
+            game.home
+          )
+          .includes(query)
+          ||
+          normalize(
+            game.away
+          )
+          .includes(query)
+          ||
+          normalize(
+            game.league
+          )
+          .includes(query)
+      );
+  }
 
   return list.sort(
-
     (a,b) => {
 
-      if(
-        isLive(a)
-        !==
+      if (
+        isLive(a) !==
         isLive(b)
-      ){
+      ) {
 
         return (
           Number(
             isLive(b)
-          )
-          -
+          ) -
           Number(
             isLive(a)
           )
         );
-
       }
 
-
-      if(
-        isHeartGame(a)
-        !==
-        isHeartGame(b)
-      ){
-
-        return (
-          Number(
-            isHeartGame(b)
-          )
-          -
-          Number(
-            isHeartGame(a)
-          )
-        );
-
-      }
-
-
-      if(
-        isFinished(a)
-        &&
+      if (
+        isFinished(a) !==
         isFinished(b)
-      ){
-
-        return (
-          new Date(b.date)
-          -
-          new Date(a.date)
-        );
-
-      }
-
-
-      if(
-        isFinished(a)
-        !==
-        isFinished(b)
-      ){
+      ) {
 
         return (
           isFinished(a)
@@ -5437,1367 +4176,238 @@ function filteredGames(){
           :
           -1
         );
-
       }
 
-
       return (
-        new Date(a.date)
-        -
+        new Date(a.date) -
         new Date(b.date)
       );
-
     }
-
   );
-
 }
 
 
-/* ==========================================================
-   RENDER GAMES
-========================================================== */
+/* =========================================================
+   RENDER
+========================================================= */
 
-function renderGames(){
+function renderGames() {
 
   const list =
     filteredGames();
 
-
   $("#totalGames")
-  .textContent =
-    allGames.length;
-
+    .textContent =
+      allGames.length;
 
   $("#liveGames")
-  .textContent =
-    allGames
-    .filter(
-      isLive
-    )
-    .length;
-
+    .textContent =
+      allGames
+        .filter(
+          isLive
+        )
+        .length;
 
   $("#brazilGames")
-  .textContent =
-    allGames
-    .filter(
-      game =>
-        game.group === "brazil"
-    )
-    .length;
-
+    .textContent =
+      allGames
+        .filter(
+          game =>
+            game.group === "brazil"
+        )
+        .length;
 
   $("#favoriteCount")
-  .textContent =
-    favorites.length;
-
+    .textContent =
+      favorites.length;
 
   $("#visibleGames")
-  .textContent =
-    list.length;
-
+    .textContent =
+      list.length;
 
   $("#games")
-  .innerHTML =
-    list
-    .map(
-      gameCard
-    )
-    .join("");
-
+    .innerHTML =
+      list
+        .map(
+          gameCard
+        )
+        .join("");
 
   $("#gamesEmpty")
-  .style.display =
-    list.length
-    ?
-    "none"
-    :
-    "block";
-
+    .style.display =
+      list.length
+      ?
+      "none"
+      :
+      "block";
 
   const favoriteGames =
     allGames
-    .filter(
-      isFavorite
-    );
-
+      .filter(
+        isFavorite
+      );
 
   $("#favoriteGames")
-  .innerHTML =
-    favoriteGames
-    .map(
-      gameCard
-    )
-    .join("");
-
+    .innerHTML =
+      favoriteGames
+        .map(
+          gameCard
+        )
+        .join("");
 
   $("#favoritesEmpty")
-  .style.display =
-    favoriteGames.length
+    .style.display =
+      favoriteGames.length
+      ?
+      "none"
+      :
+      "block";
+}
+
+
+/* =========================================================
+   FAVORITES
+========================================================= */
+
+function toggleFavorite(id) {
+
+  id =
+    String(id);
+
+  favorites =
+    favorites.includes(id)
     ?
-    "none"
-    :
-    "block";
-
-
-  verifyBroadcastsForVisibleGames();
-
-}
-
-
-/* ==========================================================
-   PERCENTUAL
-========================================================== */
-
-function percentNumber(value){
-
-  if(
-    value === null
-    ||
-    value === undefined
-    ||
-    value === ""
-  ){
-    return 0;
-  }
-
-
-  return Math.max(
-
-    0,
-
-    Math.min(
-
-      100,
-
-      Number(
-        String(value)
-        .replace("%","")
-        .replace(",",".")
-      )
-      ||
-      0
-
-    )
-
-  );
-
-}
-
-
-function percentText(value){
-
-  if(
-    value === null
-    ||
-    value === undefined
-    ||
-    value === ""
-  ){
-    return "—";
-  }
-
-
-  const text =
-    String(value);
-
-
-  return (
-    text.includes("%")
-    ?
-    text
-    :
-    `${text}%`
-  );
-
-}
-
-
-/* ==========================================================
-   DETECTA SE EXISTEM DADOS
-========================================================== */
-
-function hasProbabilityData(data){
-
-  return (
-
-    hasNumber(
-      data?.probabilities?.home
-    )
-
-    ||
-
-    hasNumber(
-      data?.probabilities?.draw
-    )
-
-    ||
-
-    hasNumber(
-      data?.probabilities?.away
-    )
-
-  );
-
-}
-
-
-function hasComparisonData(data){
-
-  const comparison =
-    data?.comparison || {};
-
-
-  return [
-
-    comparison.formHome,
-
-    comparison.formAway,
-
-    comparison.attackHome,
-
-    comparison.attackAway,
-
-    comparison.defenseHome,
-
-    comparison.defenseAway
-
-  ]
-  .some(
-    hasNumber
-  );
-
-}
-
-
-function hasLast5Data(data){
-
-  return (
-
-    safeNumber(
-      data?.teams?.home?.last5?.played
-    )
-    >
-    0
-
-    ||
-
-    safeNumber(
-      data?.teams?.away?.last5?.played
-    )
-    >
-    0
-
-  );
-
-}
-
-
-function usablePartialAnalysis(data){
-
-  if(!data){
-    return false;
-  }
-
-
-  return (
-
-    hasProbabilityData(data)
-
-    ||
-
-    hasComparisonData(data)
-
-    ||
-
-    hasLast5Data(data)
-
-    ||
-
-    !!data.prediction
-
-  );
-
-}
-
-
-/* ==========================================================
-   ESPN FALLBACK PREDICTOR
-========================================================== */
-
-function deepFindValues(
-  object,
-  keyNames,
-  results=[]
-){
-
-  if(
-    object === null
-    ||
-    object === undefined
-  ){
-    return results;
-  }
-
-
-  if(
-    Array.isArray(object)
-  ){
-
-    object.forEach(
-
+    favorites.filter(
       item =>
-        deepFindValues(
-          item,
-          keyNames,
-          results
-        )
-
-    );
-
-    return results;
-  }
-
-
-  if(
-    typeof object !== "object"
-  ){
-    return results;
-  }
-
-
-  Object.entries(object)
-  .forEach(
-
-    ([key,value]) => {
-
-      const normalizedKey =
-        normalize(key);
-
-
-      if(
-        keyNames.includes(
-          normalizedKey
-        )
-        &&
-        (
-          typeof value === "number"
-          ||
-          typeof value === "string"
-        )
-      ){
-
-        results.push({
-          key:normalizedKey,
-          value
-        });
-
-      }
-
-
-      if(
-        typeof value === "object"
-        &&
-        value !== null
-      ){
-
-        deepFindValues(
-          value,
-          keyNames,
-          results
-        );
-
-      }
-
-    }
-
-  );
-
-
-  return results;
-
-}
-
-
-function getFirstNumericValue(
-  results,
-  names
-){
-
-  for(
-    const name of names
-  ){
-
-    const found =
-      results.find(
-        item =>
-          item.key === name
-      );
-
-
-    if(found){
-
-      const value =
-        percentNumber(
-          found.value
-        );
-
-
-      if(value > 0){
-        return value;
-      }
-
-    }
-
-  }
-
-
-  return 0;
-
-}
-
-
-async function buildEspnFallback(game){
-
-  const summary =
-    await fetchGameSummary(game);
-
-
-  if(!summary){
-    return null;
-  }
-
-
-  const keys = [
-
-    "hometeamchance",
-
-    "homewinpercentage",
-
-    "homepercentage",
-
-    "homechance",
-
-    "awayteamchance",
-
-    "awaywinpercentage",
-
-    "awaypercentage",
-
-    "awaychance",
-
-    "tiepercentage",
-
-    "drawpercentage",
-
-    "tiechance",
-
-    "drawchance"
-
-  ];
-
-
-  const values =
-    deepFindValues(
-      summary,
-      keys
-    );
-
-
-  let home =
-    getFirstNumericValue(
-      values,
-      [
-        "hometeamchance",
-        "homewinpercentage",
-        "homepercentage",
-        "homechance"
-      ]
-    );
-
-
-  let away =
-    getFirstNumericValue(
-      values,
-      [
-        "awayteamchance",
-        "awaywinpercentage",
-        "awaypercentage",
-        "awaychance"
-      ]
-    );
-
-
-  let draw =
-    getFirstNumericValue(
-      values,
-      [
-        "tiepercentage",
-        "drawpercentage",
-        "tiechance",
-        "drawchance"
-      ]
-    );
-
-
-  if(
-    !home
-    &&
-    !away
-    &&
-    !draw
-  ){
-    return null;
-  }
-
-
-  const total =
-    home + away + draw;
-
-
-  if(total > 0){
-
-    home =
-      Math.round(
-        home / total * 100
-      );
-
-
-    away =
-      Math.round(
-        away / total * 100
-      );
-
-
-    draw =
-      Math.max(
-        0,
-        100 - home - away
-      );
-
-  }
-
-
-  return {
-
-    ok:true,
-
-    estimated:true,
-
-    source:"espn-fallback",
-
-    sourceLabel:
-      "Estimativa Stanley Sports + ESPN",
-
-    probabilities:{
-
-      home:`${home}%`,
-
-      draw:`${draw}%`,
-
-      away:`${away}%`
-
-    },
-
-    comparison:{},
-
-    teams:{},
-
-    markets:{},
-
-    prediction:{},
-
-    disclaimer:
-      "Estimativa baseada em dados públicos disponíveis. Não representa garantia de resultado."
-
-  };
-
-}
-
-
-/* ==========================================================
-   POISSON
-========================================================== */
-
-function factorial(number){
-
-  let result = 1;
-
-
-  for(
-    let index=2;
-    index<=number;
-    index++
-  ){
-    result *= index;
-  }
-
-
-  return result;
-
-}
-
-
-function poisson(
-  goals,
-  lambda
-){
-
-  return (
-    Math.exp(-lambda)
-    *
-    Math.pow(
-      lambda,
-      goals
+        item !== id
     )
-    /
-    factorial(goals)
+    :
+    [
+      ...favorites,
+      id
+    ];
+
+  localStorage.setItem(
+    "stanleySportsFavorites",
+    JSON.stringify(
+      favorites
+    )
   );
 
+  renderGames();
 }
 
 
-function goalMarkets(
-  lambdaHome,
-  lambdaAway
-){
-
-  lambdaHome =
-    Math.max(
-      .1,
-      Math.min(
-        5,
-        lambdaHome
-      )
-    );
-
-
-  lambdaAway =
-    Math.max(
-      .1,
-      Math.min(
-        5,
-        lambdaAway
-      )
-    );
-
-
-  let over15 = 0;
-
-  let over25 = 0;
-
-  let bothTeams = 0;
-
-  let total = 0;
-
-
-  for(
-    let home=0;
-    home<=8;
-    home++
-  ){
-
-    for(
-      let away=0;
-      away<=8;
-      away++
-    ){
-
-      const probability =
-        poisson(
-          home,
-          lambdaHome
-        )
-        *
-        poisson(
-          away,
-          lambdaAway
-        );
-
-
-      total += probability;
-
-
-      if(
-        home + away >= 2
-      ){
-        over15 += probability;
-      }
-
-
-      if(
-        home + away >= 3
-      ){
-        over25 += probability;
-      }
-
-
-      if(
-        home >= 1
-        &&
-        away >= 1
-      ){
-        bothTeams += probability;
-      }
-
-    }
-
-  }
-
-
-  return {
-
-    over15:
-      Math.round(
-        over15 / total * 100
-      ),
-
-    over25:
-      Math.round(
-        over25 / total * 100
-      ),
-
-    btts:
-      Math.round(
-        bothTeams / total * 100
-      )
-
-  };
-
-}
-
-
-/* ==========================================================
-   LAST FIVE
-========================================================== */
-
-function last5Stats(team){
-
-  const last5 =
-    team?.last5 || {};
-
-
-  const goalsFor =
-    last5.goals?.for || {};
-
-
-  const goalsAgainst =
-    last5.goals?.against || {};
-
-
-  return {
-
-    played:
-      safeNumber(
-        last5.played
-      ),
-
-    form:
-      percentNumber(
-        last5.form
-      ),
-
-    goalsForAverage:
-      safeNumber(
-        goalsFor.average
-      ),
-
-    goalsAgainstAverage:
-      safeNumber(
-        goalsAgainst.average
-      )
-
-  };
-
-}
-
-
-/* ==========================================================
-   GOALS
-========================================================== */
-
-function getGoalMarketData(data){
-
-  const provided =
-    data.markets || {};
-
-
-  const home =
-    last5Stats(
-      data.teams?.home
-    );
-
-
-  const away =
-    last5Stats(
-      data.teams?.away
-    );
-
-
-  const hasGoalBase = (
-
-    home.goalsForAverage > 0
-
-    ||
-
-    home.goalsAgainstAverage > 0
-
-    ||
-
-    away.goalsForAverage > 0
-
-    ||
-
-    away.goalsAgainstAverage > 0
-
-  );
-
-
-  let calculated = {};
-
-
-  if(hasGoalBase){
-
-    const lambdaHome =
-      (
-        home.goalsForAverage
-        +
-        away.goalsAgainstAverage
-      )
-      /
-      2;
-
-
-    const lambdaAway =
-      (
-        away.goalsForAverage
-        +
-        home.goalsAgainstAverage
-      )
-      /
-      2;
-
-
-    calculated =
-      goalMarkets(
-        lambdaHome || 1,
-        lambdaAway || 1
-      );
-
-  }
-
-
-  return {
-
-    over15:
-      provided.over15
-      ??
-      (
-        calculated.over15 != null
-        ?
-        `${calculated.over15}%`
-        :
-        null
-      ),
-
-    over25:
-      provided.over25
-      ??
-      (
-        calculated.over25 != null
-        ?
-        `${calculated.over25}%`
-        :
-        null
-      ),
-
-    btts:
-      provided.bothTeamsScore
-      ??
-      (
-        calculated.btts != null
-        ?
-        `${calculated.btts}%`
-        :
-        null
-      ),
-
-    estimated:
-      !provided.over15
-      &&
-      !provided.over25
-      &&
-      !provided.bothTeamsScore
-      &&
-      hasGoalBase
-
-  };
-
-}
-
-
-/* ==========================================================
-   RESULTADO PRINCIPAL
-========================================================== */
+/* =========================================================
+   WINNER
+========================================================= */
 
 function winnerInfo(
   data,
   home,
   away
-){
+) {
 
-  const homeProb =
+  const homeP =
     percentNumber(
       data.probabilities?.home
     );
 
-
-  const drawProb =
+  const drawP =
     percentNumber(
       data.probabilities?.draw
     );
 
-
-  const awayProb =
+  const awayP =
     percentNumber(
       data.probabilities?.away
     );
 
-
   const max =
     Math.max(
-      homeProb,
-      drawProb,
-      awayProb
+      homeP,
+      drawP,
+      awayP
     );
-
 
   const tolerance = 1;
 
-
-  const homeTop =
+  const h =
     Math.abs(
-      homeProb-max
+      homeP-max
     )
-    <=
-    tolerance;
+    <= tolerance;
 
-
-  const drawTop =
+  const d =
     Math.abs(
-      drawProb-max
+      drawP-max
     )
-    <=
-    tolerance;
+    <= tolerance;
 
-
-  const awayTop =
+  const a =
     Math.abs(
-      awayProb-max
+      awayP-max
     )
-    <=
-    tolerance;
+    <= tolerance;
 
-
-  if(
-    homeTop
-    &&
-    drawTop
-    &&
-    awayTop
-  ){
+  if (
+    h &&
+    d &&
+    !a
+  ) {
 
     return {
-      label:"Confronto equilibrado",
-      type:"balanced",
-      pct:max
-    };
-
-  }
-
-
-  if(
-    homeTop
-    &&
-    drawTop
-    &&
-    !awayTop
-  ){
-
-    return {
-      label:`${home} ou empate`,
+      label:
+        `${home} ou empate`,
       type:"home-draw",
-      pct:max
     };
-
   }
 
-
-  if(
-    awayTop
-    &&
-    drawTop
-    &&
-    !homeTop
-  ){
+  if (
+    a &&
+    d &&
+    !h
+  ) {
 
     return {
-      label:`${away} ou empate`,
+      label:
+        `${away} ou empate`,
       type:"away-draw",
-      pct:max
     };
-
   }
 
-
-  if(
-    homeTop
-    &&
-    awayTop
-    &&
-    !drawTop
-  ){
-
-    return {
-      label:`${home} ou ${away}`,
-      type:"home-away",
-      pct:max
-    };
-
-  }
-
-
-  if(homeTop){
+  if (h) {
 
     return {
       label:home,
       type:"home",
-      pct:homeProb
     };
-
   }
 
-
-  if(awayTop){
+  if (a) {
 
     return {
       label:away,
       type:"away",
-      pct:awayProb
     };
-
   }
-
 
   return {
     label:"Empate",
     type:"draw",
-    pct:drawProb
   };
-
 }
 
 
-/* ==========================================================
-   TRADUÇÃO V52
-========================================================== */
-
-function translateAdvice(
-  text="",
-  home="",
-  away=""
-){
-
-  let translated =
-    String(
-      text || ""
-    )
-    .trim();
-
-
-  if(!translated){
-    return "";
-  }
-
-
-  translated =
-    translated
-
-    .replace(
-      /Combo\s*/gi,
-      ""
-    )
-
-    .replace(
-      /Double chance\s*:\s*/gi,
-      "Dupla chance: "
-    )
-
-    .replace(
-      /\bwin or draw\b/gi,
-      "vitória ou empate"
-    )
-
-    .replace(
-      /\bdraw or\b/gi,
-      "empate ou"
-    )
-
-    .replace(
-      /\bor draw\b/gi,
-      "ou empate"
-    )
-
-    .replace(
-      /\bhome\b/gi,
-      home
-    )
-
-    .replace(
-      /\baway\b/gi,
-      away
-    )
-
-    .replace(
-      /\band\s*-\s*4\.5\s*goals/gi,
-      "e menos de 4,5 gols"
-    )
-
-    .replace(
-      /\band\s*-\s*3\.5\s*goals/gi,
-      "e menos de 3,5 gols"
-    )
-
-    .replace(
-      /\band\s*-\s*2\.5\s*goals/gi,
-      "e menos de 2,5 gols"
-    )
-
-    .replace(
-      /\band\s*\+\s*1\.5\s*goals/gi,
-      "e mais de 1,5 gols"
-    )
-
-    .replace(
-      /\band\s*\+\s*2\.5\s*goals/gi,
-      "e mais de 2,5 gols"
-    )
-
-    .replace(
-      /-\s*4\.5\s*goals/gi,
-      "menos de 4,5 gols"
-    )
-
-    .replace(
-      /-\s*3\.5\s*goals/gi,
-      "menos de 3,5 gols"
-    )
-
-    .replace(
-      /-\s*2\.5\s*goals/gi,
-      "menos de 2,5 gols"
-    )
-
-    .replace(
-      /\+\s*1\.5\s*goals/gi,
-      "mais de 1,5 gols"
-    )
-
-    .replace(
-      /\+\s*2\.5\s*goals/gi,
-      "mais de 2,5 gols"
-    )
-
-    .replace(
-      /\bgoals\b/gi,
-      "gols"
-    )
-
-    .replace(
-      /\band\b/gi,
-      "e"
-    )
-
-    .replace(
-      /\bor\b/gi,
-      "ou"
-    );
-
-
-  translated =
-    translated
-    .replace(
-      /\s+/g,
-      " "
-    )
-    .trim();
-
-
-  return translated;
-
-}
-
-
-/* ==========================================================
-   CONFIDENCE V52
-========================================================== */
-
-function calculateConfidence(data){
-
-  const probabilities = [
-
-    percentNumber(
-      data.probabilities?.home
-    ),
-
-    percentNumber(
-      data.probabilities?.draw
-    ),
-
-    percentNumber(
-      data.probabilities?.away
-    )
-
-  ]
-  .sort(
-    (a,b) =>
-      b-a
-  );
-
-
-  const gap =
-    probabilities[0]
-    -
-    probabilities[1];
-
-
-  const comparison =
-    data.comparison || {};
-
-
-  const filledComparison = [
-
-    comparison.formHome,
-
-    comparison.formAway,
-
-    comparison.attackHome,
-
-    comparison.attackAway,
-
-    comparison.defenseHome,
-
-    comparison.defenseAway
-
-  ]
-  .filter(
-    hasNumber
-  )
-  .length;
-
-
-  let score = 40;
-
-
-  if(
-    hasProbabilityData(data)
-  ){
-
-    score +=
-      12;
-
-  }
-
-
-  score +=
-    Math.min(
-      23,
-      gap * 1.2
-    );
-
-
-  score +=
-    filledComparison * 2;
-
-
-  if(
-    hasLast5Data(data)
-  ){
-
-    score += 8;
-
-  }
-
-
-  if(
-    data.estimated
-  ){
-
-    score -= 6;
-
-  }
-
-
-  score =
-    Math.round(
-      Math.min(
-        90,
-        Math.max(
-          35,
-          score
-        )
-      )
-    );
-
-
-  return {
-
-    score,
-
-    label:
-      score >= 76
-      ?
-      "Alta"
-      :
-      score >= 60
-      ?
-      "Média"
-      :
-      "Baixa"
-
-  };
-
-}
-
-
-/* ==========================================================
-   RESUMO STANLEY
-========================================================== */
-
-function buildStanleySummary(
+/* =========================================================
+   SUMMARY
+========================================================= */
+
+function summaryText(
   data,
   home,
   away
-){
-
-  const homeProb =
-    percentNumber(
-      data.probabilities?.home
-    );
-
-
-  const drawProb =
-    percentNumber(
-      data.probabilities?.draw
-    );
-
-
-  const awayProb =
-    percentNumber(
-      data.probabilities?.away
-    );
-
+) {
 
   const winner =
     winnerInfo(
@@ -6806,1671 +4416,213 @@ function buildStanleySummary(
       away
     );
 
-
-  const comparison =
-    data.comparison || {};
-
-
-  const formHome =
+  const hp =
     percentNumber(
-      comparison.formHome
+      data.probabilities?.home
     );
 
-
-  const formAway =
+  const dp =
     percentNumber(
-      comparison.formAway
+      data.probabilities?.draw
     );
 
-
-  const attackHome =
+  const ap =
     percentNumber(
-      comparison.attackHome
+      data.probabilities?.away
     );
 
-
-  const attackAway =
-    percentNumber(
-      comparison.attackAway
-    );
-
-
-  const defenseHome =
-    percentNumber(
-      comparison.defenseHome
-    );
-
-
-  const defenseAway =
-    percentNumber(
-      comparison.defenseAway
-    );
-
-
-  const market =
-    getGoalMarketData(data);
-
-
-  const over15 =
-    percentNumber(
-      market.over15
-    );
-
-
-  const over25 =
-    percentNumber(
-      market.over25
-    );
-
-
-  const btts =
-    percentNumber(
-      market.btts
-    );
-
-
-  const parts = [];
-
-
-  if(
-    hasProbabilityData(data)
-  ){
-
-    if(
-      winner.type === "home-draw"
-    ){
-
-      parts.push(
-
-        `${home} e empate aparecem empatados no topo da projeção, com ${homeProb}% cada.`
-
-      );
-
-    }
-
-    else if(
-      winner.type === "away-draw"
-    ){
-
-      parts.push(
-
-        `${away} e empate aparecem empatados no topo da projeção, com ${awayProb}% cada.`
-
-      );
-
-    }
-
-    else if(
-      winner.type === "balanced"
-    ){
-
-      parts.push(
-
-        "As probabilidades estão muito próximas, indicando um confronto bastante equilibrado."
-
-      );
-
-    }
-
-    else if(
-      winner.type === "home"
-    ){
-
-      parts.push(
-
-        `${home} apresenta a maior probabilidade de resultado positivo, com ${homeProb}%.`
-
-      );
-
-    }
-
-    else if(
-      winner.type === "away"
-    ){
-
-      parts.push(
-
-        `${away} apresenta a maior probabilidade de resultado positivo, com ${awayProb}%.`
-
-      );
-
-    }
-
-    else{
-
-      parts.push(
-
-        `O empate aparece com a maior probabilidade estatística, em ${drawProb}%.`
-
-      );
-
-    }
-
-  }
-
-
-  if(
-    hasNumber(
-      comparison.formHome
-    )
-    &&
-    hasNumber(
-      comparison.formAway
-    )
-  ){
-
-    if(
-      formHome >
-      formAway + 7
-    ){
-
-      parts.push(
-
-        `${home} chega em melhor momento recente.`
-
-      );
-
-    }
-
-    else if(
-      formAway >
-      formHome + 7
-    ){
-
-      parts.push(
-
-        `${away} chega em melhor momento recente.`
-
-      );
-
-    }
-
-  }
-
-
-  if(
-    hasNumber(
-      comparison.attackHome
-    )
-    &&
-    hasNumber(
-      comparison.attackAway
-    )
-    &&
-    hasNumber(
-      comparison.defenseHome
-    )
-    &&
-    hasNumber(
-      comparison.defenseAway
-    )
-  ){
-
-    const totalHome =
-      attackHome
-      +
-      defenseHome;
-
-
-    const totalAway =
-      attackAway
-      +
-      defenseAway;
-
-
-    if(
-      totalHome >
-      totalAway + 12
-    ){
-
-      parts.push(
-
-        `${home} apresenta vantagem no conjunto de ataque e defesa.`
-
-      );
-
-    }
-
-    else if(
-      totalAway >
-      totalHome + 12
-    ){
-
-      parts.push(
-
-        `${away} apresenta vantagem no conjunto de ataque e defesa.`
-
-      );
-
-    }
-
-  }
-
-
-  if(
-    market.over15
-    ||
-    market.over25
-  ){
-
-    if(
-      over25 >= 65
-    ){
-
-      parts.push(
-
-        "Os números apontam para uma partida com boa possibilidade de três ou mais gols."
-
-      );
-
-    }
-
-    else if(
-      over15 >= 65
-    ){
-
-      parts.push(
-
-        "A tendência de gols favorece pelo menos dois gols na partida."
-
-      );
-
-    }
-
-    else if(
-      over15 > 0
-      &&
-      over15 < 45
-    ){
-
-      parts.push(
-
-        "A projeção de gols indica um confronto potencialmente mais fechado."
-
-      );
-
-    }
-
-  }
-
-
-  if(
-    btts >= 62
-  ){
-
-    parts.push(
-
-      "Existe também uma possibilidade relevante de as duas equipes marcarem."
-
-    );
-
-  }
-
-
-  if(
-    !parts.length
-  ){
+  if (
+    winner.type ===
+    "home-draw"
+  ) {
 
     return (
-      "Existem poucos dados confiáveis disponíveis para gerar uma leitura mais detalhada deste confronto."
+      `${home} e empate aparecem empatados no topo da projeção, com ${hp}% cada.`
     );
-
   }
 
+  if (
+    winner.type ===
+    "away-draw"
+  ) {
 
-  return parts.join(" ");
-
-}
-
-
-/* ==========================================================
-   GOLS LABEL
-========================================================== */
-
-function goalsTrendLabel(data){
-
-  const market =
-    getGoalMarketData(data);
-
-
-  if(
-    !market.over15
-    &&
-    !market.over25
-  ){
-    return "Sem dados";
-  }
-
-
-  const over15 =
-    percentNumber(
-      market.over15
+    return (
+      `${away} e empate aparecem empatados no topo da projeção, com ${ap}% cada.`
     );
+  }
 
+  if (
+    winner.type === "home"
+  ) {
 
-  const over25 =
-    percentNumber(
-      market.over25
+    return (
+      `${home} apresenta a maior probabilidade estatística, com ${hp}%.`
     );
-
-
-  if(
-    over25 >= 65
-  ){
-    return "Over 2.5";
   }
 
+  if (
+    winner.type === "away"
+  ) {
 
-  if(
-    over15 >= 65
-  ){
-    return "Over 1.5";
-  }
-
-
-  if(
-    over15 < 45
-  ){
-    return "Poucos gols";
-  }
-
-
-  return "Equilibrado";
-
-}
-
-
-/* ==========================================================
-   EXECUTIVE
-========================================================== */
-
-function executiveCardHTML(
-  data,
-  home,
-  away
-){
-
-  const winner =
-    winnerInfo(
-      data,
-      home,
-      away
+    return (
+      `${away} apresenta a maior probabilidade estatística, com ${ap}%.`
     );
+  }
 
-
-  const confidence =
-    calculateConfidence(data);
-
-
-  const goals =
-    goalsTrendLabel(data);
-
-
-  return `
-    <div class="executive-card">
-
-      <div class="executive-label">
-        📌 RESUMO RÁPIDO
-      </div>
-
-
-      <div class="executive-title">
-        Leitura em poucos segundos
-      </div>
-
-
-      <div class="executive-pills">
-
-        <div class="executive-pill green">
-
-          <small>
-            MAIOR TENDÊNCIA
-          </small>
-
-          <strong>
-            ${
-              hasProbabilityData(data)
-              ?
-              winner.label
-              :
-              "Sem projeção"
-            }
-          </strong>
-
-        </div>
-
-
-        <div class="executive-pill gold">
-
-          <small>
-            CONFIANÇA
-          </small>
-
-          <strong>
-            ${confidence.label}
-            •
-            ${confidence.score}%
-          </strong>
-
-        </div>
-
-
-        <div class="executive-pill green">
-
-          <small>
-            GOLS
-          </small>
-
-          <strong>
-            ${goals}
-          </strong>
-
-        </div>
-
-      </div>
-
-
-      <p class="executive-text">
-
-        ${
-          buildStanleySummary(
-            data,
-            home,
-            away
-          )
-        }
-
-      </p>
-
-    </div>
-  `;
-
+  return (
+    `O empate aparece com ${dp}% de probabilidade.`
+  );
 }
 
 
-/* ==========================================================
-   PROBABILITY HTML
-========================================================== */
+/* =========================================================
+   ANALYSIS
+========================================================= */
 
-function probabilityRow(
-  name,
-  value,
-  draw=false
-){
+async function openAnalysis(id) {
 
-  const percentage =
-    percentNumber(value);
-
-
-  return `
-    <div class="prob-row">
-
-      <div class="prob-name">
-        ${name}
-      </div>
-
-
-      <div class="prob-track">
-
-        <div
-          class="
-            prob-fill
-            ${draw ? "draw" : ""}
-          "
-          style="
-            width:${percentage}%
-          "
-        ></div>
-
-      </div>
-
-
-      <div
-        class="
-          prob-value
-          ${draw ? "draw" : ""}
-        "
-      >
-        ${percentText(value)}
-      </div>
-
-    </div>
-  `;
-
-}
-
-
-function probabilitiesHTML(
-  data,
-  home,
-  away
-){
-
-  if(
-    !hasProbabilityData(data)
-  ){
-    return "";
-  }
-
-
-  return `
-    <div class="analysis-section">
-
-      <h3>
-        🎯 Probabilidade do resultado
-      </h3>
-
-
-      <div class="probability-list">
-
-        ${
-          probabilityRow(
-            home,
-            data.probabilities?.home
-          )
-        }
-
-        ${
-          probabilityRow(
-            "Empate",
-            data.probabilities?.draw,
-            true
-          )
-        }
-
-        ${
-          probabilityRow(
-            away,
-            data.probabilities?.away
-          )
-        }
-
-      </div>
-
-    </div>
-  `;
-
-}
-
-
-/* ==========================================================
-   COMPARISON HTML
-========================================================== */
-
-function compareBox(
-  label,
-  homeValue,
-  awayValue,
-  home,
-  away
-){
-
-  if(
-    !hasNumber(homeValue)
-    &&
-    !hasNumber(awayValue)
-  ){
-    return "";
-  }
-
-
-  return `
-    <div class="compare-box">
-
-      <div class="compare-header">
-
-        <span>
-          ${label}
-        </span>
-
-        <span>
-          ${home} • ${away}
-        </span>
-
-      </div>
-
-
-      <div class="compare-values">
-
-        <div class="compare-value">
-          ${percentText(homeValue)}
-        </div>
-
-        <div class="compare-value">
-          ${percentText(awayValue)}
-        </div>
-
-      </div>
-
-    </div>
-  `;
-
-}
-
-
-function comparisonHTML(
-  data,
-  home,
-  away
-){
-
-  if(
-    !hasComparisonData(data)
-  ){
-    return "";
-  }
-
-
-  const comparison =
-    data.comparison || {};
-
-
-  return `
-    <div class="analysis-section">
-
-      <h3>
-        📊 Comparativo
-      </h3>
-
-
-      <div class="compare-list">
-
-        ${
-          compareBox(
-            "Forma",
-            comparison.formHome,
-            comparison.formAway,
-            home,
-            away
-          )
-        }
-
-        ${
-          compareBox(
-            "Ataque",
-            comparison.attackHome,
-            comparison.attackAway,
-            home,
-            away
-          )
-        }
-
-        ${
-          compareBox(
-            "Defesa",
-            comparison.defenseHome,
-            comparison.defenseAway,
-            home,
-            away
-          )
-        }
-
-      </div>
-
-    </div>
-  `;
-
-}
-
-
-/* ==========================================================
-   LAST FIVE HTML
-========================================================== */
-
-function last5HTML(
-  data,
-  homeName,
-  awayName
-){
-
-  const home =
-    last5Stats(
-      data.teams?.home
-    );
-
-
-  const away =
-    last5Stats(
-      data.teams?.away
-    );
-
-
-  if(
-    !home.played
-    &&
-    !away.played
-  ){
-    return "";
-  }
-
-
-  return `
-    <div class="analysis-section">
-
-      <h3>
-        📈 Últimos 5 jogos
-      </h3>
-
-
-      <div class="team-form-grid">
-
-        <div class="team-form-card">
-
-          <small>
-            ${homeName}
-          </small>
-
-
-          <strong class="form-score">
-
-            ${
-              home.form
-              ?
-              `${home.form}%`
-              :
-              "—"
-            }
-
-          </strong>
-
-
-          <div class="mini-stat-line">
-
-            <span>
-              Jogos
-            </span>
-
-            <b>
-              ${home.played || "—"}
-            </b>
-
-          </div>
-
-
-          <div class="mini-stat-line">
-
-            <span>
-              Gols marcados
-            </span>
-
-            <b>
-
-              ${
-                home.goalsForAverage
-                ?
-                `${home.goalsForAverage}/jogo`
-                :
-                "—"
-              }
-
-            </b>
-
-          </div>
-
-
-          <div class="mini-stat-line">
-
-            <span>
-              Gols sofridos
-            </span>
-
-            <b>
-
-              ${
-                home.goalsAgainstAverage
-                ?
-                `${home.goalsAgainstAverage}/jogo`
-                :
-                "—"
-              }
-
-            </b>
-
-          </div>
-
-        </div>
-
-
-        <div class="team-form-card">
-
-          <small>
-            ${awayName}
-          </small>
-
-
-          <strong class="form-score">
-
-            ${
-              away.form
-              ?
-              `${away.form}%`
-              :
-              "—"
-            }
-
-          </strong>
-
-
-          <div class="mini-stat-line">
-
-            <span>
-              Jogos
-            </span>
-
-            <b>
-              ${away.played || "—"}
-            </b>
-
-          </div>
-
-
-          <div class="mini-stat-line">
-
-            <span>
-              Gols marcados
-            </span>
-
-            <b>
-
-              ${
-                away.goalsForAverage
-                ?
-                `${away.goalsForAverage}/jogo`
-                :
-                "—"
-              }
-
-            </b>
-
-          </div>
-
-
-          <div class="mini-stat-line">
-
-            <span>
-              Gols sofridos
-            </span>
-
-            <b>
-
-              ${
-                away.goalsAgainstAverage
-                ?
-                `${away.goalsAgainstAverage}/jogo`
-                :
-                "—"
-              }
-
-            </b>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-  `;
-
-}
-
-
-/* ==========================================================
-   MARKET HTML
-========================================================== */
-
-function marketClass(value){
-
-  const percentage =
-    percentNumber(value);
-
-
-  if(
-    percentage >= 65
-  ){
-    return "high";
-  }
-
-
-  if(
-    percentage >= 45
-  ){
-    return "medium";
-  }
-
-
-  return "low";
-
-}
-
-
-function marketsHTML(data){
-
-  const markets =
-    getGoalMarketData(data);
-
-
-  if(
-    !markets.over15
-    &&
-    !markets.over25
-    &&
-    !markets.btts
-  ){
-    return "";
-  }
-
-
-  return `
-    <div class="analysis-section">
-
-      <h3>
-        ⚽ Tendência de gols
-      </h3>
-
-
-      <div class="market-grid">
-
-        <div class="market-card">
-
-          <small>
-            MAIS DE 1.5 GOLS
-          </small>
-
-          <strong
-            class="
-              market-value
-              ${
-                marketClass(
-                  markets.over15
-                )
-              }
-            "
-          >
-            ${markets.over15 || "—"}
-          </strong>
-
-        </div>
-
-
-        <div class="market-card">
-
-          <small>
-            MAIS DE 2.5 GOLS
-          </small>
-
-          <strong
-            class="
-              market-value
-              ${
-                marketClass(
-                  markets.over25
-                )
-              }
-            "
-          >
-            ${markets.over25 || "—"}
-          </strong>
-
-        </div>
-
-
-        <div class="market-card">
-
-          <small>
-            AMBAS MARCAM
-          </small>
-
-          <strong
-            class="
-              market-value
-              ${
-                marketClass(
-                  markets.btts
-                )
-              }
-            "
-          >
-            ${markets.btts || "—"}
-          </strong>
-
-        </div>
-
-      </div>
-
-
-      ${
-        markets.estimated
-        ?
-        `
-          <div
-            style="
-              margin-top:10px;
-              color:var(--muted);
-              font-size:8px;
-              line-height:1.5;
-            "
-          >
-            * Estimativa Stanley Sports baseada
-            nas médias recentes de gols.
-          </div>
-        `
-        :
-        ""
-      }
-
-    </div>
-  `;
-
-}
-
-
-/* ==========================================================
-   CONFIDENCE
-========================================================== */
-
-function confidenceHTML(data){
-
-  const confidence =
-    calculateConfidence(data);
-
-
-  return `
-    <div class="analysis-section">
-
-      <h3>
-        🧠 Confiança da análise
-      </h3>
-
-
-      <div class="confidence-card">
-
-        <div class="confidence-top">
-
-          <span>
-            Nível estatístico
-          </span>
-
-          <strong>
-            ${confidence.label}
-            •
-            ${confidence.score}%
-          </strong>
-
-        </div>
-
-
-        <div class="confidence-track">
-
-          <div
-            class="confidence-fill"
-            style="
-              width:${confidence.score}%
-            "
-          ></div>
-
-        </div>
-
-      </div>
-
-    </div>
-  `;
-
-}
-
-
-/* ==========================================================
-   TENDÊNCIA V52
-========================================================== */
-
-function trendHTML(
-  data,
-  home,
-  away
-){
-
-  if(
-    !hasProbabilityData(data)
-    &&
-    !data.prediction
-  ){
-    return "";
-  }
-
-
-  const winner =
-    winnerInfo(
-      data,
-      home,
-      away
-    );
-
-
-  const prediction =
-    data.prediction || {};
-
-
-  let advice =
-    translateAdvice(
-
-      prediction.advice
-      ||
-      prediction.winnerComment
-      ||
-      "",
-
-      home,
-      away
-
-    );
-
-
-  /*
-    V52:
-    Se houver empate técnico,
-    ignoramos o vencedor isolado
-    que a API possa ter retornado.
-  */
-
-
-  if(
-    winner.type === "home-draw"
-  ){
-
-    const lower =
-      advice.toLowerCase();
-
-
-    if(
-      !lower.includes(
-        "dupla chance"
-      )
-    ){
-
-      advice =
-        `Dupla chance: ${home} ou empate.`;
-
-    }
-
-  }
-
-
-  if(
-    winner.type === "away-draw"
-  ){
-
-    const lower =
-      advice.toLowerCase();
-
-
-    if(
-      !lower.includes(
-        "dupla chance"
-      )
-    ){
-
-      advice =
-        `Dupla chance: ${away} ou empate.`;
-
-    }
-
-  }
-
-
-  if(
-    winner.type === "balanced"
-  ){
-
-    advice =
-      "As probabilidades estão muito equilibradas. Não há um resultado claramente dominante.";
-
-  }
-
-
-  if(!advice){
-
-    advice =
-      buildStanleySummary(
-        data,
-        home,
-        away
-      );
-
-  }
-
-
-  return `
-    <div class="analysis-section">
-
-      <h3>
-        🔥 Tendência
-      </h3>
-
-
-      <div class="trend-card">
-
-        <small>
-          RESULTADO COM MAIOR TENDÊNCIA
-        </small>
-
-
-        <strong>
-          ${winner.label}
-        </strong>
-
-
-        <p>
-          ${advice}
-        </p>
-
-      </div>
-
-    </div>
-  `;
-
-}
-
-
-/* ==========================================================
-   ABRIR ANÁLISE V52
-========================================================== */
-
-async function openPremiumAnalysis(id){
-
-  if(
-    !premiumActive
-  ){
+  if (!premiumActive) {
 
     openView(
       "Premium"
     );
 
     return;
-
   }
 
-
   const game =
-    [
-      ...allGames,
-      ...agendaGamesData
-    ]
-    .find(
-
+    allGames.find(
       item =>
-        String(item.id)
-        ===
+        String(item.id) ===
         String(id)
-
     );
 
-
-  if(!game){
+  if (!game) {
     return;
   }
 
-
-  $("#analysisModal")
-  .classList
-  .add(
-    "active"
+  openModal(
+    "STANLEY SPORTS PREMIUM",
+    "🔥 Análise da partida",
+    `
+      <div class="loading">
+        Analisando confronto...
+      </div>
+    `
   );
 
-
-  document.body
-  .style.overflow =
-    "hidden";
-
-
-  $("#analysisContent")
-  .innerHTML = `
-    <div class="analysis-loading">
-
-      Analisando
-
-      <strong>
-        ${game.home}
-      </strong>
-
-      ×
-
-      <strong>
-        ${game.away}
-      </strong>
-
-      ...
-
-    </div>
-  `;
-
-
-  const cacheKey =
+  const key =
     `${game.home}|${game.away}|${apiDate(game.date)}`;
 
+  try {
 
-  try{
+    let data =
+      analysisCache.get(key);
 
-    let data;
+    if (!data) {
 
+      const response =
+        await fetch(
 
-    const cached =
-      analysisCache.get(
-        cacheKey
-      );
-
-
-    if(
-      cached
-      &&
-      Date.now()
-      -
-      cached.time
-      <
-      10
-      *
-      60
-      *
-      1000
-    ){
-
-      data =
-        cached.data;
-
-    }
-    else{
-
-      let workerData = null;
-
-
-      try{
-
-        const response =
-          await fetch(
-
-            `${ANALYSIS_WORKER}/?home=${
-              encodeURIComponent(
-                game.home
-              )
-            }&away=${
-              encodeURIComponent(
-                game.away
-              )
-            }&date=${
-              apiDate(
-                game.date
-              )
-            }`,
-
-            {
-              cache:"no-store"
-            }
-
-          );
-
-
-        workerData =
-          await response.json();
-
-      }
-      catch(error){
-
-        console.warn(
-          "Worker indisponível:",
-          error
-        );
-
-      }
-
-
-      /*
-        V52 FALLBACK:
-
-        1. Worker completo
-        2. Worker parcial
-        3. ESPN predictor
-        4. Dados insuficientes
-      */
-
-
-      if(
-        workerData?.ok
-      ){
-
-        data =
-          workerData;
-
-      }
-
-      else if(
-        usablePartialAnalysis(
-          workerData
-        )
-      ){
-
-        data = {
-
-          ...workerData,
-
-          ok:true,
-
-          partial:true,
-
-          estimated:true,
-
-          sourceLabel:
-            workerData.sourceLabel
-            ||
-            "Análise parcial Stanley Sports"
-
-        };
-
-      }
-
-      else{
-
-        data =
-          await buildEspnFallback(
-            game
-          );
-
-      }
-
-
-      if(data){
-
-        analysisCache.set(
-
-          cacheKey,
+          `${WORKER}/?home=${
+            encodeURIComponent(
+              game.home
+            )
+          }&away=${
+            encodeURIComponent(
+              game.away
+            )
+          }&date=${
+            apiDate(
+              game.date
+            )
+          }`,
 
           {
-            time:Date.now(),
-            data
+            cache:"no-store",
           }
 
         );
 
-      }
+      data =
+        await response.json();
 
+      analysisCache.set(
+        key,
+        data
+      );
     }
 
+    const ge =
+      geCache.get(
+        String(game.id)
+      )?.data;
 
-    if(
-      !data
-      ||
-      !usablePartialAnalysis(data)
-    ){
+    renderAnalysis(
+      game,
+      data,
+      ge
+    );
 
-      $("#analysisContent")
+  } catch {
+
+    $("#modalContent")
       .innerHTML = `
-        <div class="analysis-error">
-
-          <strong>
-            ⚠️ Dados insuficientes para esta partida
-          </strong>
-
-          <br><br>
-
-          A partida foi localizada,
-          mas as fontes consultadas ainda
-          não possuem informações estatísticas
-          suficientes para gerar uma análise
-          responsável.
-
-          <br><br>
-
-          Tente novamente mais próximo do jogo.
-
+        <div class="empty">
+          ⚠️ Não foi possível carregar
+          a análise.
         </div>
       `;
-
-      return;
-
-    }
-
-
-    renderPremiumAnalysis(
-      data,
-      game
-    );
-
   }
-  catch(error){
-
-    console.error(
-      "Análise:",
-      error
-    );
-
-
-    $("#analysisContent")
-    .innerHTML = `
-      <div class="analysis-error">
-
-        <strong>
-          ⚠️ Não foi possível carregar a análise
-        </strong>
-
-        <br><br>
-
-        Ocorreu uma falha temporária.
-        Tente novamente em alguns instantes.
-
-      </div>
-    `;
-
-  }
-
 }
 
 
-/* ==========================================================
-   RENDER ANALYSIS V52
-========================================================== */
+/* =========================================================
+   ANALYSIS HTML
+========================================================= */
 
-function renderPremiumAnalysis(
+function renderAnalysis(
+  game,
   data,
-  game
-){
-
-  /*
-    Preservamos os nomes da ESPN
-    para manter acentos corretos:
-    Grêmio, Atlético-MG etc.
-  */
-
+  ge
+) {
 
   const home =
-    game.home
-    ||
-    data.fixture?.home
-    ||
-    "Mandante";
-
+    game.home;
 
   const away =
-    game.away
-    ||
-    data.fixture?.away
-    ||
-    "Visitante";
+    game.away;
 
-
-  const official =
-    data.source === "api-football";
-
-
-  const fallback =
-    data.source === "espn-fallback";
-
-
-  const summary =
-    buildStanleySummary(
-      data,
-      home,
-      away
+  const hasProb =
+    data?.probabilities &&
+    (
+      data.probabilities.home ||
+      data.probabilities.draw ||
+      data.probabilities.away
     );
 
+  let html = `
 
-  $("#analysisContent")
-  .innerHTML = `
+    <div class="source-row">
 
-    <div class="analysis-source-row">
-
-      <div
-        class="
-          source-chip
-          ${
-            official
-            ?
-            "green"
-            :
-            fallback
-            ?
-            "blue"
-            :
-            ""
-          }
-        "
-      >
-
+      <span class="source-chip">
         ${
-          official
-          ?
-          "✓"
-          :
-          fallback
-          ?
-          "📊"
-          :
-          "🧠"
+          data?.sourceLabel ||
+          "Stanley Sports"
         }
+      </span>
 
-        ${
-          data.sourceLabel
-          ||
-          (
-            data.estimated
-            ?
-            "Estimativa Stanley Sports"
-            :
-            "Análise estatística"
-          )
-        }
-
-      </div>
-
-
-      <div class="source-chip">
-
-        🧠
-        ${
-          calculateConfidence(
-            data
-          )
-          .label
-        }
-
-      </div>
+      ${
+        ge?.found
+        ?
+        `
+          <span class="source-chip">
+            📰 Pré-jogo ge
+          </span>
+        `
+        :
+        ""
+      }
 
     </div>
 
@@ -8480,14 +4632,21 @@ function renderPremiumAnalysis(
       <div class="analysis-team">
 
         ${
-          analysisLogo(
-            game.homeLogo,
-            data.teams?.home?.logo,
-            home
-          )
+          game.homeLogo
+          ?
+          `
+            <img
+              src="${game.homeLogo}"
+              alt=""
+            >
+          `
+          :
+          ""
         }
 
-        ${home}
+        <div>
+          ${home}
+        </div>
 
       </div>
 
@@ -8500,1008 +4659,644 @@ function renderPremiumAnalysis(
       <div class="analysis-team">
 
         ${
-          analysisLogo(
-            game.awayLogo,
-            data.teams?.away?.logo,
-            away
-          )
+          game.awayLogo
+          ?
+          `
+            <img
+              src="${game.awayLogo}"
+              alt=""
+            >
+          `
+          :
+          ""
         }
 
-        ${away}
+        <div>
+          ${away}
+        </div>
 
       </div>
 
     </div>
+  `;
 
 
-    ${
-      data.partial
-      ||
-      fallback
-      ?
-      `
-        <div class="analysis-partial">
+  if (hasProb) {
 
-          ℹ️ Esta análise utiliza apenas
-          os dados estatísticos disponíveis
-          neste momento. Informações ausentes
-          foram ocultadas para evitar conclusões
-          sem base suficiente.
+    const winner =
+      winnerInfo(
+        data,
+        home,
+        away
+      );
+
+    html += `
+
+      <div class="executive">
+
+        <div class="executive-label">
+          📌 RESUMO RÁPIDO
+        </div>
+
+        <h3>
+          Leitura em poucos segundos
+        </h3>
+
+
+        <div class="exec-grid">
+
+          <div class="exec-box">
+
+            <small>
+              MAIOR TENDÊNCIA
+            </small>
+
+            <strong>
+              ${winner.label}
+            </strong>
+
+          </div>
+
+
+          <div class="exec-box gold">
+
+            <small>
+              FONTE
+            </small>
+
+            <strong>
+              API
+            </strong>
+
+          </div>
+
+
+          <div class="exec-box">
+
+            <small>
+              STATUS
+            </small>
+
+            <strong>
+              Analisado
+            </strong>
+
+          </div>
 
         </div>
-      `
-      :
-      ""
-    }
-
-
-    ${
-      executiveCardHTML(
-        data,
-        home,
-        away
-      )
-    }
-
-
-    ${
-      probabilitiesHTML(
-        data,
-        home,
-        away
-      )
-    }
-
-
-    ${
-      comparisonHTML(
-        data,
-        home,
-        away
-      )
-    }
-
-
-    ${
-      last5HTML(
-        data,
-        home,
-        away
-      )
-    }
-
-
-    ${
-      marketsHTML(
-        data
-      )
-    }
-
-
-    ${
-      confidenceHTML(
-        data
-      )
-    }
-
-
-    ${
-      trendHTML(
-        data,
-        home,
-        away
-      )
-    }
-
-
-    <div class="analysis-section">
-
-      <h3>
-        📌 Resumo Stanley Sports
-      </h3>
-
-
-      <div class="stanley-summary">
-
-        <small>
-          LEITURA AUTOMÁTICA DO CONFRONTO
-        </small>
-
-
-        <strong>
-          Stanley Sports Intelligence
-        </strong>
 
 
         <p>
-          ${summary}
+
+          ${
+            summaryText(
+              data,
+              home,
+              away
+            )
+          }
+
         </p>
 
       </div>
 
-    </div>
 
+      <div class="analysis-section">
 
-    <div class="analysis-warning">
+        <h3>
+          🎯 Probabilidade do resultado
+        </h3>
 
-      ⚠️
+        <div class="probability-list">
 
-      ${
-        data.disclaimer
-        ||
-        "Análise estatística informativa. Os percentuais são estimativas e não garantem resultados. Não constituem recomendação de aposta."
-      }
+          ${
+            probabilityRow(
+              home,
+              data.probabilities.home,
+              false
+            )
+          }
 
-    </div>
+          ${
+            probabilityRow(
+              "Empate",
+              data.probabilities.draw,
+              true
+            )
+          }
 
-  `;
+          ${
+            probabilityRow(
+              away,
+              data.probabilities.away,
+              false
+            )
+          }
 
-}
+        </div>
 
+      </div>
+    `;
 
-/* ==========================================================
-   CLOSE ANALYSIS
-========================================================== */
+  } else {
 
-function closeAnalysis(){
+    html += `
 
-  $("#analysisModal")
-  .classList
-  .remove(
-    "active"
-  );
+      <div class="analysis-section">
 
+        <div class="empty">
 
-  document.body
-  .style.overflow =
-    "";
+          ⚠️ A API-Football ainda não publicou
+          probabilidades suficientes para
+          este confronto.
 
-}
+        </div>
 
-
-/* ==========================================================
-   PREMIUM
-========================================================== */
-
-function activatePremium(){
-
-  if(
-    !PREMIUM_LAUNCH_FREE
-  ){
-    return;
+      </div>
+    `;
   }
 
 
-  premiumActive = true;
+  /*
+   * V53:
+   * provável escalação do GE
+   */
+  if (
+    ge?.hasLineups
+  ) {
 
+    html +=
+      lineupsSectionHTML(
+        ge
+      );
+  }
+
+
+  if (
+    ge?.broadcasts?.length ||
+    ge?.realtimeUrl
+  ) {
+
+    html += `
+
+      <div class="analysis-section">
+
+        <h3>
+          📺 Onde acompanhar
+        </h3>
+
+        ${
+          ge.broadcasts?.length
+          ?
+          `
+            <div class="channel-list">
+
+              ${
+                ge.broadcasts
+                  .map(
+                    item => `
+                      <span class="channel">
+                        ${item}
+                      </span>
+                    `
+                  )
+                  .join("")
+              }
+
+            </div>
+          `
+          :
+          ""
+        }
+
+        ${
+          ge.realtimeUrl
+          ?
+          `
+            <a
+              class="action ge"
+              style="
+                margin-top:12px;
+                width:100%;
+              "
+              href="${ge.realtimeUrl}"
+              target="_blank"
+            >
+              ⏱️ Acompanhar em Tempo Real no ge
+            </a>
+          `
+          :
+          ""
+        }
+
+      </div>
+    `;
+  }
+
+
+  html += `
+
+    <div class="warning">
+
+      ⚠️ Probabilidades e análises
+      estatísticas são informativas
+      e não garantem resultados.
+
+    </div>
+  `;
+
+
+  $("#modalContent")
+    .innerHTML =
+      html;
+}
+
+
+/* =========================================================
+   PROB ROW
+========================================================= */
+
+function probabilityRow(
+  name,
+  value,
+  draw
+) {
+
+  const number =
+    percentNumber(value);
+
+  return `
+    <div class="prob-row">
+
+      <div class="prob-name">
+        ${name}
+      </div>
+
+      <div class="prob-track">
+
+        <div
+          class="
+            prob-fill
+            ${
+              draw
+              ?
+              "draw"
+              :
+              ""
+            }
+          "
+          style="
+            width:${number}%
+          "
+        ></div>
+
+      </div>
+
+      <div
+        class="
+          prob-value
+          ${
+            draw
+            ?
+            "draw"
+            :
+            ""
+          }
+        "
+      >
+        ${number}%
+      </div>
+
+    </div>
+  `;
+}
+
+
+/* =========================================================
+   LINEUPS
+========================================================= */
+
+function lineupsSectionHTML(
+  ge
+) {
+
+  const home =
+    ge.lineups?.home;
+
+  const away =
+    ge.lineups?.away;
+
+  return `
+    <div class="analysis-section">
+
+      <h3>
+        👥 Prováveis escalações
+      </h3>
+
+      ${
+        home
+        ?
+        lineupTeamHTML(
+          home
+        )
+        :
+        ""
+      }
+
+      ${
+        away
+        ?
+        lineupTeamHTML(
+          away
+        )
+        :
+        ""
+      }
+
+      ${
+        ge.articleUrl
+        ?
+        `
+          <a
+            class="action ge"
+            style="
+              margin-top:12px;
+              width:100%;
+            "
+            href="${ge.articleUrl}"
+            target="_blank"
+          >
+            📰 Ver matéria completa no ge
+          </a>
+        `
+        :
+        ""
+      }
+
+    </div>
+  `;
+}
+
+
+function lineupTeamHTML(
+  data
+) {
+
+  return `
+    <div class="lineup-team">
+
+      <h4>
+        ${data.team || ""}
+      </h4>
+
+      ${
+        data.coach
+        ?
+        `
+          <div class="coach">
+            Técnico:
+            ${data.coach}
+          </div>
+        `
+        :
+        ""
+      }
+
+      ${
+        data.lineup
+        ?
+        `
+          <div class="lineup-title">
+            PROVÁVEL ESCALAÇÃO
+          </div>
+
+          <div class="lineup-text">
+            ${data.lineup}
+          </div>
+        `
+        :
+        ""
+      }
+
+      ${
+        data.absences
+        ?
+        `
+          <div class="lineup-detail">
+
+            <b>
+              🚑 Desfalques:
+            </b>
+
+            ${data.absences}
+
+          </div>
+        `
+        :
+        ""
+      }
+
+      ${
+        data.suspended
+        ?
+        `
+          <div class="lineup-detail">
+
+            <b>
+              🟨 Pendurados:
+            </b>
+
+            ${data.suspended}
+
+          </div>
+        `
+        :
+        ""
+      }
+
+    </div>
+  `;
+}
+
+
+/* =========================================================
+   OPEN LINEUPS
+========================================================= */
+
+async function openLineups(id) {
+
+  const game =
+    allGames.find(
+      item =>
+        String(item.id) ===
+        String(id)
+    );
+
+  if (!game) {
+    return;
+  }
+
+  let info =
+    geCache.get(
+      String(game.id)
+    )?.data;
+
+  if (!info) {
+
+    openModal(
+      "PRÉ-JOGO",
+      "👥 Prováveis escalações",
+      `
+        <div class="loading">
+          Carregando informações do ge...
+        </div>
+      `
+    );
+
+    info =
+      await fetchGeInfo(
+        game
+      );
+  }
+
+  if (
+    !info?.hasLineups
+  ) {
+
+    openModal(
+      "PRÉ-JOGO",
+      "👥 Prováveis escalações",
+      `
+        <div class="empty">
+
+          O ge ainda não publicou
+          uma provável escalação
+          para esta partida.
+
+        </div>
+      `
+    );
+
+    return;
+  }
+
+  openModal(
+    "PRÉ-JOGO • FONTE GE",
+    "👥 Prováveis escalações",
+    lineupsSectionHTML(
+      info
+    )
+  );
+}
+
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+function openModal(
+  small,
+  title,
+  content
+) {
+
+  $("#modalSmall")
+    .textContent =
+      small;
+
+  $("#modalTitle")
+    .textContent =
+      title;
+
+  $("#modalContent")
+    .innerHTML =
+      content;
+
+  $("#mainModal")
+    .classList
+    .add(
+      "active"
+    );
+
+  document.body
+    .style.overflow =
+      "hidden";
+}
+
+
+function closeModal() {
+
+  $("#mainModal")
+    .classList
+    .remove(
+      "active"
+    );
+
+  document.body
+    .style.overflow =
+      "";
+}
+
+
+/* =========================================================
+   PREMIUM
+========================================================= */
+
+function activatePremium() {
+
+  premiumActive = true;
 
   localStorage.setItem(
     "stanleySportsPremium",
     "active"
   );
 
-
   renderPremiumStatus();
-
-  loadAgendaPremium();
-
 }
 
 
-function renderPremiumStatus(){
+function renderPremiumStatus() {
 
-  if(premiumActive){
-
-    $("#premiumPlanStatus")
-    .textContent =
-      "Premium ativo";
-
+  if (premiumActive) {
 
     $("#activatePremiumBtn")
-    .textContent =
-      "✓ Premium ativado";
-
-
-    $("#activatePremiumBtn")
-    .classList
-    .add(
-      "active"
-    );
-
-
-    $("#premiumHomeStatus")
-    .textContent =
-      "Seu Premium está ativo.";
-
-  }
-  else{
-
-    $("#premiumPlanStatus")
-    .textContent =
-      "Premium não ativado";
-
+      .textContent =
+        "✓ Premium ativado";
 
     $("#activatePremiumBtn")
-    .textContent =
-      "👑 Ativar Premium grátis";
-
-
-    $("#activatePremiumBtn")
-    .classList
-    .remove(
-      "active"
-    );
-
-
-    $("#premiumHomeStatus")
-    .textContent =
-      "Ative para liberar análises exclusivas.";
-
-  }
-
-}
-
-
-/* ==========================================================
-   HEART TEAM
-========================================================== */
-
-function getKnownTeams(){
-
-  const teams =
-    new Set();
-
-
-  [
-    ...allGames,
-    ...agendaGamesData
-  ]
-  .forEach(
-
-    game => {
-
-      if(game.home){
-        teams.add(game.home);
-      }
-
-      if(game.away){
-        teams.add(game.away);
-      }
-
-    }
-
-  );
-
-
-  if(heartTeam){
-    teams.add(heartTeam);
-  }
-
-
-  return [
-    ...teams
-  ]
-  .sort(
-
-    (a,b) =>
-      a.localeCompare(
-        b,
-        "pt-BR"
-      )
-
-  );
-
-}
-
-
-function populateHeartTeams(){
-
-  const select =
-    $("#heartTeamSelect");
-
-
-  if(!select){
-    return;
-  }
-
-
-  select.innerHTML = `
-    <option value="">
-      Selecione seu time
-    </option>
-  `;
-
-
-  getKnownTeams()
-  .forEach(
-
-    team => {
-
-      const option =
-        document.createElement(
-          "option"
-        );
-
-
-      option.value = team;
-
-      option.textContent = team;
-
-
-      if(
-        sameTeam(
-          team,
-          heartTeam
-        )
-      ){
-        option.selected = true;
-      }
-
-
-      select.appendChild(
-        option
+      .classList
+      .add(
+        "active"
       );
 
-    }
+    $("#premiumHomeStatus")
+      .textContent =
+        "Seu Premium está ativo.";
 
-  );
+  } else {
 
+    $("#activatePremiumBtn")
+      .textContent =
+        "👑 Ativar Premium grátis";
 
-  renderHeartSelected();
-
-}
-
-
-function saveHeartTeam(){
-
-  if(
-    !premiumActive
-  ){
-    activatePremium();
+    $("#premiumHomeStatus")
+      .textContent =
+        "Ative para liberar análises.";
   }
-
-
-  const selected =
-    $("#heartTeamSelect")
-    .value;
-
-
-  if(!selected){
-    return;
-  }
-
-
-  heartTeam =
-    selected;
-
-
-  localStorage.setItem(
-    "stanleySportsHeartTeam",
-    selected
-  );
-
-
-  renderHeartSelected();
-
-  renderGames();
-
-  renderAgenda();
-
 }
 
 
-function renderHeartSelected(){
-
-  const box =
-    $("#heartSelected");
-
-
-  if(!box){
-    return;
-  }
-
-
-  if(heartTeam){
-
-    box.classList
-    .add(
-      "active"
-    );
-
-
-    $("#heartSelectedName")
-    .textContent =
-      `❤️ ${heartTeam}`;
-
-  }
-  else{
-
-    box.classList
-    .remove(
-      "active"
-    );
-
-  }
-
-}
-
-
-/* ==========================================================
-   AGENDA
-========================================================== */
-
-function dateFromOffset(offset){
-
-  const date =
-    new Date();
-
-
-  date.setHours(
-    12,
-    0,
-    0,
-    0
-  );
-
-
-  date.setDate(
-    date.getDate()
-    +
-    offset
-  );
-
-
-  return date;
-
-}
-
-
-function localDateKey(iso){
-
-  const date =
-    new Date(iso);
-
-
-  return (
-    `${date.getFullYear()}-${
-      String(
-        date.getMonth()+1
-      )
-      .padStart(
-        2,
-        "0"
-      )
-    }-${
-      String(
-        date.getDate()
-      )
-      .padStart(
-        2,
-        "0"
-      )
-    }`
-  );
-
-}
-
-
-function localKeyFromOffset(offset){
-
-  return localDateKey(
-    dateFromOffset(offset)
-  );
-
-}
-
-
-async function loadAgendaPremium(){
-
-  if(
-    !premiumActive
-  ){
-
-    $("#agendaLoading")
-    .textContent =
-      "Ative o Premium grátis para liberar a agenda.";
-
-    return;
-
-  }
-
-
-  if(agendaLoaded){
-
-    renderAgendaDays();
-
-    renderAgenda();
-
-    return;
-
-  }
-
-
-  $("#agendaLoading")
-  .style.display =
-    "block";
-
-
-  $("#agendaLoading")
-  .textContent =
-    "Carregando agenda...";
-
-
-  const results =
-    await Promise.all(
-
-      [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5,
-        6
-      ]
-      .map(
-        fetchAllLeaguesDate
-      )
-
-    );
-
-
-  const map =
-    new Map();
-
-
-  results
-  .flat()
-  .forEach(
-
-    game =>
-      map.set(
-        String(game.id),
-        game
-      )
-
-  );
-
-
-  agendaGamesData =
-    [
-      ...map.values()
-    ];
-
-
-  agendaLoaded = true;
-
-
-  $("#agendaLoading")
-  .style.display =
-    "none";
-
-
-  renderAgendaDays();
-
-  renderAgenda();
-
-  populateHeartTeams();
-
-}
-
-
-function renderAgendaDays(){
-
-  const container =
-    $("#agendaDays");
-
-
-  if(!container){
-    return;
-  }
-
-
-  container.innerHTML = "";
-
-
-  for(
-    let offset=0;
-    offset<7;
-    offset++
-  ){
-
-    const date =
-      dateFromOffset(offset);
-
-
-    let title;
-
-
-    if(
-      offset === 0
-    ){
-      title = "Hoje";
-    }
-
-    else if(
-      offset === 1
-    ){
-      title = "Amanhã";
-    }
-
-    else{
-
-      title =
-        date
-        .toLocaleDateString(
-          "pt-BR",
-          {
-            weekday:"short"
-          }
-        )
-        .replace(
-          ".",
-          ""
-        );
-
-    }
-
-
-    container.innerHTML += `
-      <button
-        class="
-          agenda-day
-          ${
-            agendaSelectedOffset === offset
-            ?
-            "active"
-            :
-            ""
-          }
-        "
-        onclick="
-          agendaSelectedOffset=${offset};
-          renderAgendaDays();
-          renderAgenda();
-        "
-      >
-
-        <strong>
-          ${title}
-        </strong>
-
-        <span>
-
-          ${
-            date.toLocaleDateString(
-              "pt-BR",
-              {
-                day:"2-digit",
-                month:"2-digit"
-              }
-            )
-          }
-
-        </span>
-
-      </button>
-    `;
-
-  }
-
-}
-
-
-function renderAgenda(){
-
-  const container =
-    $("#agendaGames");
-
-
-  if(!container){
-    return;
-  }
-
-
-  const key =
-    localKeyFromOffset(
-      agendaSelectedOffset
-    );
-
-
-  const games =
-    agendaGamesData
-    .filter(
-
-      game =>
-        localDateKey(
-          game.date
-        )
-        ===
-        key
-
-    )
-    .sort(
-
-      (a,b) =>
-        new Date(a.date)
-        -
-        new Date(b.date)
-
-    );
-
-
-  container.innerHTML =
-    games.length
-    ?
-    games
-    .map(
-
-      game => `
-        <div class="agenda-game">
-
-          <div class="agenda-team">
-
-            ${
-              isHeartGame(game)
-              ?
-              "❤️ "
-              :
-              ""
-            }
-
-            ${game.home}
-
-          </div>
-
-
-          <div class="agenda-time">
-
-            ${
-              formatTime(
-                game.date
-              )
-            }
-
-          </div>
-
-
-          <div class="agenda-team right">
-            ${game.away}
-          </div>
-
-
-          <div class="agenda-league">
-            ${game.league}
-          </div>
-
-
-          <div style="grid-column:1/-1">
-
-            <button
-              class="action analysis"
-              style="width:100%"
-              onclick="
-                openPremiumAnalysis(
-                  '${game.id}'
-                )
-              "
-            >
-              👑 Análise Premium
-            </button>
-
-          </div>
-
-        </div>
-      `
-
-    )
-    .join("")
-    :
-    `
-      <div class="empty">
-        Nenhum jogo encontrado neste dia.
-      </div>
-    `;
-
-}
-
-
-/* ==========================================================
-   SHORTCUTS
-========================================================== */
-
-function renderSportsShortcuts(){
-
-  $("#sportsShortcuts")
-  .innerHTML =
-    sportsShortcuts
-    .map(
-
-      item => `
-        <a
-          class="sport-shortcut"
-          href="${item.url}"
-          target="_blank"
-          rel="noopener"
-        >
-
-          <div>
-
-            <div class="sport-shortcut-icon">
-              ${item.icon}
-            </div>
-
-            <h4>
-              ${item.name}
-            </h4>
-
-            <p>
-              ${item.description}
-            </p>
-
-          </div>
-
-
-          <div class="sport-shortcut-open">
-            Abrir →
-          </div>
-
-        </a>
-      `
-
-    )
-    .join("");
-
-}
-
-
-/* ==========================================================
-   TV
-========================================================== */
-
-function networkLogo(domain){
-
-  return (
-    `https://www.google.com/s2/favicons?domain_url=https://${domain}&sz=128`
-  );
-
-}
-
-
-function renderTv(){
-
-  $("#tvGrid")
-  .innerHTML =
-    tvChannels
-    .map(
-
-      item => `
-        <a
-          class="media-card"
-          href="${item.url}"
-          target="_blank"
-          rel="noopener"
-        >
-
-          <div class="network-logo-wrap">
-
-            <img
-              class="network-logo"
-              src="${
-                networkLogo(
-                  item.domain
-                )
-              }"
-              alt="${item.name}"
-            >
-
-          </div>
-
-
-          <div class="media-badge">
-            ${item.badge}
-          </div>
-
-
-          <h4>
-            ${item.name}
-          </h4>
-
-
-          <p>
-            ${item.description}
-          </p>
-
-
-          <div class="media-open">
-
-            <span>
-              Abrir oficial
-            </span>
-
-            <span>
-              ›
-            </span>
-
-          </div>
-
-        </a>
-      `
-
-    )
-    .join("");
-
-}
-
-
-/* ==========================================================
-   MOVIES
-========================================================== */
-
-function renderMovies(){
-
-  $("#movieGrid")
-  .innerHTML =
-    entertainment
-    .map(
-
-      item => `
-        <a
-          class="media-card"
-          href="${item.url}"
-          target="_blank"
-          rel="noopener"
-        >
-
-          <div class="media-icon">
-            ${item.icon}
-          </div>
-
-          <div class="media-badge">
-            ${item.badge}
-          </div>
-
-          <h4>
-            ${item.name}
-          </h4>
-
-          <p>
-            ${item.description}
-          </p>
-
-          <div class="media-open">
-
-            <span>
-              Abrir
-            </span>
-
-            <span>
-              ›
-            </span>
-
-          </div>
-
-        </a>
-      `
-
-    )
-    .join("");
-
-}
-
-
-/* ==========================================================
+/* =========================================================
    STANDINGS
-========================================================== */
+========================================================= */
 
 function statValue(
   stats,
   keys
-){
+) {
 
   const item =
     stats.find(
-
       stat =>
         keys.includes(
           stat.name
@@ -9510,531 +5305,527 @@ function statValue(
         keys.includes(
           stat.abbreviation
         )
-
     );
 
-
   return (
-    item?.displayValue
-    ??
-    item?.value
-    ??
+    item?.displayValue ??
+    item?.value ??
     "-"
   );
-
 }
 
 
-async function loadStandings(){
+async function loadStandings() {
 
-  try{
-
-    $("#standingsLoading")
+  $("#standingsLoading")
     .style.display =
       "block";
 
+  try {
 
-    $("#standingsError")
-    .style.display =
-      "none";
-
+    const league =
+      $("#leagueSelect")
+        .value;
 
     const response =
       await fetch(
 
-        `https://site.api.espn.com/apis/v2/sports/soccer/${$("#leagueSelect").value}/standings`,
+        `https://site.api.espn.com/apis/v2/sports/soccer/${league}/standings`,
 
         {
-          cache:"no-store"
+          cache:"no-store",
         }
 
       );
 
-
-    if(
-      !response.ok
-    ){
-      throw new Error();
-    }
-
-
     const data =
       await response.json();
 
-
     let entries = [];
-
 
     (
       data.children || []
     )
     .forEach(
-
       child =>
         entries.push(
           ...(
-            child.standings?.entries
-            ||
+            child.standings?.entries ||
             []
           )
         )
-
     );
 
-
-    if(
-      !entries.length
-    ){
+    if (!entries.length) {
 
       entries =
-        data.standings?.entries
-        ||
+        data.standings?.entries ||
         [];
-
     }
 
-
     $("#standingsBody")
-    .innerHTML =
-      entries
-      .map(
+      .innerHTML =
+        entries
+          .map(
+            (row,index) => {
 
-        (row,index) => {
+              const stats =
+                row.stats || [];
 
-          const stats =
-            row.stats || [];
+              const team =
+                row.team || {};
 
+              return `
+                <tr>
 
-          const team =
-            row.team || {};
+                  <td>
+                    ${
+                      statValue(
+                        stats,
+                        ["rank"]
+                      )
+                      ||
+                      index+1
+                    }
+                  </td>
 
+                  <td class="team-cell">
 
-          return `
-            <tr>
+                    <div class="table-team">
 
-              <td>
+                      ${
+                        team.logos?.[0]?.href
+                        ?
+                        `
+                          <img
+                            src="${
+                              team.logos[0].href
+                            }"
+                          >
+                        `
+                        :
+                        ""
+                      }
 
-                ${
-                  statValue(
-                    stats,
-                    ["rank"]
-                  )
-                  ||
-                  index+1
-                }
+                      ${
+                        team.displayName ||
+                        team.name ||
+                        "Time"
+                      }
 
-              </td>
+                    </div>
 
+                  </td>
 
-              <td class="team-cell">
+                  <td>
+                    ${
+                      statValue(
+                        stats,
+                        ["points","PTS"]
+                      )
+                    }
+                  </td>
 
-                <div class="table-team">
+                  <td>
+                    ${
+                      statValue(
+                        stats,
+                        ["gamesPlayed","GP"]
+                      )
+                    }
+                  </td>
 
-                  ${
-                    team.logos?.[0]?.href
-                    ?
-                    `
-                      <img
-                        src="${team.logos[0].href}"
-                        alt=""
-                      >
-                    `
-                    :
-                    ""
-                  }
+                  <td>
+                    ${
+                      statValue(
+                        stats,
+                        ["wins","W"]
+                      )
+                    }
+                  </td>
 
-                  ${
-                    team.displayName
-                    ||
-                    team.name
-                    ||
-                    "Time"
-                  }
+                  <td>
+                    ${
+                      statValue(
+                        stats,
+                        ["ties","draws","D"]
+                      )
+                    }
+                  </td>
 
-                </div>
+                  <td>
+                    ${
+                      statValue(
+                        stats,
+                        ["losses","L"]
+                      )
+                    }
+                  </td>
 
-              </td>
-
-
-              <td>
-
-                ${
-                  statValue(
-                    stats,
-                    [
-                      "points",
-                      "PTS"
-                    ]
-                  )
-                }
-
-              </td>
-
-
-              <td>
-
-                ${
-                  statValue(
-                    stats,
-                    [
-                      "gamesPlayed",
-                      "GP"
-                    ]
-                  )
-                }
-
-              </td>
-
-
-              <td>
-
-                ${
-                  statValue(
-                    stats,
-                    [
-                      "wins",
-                      "W"
-                    ]
-                  )
-                }
-
-              </td>
-
-
-              <td>
-
-                ${
-                  statValue(
-                    stats,
-                    [
-                      "ties",
-                      "draws",
-                      "D"
-                    ]
-                  )
-                }
-
-              </td>
-
-
-              <td>
-
-                ${
-                  statValue(
-                    stats,
-                    [
-                      "losses",
-                      "L"
-                    ]
-                  )
-                }
-
-              </td>
-
-            </tr>
-          `;
-
-        }
-
-      )
-      .join("");
-
+                </tr>
+              `;
+            }
+          )
+          .join("");
 
     $("#standingsWrap")
-    .style.display =
-      "block";
+      .style.display =
+        "block";
 
-  }
-  catch{
+  } catch {
 
-    $("#standingsError")
-    .style.display =
-      "block";
+    $("#standingsBody")
+      .innerHTML =
+        "";
 
-  }
-  finally{
+  } finally {
 
     $("#standingsLoading")
-    .style.display =
-      "none";
-
+      .style.display =
+        "none";
   }
-
 }
 
 
-/* ==========================================================
-   NAVEGAÇÃO
-========================================================== */
+/* =========================================================
+   TV
+========================================================= */
 
-function openView(name){
+function logo(domain) {
+
+  return (
+    "https://www.google.com/s2/favicons?domain_url=https://" +
+    domain +
+    "&sz=128"
+  );
+}
+
+
+function renderTv() {
+
+  $("#tvGrid")
+    .innerHTML =
+      tvChannels
+        .map(
+          item => `
+            <a
+              class="media-card"
+              href="${item.url}"
+              target="_blank"
+            >
+
+              <div class="network-logo-wrap">
+
+                <img
+                  class="network-logo"
+                  src="${
+                    logo(
+                      item.domain
+                    )
+                  }"
+                >
+
+              </div>
+
+              <div class="media-badge">
+                ${item.badge}
+              </div>
+
+              <h4>
+                ${item.name}
+              </h4>
+
+              <p>
+                ${item.description}
+              </p>
+
+              <div class="media-open">
+
+                <span>
+                  Abrir
+                </span>
+
+                <span>
+                  ›
+                </span>
+
+              </div>
+
+            </a>
+          `
+        )
+        .join("");
+}
+
+
+/* =========================================================
+   MOVIES
+========================================================= */
+
+function renderMovies() {
+
+  $("#movieGrid")
+    .innerHTML =
+      entertainment
+        .map(
+          item => `
+            <a
+              class="media-card"
+              href="${item.url}"
+              target="_blank"
+            >
+
+              <div class="media-icon">
+                ${item.icon}
+              </div>
+
+              <div class="media-badge">
+                ${item.badge}
+              </div>
+
+              <h4>
+                ${item.name}
+              </h4>
+
+              <p>
+                ${item.description}
+              </p>
+
+              <div class="media-open">
+
+                <span>
+                  Abrir
+                </span>
+
+                <span>
+                  ›
+                </span>
+
+              </div>
+
+            </a>
+          `
+        )
+        .join("");
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+function openView(name) {
 
   $$(".view")
-  .forEach(
-
-    view =>
-      view.classList
-      .remove(
-        "active"
-      )
-
-  );
-
+    .forEach(
+      view =>
+        view.classList
+          .remove(
+            "active"
+          )
+    );
 
   $$(".nav-btn")
-  .forEach(
-
-    button =>
-      button.classList
-      .remove(
-        "active"
-      )
-
-  );
-
+    .forEach(
+      button =>
+        button.classList
+          .remove(
+            "active"
+          )
+    );
 
   $(`#view${name}`)
-  ?.classList
-  .add(
-    "active"
-  );
+    ?.classList
+    .add(
+      "active"
+    );
 
+  document
+    .querySelector(
+      `[data-view="${name}"]`
+    )
+    ?.classList
+    .add(
+      "active"
+    );
 
-  document.querySelector(
-    `[data-view="${name}"]`
-  )
-  ?.classList
-  .add(
-    "active"
-  );
-
-
-  if(
+  if (
     name === "Table"
-  ){
+  ) {
     loadStandings();
   }
 
-
-  if(
-    name === "Premium"
-  ){
-
-    renderPremiumStatus();
-
-    populateHeartTeams();
-
-
-    if(
-      premiumActive
-    ){
-      loadAgendaPremium();
-    }
-
-  }
-
-
-  window.scrollTo(
-    {
-      top:0,
-      behavior:"smooth"
-    }
-  );
-
+  window.scrollTo({
+    top:0,
+    behavior:"smooth",
+  });
 }
 
 
-/* ==========================================================
-   EVENTOS
-========================================================== */
+/* =========================================================
+   EVENTS
+========================================================= */
 
 $$(".nav-btn")
-.forEach(
+  .forEach(
+    button => {
 
-  button =>
-
-    button.onclick =
-      () =>
-        openView(
-          button.dataset.view
-        )
-
-);
+      button.onclick =
+        () =>
+          openView(
+            button.dataset.view
+          );
+    }
+  );
 
 
 $$(".game-chip")
-.forEach(
+  .forEach(
+    button => {
 
-  button =>
+      button.onclick =
+        () => {
 
-    button.onclick =
-      () => {
+          $$(".game-chip")
+            .forEach(
+              item =>
+                item.classList
+                  .remove(
+                    "active"
+                  )
+            );
 
-        $$(".game-chip")
-        .forEach(
-
-          item =>
-            item.classList
-            .remove(
+          button.classList
+            .add(
               "active"
-            )
+            );
 
-        );
+          gameFilter =
+            button.dataset.filter;
 
-
-        button.classList
-        .add(
-          "active"
-        );
-
-
-        gameFilter =
-          button.dataset.filter;
-
-
-        renderGames();
-
-      }
-
-);
+          renderGames();
+        };
+    }
+  );
 
 
 $("#searchInput")
-.oninput =
-  event => {
+  .oninput =
+    event => {
 
-    searchText =
-      event.target.value;
+      searchText =
+        event.target.value;
 
-    renderGames();
-
-  };
+      renderGames();
+    };
 
 
 $("#leagueSelect")
-.onchange =
-  loadStandings;
+  .onchange =
+    loadStandings;
 
 
 $("#refreshBtn")
-.onclick =
-  async () => {
+  .onclick =
+    async () => {
 
-    agendaLoaded = false;
+      geCache.clear();
 
-    broadcastCache.clear();
+      analysisCache.clear();
 
-    analysisCache.clear();
-
-    await refreshGames();
-
-  };
+      await refreshGames();
+    };
 
 
-$("#analysisModal")
-.onclick =
-  event => {
+$("#mainModal")
+  .onclick =
+    event => {
 
-    if(
-      event.target.id
-      ===
-      "analysisModal"
-    ){
-      closeAnalysis();
-    }
-
-  };
+      if (
+        event.target.id ===
+        "mainModal"
+      ) {
+        closeModal();
+      }
+    };
 
 
-/* ==========================================================
-   AUTO UPDATE
-========================================================== */
+/* =========================================================
+   AUTO REFRESH
+========================================================= */
 
 setInterval(
-  renderGames,
+  () => {
+
+    renderGames();
+
+  },
   30000
 );
 
 
 setInterval(
-
   () => {
 
-    broadcastCache.clear();
+    geCache.clear();
 
     refreshGames();
 
   },
-
-  300000
-
+  30 * 60 * 1000
 );
 
 
-/* ==========================================================
+/* =========================================================
    START
-========================================================== */
+========================================================= */
 
 renderPremiumStatus();
-
-renderSportsShortcuts();
 
 renderTv();
 
 renderMovies();
 
-renderHeartSelected();
-
 refreshGames();
 
 
-/* ==========================================================
+/* =========================================================
    PWA
-========================================================== */
+========================================================= */
 
-if(
+if (
   "serviceWorker"
-  in
-  navigator
-){
+  in navigator
+) {
 
   window.addEventListener(
-
     "load",
-
     async () => {
 
-      try{
+      try {
 
         const registration =
           await navigator
-          .serviceWorker
-          .register(
-            "./service-worker.js"
-          );
-
+            .serviceWorker
+            .register(
+              "./service-worker.js"
+            );
 
         registration.update();
-
 
         console.log(
           `Stanley Sports V${APP_VERSION}`
         );
 
-      }
-      catch(error){
+      } catch (error) {
 
         console.error(
-          "Erro PWA:",
+          "PWA:",
           error
         );
-
       }
-
     }
-
   );
-
 }
 
 </script>
