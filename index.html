@@ -26,7 +26,7 @@
   content="Stanley Sports"
 >
 
-<link rel="manifest" href="manifest.json?v=54">
+<link rel="manifest" href="manifest.json?v=541">
 
 <link
   rel="icon"
@@ -43,25 +43,20 @@
 <style>
 
 :root{
-  --bg:#021008;
-  --card:#0b2516;
-  --card2:#10301e;
-  --card3:#173b25;
-  --border:#21633b;
-
-  --green:#32e77c;
-  --green2:#78f2a7;
-
-  --gold:#ffd153;
-  --blue:#a9d7ff;
-  --red:#ff999d;
-
-  --text:#f5fff7;
-  --muted:#91a89a;
-
-  --shadow:
-    0 18px 55px
-    rgba(0,0,0,.32);
+  --bg:#031008;
+  --bg2:#04150a;
+  --card:#0b2114;
+  --card2:#102b1b;
+  --card3:#173823;
+  --border:#1d5934;
+  --green:#37e67d;
+  --green2:#78f0a4;
+  --gold:#ffd257;
+  --blue:#9ed0ff;
+  --red:#ff969b;
+  --text:#f4fff7;
+  --muted:#8fa697;
+  --shadow:0 18px 60px rgba(0,0,0,.34);
 }
 
 *{
@@ -70,18 +65,18 @@
 
 html{
   background:var(--bg);
+  scroll-behavior:smooth;
 }
 
 body{
   margin:0;
-
   min-height:100vh;
 
   background:
     linear-gradient(
       180deg,
       #021008,
-      #03150a
+      #04140a
     );
 
   color:var(--text);
@@ -95,10 +90,7 @@ body{
     sans-serif;
 
   padding-bottom:
-    calc(
-      100px +
-      env(safe-area-inset-bottom)
-    );
+    calc(95px + env(safe-area-inset-bottom));
 }
 
 button,
@@ -121,7 +113,7 @@ img{
 }
 
 .hidden{
-  display:none !important;
+  display:none!important;
 }
 
 main{
@@ -129,91 +121,6 @@ main{
   margin:auto;
   padding:16px;
 }
-
-/* HEADER */
-
-.app-header{
-  position:sticky;
-  top:0;
-  z-index:900;
-
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-
-  padding:
-    calc(
-      10px +
-      env(safe-area-inset-top)
-    )
-    16px
-    10px;
-
-  background:
-    rgba(2,16,8,.96);
-
-  backdrop-filter:blur(20px);
-  -webkit-backdrop-filter:blur(20px);
-
-  border-bottom:
-    1px solid
-    rgba(255,255,255,.06);
-}
-
-.brand{
-  display:flex;
-  align-items:center;
-  gap:11px;
-}
-
-.logo{
-  width:55px;
-  height:55px;
-  object-fit:cover;
-
-  border-radius:16px;
-
-  border:
-    1px solid
-    rgba(50,231,124,.35);
-}
-
-.brand-label{
-  color:var(--green);
-
-  font-size:8px;
-  font-weight:950;
-
-  letter-spacing:1.7px;
-}
-
-.brand h1{
-  margin:4px 0 0;
-  font-size:23px;
-}
-
-.refresh{
-  width:47px;
-  height:47px;
-
-  display:grid;
-  place-items:center;
-
-  border-radius:50%;
-
-  border:
-    1px solid
-    var(--border);
-
-  background:
-    var(--card);
-
-  color:#fff;
-
-  font-size:23px;
-}
-
-/* SEÇÕES */
 
 .view{
   display:none;
@@ -223,36 +130,376 @@ main{
   display:block;
 }
 
-.section-head{
-  display:flex;
-  align-items:flex-end;
-  justify-content:space-between;
+/* =========================================
+HEADER
+========================================= */
 
-  margin:15px 0 16px;
+.app-header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  padding:
+    calc(10px + env(safe-area-inset-top))
+    16px
+    10px;
+
+  background:rgba(3,16,8,.96);
+
+  backdrop-filter:blur(22px);
+  -webkit-backdrop-filter:blur(22px);
+
+  border-bottom:
+    1px solid rgba(255,255,255,.05);
 }
 
-.eyebrow{
+.header-brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.header-logo{
+  width:54px;
+  height:54px;
+
+  object-fit:cover;
+
+  border-radius:16px;
+
+  border:
+    1px solid rgba(55,230,125,.3);
+}
+
+.brand-small{
   color:var(--green);
 
-  font-size:9px;
+  font-size:8px;
   font-weight:950;
 
-  letter-spacing:1.7px;
+  letter-spacing:1.6px;
 }
 
-.section-head h2{
-  margin:6px 0 0;
-  font-size:26px;
+.app-header h1{
+  margin:3px 0 0;
+  font-size:23px;
 }
 
-.counter{
-  min-width:42px;
-  height:42px;
+.refresh-btn{
+  width:47px;
+  height:47px;
 
   display:grid;
   place-items:center;
 
   border-radius:50%;
+
+  border:
+    1px solid var(--border);
+
+  background:var(--card);
+
+  color:white;
+
+  font-size:24px;
+}
+
+/* =========================================
+HERO / BANNER
+========================================= */
+
+.hero{
+  position:relative;
+
+  min-height:385px;
+
+  overflow:hidden;
+
+  margin-bottom:17px;
+
+  border-radius:30px;
+
+  border:
+    1px solid rgba(55,230,125,.28);
+
+  box-shadow:var(--shadow);
+}
+
+.hero-photo{
+  position:absolute;
+  inset:0;
+
+  background-image:
+    url("https://f.rpp-noticias.io/2023/01/19/022602_1377161.jpg?imgdimension=n_xlarge");
+
+  background-size:cover;
+
+  background-position:center 38%;
+}
+
+.hero-shade{
+  position:absolute;
+  inset:0;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(2,10,5,.98),
+      rgba(2,10,5,.75) 48%,
+      rgba(2,10,5,.18)
+    ),
+    linear-gradient(
+      0deg,
+      rgba(2,10,5,.97),
+      transparent 58%
+    );
+}
+
+.hero-content{
+  position:relative;
+
+  z-index:2;
+
+  max-width:580px;
+
+  padding:27px 23px;
+}
+
+.hero-logo{
+  width:77px;
+  height:77px;
+
+  object-fit:cover;
+
+  border-radius:21px;
+}
+
+.hero-label{
+  display:inline-flex;
+  align-items:center;
+
+  gap:7px;
+
+  margin-top:15px;
+
+  padding:8px 11px;
+
+  border-radius:999px;
+
+  border:
+    1px solid rgba(55,230,125,.28);
+
+  background:rgba(0,0,0,.42);
+
+  font-size:10px;
+  font-weight:950;
+}
+
+.hero-dot{
+  width:8px;
+  height:8px;
+
+  border-radius:50%;
+
+  background:var(--green);
+
+  box-shadow:
+    0 0 13px var(--green);
+}
+
+.hero h2{
+  margin:18px 0 12px;
+
+  max-width:470px;
+
+  font-size:
+    clamp(38px,10vw,58px);
+
+  line-height:.96;
+
+  letter-spacing:-2px;
+}
+
+.hero p{
+  margin:0;
+
+  max-width:440px;
+
+  color:#d2e6d8;
+
+  font-size:13px;
+
+  line-height:1.6;
+}
+
+.hero-actions{
+  display:flex;
+  flex-wrap:wrap;
+
+  gap:9px;
+
+  margin-top:22px;
+}
+
+.hero-btn{
+  min-height:46px;
+
+  padding:0 17px;
+
+  border-radius:14px;
+
+  border:
+    1px solid rgba(255,255,255,.14);
+
+  background:rgba(0,0,0,.48);
+
+  color:white;
+
+  font-size:11px;
+  font-weight:950;
+}
+
+.hero-btn.primary{
+  background:var(--green);
+
+  color:#03210d;
+
+  border-color:var(--green);
+}
+
+.hero-btn.gold{
+  color:var(--gold);
+
+  border-color:
+    rgba(255,210,87,.45);
+
+  background:
+    rgba(255,210,87,.09);
+}
+
+/* =========================================
+PREMIUM HOME
+========================================= */
+
+.premium-home{
+  display:flex;
+  align-items:center;
+
+  gap:12px;
+
+  padding:16px;
+
+  margin-bottom:17px;
+
+  border-radius:22px;
+
+  border:
+    1px solid rgba(255,210,87,.35);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,210,87,.11),
+      rgba(55,230,125,.045)
+    );
+}
+
+.premium-home-icon{
+  font-size:33px;
+}
+
+.premium-home-text{
+  flex:1;
+}
+
+.premium-home-text small{
+  display:block;
+
+  color:var(--gold);
+
+  font-size:8px;
+  font-weight:950;
+
+  letter-spacing:.5px;
+}
+
+.premium-home-text strong{
+  display:block;
+
+  margin-top:3px;
+
+  font-size:14px;
+}
+
+.premium-home-text span{
+  display:block;
+
+  margin-top:4px;
+
+  color:var(--muted);
+
+  font-size:9px;
+}
+
+.premium-home-btn{
+  padding:11px 12px;
+
+  border:0;
+
+  border-radius:13px;
+
+  background:var(--gold);
+
+  color:#2b2200;
+
+  font-size:9px;
+  font-weight:950;
+}
+
+/* =========================================
+TÍTULOS
+========================================= */
+
+.section-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+
+  gap:10px;
+
+  margin:19px 0 12px;
+}
+
+.eyebrow{
+  display:block;
+
+  margin-bottom:4px;
+
+  color:var(--green);
+
+  font-size:9px;
+  font-weight:950;
+
+  letter-spacing:1.5px;
+}
+
+.section-head h2{
+  margin:0;
+  font-size:27px;
+}
+
+.counter{
+  min-width:43px;
+  height:43px;
+
+  display:grid;
+  place-items:center;
+
+  border-radius:999px;
 
   background:var(--card2);
 
@@ -262,21 +509,182 @@ main{
   font-weight:950;
 }
 
-/* JOGOS */
+/* =========================================
+STATS
+========================================= */
+
+.stats{
+  display:grid;
+
+  grid-template-columns:
+    repeat(2,1fr);
+
+  gap:9px;
+
+  margin-bottom:14px;
+}
+
+.stat{
+  padding:14px;
+
+  border-radius:19px;
+
+  border:
+    1px solid var(--border);
+
+  background:var(--card);
+}
+
+.stat small{
+  display:block;
+
+  margin-bottom:5px;
+
+  color:var(--muted);
+
+  font-size:9px;
+  font-weight:950;
+}
+
+.stat strong{
+  font-size:22px;
+}
+
+.green{
+  color:var(--green);
+}
+
+.red{
+  color:var(--red);
+}
+
+.yellow{
+  color:var(--gold);
+}
+
+/* =========================================
+BUSCA
+========================================= */
+
+.search{
+  position:relative;
+
+  margin-bottom:11px;
+}
+
+.search span{
+  position:absolute;
+
+  left:14px;
+  top:50%;
+
+  transform:
+    translateY(-50%);
+}
+
+.search input{
+  width:100%;
+
+  padding:
+    14px
+    14px
+    14px
+    43px;
+
+  border-radius:17px;
+
+  border:
+    1px solid var(--border);
+
+  outline:none;
+
+  background:var(--card);
+
+  color:white;
+}
+
+/* =========================================
+FILTROS
+========================================= */
+
+.chips{
+  display:flex;
+
+  gap:8px;
+
+  overflow-x:auto;
+
+  padding-bottom:13px;
+
+  scrollbar-width:none;
+}
+
+.chips::-webkit-scrollbar{
+  display:none;
+}
+
+.chip{
+  flex:0 0 auto;
+
+  padding:10px 14px;
+
+  border-radius:999px;
+
+  border:
+    1px solid var(--border);
+
+  background:var(--card);
+
+  color:var(--muted);
+
+  font-size:10px;
+  font-weight:900;
+}
+
+.chip.active{
+  background:var(--green);
+
+  color:#03200c;
+
+  border-color:var(--green);
+}
+
+/* =========================================
+LOADING
+========================================= */
+
+.loading,
+.empty{
+  padding:34px 18px;
+
+  border-radius:20px;
+
+  border:
+    1px dashed var(--border);
+
+  color:var(--muted);
+
+  text-align:center;
+
+  line-height:1.5;
+}
+
+/* =========================================
+JOGOS
+========================================= */
 
 .games{
   display:grid;
-  gap:14px;
+  gap:13px;
 }
 
 .game{
   padding:17px;
 
-  border-radius:26px;
+  border-radius:25px;
 
   border:
-    1px solid
-    var(--border);
+    1px solid var(--border);
 
   background:
     linear-gradient(
@@ -285,7 +693,9 @@ main{
       #07180e
     );
 
-  box-shadow:var(--shadow);
+  box-shadow:
+    0 10px 30px
+    rgba(0,0,0,.12);
 }
 
 .game-head{
@@ -293,20 +703,20 @@ main{
   justify-content:space-between;
   align-items:center;
 
-  gap:10px;
+  gap:8px;
 }
 
-.league{
+.competition{
   color:var(--muted);
 
   font-size:10px;
-  font-weight:900;
+  font-weight:950;
 }
 
-.right-head{
+.game-right{
   display:flex;
-  gap:8px;
   align-items:center;
+  gap:7px;
 }
 
 .status{
@@ -315,35 +725,40 @@ main{
   border-radius:999px;
 
   background:
-    rgba(255,255,255,.06);
+    rgba(255,255,255,.055);
+
+  color:#a9b9ae;
 
   font-size:9px;
   font-weight:950;
 }
 
 .status.live{
-  color:#ff9ea4;
-
   background:
-    rgba(255,100,100,.1);
+    rgba(255,100,100,.12);
+
+  color:#ffaaaa;
 }
 
-.status.future{
-  color:var(--blue);
+.status.scheduled{
+  background:
+    rgba(158,208,255,.09);
+
+  color:#bddcff;
 }
 
 .star{
-  width:36px;
-  height:36px;
+  width:37px;
+  height:37px;
 
   border:0;
 
   border-radius:50%;
 
   background:
-    rgba(255,255,255,.06);
+    rgba(255,255,255,.055);
 
-  color:#748b7c;
+  color:#718478;
 
   font-size:20px;
 }
@@ -356,28 +771,34 @@ main{
   display:grid;
 
   grid-template-columns:
-    1fr
-    auto
-    1fr;
+    1fr auto 1fr;
 
   gap:10px;
 
   align-items:center;
 
-  margin:22px 0;
+  margin:21px 0;
 }
 
 .team{
   text-align:center;
 }
 
+.team-logo-wrap{
+  width:72px;
+  height:72px;
+
+  display:grid;
+  place-items:center;
+
+  margin:0 auto 8px;
+}
+
 .team-logo{
-  width:68px;
-  height:68px;
+  max-width:68px;
+  max-height:68px;
 
   object-fit:contain;
-
-  margin-bottom:8px;
 }
 
 .team-name{
@@ -385,8 +806,9 @@ main{
   font-weight:950;
 }
 
-.score{
+.score-box{
   min-width:95px;
+
   text-align:center;
 }
 
@@ -394,6 +816,13 @@ main{
   color:var(--green);
 
   font-size:31px;
+  font-weight:950;
+}
+
+.score-date{
+  color:var(--blue);
+
+  font-size:17px;
   font-weight:950;
 }
 
@@ -406,9 +835,9 @@ main{
 }
 
 .broadcast-box{
-  margin-top:10px;
+  padding:12px 13px;
 
-  padding:12px;
+  margin-top:10px;
 
   border-radius:16px;
 
@@ -424,15 +853,18 @@ main{
 }
 
 .broadcast-box.ready{
-  color:#b8ffd3;
-
   background:
-    rgba(50,231,124,.07);
+    rgba(55,230,125,.08);
+
+  color:#c6ffd9;
 }
 
-.actions{
+.game-actions{
   display:grid;
-  grid-template-columns:1fr 1fr;
+
+  grid-template-columns:
+    1fr 1fr;
+
   gap:9px;
 
   margin-top:13px;
@@ -440,64 +872,45 @@ main{
   padding-top:13px;
 
   border-top:
-    1px solid
-    rgba(255,255,255,.06);
+    1px solid rgba(255,255,255,.06);
 }
 
-.action{
-  min-height:47px;
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
+.game-btn{
+  min-height:49px;
 
   border-radius:15px;
 
   border:
-    1px solid
-    var(--border);
+    1px solid var(--border);
 
   font-size:11px;
   font-weight:950;
 }
 
-.action.watch{
+.game-btn.watch{
   background:var(--green);
   color:#03210e;
 }
 
-.action.analysis{
+.game-btn.analysis{
+  background:
+    rgba(255,210,87,.07);
+
   color:var(--gold);
 
   border-color:
-    rgba(255,209,83,.48);
-
-  background:
-    rgba(255,209,83,.08);
+    rgba(255,210,87,.5);
 }
 
-.loading{
-  padding:35px 20px;
-
-  text-align:center;
-
-  color:var(--muted);
-
-  border:
-    1px dashed
-    var(--border);
-
-  border-radius:20px;
-}
-
-/* OUTRAS TELAS */
+/* =========================================
+PAINÉIS
+========================================= */
 
 .panel{
   padding:17px;
 
   border:
-    1px solid
-    var(--border);
+    1px solid var(--border);
 
   border-radius:22px;
 
@@ -510,6 +923,10 @@ main{
   margin:0 0 12px;
 }
 
+/* =========================================
+SERVIÇOS
+========================================= */
+
 .service-grid{
   display:grid;
 
@@ -520,7 +937,7 @@ main{
 }
 
 .service{
-  min-height:110px;
+  min-height:115px;
 
   padding:14px;
 
@@ -529,8 +946,7 @@ main{
   justify-content:space-between;
 
   border:
-    1px solid
-    var(--border);
+    1px solid var(--border);
 
   border-radius:19px;
 
@@ -546,7 +962,9 @@ main{
   font-size:9px;
 }
 
-/* MODAL */
+/* =========================================
+MODAL
+========================================= */
 
 .modal{
   position:fixed;
@@ -559,7 +977,7 @@ main{
   align-items:flex-end;
 
   background:
-    rgba(0,0,0,.82);
+    rgba(0,0,0,.84);
 
   backdrop-filter:blur(12px);
   -webkit-backdrop-filter:blur(12px);
@@ -571,34 +989,36 @@ main{
 
 .modal-card{
   width:min(920px,100%);
+
   max-height:92vh;
 
   margin:auto 0 0;
 
   overflow:auto;
 
-  border-radius:30px 30px 0 0;
+  border-radius:
+    30px
+    30px
+    0
+    0;
 
   border-top:
-    1px solid
-    rgba(255,209,83,.5);
+    1px solid rgba(255,210,87,.52);
 
   background:#06190d;
 
   box-shadow:
     0 -30px 90px
-    rgba(0,0,0,.5);
+    rgba(0,0,0,.52);
 
   padding-bottom:
-    calc(
-      30px +
-      env(safe-area-inset-bottom)
-    );
+    calc(30px + env(safe-area-inset-bottom));
 }
 
 .modal-head{
   position:sticky;
   top:0;
+
   z-index:30;
 
   display:flex;
@@ -608,11 +1028,10 @@ main{
   padding:22px 18px;
 
   background:
-    rgba(6,25,13,.96);
+    rgba(6,25,13,.97);
 
   border-bottom:
-    1px solid
-    rgba(255,255,255,.05);
+    1px solid rgba(255,255,255,.05);
 
   backdrop-filter:blur(20px);
 }
@@ -634,8 +1053,8 @@ main{
 }
 
 .close{
-  width:48px;
-  height:48px;
+  width:49px;
+  height:49px;
 
   display:grid;
   place-items:center;
@@ -643,41 +1062,49 @@ main{
   border-radius:50%;
 
   border:
-    1px solid
-    var(--border);
+    1px solid var(--border);
 
   background:var(--card);
 
-  color:#fff;
+  color:white;
 
-  font-size:22px;
+  font-size:23px;
 }
 
 .modal-body{
   padding:16px;
 }
 
+/* =========================================
+FONTES
+========================================= */
+
 .source-row{
   display:flex;
   flex-wrap:wrap;
+
   gap:8px;
 
   margin-bottom:13px;
 }
 
 .source-chip{
-  padding:7px 11px;
+  padding:8px 11px;
 
   border-radius:999px;
 
   background:
-    rgba(50,231,124,.1);
+    rgba(55,230,125,.1);
 
   color:var(--green);
 
   font-size:9px;
   font-weight:950;
 }
+
+/* =========================================
+PARTIDA PREMIUM
+========================================= */
 
 .premium-match{
   display:grid;
@@ -703,15 +1130,16 @@ main{
 }
 
 .premium-team img{
-  width:80px;
-  height:80px;
+  width:83px;
+  height:83px;
+
   object-fit:contain;
 }
 
 .premium-team strong{
   display:block;
 
-  margin-top:8px;
+  margin-top:9px;
 
   font-size:15px;
 }
@@ -719,9 +1147,13 @@ main{
 .x{
   color:var(--gold);
 
-  font-size:26px;
+  font-size:27px;
   font-weight:950;
 }
+
+/* =========================================
+BLOCOS PREMIUM
+========================================= */
 
 .block{
   padding:17px;
@@ -729,33 +1161,34 @@ main{
   margin-bottom:13px;
 
   border:
-    1px solid
-    var(--border);
+    1px solid var(--border);
 
   border-radius:23px;
 
   background:
-    rgba(11,37,22,.72);
+    rgba(11,37,22,.74);
 }
 
 .block h3{
-  margin:0 0 14px;
+  margin:0 0 15px;
 
   font-size:20px;
 }
 
+/* =========================================
+PROBABILIDADES
+========================================= */
+
 .prob{
   display:grid;
-  gap:13px;
+  gap:14px;
 }
 
 .prob-line{
   display:grid;
 
   grid-template-columns:
-    110px
-    1fr
-    55px;
+    110px 1fr 55px;
 
   gap:10px;
 
@@ -799,6 +1232,10 @@ main{
   color:var(--gold);
 }
 
+/* =========================================
+COMPARATIVO
+========================================= */
+
 .compare-grid{
   display:grid;
   gap:9px;
@@ -816,6 +1253,8 @@ main{
   display:flex;
   justify-content:space-between;
 
+  gap:10px;
+
   margin-bottom:9px;
 
   color:var(--muted);
@@ -825,12 +1264,15 @@ main{
 
 .compare-values{
   display:grid;
-  grid-template-columns:1fr 1fr;
+
+  grid-template-columns:
+    1fr 1fr;
+
   gap:8px;
 }
 
 .compare-value{
-  padding:9px;
+  padding:10px;
 
   border-radius:12px;
 
@@ -841,6 +1283,10 @@ main{
 
   font-weight:950;
 }
+
+/* =========================================
+ESCALAÇÕES
+========================================= */
 
 .lineup{
   padding:15px;
@@ -854,6 +1300,7 @@ main{
 
 .lineup h4{
   margin:0 0 8px;
+
   font-size:17px;
 }
 
@@ -889,8 +1336,7 @@ main{
   padding-top:9px;
 
   border-top:
-    1px solid
-    rgba(255,255,255,.07);
+    1px solid rgba(255,255,255,.07);
 
   color:var(--muted);
 
@@ -898,6 +1344,10 @@ main{
 
   line-height:1.45;
 }
+
+/* =========================================
+PROVIDERS
+========================================= */
 
 .provider-list{
   display:flex;
@@ -925,15 +1375,14 @@ main{
 }
 
 .provider-btn{
-  min-height:46px;
+  min-height:47px;
 
   display:flex;
   justify-content:center;
   align-items:center;
 
   border:
-    1px solid
-    var(--border);
+    1px solid var(--border);
 
   border-radius:15px;
 
@@ -955,10 +1404,12 @@ main{
   color:#baffd4;
 
   background:
-    rgba(50,231,124,.08);
+    rgba(55,230,125,.08);
 }
 
-/* BOTTOM NAV */
+/* =========================================
+BOTTOM NAV
+========================================= */
 
 .bottom-nav{
   position:fixed;
@@ -970,23 +1421,20 @@ main{
   z-index:2000;
 
   display:grid;
+
   grid-template-columns:
     repeat(6,1fr);
 
   padding:
     8px
     5px
-    calc(
-      8px +
-      env(safe-area-inset-bottom)
-    );
+    calc(8px + env(safe-area-inset-bottom));
 
   background:
     rgba(2,16,8,.97);
 
   border-top:
-    1px solid
-    rgba(255,255,255,.06);
+    1px solid rgba(255,255,255,.06);
 
   backdrop-filter:blur(20px);
 }
@@ -1003,17 +1451,22 @@ main{
 
 .nav-btn span{
   display:block;
-  font-size:24px;
+
   margin-bottom:2px;
+
+  font-size:24px;
 }
 
 .nav-btn.active{
   color:var(--green);
 }
 
-/* DESKTOP */
-
 @media(min-width:720px){
+
+  .stats{
+    grid-template-columns:
+      repeat(4,1fr);
+  }
 
   .games{
     grid-template-columns:
@@ -1032,13 +1485,12 @@ main{
 
   .modal-card{
     border-radius:30px;
-    max-height:94vh;
-    margin:auto;
-    border:
-      1px solid
-      rgba(255,209,83,.4);
-  }
 
+    margin:auto;
+
+    border:
+      1px solid rgba(255,210,87,.4);
+  }
 }
 
 </style>
@@ -1048,17 +1500,17 @@ main{
 
 <header class="app-header">
 
-  <div class="brand">
+  <div class="header-brand">
 
     <img
       src="stanley-sports-logo.png"
-      class="logo"
+      class="header-logo"
       alt="Stanley Sports"
     >
 
     <div>
 
-      <div class="brand-label">
+      <div class="brand-small">
         FUTEBOL • TV • ENTRETENIMENTO
       </div>
 
@@ -1071,23 +1523,274 @@ main{
   </div>
 
   <button
-    class="refresh"
+    class="refresh-btn"
     onclick="refreshAll()"
-    aria-label="Atualizar"
   >
     ↻
   </button>
 
 </header>
 
+
 <main>
+
+<!-- ======================================
+JOGOS
+====================================== -->
 
 <section
   id="viewJogos"
   class="view active"
 >
 
-  <div class="section-head">
+  <!-- HERO RESTAURADO -->
+
+  <section class="hero">
+
+    <div class="hero-photo"></div>
+
+    <div class="hero-shade"></div>
+
+    <div class="hero-content">
+
+      <img
+        src="stanley-sports-logo.png"
+        class="hero-logo"
+        alt=""
+      >
+
+      <div class="hero-label">
+
+        <span class="hero-dot"></span>
+
+        STANLEY SPORTS
+
+      </div>
+
+      <h2>
+        Sua central esportiva.
+      </h2>
+
+      <p>
+        Jogos, placares, tabelas,
+        transmissões oficiais,
+        informações pré-jogo
+        e análises Stanley Sports.
+      </p>
+
+      <div class="hero-actions">
+
+        <button
+          class="hero-btn primary"
+          onclick="
+            document
+              .getElementById('gamesArea')
+              .scrollIntoView()
+          "
+        >
+          ⚽ Ver jogos
+        </button>
+
+        <button
+          class="hero-btn"
+          onclick="
+            openView(
+              'TV',
+              document.querySelector(
+                '[data-view=TV]'
+              )
+            )
+          "
+        >
+          📺 TV ao vivo
+        </button>
+
+        <button
+          class="hero-btn gold"
+          onclick="
+            openView(
+              'Premium',
+              document.querySelector(
+                '[data-view=Premium]'
+              )
+            )
+          "
+        >
+          👑 Premium
+        </button>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- PREMIUM HOME RESTAURADO -->
+
+  <section class="premium-home">
+
+    <div class="premium-home-icon">
+      👑
+    </div>
+
+    <div class="premium-home-text">
+
+      <small>
+        STANLEY SPORTS PREMIUM
+      </small>
+
+      <strong>
+        Inteligência para cada confronto
+      </strong>
+
+      <span>
+        Probabilidades, tendências,
+        comparativos e informações pré-jogo.
+      </span>
+
+    </div>
+
+    <button
+      class="premium-home-btn"
+      onclick="
+        openView(
+          'Premium',
+          document.querySelector(
+            '[data-view=Premium]'
+          )
+        )
+      "
+    >
+      VER
+    </button>
+
+  </section>
+
+
+  <!-- INDICADORES -->
+
+  <div class="stats">
+
+    <div class="stat">
+      <small>
+        JOGOS
+      </small>
+
+      <strong
+        id="statGames"
+        class="green"
+      >
+        0
+      </strong>
+    </div>
+
+
+    <div class="stat">
+      <small>
+        AO VIVO
+      </small>
+
+      <strong
+        id="statLive"
+        class="red"
+      >
+        0
+      </strong>
+    </div>
+
+
+    <div class="stat">
+      <small>
+        BRASIL
+      </small>
+
+      <strong
+        id="statBrazil"
+        class="green"
+      >
+        0
+      </strong>
+    </div>
+
+
+    <div class="stat">
+      <small>
+        FAVORITOS
+      </small>
+
+      <strong
+        id="statFavorites"
+        class="yellow"
+      >
+        0
+      </strong>
+    </div>
+
+  </div>
+
+
+  <!-- BUSCA -->
+
+  <div class="search">
+
+    <span>
+      🔎
+    </span>
+
+    <input
+      id="gameSearch"
+      type="search"
+      placeholder="Buscar time ou competição"
+      oninput="applyGameFilters()"
+    >
+
+  </div>
+
+
+  <!-- FILTROS -->
+
+  <div class="chips">
+
+    <button
+      class="chip active"
+      data-filter="all"
+      onclick="setGameFilter('all',this)"
+    >
+      Todos
+    </button>
+
+    <button
+      class="chip"
+      data-filter="live"
+      onclick="setGameFilter('live',this)"
+    >
+      🔴 Ao vivo
+    </button>
+
+    <button
+      class="chip"
+      data-filter="brazil"
+      onclick="setGameFilter('brazil',this)"
+    >
+      🇧🇷 Brasil
+    </button>
+
+    <button
+      class="chip"
+      data-filter="favorites"
+      onclick="setGameFilter('favorites',this)"
+    >
+      ⭐ Favoritos
+    </button>
+
+  </div>
+
+
+  <div
+    id="gamesArea"
+    class="section-head"
+  >
 
     <div>
 
@@ -1110,6 +1813,7 @@ main{
 
   </div>
 
+
   <div
     id="games"
     class="games"
@@ -1124,21 +1828,31 @@ main{
 </section>
 
 
+<!-- ======================================
+TABELA
+====================================== -->
+
 <section
   id="viewTabela"
   class="view"
 >
 
   <div class="section-head">
+
     <div>
+
       <span class="eyebrow">
         CLASSIFICAÇÃO
       </span>
+
       <h2>
         Tabela
       </h2>
+
     </div>
+
   </div>
+
 
   <div class="panel">
 
@@ -1150,10 +1864,11 @@ main{
         padding:13px;
         border-radius:14px;
         background:#102b1b;
-        color:#fff;
+        color:white;
         border:1px solid #21633b;
       "
     >
+
       <option value="bra.1">
         Brasileirão Série A
       </option>
@@ -1169,18 +1884,26 @@ main{
       <option value="esp.1">
         LaLiga
       </option>
+
     </select>
 
   </div>
 
+
   <div id="standings">
+
     <div class="loading">
-      📊 Selecione a competição.
+      📊 Carregando classificação...
     </div>
+
   </div>
 
 </section>
 
+
+<!-- ======================================
+TV
+====================================== -->
 
 <section
   id="viewTV"
@@ -1188,14 +1911,19 @@ main{
 >
 
   <div class="section-head">
+
     <div>
+
       <span class="eyebrow">
-        CANAIS
+        TRANSMISSÕES
       </span>
+
       <h2>
         TV
       </h2>
+
     </div>
+
   </div>
 
   <div
@@ -1206,20 +1934,29 @@ main{
 </section>
 
 
+<!-- ======================================
+FILMES
+====================================== -->
+
 <section
   id="viewFilmes"
   class="view"
 >
 
   <div class="section-head">
+
     <div>
+
       <span class="eyebrow">
         ENTRETENIMENTO
       </span>
+
       <h2>
         Filmes
       </h2>
+
     </div>
+
   </div>
 
   <div
@@ -1230,20 +1967,29 @@ main{
 </section>
 
 
+<!-- ======================================
+FAVORITOS
+====================================== -->
+
 <section
   id="viewFavoritos"
   class="view"
 >
 
   <div class="section-head">
+
     <div>
+
       <span class="eyebrow">
         SEUS JOGOS
       </span>
+
       <h2>
         Favoritos
       </h2>
+
     </div>
+
   </div>
 
   <div
@@ -1254,37 +2000,51 @@ main{
 </section>
 
 
+<!-- ======================================
+PREMIUM
+====================================== -->
+
 <section
   id="viewPremium"
   class="view"
 >
 
   <div class="section-head">
+
     <div>
+
       <span class="eyebrow">
         STANLEY SPORTS
       </span>
+
       <h2>
         Premium
       </h2>
+
     </div>
+
   </div>
+
 
   <div class="panel">
 
     <h3>
-      👑 Stanley Sports Premium
+      👑 Stanley Sports Intelligence
     </h3>
 
-    <p style="
-      color:var(--muted);
-      line-height:1.6;
-      font-size:12px;
-    ">
+    <p
+      style="
+        color:var(--muted);
+        line-height:1.6;
+        font-size:12px;
+      "
+    >
       Análise estatística das partidas,
-      probabilidades, comparativos,
-      tendências, transmissões,
-      Tempo Real e informações pré-jogo.
+      probabilidades, forma recente,
+      ataque, defesa, tendências,
+      escalações, transmissões oficiais
+      e acompanhamento no ge quando
+      disponível.
     </p>
 
   </div>
@@ -1293,6 +2053,10 @@ main{
 
 </main>
 
+
+<!-- ======================================
+BOTTOM NAV
+====================================== -->
 
 <nav class="bottom-nav">
 
@@ -1353,6 +2117,10 @@ main{
 </nav>
 
 
+<!-- ======================================
+MODAL
+====================================== -->
+
 <div
   id="modal"
   class="modal"
@@ -1368,6 +2136,7 @@ main{
     <div class="modal-head">
 
       <div>
+
         <div class="premium-label">
           STANLEY SPORTS PREMIUM
         </div>
@@ -1378,6 +2147,7 @@ main{
         >
           🔥 Análise da partida
         </h2>
+
       </div>
 
       <button
@@ -1401,18 +2171,21 @@ main{
 
 <script>
 
-/* =========================================================
-   V54
-========================================================= */
+/* =========================================
+STANLEY SPORTS V54.1
+========================================= */
 
 const APP_VERSION =
-  "54.0";
+  "54.1";
+
 
 const WORKER =
   "https://stanley-sports-api.phwdjnnr9m.workers.dev";
 
+
 const ESPN_BASE =
   "https://site.api.espn.com/apis/site/v2/sports/soccer";
+
 
 const ESPN_STANDINGS =
   "https://site.api.espn.com/apis/v2/sports/soccer";
@@ -1422,17 +2195,20 @@ const LEAGUES = [
 
   {
     slug:"bra.1",
-    name:"Brasileirão Série A"
+    name:"Brasileirão Série A",
+    brazil:true
   },
 
   {
     slug:"bra.2",
-    name:"Brasileirão Série B"
+    name:"Brasileirão Série B",
+    brazil:true
   },
 
   {
     slug:"bra.copa_do_brazil",
-    name:"Copa do Brasil"
+    name:"Copa do Brasil",
+    brazil:true
   },
 
   {
@@ -1466,8 +2242,14 @@ const LEAGUES = [
 let allGames =
   [];
 
+
+let currentFilter =
+  "all";
+
+
 let geCache =
   {};
+
 
 let analysisCache =
   {};
@@ -1483,20 +2265,17 @@ let favorites =
   );
 
 
-/* =========================================================
-   DATE
-========================================================= */
+/* =========================================
+DATA
+========================================= */
 
-function dateKey(
-  offset = 0
-){
+function dateKey(offset=0){
 
   const d =
     new Date();
 
   d.setDate(
-    d.getDate() +
-    offset
+    d.getDate()+offset
   );
 
   return [
@@ -1511,54 +2290,48 @@ function dateKey(
 }
 
 
-function isoDateFromEvent(
-  game
-){
+function isoDateFromEvent(game){
 
-  const date =
-    new Date(
-      game.date
-    );
+  const d =
+    new Date(game.date);
 
   return [
-    date.getFullYear(),
+    d.getFullYear(),
     String(
-      date.getMonth()+1
+      d.getMonth()+1
     ).padStart(2,"0"),
     String(
-      date.getDate()
+      d.getDate()
     ).padStart(2,"0")
   ].join("-");
 }
 
 
-/* =========================================================
-   FETCH ESPN
-========================================================= */
+/* =========================================
+ESPN
+========================================= */
 
-async function fetchLeague(
-  league
-){
+async function fetchLeague(league){
 
   try{
 
-    const url =
-      `${ESPN_BASE}/${league.slug}/scoreboard?dates=${dateKey()}`;
-
     const response =
       await fetch(
-        url,
+        `${ESPN_BASE}/${league.slug}/scoreboard?dates=${dateKey()}`,
         {
           cache:"no-store"
         }
       );
 
+
     if(!response.ok){
       return [];
     }
 
+
     const data =
       await response.json();
+
 
     return (
       data.events || []
@@ -1571,97 +2344,36 @@ async function fetchLeague(
         )
     );
 
-  }catch{
+
+  }catch(error){
+
+    console.error(
+      league.name,
+      error
+    );
 
     return [];
   }
 }
 
 
-async function refreshAll(){
-
-  const container =
-    document.getElementById(
-      "games"
-    );
-
-  container.innerHTML =
-    `<div class="loading">
-      ⚽ Atualizando partidas...
-    </div>`;
-
-
-  const results =
-    await Promise.all(
-      LEAGUES.map(
-        fetchLeague
-      )
-    );
-
-
-  const map =
-    new Map();
-
-
-  results
-    .flat()
-    .forEach(
-      game =>
-        map.set(
-          game.id,
-          game
-        )
-    );
-
-
-  allGames =
-    [...map.values()]
-    .sort(
-      (a,b) =>
-        new Date(a.date) -
-        new Date(b.date)
-    );
-
-
-  renderGames(
-    allGames,
-    "games"
-  );
-
-
-  document
-    .getElementById(
-      "gameCount"
-    )
-    .textContent =
-      allGames.length;
-
-
-  /*
-  CONSULTA GE AUTOMÁTICA
-  SOMENTE QUANDO ESTIVER
-  PRÓXIMO DO JOGO OU AO VIVO.
-  */
-
-  hydrateBroadcasts();
-
-}
-
-
-/* =========================================================
-   NORMALIZE GAME
-========================================================= */
+/* =========================================
+NORMALIZE
+========================================= */
 
 function normalizeGame(
   event,
   league
 ){
 
-  const comp =
+  const competition =
     event.competitions?.[0];
 
+
   const competitors =
-    comp?.competitors || [];
+    competition?.competitors
+    ||
+    [];
 
 
   const home =
@@ -1681,19 +2393,25 @@ function normalizeGame(
 
 
   const status =
-    event.status || {};
+    event.status
+    ||
+    {};
 
 
   return{
 
-    id:
-      event.id,
+    id:event.id,
 
     league:
       league.name,
 
     leagueSlug:
       league.slug,
+
+    brazil:
+      Boolean(
+        league.brazil
+      ),
 
     home:
       home?.team?.displayName
@@ -1754,17 +2472,16 @@ function normalizeGame(
 }
 
 
-/* =========================================================
-   GAME STATE
-========================================================= */
+/* =========================================
+ESTADO
+========================================= */
 
-function gameState(
-  game
-){
+function gameState(game){
 
   if(game.completed){
     return "finished";
   }
+
 
   if(
     game.state === "in"
@@ -1774,13 +2491,12 @@ function gameState(
     return "live";
   }
 
+
   return "scheduled";
 }
 
 
-function minutesUntilGame(
-  game
-){
+function minutesUntilGame(game){
 
   return (
     new Date(game.date).getTime()
@@ -1792,18 +2508,17 @@ function minutesUntilGame(
 }
 
 
-function shouldCheckBroadcast(
-  game
-){
+function shouldCheckBroadcast(game){
 
   const state =
     gameState(game);
+
 
   const diff =
     minutesUntilGame(game);
 
 
-  return (
+  return(
     state === "live"
     ||
     (
@@ -1817,9 +2532,260 @@ function shouldCheckBroadcast(
 }
 
 
-/* =========================================================
-   RENDER GAMES
-========================================================= */
+/* =========================================
+ATUALIZAR
+========================================= */
+
+async function refreshAll(){
+
+  document
+    .getElementById(
+      "games"
+    )
+    .innerHTML =
+      `
+      <div class="loading">
+        ⚽ Atualizando partidas...
+      </div>
+      `;
+
+
+  const results =
+    await Promise.all(
+      LEAGUES.map(
+        fetchLeague
+      )
+    );
+
+
+  const map =
+    new Map();
+
+
+  results
+    .flat()
+    .forEach(
+      game => {
+
+        map.set(
+          game.id,
+          game
+        );
+
+      }
+    );
+
+
+  allGames =
+    [...map.values()]
+    .sort(
+      (a,b)=>
+        new Date(a.date)
+        -
+        new Date(b.date)
+    );
+
+
+  updateStats();
+
+  applyGameFilters();
+
+  hydrateBroadcasts();
+}
+
+
+/* =========================================
+STATS
+========================================= */
+
+function updateStats(){
+
+  const live =
+    allGames.filter(
+      g =>
+        gameState(g) ===
+        "live"
+    ).length;
+
+
+  const brazil =
+    allGames.filter(
+      g =>
+        g.brazil
+    ).length;
+
+
+  document
+    .getElementById(
+      "statGames"
+    )
+    .textContent =
+      allGames.length;
+
+
+  document
+    .getElementById(
+      "statLive"
+    )
+    .textContent =
+      live;
+
+
+  document
+    .getElementById(
+      "statBrazil"
+    )
+    .textContent =
+      brazil;
+
+
+  document
+    .getElementById(
+      "statFavorites"
+    )
+    .textContent =
+      favorites.length;
+}
+
+
+/* =========================================
+FILTROS
+========================================= */
+
+function setGameFilter(
+  filter,
+  button
+){
+
+  currentFilter =
+    filter;
+
+
+  document
+    .querySelectorAll(
+      ".chip"
+    )
+    .forEach(
+      chip =>
+        chip
+          .classList
+          .remove(
+            "active"
+          )
+    );
+
+
+  button
+    .classList
+    .add(
+      "active"
+    );
+
+
+  applyGameFilters();
+}
+
+
+function applyGameFilters(){
+
+  const search =
+    String(
+      document
+        .getElementById(
+          "gameSearch"
+        )
+        ?.value
+        ||
+        ""
+    )
+    .toLowerCase()
+    .trim();
+
+
+  let games =
+    [...allGames];
+
+
+  if(
+    currentFilter ===
+    "live"
+  ){
+
+    games =
+      games.filter(
+        game =>
+          gameState(game)
+          ===
+          "live"
+      );
+  }
+
+
+  if(
+    currentFilter ===
+    "brazil"
+  ){
+
+    games =
+      games.filter(
+        game =>
+          game.brazil
+      );
+  }
+
+
+  if(
+    currentFilter ===
+    "favorites"
+  ){
+
+    games =
+      games.filter(
+        game =>
+          favorites.includes(
+            game.id
+          )
+      );
+  }
+
+
+  if(search){
+
+    games =
+      games.filter(
+        game => {
+
+          const text =
+            `${game.home} ${game.away} ${game.league}`
+            .toLowerCase();
+
+
+          return text.includes(
+            search
+          );
+        }
+      );
+  }
+
+
+  renderGames(
+    games,
+    "games"
+  );
+
+
+  document
+    .getElementById(
+      "gameCount"
+    )
+    .textContent =
+      games.length;
+}
+
+
+/* =========================================
+RENDER JOGOS
+========================================= */
 
 function renderGames(
   games,
@@ -1835,29 +2801,31 @@ function renderGames(
   if(!games.length){
 
     target.innerHTML =
-      `<div class="loading">
+      `
+      <div class="empty">
         Nenhuma partida encontrada.
-      </div>`;
+      </div>
+      `;
 
     return;
   }
 
 
   target.innerHTML =
-    games.map(
-      game =>
-        gameHTML(game)
-    )
-    .join("");
+    games
+      .map(
+        game =>
+          gameHTML(game)
+      )
+      .join("");
 }
 
 
-function gameHTML(
-  game
-){
+function gameHTML(game){
 
   const state =
     gameState(game);
+
 
   const favorite =
     favorites.includes(
@@ -1880,7 +2848,10 @@ function gameHTML(
   }
 
 
-  if(state === "finished"){
+  if(
+    state ===
+    "finished"
+  ){
 
     statusText =
       "ENCERRADO";
@@ -1905,7 +2876,11 @@ function gameHTML(
       </div>
 
       <div class="score-time">
-        ${game.detail}
+        ${
+          game.clock
+          ||
+          game.detail
+        }
       </div>
       `;
 
@@ -1916,15 +2891,10 @@ function gameHTML(
         game.date
       );
 
+
     center =
       `
-      <div
-        class="score-main"
-        style="
-          font-size:16px;
-          color:var(--blue);
-        "
-      >
+      <div class="score-date">
         Hoje
       </div>
 
@@ -1943,6 +2913,28 @@ function gameHTML(
   }
 
 
+  let transmissionText =
+    "📺 A transmissão será verificada 15 minutos antes do início.";
+
+
+  if(
+    state === "live"
+  ){
+
+    transmissionText =
+      "📡 Partida em andamento • verificando transmissão e cobertura.";
+  }
+
+
+  if(
+    state === "finished"
+  ){
+
+    transmissionText =
+      "🎬 Partida encerrada • consulte os melhores momentos.";
+  }
+
+
   return`
   <article
     class="game"
@@ -1951,13 +2943,13 @@ function gameHTML(
 
     <div class="game-head">
 
-      <div class="league">
+      <div class="competition">
         ${game.league}
       </div>
 
-      <div class="right-head">
+      <div class="game-right">
 
-        <span
+        <div
           class="
             status
             ${
@@ -1965,12 +2957,12 @@ function gameHTML(
               ?
               "live"
               :
-              "future"
+              "scheduled"
             }
           "
         >
           ${statusText}
-        </span>
+        </div>
 
         <button
           class="
@@ -2001,11 +2993,15 @@ function gameHTML(
 
       <div class="team">
 
-        <img
-          class="team-logo"
-          src="${game.homeLogo}"
-          alt="${game.home}"
-        >
+        <div class="team-logo-wrap">
+
+          <img
+            class="team-logo"
+            src="${game.homeLogo}"
+            alt="${game.home}"
+          >
+
+        </div>
 
         <div class="team-name">
           ${game.home}
@@ -2014,18 +3010,22 @@ function gameHTML(
       </div>
 
 
-      <div class="score">
+      <div class="score-box">
         ${center}
       </div>
 
 
       <div class="team">
 
-        <img
-          class="team-logo"
-          src="${game.awayLogo}"
-          alt="${game.away}"
-        >
+        <div class="team-logo-wrap">
+
+          <img
+            class="team-logo"
+            src="${game.awayLogo}"
+            alt="${game.away}"
+          >
+
+        </div>
 
         <div class="team-name">
           ${game.away}
@@ -2040,22 +3040,14 @@ function gameHTML(
       id="broadcast-${game.id}"
       class="broadcast-box"
     >
-
-      ${
-        shouldCheckBroadcast(game)
-        ?
-        "📡 Verificando transmissão e cobertura..."
-        :
-        "📺 A transmissão será verificada 15 minutos antes do início."
-      }
-
+      ${transmissionText}
     </div>
 
 
-    <div class="actions">
+    <div class="game-actions">
 
       <button
-        class="action watch"
+        class="game-btn watch"
         onclick="
           openWhereToWatch(
             '${game.id}'
@@ -2067,7 +3059,7 @@ function gameHTML(
 
 
       <button
-        class="action analysis"
+        class="game-btn analysis"
         onclick="
           openAnalysis(
             '${game.id}'
@@ -2084,13 +3076,11 @@ function gameHTML(
 }
 
 
-/* =========================================================
-   FAVORITES
-========================================================= */
+/* =========================================
+FAVORITOS
+========================================= */
 
-function toggleFavorite(
-  id
-){
+function toggleFavorite(id){
 
   if(
     favorites.includes(id)
@@ -2098,7 +3088,8 @@ function toggleFavorite(
 
     favorites =
       favorites.filter(
-        x => x !== id
+        x =>
+          x !== id
       );
 
   }else{
@@ -2115,11 +3106,9 @@ function toggleFavorite(
   );
 
 
-  renderGames(
-    allGames,
-    "games"
-  );
+  updateStats();
 
+  applyGameFilters();
 
   renderFavorites();
 
@@ -2145,13 +3134,13 @@ function renderFavorites(){
 }
 
 
-/* =========================================================
-   GE
-========================================================= */
+/* =========================================
+GE
+========================================= */
 
 async function getGeData(
   game,
-  force = false
+  force=false
 ){
 
   const key =
@@ -2191,7 +3180,7 @@ async function getGeData(
         )
       }`
       +
-      `&v=5401`;
+      `&v=54101`;
 
 
     const response =
@@ -2203,7 +3192,9 @@ async function getGeData(
       );
 
 
-    if(!response.ok){
+    if(
+      !response.ok
+    ){
 
       return null;
     }
@@ -2220,16 +3211,21 @@ async function getGeData(
     return data;
 
 
-  }catch{
+  }catch(error){
+
+    console.error(
+      "GE:",
+      error
+    );
 
     return null;
   }
 }
 
 
-/* =========================================================
-   HYDRATE TRANSMISSÕES
-========================================================= */
+/* =========================================
+TRANSMISSÃO AUTOMÁTICA
+========================================= */
 
 async function hydrateBroadcasts(){
 
@@ -2260,11 +3256,14 @@ async function hydrateBroadcasts(){
       );
 
 
-    if(!ge?.found){
+    if(
+      !ge?.found
+    ){
 
       box.classList.remove(
         "ready"
       );
+
 
       box.textContent =
         gameState(game) === "live"
@@ -2272,6 +3271,7 @@ async function hydrateBroadcasts(){
         "📡 Partida em andamento • cobertura ainda não localizada automaticamente."
         :
         "📡 Transmissão ainda não confirmada pela fonte consultada.";
+
 
       continue;
     }
@@ -2287,27 +3287,33 @@ async function hydrateBroadcasts(){
       [];
 
 
-    const hasRealtime =
-      Boolean(
-        ge.realtimeUrl
-      );
-
-
     const pieces =
       [];
 
 
-    if(broadcasters.length){
+    if(
+      broadcasters.length
+    ){
 
       pieces.push(
-        `📺 ${
-          broadcasters.join(" • ")
-        }`
+        `📺 ${broadcasters.join(" • ")}`
       );
     }
 
 
-    if(hasRealtime){
+    if(
+      ge?.freeStream?.available
+    ){
+
+      pieces.push(
+        `▶️ ${ge.freeStream.name || "Transmissão grátis"}`
+      );
+    }
+
+
+    if(
+      ge?.realtimeUrl
+    ){
 
       pieces.push(
         "⏱️ Tempo Real no ge"
@@ -2315,10 +3321,12 @@ async function hydrateBroadcasts(){
     }
 
 
-    if(!pieces.length){
+    if(
+      !pieces.length
+    ){
 
       pieces.push(
-        "📡 Cobertura pré-jogo localizada no ge"
+        "📰 Cobertura pré-jogo localizada no ge"
       );
     }
 
@@ -2330,15 +3338,15 @@ async function hydrateBroadcasts(){
 
     box.textContent =
       pieces.join(
-        "  •  "
+        " • "
       );
   }
 }
 
 
-/* =========================================================
-   PROVIDERS
-========================================================= */
+/* =========================================
+PROVIDERS
+========================================= */
 
 const PROVIDERS = {
 
@@ -2392,12 +3400,12 @@ const PROVIDERS = {
     url:"https://www.paramountplus.com/br/"
   },
 
-  "cazétv":{
+  "cazetv":{
     label:"CazéTV",
     url:"https://www.youtube.com/@CazeTV"
   },
 
-  "cazetv":{
+  "caze tv":{
     label:"CazéTV",
     url:"https://www.youtube.com/@CazeTV"
   },
@@ -2415,9 +3423,7 @@ const PROVIDERS = {
 };
 
 
-function normalizeProvider(
-  name
-){
+function normalizeProvider(name){
 
   return String(name || "")
     .normalize("NFD")
@@ -2430,31 +3436,23 @@ function normalizeProvider(
 }
 
 
-function providerFor(
-  name
-){
+function providerFor(name){
 
-  const normal =
-    normalizeProvider(
-      name
-    );
-
-
-  return (
-    PROVIDERS[normal]
+  return(
+    PROVIDERS[
+      normalizeProvider(name)
+    ]
     ||
     null
   );
 }
 
 
-/* =========================================================
-   WHERE TO WATCH
-========================================================= */
+/* =========================================
+ONDE ASSISTIR
+========================================= */
 
-async function openWhereToWatch(
-  id
-){
+async function openWhereToWatch(id){
 
   const game =
     allGames.find(
@@ -2471,9 +3469,9 @@ async function openWhereToWatch(
   openModal(
     "📺 Onde acompanhar",
     `
-      <div class="loading">
-        Buscando informações oficiais...
-      </div>
+    <div class="loading">
+      Buscando transmissões e cobertura...
+    </div>
     `
   );
 
@@ -2520,29 +3518,23 @@ function renderWatchModal(
         );
 
 
-      if(!provider){
-        return;
+      if(provider){
+
+        buttons +=`
+        <a
+          class="provider-btn"
+          href="${provider.url}"
+          target="_blank"
+          rel="noopener"
+        >
+          ▶️ Abrir ${provider.label}
+        </a>
+        `;
       }
 
-
-      buttons += `
-      <a
-        class="provider-btn"
-        href="${provider.url}"
-        target="_blank"
-        rel="noopener"
-      >
-        ▶️ Abrir ${provider.label}
-      </a>
-      `;
     }
   );
 
-
-  /*
-  STREAM GRATUITO
-  CONFIRMADO PELO WORKER
-  */
 
   if(
     ge?.freeStream?.available
@@ -2550,7 +3542,7 @@ function renderWatchModal(
     ge?.freeStream?.url
   ){
 
-    buttons += `
+    buttons +=`
     <a
       class="provider-btn green"
       href="${ge.freeStream.url}"
@@ -2558,22 +3550,17 @@ function renderWatchModal(
       rel="noopener"
     >
       ▶️ Assistir grátis em
-      ${ge.freeStream.name}
+      ${ge.freeStream.name || "canal oficial"}
     </a>
     `;
   }
 
 
-  /*
-  TEMPO REAL É INDEPENDENTE
-  DAS EMISSORAS.
-  */
-
   if(
     ge?.realtimeUrl
   ){
 
-    buttons += `
+    buttons +=`
     <a
       class="provider-btn ge"
       href="${ge.realtimeUrl}"
@@ -2588,15 +3575,7 @@ function renderWatchModal(
     ge?.articleUrl
   ){
 
-    /*
-    Se o Worker encontrou a matéria
-    mas não conseguiu extrair o link
-    específico do Tempo Real,
-    ainda damos acesso à cobertura
-    oficial do ge.
-    */
-
-    buttons += `
+    buttons +=`
     <a
       class="provider-btn ge"
       href="${ge.articleUrl}"
@@ -2609,16 +3588,14 @@ function renderWatchModal(
   }
 
 
-  if(
-    !buttons
-  ){
+  if(!buttons){
 
-    buttons = `
-    <div class="loading">
-      Nenhuma transmissão online
-      confirmada automaticamente.
-    </div>
-    `;
+    buttons =
+      `
+      <div class="loading">
+        Nenhum link oficial localizado automaticamente.
+      </div>
+      `;
   }
 
 
@@ -2627,8 +3604,8 @@ function renderWatchModal(
     ?
     broadcasters
       .map(
-        x =>
-          `<span class="provider">${x}</span>`
+        name =>
+          `<span class="provider">${name}</span>`
       )
       .join("")
     :
@@ -2643,48 +3620,48 @@ function renderWatchModal(
     .getElementById(
       "modalBody"
     )
-    .innerHTML = `
+    .innerHTML =
+      `
+      ${premiumMatchHTML(game)}
 
-    ${premiumMatchHTML(game)}
+      <section class="block">
 
-    <section class="block">
+        <h3>
+          📺 Onde acompanhar
+        </h3>
 
-      <h3>
-        📺 Onde acompanhar
-      </h3>
+        <div class="provider-list">
+          ${providerTags}
+        </div>
 
-      <div class="provider-list">
-        ${providerTags}
-      </div>
+        <div class="provider-buttons">
+          ${buttons}
+        </div>
 
-      <div class="provider-buttons">
-        ${buttons}
-      </div>
+        <p
+          style="
+            margin:13px 0 0;
+            color:var(--muted);
+            font-size:9px;
+            line-height:1.5;
+          "
+        >
+          O Stanley Sports abre apenas
+          páginas ou plataformas oficiais.
+          Serviços pagos exigem a assinatura
+          própria do usuário.
+        </p>
 
-      <p style="
-        margin:13px 0 0;
-        color:var(--muted);
-        font-size:9px;
-        line-height:1.5;
-      ">
-        Stanley Sports abre apenas
-        plataformas e páginas oficiais.
-        Serviços pagos podem exigir
-        assinatura própria do usuário.
-      </p>
-
-    </section>
-  `;
+      </section>
+      `;
 }
 
 
-/* =========================================================
-   ANALYSIS
-========================================================= */
+/* =========================================
+ANÁLISE
+========================================= */
 
-async function getAnalysisData(
-  game
-){
+async function getAnalysisData(game){
 
   const key =
     `${game.id}-${APP_VERSION}`;
@@ -2719,7 +3696,7 @@ async function getAnalysisData(
         )
       }`
       +
-      `&v=5402`;
+      `&v=54102`;
 
 
     const response =
@@ -2748,16 +3725,19 @@ async function getAnalysisData(
     return data;
 
 
-  }catch{
+  }catch(error){
+
+    console.error(
+      "ANALYSIS:",
+      error
+    );
 
     return null;
   }
 }
 
 
-async function openAnalysis(
-  id
-){
+async function openAnalysis(id){
 
   const game =
     allGames.find(
@@ -2774,25 +3754,18 @@ async function openAnalysis(
   openModal(
     "🔥 Análise da partida",
     `
-      <div class="loading">
-        👑 Preparando análise Stanley Sports...
-      </div>
+    <div class="loading">
+      👑 Preparando análise Stanley Sports...
+    </div>
     `
   );
 
 
   /*
-  MUITO IMPORTANTE:
-
-  AS DUAS FONTES SÃO BUSCADAS
-  INDEPENDENTEMENTE.
-
-  SE GE FALHAR,
-  A ANÁLISE CONTINUA.
-
-  SE ANÁLISE FALHAR,
-  GE CONTINUA.
+  IMPORTANTE:
+  API-Football e GE são independentes.
   */
+
 
   const results =
     await Promise.allSettled([
@@ -2809,7 +3782,7 @@ async function openAnalysis(
     ]);
 
 
-  const analysisData =
+  const analysis =
     results[0].status === "fulfilled"
     ?
     results[0].value
@@ -2817,7 +3790,7 @@ async function openAnalysis(
     null;
 
 
-  const geData =
+  const ge =
     results[1].status === "fulfilled"
     ?
     results[1].value
@@ -2827,19 +3800,17 @@ async function openAnalysis(
 
   renderAnalysisModal(
     game,
-    analysisData,
-    geData
+    analysis,
+    ge
   );
 }
 
 
-/* =========================================================
-   ANALYSIS RENDER
-========================================================= */
+/* =========================================
+HELPERS ANALYSIS
+========================================= */
 
-function numberPercent(
-  value
-){
+function numberPercent(value){
 
   if(
     value === null
@@ -2848,11 +3819,12 @@ function numberPercent(
     ||
     value === ""
   ){
+
     return null;
   }
 
 
-  const n =
+  const number =
     parseFloat(
       String(value)
         .replace(
@@ -2862,19 +3834,19 @@ function numberPercent(
     );
 
 
-  return Number.isFinite(n)
-    ?
-    n
-    :
-    null;
+  return Number.isFinite(
+    number
+  )
+  ?
+  number
+  :
+  null;
 }
 
 
-function hasProbabilities(
-  data
-){
+function hasProbabilities(data){
 
-  return (
+  return(
     numberPercent(
       data?.probabilities?.home
     ) !== null
@@ -2894,6 +3866,10 @@ function hasProbabilities(
 }
 
 
+/* =========================================
+RENDER PREMIUM
+========================================= */
+
 function renderAnalysisModal(
   game,
   analysis,
@@ -2912,8 +3888,8 @@ function renderAnalysisModal(
     );
 
 
-  let html = `
-
+  let html =
+    `
     <div class="source-row">
 
       ${
@@ -2947,16 +3923,8 @@ function renderAnalysisModal(
     </div>
 
     ${premiumMatchHTML(game)}
+    `;
 
-  `;
-
-
-  /*
-  PROBABILIDADES
-
-  NÃO EXISTE QUALQUER
-  DEPENDÊNCIA DO GE AQUI.
-  */
 
   if(analysisOK){
 
@@ -3000,7 +3968,7 @@ function renderAnalysisModal(
 
   }else{
 
-    html += `
+    html +=`
     <section class="block">
 
       <div
@@ -3010,12 +3978,13 @@ function renderAnalysisModal(
           border:1px dashed var(--border);
           border-radius:20px;
           color:var(--muted);
+          font-size:16px;
           line-height:1.55;
         "
       >
-        ⚠️ A fonte estatística ainda não
-        retornou probabilidades suficientes
-        para este confronto.
+        ⚠️ A fonte estatística ainda
+        não retornou probabilidades
+        suficientes para este confronto.
       </div>
 
     </section>
@@ -3024,11 +3993,10 @@ function renderAnalysisModal(
 
 
   /*
-  GE É ADICIONADO DEPOIS.
-
-  ELE NUNCA ALTERA
-  O BLOCO ACIMA.
+  GE NUNCA SUBSTITUI A ANÁLISE.
+  ELE APENAS COMPLEMENTA.
   */
+
 
   if(
     geOK
@@ -3058,12 +4026,12 @@ function renderAnalysisModal(
   }
 
 
-  html += `
+  html +=`
   <div
     style="
       padding:13px;
       border-radius:17px;
-      background:rgba(255,209,83,.06);
+      background:rgba(255,210,87,.06);
       color:#ffe797;
       font-size:9px;
       line-height:1.5;
@@ -3084,13 +4052,11 @@ function renderAnalysisModal(
 }
 
 
-/* =========================================================
-   PREMIUM COMPONENTS
-========================================================= */
+/* =========================================
+MATCH PREMIUM
+========================================= */
 
-function premiumMatchHTML(
-  game
-){
+function premiumMatchHTML(game){
 
   return`
   <div class="premium-match">
@@ -3130,6 +4096,10 @@ function premiumMatchHTML(
 }
 
 
+/* =========================================
+PROBABILIDADES
+========================================= */
+
 function probabilitiesHTML(
   game,
   data
@@ -3140,10 +4110,12 @@ function probabilitiesHTML(
       data.probabilities.home
     );
 
+
   const draw =
     numberPercent(
       data.probabilities.draw
     );
+
 
   const away =
     numberPercent(
@@ -3234,6 +4206,10 @@ function probLine(
 }
 
 
+/* =========================================
+COMPARATIVO
+========================================= */
+
 function comparisonHTML(
   game,
   data
@@ -3268,9 +4244,10 @@ function comparisonHTML(
 
   if(
     !rows.some(
-      x =>
-        x[1] ||
-        x[2]
+      row =>
+        row[1]
+        ||
+        row[2]
     )
   ){
 
@@ -3288,41 +4265,40 @@ function comparisonHTML(
     <div class="compare-grid">
 
       ${
-        rows
-          .map(
-            row => `
-            <div class="compare">
+        rows.map(
+          row =>`
+          <div class="compare">
 
-              <div class="compare-label">
+            <div class="compare-label">
 
-                <span>
-                  ${row[0]}
-                </span>
+              <span>
+                ${row[0]}
+              </span>
 
-                <span>
-                  ${game.home}
-                  •
-                  ${game.away}
-                </span>
+              <span>
+                ${game.home}
+                •
+                ${game.away}
+              </span>
 
+            </div>
+
+            <div class="compare-values">
+
+              <div class="compare-value">
+                ${row[1] || "—"}
               </div>
 
-              <div class="compare-values">
-
-                <div class="compare-value">
-                  ${row[1] || "—"}
-                </div>
-
-                <div class="compare-value">
-                  ${row[2] || "—"}
-                </div>
-
+              <div class="compare-value">
+                ${row[2] || "—"}
               </div>
 
             </div>
-            `
-          )
-          .join("")
+
+          </div>
+          `
+        )
+        .join("")
       }
 
     </div>
@@ -3332,6 +4308,10 @@ function comparisonHTML(
 }
 
 
+/* =========================================
+ÚLTIMOS JOGOS
+========================================= */
+
 function recentHTML(
   game,
   data
@@ -3340,12 +4320,14 @@ function recentHTML(
   const home =
     data?.teams?.home?.last5;
 
+
   const away =
     data?.teams?.away?.last5;
 
 
   if(
-    !home &&
+    !home
+    &&
     !away
   ){
 
@@ -3391,6 +4373,7 @@ function recentHTML(
       >
         Jogos:
         ${stats.played || "—"}
+
         <br>
 
         Gols marcados:
@@ -3401,6 +4384,7 @@ function recentHTML(
           ??
           "—"
         }/jogo
+
         <br>
 
         Gols sofridos:
@@ -3444,20 +4428,24 @@ function recentHTML(
 }
 
 
-function goalsHTML(
-  data
-){
+/* =========================================
+GOLS
+========================================= */
 
-  const m =
-    data.markets || {};
+function goalsHTML(data){
+
+  const markets =
+    data.markets
+    ||
+    {};
 
 
   if(
-    !m.over15
+    !markets.over15
     &&
-    !m.over25
+    !markets.over25
     &&
-    !m.bothTeamsScore
+    !markets.bothTeamsScore
   ){
 
     return "";
@@ -3480,30 +4468,41 @@ function goalsHTML(
     >
 
       <div class="compare">
+
         <small>
           +1.5 gols
         </small>
+
         <strong>
-          ${m.over15 || "—"}
+          ${markets.over15 || "—"}
         </strong>
+
       </div>
 
+
       <div class="compare">
+
         <small>
           +2.5 gols
         </small>
+
         <strong>
-          ${m.over25 || "—"}
+          ${markets.over25 || "—"}
         </strong>
+
       </div>
 
+
       <div class="compare">
+
         <small>
           Ambas marcam
         </small>
+
         <strong>
-          ${m.bothTeamsScore || "—"}
+          ${markets.bothTeamsScore || "—"}
         </strong>
+
       </div>
 
     </div>
@@ -3513,11 +4512,18 @@ function goalsHTML(
 }
 
 
-function confidenceHTML(
-  data
-){
+/* =========================================
+CONFIANÇA
+========================================= */
 
-  if(!data.confidence){
+function confidenceHTML(data){
+
+  if(
+    data.confidence === null
+    ||
+    data.confidence === undefined
+  ){
+
     return "";
   }
 
@@ -3528,16 +4534,33 @@ function confidenceHTML(
     );
 
 
+  if(
+    !Number.isFinite(value)
+  ){
+
+    return "";
+  }
+
+
   let label =
     "Média";
 
 
-  if(value >= 75){
-    label = "Alta";
+  if(
+    value >= 75
+  ){
+
+    label =
+      "Alta";
   }
 
-  if(value < 60){
-    label = "Baixa";
+
+  if(
+    value < 60
+  ){
+
+    label =
+      "Baixa";
   }
 
 
@@ -3555,13 +4578,19 @@ function confidenceHTML(
         margin-bottom:10px;
       "
     >
-      <span style="color:var(--muted)">
+
+      <span
+        style="
+          color:var(--muted);
+        "
+      >
         Nível do modelo
       </span>
 
       <strong>
         ${label} • ${value}%
       </strong>
+
     </div>
 
     <div class="bar">
@@ -3580,18 +4609,22 @@ function confidenceHTML(
 }
 
 
-function predictionHTML(
-  data
-){
+/* =========================================
+TENDÊNCIA
+========================================= */
 
-  const p =
-    data.prediction || {};
+function predictionHTML(data){
+
+  const prediction =
+    data.prediction
+    ||
+    {};
 
 
   if(
-    !p.winner
+    !prediction.winner
     &&
-    !p.advice
+    !prediction.advice
   ){
 
     return "";
@@ -3606,7 +4639,7 @@ function predictionHTML(
     </h3>
 
     ${
-      p.winner
+      prediction.winner
       ?
       `
       <strong
@@ -3617,7 +4650,7 @@ function predictionHTML(
           margin-bottom:8px;
         "
       >
-        ${p.winner}
+        ${prediction.winner}
       </strong>
       `
       :
@@ -3625,7 +4658,7 @@ function predictionHTML(
     }
 
     ${
-      p.advice
+      prediction.advice
       ?
       `
       <div
@@ -3635,7 +4668,7 @@ function predictionHTML(
           line-height:1.55;
         "
       >
-        ${p.advice}
+        ${prediction.advice}
       </div>
       `
       :
@@ -3647,23 +4680,23 @@ function predictionHTML(
 }
 
 
-/* =========================================================
-   LINEUPS
-========================================================= */
+/* =========================================
+ESCALAÇÕES GE
+========================================= */
 
-function lineupsHTML(
-  ge
-){
+function lineupsHTML(ge){
 
   const home =
     ge?.lineups?.home;
+
 
   const away =
     ge?.lineups?.away;
 
 
   if(
-    !home &&
+    !home
+    &&
     !away
   ){
 
@@ -3678,22 +4711,16 @@ function lineupsHTML(
       👥 Prováveis escalações
     </h3>
 
-    ${
-      lineupCard(home)
-    }
+    ${lineupCard(home)}
 
-    ${
-      lineupCard(away)
-    }
+    ${lineupCard(away)}
 
   </section>
   `;
 }
 
 
-function lineupCard(
-  team
-){
+function lineupCard(team){
 
   if(!team){
     return "";
@@ -3769,13 +4796,11 @@ function lineupCard(
 }
 
 
-/* =========================================================
-   GE FOLLOW
-========================================================= */
+/* =========================================
+ONDE ACOMPANHAR NO PREMIUM
+========================================= */
 
-function geFollowHTML(
-  ge
-){
+function geFollowHTML(ge){
 
   const broadcasters =
     Array.isArray(
@@ -3787,31 +4812,33 @@ function geFollowHTML(
     [];
 
 
-  let buttons = "";
+  let buttons =
+    "";
 
 
   broadcasters.forEach(
     broadcaster => {
 
-      const p =
+      const provider =
         providerFor(
           broadcaster
         );
 
 
-      if(p){
+      if(provider){
 
         buttons +=`
         <a
           class="provider-btn"
-          href="${p.url}"
+          href="${provider.url}"
           target="_blank"
           rel="noopener"
         >
-          ▶️ Abrir ${p.label}
+          ▶️ Abrir ${provider.label}
         </a>
         `;
       }
+
     }
   );
 
@@ -3830,7 +4857,7 @@ function geFollowHTML(
       rel="noopener"
     >
       ▶️ Assistir grátis em
-      ${ge.freeStream.name}
+      ${ge.freeStream.name || "canal oficial"}
     </a>
     `;
   }
@@ -3868,9 +4895,7 @@ function geFollowHTML(
   }
 
 
-  if(
-    !buttons
-  ){
+  if(!buttons){
 
     return "";
   }
@@ -3883,18 +4908,26 @@ function geFollowHTML(
       📺 Onde acompanhar
     </h3>
 
-    <div class="provider-list">
+    ${
+      broadcasters.length
+      ?
+      `
+      <div class="provider-list">
 
-      ${
-        broadcasters
-          .map(
-            x =>
-              `<span class="provider">${x}</span>`
-          )
-          .join("")
-      }
+        ${
+          broadcasters
+            .map(
+              name =>
+                `<span class="provider">${name}</span>`
+            )
+            .join("")
+        }
 
-    </div>
+      </div>
+      `
+      :
+      ""
+    }
 
     <div class="provider-buttons">
       ${buttons}
@@ -3905,9 +4938,9 @@ function geFollowHTML(
 }
 
 
-/* =========================================================
-   MODAL
-========================================================= */
+/* =========================================
+MODAL
+========================================= */
 
 function openModal(
   title,
@@ -3934,7 +4967,8 @@ function openModal(
     .getElementById(
       "modal"
     )
-    .classList.add(
+    .classList
+    .add(
       "show"
     );
 
@@ -3950,7 +4984,8 @@ function closeModal(){
     .getElementById(
       "modal"
     )
-    .classList.remove(
+    .classList
+    .remove(
       "show"
     );
 
@@ -3960,9 +4995,9 @@ function closeModal(){
 }
 
 
-/* =========================================================
-   VIEWS
-========================================================= */
+/* =========================================
+VIEWS
+========================================= */
 
 function openView(
   name,
@@ -3985,7 +5020,8 @@ function openView(
     .getElementById(
       `view${name}`
     )
-    .classList.add(
+    .classList
+    .add(
       "active"
     );
 
@@ -4010,12 +5046,20 @@ function openView(
   }
 
 
-  if(name === "Favoritos"){
+  if(
+    name ===
+    "Favoritos"
+  ){
+
     renderFavorites();
   }
 
 
-  if(name === "Tabela"){
+  if(
+    name ===
+    "Tabela"
+  ){
+
     loadStandings();
   }
 
@@ -4027,9 +5071,9 @@ function openView(
 }
 
 
-/* =========================================================
-   STANDINGS
-========================================================= */
+/* =========================================
+TABELA
+========================================= */
 
 async function loadStandings(){
 
@@ -4042,15 +5086,18 @@ async function loadStandings(){
 
 
   const target =
-    document.getElementById(
-      "standings"
-    );
+    document
+      .getElementById(
+        "standings"
+      );
 
 
   target.innerHTML =
-    `<div class="loading">
+    `
+    <div class="loading">
       📊 Carregando classificação...
-    </div>`;
+    </div>
+    `;
 
 
   try{
@@ -4082,9 +5129,11 @@ async function loadStandings(){
     if(!entries.length){
 
       target.innerHTML =
-        `<div class="loading">
+        `
+        <div class="loading">
           Classificação indisponível.
-        </div>`;
+        </div>
+        `;
 
       return;
     }
@@ -4093,29 +5142,33 @@ async function loadStandings(){
     target.innerHTML =
       entries
       .map(
-        (entry,index) => {
+        (entry,index)=>{
 
           const stats =
             Object.fromEntries(
               (
-                entry.stats || []
+                entry.stats
+                ||
+                []
               )
               .map(
-                x =>
-                  [
-                    x.name,
-                    x.displayValue
-                  ]
+                stat =>[
+                  stat.name,
+                  stat.displayValue
+                ]
               )
             );
 
 
           return`
-          <div class="panel"
+          <div
+            class="panel"
             style="
               display:grid;
               grid-template-columns:
-                35px 1fr 45px;
+                35px
+                1fr
+                45px;
               align-items:center;
               gap:10px;
             "
@@ -4124,6 +5177,7 @@ async function loadStandings(){
             <strong>
               ${index+1}
             </strong>
+
 
             <div
               style="
@@ -4134,7 +5188,10 @@ async function loadStandings(){
             >
 
               ${
-                entry.team?.logos?.[0]?.href
+                entry.team
+                  ?.logos
+                  ?.[0]
+                  ?.href
                 ?
                 `
                 <img
@@ -4151,10 +5208,16 @@ async function loadStandings(){
               }
 
               <strong>
-                ${entry.team?.displayName || ""}
+                ${
+                  entry.team
+                    ?.displayName
+                  ||
+                  ""
+                }
               </strong>
 
             </div>
+
 
             <strong
               style="
@@ -4178,19 +5241,22 @@ async function loadStandings(){
       .join("");
 
 
-  }catch{
+  }catch(error){
 
     target.innerHTML =
-      `<div class="loading">
-        Não foi possível carregar a tabela.
-      </div>`;
+      `
+      <div class="loading">
+        Não foi possível carregar
+        a classificação.
+      </div>
+      `;
   }
 }
 
 
-/* =========================================================
-   TV / FILMES
-========================================================= */
+/* =========================================
+TV
+========================================= */
 
 const TV_SERVICES = [
 
@@ -4219,8 +5285,26 @@ const TV_SERVICES = [
   ],
 
   [
+    "RedeTV!",
+    "TV aberta",
+    "https://www.redetv.uol.com.br/aovivo/"
+  ],
+
+  [
+    "TV Cultura",
+    "TV aberta",
+    "https://cultura.uol.com.br/aovivo/"
+  ],
+
+  [
+    "TV Brasil",
+    "TV aberta",
+    "https://tvbrasil.ebc.com.br/webtv/"
+  ],
+
+  [
     "XSports",
-    "Esportes ao vivo",
+    "Esportes",
     "https://xsports.com.br/"
   ],
 
@@ -4243,6 +5327,18 @@ const TV_SERVICES = [
   ],
 
   [
+    "CBF",
+    "YouTube",
+    "https://www.youtube.com/@CBF"
+  ],
+
+  [
+    "FIFA+",
+    "Futebol",
+    "https://www.plus.fifa.com/"
+  ],
+
+  [
     "Premiere",
     "Globoplay",
     "https://globoplay.globo.com/canais/premiere/"
@@ -4256,6 +5352,10 @@ const TV_SERVICES = [
 
 ];
 
+
+/* =========================================
+FILMES / DESENHOS
+========================================= */
 
 const MOVIES = [
 
@@ -4275,6 +5375,60 @@ const MOVIES = [
     "YouTube Kids",
     "Infantil",
     "https://www.youtubekids.com/"
+  ],
+
+  [
+    "Turma da Mônica",
+    "YouTube",
+    "https://www.youtube.com/results?search_query=Turma+da+Monica+oficial"
+  ],
+
+  [
+    "Mundo Bita",
+    "Infantil",
+    "https://www.youtube.com/results?search_query=Mundo+Bita+oficial"
+  ],
+
+  [
+    "Galinha Pintadinha",
+    "Infantil",
+    "https://www.youtube.com/results?search_query=Galinha+Pintadinha+oficial"
+  ],
+
+  [
+    "Pocoyo",
+    "Infantil",
+    "https://www.youtube.com/results?search_query=Pocoyo+portugues+oficial"
+  ],
+
+  [
+    "Peppa Pig",
+    "Infantil",
+    "https://www.youtube.com/results?search_query=Peppa+Pig+portugues+oficial"
+  ],
+
+  [
+    "Masha e o Urso",
+    "Infantil",
+    "https://www.youtube.com/results?search_query=Masha+e+o+Urso+oficial"
+  ],
+
+  [
+    "O Show da Luna",
+    "Infantil",
+    "https://www.youtube.com/results?search_query=Show+da+Luna+oficial"
+  ],
+
+  [
+    "Bob Zoom",
+    "Infantil",
+    "https://www.youtube.com/results?search_query=Bob+Zoom+oficial"
+  ],
+
+  [
+    "Pinkfong",
+    "Infantil",
+    "https://www.youtube.com/results?search_query=Pinkfong+portugues+oficial"
   ],
 
   [
@@ -4304,6 +5458,10 @@ const MOVIES = [
 ];
 
 
+/* =========================================
+SERVIÇOS
+========================================= */
+
 function renderServices(
   data,
   targetId
@@ -4316,13 +5474,14 @@ function renderServices(
     .innerHTML =
       data
       .map(
-        item => `
+        item =>`
         <a
           class="service"
           href="${item[2]}"
           target="_blank"
           rel="noopener"
         >
+
           <strong>
             ${item[0]}
           </strong>
@@ -4339,6 +5498,7 @@ function renderServices(
           >
             Abrir →
           </b>
+
         </a>
         `
       )
@@ -4346,56 +5506,61 @@ function renderServices(
 }
 
 
-/* =========================================================
-   PWA
-========================================================= */
+/* =========================================
+PWA
+========================================= */
 
 if(
   "serviceWorker"
   in navigator
 ){
 
-  window.addEventListener(
-    "load",
-    async () => {
+  window
+    .addEventListener(
+      "load",
+      async()=>{
 
-      try{
+        try{
 
-        const registration =
-          await navigator
-            .serviceWorker
-            .register(
-              "./service-worker.js?v=54"
-            );
+          const registration =
+            await navigator
+              .serviceWorker
+              .register(
+                "./service-worker.js?v=541"
+              );
 
 
-        registration.update();
+          registration.update();
 
-      }catch(error){
 
-        console.error(
-          "PWA:",
-          error
-        );
+        }catch(error){
+
+          console.error(
+            "PWA:",
+            error
+          );
+        }
+
       }
-    }
-  );
+    );
 }
 
 
-/* =========================================================
-   START
-========================================================= */
+/* =========================================
+INICIAR
+========================================= */
 
 renderServices(
   TV_SERVICES,
   "tvGrid"
 );
 
+
 renderServices(
   MOVIES,
   "moviesGrid"
 );
+
 
 refreshAll();
 
