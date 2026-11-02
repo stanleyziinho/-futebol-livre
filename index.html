@@ -2,6 +2,7 @@
 <html lang="pt-BR">
 
 <head>
+
 <meta charset="utf-8">
 
 <meta
@@ -26,20 +27,25 @@
   content="Stanley Sports"
 >
 
-<link rel="manifest" href="manifest.json">
+<link
+  rel="manifest"
+  href="manifest.json"
+>
 
 <link
   rel="icon"
-  href="icon.svg"
-  type="image/svg+xml"
+  href="stanley-sports-icon-192.png"
+  type="image/png"
 >
 
 <link
   rel="apple-touch-icon"
-  href="icon.svg"
+  sizes="180x180"
+  href="stanley-sports-apple-180.png"
 >
 
 <title>Stanley Sports</title>
+
 
 <style>
 
@@ -69,6 +75,7 @@ html{
 body{
   margin:0;
   min-height:100vh;
+
   color:var(--text);
 
   background:
@@ -88,10 +95,7 @@ body{
     sans-serif;
 
   padding-bottom:
-    calc(
-      96px +
-      env(safe-area-inset-bottom)
-    );
+    calc(96px + env(safe-area-inset-bottom));
 }
 
 button,
@@ -122,33 +126,52 @@ a{
   justify-content:space-between;
 
   padding:
-    calc(
-      14px +
-      env(safe-area-inset-top)
-    )
-    18px
-    13px;
+    calc(10px + env(safe-area-inset-top))
+    16px
+    10px;
 
-  background:
-    rgba(4,17,9,.94);
+  background:rgba(4,17,9,.95);
 
   backdrop-filter:blur(22px);
 
   border-bottom:
-    1px solid
-    rgba(255,255,255,.05);
+    1px solid rgba(255,255,255,.05);
+}
+
+.header-brand{
+  display:flex;
+  align-items:center;
+  gap:11px;
+}
+
+.header-logo{
+  width:52px;
+  height:52px;
+
+  border-radius:14px;
+
+  object-fit:cover;
+
+  border:
+    1px solid rgba(57,226,125,.3);
+
+  box-shadow:
+    0 0 18px rgba(57,226,125,.12);
 }
 
 .brand-small{
   color:var(--green);
-  font-size:9px;
+
+  font-size:8px;
   font-weight:950;
-  letter-spacing:1.8px;
+
+  letter-spacing:1.5px;
 }
 
 .app-header h1{
-  margin:4px 0 0;
-  font-size:25px;
+  margin:3px 0 0;
+
+  font-size:22px;
 }
 
 .refresh-btn{
@@ -156,9 +179,11 @@ a{
   height:44px;
 
   border-radius:50%;
+
   border:1px solid var(--line);
 
   background:var(--surface);
+
   color:white;
 
   font-size:21px;
@@ -169,7 +194,9 @@ a{
 
 main{
   width:min(860px,100%);
+
   margin:auto;
+
   padding:16px;
 }
 
@@ -178,28 +205,31 @@ main{
 
 .hero{
   position:relative;
+
   min-height:390px;
+
   overflow:hidden;
+
+  margin-bottom:16px;
 
   border-radius:30px;
 
   border:
-    1px solid
-    rgba(57,226,125,.26);
-
-  margin-bottom:16px;
+    1px solid rgba(57,226,125,.26);
 
   background:#07170e;
 }
 
 .hero-photo{
   position:absolute;
+
   inset:0;
 
   background-image:
     url("https://f.rpp-noticias.io/2023/01/19/022602_1377161.jpg?imgdimension=n_xlarge");
 
   background-size:cover;
+
   background-position:center 37%;
 
   transform:scale(1.03);
@@ -207,46 +237,50 @@ main{
 
 .hero-shade{
   position:absolute;
+
   inset:0;
 
   background:
     linear-gradient(
       90deg,
-      rgba(2,11,6,.91) 0%,
-      rgba(2,11,6,.72) 43%,
-      rgba(2,11,6,.25) 75%,
-      rgba(2,11,6,.18) 100%
+      rgba(2,11,6,.93) 0%,
+      rgba(2,11,6,.72) 44%,
+      rgba(2,11,6,.20) 100%
     ),
     linear-gradient(
       0deg,
-      rgba(2,11,6,.9) 0%,
-      transparent 50%
-    );
-}
-
-.hero-green{
-  position:absolute;
-  inset:0;
-
-  background:
-    radial-gradient(
-      circle at 15% 25%,
-      rgba(57,226,125,.22),
-      transparent 32%
+      rgba(2,11,6,.92),
+      transparent 55%
     );
 }
 
 .hero-content{
   position:relative;
+
   z-index:5;
 
   max-width:520px;
 
-  padding:28px 23px;
+  padding:27px 23px;
+}
+
+.hero-mini-logo{
+  width:74px;
+  height:74px;
+
+  object-fit:cover;
+
+  border-radius:19px;
+
+  margin-bottom:15px;
+
+  border:
+    1px solid rgba(255,255,255,.15);
 }
 
 .hero-label{
   display:inline-flex;
+
   align-items:center;
 
   gap:8px;
@@ -255,11 +289,10 @@ main{
 
   border-radius:999px;
 
-  background:rgba(0,0,0,.4);
+  background:rgba(0,0,0,.45);
 
   border:
-    1px solid
-    rgba(57,226,125,.25);
+    1px solid rgba(57,226,125,.25);
 
   color:#dffff0;
 
@@ -274,10 +307,6 @@ main{
   border-radius:50%;
 
   background:var(--green);
-
-  box-shadow:
-    0 0 0 6px
-    rgba(57,226,125,.13);
 }
 
 .hero h2{
@@ -285,19 +314,11 @@ main{
 
   max-width:470px;
 
-  font-size:
-    clamp(
-      36px,
-      10vw,
-      55px
-    );
+  font-size:clamp(36px,10vw,55px);
 
   line-height:.96;
-  letter-spacing:-2px;
 
-  text-shadow:
-    0 3px 18px
-    rgba(0,0,0,.7);
+  letter-spacing:-2px;
 }
 
 .hero p{
@@ -308,11 +329,13 @@ main{
   color:#d2e7d9;
 
   font-size:13px;
+
   line-height:1.55;
 }
 
 .hero-actions{
   display:flex;
+
   gap:9px;
 
   margin-top:21px;
@@ -322,7 +345,9 @@ main{
   min-height:45px;
 
   display:flex;
+
   align-items:center;
+
   justify-content:center;
 
   padding:0 15px;
@@ -330,21 +355,151 @@ main{
   border-radius:14px;
 
   border:
-    1px solid
-    rgba(255,255,255,.13);
+    1px solid rgba(255,255,255,.13);
 
-  background:rgba(0,0,0,.42);
+  background:rgba(0,0,0,.45);
 
   color:white;
 
   font-size:11px;
+
   font-weight:950;
 }
 
 .hero-btn.primary{
-  border-color:var(--green);
   background:var(--green);
+
+  border-color:var(--green);
+
   color:#04200d;
+}
+
+
+/* SHORTCUTS */
+
+.sports-shortcuts-section{
+  margin:18px 0 22px;
+}
+
+.shortcut-title-row{
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:flex-end;
+
+  margin-bottom:12px;
+}
+
+.shortcut-title-row small{
+  display:block;
+
+  color:var(--green);
+
+  font-size:9px;
+
+  font-weight:950;
+
+  letter-spacing:1.4px;
+
+  margin-bottom:4px;
+}
+
+.shortcut-title-row h3{
+  margin:0;
+
+  font-size:23px;
+}
+
+.shortcut-title-row > span{
+  color:var(--muted);
+
+  font-size:9px;
+}
+
+.sports-shortcuts{
+  display:flex;
+
+  gap:10px;
+
+  overflow-x:auto;
+
+  padding-bottom:8px;
+
+  scrollbar-width:none;
+}
+
+.sports-shortcuts::-webkit-scrollbar{
+  display:none;
+}
+
+.sport-shortcut{
+  flex:0 0 145px;
+
+  min-height:137px;
+
+  display:flex;
+
+  flex-direction:column;
+
+  justify-content:space-between;
+
+  padding:14px;
+
+  border-radius:20px;
+
+  border:1px solid var(--line);
+
+  background:
+    linear-gradient(
+      145deg,
+      #102519,
+      #08170f
+    );
+
+  text-decoration:none;
+}
+
+.sport-shortcut-icon{
+  width:44px;
+  height:44px;
+
+  display:grid;
+
+  place-items:center;
+
+  border-radius:14px;
+
+  background:
+    rgba(57,226,125,.1);
+
+  font-size:23px;
+}
+
+.sport-shortcut h4{
+  margin:12px 0 5px;
+
+  font-size:13px;
+}
+
+.sport-shortcut p{
+  margin:0;
+
+  color:var(--muted);
+
+  font-size:9px;
+
+  line-height:1.35;
+}
+
+.sport-shortcut-open{
+  margin-top:10px;
+
+  color:var(--green);
+
+  font-size:9px;
+
+  font-weight:900;
 }
 
 
@@ -363,6 +518,7 @@ main{
 
 .stats{
   display:grid;
+
   grid-template-columns:repeat(2,1fr);
 
   gap:9px;
@@ -373,9 +529,9 @@ main{
 .stat{
   padding:14px;
 
-  border:1px solid var(--line);
-
   border-radius:19px;
+
+  border:1px solid var(--line);
 
   background:var(--surface);
 }
@@ -388,8 +544,8 @@ main{
   color:var(--muted);
 
   font-size:9px;
+
   font-weight:950;
-  letter-spacing:.9px;
 }
 
 .stat strong{
@@ -413,6 +569,7 @@ main{
 
 .search{
   position:relative;
+
   margin-bottom:12px;
 }
 
@@ -420,6 +577,7 @@ main{
   position:absolute;
 
   left:14px;
+
   top:50%;
 
   transform:translateY(-50%);
@@ -434,11 +592,11 @@ main{
     14px
     44px;
 
-  outline:none;
+  border-radius:17px;
 
   border:1px solid var(--line);
 
-  border-radius:17px;
+  outline:none;
 
   background:var(--surface);
 
@@ -467,9 +625,7 @@ main{
 .chip{
   flex:0 0 auto;
 
-  padding:
-    10px
-    14px;
+  padding:10px 14px;
 
   border-radius:999px;
 
@@ -480,13 +636,16 @@ main{
   color:var(--muted);
 
   font-size:11px;
+
   font-weight:900;
 }
 
 .chip.active{
   background:var(--green);
-  border-color:var(--green);
+
   color:#04200d;
+
+  border-color:var(--green);
 }
 
 
@@ -494,10 +653,10 @@ main{
 
 .section-head{
   display:flex;
-  align-items:flex-end;
-  justify-content:space-between;
 
-  gap:10px;
+  align-items:flex-end;
+
+  justify-content:space-between;
 
   margin:18px 0 12px;
 }
@@ -505,17 +664,20 @@ main{
 .eyebrow{
   display:block;
 
-  margin-bottom:4px;
-
   color:var(--green);
 
   font-size:9px;
+
   font-weight:950;
+
   letter-spacing:1.6px;
+
+  margin-bottom:4px;
 }
 
 .section-head h3{
   margin:0;
+
   font-size:25px;
 }
 
@@ -523,12 +685,13 @@ main{
   min-width:38px;
   height:38px;
 
-  padding:0 11px;
-
   display:grid;
+
   place-items:center;
 
   border-radius:999px;
+
+  padding:0 11px;
 
   background:var(--surface2);
 
@@ -542,15 +705,16 @@ main{
 
 .games{
   display:grid;
+
   gap:12px;
 }
 
 .game{
   padding:16px;
 
-  border:1px solid var(--line);
-
   border-radius:23px;
+
+  border:1px solid var(--line);
 
   background:
     linear-gradient(
@@ -562,29 +726,30 @@ main{
 
 .game.priority{
   box-shadow:
-    inset 4px 0
-    var(--green);
+    inset 4px 0 var(--green);
 }
 
 .game-head{
   display:flex;
-  align-items:center;
+
   justify-content:space-between;
 
-  gap:10px;
+  align-items:center;
 }
 
 .competition{
   color:var(--muted);
 
   font-size:10px;
+
   font-weight:950;
-  letter-spacing:.8px;
 }
 
 .game-right{
   display:flex;
+
   align-items:center;
+
   gap:6px;
 }
 
@@ -599,6 +764,7 @@ main{
   color:#a7b7ad;
 
   font-size:9px;
+
   font-weight:950;
 }
 
@@ -650,8 +816,9 @@ main{
 }
 
 .team{
-  min-width:0;
   text-align:center;
+
+  min-width:0;
 }
 
 .team img{
@@ -667,10 +834,11 @@ main{
   width:51px;
   height:51px;
 
-  display:grid;
-  place-items:center;
-
   margin:0 auto 8px;
+
+  display:grid;
+
+  place-items:center;
 
   border-radius:50%;
 
@@ -679,19 +847,17 @@ main{
   background:var(--surface2);
 
   color:var(--green);
-
-  font-size:10px;
-  font-weight:950;
 }
 
 .team-name{
   font-size:13px;
+
   font-weight:900;
-  line-height:1.25;
 }
 
 .score-box{
   min-width:76px;
+
   text-align:center;
 }
 
@@ -699,6 +865,7 @@ main{
   color:var(--green);
 
   font-size:28px;
+
   font-weight:950;
 }
 
@@ -706,6 +873,7 @@ main{
   color:var(--blue);
 
   font-size:11px;
+
   font-weight:900;
 }
 
@@ -720,9 +888,7 @@ main{
 .notice{
   margin-bottom:10px;
 
-  padding:
-    10px
-    11px;
+  padding:10px 11px;
 
   border-radius:13px;
 
@@ -732,28 +898,29 @@ main{
   color:var(--muted);
 
   font-size:10px;
+
   font-weight:850;
 }
 
 .notice.finished{
+  color:#ffe89b;
+
   background:
     rgba(255,216,103,.08);
-
-  color:#ffe89b;
 }
 
 .notice.waiting{
+  color:#bcdcff;
+
   background:
     rgba(140,197,255,.08);
-
-  color:#bcdcff;
 }
 
 .notice.ready{
+  color:#afffca;
+
   background:
     rgba(57,226,125,.08);
-
-  color:#afffca;
 }
 
 .game-buttons{
@@ -767,49 +934,56 @@ main{
   padding-top:11px;
 
   border-top:
-    1px solid
-    rgba(255,255,255,.05);
+    1px solid rgba(255,255,255,.05);
 }
 
 .action{
-  padding:
-    11px 8px;
-
-  border:1px solid var(--line);
+  padding:11px 8px;
 
   border-radius:13px;
 
-  background:var(--surface2);
+  border:1px solid var(--line);
 
-  text-decoration:none;
+  background:var(--surface2);
 
   text-align:center;
 
+  text-decoration:none;
+
   font-size:10px;
+
   font-weight:900;
 }
 
 .action.primary{
   background:var(--green);
+
   border-color:var(--green);
+
   color:#04200d;
 }
 
 .action.highlight{
   background:#27210e;
+
   border-color:#6a591f;
+
   color:#ffe68e;
 }
 
 .action.details{
   background:#102033;
+
   border-color:#284a69;
+
   color:#b9d9ff;
 }
 
 .action.premiere{
   background:#2a173a;
+
   border-color:#6f3c90;
+
   color:#e5c1ff;
 }
 
@@ -819,15 +993,13 @@ main{
 .league-select{
   width:100%;
 
-  margin-bottom:12px;
-
   padding:13px;
+
+  margin-bottom:12px;
 
   border-radius:15px;
 
   border:1px solid var(--line);
-
-  outline:none;
 
   background:var(--surface);
 
@@ -837,9 +1009,9 @@ main{
 .table-wrap{
   overflow-x:auto;
 
-  border:1px solid var(--line);
-
   border-radius:20px;
+
+  border:1px solid var(--line);
 }
 
 table{
@@ -854,17 +1026,14 @@ table{
 
 th,
 td{
-  padding:
-    11px
-    9px;
-
-  border-bottom:
-    1px solid
-    rgba(255,255,255,.045);
+  padding:11px 9px;
 
   text-align:center;
 
   font-size:10px;
+
+  border-bottom:
+    1px solid rgba(255,255,255,.045);
 }
 
 th{
@@ -881,7 +1050,9 @@ th{
 
 .table-team{
   display:flex;
+
   align-items:center;
+
   gap:8px;
 }
 
@@ -898,23 +1069,23 @@ th{
 .media-grid{
   display:grid;
 
-  grid-template-columns:
-    repeat(2,1fr);
+  grid-template-columns:repeat(2,1fr);
 
   gap:10px;
 }
 
 .media-card{
-  display:flex;
-  flex-direction:column;
-
   min-height:190px;
+
+  display:flex;
+
+  flex-direction:column;
 
   padding:16px;
 
-  border:1px solid var(--line);
-
   border-radius:22px;
+
+  border:1px solid var(--line);
 
   background:
     linear-gradient(
@@ -931,8 +1102,10 @@ th{
   height:64px;
 
   display:flex;
-  align-items:center;
+
   justify-content:center;
+
+  align-items:center;
 
   margin-bottom:11px;
 
@@ -950,6 +1123,7 @@ th{
 
 .media-icon{
   font-size:29px;
+
   margin-bottom:10px;
 }
 
@@ -968,14 +1142,8 @@ th{
   color:var(--green);
 
   font-size:8px;
+
   font-weight:950;
-}
-
-.media-badge.kids{
-  color:#ffc884;
-
-  background:
-    rgba(255,190,110,.11);
 }
 
 .media-card h4{
@@ -992,12 +1160,13 @@ th{
   color:var(--muted);
 
   font-size:10px;
+
   line-height:1.45;
 }
 
 .media-open{
   display:flex;
-  align-items:center;
+
   justify-content:space-between;
 
   margin-top:12px;
@@ -1005,10 +1174,10 @@ th{
   padding-top:10px;
 
   border-top:
-    1px solid
-    rgba(255,255,255,.05);
+    1px solid rgba(255,255,255,.05);
 
   font-size:9px;
+
   font-weight:900;
 }
 
@@ -1023,23 +1192,19 @@ th{
 
 .loading,
 .empty{
-  padding:
-    35px
-    18px;
+  padding:35px 18px;
 
   text-align:center;
 
   color:var(--muted);
 
-  border:
-    1px dashed
-    var(--line);
-
   border-radius:20px;
+
+  border:1px dashed var(--line);
 }
 
 
-/* BOTTOM */
+/* NAV */
 
 .bottom-nav{
   position:fixed;
@@ -1056,19 +1221,14 @@ th{
     repeat(5,1fr);
 
   padding:
-    7px
-    4px
-    calc(
-      7px +
-      env(safe-area-inset-bottom)
-    );
+    7px 4px
+    calc(7px + env(safe-area-inset-bottom));
 
   background:
     rgba(3,15,8,.97);
 
   border-top:
-    1px solid
-    rgba(255,255,255,.055);
+    1px solid rgba(255,255,255,.055);
 }
 
 .nav-btn{
@@ -1081,6 +1241,7 @@ th{
   color:#73897b;
 
   font-size:9px;
+
   font-weight:900;
 }
 
@@ -1117,6 +1278,7 @@ th{
 }
 
 </style>
+
 </head>
 
 
@@ -1125,17 +1287,28 @@ th{
 
 <header class="app-header">
 
-  <div>
+  <div class="header-brand">
 
-    <div class="brand-small">
-      FUTEBOL • TV • ENTRETENIMENTO
+    <img
+      class="header-logo"
+      src="stanley-sports-logo.png"
+      alt="Stanley Sports"
+    >
+
+    <div>
+
+      <div class="brand-small">
+        FUTEBOL • TV • ENTRETENIMENTO
+      </div>
+
+      <h1>
+        Stanley Sports
+      </h1>
+
     </div>
 
-    <h1>
-      Stanley Sports
-    </h1>
-
   </div>
+
 
   <button
     class="refresh-btn"
@@ -1153,10 +1326,20 @@ th{
 <section class="hero">
 
   <div class="hero-photo"></div>
+
   <div class="hero-shade"></div>
-  <div class="hero-green"></div>
+
 
   <div class="hero-content">
+
+    <img
+      class="hero-mini-logo"
+      src="stanley-sports-logo.png"
+      alt="Stanley Sports"
+    >
+
+    <br>
+
 
     <div class="hero-label">
 
@@ -1166,15 +1349,17 @@ th{
 
     </div>
 
+
     <h2>
-      O futebol começa aqui.
+      O esporte começa aqui.
     </h2>
 
+
     <p>
-      Jogos, placares, tabelas, TV ao vivo,
-      notícias, filmes e desenhos em uma central
-      completa para o seu celular.
+      Futebol, placares, tabelas, TV, programas esportivos,
+      filmes e entretenimento em uma única central.
     </p>
+
 
     <div class="hero-actions">
 
@@ -1184,6 +1369,7 @@ th{
       >
         ⚽ Ver jogos
       </button>
+
 
       <button
         class="hero-btn"
@@ -1205,26 +1391,89 @@ th{
 >
 
 
+<section class="sports-shortcuts-section">
+
+  <div class="shortcut-title-row">
+
+    <div>
+
+      <small>
+        ACESSO RÁPIDO
+      </small>
+
+      <h3>
+        Canais esportivos
+      </h3>
+
+    </div>
+
+    <span>
+      Deslize →
+    </span>
+
+  </div>
+
+
+  <div
+    class="sports-shortcuts"
+    id="sportsShortcuts"
+  ></div>
+
+</section>
+
+
 <section class="stats">
 
   <div class="stat">
+
     <small>JOGOS</small>
-    <strong id="totalGames">0</strong>
+
+    <strong id="totalGames">
+      0
+    </strong>
+
   </div>
 
+
   <div class="stat">
+
     <small>AO VIVO</small>
-    <strong id="liveGames" class="red">0</strong>
+
+    <strong
+      id="liveGames"
+      class="red"
+    >
+      0
+    </strong>
+
   </div>
 
+
   <div class="stat">
+
     <small>BRASIL</small>
-    <strong id="brazilGames" class="green">0</strong>
+
+    <strong
+      id="brazilGames"
+      class="green"
+    >
+      0
+    </strong>
+
   </div>
 
+
   <div class="stat">
+
     <small>FAVORITOS</small>
-    <strong id="favoriteCount" class="yellow">0</strong>
+
+    <strong
+      id="favoriteCount"
+      class="yellow"
+    >
+      0
+    </strong>
+
   </div>
 
 </section>
@@ -1232,7 +1481,9 @@ th{
 
 <div class="search">
 
-  <span>🔎</span>
+  <span>
+    🔎
+  </span>
 
   <input
     id="searchInput"
@@ -1296,6 +1547,7 @@ th{
 
   </div>
 
+
   <span
     class="counter"
     id="visibleGames"
@@ -1358,21 +1610,21 @@ th{
   class="league-select"
 >
 
-  <option value="bra.1">
-    Brasileirão Série A
-  </option>
+<option value="bra.1">
+  Brasileirão Série A
+</option>
 
-  <option value="bra.2">
-    Brasileirão Série B
-  </option>
+<option value="bra.2">
+  Brasileirão Série B
+</option>
 
-  <option value="eng.1">
-    Premier League
-  </option>
+<option value="eng.1">
+  Premier League
+</option>
 
-  <option value="esp.1">
-    LaLiga
-  </option>
+<option value="esp.1">
+  LaLiga
+</option>
 
 </select>
 
@@ -1405,19 +1657,13 @@ th{
 <thead>
 
 <tr>
-
   <th>#</th>
-
-  <th style="text-align:left">
-    TIME
-  </th>
-
+  <th style="text-align:left">TIME</th>
   <th>PTS</th>
   <th>J</th>
   <th>V</th>
   <th>E</th>
   <th>D</th>
-
 </tr>
 
 </thead>
@@ -1452,6 +1698,7 @@ th{
 
 </div>
 
+
 <div
   class="media-grid"
   id="tvGrid"
@@ -1480,6 +1727,7 @@ th{
   </div>
 
 </div>
+
 
 <div
   class="media-grid"
@@ -1540,6 +1788,7 @@ th{
   Jogos
 </button>
 
+
 <button
   class="nav-btn"
   data-view="Table"
@@ -1547,6 +1796,7 @@ th{
   <span>📊</span>
   Tabela
 </button>
+
 
 <button
   class="nav-btn"
@@ -1556,6 +1806,7 @@ th{
   TV
 </button>
 
+
 <button
   class="nav-btn"
   data-view="Movies"
@@ -1563,6 +1814,7 @@ th{
   <span>🎬</span>
   Filmes
 </button>
+
 
 <button
   class="nav-btn"
@@ -1576,6 +1828,59 @@ th{
 
 
 <script>
+
+const sportsShortcuts = [
+
+  {
+    name:"Os Donos da Bola",
+    icon:"🎙️",
+    description:"Futebol, debate e opinião.",
+    url:
+      "https://www.youtube.com/results?search_query=Os+Donos+da+Bola+oficial"
+  },
+
+  {
+    name:"Jogo Aberto",
+    icon:"⚽",
+    description:"Informação e debate esportivo.",
+    url:
+      "https://www.youtube.com/@JogoAberto"
+  },
+
+  {
+    name:"Alterosa Esporte",
+    icon:"🔵",
+    description:"Futebol mineiro.",
+    url:
+      "https://www.alterosa.com.br/programas/alterosa-esporte/"
+  },
+
+  {
+    name:"ge TV",
+    icon:"🟢",
+    description:"Jogos e conteúdo esportivo.",
+    url:
+      "https://www.youtube.com/@getv"
+  },
+
+  {
+    name:"CazéTV",
+    icon:"📺",
+    description:"Futebol e eventos esportivos.",
+    url:
+      "https://www.youtube.com/@CazeTV"
+  },
+
+  {
+    name:"Canal GOAT",
+    icon:"🐐",
+    description:"Futebol ao vivo.",
+    url:
+      "https://www.youtube.com/@canalgoatbr"
+  }
+
+];
+
 
 const leagues = [
 
@@ -1631,13 +1936,9 @@ const leagues = [
 
 
 const priorityTeams = [
-
   "cruzeiro",
   "atletico mineiro",
-  "atlético mineiro",
-  "atletico-mg",
-  "atlético-mg"
-
+  "atlético mineiro"
 ];
 
 
@@ -1648,7 +1949,8 @@ const tvChannels = [
     domain:"globoplay.globo.com",
     badge:"GLOBOPLAY",
     description:"TV Globo pelo Globoplay.",
-    url:"https://globoplay.globo.com/tv-globo/ao-vivo/9910452/"
+    url:
+      "https://globoplay.globo.com/tv-globo/ao-vivo/9910452/"
   },
 
   {
@@ -1656,7 +1958,8 @@ const tvChannels = [
     domain:"sbt.com.br",
     badge:"AO VIVO",
     description:"Programação oficial do SBT.",
-    url:"https://sbt.com.br/ao-vivo"
+    url:
+      "https://sbt.com.br/ao-vivo"
   },
 
   {
@@ -1664,7 +1967,8 @@ const tvChannels = [
     domain:"band.com.br",
     badge:"AO VIVO",
     description:"Programação oficial da Band.",
-    url:"https://www.band.com.br/ao-vivo"
+    url:
+      "https://www.band.com.br/ao-vivo"
   },
 
   {
@@ -1672,39 +1976,44 @@ const tvChannels = [
     domain:"record.r7.com",
     badge:"OFICIAL",
     description:"Conteúdo oficial da Record.",
-    url:"https://record.r7.com/"
+    url:
+      "https://record.r7.com/"
   },
 
   {
     name:"RedeTV!",
     domain:"redetv.uol.com.br",
     badge:"AO VIVO",
-    description:"Programação oficial da RedeTV!.",
-    url:"https://www.redetv.uol.com.br/aovivo/"
+    description:"Programação oficial.",
+    url:
+      "https://www.redetv.uol.com.br/aovivo/"
   },
 
   {
     name:"TV Cultura",
     domain:"cultura.uol.com.br",
     badge:"AO VIVO",
-    description:"Programação da TV Cultura.",
-    url:"https://cultura.uol.com.br/aovivo/"
+    description:"TV Cultura oficial.",
+    url:
+      "https://cultura.uol.com.br/aovivo/"
   },
 
   {
     name:"ge TV",
-    domain:"ge.globo.com",
+    domain:"youtube.com",
     badge:"ESPORTES",
-    description:"Canal esportivo digital.",
-    url:"https://www.youtube.com/@getv"
+    description:"Conteúdo esportivo.",
+    url:
+      "https://www.youtube.com/@getv"
   },
 
   {
     name:"CazéTV",
     domain:"youtube.com",
     badge:"ESPORTES",
-    description:"Jogos e conteúdo esportivo.",
-    url:"https://www.youtube.com/@CazeTV"
+    description:"Futebol e esportes.",
+    url:
+      "https://www.youtube.com/@CazeTV"
   }
 
 ];
@@ -1717,7 +2026,8 @@ const entertainment = [
     icon:"▶️",
     badge:"GRÁTIS",
     description:"Filmes e séries grátis.",
-    url:"https://play.mercadolivre.com.br/filtrar/gratuito"
+    url:
+      "https://play.mercadolivre.com.br/filtrar/gratuito"
   },
 
   {
@@ -1725,7 +2035,8 @@ const entertainment = [
     icon:"🎞️",
     badge:"GRÁTIS",
     description:"Filmes e canais gratuitos.",
-    url:"https://watch.plex.tv/pt-BR"
+    url:
+      "https://watch.plex.tv/pt-BR"
   },
 
   {
@@ -1733,7 +2044,8 @@ const entertainment = [
     icon:"🐰",
     badge:"DESENHOS",
     description:"Conteúdo infantil.",
-    url:"https://www.youtube.com/results?search_query=Turma+da+Monica+oficial"
+    url:
+      "https://www.youtube.com/results?search_query=Turma+da+Monica+oficial"
   },
 
   {
@@ -1741,7 +2053,8 @@ const entertainment = [
     icon:"🎪",
     badge:"INFANTIL",
     description:"Músicas e animações.",
-    url:"https://www.youtube.com/results?search_query=Mundo+Bita+oficial"
+    url:
+      "https://www.youtube.com/results?search_query=Mundo+Bita+oficial"
   },
 
   {
@@ -1749,7 +2062,8 @@ const entertainment = [
     icon:"🐔",
     badge:"INFANTIL",
     description:"Músicas infantis.",
-    url:"https://www.youtube.com/results?search_query=Galinha+Pintadinha+oficial"
+    url:
+      "https://www.youtube.com/results?search_query=Galinha+Pintadinha+oficial"
   },
 
   {
@@ -1757,7 +2071,8 @@ const entertainment = [
     icon:"💙",
     badge:"DESENHOS",
     description:"Desenhos infantis.",
-    url:"https://www.youtube.com/results?search_query=Pocoyo+portugues+oficial"
+    url:
+      "https://www.youtube.com/results?search_query=Pocoyo+portugues+oficial"
   },
 
   {
@@ -1765,15 +2080,17 @@ const entertainment = [
     icon:"🎬",
     badge:"ASSINATURA",
     description:"Filmes e séries.",
-    url:"https://www.primevideo.com/"
+    url:
+      "https://www.primevideo.com/"
   },
 
   {
     name:"Disney+",
     icon:"🏰",
     badge:"ASSINATURA",
-    description:"Filmes, séries e desenhos.",
-    url:"https://www.disneyplus.com/"
+    description:"Filmes e desenhos.",
+    url:
+      "https://www.disneyplus.com/"
   },
 
   {
@@ -1781,7 +2098,8 @@ const entertainment = [
     icon:"🎞️",
     badge:"ASSINATURA",
     description:"Filmes e séries.",
-    url:"https://www.netflix.com/"
+    url:
+      "https://www.netflix.com/"
   },
 
   {
@@ -1789,7 +2107,8 @@ const entertainment = [
     icon:"🍿",
     badge:"ASSINATURA",
     description:"Filmes e séries.",
-    url:"https://www.max.com/"
+    url:
+      "https://www.max.com/"
   }
 
 ];
@@ -1813,18 +2132,12 @@ let favorites =
 
 const $ =
   selector =>
-    document.querySelector(
-      selector
-    );
+    document.querySelector(selector);
 
 
 const $$ =
   selector =>
-    [
-      ...document.querySelectorAll(
-        selector
-      )
-    ];
+    [...document.querySelectorAll(selector)];
 
 
 function normalize(value=""){
@@ -1853,22 +2166,17 @@ function dateKey(offsetDays=0){
     offsetDays
   );
 
-
   return(
     `${d.getFullYear()}${
       String(
         d.getMonth()+1
-      ).padStart(
-        2,
-        "0"
       )
+      .padStart(2,"0")
     }${
       String(
         d.getDate()
-      ).padStart(
-        2,
-        "0"
       )
+      .padStart(2,"0")
     }`
   );
 
@@ -1877,11 +2185,9 @@ function dateKey(offsetDays=0){
 
 function formatTime(iso){
 
-  const d =
-    new Date(iso);
-
   return(
-    d.toLocaleTimeString(
+    new Date(iso)
+    .toLocaleTimeString(
       "pt-BR",
       {
         hour:"2-digit",
@@ -1895,14 +2201,11 @@ function formatTime(iso){
 
 function formatDayLabel(iso){
 
-  const d =
-    new Date(iso);
+  const d = new Date(iso);
 
-  const today =
-    new Date();
+  const today = new Date();
 
-  const yesterday =
-    new Date();
+  const yesterday = new Date();
 
   yesterday.setDate(
     today.getDate()-1
@@ -1950,9 +2253,7 @@ function isLive(game){
       "in_progress"
     ]
     .includes(
-      String(
-        game.state
-      )
+      String(game.state)
       .toLowerCase()
     )
   );
@@ -1963,16 +2264,12 @@ function isLive(game){
 function isFinished(game){
 
   return(
-    String(
-      game.state
-    )
+    String(game.state)
     .toLowerCase()
     ===
     "post"
     ||
-    game.completed
-    ===
-    true
+    game.completed === true
   );
 
 }
@@ -1980,17 +2277,11 @@ function isFinished(game){
 
 function minutesUntilKickoff(game){
 
-  const kickoff =
-    new Date(
-      game.date
-    )
-    .getTime();
-
-
   return(
     Math.floor(
       (
-        kickoff
+        new Date(game.date)
+        .getTime()
         -
         Date.now()
       )
@@ -2019,9 +2310,7 @@ function shouldShowBroadcasters(game){
 
 
   const minutes =
-    minutesUntilKickoff(
-      game
-    );
+    minutesUntilKickoff(game);
 
 
   return(
@@ -2043,9 +2332,7 @@ function keepFinishedFor24Hours(game){
 
 
   const kickoff =
-    new Date(
-      game.date
-    )
+    new Date(game.date)
     .getTime();
 
 
@@ -2053,12 +2340,9 @@ function keepFinishedFor24Hours(game){
     kickoff
     +
     (
-      3
-      *
-      60
-      *
-      60
-      *
+      3 *
+      60 *
+      60 *
       1000
     );
 
@@ -2067,12 +2351,9 @@ function keepFinishedFor24Hours(game){
     estimatedEnd
     +
     (
-      24
-      *
-      60
-      *
-      60
-      *
+      24 *
+      60 *
+      60 *
       1000
     );
 
@@ -2154,11 +2435,9 @@ function parseGame(
 
     id:event.id,
 
-    league:
-      league.name,
+    league:league.name,
 
-    group:
-      league.group,
+    group:league.group,
 
     home:
       home?.team?.displayName
@@ -2200,8 +2479,7 @@ function parseGame(
       ??
       "",
 
-    date:
-      event.date,
+    date:event.date,
 
     state:
       event.status?.type?.state
@@ -2278,22 +2556,19 @@ async function fetchLeague(league){
   const today =
     await fetchLeagueByDate(
       league,
-      dateKey(0)
+      dateKey()
     );
-
-
-  const combined =
-    [
-      ...yesterday,
-      ...today
-    ];
 
 
   const unique =
     new Map();
 
 
-  combined.forEach(
+  [
+    ...yesterday,
+    ...today
+  ]
+  .forEach(
     game => {
 
       unique.set(
@@ -2306,9 +2581,7 @@ async function fetchLeague(league){
 
 
   return(
-    [
-      ...unique.values()
-    ]
+    [...unique.values()]
   );
 
 }
@@ -2323,14 +2596,13 @@ async function refreshGames(){
 
   const results =
     await Promise.allSettled(
-      leagues.map(
-        fetchLeague
-      )
+      leagues.map(fetchLeague)
     );
 
 
   allGames =
-    results.flatMap(
+    results
+    .flatMap(
       result =>
         result.status
         ===
@@ -2339,11 +2611,8 @@ async function refreshGames(){
         result.value
         :
         []
-    );
-
-
-  allGames =
-    allGames.filter(
+    )
+    .filter(
       keepFinishedFor24Hours
     );
 
@@ -2363,9 +2632,7 @@ function youtubeSearch(query){
   return(
     "https://www.youtube.com/results?search_query="
     +
-    encodeURIComponent(
-      query
-    )
+    encodeURIComponent(query)
   );
 
 }
@@ -2376,9 +2643,7 @@ function googleSearch(query){
   return(
     "https://www.google.com/search?q="
     +
-    encodeURIComponent(
-      query
-    )
+    encodeURIComponent(query)
   );
 
 }
@@ -2386,8 +2651,7 @@ function googleSearch(query){
 
 function toggleFavorite(id){
 
-  id =
-    String(id);
+  id = String(id);
 
 
   if(
@@ -2409,9 +2673,7 @@ function toggleFavorite(id){
 
   localStorage.setItem(
     "stanleySportsFavorites",
-    JSON.stringify(
-      favorites
-    )
+    JSON.stringify(favorites)
   );
 
 
@@ -2430,9 +2692,13 @@ function teamLogo(
   ){
 
     return`
+
       <div class="logo-fallback">
+
         ${abbr || "FC"}
+
       </div>
+
     `;
 
   }
@@ -2444,18 +2710,7 @@ function teamLogo(
       src="${logo}"
       alt=""
       loading="lazy"
-      onerror="
-        this.style.display='none';
-        this.nextElementSibling.style.display='grid';
-      "
     >
-
-    <div
-      class="logo-fallback"
-      style="display:none"
-    >
-      ${abbr || "FC"}
-    </div>
 
   `;
 
@@ -2467,21 +2722,25 @@ function gameCard(game){
   const live =
     isLive(game);
 
+
   const ended =
     isFinished(game);
 
+
   const showBroadcasters =
-    shouldShowBroadcasters(
-      game
-    );
+    shouldShowBroadcasters(game);
+
 
   const fav =
     isFavorite(game);
 
 
-  let statusText = "";
+  let statusText =
+    "AGENDADO";
 
-  let statusClass = "";
+
+  let statusClass =
+    "scheduled";
 
 
   if(
@@ -2491,7 +2750,13 @@ function gameCard(game){
     statusText =
       "ENCERRADO";
 
-  }else if(
+    statusClass =
+      "";
+
+  }
+
+
+  if(
     live
   ){
 
@@ -2502,14 +2767,6 @@ function gameCard(game){
 
     statusClass =
       "live";
-
-  }else{
-
-    statusText =
-      "AGENDADO";
-
-    statusClass =
-      "scheduled";
 
   }
 
@@ -2527,19 +2784,9 @@ function gameCard(game){
 
       <div class="score">
 
-        ${
-          game.homeScore
-          ||
-          0
-        }
-
+        ${game.homeScore || 0}
         ×
-
-        ${
-          game.awayScore
-          ||
-          0
-        }
+        ${game.awayScore || 0}
 
       </div>
 
@@ -2573,7 +2820,7 @@ function gameCard(game){
 
       <div class="notice finished">
 
-        🎬 Partida encerrada — disponível por aproximadamente 24h para melhores momentos
+        🎬 Partida encerrada — veja os melhores momentos
 
       </div>
 
@@ -2590,7 +2837,6 @@ function gameCard(game){
           )
         }"
         target="_blank"
-        rel="noopener"
       >
         🎬 Melhores momentos
       </a>
@@ -2604,7 +2850,6 @@ function gameCard(game){
           )
         }"
         target="_blank"
-        rel="noopener"
       >
         📊 Detalhes
       </a>
@@ -2618,35 +2863,13 @@ function gameCard(game){
     !showBroadcasters
   ){
 
-    const minutes =
-      minutesUntilKickoff(
-        game
-      );
-
-
-    let message = "";
-
-
-    if(
-      minutes > 15
-    ){
-
-      message =
-        `⏳ ${formatDayLabel(game.date)} às ${formatTime(game.date)} • emissoras serão liberadas 15 minutos antes`;
-
-    }else{
-
-      message =
-        "⏳ Aguardando atualização da partida";
-
-    }
-
-
     notice = `
 
       <div class="notice waiting">
 
-        ${message}
+        ⏳ ${formatDayLabel(game.date)}
+        às ${formatTime(game.date)}
+        • emissoras liberadas 15 minutos antes
 
       </div>
 
@@ -2659,15 +2882,12 @@ function gameCard(game){
         class="action primary"
         href="${
           googleSearch(
-            `${game.home} ${game.away} onde assistir hoje transmissão`
+            `${game.home} ${game.away} onde assistir hoje`
           )
         }"
         target="_blank"
-        rel="noopener"
       >
-
         🔎 Onde assistir
-
       </a>
 
     `;
@@ -2684,9 +2904,9 @@ function gameCard(game){
         ${
           live
           ?
-          "🔴 Partida em andamento • opções de transmissão liberadas"
+          "🔴 Partida em andamento"
           :
-          "📺 Faltam 15 minutos ou menos • opções de transmissão liberadas"
+          "📺 Opções de transmissão liberadas"
         }
 
       </div>
@@ -2704,11 +2924,8 @@ function gameCard(game){
           )
         }"
         target="_blank"
-        rel="noopener"
       >
-
         📺 ge TV
-
       </a>
 
 
@@ -2720,33 +2937,34 @@ function gameCard(game){
           )
         }"
         target="_blank"
-        rel="noopener"
       >
-
         📺 CazéTV
-
       </a>
 
 
       ${
-        game.group === "brazil"
+        game.group
+        ===
+        "brazil"
+
         ?
-        `
-
-          <a
-            class="action premiere"
-            href="https://globoplay.globo.com/canais/premiere/"
-            target="_blank"
-            rel="noopener"
-          >
-
-            🔒 Premiere
-
-          </a>
 
         `
+
+        <a
+          class="action premiere"
+          href="https://globoplay.globo.com/canais/premiere/"
+          target="_blank"
+        >
+          🔒 Premiere
+        </a>
+
+        `
+
         :
+
         ""
+
       }
 
 
@@ -2754,15 +2972,12 @@ function gameCard(game){
         class="action primary"
         href="${
           googleSearch(
-            `${game.home} ${game.away} onde assistir transmissão oficial hoje`
+            `${game.home} ${game.away} onde assistir hoje`
           )
         }"
         target="_blank"
-        rel="noopener"
       >
-
         🔎 Onde assistir
-
       </a>
 
     `;
@@ -2784,6 +2999,7 @@ function gameCard(game){
         }
       "
     >
+
 
       <div class="game-head">
 
@@ -2912,25 +3128,25 @@ function gameCard(game){
 function filteredGames(){
 
   let list =
-    [
-      ...allGames
-    ];
+    [...allGames];
 
 
   if(
-    gameFilter === "live"
+    gameFilter
+    ===
+    "live"
   ){
 
     list =
-      list.filter(
-        isLive
-      );
+      list.filter(isLive);
 
   }
 
 
   if(
-    gameFilter === "brazil"
+    gameFilter
+    ===
+    "brazil"
   ){
 
     list =
@@ -2945,19 +3161,21 @@ function filteredGames(){
 
 
   if(
-    gameFilter === "favorites"
+    gameFilter
+    ===
+    "favorites"
   ){
 
     list =
-      list.filter(
-        isFavorite
-      );
+      list.filter(isFavorite);
 
   }
 
 
   if(
-    gameFilter === "europe"
+    gameFilter
+    ===
+    "europe"
   ){
 
     list =
@@ -2976,28 +3194,26 @@ function filteredGames(){
   ){
 
     const query =
-      normalize(
-        searchText
-      );
+      normalize(searchText);
 
 
     list =
       list.filter(
         game =>
-          normalize(
-            game.home
-          )
+
+          normalize(game.home)
           .includes(query)
+
           ||
-          normalize(
-            game.away
-          )
+
+          normalize(game.away)
           .includes(query)
+
           ||
-          normalize(
-            game.league
-          )
+
+          normalize(game.league)
           .includes(query)
+
       );
 
   }
@@ -3005,6 +3221,7 @@ function filteredGames(){
 
   list.sort(
     (a,b) => {
+
 
       if(
         isLive(a)
@@ -3097,9 +3314,7 @@ function renderGames(){
   $("#liveGames")
   .textContent =
   allGames
-  .filter(
-    isLive
-  )
+  .filter(isLive)
   .length;
 
 
@@ -3128,10 +3343,7 @@ function renderGames(){
   $("#games")
   .innerHTML =
   list
-  .map(
-    game =>
-      gameCard(game)
-  )
+  .map(gameCard)
   .join("");
 
 
@@ -3145,18 +3357,14 @@ function renderGames(){
 
 
   const favoriteGames =
-    allGames.filter(
-      isFavorite
-    );
+    allGames
+    .filter(isFavorite);
 
 
   $("#favoriteGames")
   .innerHTML =
   favoriteGames
-  .map(
-    game =>
-      gameCard(game)
-  )
+  .map(gameCard)
   .join("");
 
 
@@ -3171,6 +3379,59 @@ function renderGames(){
 }
 
 
+function renderSportsShortcuts(){
+
+  $("#sportsShortcuts")
+  .innerHTML =
+  sportsShortcuts
+  .map(
+    item => `
+
+      <a
+        class="sport-shortcut"
+        href="${item.url}"
+        target="_blank"
+        rel="noopener"
+      >
+
+        <div>
+
+          <div class="sport-shortcut-icon">
+
+            ${item.icon}
+
+          </div>
+
+          <h4>
+
+            ${item.name}
+
+          </h4>
+
+          <p>
+
+            ${item.description}
+
+          </p>
+
+        </div>
+
+
+        <div class="sport-shortcut-open">
+
+          Abrir →
+
+        </div>
+
+      </a>
+
+    `
+  )
+  .join("");
+
+}
+
+
 function statValue(
   stats,
   keys
@@ -3179,9 +3440,7 @@ function statValue(
   const item =
     stats.find(
       stat =>
-        keys.includes(
-          stat.name
-        )
+        keys.includes(stat.name)
         ||
         keys.includes(
           stat.abbreviation
@@ -3219,6 +3478,7 @@ async function loadStandings(){
 
   try{
 
+
     const league =
       $("#leagueSelect")
       .value;
@@ -3253,7 +3513,8 @@ async function loadStandings(){
       )
     ){
 
-      data.children.forEach(
+      data.children
+      .forEach(
         child => {
 
           entries.push(
@@ -3291,10 +3552,12 @@ async function loadStandings(){
         index
       ) => {
 
+
         const stats =
           row.stats
           ||
           [];
+
 
         const team =
           row.team
@@ -3319,6 +3582,7 @@ async function loadStandings(){
 
             </td>
 
+
             <td class="team-cell">
 
               <div class="table-team">
@@ -3326,7 +3590,12 @@ async function loadStandings(){
                 ${
                   team.logos?.[0]?.href
                   ?
-                  `<img src="${team.logos[0].href}" alt="">`
+                  `
+                    <img
+                      src="${team.logos[0].href}"
+                      alt=""
+                    >
+                  `
                   :
                   ""
                 }
@@ -3342,6 +3611,7 @@ async function loadStandings(){
               </div>
 
             </td>
+
 
             <td>
               ${statValue(stats,["points","PTS"])}
@@ -3376,17 +3646,22 @@ async function loadStandings(){
     .style.display =
     "block";
 
+
   }catch(error){
+
 
     $("#standingsError")
     .style.display =
     "block";
 
+
   }finally{
+
 
     $("#standingsLoading")
     .style.display =
     "none";
+
 
   }
 
@@ -3427,11 +3702,13 @@ function renderTv(){
 
         </div>
 
+
         <div class="media-badge">
 
           ${item.badge}
 
         </div>
+
 
         <h4>
 
@@ -3439,11 +3716,13 @@ function renderTv(){
 
         </h4>
 
+
         <p>
 
           ${item.description}
 
         </p>
+
 
         <div class="media-open">
 
@@ -3487,11 +3766,13 @@ function renderMovies(){
 
         </div>
 
-        <div class="media-badge kids">
+
+        <div class="media-badge">
 
           ${item.badge}
 
         </div>
+
 
         <h4>
 
@@ -3499,11 +3780,13 @@ function renderMovies(){
 
         </h4>
 
+
         <p>
 
           ${item.description}
 
         </p>
+
 
         <div class="media-open">
 
@@ -3531,25 +3814,24 @@ function openView(name){
   $$(".view")
   .forEach(
     view =>
-      view.classList.remove(
-        "active"
-      )
+      view
+      .classList
+      .remove("active")
   );
 
 
   $$(".nav-btn")
   .forEach(
     button =>
-      button.classList.remove(
-        "active"
-      )
+      button
+      .classList
+      .remove("active")
   );
 
 
   $(`#view${name}`)
-  .classList.add(
-    "active"
-  );
+  .classList
+  .add("active");
 
 
   document
@@ -3557,24 +3839,24 @@ function openView(name){
     `[data-view="${name}"]`
   )
   ?.classList
-  .add(
-    "active"
-  );
+  .add("active");
 
 
   if(
-    name === "Table"
+    name
+    ===
+    "Table"
   ){
+
     loadStandings();
+
   }
 
 
-  window.scrollTo(
-    {
-      top:0,
-      behavior:"smooth"
-    }
-  );
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
 
 }
 
@@ -3609,17 +3891,15 @@ $$(".game-chip")
         $$(".game-chip")
         .forEach(
           item =>
-            item.classList.remove(
-              "active"
-            )
+            item
+            .classList
+            .remove("active")
         );
 
 
         button
         .classList
-        .add(
-          "active"
-        );
+        .add("active");
 
 
         gameFilter =
@@ -3675,6 +3955,8 @@ setInterval(
 );
 
 
+renderSportsShortcuts();
+
 renderTv();
 
 renderMovies();
@@ -3695,13 +3977,6 @@ if(
       .serviceWorker
       .register(
         "./service-worker.js"
-      )
-      .catch(
-        error =>
-          console.error(
-            "Erro PWA:",
-            error
-          )
       );
 
     }
@@ -3713,4 +3988,5 @@ if(
 
 
 </body>
+
 </html>
