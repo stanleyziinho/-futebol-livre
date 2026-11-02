@@ -11175,5 +11175,552 @@ console.log(
 );
 
 </script>
+<!-- =========================================================
+STANLEY SPORTS — FILMES/DESENHOS V2
+IDENTIDADE PRÓPRIA + NOVOS CONTEÚDOS
+Cole ANTES de </body>
+========================================================= -->
+
+<style>
+
+.ss-content-logo{
+  width:54px !important;
+  height:54px !important;
+  object-fit:contain !important;
+  border-radius:12px;
+}
+
+.ss-content-logo-text{
+  width:54px;
+  height:54px;
+  display:grid;
+  place-items:center;
+  border-radius:12px;
+  font-size:24px;
+  font-weight:950;
+  color:#fff;
+  background:
+    linear-gradient(
+      135deg,
+      #173d25,
+      #0b2114
+    );
+}
+
+</style>
+
+
+<script>
+
+/* =========================================================
+IDENTIDADE DOS CONTEÚDOS
+========================================================= */
+
+const SS_CONTENT_IDENTITY = {
+
+  "turma da monica":{
+    domain:"turmadamonica.uol.com.br",
+    emoji:"🐰"
+  },
+
+  "mundo bita":{
+    domain:"mundobita.com.br",
+    emoji:"🎩"
+  },
+
+  "galinha pintadinha":{
+    domain:"galinhapintadinha.com.br",
+    emoji:"🐔"
+  },
+
+  "pocoyo":{
+    domain:"pocoyo.com",
+    emoji:"👦"
+  },
+
+  "peppa pig":{
+    domain:"peppapig.com",
+    emoji:"🐷"
+  },
+
+  "masha e o urso":{
+    domain:"mashabear.com",
+    emoji:"🐻"
+  },
+
+  "o show da luna":{
+    domain:"youtube.com",
+    emoji:"🌙"
+  },
+
+  "bob zoom":{
+    domain:"youtube.com",
+    emoji:"🎵"
+  },
+
+  "pinkfong":{
+    domain:"pinkfong.com",
+    emoji:"🦊"
+  },
+
+  "pica-pau":{
+    domain:"youtube.com",
+    emoji:"🐦"
+  },
+
+  "os simpsons":{
+    domain:"fox.com",
+    emoji:"🍩"
+  },
+
+  "desenhos biblicos":{
+    domain:"youtube.com",
+    emoji:"📖"
+  },
+
+  "dragon ball":{
+    domain:"dragon-ball-official.com",
+    emoji:"🐉"
+  },
+
+  "naruto":{
+    domain:"naruto-official.com",
+    emoji:"🍥"
+  },
+
+  "pokemon":{
+    domain:"pokemon.com",
+    emoji:"⚡"
+  },
+
+  "one piece":{
+    domain:"one-piece.com",
+    emoji:"☠️"
+  },
+
+  "bob esponja":{
+    domain:"nick.com",
+    emoji:"🧽"
+  },
+
+  "tom & jerry":{
+    domain:"warnerbros.com",
+    emoji:"🐱"
+  }
+
+};
+
+
+/* =========================================================
+NOVOS CARDS
+========================================================= */
+
+const SS_EXTRA_CONTENT = [
+
+  {
+    name:"Pica-Pau",
+    type:"Desenho clássico",
+    url:
+      "https://www.youtube.com/results?search_query=Pica-Pau+em+Portugu%C3%AAs+oficial"
+  },
+
+  {
+    name:"Os Simpsons",
+    type:"Animação",
+    url:
+      "https://www.youtube.com/results?search_query=Os+Simpsons+oficial"
+  },
+
+  {
+    name:"Desenhos Bíblicos",
+    type:"Infantil",
+    url:
+      "https://www.youtube.com/results?search_query=desenhos+b%C3%ADblicos+infantis+oficial"
+  },
+
+  {
+    name:"Dragon Ball",
+    type:"Anime",
+    url:
+      "https://www.youtube.com/results?search_query=Dragon+Ball+oficial"
+  },
+
+  {
+    name:"Naruto",
+    type:"Anime",
+    url:
+      "https://www.youtube.com/results?search_query=Naruto+oficial"
+  },
+
+  {
+    name:"Pokémon",
+    type:"Anime",
+    url:
+      "https://www.youtube.com/results?search_query=Pokemon+oficial+portugues"
+  },
+
+  {
+    name:"One Piece",
+    type:"Anime",
+    url:
+      "https://www.youtube.com/results?search_query=One+Piece+oficial"
+  },
+
+  {
+    name:"Bob Esponja",
+    type:"Desenho",
+    url:
+      "https://www.youtube.com/results?search_query=Bob+Esponja+oficial+portugues"
+  },
+
+  {
+    name:"Tom & Jerry",
+    type:"Desenho clássico",
+    url:
+      "https://www.youtube.com/results?search_query=Tom+e+Jerry+oficial+portugues"
+  }
+
+];
+
+
+/* =========================================================
+NORMALIZA
+========================================================= */
+
+function ssContentNormalize(text){
+
+  return String(text || "")
+    .normalize("NFD")
+    .replace(
+      /[\u0300-\u036f]/g,
+      ""
+    )
+    .toLowerCase()
+    .trim();
+
+}
+
+
+/* =========================================================
+LOGO
+========================================================= */
+
+function ssContentLogoUrl(domain){
+
+  return(
+    "https://www.google.com/s2/favicons" +
+    "?domain_url=https://" +
+    encodeURIComponent(domain) +
+    "&sz=128"
+  );
+
+}
+
+
+/* =========================================================
+ADICIONA NOVOS CONTEÚDOS
+========================================================= */
+
+function ssAddExtraContent(){
+
+  const grid =
+    document.getElementById(
+      "moviesGrid"
+    );
+
+  if(!grid){
+    return;
+  }
+
+
+  const existingNames =
+    Array.from(
+      grid.querySelectorAll(
+        ".service"
+      )
+    )
+    .map(
+      card =>
+        ssContentNormalize(
+          card.textContent
+        )
+    );
+
+
+  SS_EXTRA_CONTENT.forEach(
+    item => {
+
+      const key =
+        ssContentNormalize(
+          item.name
+        );
+
+
+      const exists =
+        existingNames.some(
+          text =>
+            text.includes(
+              key
+            )
+        );
+
+
+      if(exists){
+        return;
+      }
+
+
+      const card =
+        document.createElement(
+          "a"
+        );
+
+
+      card.className =
+        "service";
+
+
+      card.href =
+        item.url;
+
+
+      card.target =
+        "_blank";
+
+
+      card.rel =
+        "noopener";
+
+
+      card.innerHTML =
+        `
+        <strong>
+          ${item.name}
+        </strong>
+
+        <span>
+          ${item.type}
+        </span>
+
+        <b
+          style="
+            color:var(--green);
+            font-size:10px
+          "
+        >
+          Abrir →
+        </b>
+        `;
+
+
+      grid.appendChild(
+        card
+      );
+
+    }
+  );
+
+}
+
+
+/* =========================================================
+SUBSTITUI LOGOS GENÉRICAS
+========================================================= */
+
+function ssApplyContentIdentity(){
+
+  const grid =
+    document.getElementById(
+      "moviesGrid"
+    );
+
+  if(!grid){
+    return;
+  }
+
+
+  const cards =
+    grid.querySelectorAll(
+      ".service"
+    );
+
+
+  cards.forEach(
+    card => {
+
+      const nameElement =
+
+        card.querySelector(
+          ".ss-movie-name"
+        )
+
+        ||
+
+        card.querySelector(
+          "strong"
+        );
+
+
+      if(
+        !nameElement
+      ){
+        return;
+      }
+
+
+      const name =
+        ssContentNormalize(
+          nameElement.textContent
+        );
+
+
+      const identity =
+        SS_CONTENT_IDENTITY[
+          name
+        ];
+
+
+      if(
+        !identity
+      ){
+        return;
+      }
+
+
+      const logoBox =
+        card.querySelector(
+          ".ss-movie-logo-box"
+        );
+
+
+      if(
+        !logoBox
+      ){
+        return;
+      }
+
+
+      logoBox.innerHTML =
+        `
+        <img
+          class="ss-content-logo"
+          src="${
+            ssContentLogoUrl(
+              identity.domain
+            )
+          }"
+          alt="${nameElement.textContent}"
+          loading="lazy"
+          referrerpolicy="no-referrer"
+
+          onerror="
+            this.outerHTML=
+            '<div class=&quot;ss-content-logo-text&quot;>${
+              identity.emoji
+            }</div>'
+          "
+        >
+        `;
+
+    }
+  );
+
+}
+
+
+/* =========================================================
+EXECUTA
+========================================================= */
+
+function ssUpdateContentCards(){
+
+  ssAddExtraContent();
+
+
+  /*
+  Primeiro deixa o bloco anterior
+  transformar os cards no padrão visual.
+  */
+
+  if(
+    typeof ssApplyMovieLogos
+    ===
+    "function"
+  ){
+
+    ssApplyMovieLogos();
+
+  }
+
+
+  setTimeout(
+    ssApplyContentIdentity,
+    200
+  );
+
+}
+
+
+/*
+Primeira execução
+*/
+
+setTimeout(
+  ssUpdateContentCards,
+  700
+);
+
+
+/*
+Reaplica caso a aba seja recriada.
+*/
+
+const ssContentObserver =
+  new MutationObserver(
+    () => {
+
+      clearTimeout(
+        window
+          .ssContentTimer
+      );
+
+
+      window
+        .ssContentTimer =
+        setTimeout(
+          ssUpdateContentCards,
+          200
+        );
+
+    }
+  );
+
+
+const ssContentGrid =
+  document.getElementById(
+    "moviesGrid"
+  );
+
+
+if(
+  ssContentGrid
+){
+
+  ssContentObserver.observe(
+    ssContentGrid,
+    {
+      childList:true,
+      subtree:true
+    }
+  );
+
+}
+
+
+console.log(
+  "🎬 Stanley Sports — identidade dos desenhos/animes ativa"
+);
+
+</script>
 </body>
 </html>
