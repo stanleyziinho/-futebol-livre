@@ -10576,5 +10576,604 @@ console.log(
 );
 
 </script>
+<!-- =========================================================
+STANLEY SPORTS — ABA FILMES COM LOGOS V1
+Cole imediatamente ANTES de </body>
+Não altera jogos, TV, Premium, GE ou probabilidades.
+========================================================= -->
+
+<style>
+
+.ss-movie-card{
+  position:relative;
+  overflow:hidden;
+  display:flex !important;
+  flex-direction:row !important;
+  align-items:center !important;
+  gap:14px !important;
+  min-height:92px !important;
+  padding:14px !important;
+  border-radius:20px !important;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(17,48,29,.98),
+      rgba(8,28,16,.98)
+    ) !important;
+
+  border:
+    1px solid
+    rgba(56,228,125,.18) !important;
+}
+
+.ss-movie-card::after{
+  content:"";
+  position:absolute;
+  inset:auto -30px -35px auto;
+  width:100px;
+  height:100px;
+  border-radius:50%;
+  background:
+    rgba(255,212,90,.045);
+  pointer-events:none;
+}
+
+.ss-movie-logo-box{
+  width:66px;
+  height:66px;
+  flex:0 0 66px;
+
+  display:grid;
+  place-items:center;
+
+  border-radius:16px;
+
+  background:
+    rgba(255,255,255,.96);
+
+  box-shadow:
+    0 8px 24px
+    rgba(0,0,0,.18);
+
+  overflow:hidden;
+}
+
+.ss-movie-logo{
+  width:50px;
+  height:50px;
+  object-fit:contain;
+}
+
+.ss-movie-info{
+  flex:1;
+  min-width:0;
+
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.ss-movie-name{
+  font-size:15px !important;
+  font-weight:950 !important;
+  color:#fff !important;
+  line-height:1.15;
+}
+
+.ss-movie-type{
+  margin-top:5px;
+  color:var(--muted) !important;
+  font-size:9px !important;
+  font-weight:800;
+}
+
+.ss-movie-open{
+  margin-top:8px;
+  color:var(--green) !important;
+  font-size:10px !important;
+  font-weight:950 !important;
+}
+
+.ss-movie-arrow{
+  flex:0 0 auto;
+  color:var(--green);
+  font-size:18px;
+  font-weight:950;
+}
+
+</style>
+
+
+<script>
+
+/* =========================================================
+MAPA DE LOGOS — FILMES E DESENHOS
+========================================================= */
+
+const SS_MOVIE_LOGOS = [
+
+  {
+    names:[
+      "Mercado Play"
+    ],
+    domain:"play.mercadolivre.com.br"
+  },
+
+  {
+    names:[
+      "Plex"
+    ],
+    domain:"plex.tv"
+  },
+
+  {
+    names:[
+      "YouTube Kids"
+    ],
+    domain:"youtubekids.com"
+  },
+
+  {
+    names:[
+      "Turma da Mônica",
+      "Turma da Monica"
+    ],
+    domain:"youtube.com"
+  },
+
+  {
+    names:[
+      "Mundo Bita"
+    ],
+    domain:"youtube.com"
+  },
+
+  {
+    names:[
+      "Galinha Pintadinha"
+    ],
+    domain:"youtube.com"
+  },
+
+  {
+    names:[
+      "Pocoyo"
+    ],
+    domain:"youtube.com"
+  },
+
+  {
+    names:[
+      "Peppa Pig"
+    ],
+    domain:"youtube.com"
+  },
+
+  {
+    names:[
+      "Masha e o Urso"
+    ],
+    domain:"youtube.com"
+  },
+
+  {
+    names:[
+      "O Show da Luna",
+      "Show da Luna"
+    ],
+    domain:"youtube.com"
+  },
+
+  {
+    names:[
+      "Bob Zoom"
+    ],
+    domain:"youtube.com"
+  },
+
+  {
+    names:[
+      "Pinkfong"
+    ],
+    domain:"youtube.com"
+  },
+
+  {
+    names:[
+      "Prime Video",
+      "Amazon Prime Video"
+    ],
+    domain:"primevideo.com"
+  },
+
+  {
+    names:[
+      "Disney+",
+      "Disney Plus"
+    ],
+    domain:"disneyplus.com"
+  },
+
+  {
+    names:[
+      "Netflix"
+    ],
+    domain:"netflix.com"
+  },
+
+  {
+    names:[
+      "Max",
+      "HBO Max"
+    ],
+    domain:"max.com"
+  }
+
+];
+
+
+/* =========================================================
+NORMALIZA TEXTO
+========================================================= */
+
+function ssMovieNormalize(text){
+
+  return String(text || "")
+    .normalize("NFD")
+    .replace(
+      /[\u0300-\u036f]/g,
+      ""
+    )
+    .toLowerCase()
+    .trim();
+
+}
+
+
+/* =========================================================
+ENCONTRA PLATAFORMA
+========================================================= */
+
+function ssMovieFindLogo(name){
+
+  const normalized =
+    ssMovieNormalize(
+      name
+    );
+
+
+  for(
+    const item
+    of SS_MOVIE_LOGOS
+  ){
+
+    for(
+      const alias
+      of item.names
+    ){
+
+      if(
+        normalized
+        ===
+        ssMovieNormalize(
+          alias
+        )
+      ){
+
+        return item;
+
+      }
+
+    }
+
+  }
+
+
+  return null;
+
+}
+
+
+/* =========================================================
+URL LOGO
+========================================================= */
+
+function ssMovieLogoUrl(domain){
+
+  return(
+    "https://www.google.com/s2/favicons" +
+    "?domain_url=https://" +
+    encodeURIComponent(domain) +
+    "&sz=128"
+  );
+
+}
+
+
+/* =========================================================
+TRANSFORMA CARDS DA ABA FILMES
+========================================================= */
+
+function ssEnhanceMovieCards(){
+
+  const grid =
+    document.getElementById(
+      "moviesGrid"
+    );
+
+
+  if(
+    !grid
+  ){
+    return;
+  }
+
+
+  const cards =
+    grid.querySelectorAll(
+      ".service"
+    );
+
+
+  cards.forEach(
+    card => {
+
+      if(
+        card.dataset
+          .ssMovieEnhanced
+        ===
+        "1"
+      ){
+
+        return;
+
+      }
+
+
+      const strong =
+        card.querySelector(
+          "strong"
+        );
+
+
+      const span =
+        card.querySelector(
+          "span"
+        );
+
+
+      const name =
+        strong
+          ?.textContent
+          ?.trim()
+        ||
+        "";
+
+
+      const type =
+        span
+          ?.textContent
+          ?.trim()
+        ||
+        "";
+
+
+      if(
+        !name
+      ){
+
+        return;
+
+      }
+
+
+      const service =
+        ssMovieFindLogo(
+          name
+        );
+
+
+      let logoUrl = "";
+
+
+      if(
+        service
+      ){
+
+        logoUrl =
+          ssMovieLogoUrl(
+            service.domain
+          );
+
+      }else{
+
+        /*
+        Fallback:
+        usa domínio do href original.
+        */
+
+        try{
+
+          const url =
+            new URL(
+              card.href
+            );
+
+
+          logoUrl =
+            ssMovieLogoUrl(
+              url.hostname
+            );
+
+        }catch(error){
+
+          logoUrl =
+            "";
+
+        }
+
+      }
+
+
+      const href =
+        card.getAttribute(
+          "href"
+        )
+        ||
+        "#";
+
+
+      card.innerHTML =
+        `
+        <div class="ss-movie-logo-box">
+
+          ${
+            logoUrl
+            ?
+            `
+            <img
+              class="ss-movie-logo"
+              src="${logoUrl}"
+              alt="${name}"
+              loading="lazy"
+              referrerpolicy="no-referrer"
+              onerror="
+                this.style.display='none'
+              "
+            >
+            `
+            :
+            `
+            <span
+              style="
+                font-size:28px
+              "
+            >
+              🎬
+            </span>
+            `
+          }
+
+        </div>
+
+
+        <div class="ss-movie-info">
+
+          <div class="ss-movie-name">
+            ${name}
+          </div>
+
+          <div class="ss-movie-type">
+            ${type}
+          </div>
+
+          <div class="ss-movie-open">
+            Abrir conteúdo →
+          </div>
+
+        </div>
+
+
+        <div class="ss-movie-arrow">
+          ›
+        </div>
+        `;
+
+
+      card.setAttribute(
+        "href",
+        href
+      );
+
+
+      card.classList.add(
+        "ss-movie-card"
+      );
+
+
+      card.dataset
+        .ssMovieEnhanced =
+        "1";
+
+    }
+  );
+
+}
+
+
+/* =========================================================
+EXECUTA
+========================================================= */
+
+function ssApplyMovieLogos(){
+
+  ssEnhanceMovieCards();
+
+}
+
+
+/*
+Primeira execução
+*/
+
+setTimeout(
+  ssApplyMovieLogos,
+  500
+);
+
+
+/*
+Observa alterações futuras
+na aba Filmes.
+*/
+
+const ssMovieObserver =
+  new MutationObserver(
+    () => {
+
+      clearTimeout(
+        window
+          .ssMovieLogoTimer
+      );
+
+
+      window
+        .ssMovieLogoTimer =
+        setTimeout(
+          ssApplyMovieLogos,
+          120
+        );
+
+    }
+  );
+
+
+const ssMovieGrid =
+  document.getElementById(
+    "moviesGrid"
+  );
+
+
+if(
+  ssMovieGrid
+){
+
+  ssMovieObserver.observe(
+    ssMovieGrid,
+    {
+      childList:true,
+      subtree:true
+    }
+  );
+
+}
+
+
+console.log(
+  "🎬 Stanley Sports — aba Filmes melhorada"
+);
+
+</script>
 </body>
 </html>
