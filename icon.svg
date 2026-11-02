@@ -1,0 +1,192 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 512 512"
+>
+
+  <defs>
+
+    <linearGradient
+      id="bg"
+      x1="0"
+      y1="0"
+      x2="1"
+      y2="1"
+    >
+
+      <stop
+        offset="0%"
+        stop-color="#123d23"
+      />
+
+      <stop
+        offset="100%"
+        stop-color="#041109"
+      />
+
+    </linearGradient>
+
+
+    <radialGradient
+      id="glow"
+      cx="30%"
+      cy="20%"
+      r="80%"
+    >
+
+      <stop
+        offset="0%"
+        stop-color="#39e27d"
+        stop-opacity=".35"
+      />
+
+      <stop
+        offset="100%"
+        stop-color="#39e27d"
+        stop-opacity="0"
+      />
+
+    </radialGradient>
+
+  </defs>
+
+
+  <!-- fundo -->
+
+  <rect
+    width="512"
+    height="512"
+    rx="120"
+    fill="url(#bg)"
+  />
+
+
+  <rect
+    width="512"
+    height="512"
+    rx="120"
+    fill="url(#glow)"
+  />
+
+
+  <!-- círculo da bola -->
+
+  <circle
+    cx="256"
+    cy="230"
+    r="128"
+    fill="#f5fff8"
+  />
+
+
+  <!-- pentágono central -->
+
+  <path
+    d="
+      M256 171
+      L305 207
+      L286 265
+      L226 265
+      L207 207
+      Z
+    "
+    fill="#07170e"
+  />
+
+
+  <!-- partes pretas -->
+
+  <path
+    d="
+      M256 102
+      L215 133
+      L225 174
+      L256 171
+      L287 174
+      L297 133
+      Z
+    "
+    fill="#07170e"
+  />
+
+
+  <path
+    d="
+      M135 192
+      L179 173
+      L207 207
+      L188 248
+      L143 243
+      Z
+    "
+    fill="#07170e"
+  />
+
+
+  <path
+    d="
+      M377 192
+      L333 173
+      L305 207
+      L324 248
+      L369 243
+      Z
+    "
+    fill="#07170e"
+  />
+
+
+  <path
+    d="
+      M181 330
+      L188 282
+      L226 265
+      L258 296
+      L239 342
+      Z
+    "
+    fill="#07170e"
+  />
+
+
+  <path
+    d="
+      M331 330
+      L324 282
+      L286 265
+      L254 296
+      L273 342
+      Z
+    "
+    fill="#07170e"
+  />
+
+
+  <!-- nome -->
+
+  <text
+    x="256"
+    y="420"
+    text-anchor="middle"
+    fill="#39e27d"
+    font-size="52"
+    font-family="Arial, Helvetica, sans-serif"
+    font-weight="900"
+  >
+    FL
+  </text>
+
+
+  <text
+    x="256"
+    y="455"
+    text-anchor="middle"
+    fill="#dff7e7"
+    font-size="19"
+    font-family="Arial, Helvetica, sans-serif"
+    font-weight="700"
+    letter-spacing="3"
+  >
+    FUTEBOL LIVRE
+  </text>
+
+</svg>
