@@ -9312,6 +9312,679 @@ console.log(
 );
 
 </script>
+<!-- =========================================================
+STANLEY SPORTS — LOGOS DAS EMISSORAS V1
+Cole imediatamente ANTES de </body>
+Não altera jogos, GE, Premium ou probabilidades.
+========================================================= -->
 
+<style>
+
+.ss-network-logo{
+  width:28px;
+  height:28px;
+  object-fit:contain;
+  border-radius:7px;
+  flex:0 0 28px;
+}
+
+.ss-network-logo-small{
+  width:22px;
+  height:22px;
+  object-fit:contain;
+  border-radius:6px;
+  flex:0 0 22px;
+}
+
+.ss-network-enhanced{
+  display:flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  gap:9px !important;
+}
+
+.ss-network-chip-enhanced{
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  gap:7px !important;
+}
+
+</style>
+
+
+<script>
+
+/* =========================================================
+LOGOS DAS EMISSORAS
+========================================================= */
+
+const SS_NETWORKS = [
+
+  {
+    names:[
+      "sportv",
+      "spor tv"
+    ],
+    domain:"globoplay.globo.com"
+  },
+
+  {
+    names:[
+      "premiere"
+    ],
+    domain:"globoplay.globo.com"
+  },
+
+  {
+    names:[
+      "globoplay"
+    ],
+    domain:"globoplay.globo.com"
+  },
+
+  {
+    names:[
+      "tv globo",
+      "globo"
+    ],
+    domain:"globo.com"
+  },
+
+  {
+    names:[
+      "ge tv",
+      "getv"
+    ],
+    domain:"ge.globo.com"
+  },
+
+  {
+    names:[
+      "ge"
+    ],
+    domain:"ge.globo.com"
+  },
+
+  {
+    names:[
+      "espn"
+    ],
+    domain:"espn.com.br"
+  },
+
+  {
+    names:[
+      "disney+",
+      "disney plus"
+    ],
+    domain:"disneyplus.com"
+  },
+
+  {
+    names:[
+      "xsports",
+      "x sports"
+    ],
+    domain:"xsports.com.br"
+  },
+
+  {
+    names:[
+      "sportynet",
+      "sporty net"
+    ],
+    domain:"sporty.com.br"
+  },
+
+  {
+    names:[
+      "sbt"
+    ],
+    domain:"sbt.com.br"
+  },
+
+  {
+    names:[
+      "band",
+      "band sports",
+      "bandsports"
+    ],
+    domain:"band.com.br"
+  },
+
+  {
+    names:[
+      "record",
+      "record tv"
+    ],
+    domain:"record.r7.com"
+  },
+
+  {
+    names:[
+      "redetv",
+      "rede tv"
+    ],
+    domain:"redetv.uol.com.br"
+  },
+
+  {
+    names:[
+      "tv cultura",
+      "cultura"
+    ],
+    domain:"cultura.uol.com.br"
+  },
+
+  {
+    names:[
+      "tv brasil"
+    ],
+    domain:"tvbrasil.ebc.com.br"
+  },
+
+  {
+    names:[
+      "cazétv",
+      "cazetv",
+      "cazé tv"
+    ],
+    domain:"youtube.com"
+  },
+
+  {
+    names:[
+      "canal goat",
+      "goat"
+    ],
+    domain:"youtube.com"
+  },
+
+  {
+    names:[
+      "fifa+",
+      "fifa plus"
+    ],
+    domain:"plus.fifa.com"
+  },
+
+  {
+    names:[
+      "youtube"
+    ],
+    domain:"youtube.com"
+  }
+
+];
+
+
+/* =========================================================
+GERA URL DA LOGO
+========================================================= */
+
+function ssNetworkLogo(domain){
+
+  return(
+    "https://www.google.com/s2/favicons" +
+    "?domain_url=https://" +
+    encodeURIComponent(domain) +
+    "&sz=128"
+  );
+
+}
+
+
+/* =========================================================
+NORMALIZA TEXTO
+========================================================= */
+
+function ssNormalizeNetworkText(text){
+
+  return String(text || "")
+    .normalize("NFD")
+    .replace(
+      /[\u0300-\u036f]/g,
+      ""
+    )
+    .toLowerCase()
+    .trim();
+
+}
+
+
+/* =========================================================
+IDENTIFICA EMISSORA
+========================================================= */
+
+function ssFindNetwork(text){
+
+  const normalized =
+    ssNormalizeNetworkText(text);
+
+
+  /*
+  Ordenação importante:
+
+  "ge TV" deve ser identificado
+  antes de simplesmente "ge".
+  */
+
+  for(
+    const network
+    of SS_NETWORKS
+  ){
+
+    for(
+      const name
+      of network.names
+    ){
+
+      const normalizedName =
+        ssNormalizeNetworkText(name);
+
+
+      if(
+        normalized.includes(
+          normalizedName
+        )
+      ){
+
+        return network;
+
+      }
+
+    }
+
+  }
+
+
+  return null;
+
+}
+
+
+/* =========================================================
+CRIA LOGO
+========================================================= */
+
+function ssCreateNetworkLogo(
+  network,
+  small = false
+){
+
+  const img =
+    document.createElement(
+      "img"
+    );
+
+
+  img.src =
+    ssNetworkLogo(
+      network.domain
+    );
+
+
+  img.alt =
+    "Logo da emissora";
+
+
+  img.className =
+    small
+    ?
+    "ss-network-logo-small"
+    :
+    "ss-network-logo";
+
+
+  img.loading =
+    "lazy";
+
+
+  img.referrerPolicy =
+    "no-referrer";
+
+
+  /*
+  Se alguma imagem falhar,
+  simplesmente desaparece.
+  Nada do app quebra.
+  */
+
+  img.onerror =
+    function(){
+
+      this.style.display =
+        "none";
+
+    };
+
+
+  return img;
+
+}
+
+
+/* =========================================================
+ADICIONA LOGO NOS BOTÕES
+========================================================= */
+
+function ssEnhanceNetworkButtons(){
+
+  const elements =
+    document.querySelectorAll(
+      `
+      button,
+      a,
+      .watch-link,
+      .broadcast-link,
+      .network-button,
+      .channel-button
+      `
+    );
+
+
+  elements.forEach(
+    element => {
+
+      /*
+      Não processa novamente
+      */
+
+      if(
+        element.dataset
+          .ssNetworkLogo
+        ===
+        "1"
+      ){
+
+        return;
+
+      }
+
+
+      const text =
+        element
+          .innerText
+          ?.trim();
+
+
+      if(
+        !text
+      ){
+
+        return;
+
+      }
+
+
+      /*
+      Só mexe em elementos
+      relacionados a abrir emissora.
+      Evita colocar logo em textos
+      comuns da página.
+      */
+
+      const normalized =
+        ssNormalizeNetworkText(
+          text
+        );
+
+
+      const looksLikeNetworkButton =
+
+        normalized.startsWith(
+          "abrir "
+        )
+
+        ||
+
+        normalized.startsWith(
+          "assistir "
+        )
+
+        ||
+
+        normalized.includes(
+          "ao vivo"
+        );
+
+
+      if(
+        !looksLikeNetworkButton
+      ){
+
+        return;
+
+      }
+
+
+      const network =
+        ssFindNetwork(
+          text
+        );
+
+
+      if(
+        !network
+      ){
+
+        return;
+
+      }
+
+
+      const logo =
+        ssCreateNetworkLogo(
+          network,
+          false
+        );
+
+
+      /*
+      Insere antes do texto existente
+      */
+
+      element.prepend(
+        logo
+      );
+
+
+      element.classList.add(
+        "ss-network-enhanced"
+      );
+
+
+      element.dataset
+        .ssNetworkLogo =
+        "1";
+
+    }
+  );
+
+}
+
+
+/* =========================================================
+ADICIONA LOGO NOS CHIPS
+Exemplo:
+ESPN | Disney+ | SporTV | Premiere
+========================================================= */
+
+function ssEnhanceNetworkChips(){
+
+  const elements =
+    document.querySelectorAll(
+      `
+      span,
+      .chip,
+      .badge,
+      .broadcast-chip,
+      .network-chip
+      `
+    );
+
+
+  elements.forEach(
+    element => {
+
+      if(
+        element.dataset
+          .ssNetworkChip
+        ===
+        "1"
+      ){
+
+        return;
+
+      }
+
+
+      /*
+      Ignora elementos com filhos grandes
+      para não mexer em containers.
+      */
+
+      if(
+        element.children.length
+        > 0
+      ){
+
+        return;
+
+      }
+
+
+      const text =
+        element
+          .textContent
+          ?.trim();
+
+
+      if(
+        !text
+        ||
+        text.length
+        > 30
+      ){
+
+        return;
+
+      }
+
+
+      const network =
+        ssFindNetwork(
+          text
+        );
+
+
+      if(
+        !network
+      ){
+
+        return;
+
+      }
+
+
+      const logo =
+        ssCreateNetworkLogo(
+          network,
+          true
+        );
+
+
+      element.prepend(
+        logo
+      );
+
+
+      element.classList.add(
+        "ss-network-chip-enhanced"
+      );
+
+
+      element.dataset
+        .ssNetworkChip =
+        "1";
+
+    }
+  );
+
+}
+
+
+/* =========================================================
+EXECUTA
+========================================================= */
+
+function ssApplyNetworkLogos(){
+
+  ssEnhanceNetworkButtons();
+
+  ssEnhanceNetworkChips();
+
+}
+
+
+/*
+Primeira execução
+*/
+
+setTimeout(
+  ssApplyNetworkLogos,
+  500
+);
+
+
+/* =========================================================
+OBSERVA CONTEÚDO NOVO
+========================================================= */
+
+/*
+O Stanley Sports cria jogos,
+modal Premium e aba TV
+dinamicamente.
+
+Por isso observamos alterações
+e aplicamos as logos automaticamente.
+*/
+
+const ssNetworkObserver =
+  new MutationObserver(
+    () => {
+
+      clearTimeout(
+        window
+          .ssNetworkLogoTimer
+      );
+
+
+      window
+        .ssNetworkLogoTimer =
+        setTimeout(
+          ssApplyNetworkLogos,
+          150
+        );
+
+    }
+  );
+
+
+ssNetworkObserver.observe(
+  document.body,
+  {
+    childList:true,
+    subtree:true
+  }
+);
+
+
+console.log(
+  "📺 Stanley Sports — logos das emissoras ativas"
+);
+
+</script>
 </body>
 </html>
