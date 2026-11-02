@@ -2,7 +2,6 @@
 <html lang="pt-BR">
 
 <head>
-
 <meta charset="utf-8">
 
 <meta
@@ -10,10 +9,7 @@
   content="width=device-width,initial-scale=1,viewport-fit=cover"
 >
 
-<meta
-  name="theme-color"
-  content="#031008"
->
+<meta name="theme-color" content="#031008">
 
 <meta
   name="apple-mobile-web-app-capable"
@@ -30,10 +26,7 @@
   content="Stanley Sports"
 >
 
-<link
-  rel="manifest"
-  href="manifest.json"
->
+<link rel="manifest" href="manifest.json?v=54">
 
 <link
   rel="icon"
@@ -45,32 +38,29 @@
   href="stanley-sports-apple-180.png"
 >
 
-<title>
-  Stanley Sports
-</title>
+<title>Stanley Sports</title>
 
 <style>
 
 :root{
-  --bg:#031008;
-  --bg2:#04150a;
-  --card:#0b2114;
-  --card2:#102b1b;
-  --card3:#173823;
-  --border:#1d5934;
+  --bg:#021008;
+  --card:#0b2516;
+  --card2:#10301e;
+  --card3:#173b25;
+  --border:#21633b;
 
-  --green:#37e67d;
-  --green2:#78f0a4;
+  --green:#32e77c;
+  --green2:#78f2a7;
 
-  --gold:#ffd257;
-  --blue:#9ed0ff;
-  --red:#ff8f94;
+  --gold:#ffd153;
+  --blue:#a9d7ff;
+  --red:#ff999d;
 
-  --text:#f4fff7;
-  --muted:#8fa697;
+  --text:#f5fff7;
+  --muted:#91a89a;
 
   --shadow:
-    0 18px 60px
+    0 18px 55px
     rgba(0,0,0,.32);
 }
 
@@ -80,7 +70,6 @@
 
 html{
   background:var(--bg);
-  scroll-behavior:smooth;
 }
 
 body{
@@ -91,8 +80,8 @@ body{
   background:
     linear-gradient(
       180deg,
-      var(--bg),
-      #04140a
+      #021008,
+      #03150a
     );
 
   color:var(--text);
@@ -107,7 +96,7 @@ body{
 
   padding-bottom:
     calc(
-      92px +
+      100px +
       env(safe-area-inset-bottom)
     );
 }
@@ -127,19 +116,18 @@ a{
   text-decoration:none;
 }
 
+img{
+  max-width:100%;
+}
+
+.hidden{
+  display:none !important;
+}
+
 main{
-  width:min(900px,100%);
+  width:min(920px,100%);
   margin:auto;
-
   padding:16px;
-}
-
-.view{
-  display:none;
-}
-
-.view.active{
-  display:block;
 }
 
 /* HEADER */
@@ -147,12 +135,11 @@ main{
 .app-header{
   position:sticky;
   top:0;
-
-  z-index:1000;
+  z-index:900;
 
   display:flex;
-  justify-content:space-between;
   align-items:center;
+  justify-content:space-between;
 
   padding:
     calc(
@@ -163,57 +150,51 @@ main{
     10px;
 
   background:
-    rgba(3,16,8,.96);
+    rgba(2,16,8,.96);
 
-  backdrop-filter:
-    blur(22px);
-
-  -webkit-backdrop-filter:
-    blur(22px);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
 
   border-bottom:
     1px solid
-    rgba(255,255,255,.05);
+    rgba(255,255,255,.06);
 }
 
-.header-brand{
+.brand{
   display:flex;
   align-items:center;
-
-  gap:10px;
+  gap:11px;
 }
 
-.header-logo{
-  width:52px;
-  height:52px;
-
+.logo{
+  width:55px;
+  height:55px;
   object-fit:cover;
 
-  border-radius:15px;
+  border-radius:16px;
 
   border:
     1px solid
-    rgba(55,230,125,.3);
+    rgba(50,231,124,.35);
 }
 
-.brand-small{
+.brand-label{
   color:var(--green);
 
   font-size:8px;
   font-weight:950;
 
-  letter-spacing:1.5px;
+  letter-spacing:1.7px;
 }
 
-.app-header h1{
-  margin:3px 0 0;
-
-  font-size:22px;
+.brand h1{
+  margin:4px 0 0;
+  font-size:23px;
 }
 
-.refresh-btn{
-  width:44px;
-  height:44px;
+.refresh{
+  width:47px;
+  height:47px;
 
   display:grid;
   place-items:center;
@@ -224,518 +205,74 @@ main{
     1px solid
     var(--border);
 
-  background:var(--card);
+  background:
+    var(--card);
 
   color:#fff;
 
-  font-size:21px;
+  font-size:23px;
 }
 
+/* SEÇÕES */
 
-/* HERO */
-
-.hero{
-  position:relative;
-
-  min-height:380px;
-
-  overflow:hidden;
-
-  margin-bottom:18px;
-
-  border-radius:30px;
-
-  border:
-    1px solid
-    rgba(55,230,125,.25);
-
-  box-shadow:var(--shadow);
+.view{
+  display:none;
 }
 
-.hero-photo{
-  position:absolute;
-  inset:0;
-
-  background-image:
-    url(
-      "https://f.rpp-noticias.io/2023/01/19/022602_1377161.jpg?imgdimension=n_xlarge"
-    );
-
-  background-size:cover;
-
-  background-position:
-    center 38%;
-}
-
-.hero-shade{
-  position:absolute;
-  inset:0;
-
-  background:
-    linear-gradient(
-      90deg,
-      rgba(2,10,5,.97),
-      rgba(2,10,5,.72) 48%,
-      rgba(2,10,5,.22)
-    ),
-    linear-gradient(
-      0deg,
-      rgba(2,10,5,.97),
-      transparent 55%
-    );
-}
-
-.hero-content{
-  position:relative;
-
-  z-index:2;
-
-  max-width:560px;
-
-  padding:
-    27px 23px;
-}
-
-.hero-logo{
-  width:76px;
-  height:76px;
-
-  object-fit:cover;
-
-  border-radius:20px;
-}
-
-.hero-label{
-  display:inline-flex;
-  align-items:center;
-
-  gap:7px;
-
-  margin-top:15px;
-
-  padding:
-    8px 11px;
-
-  border-radius:999px;
-
-  border:
-    1px solid
-    rgba(55,230,125,.24);
-
-  background:
-    rgba(0,0,0,.4);
-
-  font-size:10px;
-
-  font-weight:950;
-}
-
-.hero-dot{
-  width:8px;
-  height:8px;
-
-  border-radius:50%;
-
-  background:var(--green);
-
-  box-shadow:
-    0 0 13px
-    var(--green);
-}
-
-.hero h2{
-  margin:
-    18px
-    0
-    12px;
-
-  font-size:
-    clamp(
-      37px,
-      10vw,
-      56px
-    );
-
-  line-height:.96;
-
-  letter-spacing:-2px;
-}
-
-.hero p{
-  margin:0;
-
-  color:#d2e6d8;
-
-  font-size:13px;
-
-  line-height:1.55;
-}
-
-.hero-actions{
-  display:flex;
-  flex-wrap:wrap;
-
-  gap:9px;
-
-  margin-top:22px;
-}
-
-.hero-btn{
-  min-height:45px;
-
-  padding:
-    0 16px;
-
-  border-radius:14px;
-
-  border:
-    1px solid
-    rgba(255,255,255,.12);
-
-  background:
-    rgba(0,0,0,.45);
-
-  color:#fff;
-
-  font-size:11px;
-
-  font-weight:950;
-}
-
-.hero-btn.primary{
-  background:var(--green);
-
-  color:#03210d;
-
-  border-color:
-    var(--green);
-}
-
-.hero-btn.gold{
-  color:var(--gold);
-
-  border-color:
-    rgba(255,210,87,.4);
-
-  background:
-    rgba(255,210,87,.09);
-}
-
-
-/* PREMIUM BANNER */
-
-.premium-home{
-  display:flex;
-  align-items:center;
-
-  gap:12px;
-
-  padding:16px;
-
-  margin-bottom:18px;
-
-  border-radius:22px;
-
-  border:
-    1px solid
-    rgba(255,210,87,.3);
-
-  background:
-    linear-gradient(
-      135deg,
-      rgba(255,210,87,.1),
-      rgba(55,230,125,.04)
-    );
-}
-
-.premium-home-icon{
-  font-size:32px;
-}
-
-.premium-home-text{
-  flex:1;
-}
-
-.premium-home-text small{
+.view.active{
   display:block;
-
-  color:var(--gold);
-
-  font-size:8px;
-
-  font-weight:950;
 }
-
-.premium-home-text strong{
-  display:block;
-
-  margin-top:3px;
-
-  font-size:14px;
-}
-
-.premium-home-text span{
-  display:block;
-
-  margin-top:4px;
-
-  color:var(--muted);
-
-  font-size:9px;
-}
-
-.premium-home-btn{
-  padding:
-    10px 12px;
-
-  border:0;
-
-  border-radius:12px;
-
-  background:var(--gold);
-
-  color:#2b2200;
-
-  font-size:9px;
-
-  font-weight:950;
-}
-
-
-/* TITLES */
 
 .section-head{
   display:flex;
-
-  justify-content:space-between;
   align-items:flex-end;
+  justify-content:space-between;
 
-  gap:10px;
-
-  margin:
-    19px 0
-    12px;
+  margin:15px 0 16px;
 }
 
 .eyebrow{
-  display:block;
-
-  margin-bottom:4px;
-
   color:var(--green);
 
   font-size:9px;
-
   font-weight:950;
 
-  letter-spacing:1.4px;
+  letter-spacing:1.7px;
 }
 
-.section-head h3{
-  margin:0;
-
-  font-size:24px;
+.section-head h2{
+  margin:6px 0 0;
+  font-size:26px;
 }
 
 .counter{
-  min-width:39px;
-  height:39px;
+  min-width:42px;
+  height:42px;
 
   display:grid;
-
   place-items:center;
 
-  border-radius:999px;
+  border-radius:50%;
 
   background:var(--card2);
 
   color:var(--green);
 
+  font-size:18px;
   font-weight:950;
 }
 
-
-/* STATS */
-
-.stats{
-  display:grid;
-
-  grid-template-columns:
-    repeat(
-      2,
-      1fr
-    );
-
-  gap:9px;
-
-  margin-bottom:14px;
-}
-
-.stat{
-  padding:14px;
-
-  border-radius:19px;
-
-  border:
-    1px solid
-    var(--border);
-
-  background:var(--card);
-}
-
-.stat small{
-  display:block;
-
-  margin-bottom:5px;
-
-  color:var(--muted);
-
-  font-size:9px;
-
-  font-weight:950;
-}
-
-.stat strong{
-  font-size:22px;
-}
-
-.green{
-  color:var(--green);
-}
-
-.red{
-  color:var(--red);
-}
-
-.yellow{
-  color:var(--gold);
-}
-
-
-/* SEARCH */
-
-.search{
-  position:relative;
-
-  margin-bottom:12px;
-}
-
-.search span{
-  position:absolute;
-
-  left:14px;
-  top:50%;
-
-  transform:
-    translateY(-50%);
-}
-
-.search input{
-  width:100%;
-
-  padding:
-    14px
-    15px
-    14px
-    44px;
-
-  border-radius:17px;
-
-  border:
-    1px solid
-    var(--border);
-
-  outline:none;
-
-  background:var(--card);
-
-  color:#fff;
-}
-
-
-/* CHIPS */
-
-.chips{
-  display:flex;
-
-  gap:8px;
-
-  overflow-x:auto;
-
-  padding-bottom:12px;
-
-  scrollbar-width:none;
-}
-
-.chips::-webkit-scrollbar{
-  display:none;
-}
-
-.chip{
-  flex:0 0 auto;
-
-  padding:
-    10px
-    14px;
-
-  border-radius:999px;
-
-  border:
-    1px solid
-    var(--border);
-
-  background:var(--card);
-
-  color:var(--muted);
-
-  font-size:11px;
-
-  font-weight:900;
-}
-
-.chip.active{
-  background:var(--green);
-
-  color:#03200c;
-
-  border-color:
-    var(--green);
-}
-
-
-/* LOADING */
-
-.loading,
-.empty{
-  padding:
-    34px 18px;
-
-  border-radius:20px;
-
-  border:
-    1px dashed
-    var(--border);
-
-  color:var(--muted);
-
-  text-align:center;
-
-  line-height:1.5;
-}
-
-
-/* GAMES */
+/* JOGOS */
 
 .games{
   display:grid;
-
-  gap:12px;
+  gap:14px;
 }
 
 .game{
-  padding:16px;
+  padding:17px;
 
-  border-radius:24px;
+  border-radius:26px;
 
   border:
     1px solid
@@ -744,113 +281,75 @@ main{
   background:
     linear-gradient(
       180deg,
-      #0d2416,
-      #08170e
+      #0d2818,
+      #07180e
     );
 
-  box-shadow:
-    0 10px 30px
-    rgba(0,0,0,.12);
-}
-
-.game.heart-team{
-  border-color:
-    rgba(255,210,87,.5);
+  box-shadow:var(--shadow);
 }
 
 .game-head{
   display:flex;
-
   justify-content:space-between;
   align-items:center;
 
-  gap:8px;
+  gap:10px;
 }
 
-.competition{
+.league{
   color:var(--muted);
 
   font-size:10px;
-
-  font-weight:950;
+  font-weight:900;
 }
 
-.game-right{
+.right-head{
   display:flex;
-
+  gap:8px;
   align-items:center;
-
-  gap:7px;
 }
 
 .status{
-  padding:
-    6px 9px;
+  padding:7px 10px;
 
   border-radius:999px;
 
   background:
-    rgba(255,255,255,.055);
-
-  color:#a9b9ae;
+    rgba(255,255,255,.06);
 
   font-size:9px;
-
   font-weight:950;
 }
 
 .status.live{
-  background:
-    rgba(255,100,100,.12);
+  color:#ff9ea4;
 
-  color:#ffaaaa;
+  background:
+    rgba(255,100,100,.1);
 }
 
-.status.scheduled{
-  background:
-    rgba(158,208,255,.09);
-
-  color:#bddcff;
+.status.future{
+  color:var(--blue);
 }
 
 .star{
-  width:34px;
-  height:34px;
+  width:36px;
+  height:36px;
 
   border:0;
 
   border-radius:50%;
 
   background:
-    rgba(255,255,255,.055);
+    rgba(255,255,255,.06);
 
-  color:#718478;
+  color:#748b7c;
 
-  font-size:19px;
+  font-size:20px;
 }
 
 .star.active{
   color:var(--gold);
-}
-
-.heart-label{
-  display:inline-block;
-
-  margin-bottom:10px;
-
-  padding:
-    6px 8px;
-
-  border-radius:999px;
-
-  background:
-    rgba(255,210,87,.1);
-
-  color:var(--gold);
-
-  font-size:8px;
-
-  font-weight:950;
 }
 
 .match{
@@ -865,40 +364,280 @@ main{
 
   align-items:center;
 
-  margin:
-    19px 0;
+  margin:22px 0;
 }
 
 .team{
   text-align:center;
 }
 
-.team-logo-wrap{
-  width:60px;
-  height:60px;
-
-  display:grid;
-
-  place-items:center;
-
-  margin:
-    0 auto
-    8px;
-}
-
 .team-logo{
-  max-width:57px;
-  max-height:57px;
+  width:68px;
+  height:68px;
 
   object-fit:contain;
+
+  margin-bottom:8px;
 }
 
-.team-logo-fallback{
-  width:54px;
-  height:54px;
+.team-name{
+  font-size:14px;
+  font-weight:950;
+}
 
+.score{
+  min-width:95px;
+  text-align:center;
+}
+
+.score-main{
+  color:var(--green);
+
+  font-size:31px;
+  font-weight:950;
+}
+
+.score-time{
+  margin-top:4px;
+
+  color:var(--muted);
+
+  font-size:11px;
+}
+
+.broadcast-box{
+  margin-top:10px;
+
+  padding:12px;
+
+  border-radius:16px;
+
+  background:
+    rgba(158,208,255,.06);
+
+  color:#cae4ff;
+
+  font-size:10px;
+  font-weight:850;
+
+  line-height:1.45;
+}
+
+.broadcast-box.ready{
+  color:#b8ffd3;
+
+  background:
+    rgba(50,231,124,.07);
+}
+
+.actions{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:9px;
+
+  margin-top:13px;
+
+  padding-top:13px;
+
+  border-top:
+    1px solid
+    rgba(255,255,255,.06);
+}
+
+.action{
+  min-height:47px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  border-radius:15px;
+
+  border:
+    1px solid
+    var(--border);
+
+  font-size:11px;
+  font-weight:950;
+}
+
+.action.watch{
+  background:var(--green);
+  color:#03210e;
+}
+
+.action.analysis{
+  color:var(--gold);
+
+  border-color:
+    rgba(255,209,83,.48);
+
+  background:
+    rgba(255,209,83,.08);
+}
+
+.loading{
+  padding:35px 20px;
+
+  text-align:center;
+
+  color:var(--muted);
+
+  border:
+    1px dashed
+    var(--border);
+
+  border-radius:20px;
+}
+
+/* OUTRAS TELAS */
+
+.panel{
+  padding:17px;
+
+  border:
+    1px solid
+    var(--border);
+
+  border-radius:22px;
+
+  background:var(--card);
+
+  margin-bottom:12px;
+}
+
+.panel h3{
+  margin:0 0 12px;
+}
+
+.service-grid{
   display:grid;
 
+  grid-template-columns:
+    repeat(2,1fr);
+
+  gap:10px;
+}
+
+.service{
+  min-height:110px;
+
+  padding:14px;
+
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+
+  border:
+    1px solid
+    var(--border);
+
+  border-radius:19px;
+
+  background:var(--card2);
+}
+
+.service strong{
+  font-size:14px;
+}
+
+.service span{
+  color:var(--muted);
+  font-size:9px;
+}
+
+/* MODAL */
+
+.modal{
+  position:fixed;
+  inset:0;
+
+  z-index:5000;
+
+  display:none;
+
+  align-items:flex-end;
+
+  background:
+    rgba(0,0,0,.82);
+
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+}
+
+.modal.show{
+  display:flex;
+}
+
+.modal-card{
+  width:min(920px,100%);
+  max-height:92vh;
+
+  margin:auto 0 0;
+
+  overflow:auto;
+
+  border-radius:30px 30px 0 0;
+
+  border-top:
+    1px solid
+    rgba(255,209,83,.5);
+
+  background:#06190d;
+
+  box-shadow:
+    0 -30px 90px
+    rgba(0,0,0,.5);
+
+  padding-bottom:
+    calc(
+      30px +
+      env(safe-area-inset-bottom)
+    );
+}
+
+.modal-head{
+  position:sticky;
+  top:0;
+  z-index:30;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  padding:22px 18px;
+
+  background:
+    rgba(6,25,13,.96);
+
+  border-bottom:
+    1px solid
+    rgba(255,255,255,.05);
+
+  backdrop-filter:blur(20px);
+}
+
+.premium-label{
+  color:var(--gold);
+
+  font-size:8px;
+  font-weight:950;
+
+  letter-spacing:1.3px;
+}
+
+.modal-title{
+  margin:8px 0 0;
+
+  font-size:31px;
+  line-height:1;
+}
+
+.close{
+  width:48px;
+  height:48px;
+
+  display:grid;
   place-items:center;
 
   border-radius:50%;
@@ -907,432 +646,251 @@ main{
     1px solid
     var(--border);
 
-  background:var(--card2);
+  background:var(--card);
 
-  color:var(--green);
+  color:#fff;
 
-  font-weight:950;
+  font-size:22px;
 }
 
-.team-name{
-  font-size:13px;
-
-  font-weight:900;
-
-  line-height:1.25;
+.modal-body{
+  padding:16px;
 }
 
-.score-box{
-  min-width:80px;
-
-  text-align:center;
-}
-
-.score{
-  color:var(--green);
-
-  font-size:30px;
-
-  font-weight:950;
-}
-
-.kickoff{
-  color:var(--blue);
-
-  font-size:12px;
-
-  font-weight:900;
-}
-
-.time{
-  margin-top:4px;
-
-  color:var(--muted);
-
-  font-size:10px;
-}
-
-
-/* GE BOX */
-
-.ge-loading{
-  margin-bottom:10px;
-
-  padding:
-    11px 12px;
-
-  border-radius:15px;
-
-  background:
-    rgba(158,208,255,.07);
-
-  color:#c4e1ff;
-
-  font-size:10px;
-
-  font-weight:850;
-}
-
-.ge-info-box{
-  margin-bottom:11px;
-
-  padding:13px;
-
-  border-radius:17px;
-
-  border:
-    1px solid
-    rgba(55,230,125,.22);
-
-  background:
-    linear-gradient(
-      145deg,
-      #102d1b,
-      #0a2013
-    );
-}
-
-.ge-info-title{
+.source-row{
   display:flex;
-
-  align-items:center;
-
-  justify-content:space-between;
-
+  flex-wrap:wrap;
   gap:8px;
 
-  margin-bottom:9px;
+  margin-bottom:13px;
 }
 
-.ge-info-title strong{
-  color:var(--green);
-
-  font-size:10px;
-}
-
-.ge-source{
-  color:var(--muted);
-
-  font-size:8px;
-}
-
-.channel-list{
-  display:flex;
-
-  flex-wrap:wrap;
-
-  gap:6px;
-}
-
-.channel{
-  padding:
-    7px 9px;
+.source-chip{
+  padding:7px 11px;
 
   border-radius:999px;
 
   background:
-    rgba(255,255,255,.055);
+    rgba(50,231,124,.1);
 
-  color:#e7f2ea;
+  color:var(--green);
 
   font-size:9px;
-
-  font-weight:900;
+  font-weight:950;
 }
 
-.channel.free{
-  color:var(--green);
+.premium-match{
+  display:grid;
+
+  grid-template-columns:
+    1fr auto 1fr;
+
+  align-items:center;
+
+  gap:12px;
+
+  padding:20px;
+
+  border-radius:23px;
+
+  background:var(--card);
+
+  margin-bottom:14px;
+}
+
+.premium-team{
+  text-align:center;
+}
+
+.premium-team img{
+  width:80px;
+  height:80px;
+  object-fit:contain;
+}
+
+.premium-team strong{
+  display:block;
+
+  margin-top:8px;
+
+  font-size:15px;
+}
+
+.x{
+  color:var(--gold);
+
+  font-size:26px;
+  font-weight:950;
+}
+
+.block{
+  padding:17px;
+
+  margin-bottom:13px;
 
   border:
     1px solid
-    rgba(55,230,125,.28);
+    var(--border);
+
+  border-radius:23px;
+
+  background:
+    rgba(11,37,22,.72);
 }
 
-.ge-extra-row{
+.block h3{
+  margin:0 0 14px;
+
+  font-size:20px;
+}
+
+.prob{
+  display:grid;
+  gap:13px;
+}
+
+.prob-line{
+  display:grid;
+
+  grid-template-columns:
+    110px
+    1fr
+    55px;
+
+  gap:10px;
+
+  align-items:center;
+}
+
+.prob-name{
+  font-size:11px;
+}
+
+.bar{
+  height:10px;
+
+  overflow:hidden;
+
+  border-radius:999px;
+
+  background:
+    rgba(255,255,255,.07);
+}
+
+.fill{
+  height:100%;
+  background:var(--green);
+}
+
+.fill.draw{
+  background:var(--gold);
+}
+
+.prob-value{
+  text-align:right;
+
+  color:var(--green);
+
+  font-size:20px;
+  font-weight:950;
+}
+
+.prob-value.draw{
+  color:var(--gold);
+}
+
+.compare-grid{
+  display:grid;
+  gap:9px;
+}
+
+.compare{
+  padding:13px;
+
+  border-radius:17px;
+
+  background:var(--card2);
+}
+
+.compare-label{
   display:flex;
+  justify-content:space-between;
 
-  flex-wrap:wrap;
+  margin-bottom:9px;
 
-  gap:7px;
+  color:var(--muted);
 
-  margin-top:10px;
+  font-size:9px;
 }
 
-.ge-extra{
-  padding:
-    7px 9px;
+.compare-values{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+}
 
-  border-radius:10px;
+.compare-value{
+  padding:9px;
+
+  border-radius:12px;
+
+  text-align:center;
 
   background:
     rgba(255,255,255,.04);
 
-  color:#c9dad0;
-
-  font-size:8px;
-}
-
-
-/* BUTTONS */
-
-.game-buttons{
-  display:grid;
-
-  grid-template-columns:
-    repeat(
-      2,
-      1fr
-    );
-
-  gap:7px;
-
-  padding-top:11px;
-
-  border-top:
-    1px solid
-    rgba(255,255,255,.05);
-}
-
-.action{
-  min-height:44px;
-
-  display:flex;
-
-  align-items:center;
-  justify-content:center;
-
-  padding:
-    10px 8px;
-
-  border-radius:13px;
-
-  border:
-    1px solid
-    var(--border);
-
-  background:var(--card2);
-
-  color:#fff;
-
-  text-align:center;
-
-  font-size:10px;
-
-  font-weight:900;
-}
-
-.action.primary{
-  background:var(--green);
-
-  color:#03200c;
-}
-
-.action.analysis{
-  background:
-    linear-gradient(
-      135deg,
-      #342b0b,
-      #171407
-    );
-
-  color:var(--gold);
-
-  border-color:
-    rgba(255,210,87,.4);
-}
-
-.action.ge{
-  background:#11281b;
-
-  color:#a8ffca;
-}
-
-.action.free{
-  background:
-    linear-gradient(
-      135deg,
-      #17b95b,
-      #37e67d
-    );
-
-  color:#03200c;
-}
-
-
-/* TABLE */
-
-.league-select{
-  width:100%;
-
-  margin-bottom:12px;
-
-  padding:13px;
-
-  border-radius:15px;
-
-  border:
-    1px solid
-    var(--border);
-
-  background:var(--card);
-
-  color:#fff;
-}
-
-.table-wrap{
-  overflow-x:auto;
-
-  border-radius:20px;
-
-  border:
-    1px solid
-    var(--border);
-}
-
-table{
-  width:100%;
-
-  min-width:650px;
-
-  border-collapse:collapse;
-
-  background:var(--card);
-}
-
-th,
-td{
-  padding:
-    11px 9px;
-
-  border-bottom:
-    1px solid
-    rgba(255,255,255,.045);
-
-  text-align:center;
-
-  font-size:10px;
-}
-
-th{
-  color:var(--muted);
-}
-
-.team-cell{
-  text-align:left;
-}
-
-.table-team{
-  display:flex;
-
-  align-items:center;
-
-  gap:8px;
-}
-
-.table-team img{
-  width:27px;
-  height:27px;
-
-  object-fit:contain;
-}
-
-
-/* TV */
-
-.media-grid{
-  display:grid;
-
-  grid-template-columns:
-    repeat(
-      2,
-      1fr
-    );
-
-  gap:10px;
-}
-
-.media-card{
-  min-height:185px;
-
-  display:flex;
-
-  flex-direction:column;
-
-  padding:16px;
-
-  border-radius:22px;
-
-  border:
-    1px solid
-    var(--border);
-
-  background:
-    linear-gradient(
-      145deg,
-      #0d2416,
-      #08170e
-    );
-}
-
-.network-logo-wrap{
-  width:63px;
-  height:63px;
-
-  display:flex;
-
-  align-items:center;
-  justify-content:center;
-
-  margin-bottom:11px;
-
-  border-radius:17px;
-
-  background:#fff;
-}
-
-.network-logo{
-  width:48px;
-  height:48px;
-
-  object-fit:contain;
-}
-
-.media-icon{
-  margin-bottom:10px;
-
-  font-size:30px;
-}
-
-.media-badge{
-  align-self:flex-start;
-
-  margin-bottom:8px;
-
-  padding:
-    5px 8px;
-
-  border-radius:999px;
-
-  background:
-    rgba(55,230,125,.1);
-
-  color:var(--green);
-
-  font-size:8px;
-
   font-weight:950;
 }
 
-.media-card h4{
-  margin:
-    0 0
-    6px;
+.lineup{
+  padding:15px;
+
+  border-radius:18px;
+
+  background:var(--card2);
+
+  margin-bottom:10px;
 }
 
-.media-card p{
-  flex:1;
+.lineup h4{
+  margin:0 0 8px;
+  font-size:17px;
+}
 
-  margin:0;
+.coach{
+  color:var(--gold);
+
+  font-size:10px;
+  font-weight:900;
+}
+
+.lineup-title{
+  margin-top:14px;
+
+  color:var(--green);
+
+  font-size:9px;
+  font-weight:950;
+}
+
+.lineup p{
+  margin:7px 0 0;
+
+  color:#e1eee5;
+
+  line-height:1.5;
+
+  font-size:12px;
+}
+
+.extra{
+  margin-top:10px;
+
+  padding-top:9px;
+
+  border-top:
+    1px solid
+    rgba(255,255,255,.07);
 
   color:var(--muted);
 
@@ -1341,666 +899,64 @@ th{
   line-height:1.45;
 }
 
-.media-open{
+.provider-list{
   display:flex;
-
-  justify-content:space-between;
-
-  margin-top:12px;
-
-  padding-top:10px;
-
-  border-top:
-    1px solid
-    rgba(255,255,255,.05);
-
-  font-size:9px;
-
-  font-weight:900;
-}
-
-
-/* PREMIUM */
-
-.premium-hero{
-  padding:
-    26px 20px;
-
-  border-radius:28px;
-
-  border:
-    1px solid
-    rgba(255,210,87,.36);
-
-  background:
-    linear-gradient(
-      145deg,
-      #181907,
-      #081e13
-    );
-}
-
-.premium-crown{
-  font-size:44px;
-}
-
-.premium-tag{
-  display:inline-block;
-
-  margin-top:12px;
-
-  padding:
-    7px 10px;
-
-  border-radius:999px;
-
-  background:
-    rgba(255,210,87,.12);
-
-  color:var(--gold);
-
-  font-size:8px;
-
-  font-weight:950;
-}
-
-.premium-hero h2{
-  margin:
-    13px 0
-    8px;
-
-  font-size:32px;
-}
-
-.premium-hero p{
-  margin:0;
-
-  color:#cbdad0;
-
-  font-size:12px;
-
-  line-height:1.55;
-}
-
-.activate-premium{
-  width:100%;
-
-  margin-top:16px;
-
-  padding:14px;
-
-  border:0;
-
-  border-radius:15px;
-
-  background:
-    linear-gradient(
-      90deg,
-      var(--gold),
-      #fff0a7
-    );
-
-  color:#251d00;
-
-  font-weight:950;
-}
-
-.activate-premium.active{
-  background:
-    linear-gradient(
-      90deg,
-      var(--green),
-      #8bf4b0
-    );
-
-  color:#03200c;
-}
-
-
-/* MODAL */
-
-.modal{
-  position:fixed;
-
-  inset:0;
-
-  z-index:9999;
-
-  display:none;
-
-  align-items:flex-end;
-
-  background:
-    rgba(0,0,0,.84);
-
-  backdrop-filter:
-    blur(12px);
-
-  -webkit-backdrop-filter:
-    blur(12px);
-}
-
-.modal.active{
-  display:flex;
-}
-
-.modal-sheet{
-  width:100%;
-
-  max-height:
-    100dvh;
-
-  overflow-y:auto;
-
-  padding:
-    calc(
-      18px +
-      env(safe-area-inset-top)
-    )
-    16px
-    calc(
-      34px +
-      env(safe-area-inset-bottom)
-    );
-
-  border-radius:
-    32px
-    32px
-    0
-    0;
-
-  border-top:
-    1px solid
-    rgba(255,210,87,.42);
-
-  background:
-    linear-gradient(
-      180deg,
-      #0b1c11,
-      #041009
-    );
-}
-
-.modal-top{
-  position:sticky;
-
-  top:
-    calc(
-      -18px -
-      env(safe-area-inset-top)
-    );
-
-  z-index:30;
-
-  display:flex;
-
-  justify-content:space-between;
-  align-items:center;
-
-  gap:10px;
-
-  margin:
-    calc(
-      -18px -
-      env(safe-area-inset-top)
-    )
-    -16px
-    14px;
-
-  padding:
-    calc(
-      22px +
-      env(safe-area-inset-top)
-    )
-    16px
-    14px;
-
-  background:
-    rgba(11,28,17,.98);
-
-  border-bottom:
-    1px solid
-    rgba(255,255,255,.04);
-}
-
-.modal-title small{
-  color:var(--gold);
-
-  font-size:8px;
-
-  font-weight:950;
-}
-
-.modal-title h2{
-  margin:
-    5px 0
-    0;
-
-  font-size:
-    clamp(
-      27px,
-      8vw,
-      38px
-    );
-}
-
-.close-modal{
-  width:49px;
-  height:49px;
-
-  border-radius:50%;
-
-  border:
-    1px solid
-    var(--border);
-
-  background:var(--card2);
-
-  color:#fff;
-
-  font-size:19px;
-}
-
-.analysis-match{
-  display:grid;
-
-  grid-template-columns:
-    1fr
-    auto
-    1fr;
-
-  gap:10px;
-
-  align-items:center;
-
-  padding:18px 12px;
-
-  border-radius:23px;
-
-  background:#0c2516;
-}
-
-.analysis-team{
-  text-align:center;
-
-  font-size:13px;
-
-  font-weight:900;
-}
-
-.analysis-team img{
-  width:64px;
-  height:64px;
-
-  object-fit:contain;
-
-  margin-bottom:7px;
-}
-
-.analysis-vs{
-  color:var(--gold);
-
-  font-size:21px;
-
-  font-weight:950;
-}
-
-.analysis-section{
-  margin-top:13px;
-
-  padding:16px;
-
-  border-radius:22px;
-
-  border:
-    1px solid
-    var(--border);
-
-  background:#0c2215;
-}
-
-.analysis-section h3{
-  margin:
-    0 0
-    13px;
-
-  font-size:
-    clamp(
-      20px,
-      6vw,
-      29px
-    );
-}
-
-.source-row{
-  display:flex;
-
   flex-wrap:wrap;
 
   gap:7px;
 
-  margin-bottom:13px;
+  margin-bottom:12px;
 }
 
-.source-chip{
-  padding:
-    7px 10px;
+.provider{
+  padding:8px 11px;
 
   border-radius:999px;
-
-  background:
-    rgba(55,230,125,.09);
-
-  color:var(--green);
-
-  font-size:8px;
-
-  font-weight:950;
-}
-
-
-/* PROBABILITY */
-
-.probability-list{
-  display:grid;
-
-  gap:12px;
-}
-
-.prob-row{
-  display:grid;
-
-  grid-template-columns:
-    minmax(88px,1fr)
-    2fr
-    auto;
-
-  gap:9px;
-
-  align-items:center;
-}
-
-.prob-name{
-  font-size:10px;
-}
-
-.prob-track{
-  height:10px;
-
-  overflow:hidden;
-
-  border-radius:999px;
-
-  background:
-    rgba(255,255,255,.06);
-}
-
-.prob-fill{
-  height:100%;
-
-  border-radius:999px;
-
-  background:var(--green);
-}
-
-.prob-fill.draw{
-  background:var(--gold);
-}
-
-.prob-value{
-  min-width:43px;
-
-  text-align:right;
-
-  color:var(--green);
-
-  font-size:18px;
-
-  font-weight:950;
-}
-
-.prob-value.draw{
-  color:var(--gold);
-}
-
-
-/* SUMMARY */
-
-.executive{
-  margin-top:13px;
-
-  padding:17px;
-
-  border-radius:23px;
-
-  border:
-    1px solid
-    rgba(255,210,87,.4);
-
-  background:
-    linear-gradient(
-      135deg,
-      #17220d,
-      #0b1d12
-    );
-}
-
-.executive-label{
-  color:var(--gold);
-
-  font-size:8px;
-
-  font-weight:950;
-}
-
-.executive h3{
-  margin:
-    8px 0
-    13px;
-
-  font-size:
-    clamp(
-      22px,
-      6vw,
-      30px
-    );
-}
-
-.exec-grid{
-  display:grid;
-
-  grid-template-columns:
-    repeat(
-      3,
-      1fr
-    );
-
-  gap:7px;
-}
-
-.exec-box{
-  padding:
-    11px 7px;
-
-  border-radius:15px;
-
-  background:
-    rgba(255,255,255,.05);
-
-  text-align:center;
-}
-
-.exec-box small{
-  display:block;
-
-  min-height:22px;
-
-  color:var(--muted);
-
-  font-size:7px;
-}
-
-.exec-box strong{
-  display:block;
-
-  margin-top:5px;
-
-  color:var(--green);
-
-  font-size:
-    clamp(
-      11px,
-      3.4vw,
-      15px
-    );
-}
-
-.exec-box.gold strong{
-  color:var(--gold);
-}
-
-.executive p{
-  margin:
-    13px 0
-    0;
-
-  color:#d4e3d9;
-
-  font-size:11px;
-
-  line-height:1.6;
-}
-
-
-/* LINEUPS */
-
-.lineup-team{
-  padding:14px;
-
-  margin-top:10px;
-
-  border-radius:17px;
 
   background:var(--card2);
-}
 
-.lineup-team:first-child{
-  margin-top:0;
-}
-
-.lineup-team h4{
-  margin:
-    0 0
-    5px;
-
-  font-size:17px;
-}
-
-.coach{
-  color:var(--gold);
-
-  font-size:9px;
-
+  font-size:10px;
   font-weight:900;
 }
 
-.lineup-title{
-  margin-top:13px;
-
-  color:var(--green);
-
-  font-size:8px;
-
-  font-weight:950;
+.provider-buttons{
+  display:grid;
+  gap:8px;
 }
 
-.lineup-text{
-  margin-top:6px;
+.provider-btn{
+  min-height:46px;
 
-  color:#e4f0e8;
+  display:flex;
+  justify-content:center;
+  align-items:center;
 
-  font-size:11px;
-
-  line-height:1.6;
-}
-
-.lineup-detail{
-  margin-top:10px;
-
-  padding-top:10px;
-
-  border-top:
+  border:
     1px solid
-    rgba(255,255,255,.05);
-
-  color:var(--muted);
-
-  font-size:9px;
-
-  line-height:1.5;
-}
-
-.lineup-detail b{
-  color:#fff;
-}
-
-
-/* TREND */
-
-.trend-card{
-  padding:15px;
-
-  border-radius:17px;
-
-  background:
-    rgba(255,210,87,.07);
-}
-
-.trend-card small{
-  color:var(--gold);
-
-  font-size:8px;
-
-  font-weight:950;
-}
-
-.trend-card strong{
-  display:block;
-
-  margin-top:7px;
-
-  font-size:18px;
-}
-
-.trend-card p{
-  margin:
-    8px 0
-    0;
-
-  color:#d3ded6;
-
-  font-size:11px;
-
-  line-height:1.55;
-}
-
-.warning{
-  margin-top:13px;
-
-  padding:13px;
+    var(--border);
 
   border-radius:15px;
 
-  background:
-    rgba(255,210,87,.06);
+  background:var(--card2);
 
-  color:#ffe9a7;
-
-  font-size:9px;
-
-  line-height:1.5;
+  font-size:11px;
+  font-weight:950;
 }
 
+.provider-btn.green{
+  color:#062213;
+
+  background:var(--green);
+
+  border-color:var(--green);
+}
+
+.provider-btn.ge{
+  color:#baffd4;
+
+  background:
+    rgba(50,231,124,.08);
+}
 
 /* BOTTOM NAV */
 
@@ -2011,110 +967,98 @@ th{
   right:0;
   bottom:0;
 
-  z-index:1200;
+  z-index:2000;
 
   display:grid;
-
   grid-template-columns:
-    repeat(
-      6,
-      1fr
-    );
+    repeat(6,1fr);
 
   padding:
-    7px
-    2px
+    8px
+    5px
     calc(
-      7px +
+      8px +
       env(safe-area-inset-bottom)
     );
 
   background:
-    rgba(3,15,8,.98);
+    rgba(2,16,8,.97);
 
   border-top:
     1px solid
-    rgba(255,255,255,.04);
+    rgba(255,255,255,.06);
+
+  backdrop-filter:blur(20px);
 }
 
 .nav-btn{
-  padding:
-    5px 1px;
-
   border:0;
-
   background:none;
 
-  color:#718679;
+  color:#758a7c;
 
   font-size:8px;
-
   font-weight:900;
 }
 
 .nav-btn span{
   display:block;
-
-  font-size:18px;
+  font-size:24px;
+  margin-bottom:2px;
 }
 
 .nav-btn.active{
   color:var(--green);
 }
 
-.premium-nav.active{
-  color:var(--gold);
-}
-
+/* DESKTOP */
 
 @media(min-width:720px){
 
-  .stats{
+  .games{
     grid-template-columns:
-      repeat(
-        4,
-        1fr
-      );
+      repeat(2,1fr);
   }
 
-  .media-grid{
+  .service-grid{
     grid-template-columns:
-      repeat(
-        4,
-        1fr
-      );
+      repeat(3,1fr);
   }
 
-  .modal-sheet{
-    width:720px;
+  .modal{
+    align-items:center;
+    padding:20px;
+  }
 
+  .modal-card{
+    border-radius:30px;
+    max-height:94vh;
     margin:auto;
-
-    max-height:96vh;
+    border:
+      1px solid
+      rgba(255,209,83,.4);
   }
+
 }
 
 </style>
-
 </head>
-
 
 <body>
 
-
 <header class="app-header">
 
-  <div class="header-brand">
+  <div class="brand">
 
     <img
-      class="header-logo"
       src="stanley-sports-logo.png"
+      class="logo"
       alt="Stanley Sports"
     >
 
     <div>
 
-      <div class="brand-small">
+      <div class="brand-label">
         FUTEBOL • TV • ENTRETENIMENTO
       </div>
 
@@ -2126,232 +1070,22 @@ th{
 
   </div>
 
-
   <button
-    class="refresh-btn"
-    id="refreshBtn"
+    class="refresh"
+    onclick="refreshAll()"
+    aria-label="Atualizar"
   >
     ↻
   </button>
 
 </header>
 
-
 <main>
 
-
-<section class="hero">
-
-  <div class="hero-photo"></div>
-
-  <div class="hero-shade"></div>
-
-  <div class="hero-content">
-
-    <img
-      class="hero-logo"
-      src="stanley-sports-logo.png"
-      alt=""
-    >
-
-    <div class="hero-label">
-
-      <span class="hero-dot"></span>
-
-      STANLEY SPORTS
-
-    </div>
-
-    <h2>
-      O esporte começa aqui.
-    </h2>
-
-    <p>
-      Placares, transmissão,
-      Tempo Real, escalações,
-      tabelas e análise Premium.
-    </p>
-
-    <div class="hero-actions">
-
-      <button
-        class="hero-btn primary"
-        onclick="openView('Games')"
-      >
-        ⚽ Ver jogos
-      </button>
-
-      <button
-        class="hero-btn gold"
-        onclick="openView('Premium')"
-      >
-        👑 Premium
-      </button>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- JOGOS -->
-
 <section
-  id="viewGames"
+  id="viewJogos"
   class="view active"
 >
-
-  <div class="premium-home">
-
-    <div class="premium-home-icon">
-      👑
-    </div>
-
-    <div class="premium-home-text">
-
-      <small>
-        STANLEY SPORTS PREMIUM
-      </small>
-
-      <strong>
-        Grátis no lançamento
-      </strong>
-
-      <span id="premiumHomeStatus">
-        Ative para liberar análises.
-      </span>
-
-    </div>
-
-    <button
-      class="premium-home-btn"
-      onclick="openView('Premium')"
-    >
-      Ver
-    </button>
-
-  </div>
-
-
-  <div class="stats">
-
-    <div class="stat">
-
-      <small>
-        JOGOS
-      </small>
-
-      <strong id="totalGames">
-        0
-      </strong>
-
-    </div>
-
-
-    <div class="stat">
-
-      <small>
-        AO VIVO
-      </small>
-
-      <strong
-        id="liveGames"
-        class="red"
-      >
-        0
-      </strong>
-
-    </div>
-
-
-    <div class="stat">
-
-      <small>
-        BRASIL
-      </small>
-
-      <strong
-        id="brazilGames"
-        class="green"
-      >
-        0
-      </strong>
-
-    </div>
-
-
-    <div class="stat">
-
-      <small>
-        FAVORITOS
-      </small>
-
-      <strong
-        id="favoriteCount"
-        class="yellow"
-      >
-        0
-      </strong>
-
-    </div>
-
-  </div>
-
-
-  <div class="search">
-
-    <span>
-      🔎
-    </span>
-
-    <input
-      id="searchInput"
-      placeholder="Buscar time ou campeonato"
-    >
-
-  </div>
-
-
-  <div class="chips">
-
-    <button
-      class="chip game-chip active"
-      data-filter="all"
-    >
-      Todos
-    </button>
-
-    <button
-      class="chip game-chip"
-      data-filter="live"
-    >
-      🔴 Ao vivo
-    </button>
-
-    <button
-      class="chip game-chip"
-      data-filter="brazil"
-    >
-      🇧🇷 Brasil
-    </button>
-
-    <button
-      class="chip game-chip"
-      data-filter="favorites"
-    >
-      ⭐ Favoritos
-    </button>
-
-    <button
-      class="chip game-chip"
-      data-filter="europe"
-    >
-      🇪🇺 Europa
-    </button>
-
-  </div>
-
 
   <div class="section-head">
 
@@ -2361,368 +1095,304 @@ th{
         PARTIDAS
       </span>
 
-      <h3>
+      <h2>
         Jogos
-      </h3>
+      </h2>
 
     </div>
 
-    <span
+    <div
+      id="gameCount"
       class="counter"
-      id="visibleGames"
     >
       0
-    </span>
+    </div>
 
   </div>
-
-
-  <div
-    id="gamesLoading"
-    class="loading"
-  >
-    Atualizando partidas...
-  </div>
-
 
   <div
     id="games"
     class="games"
-  ></div>
-
-
-  <div
-    id="gamesEmpty"
-    class="empty"
-    style="display:none"
   >
-    Nenhuma partida encontrada.
+
+    <div class="loading">
+      ⚽ Carregando partidas...
+    </div>
+
   </div>
 
 </section>
 
 
-<!-- TABELA -->
-
 <section
-  id="viewTable"
+  id="viewTabela"
   class="view"
 >
 
   <div class="section-head">
-
     <div>
-
       <span class="eyebrow">
         CLASSIFICAÇÃO
       </span>
-
-      <h3>
+      <h2>
         Tabela
-      </h3>
-
+      </h2>
     </div>
+  </div>
+
+  <div class="panel">
+
+    <select
+      id="tableLeague"
+      onchange="loadStandings()"
+      style="
+        width:100%;
+        padding:13px;
+        border-radius:14px;
+        background:#102b1b;
+        color:#fff;
+        border:1px solid #21633b;
+      "
+    >
+      <option value="bra.1">
+        Brasileirão Série A
+      </option>
+
+      <option value="bra.2">
+        Brasileirão Série B
+      </option>
+
+      <option value="eng.1">
+        Premier League
+      </option>
+
+      <option value="esp.1">
+        LaLiga
+      </option>
+    </select>
 
   </div>
 
-
-  <select
-    id="leagueSelect"
-    class="league-select"
-  >
-
-    <option value="bra.1">
-      Brasileirão Série A
-    </option>
-
-    <option value="bra.2">
-      Brasileirão Série B
-    </option>
-
-    <option value="eng.1">
-      Premier League
-    </option>
-
-    <option value="esp.1">
-      LaLiga
-    </option>
-
-  </select>
-
-
-  <div
-    id="standingsLoading"
-    class="loading"
-  >
-    Carregando classificação...
-  </div>
-
-
-  <div
-    id="standingsWrap"
-    class="table-wrap"
-    style="display:none"
-  >
-
-    <table>
-
-      <thead>
-
-        <tr>
-          <th>#</th>
-          <th>TIME</th>
-          <th>PTS</th>
-          <th>J</th>
-          <th>V</th>
-          <th>E</th>
-          <th>D</th>
-        </tr>
-
-      </thead>
-
-      <tbody id="standingsBody"></tbody>
-
-    </table>
-
+  <div id="standings">
+    <div class="loading">
+      📊 Selecione a competição.
+    </div>
   </div>
 
 </section>
 
 
-<!-- TV -->
-
 <section
-  id="viewTv"
+  id="viewTV"
   class="view"
 >
 
   <div class="section-head">
-
     <div>
-
       <span class="eyebrow">
-        CANAIS OFICIAIS
+        CANAIS
       </span>
-
-      <h3>
+      <h2>
         TV
-      </h3>
-
+      </h2>
     </div>
-
   </div>
 
   <div
     id="tvGrid"
-    class="media-grid"
+    class="service-grid"
   ></div>
 
 </section>
 
 
-<!-- FILMES -->
-
 <section
-  id="viewMovies"
+  id="viewFilmes"
   class="view"
 >
 
   <div class="section-head">
-
     <div>
-
       <span class="eyebrow">
         ENTRETENIMENTO
       </span>
-
-      <h3>
-        Filmes & desenhos
-      </h3>
-
+      <h2>
+        Filmes
+      </h2>
     </div>
-
   </div>
 
   <div
-    id="movieGrid"
-    class="media-grid"
+    id="moviesGrid"
+    class="service-grid"
   ></div>
 
 </section>
 
 
-<!-- FAVORITOS -->
-
 <section
-  id="viewFavorites"
+  id="viewFavoritos"
   class="view"
 >
 
   <div class="section-head">
-
     <div>
-
       <span class="eyebrow">
-        MEUS JOGOS
+        SEUS JOGOS
       </span>
-
-      <h3>
+      <h2>
         Favoritos
-      </h3>
-
+      </h2>
     </div>
-
   </div>
 
-
   <div
-    id="favoriteGames"
+    id="favoritesGames"
     class="games"
   ></div>
 
-
-  <div
-    id="favoritesEmpty"
-    class="empty"
-  >
-    ⭐ Favorite uma partida.
-  </div>
-
 </section>
 
-
-<!-- PREMIUM -->
 
 <section
   id="viewPremium"
   class="view"
 >
 
-  <div class="premium-hero">
-
-    <div class="premium-crown">
-      👑
+  <div class="section-head">
+    <div>
+      <span class="eyebrow">
+        STANLEY SPORTS
+      </span>
+      <h2>
+        Premium
+      </h2>
     </div>
+  </div>
 
-    <div class="premium-tag">
-      PREMIUM • LANÇAMENTO
-    </div>
+  <div class="panel">
 
-    <h2>
-      Stanley Sports Premium
-    </h2>
+    <h3>
+      👑 Stanley Sports Premium
+    </h3>
 
-    <p>
-      Análises estatísticas,
-      provável escalação,
-      forma recente,
-      probabilidades e tendências.
+    <p style="
+      color:var(--muted);
+      line-height:1.6;
+      font-size:12px;
+    ">
+      Análise estatística das partidas,
+      probabilidades, comparativos,
+      tendências, transmissões,
+      Tempo Real e informações pré-jogo.
     </p>
-
-    <button
-      id="activatePremiumBtn"
-      class="activate-premium"
-      onclick="activatePremium()"
-    >
-      👑 Ativar Premium grátis
-    </button>
 
   </div>
 
 </section>
-
 
 </main>
 
 
 <nav class="bottom-nav">
 
-  <button
-    class="nav-btn active"
-    data-view="Games"
-  >
-    <span>⚽</span>
-    Jogos
-  </button>
+<button
+  class="nav-btn active"
+  data-view="Jogos"
+  onclick="openView('Jogos',this)"
+>
+  <span>⚽</span>
+  Jogos
+</button>
 
-  <button
-    class="nav-btn"
-    data-view="Table"
-  >
-    <span>📊</span>
-    Tabela
-  </button>
+<button
+  class="nav-btn"
+  data-view="Tabela"
+  onclick="openView('Tabela',this)"
+>
+  <span>📊</span>
+  Tabela
+</button>
 
-  <button
-    class="nav-btn"
-    data-view="Tv"
-  >
-    <span>📺</span>
-    TV
-  </button>
+<button
+  class="nav-btn"
+  data-view="TV"
+  onclick="openView('TV',this)"
+>
+  <span>📺</span>
+  TV
+</button>
 
-  <button
-    class="nav-btn"
-    data-view="Movies"
-  >
-    <span>🎬</span>
-    Filmes
-  </button>
+<button
+  class="nav-btn"
+  data-view="Filmes"
+  onclick="openView('Filmes',this)"
+>
+  <span>🎬</span>
+  Filmes
+</button>
 
-  <button
-    class="nav-btn"
-    data-view="Favorites"
-  >
-    <span>⭐</span>
-    Favoritos
-  </button>
+<button
+  class="nav-btn"
+  data-view="Favoritos"
+  onclick="openView('Favoritos',this)"
+>
+  <span>⭐</span>
+  Favoritos
+</button>
 
-  <button
-    class="nav-btn premium-nav"
-    data-view="Premium"
-  >
-    <span>👑</span>
-    Premium
-  </button>
+<button
+  class="nav-btn"
+  data-view="Premium"
+  onclick="openView('Premium',this)"
+>
+  <span>👑</span>
+  Premium
+</button>
 
 </nav>
 
 
-<!-- MODAL -->
-
 <div
-  id="mainModal"
+  id="modal"
   class="modal"
+  onclick="
+    if(event.target===this){
+      closeModal()
+    }
+  "
 >
 
-  <div class="modal-sheet">
+  <div class="modal-card">
 
-    <div class="modal-top">
+    <div class="modal-head">
 
-      <div class="modal-title">
+      <div>
+        <div class="premium-label">
+          STANLEY SPORTS PREMIUM
+        </div>
 
-        <small id="modalSmall">
-          STANLEY SPORTS
-        </small>
-
-        <h2 id="modalTitle">
-          Detalhes
+        <h2
+          id="modalTitle"
+          class="modal-title"
+        >
+          🔥 Análise da partida
         </h2>
-
       </div>
 
-
       <button
-        class="close-modal"
+        class="close"
         onclick="closeModal()"
       >
-        ✕
+        ×
       </button>
 
     </div>
 
-
-    <div id="modalContent"></div>
+    <div
+      id="modalBody"
+      class="modal-body"
+    ></div>
 
   </div>
 
@@ -2732,543 +1402,158 @@ th{
 <script>
 
 /* =========================================================
-   STANLEY SPORTS V53
+   V54
 ========================================================= */
 
-const APP_VERSION = "53.0";
+const APP_VERSION =
+  "54.0";
 
 const WORKER =
   "https://stanley-sports-api.phwdjnnr9m.workers.dev";
 
+const ESPN_BASE =
+  "https://site.api.espn.com/apis/site/v2/sports/soccer";
 
-let premiumActive =
-  localStorage.getItem(
-    "stanleySportsPremium"
-  ) === "active";
+const ESPN_STANDINGS =
+  "https://site.api.espn.com/apis/v2/sports/soccer";
+
+
+const LEAGUES = [
+
+  {
+    slug:"bra.1",
+    name:"Brasileirão Série A"
+  },
+
+  {
+    slug:"bra.2",
+    name:"Brasileirão Série B"
+  },
+
+  {
+    slug:"bra.copa_do_brazil",
+    name:"Copa do Brasil"
+  },
+
+  {
+    slug:"conmebol.libertadores",
+    name:"Libertadores"
+  },
+
+  {
+    slug:"conmebol.sudamericana",
+    name:"Sul-Americana"
+  },
+
+  {
+    slug:"uefa.champions",
+    name:"Champions League"
+  },
+
+  {
+    slug:"eng.1",
+    name:"Premier League"
+  },
+
+  {
+    slug:"esp.1",
+    name:"LaLiga"
+  }
+
+];
+
+
+let allGames =
+  [];
+
+let geCache =
+  {};
+
+let analysisCache =
+  {};
 
 
 let favorites =
   JSON.parse(
     localStorage.getItem(
-      "stanleySportsFavorites"
-    ) || "[]"
-  );
-
-
-let allGames = [];
-
-let gameFilter = "all";
-
-let searchText = "";
-
-
-const geCache =
-  new Map();
-
-
-const analysisCache =
-  new Map();
-
-
-const $ =
-  selector =>
-    document.querySelector(
-      selector
-    );
-
-
-const $$ =
-  selector =>
-    [
-      ...document.querySelectorAll(
-        selector
-      )
-    ];
-
-
-/* =========================================================
-   LEAGUES
-========================================================= */
-
-const leagues = [
-
-  {
-    slug:"bra.1",
-    name:"Brasileirão Série A",
-    group:"brazil",
-  },
-
-  {
-    slug:"bra.2",
-    name:"Brasileirão Série B",
-    group:"brazil",
-  },
-
-  {
-    slug:"bra.copa_do_brazil",
-    name:"Copa do Brasil",
-    group:"brazil",
-  },
-
-  {
-    slug:"conmebol.libertadores",
-    name:"Libertadores",
-    group:"southamerica",
-  },
-
-  {
-    slug:"conmebol.sudamericana",
-    name:"Sul-Americana",
-    group:"southamerica",
-  },
-
-  {
-    slug:"uefa.champions",
-    name:"Champions League",
-    group:"europe",
-  },
-
-  {
-    slug:"eng.1",
-    name:"Premier League",
-    group:"europe",
-  },
-
-  {
-    slug:"esp.1",
-    name:"LaLiga",
-    group:"europe",
-  },
-
-];
-
-
-/* =========================================================
-   TV
-========================================================= */
-
-const tvChannels = [
-
-  {
-    name:"TV Globo",
-    domain:"globoplay.globo.com",
-    badge:"GLOBOPLAY",
-    description:"Acesso oficial pelo Globoplay.",
-    url:"https://globoplay.globo.com/",
-  },
-
-  {
-    name:"SBT",
-    domain:"sbt.com.br",
-    badge:"AO VIVO",
-    description:"Programação oficial.",
-    url:"https://sbt.com.br/ao-vivo",
-  },
-
-  {
-    name:"Band",
-    domain:"band.com.br",
-    badge:"AO VIVO",
-    description:"Programação oficial.",
-    url:"https://www.band.com.br/ao-vivo",
-  },
-
-  {
-    name:"Record",
-    domain:"record.r7.com",
-    badge:"OFICIAL",
-    description:"Conteúdo oficial.",
-    url:"https://record.r7.com/",
-  },
-
-  {
-    name:"ge TV",
-    domain:"youtube.com",
-    badge:"ESPORTES",
-    description:"Canal esportivo oficial.",
-    url:"https://www.youtube.com/@getv",
-  },
-
-  {
-    name:"CazéTV",
-    domain:"youtube.com",
-    badge:"ESPORTES",
-    description:"Transmissões oficiais.",
-    url:"https://www.youtube.com/@CazeTV",
-  },
-
-  {
-    name:"Canal GOAT",
-    domain:"youtube.com",
-    badge:"ESPORTES",
-    description:"Futebol e transmissões.",
-    url:"https://www.youtube.com/@canalgoatbr",
-  },
-
-  {
-    name:"Premiere",
-    domain:"globoplay.globo.com",
-    badge:"ASSINATURA",
-    description:"Acesso oficial pelo Globoplay.",
-    url:"https://globoplay.globo.com/canais/premiere/",
-  },
-
-];
-
-
-/* =========================================================
-   MOVIES
-========================================================= */
-
-const entertainment = [
-
-  {
-    name:"Mercado Play",
-    icon:"▶️",
-    badge:"GRÁTIS",
-    description:"Filmes e séries grátis.",
-    url:"https://play.mercadolivre.com.br/",
-  },
-
-  {
-    name:"Plex",
-    icon:"🎞️",
-    badge:"GRÁTIS",
-    description:"Filmes e canais grátis.",
-    url:"https://watch.plex.tv/pt-BR",
-  },
-
-  {
-    name:"YouTube Kids",
-    icon:"🧸",
-    badge:"INFANTIL",
-    description:"Conteúdo infantil.",
-    url:"https://www.youtubekids.com/",
-  },
-
-  {
-    name:"Turma da Mônica",
-    icon:"🐰",
-    badge:"DESENHOS",
-    description:"Conteúdo oficial.",
-    url:"https://www.youtube.com/results?search_query=Turma+da+Monica+oficial",
-  },
-
-  {
-    name:"Mundo Bita",
-    icon:"🎪",
-    badge:"INFANTIL",
-    description:"Músicas e animações.",
-    url:"https://www.youtube.com/results?search_query=Mundo+Bita+oficial",
-  },
-
-  {
-    name:"Galinha Pintadinha",
-    icon:"🐔",
-    badge:"INFANTIL",
-    description:"Músicas infantis.",
-    url:"https://www.youtube.com/results?search_query=Galinha+Pintadinha+oficial",
-  },
-
-  {
-    name:"Prime Video",
-    icon:"🎬",
-    badge:"ASSINATURA",
-    description:"Filmes e séries.",
-    url:"https://www.primevideo.com/",
-  },
-
-  {
-    name:"Disney+",
-    icon:"🏰",
-    badge:"ASSINATURA",
-    description:"Filmes e desenhos.",
-    url:"https://www.disneyplus.com/",
-  },
-
-];
-
-
-/* =========================================================
-   HELPERS
-========================================================= */
-
-function normalize(value="") {
-
-  return String(value)
-    .normalize("NFD")
-    .replace(
-      /[\u0300-\u036f]/g,
-      ""
+      "stanleyFavorites"
     )
-    .toLowerCase();
-}
-
-
-function apiDate(iso) {
-
-  const date =
-    new Date(iso);
-
-  return (
-    `${date.getFullYear()}-${
-      String(
-        date.getMonth()+1
-      )
-      .padStart(
-        2,
-        "0"
-      )
-    }-${
-      String(
-        date.getDate()
-      )
-      .padStart(
-        2,
-        "0"
-      )
-    }`
+    ||
+    "[]"
   );
-}
 
 
-function dateKey(offset=0) {
+/* =========================================================
+   DATE
+========================================================= */
 
-  const date =
+function dateKey(
+  offset = 0
+){
+
+  const d =
     new Date();
 
-  date.setDate(
-    date.getDate()+offset
+  d.setDate(
+    d.getDate() +
+    offset
   );
-
-  return (
-    `${date.getFullYear()}${
-      String(
-        date.getMonth()+1
-      )
-      .padStart(
-        2,
-        "0"
-      )
-    }${
-      String(
-        date.getDate()
-      )
-      .padStart(
-        2,
-        "0"
-      )
-    }`
-  );
-}
-
-
-function formatTime(iso) {
-
-  return new Date(iso)
-    .toLocaleTimeString(
-      "pt-BR",
-      {
-        hour:"2-digit",
-        minute:"2-digit",
-      }
-    );
-}
-
-
-function formatDayLabel(iso) {
-
-  const date =
-    new Date(iso);
-
-  const today =
-    new Date();
-
-  if (
-    date.toDateString()
-    ===
-    today.toDateString()
-  ) {
-    return "Hoje";
-  }
-
-  return date.toLocaleDateString(
-    "pt-BR",
-    {
-      day:"2-digit",
-      month:"2-digit",
-    }
-  );
-}
-
-
-function isLive(game) {
 
   return [
-    "in",
-    "live",
-    "inprogress",
-    "in_progress",
-  ]
-  .includes(
+    d.getFullYear(),
     String(
-      game.state || ""
-    )
-    .toLowerCase()
-  );
-}
-
-
-function isFinished(game) {
-
-  return (
+      d.getMonth()+1
+    ).padStart(2,"0"),
     String(
-      game.state || ""
-    )
-    .toLowerCase()
-    ===
-    "post"
-    ||
-    game.completed === true
-  );
+      d.getDate()
+    ).padStart(2,"0")
+  ].join("");
 }
 
 
-function isFavorite(game) {
+function isoDateFromEvent(
+  game
+){
 
-  return favorites.includes(
-    String(game.id)
-  );
-}
+  const date =
+    new Date(
+      game.date
+    );
 
-
-function initials(name="") {
-
-  return String(name)
-    .split(" ")
-    .filter(Boolean)
-    .slice(0,2)
-    .map(
-      item =>
-        item[0]
-    )
-    .join("")
-    .toUpperCase();
-}
-
-
-function percentNumber(value) {
-
-  return Math.max(
-    0,
-    Math.min(
-      100,
-      Number(
-        String(value || 0)
-          .replace("%","")
-      ) || 0
-    )
-  );
+  return [
+    date.getFullYear(),
+    String(
+      date.getMonth()+1
+    ).padStart(2,"0"),
+    String(
+      date.getDate()
+    ).padStart(2,"0")
+  ].join("-");
 }
 
 
 /* =========================================================
-   ESPN
+   FETCH ESPN
 ========================================================= */
 
-function parseGame(
-  event,
-  league
-) {
-
-  const competition =
-    event.competitions?.[0];
-
-  const competitors =
-    competition?.competitors || [];
-
-  const home =
-    competitors.find(
-      item =>
-        item.homeAway === "home"
-    );
-
-  const away =
-    competitors.find(
-      item =>
-        item.homeAway === "away"
-    );
-
-  return {
-
-    id:event.id,
-
-    league:
-      league.name,
-
-    leagueSlug:
-      league.slug,
-
-    group:
-      league.group,
-
-    home:
-      home?.team?.displayName ||
-      "Mandante",
-
-    away:
-      away?.team?.displayName ||
-      "Visitante",
-
-    homeLogo:
-      home?.team?.logo || "",
-
-    awayLogo:
-      away?.team?.logo || "",
-
-    homeScore:
-      Number(
-        home?.score ?? 0
-      ),
-
-    awayScore:
-      Number(
-        away?.score ?? 0
-      ),
-
-    date:event.date,
-
-    state:
-      event.status?.type?.state || "",
-
-    detail:
-      event.status?.type?.shortDetail || "",
-
-    completed:
-      event.status?.type?.completed || false,
-  };
-}
-
-
 async function fetchLeague(
-  league,
-  date
-) {
+  league
+){
 
-  try {
+  try{
+
+    const url =
+      `${ESPN_BASE}/${league.slug}/scoreboard?dates=${dateKey()}`;
 
     const response =
       await fetch(
-
-        `https://site.api.espn.com/apis/site/v2/sports/soccer/${league.slug}/scoreboard?dates=${date}`,
-
+        url,
         {
-          cache:"no-store",
+          cache:"no-store"
         }
-
       );
 
-    if (!response.ok) {
+    if(!response.ok){
       return [];
     }
 
@@ -3280,988 +1565,522 @@ async function fetchLeague(
     )
     .map(
       event =>
-        parseGame(
+        normalizeGame(
           event,
           league
         )
     );
 
-  } catch {
+  }catch{
 
     return [];
   }
 }
 
 
-async function fetchAllLeaguesDate(
-  offset
-) {
+async function refreshAll(){
+
+  const container =
+    document.getElementById(
+      "games"
+    );
+
+  container.innerHTML =
+    `<div class="loading">
+      ⚽ Atualizando partidas...
+    </div>`;
+
 
   const results =
     await Promise.all(
-
-      leagues.map(
-
-        league =>
-          fetchLeague(
-            league,
-            dateKey(offset)
-          )
-
+      LEAGUES.map(
+        fetchLeague
       )
-
     );
+
 
   const map =
     new Map();
+
 
   results
     .flat()
     .forEach(
       game =>
         map.set(
-          String(game.id),
+          game.id,
           game
         )
     );
 
-  return [
-    ...map.values()
-  ];
-}
-
-
-async function refreshGames() {
-
-  $("#gamesLoading")
-    .style.display =
-      "block";
-
-  const [
-    yesterday,
-    today
-  ] =
-    await Promise.all([
-      fetchAllLeaguesDate(-1),
-      fetchAllLeaguesDate(0),
-    ]);
-
-  const map =
-    new Map();
-
-  [
-    ...yesterday,
-    ...today
-  ]
-  .forEach(
-    game =>
-      map.set(
-        String(game.id),
-        game
-      )
-  );
 
   allGames =
-    [
-      ...map.values()
-    ];
-
-  $("#gamesLoading")
-    .style.display =
-      "none";
-
-  renderGames();
-
-  /*
-   * V53:
-   * busca dados do ge
-   * antecipadamente.
-   */
-  enrichBrazilGames();
-}
-
-
-/* =========================================================
-   GE DATA
-========================================================= */
-
-async function fetchGeInfo(game) {
-
-  const key =
-    String(game.id);
-
-  const cached =
-    geCache.get(key);
-
-  if (
-    cached &&
-    Date.now() -
-    cached.time <
-    30 * 60 * 1000
-  ) {
-    return cached.data;
-  }
-
-  try {
-
-    const url =
-      `${WORKER}/?mode=ge` +
-      `&home=${
-        encodeURIComponent(
-          game.home
-        )
-      }` +
-      `&away=${
-        encodeURIComponent(
-          game.away
-        )
-      }` +
-      `&date=${
-        apiDate(
-          game.date
-        )
-      }`;
-
-    const response =
-      await fetch(
-        url,
-        {
-          cache:"no-store",
-        }
-      );
-
-    const data =
-      await response.json();
-
-    geCache.set(
-      key,
-      {
-        time:Date.now(),
-        data,
-      }
-    );
-
-    return data;
-
-  } catch (error) {
-
-    console.warn(
-      "GE enrichment:",
-      error
-    );
-
-    return null;
-  }
-}
-
-
-/* =========================================================
-   ENRICH BRAZIL
-========================================================= */
-
-async function enrichBrazilGames() {
-
-  /*
-   * Limita consultas simultâneas.
-   */
-  const games =
-    allGames.filter(
-      game =>
-        game.group === "brazil" &&
-        !isFinished(game)
-    );
-
-  const concurrency = 3;
-
-  let index = 0;
-
-  async function worker() {
-
-    while (
-      index < games.length
-    ) {
-
-      const game =
-        games[
-          index++
-        ];
-
-      await fetchGeInfo(
-        game
-      );
-
-      const card =
-        document.getElementById(
-          `ge-${game.id}`
-        );
-
-      if (card) {
-
-        card.outerHTML =
-          geBoxHTML(game);
-      }
-    }
-  }
-
-  await Promise.all(
-    Array.from(
-      {
-        length:
-          Math.min(
-            concurrency,
-            games.length
-          )
-      },
-      worker
-    )
-  );
-
-  renderGames();
-}
-
-
-/* =========================================================
-   GE DISPLAY
-========================================================= */
-
-function geBoxHTML(game) {
-
-  if (
-    game.group !== "brazil" ||
-    isFinished(game)
-  ) {
-    return "";
-  }
-
-  const cached =
-    geCache.get(
-      String(game.id)
-    );
-
-  if (!cached) {
-
-    return `
-      <div
-        class="ge-loading"
-        id="ge-${game.id}"
-      >
-        🔎 Procurando transmissão,
-        Tempo Real e escalações...
-      </div>
-    `;
-  }
-
-  const info =
-    cached.data;
-
-  if (
-    !info ||
-    !info.found
-  ) {
-
-    return `
-      <div
-        class="ge-loading"
-        id="ge-${game.id}"
-      >
-        📡 Transmissão ainda não confirmada
-        pela fonte consultada.
-      </div>
-    `;
-  }
-
-  const channels =
-    info.broadcasts || [];
-
-  return `
-    <div
-      class="ge-info-box"
-      id="ge-${game.id}"
-    >
-
-      <div class="ge-info-title">
-
-        <strong>
-          📺 Onde assistir
-        </strong>
-
-        <span class="ge-source">
-          Fonte: ge
-        </span>
-
-      </div>
-
-
-      ${
-        channels.length
-        ?
-        `
-          <div class="channel-list">
-
-            ${
-              channels
-                .map(
-                  channel => `
-                    <span
-                      class="
-                        channel
-                        ${
-                          isFreeChannel(channel)
-                          ?
-                          "free"
-                          :
-                          ""
-                        }
-                      "
-                    >
-                      ${channel}
-                    </span>
-                  `
-                )
-                .join("")
-            }
-
-          </div>
-        `
-        :
-        `
-          <div
-            style="
-              color:var(--muted);
-              font-size:9px;
-            "
-          >
-            Nenhuma emissora identificada.
-          </div>
-        `
-      }
-
-
-      <div class="ge-extra-row">
-
-        ${
-          info.realtimeUrl
-          ?
-          `
-            <span class="ge-extra">
-              ⏱️ Tempo Real disponível
-            </span>
-          `
-          :
-          ""
-        }
-
-
-        ${
-          info.hasLineups
-          ?
-          `
-            <span class="ge-extra">
-              👥 Prováveis escalações
-            </span>
-          `
-          :
-          ""
-        }
-
-      </div>
-
-    </div>
-  `;
-}
-
-
-function isFreeChannel(
-  channel
-) {
-
-  const name =
-    normalize(channel);
-
-  return (
-    name.includes("caze") ||
-    name.includes("ge tv") ||
-    name.includes("goat")
-  );
-}
-
-
-/* =========================================================
-   TEAM LOGO
-========================================================= */
-
-function teamLogo(
-  logo,
-  name
-) {
-
-  if (!logo) {
-
-    return `
-      <div class="team-logo-wrap">
-
-        <div class="team-logo-fallback">
-          ${initials(name)}
-        </div>
-
-      </div>
-    `;
-  }
-
-  return `
-    <div class="team-logo-wrap">
-
-      <img
-        class="team-logo"
-        src="${logo}"
-        alt="${name}"
-        onerror="
-          this.style.display='none';
-          this.nextElementSibling.style.display='grid';
-        "
-      >
-
-      <div
-        class="team-logo-fallback"
-        style="display:none"
-      >
-        ${initials(name)}
-      </div>
-
-    </div>
-  `;
-}
-
-
-/* =========================================================
-   LINKS
-========================================================= */
-
-function googleSearch(query) {
-
-  return (
-    "https://www.google.com/search?q=" +
-    encodeURIComponent(query)
-  );
-}
-
-
-function youtubeSearch(query) {
-
-  return (
-    "https://www.youtube.com/results?search_query=" +
-    encodeURIComponent(query)
-  );
-}
-
-
-/* =========================================================
-   CARD BUTTONS
-========================================================= */
-
-function geActionButtons(game) {
-
-  const cached =
-    geCache.get(
-      String(game.id)
-    );
-
-  const info =
-    cached?.data;
-
-  let html = "";
-
-  if (
-    info?.freeStream?.available &&
-    info.freeStream.url
-  ) {
-
-    html += `
-      <a
-        class="action free"
-        href="${info.freeStream.url}"
-        target="_blank"
-        rel="noopener"
-      >
-        ▶️ Assistir grátis
-      </a>
-    `;
-  }
-
-  if (
-    info?.realtimeUrl
-  ) {
-
-    html += `
-      <a
-        class="action ge"
-        href="${info.realtimeUrl}"
-        target="_blank"
-        rel="noopener"
-      >
-        ⏱️ Tempo Real ge
-      </a>
-    `;
-  }
-
-  if (
-    info?.hasLineups
-  ) {
-
-    html += `
-      <button
-        class="action ge"
-        onclick="
-          openLineups(
-            '${game.id}'
-          )
-        "
-      >
-        👥 Escalações
-      </button>
-    `;
-  }
-
-  return html;
-}
-
-
-/* =========================================================
-   GAME CARD
-========================================================= */
-
-function gameCard(game) {
-
-  const live =
-    isLive(game);
-
-  const finished =
-    isFinished(game);
-
-  const favorite =
-    isFavorite(game);
-
-  let status =
-    "AGENDADO";
-
-  let statusClass =
-    "scheduled";
-
-  if (live) {
-
-    status =
-      game.detail ||
-      "AO VIVO";
-
-    statusClass =
-      "live";
-  }
-
-  if (finished) {
-
-    status =
-      "ENCERRADO";
-
-    statusClass =
-      "";
-  }
-
-  const center =
-    live || finished
-    ?
-    `
-      <div class="score">
-
-        ${game.homeScore}
-        ×
-        ${game.awayScore}
-
-      </div>
-    `
-    :
-    `
-      <div class="kickoff">
-        ${formatDayLabel(game.date)}
-      </div>
-    `;
-
-  let buttons = "";
-
-  if (finished) {
-
-    buttons = `
-
-      <a
-        class="action"
-        href="${
-          youtubeSearch(
-            `${game.home} ${game.away} melhores momentos oficial`
-          )
-        }"
-        target="_blank"
-      >
-        🎬 Melhores momentos
-      </a>
-
-      <button
-        class="action analysis"
-        onclick="
-          openAnalysis(
-            '${game.id}'
-          )
-        "
-      >
-        👑 Análise Premium
-      </button>
-    `;
-
-  } else {
-
-    buttons = `
-
-      ${
-        geActionButtons(
-          game
-        )
-      }
-
-      <a
-        class="action primary"
-        href="${
-          googleSearch(
-            `${game.home} ${game.away} onde assistir`
-          )
-        }"
-        target="_blank"
-      >
-        🔎 Onde assistir
-      </a>
-
-      <button
-        class="action analysis"
-        onclick="
-          openAnalysis(
-            '${game.id}'
-          )
-        "
-      >
-        👑 Análise Premium
-      </button>
-    `;
-  }
-
-  return `
-    <article class="game">
-
-      <div class="game-head">
-
-        <span class="competition">
-          ${game.league}
-        </span>
-
-
-        <div class="game-right">
-
-          <span
-            class="
-              status
-              ${statusClass}
-            "
-          >
-            ${status}
-          </span>
-
-
-          <button
-            class="
-              star
-              ${
-                favorite
-                ?
-                "active"
-                :
-                ""
-              }
-            "
-            onclick="
-              toggleFavorite(
-                '${game.id}'
-              )
-            "
-          >
-            ${
-              favorite
-              ?
-              "★"
-              :
-              "☆"
-            }
-          </button>
-
-        </div>
-
-      </div>
-
-
-      <div class="match">
-
-        <div class="team">
-
-          ${
-            teamLogo(
-              game.homeLogo,
-              game.home
-            )
-          }
-
-          <div class="team-name">
-            ${game.home}
-          </div>
-
-        </div>
-
-
-        <div class="score-box">
-
-          ${center}
-
-          <div class="time">
-            ${formatTime(game.date)}
-          </div>
-
-        </div>
-
-
-        <div class="team">
-
-          ${
-            teamLogo(
-              game.awayLogo,
-              game.away
-            )
-          }
-
-          <div class="team-name">
-            ${game.away}
-          </div>
-
-        </div>
-
-      </div>
-
-
-      ${
-        geBoxHTML(
-          game
-        )
-      }
-
-
-      <div class="game-buttons">
-
-        ${buttons}
-
-      </div>
-
-    </article>
-  `;
-}
-
-
-/* =========================================================
-   FILTER
-========================================================= */
-
-function filteredGames() {
-
-  let list =
-    [...allGames];
-
-  if (
-    gameFilter === "live"
-  ) {
-
-    list =
-      list.filter(
-        isLive
-      );
-  }
-
-  if (
-    gameFilter === "brazil"
-  ) {
-
-    list =
-      list.filter(
-        game =>
-          game.group === "brazil"
-      );
-  }
-
-  if (
-    gameFilter === "europe"
-  ) {
-
-    list =
-      list.filter(
-        game =>
-          game.group === "europe"
-      );
-  }
-
-  if (
-    gameFilter === "favorites"
-  ) {
-
-    list =
-      list.filter(
-        isFavorite
-      );
-  }
-
-  if (searchText) {
-
-    const query =
-      normalize(
-        searchText
-      );
-
-    list =
-      list.filter(
-        game =>
-          normalize(
-            game.home
-          )
-          .includes(query)
-          ||
-          normalize(
-            game.away
-          )
-          .includes(query)
-          ||
-          normalize(
-            game.league
-          )
-          .includes(query)
-      );
-  }
-
-  return list.sort(
-    (a,b) => {
-
-      if (
-        isLive(a) !==
-        isLive(b)
-      ) {
-
-        return (
-          Number(
-            isLive(b)
-          ) -
-          Number(
-            isLive(a)
-          )
-        );
-      }
-
-      if (
-        isFinished(a) !==
-        isFinished(b)
-      ) {
-
-        return (
-          isFinished(a)
-          ?
-          1
-          :
-          -1
-        );
-      }
-
-      return (
+    [...map.values()]
+    .sort(
+      (a,b) =>
         new Date(a.date) -
         new Date(b.date)
-      );
-    }
+    );
+
+
+  renderGames(
+    allGames,
+    "games"
   );
-}
 
 
-/* =========================================================
-   RENDER
-========================================================= */
-
-function renderGames() {
-
-  const list =
-    filteredGames();
-
-  $("#totalGames")
+  document
+    .getElementById(
+      "gameCount"
+    )
     .textContent =
       allGames.length;
 
-  $("#liveGames")
-    .textContent =
-      allGames
-        .filter(
-          isLive
-        )
-        .length;
 
-  $("#brazilGames")
-    .textContent =
-      allGames
-        .filter(
-          game =>
-            game.group === "brazil"
-        )
-        .length;
+  /*
+  CONSULTA GE AUTOMÁTICA
+  SOMENTE QUANDO ESTIVER
+  PRÓXIMO DO JOGO OU AO VIVO.
+  */
 
-  $("#favoriteCount")
-    .textContent =
-      favorites.length;
+  hydrateBroadcasts();
 
-  $("#visibleGames")
-    .textContent =
-      list.length;
+}
 
-  $("#games")
-    .innerHTML =
-      list
-        .map(
-          gameCard
-        )
-        .join("");
 
-  $("#gamesEmpty")
-    .style.display =
-      list.length
-      ?
-      "none"
-      :
-      "block";
+/* =========================================================
+   NORMALIZE GAME
+========================================================= */
 
-  const favoriteGames =
-    allGames
-      .filter(
-        isFavorite
+function normalizeGame(
+  event,
+  league
+){
+
+  const comp =
+    event.competitions?.[0];
+
+  const competitors =
+    comp?.competitors || [];
+
+
+  const home =
+    competitors.find(
+      x =>
+        x.homeAway ===
+        "home"
+    );
+
+
+  const away =
+    competitors.find(
+      x =>
+        x.homeAway ===
+        "away"
+    );
+
+
+  const status =
+    event.status || {};
+
+
+  return{
+
+    id:
+      event.id,
+
+    league:
+      league.name,
+
+    leagueSlug:
+      league.slug,
+
+    home:
+      home?.team?.displayName
+      ||
+      "Mandante",
+
+    away:
+      away?.team?.displayName
+      ||
+      "Visitante",
+
+    homeLogo:
+      home?.team?.logo
+      ||
+      "",
+
+    awayLogo:
+      away?.team?.logo
+      ||
+      "",
+
+    homeScore:
+      home?.score
+      ??
+      "",
+
+    awayScore:
+      away?.score
+      ??
+      "",
+
+    date:
+      event.date,
+
+    completed:
+      Boolean(
+        status?.type?.completed
+      ),
+
+    state:
+      status?.type?.state
+      ||
+      "pre",
+
+    detail:
+      status?.type?.shortDetail
+      ||
+      status?.type?.detail
+      ||
+      "",
+
+    clock:
+      status?.displayClock
+      ||
+      ""
+
+  };
+}
+
+
+/* =========================================================
+   GAME STATE
+========================================================= */
+
+function gameState(
+  game
+){
+
+  if(game.completed){
+    return "finished";
+  }
+
+  if(
+    game.state === "in"
+    ||
+    game.state === "live"
+  ){
+    return "live";
+  }
+
+  return "scheduled";
+}
+
+
+function minutesUntilGame(
+  game
+){
+
+  return (
+    new Date(game.date).getTime()
+    -
+    Date.now()
+  )
+  /
+  60000;
+}
+
+
+function shouldCheckBroadcast(
+  game
+){
+
+  const state =
+    gameState(game);
+
+  const diff =
+    minutesUntilGame(game);
+
+
+  return (
+    state === "live"
+    ||
+    (
+      state === "scheduled"
+      &&
+      diff <= 15
+      &&
+      diff >= -240
+    )
+  );
+}
+
+
+/* =========================================================
+   RENDER GAMES
+========================================================= */
+
+function renderGames(
+  games,
+  targetId
+){
+
+  const target =
+    document.getElementById(
+      targetId
+    );
+
+
+  if(!games.length){
+
+    target.innerHTML =
+      `<div class="loading">
+        Nenhuma partida encontrada.
+      </div>`;
+
+    return;
+  }
+
+
+  target.innerHTML =
+    games.map(
+      game =>
+        gameHTML(game)
+    )
+    .join("");
+}
+
+
+function gameHTML(
+  game
+){
+
+  const state =
+    gameState(game);
+
+  const favorite =
+    favorites.includes(
+      game.id
+    );
+
+
+  let statusText =
+    "AGENDADO";
+
+
+  if(state === "live"){
+
+    statusText =
+      game.clock
+      ||
+      game.detail
+      ||
+      "AO VIVO";
+  }
+
+
+  if(state === "finished"){
+
+    statusText =
+      "ENCERRADO";
+  }
+
+
+  let center;
+
+
+  if(
+    state === "live"
+    ||
+    state === "finished"
+  ){
+
+    center =
+      `
+      <div class="score-main">
+        ${game.homeScore}
+        ×
+        ${game.awayScore}
+      </div>
+
+      <div class="score-time">
+        ${game.detail}
+      </div>
+      `;
+
+  }else{
+
+    const d =
+      new Date(
+        game.date
       );
 
-  $("#favoriteGames")
-    .innerHTML =
-      favoriteGames
-        .map(
-          gameCard
-        )
-        .join("");
+    center =
+      `
+      <div
+        class="score-main"
+        style="
+          font-size:16px;
+          color:var(--blue);
+        "
+      >
+        Hoje
+      </div>
 
-  $("#favoritesEmpty")
-    .style.display =
-      favoriteGames.length
-      ?
-      "none"
-      :
-      "block";
+      <div class="score-time">
+        ${
+          d.toLocaleTimeString(
+            "pt-BR",
+            {
+              hour:"2-digit",
+              minute:"2-digit"
+            }
+          )
+        }
+      </div>
+      `;
+  }
+
+
+  return`
+  <article
+    class="game"
+    data-game-id="${game.id}"
+  >
+
+    <div class="game-head">
+
+      <div class="league">
+        ${game.league}
+      </div>
+
+      <div class="right-head">
+
+        <span
+          class="
+            status
+            ${
+              state === "live"
+              ?
+              "live"
+              :
+              "future"
+            }
+          "
+        >
+          ${statusText}
+        </span>
+
+        <button
+          class="
+            star
+            ${
+              favorite
+              ?
+              "active"
+              :
+              ""
+            }
+          "
+          onclick="
+            toggleFavorite(
+              '${game.id}'
+            )
+          "
+        >
+          ☆
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="match">
+
+      <div class="team">
+
+        <img
+          class="team-logo"
+          src="${game.homeLogo}"
+          alt="${game.home}"
+        >
+
+        <div class="team-name">
+          ${game.home}
+        </div>
+
+      </div>
+
+
+      <div class="score">
+        ${center}
+      </div>
+
+
+      <div class="team">
+
+        <img
+          class="team-logo"
+          src="${game.awayLogo}"
+          alt="${game.away}"
+        >
+
+        <div class="team-name">
+          ${game.away}
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div
+      id="broadcast-${game.id}"
+      class="broadcast-box"
+    >
+
+      ${
+        shouldCheckBroadcast(game)
+        ?
+        "📡 Verificando transmissão e cobertura..."
+        :
+        "📺 A transmissão será verificada 15 minutos antes do início."
+      }
+
+    </div>
+
+
+    <div class="actions">
+
+      <button
+        class="action watch"
+        onclick="
+          openWhereToWatch(
+            '${game.id}'
+          )
+        "
+      >
+        🔎 Onde assistir
+      </button>
+
+
+      <button
+        class="action analysis"
+        onclick="
+          openAnalysis(
+            '${game.id}'
+          )
+        "
+      >
+        👑 Análise Premium
+      </button>
+
+    </div>
+
+  </article>
+  `;
 }
 
 
@@ -4269,209 +2088,593 @@ function renderGames() {
    FAVORITES
 ========================================================= */
 
-function toggleFavorite(id) {
+function toggleFavorite(
+  id
+){
 
-  id =
-    String(id);
-
-  favorites =
+  if(
     favorites.includes(id)
-    ?
-    favorites.filter(
-      item =>
-        item !== id
-    )
-    :
-    [
-      ...favorites,
-      id
-    ];
+  ){
+
+    favorites =
+      favorites.filter(
+        x => x !== id
+      );
+
+  }else{
+
+    favorites.push(id);
+  }
+
 
   localStorage.setItem(
-    "stanleySportsFavorites",
+    "stanleyFavorites",
     JSON.stringify(
       favorites
     )
   );
 
-  renderGames();
+
+  renderGames(
+    allGames,
+    "games"
+  );
+
+
+  renderFavorites();
+
+  hydrateBroadcasts();
+}
+
+
+function renderFavorites(){
+
+  const games =
+    allGames.filter(
+      game =>
+        favorites.includes(
+          game.id
+        )
+    );
+
+
+  renderGames(
+    games,
+    "favoritesGames"
+  );
 }
 
 
 /* =========================================================
-   WINNER
+   GE
 ========================================================= */
 
-function winnerInfo(
-  data,
-  home,
-  away
-) {
+async function getGeData(
+  game,
+  force = false
+){
 
-  const homeP =
-    percentNumber(
-      data.probabilities?.home
-    );
+  const key =
+    `${game.id}-${APP_VERSION}`;
 
-  const drawP =
-    percentNumber(
-      data.probabilities?.draw
-    );
 
-  const awayP =
-    percentNumber(
-      data.probabilities?.away
-    );
+  if(
+    geCache[key]
+    &&
+    !force
+  ){
 
-  const max =
-    Math.max(
-      homeP,
-      drawP,
-      awayP
-    );
-
-  const tolerance = 1;
-
-  const h =
-    Math.abs(
-      homeP-max
-    )
-    <= tolerance;
-
-  const d =
-    Math.abs(
-      drawP-max
-    )
-    <= tolerance;
-
-  const a =
-    Math.abs(
-      awayP-max
-    )
-    <= tolerance;
-
-  if (
-    h &&
-    d &&
-    !a
-  ) {
-
-    return {
-      label:
-        `${home} ou empate`,
-      type:"home-draw",
-    };
+    return geCache[key];
   }
 
-  if (
-    a &&
-    d &&
-    !h
-  ) {
 
-    return {
-      label:
-        `${away} ou empate`,
-      type:"away-draw",
-    };
+  try{
+
+    const url =
+      `${WORKER}/?mode=ge`
+      +
+      `&home=${
+        encodeURIComponent(
+          game.home
+        )
+      }`
+      +
+      `&away=${
+        encodeURIComponent(
+          game.away
+        )
+      }`
+      +
+      `&date=${
+        encodeURIComponent(
+          isoDateFromEvent(game)
+        )
+      }`
+      +
+      `&v=5401`;
+
+
+    const response =
+      await fetch(
+        url,
+        {
+          cache:"no-store"
+        }
+      );
+
+
+    if(!response.ok){
+
+      return null;
+    }
+
+
+    const data =
+      await response.json();
+
+
+    geCache[key] =
+      data;
+
+
+    return data;
+
+
+  }catch{
+
+    return null;
   }
-
-  if (h) {
-
-    return {
-      label:home,
-      type:"home",
-    };
-  }
-
-  if (a) {
-
-    return {
-      label:away,
-      type:"away",
-    };
-  }
-
-  return {
-    label:"Empate",
-    type:"draw",
-  };
 }
 
 
 /* =========================================================
-   SUMMARY
+   HYDRATE TRANSMISSÕES
 ========================================================= */
 
-function summaryText(
-  data,
-  home,
-  away
-) {
+async function hydrateBroadcasts(){
 
-  const winner =
-    winnerInfo(
-      data,
-      home,
-      away
+  const games =
+    allGames.filter(
+      shouldCheckBroadcast
     );
 
-  const hp =
-    percentNumber(
-      data.probabilities?.home
+
+  for(
+    const game of games
+  ){
+
+    const box =
+      document.getElementById(
+        `broadcast-${game.id}`
+      );
+
+
+    if(!box){
+      continue;
+    }
+
+
+    const ge =
+      await getGeData(
+        game
+      );
+
+
+    if(!ge?.found){
+
+      box.classList.remove(
+        "ready"
+      );
+
+      box.textContent =
+        gameState(game) === "live"
+        ?
+        "📡 Partida em andamento • cobertura ainda não localizada automaticamente."
+        :
+        "📡 Transmissão ainda não confirmada pela fonte consultada.";
+
+      continue;
+    }
+
+
+    const broadcasters =
+      Array.isArray(
+        ge.broadcasts
+      )
+      ?
+      ge.broadcasts
+      :
+      [];
+
+
+    const hasRealtime =
+      Boolean(
+        ge.realtimeUrl
+      );
+
+
+    const pieces =
+      [];
+
+
+    if(broadcasters.length){
+
+      pieces.push(
+        `📺 ${
+          broadcasters.join(" • ")
+        }`
+      );
+    }
+
+
+    if(hasRealtime){
+
+      pieces.push(
+        "⏱️ Tempo Real no ge"
+      );
+    }
+
+
+    if(!pieces.length){
+
+      pieces.push(
+        "📡 Cobertura pré-jogo localizada no ge"
+      );
+    }
+
+
+    box.classList.add(
+      "ready"
     );
 
-  const dp =
-    percentNumber(
-      data.probabilities?.draw
-    );
 
-  const ap =
-    percentNumber(
-      data.probabilities?.away
-    );
+    box.textContent =
+      pieces.join(
+        "  •  "
+      );
+  }
+}
 
-  if (
-    winner.type ===
-    "home-draw"
-  ) {
 
-    return (
-      `${home} e empate aparecem empatados no topo da projeção, com ${hp}% cada.`
-    );
+/* =========================================================
+   PROVIDERS
+========================================================= */
+
+const PROVIDERS = {
+
+  "xsports":{
+    label:"XSports",
+    url:"https://xsports.com.br/"
+  },
+
+  "disney+":{
+    label:"Disney+",
+    url:"https://www.disneyplus.com/"
+  },
+
+  "disney plus":{
+    label:"Disney+",
+    url:"https://www.disneyplus.com/"
+  },
+
+  "espn":{
+    label:"ESPN",
+    url:"https://www.espn.com.br/watch/"
+  },
+
+  "premiere":{
+    label:"Premiere",
+    url:"https://globoplay.globo.com/canais/premiere/"
+  },
+
+  "sportv":{
+    label:"SporTV",
+    url:"https://globoplay.globo.com/canais/sportv/"
+  },
+
+  "globo":{
+    label:"Globo",
+    url:"https://globoplay.globo.com/tv-globo/ao-vivo/"
+  },
+
+  "prime video":{
+    label:"Prime Video",
+    url:"https://www.primevideo.com/"
+  },
+
+  "amazon prime":{
+    label:"Prime Video",
+    url:"https://www.primevideo.com/"
+  },
+
+  "paramount+":{
+    label:"Paramount+",
+    url:"https://www.paramountplus.com/br/"
+  },
+
+  "cazétv":{
+    label:"CazéTV",
+    url:"https://www.youtube.com/@CazeTV"
+  },
+
+  "cazetv":{
+    label:"CazéTV",
+    url:"https://www.youtube.com/@CazeTV"
+  },
+
+  "ge tv":{
+    label:"ge tv",
+    url:"https://www.youtube.com/@getv"
+  },
+
+  "canal goat":{
+    label:"Canal GOAT",
+    url:"https://www.youtube.com/@canalgoatbr"
   }
 
-  if (
-    winner.type ===
-    "away-draw"
-  ) {
+};
 
-    return (
-      `${away} e empate aparecem empatados no topo da projeção, com ${ap}% cada.`
+
+function normalizeProvider(
+  name
+){
+
+  return String(name || "")
+    .normalize("NFD")
+    .replace(
+      /[\u0300-\u036f]/g,
+      ""
+    )
+    .toLowerCase()
+    .trim();
+}
+
+
+function providerFor(
+  name
+){
+
+  const normal =
+    normalizeProvider(
+      name
     );
-  }
 
-  if (
-    winner.type === "home"
-  ) {
-
-    return (
-      `${home} apresenta a maior probabilidade estatística, com ${hp}%.`
-    );
-  }
-
-  if (
-    winner.type === "away"
-  ) {
-
-    return (
-      `${away} apresenta a maior probabilidade estatística, com ${ap}%.`
-    );
-  }
 
   return (
-    `O empate aparece com ${dp}% de probabilidade.`
+    PROVIDERS[normal]
+    ||
+    null
   );
+}
+
+
+/* =========================================================
+   WHERE TO WATCH
+========================================================= */
+
+async function openWhereToWatch(
+  id
+){
+
+  const game =
+    allGames.find(
+      x =>
+        x.id === id
+    );
+
+
+  if(!game){
+    return;
+  }
+
+
+  openModal(
+    "📺 Onde acompanhar",
+    `
+      <div class="loading">
+        Buscando informações oficiais...
+      </div>
+    `
+  );
+
+
+  const ge =
+    await getGeData(
+      game,
+      true
+    );
+
+
+  renderWatchModal(
+    game,
+    ge
+  );
+}
+
+
+function renderWatchModal(
+  game,
+  ge
+){
+
+  const broadcasters =
+    Array.isArray(
+      ge?.broadcasts
+    )
+    ?
+    ge.broadcasts
+    :
+    [];
+
+
+  let buttons =
+    "";
+
+
+  broadcasters.forEach(
+    broadcaster => {
+
+      const provider =
+        providerFor(
+          broadcaster
+        );
+
+
+      if(!provider){
+        return;
+      }
+
+
+      buttons += `
+      <a
+        class="provider-btn"
+        href="${provider.url}"
+        target="_blank"
+        rel="noopener"
+      >
+        ▶️ Abrir ${provider.label}
+      </a>
+      `;
+    }
+  );
+
+
+  /*
+  STREAM GRATUITO
+  CONFIRMADO PELO WORKER
+  */
+
+  if(
+    ge?.freeStream?.available
+    &&
+    ge?.freeStream?.url
+  ){
+
+    buttons += `
+    <a
+      class="provider-btn green"
+      href="${ge.freeStream.url}"
+      target="_blank"
+      rel="noopener"
+    >
+      ▶️ Assistir grátis em
+      ${ge.freeStream.name}
+    </a>
+    `;
+  }
+
+
+  /*
+  TEMPO REAL É INDEPENDENTE
+  DAS EMISSORAS.
+  */
+
+  if(
+    ge?.realtimeUrl
+  ){
+
+    buttons += `
+    <a
+      class="provider-btn ge"
+      href="${ge.realtimeUrl}"
+      target="_blank"
+      rel="noopener"
+    >
+      ⏱️ Acompanhar em Tempo Real no ge
+    </a>
+    `;
+
+  }else if(
+    ge?.articleUrl
+  ){
+
+    /*
+    Se o Worker encontrou a matéria
+    mas não conseguiu extrair o link
+    específico do Tempo Real,
+    ainda damos acesso à cobertura
+    oficial do ge.
+    */
+
+    buttons += `
+    <a
+      class="provider-btn ge"
+      href="${ge.articleUrl}"
+      target="_blank"
+      rel="noopener"
+    >
+      📰 Abrir cobertura oficial no ge
+    </a>
+    `;
+  }
+
+
+  if(
+    !buttons
+  ){
+
+    buttons = `
+    <div class="loading">
+      Nenhuma transmissão online
+      confirmada automaticamente.
+    </div>
+    `;
+  }
+
+
+  const providerTags =
+    broadcasters.length
+    ?
+    broadcasters
+      .map(
+        x =>
+          `<span class="provider">${x}</span>`
+      )
+      .join("")
+    :
+    `
+    <span class="provider">
+      Transmissão ainda não confirmada
+    </span>
+    `;
+
+
+  document
+    .getElementById(
+      "modalBody"
+    )
+    .innerHTML = `
+
+    ${premiumMatchHTML(game)}
+
+    <section class="block">
+
+      <h3>
+        📺 Onde acompanhar
+      </h3>
+
+      <div class="provider-list">
+        ${providerTags}
+      </div>
+
+      <div class="provider-buttons">
+        ${buttons}
+      </div>
+
+      <p style="
+        margin:13px 0 0;
+        color:var(--muted);
+        font-size:9px;
+        line-height:1.5;
+      ">
+        Stanley Sports abre apenas
+        plataformas e páginas oficiais.
+        Serviços pagos podem exigir
+        assinatura própria do usuário.
+      </p>
+
+    </section>
+  `;
 }
 
 
@@ -4479,146 +2682,263 @@ function summaryText(
    ANALYSIS
 ========================================================= */
 
-async function openAnalysis(id) {
-
-  if (!premiumActive) {
-
-    openView(
-      "Premium"
-    );
-
-    return;
-  }
-
-  const game =
-    allGames.find(
-      item =>
-        String(item.id) ===
-        String(id)
-    );
-
-  if (!game) {
-    return;
-  }
-
-  openModal(
-    "STANLEY SPORTS PREMIUM",
-    "🔥 Análise da partida",
-    `
-      <div class="loading">
-        Analisando confronto...
-      </div>
-    `
-  );
+async function getAnalysisData(
+  game
+){
 
   const key =
-    `${game.home}|${game.away}|${apiDate(game.date)}`;
+    `${game.id}-${APP_VERSION}`;
 
-  try {
 
-    let data =
-      analysisCache.get(key);
+  if(
+    analysisCache[key]
+  ){
 
-    if (!data) {
+    return analysisCache[key];
+  }
 
-      const response =
-        await fetch(
 
-          `${WORKER}/?home=${
-            encodeURIComponent(
-              game.home
-            )
-          }&away=${
-            encodeURIComponent(
-              game.away
-            )
-          }&date=${
-            apiDate(
-              game.date
-            )
-          }`,
+  try{
 
-          {
-            cache:"no-store",
-          }
+    const url =
+      `${WORKER}/?home=${
+        encodeURIComponent(
+          game.home
+        )
+      }`
+      +
+      `&away=${
+        encodeURIComponent(
+          game.away
+        )
+      }`
+      +
+      `&date=${
+        encodeURIComponent(
+          isoDateFromEvent(game)
+        )
+      }`
+      +
+      `&v=5402`;
 
-        );
 
-      data =
-        await response.json();
-
-      analysisCache.set(
-        key,
-        data
+    const response =
+      await fetch(
+        url,
+        {
+          cache:"no-store"
+        }
       );
+
+
+    if(!response.ok){
+
+      return null;
     }
 
-    const ge =
-      geCache.get(
-        String(game.id)
-      )?.data;
 
-    renderAnalysis(
-      game,
-      data,
-      ge
-    );
+    const data =
+      await response.json();
 
-  } catch {
 
-    $("#modalContent")
-      .innerHTML = `
-        <div class="empty">
-          ⚠️ Não foi possível carregar
-          a análise.
-        </div>
-      `;
+    analysisCache[key] =
+      data;
+
+
+    return data;
+
+
+  }catch{
+
+    return null;
   }
 }
 
 
+async function openAnalysis(
+  id
+){
+
+  const game =
+    allGames.find(
+      x =>
+        x.id === id
+    );
+
+
+  if(!game){
+    return;
+  }
+
+
+  openModal(
+    "🔥 Análise da partida",
+    `
+      <div class="loading">
+        👑 Preparando análise Stanley Sports...
+      </div>
+    `
+  );
+
+
+  /*
+  MUITO IMPORTANTE:
+
+  AS DUAS FONTES SÃO BUSCADAS
+  INDEPENDENTEMENTE.
+
+  SE GE FALHAR,
+  A ANÁLISE CONTINUA.
+
+  SE ANÁLISE FALHAR,
+  GE CONTINUA.
+  */
+
+  const results =
+    await Promise.allSettled([
+
+      getAnalysisData(
+        game
+      ),
+
+      getGeData(
+        game,
+        true
+      )
+
+    ]);
+
+
+  const analysisData =
+    results[0].status === "fulfilled"
+    ?
+    results[0].value
+    :
+    null;
+
+
+  const geData =
+    results[1].status === "fulfilled"
+    ?
+    results[1].value
+    :
+    null;
+
+
+  renderAnalysisModal(
+    game,
+    analysisData,
+    geData
+  );
+}
+
+
 /* =========================================================
-   ANALYSIS HTML
+   ANALYSIS RENDER
 ========================================================= */
 
-function renderAnalysis(
-  game,
-  data,
-  ge
-) {
+function numberPercent(
+  value
+){
 
-  const home =
-    game.home;
+  if(
+    value === null
+    ||
+    value === undefined
+    ||
+    value === ""
+  ){
+    return null;
+  }
 
-  const away =
-    game.away;
 
-  const hasProb =
-    data?.probabilities &&
-    (
-      data.probabilities.home ||
-      data.probabilities.draw ||
-      data.probabilities.away
+  const n =
+    parseFloat(
+      String(value)
+        .replace(
+          "%",
+          ""
+        )
     );
+
+
+  return Number.isFinite(n)
+    ?
+    n
+    :
+    null;
+}
+
+
+function hasProbabilities(
+  data
+){
+
+  return (
+    numberPercent(
+      data?.probabilities?.home
+    ) !== null
+
+    &&
+
+    numberPercent(
+      data?.probabilities?.draw
+    ) !== null
+
+    &&
+
+    numberPercent(
+      data?.probabilities?.away
+    ) !== null
+  );
+}
+
+
+function renderAnalysisModal(
+  game,
+  analysis,
+  ge
+){
+
+  const analysisOK =
+    hasProbabilities(
+      analysis
+    );
+
+
+  const geOK =
+    Boolean(
+      ge?.found
+    );
+
 
   let html = `
 
     <div class="source-row">
 
-      <span class="source-chip">
-        ${
-          data?.sourceLabel ||
-          "Stanley Sports"
-        }
-      </span>
-
       ${
-        ge?.found
+        analysis?.sourceLabel
         ?
         `
-          <span class="source-chip">
-            📰 Pré-jogo ge
-          </span>
+        <span class="source-chip">
+          ${analysis.sourceLabel}
+        </span>
+        `
+        :
+        `
+        <span class="source-chip">
+          Stanley Sports
+        </span>
+        `
+      }
+
+      ${
+        geOK
+        ?
+        `
+        <span class="source-chip">
+          📰 Pré-jogo ge
+        </span>
         `
         :
         ""
@@ -4626,348 +2946,703 @@ function renderAnalysis(
 
     </div>
 
+    ${premiumMatchHTML(game)}
 
-    <div class="analysis-match">
-
-      <div class="analysis-team">
-
-        ${
-          game.homeLogo
-          ?
-          `
-            <img
-              src="${game.homeLogo}"
-              alt=""
-            >
-          `
-          :
-          ""
-        }
-
-        <div>
-          ${home}
-        </div>
-
-      </div>
-
-
-      <div class="analysis-vs">
-        ×
-      </div>
-
-
-      <div class="analysis-team">
-
-        ${
-          game.awayLogo
-          ?
-          `
-            <img
-              src="${game.awayLogo}"
-              alt=""
-            >
-          `
-          :
-          ""
-        }
-
-        <div>
-          ${away}
-        </div>
-
-      </div>
-
-    </div>
   `;
 
 
-  if (hasProb) {
+  /*
+  PROBABILIDADES
 
-    const winner =
-      winnerInfo(
-        data,
-        home,
-        away
+  NÃO EXISTE QUALQUER
+  DEPENDÊNCIA DO GE AQUI.
+  */
+
+  if(analysisOK){
+
+    html +=
+      probabilitiesHTML(
+        game,
+        analysis
       );
 
-    html += `
 
-      <div class="executive">
-
-        <div class="executive-label">
-          📌 RESUMO RÁPIDO
-        </div>
-
-        <h3>
-          Leitura em poucos segundos
-        </h3>
+    html +=
+      comparisonHTML(
+        game,
+        analysis
+      );
 
 
-        <div class="exec-grid">
-
-          <div class="exec-box">
-
-            <small>
-              MAIOR TENDÊNCIA
-            </small>
-
-            <strong>
-              ${winner.label}
-            </strong>
-
-          </div>
+    html +=
+      recentHTML(
+        game,
+        analysis
+      );
 
 
-          <div class="exec-box gold">
-
-            <small>
-              FONTE
-            </small>
-
-            <strong>
-              API
-            </strong>
-
-          </div>
+    html +=
+      goalsHTML(
+        analysis
+      );
 
 
-          <div class="exec-box">
-
-            <small>
-              STATUS
-            </small>
-
-            <strong>
-              Analisado
-            </strong>
-
-          </div>
-
-        </div>
+    html +=
+      confidenceHTML(
+        analysis
+      );
 
 
-        <p>
+    html +=
+      predictionHTML(
+        analysis
+      );
 
-          ${
-            summaryText(
-              data,
-              home,
-              away
-            )
-          }
-
-        </p>
-
-      </div>
-
-
-      <div class="analysis-section">
-
-        <h3>
-          🎯 Probabilidade do resultado
-        </h3>
-
-        <div class="probability-list">
-
-          ${
-            probabilityRow(
-              home,
-              data.probabilities.home,
-              false
-            )
-          }
-
-          ${
-            probabilityRow(
-              "Empate",
-              data.probabilities.draw,
-              true
-            )
-          }
-
-          ${
-            probabilityRow(
-              away,
-              data.probabilities.away,
-              false
-            )
-          }
-
-        </div>
-
-      </div>
-    `;
-
-  } else {
+  }else{
 
     html += `
+    <section class="block">
 
-      <div class="analysis-section">
-
-        <div class="empty">
-
-          ⚠️ A API-Football ainda não publicou
-          probabilidades suficientes para
-          este confronto.
-
-        </div>
-
+      <div
+        style="
+          padding:27px 14px;
+          text-align:center;
+          border:1px dashed var(--border);
+          border-radius:20px;
+          color:var(--muted);
+          line-height:1.55;
+        "
+      >
+        ⚠️ A fonte estatística ainda não
+        retornou probabilidades suficientes
+        para este confronto.
       </div>
+
+    </section>
     `;
   }
 
 
   /*
-   * V53:
-   * provável escalação do GE
-   */
-  if (
+  GE É ADICIONADO DEPOIS.
+
+  ELE NUNCA ALTERA
+  O BLOCO ACIMA.
+  */
+
+  if(
+    geOK
+    &&
     ge?.hasLineups
-  ) {
+  ){
 
     html +=
-      lineupsSectionHTML(
+      lineupsHTML(
         ge
       );
   }
 
 
-  if (
-    ge?.broadcasts?.length ||
-    ge?.realtimeUrl
-  ) {
+  if(
+    geOK
+    ||
+    gameState(game) === "live"
+    ||
+    shouldCheckBroadcast(game)
+  ){
 
-    html += `
-
-      <div class="analysis-section">
-
-        <h3>
-          📺 Onde acompanhar
-        </h3>
-
-        ${
-          ge.broadcasts?.length
-          ?
-          `
-            <div class="channel-list">
-
-              ${
-                ge.broadcasts
-                  .map(
-                    item => `
-                      <span class="channel">
-                        ${item}
-                      </span>
-                    `
-                  )
-                  .join("")
-              }
-
-            </div>
-          `
-          :
-          ""
-        }
-
-        ${
-          ge.realtimeUrl
-          ?
-          `
-            <a
-              class="action ge"
-              style="
-                margin-top:12px;
-                width:100%;
-              "
-              href="${ge.realtimeUrl}"
-              target="_blank"
-            >
-              ⏱️ Acompanhar em Tempo Real no ge
-            </a>
-          `
-          :
-          ""
-        }
-
-      </div>
-    `;
+    html +=
+      geFollowHTML(
+        ge
+      );
   }
 
 
   html += `
-
-    <div class="warning">
-
-      ⚠️ Probabilidades e análises
-      estatísticas são informativas
-      e não garantem resultados.
-
-    </div>
+  <div
+    style="
+      padding:13px;
+      border-radius:17px;
+      background:rgba(255,209,83,.06);
+      color:#ffe797;
+      font-size:9px;
+      line-height:1.5;
+    "
+  >
+    ⚠️ Probabilidades e análises estatísticas
+    são informativas e não garantem resultados.
+  </div>
   `;
 
 
-  $("#modalContent")
+  document
+    .getElementById(
+      "modalBody"
+    )
     .innerHTML =
       html;
 }
 
 
 /* =========================================================
-   PROB ROW
+   PREMIUM COMPONENTS
 ========================================================= */
 
-function probabilityRow(
+function premiumMatchHTML(
+  game
+){
+
+  return`
+  <div class="premium-match">
+
+    <div class="premium-team">
+
+      <img
+        src="${game.homeLogo}"
+        alt="${game.home}"
+      >
+
+      <strong>
+        ${game.home}
+      </strong>
+
+    </div>
+
+    <div class="x">
+      ×
+    </div>
+
+    <div class="premium-team">
+
+      <img
+        src="${game.awayLogo}"
+        alt="${game.away}"
+      >
+
+      <strong>
+        ${game.away}
+      </strong>
+
+    </div>
+
+  </div>
+  `;
+}
+
+
+function probabilitiesHTML(
+  game,
+  data
+){
+
+  const home =
+    numberPercent(
+      data.probabilities.home
+    );
+
+  const draw =
+    numberPercent(
+      data.probabilities.draw
+    );
+
+  const away =
+    numberPercent(
+      data.probabilities.away
+    );
+
+
+  return`
+  <section class="block">
+
+    <h3>
+      🎯 Probabilidade do resultado
+    </h3>
+
+    <div class="prob">
+
+      ${probLine(
+        game.home,
+        home,
+        false
+      )}
+
+      ${probLine(
+        "Empate",
+        draw,
+        true
+      )}
+
+      ${probLine(
+        game.away,
+        away,
+        false
+      )}
+
+    </div>
+
+  </section>
+  `;
+}
+
+
+function probLine(
   name,
   value,
   draw
-) {
+){
 
-  const number =
-    percentNumber(value);
+  return`
+  <div class="prob-line">
 
-  return `
-    <div class="prob-row">
+    <div class="prob-name">
+      ${name}
+    </div>
 
-      <div class="prob-name">
-        ${name}
-      </div>
-
-      <div class="prob-track">
-
-        <div
-          class="
-            prob-fill
-            ${
-              draw
-              ?
-              "draw"
-              :
-              ""
-            }
-          "
-          style="
-            width:${number}%
-          "
-        ></div>
-
-      </div>
+    <div class="bar">
 
       <div
         class="
-          prob-value
-          ${
-            draw
-            ?
-            "draw"
-            :
-            ""
-          }
+          fill
+          ${draw ? "draw" : ""}
+        "
+        style="
+          width:${
+            Math.max(
+              0,
+              Math.min(
+                100,
+                value
+              )
+            )
+          }%;
+        "
+      ></div>
+
+    </div>
+
+    <div
+      class="
+        prob-value
+        ${draw ? "draw" : ""}
+      "
+    >
+      ${value}%
+    </div>
+
+  </div>
+  `;
+}
+
+
+function comparisonHTML(
+  game,
+  data
+){
+
+  const c =
+    data.comparison || {};
+
+
+  const rows = [
+
+    [
+      "Forma",
+      c.formHome,
+      c.formAway
+    ],
+
+    [
+      "Ataque",
+      c.attackHome,
+      c.attackAway
+    ],
+
+    [
+      "Defesa",
+      c.defenseHome,
+      c.defenseAway
+    ]
+
+  ];
+
+
+  if(
+    !rows.some(
+      x =>
+        x[1] ||
+        x[2]
+    )
+  ){
+
+    return "";
+  }
+
+
+  return`
+  <section class="block">
+
+    <h3>
+      📊 Comparativo
+    </h3>
+
+    <div class="compare-grid">
+
+      ${
+        rows
+          .map(
+            row => `
+            <div class="compare">
+
+              <div class="compare-label">
+
+                <span>
+                  ${row[0]}
+                </span>
+
+                <span>
+                  ${game.home}
+                  •
+                  ${game.away}
+                </span>
+
+              </div>
+
+              <div class="compare-values">
+
+                <div class="compare-value">
+                  ${row[1] || "—"}
+                </div>
+
+                <div class="compare-value">
+                  ${row[2] || "—"}
+                </div>
+
+              </div>
+
+            </div>
+            `
+          )
+          .join("")
+      }
+
+    </div>
+
+  </section>
+  `;
+}
+
+
+function recentHTML(
+  game,
+  data
+){
+
+  const home =
+    data?.teams?.home?.last5;
+
+  const away =
+    data?.teams?.away?.last5;
+
+
+  if(
+    !home &&
+    !away
+  ){
+
+    return "";
+  }
+
+
+  function teamCard(
+    name,
+    stats
+  ){
+
+    if(!stats){
+      return "";
+    }
+
+
+    return`
+    <div class="compare">
+
+      <strong>
+        ${name}
+      </strong>
+
+      <div
+        style="
+          margin-top:9px;
+          color:var(--green);
+          font-size:24px;
+          font-weight:950;
         "
       >
-        ${number}%
+        ${stats.form || "—"}
+      </div>
+
+      <div
+        style="
+          margin-top:10px;
+          color:var(--muted);
+          font-size:9px;
+          line-height:1.7;
+        "
+      >
+        Jogos:
+        ${stats.played || "—"}
+        <br>
+
+        Gols marcados:
+        ${
+          stats?.goals
+            ?.for
+            ?.average
+          ??
+          "—"
+        }/jogo
+        <br>
+
+        Gols sofridos:
+        ${
+          stats?.goals
+            ?.against
+            ?.average
+          ??
+          "—"
+        }/jogo
       </div>
 
     </div>
+    `;
+  }
+
+
+  return`
+  <section class="block">
+
+    <h3>
+      📈 Últimos jogos
+    </h3>
+
+    <div class="compare-values">
+
+      ${teamCard(
+        game.home,
+        home
+      )}
+
+      ${teamCard(
+        game.away,
+        away
+      )}
+
+    </div>
+
+  </section>
+  `;
+}
+
+
+function goalsHTML(
+  data
+){
+
+  const m =
+    data.markets || {};
+
+
+  if(
+    !m.over15
+    &&
+    !m.over25
+    &&
+    !m.bothTeamsScore
+  ){
+
+    return "";
+  }
+
+
+  return`
+  <section class="block">
+
+    <h3>
+      ⚽ Tendência de gols
+    </h3>
+
+    <div
+      class="compare-values"
+      style="
+        grid-template-columns:
+          repeat(3,1fr);
+      "
+    >
+
+      <div class="compare">
+        <small>
+          +1.5 gols
+        </small>
+        <strong>
+          ${m.over15 || "—"}
+        </strong>
+      </div>
+
+      <div class="compare">
+        <small>
+          +2.5 gols
+        </small>
+        <strong>
+          ${m.over25 || "—"}
+        </strong>
+      </div>
+
+      <div class="compare">
+        <small>
+          Ambas marcam
+        </small>
+        <strong>
+          ${m.bothTeamsScore || "—"}
+        </strong>
+      </div>
+
+    </div>
+
+  </section>
+  `;
+}
+
+
+function confidenceHTML(
+  data
+){
+
+  if(!data.confidence){
+    return "";
+  }
+
+
+  const value =
+    Number(
+      data.confidence
+    );
+
+
+  let label =
+    "Média";
+
+
+  if(value >= 75){
+    label = "Alta";
+  }
+
+  if(value < 60){
+    label = "Baixa";
+  }
+
+
+  return`
+  <section class="block">
+
+    <h3>
+      🧠 Confiança da análise
+    </h3>
+
+    <div
+      style="
+        display:flex;
+        justify-content:space-between;
+        margin-bottom:10px;
+      "
+    >
+      <span style="color:var(--muted)">
+        Nível do modelo
+      </span>
+
+      <strong>
+        ${label} • ${value}%
+      </strong>
+    </div>
+
+    <div class="bar">
+
+      <div
+        class="fill"
+        style="
+          width:${value}%;
+        "
+      ></div>
+
+    </div>
+
+  </section>
+  `;
+}
+
+
+function predictionHTML(
+  data
+){
+
+  const p =
+    data.prediction || {};
+
+
+  if(
+    !p.winner
+    &&
+    !p.advice
+  ){
+
+    return "";
+  }
+
+
+  return`
+  <section class="block">
+
+    <h3>
+      🔥 Tendência
+    </h3>
+
+    ${
+      p.winner
+      ?
+      `
+      <strong
+        style="
+          display:block;
+          color:var(--green);
+          font-size:18px;
+          margin-bottom:8px;
+        "
+      >
+        ${p.winner}
+      </strong>
+      `
+      :
+      ""
+    }
+
+    ${
+      p.advice
+      ?
+      `
+      <div
+        style="
+          color:#d7e8dc;
+          font-size:11px;
+          line-height:1.55;
+        "
+      >
+        ${p.advice}
+      </div>
+      `
+      :
+      ""
+    }
+
+  </section>
   `;
 }
 
@@ -4976,217 +3651,257 @@ function probabilityRow(
    LINEUPS
 ========================================================= */
 
-function lineupsSectionHTML(
+function lineupsHTML(
   ge
-) {
+){
 
   const home =
-    ge.lineups?.home;
+    ge?.lineups?.home;
 
   const away =
-    ge.lineups?.away;
+    ge?.lineups?.away;
 
-  return `
-    <div class="analysis-section">
 
-      <h3>
-        👥 Prováveis escalações
-      </h3>
+  if(
+    !home &&
+    !away
+  ){
 
-      ${
-        home
-        ?
-        lineupTeamHTML(
-          home
-        )
-        :
-        ""
-      }
+    return "";
+  }
 
-      ${
-        away
-        ?
-        lineupTeamHTML(
-          away
-        )
-        :
-        ""
-      }
 
-      ${
-        ge.articleUrl
-        ?
-        `
-          <a
-            class="action ge"
-            style="
-              margin-top:12px;
-              width:100%;
-            "
-            href="${ge.articleUrl}"
-            target="_blank"
-          >
-            📰 Ver matéria completa no ge
-          </a>
-        `
-        :
-        ""
-      }
+  return`
+  <section class="block">
 
-    </div>
+    <h3>
+      👥 Prováveis escalações
+    </h3>
+
+    ${
+      lineupCard(home)
+    }
+
+    ${
+      lineupCard(away)
+    }
+
+  </section>
   `;
 }
 
 
-function lineupTeamHTML(
-  data
-) {
+function lineupCard(
+  team
+){
 
-  return `
-    <div class="lineup-team">
+  if(!team){
+    return "";
+  }
 
-      <h4>
-        ${data.team || ""}
-      </h4>
 
-      ${
-        data.coach
-        ?
-        `
-          <div class="coach">
-            Técnico:
-            ${data.coach}
-          </div>
-        `
-        :
-        ""
-      }
+  return`
+  <div class="lineup">
 
-      ${
-        data.lineup
-        ?
-        `
-          <div class="lineup-title">
-            PROVÁVEL ESCALAÇÃO
-          </div>
+    <h4>
+      ${team.team || ""}
+    </h4>
 
-          <div class="lineup-text">
-            ${data.lineup}
-          </div>
-        `
-        :
-        ""
-      }
+    ${
+      team.coach
+      ?
+      `
+      <div class="coach">
+        Técnico:
+        ${team.coach}
+      </div>
+      `
+      :
+      ""
+    }
 
-      ${
-        data.absences
-        ?
-        `
-          <div class="lineup-detail">
+    ${
+      team.lineup
+      ?
+      `
+      <div class="lineup-title">
+        PROVÁVEL ESCALAÇÃO
+      </div>
 
-            <b>
-              🚑 Desfalques:
-            </b>
+      <p>
+        ${team.lineup}
+      </p>
+      `
+      :
+      ""
+    }
 
-            ${data.absences}
+    ${
+      team.absences
+      ?
+      `
+      <div class="extra">
+        🚑
+        <strong>Desfalques:</strong>
+        ${team.absences}
+      </div>
+      `
+      :
+      ""
+    }
 
-          </div>
-        `
-        :
-        ""
-      }
+    ${
+      team.suspended
+      ?
+      `
+      <div class="extra">
+        🟨
+        <strong>Pendurados:</strong>
+        ${team.suspended}
+      </div>
+      `
+      :
+      ""
+    }
 
-      ${
-        data.suspended
-        ?
-        `
-          <div class="lineup-detail">
-
-            <b>
-              🟨 Pendurados:
-            </b>
-
-            ${data.suspended}
-
-          </div>
-        `
-        :
-        ""
-      }
-
-    </div>
+  </div>
   `;
 }
 
 
 /* =========================================================
-   OPEN LINEUPS
+   GE FOLLOW
 ========================================================= */
 
-async function openLineups(id) {
+function geFollowHTML(
+  ge
+){
 
-  const game =
-    allGames.find(
-      item =>
-        String(item.id) ===
-        String(id)
-    );
-
-  if (!game) {
-    return;
-  }
-
-  let info =
-    geCache.get(
-      String(game.id)
-    )?.data;
-
-  if (!info) {
-
-    openModal(
-      "PRÉ-JOGO",
-      "👥 Prováveis escalações",
-      `
-        <div class="loading">
-          Carregando informações do ge...
-        </div>
-      `
-    );
-
-    info =
-      await fetchGeInfo(
-        game
-      );
-  }
-
-  if (
-    !info?.hasLineups
-  ) {
-
-    openModal(
-      "PRÉ-JOGO",
-      "👥 Prováveis escalações",
-      `
-        <div class="empty">
-
-          O ge ainda não publicou
-          uma provável escalação
-          para esta partida.
-
-        </div>
-      `
-    );
-
-    return;
-  }
-
-  openModal(
-    "PRÉ-JOGO • FONTE GE",
-    "👥 Prováveis escalações",
-    lineupsSectionHTML(
-      info
+  const broadcasters =
+    Array.isArray(
+      ge?.broadcasts
     )
+    ?
+    ge.broadcasts
+    :
+    [];
+
+
+  let buttons = "";
+
+
+  broadcasters.forEach(
+    broadcaster => {
+
+      const p =
+        providerFor(
+          broadcaster
+        );
+
+
+      if(p){
+
+        buttons +=`
+        <a
+          class="provider-btn"
+          href="${p.url}"
+          target="_blank"
+          rel="noopener"
+        >
+          ▶️ Abrir ${p.label}
+        </a>
+        `;
+      }
+    }
   );
+
+
+  if(
+    ge?.freeStream?.available
+    &&
+    ge?.freeStream?.url
+  ){
+
+    buttons +=`
+    <a
+      class="provider-btn green"
+      href="${ge.freeStream.url}"
+      target="_blank"
+      rel="noopener"
+    >
+      ▶️ Assistir grátis em
+      ${ge.freeStream.name}
+    </a>
+    `;
+  }
+
+
+  if(
+    ge?.realtimeUrl
+  ){
+
+    buttons +=`
+    <a
+      class="provider-btn ge"
+      href="${ge.realtimeUrl}"
+      target="_blank"
+      rel="noopener"
+    >
+      ⏱️ Acompanhar em Tempo Real no ge
+    </a>
+    `;
+
+  }else if(
+    ge?.articleUrl
+  ){
+
+    buttons +=`
+    <a
+      class="provider-btn ge"
+      href="${ge.articleUrl}"
+      target="_blank"
+      rel="noopener"
+    >
+      📰 Cobertura oficial no ge
+    </a>
+    `;
+  }
+
+
+  if(
+    !buttons
+  ){
+
+    return "";
+  }
+
+
+  return`
+  <section class="block">
+
+    <h3>
+      📺 Onde acompanhar
+    </h3>
+
+    <div class="provider-list">
+
+      ${
+        broadcasters
+          .map(
+            x =>
+              `<span class="provider">${x}</span>`
+          )
+          .join("")
+      }
+
+    </div>
+
+    <div class="provider-buttons">
+      ${buttons}
+    </div>
+
+  </section>
+  `;
 }
 
 
@@ -5195,94 +3910,120 @@ async function openLineups(id) {
 ========================================================= */
 
 function openModal(
-  small,
   title,
-  content
-) {
+  body
+){
 
-  $("#modalSmall")
-    .textContent =
-      small;
-
-  $("#modalTitle")
+  document
+    .getElementById(
+      "modalTitle"
+    )
     .textContent =
       title;
 
-  $("#modalContent")
-    .innerHTML =
-      content;
 
-  $("#mainModal")
-    .classList
-    .add(
-      "active"
+  document
+    .getElementById(
+      "modalBody"
+    )
+    .innerHTML =
+      body;
+
+
+  document
+    .getElementById(
+      "modal"
+    )
+    .classList.add(
+      "show"
     );
 
-  document.body
-    .style.overflow =
-      "hidden";
+
+  document.body.style.overflow =
+    "hidden";
 }
 
 
-function closeModal() {
+function closeModal(){
 
-  $("#mainModal")
-    .classList
-    .remove(
-      "active"
+  document
+    .getElementById(
+      "modal"
+    )
+    .classList.remove(
+      "show"
     );
 
-  document.body
-    .style.overflow =
-      "";
+
+  document.body.style.overflow =
+    "";
 }
 
 
 /* =========================================================
-   PREMIUM
+   VIEWS
 ========================================================= */
 
-function activatePremium() {
+function openView(
+  name,
+  button
+){
 
-  premiumActive = true;
+  document
+    .querySelectorAll(
+      ".view"
+    )
+    .forEach(
+      view =>
+        view.classList.remove(
+          "active"
+        )
+    );
 
-  localStorage.setItem(
-    "stanleySportsPremium",
-    "active"
-  );
 
-  renderPremiumStatus();
-}
+  document
+    .getElementById(
+      `view${name}`
+    )
+    .classList.add(
+      "active"
+    );
 
 
-function renderPremiumStatus() {
+  document
+    .querySelectorAll(
+      ".nav-btn"
+    )
+    .forEach(
+      btn =>
+        btn.classList.remove(
+          "active"
+        )
+    );
 
-  if (premiumActive) {
 
-    $("#activatePremiumBtn")
-      .textContent =
-        "✓ Premium ativado";
+  if(button){
 
-    $("#activatePremiumBtn")
-      .classList
-      .add(
-        "active"
-      );
-
-    $("#premiumHomeStatus")
-      .textContent =
-        "Seu Premium está ativo.";
-
-  } else {
-
-    $("#activatePremiumBtn")
-      .textContent =
-        "👑 Ativar Premium grátis";
-
-    $("#premiumHomeStatus")
-      .textContent =
-        "Ative para liberar análises.";
+    button.classList.add(
+      "active"
+    );
   }
+
+
+  if(name === "Favoritos"){
+    renderFavorites();
+  }
+
+
+  if(name === "Tabela"){
+    loadStandings();
+  }
+
+
+  window.scrollTo(
+    0,
+    0
+  );
 }
 
 
@@ -5290,534 +4031,347 @@ function renderPremiumStatus() {
    STANDINGS
 ========================================================= */
 
-function statValue(
-  stats,
-  keys
-) {
+async function loadStandings(){
 
-  const item =
-    stats.find(
-      stat =>
-        keys.includes(
-          stat.name
-        )
-        ||
-        keys.includes(
-          stat.abbreviation
-        )
+  const slug =
+    document
+      .getElementById(
+        "tableLeague"
+      )
+      .value;
+
+
+  const target =
+    document.getElementById(
+      "standings"
     );
 
-  return (
-    item?.displayValue ??
-    item?.value ??
-    "-"
-  );
-}
+
+  target.innerHTML =
+    `<div class="loading">
+      📊 Carregando classificação...
+    </div>`;
 
 
-async function loadStandings() {
-
-  $("#standingsLoading")
-    .style.display =
-      "block";
-
-  try {
-
-    const league =
-      $("#leagueSelect")
-        .value;
+  try{
 
     const response =
       await fetch(
-
-        `https://site.api.espn.com/apis/v2/sports/soccer/${league}/standings`,
-
+        `${ESPN_STANDINGS}/${slug}/standings`,
         {
-          cache:"no-store",
+          cache:"no-store"
         }
-
       );
+
 
     const data =
       await response.json();
 
-    let entries = [];
 
-    (
-      data.children || []
-    )
-    .forEach(
-      child =>
-        entries.push(
-          ...(
-            child.standings?.entries ||
-            []
-          )
-        )
-    );
+    const entries =
+      data?.children?.[0]
+        ?.standings
+        ?.entries
+      ||
+      data?.standings
+        ?.entries
+      ||
+      [];
 
-    if (!entries.length) {
 
-      entries =
-        data.standings?.entries ||
-        [];
+    if(!entries.length){
+
+      target.innerHTML =
+        `<div class="loading">
+          Classificação indisponível.
+        </div>`;
+
+      return;
     }
 
-    $("#standingsBody")
-      .innerHTML =
-        entries
-          .map(
-            (row,index) => {
 
-              const stats =
-                row.stats || [];
+    target.innerHTML =
+      entries
+      .map(
+        (entry,index) => {
 
-              const team =
-                row.team || {};
+          const stats =
+            Object.fromEntries(
+              (
+                entry.stats || []
+              )
+              .map(
+                x =>
+                  [
+                    x.name,
+                    x.displayValue
+                  ]
+              )
+            );
 
-              return `
-                <tr>
 
-                  <td>
-                    ${
-                      statValue(
-                        stats,
-                        ["rank"]
-                      )
-                      ||
-                      index+1
-                    }
-                  </td>
+          return`
+          <div class="panel"
+            style="
+              display:grid;
+              grid-template-columns:
+                35px 1fr 45px;
+              align-items:center;
+              gap:10px;
+            "
+          >
 
-                  <td class="team-cell">
+            <strong>
+              ${index+1}
+            </strong>
 
-                    <div class="table-team">
+            <div
+              style="
+                display:flex;
+                align-items:center;
+                gap:9px;
+              "
+            >
 
-                      ${
-                        team.logos?.[0]?.href
-                        ?
-                        `
-                          <img
-                            src="${
-                              team.logos[0].href
-                            }"
-                          >
-                        `
-                        :
-                        ""
-                      }
+              ${
+                entry.team?.logos?.[0]?.href
+                ?
+                `
+                <img
+                  src="${entry.team.logos[0].href}"
+                  style="
+                    width:30px;
+                    height:30px;
+                    object-fit:contain;
+                  "
+                >
+                `
+                :
+                ""
+              }
 
-                      ${
-                        team.displayName ||
-                        team.name ||
-                        "Time"
-                      }
+              <strong>
+                ${entry.team?.displayName || ""}
+              </strong>
 
-                    </div>
+            </div>
 
-                  </td>
+            <strong
+              style="
+                color:var(--green);
+                text-align:right;
+              "
+            >
+              ${
+                stats.points
+                ||
+                stats.totalPoints
+                ||
+                "—"
+              }
+            </strong>
 
-                  <td>
-                    ${
-                      statValue(
-                        stats,
-                        ["points","PTS"]
-                      )
-                    }
-                  </td>
+          </div>
+          `;
+        }
+      )
+      .join("");
 
-                  <td>
-                    ${
-                      statValue(
-                        stats,
-                        ["gamesPlayed","GP"]
-                      )
-                    }
-                  </td>
 
-                  <td>
-                    ${
-                      statValue(
-                        stats,
-                        ["wins","W"]
-                      )
-                    }
-                  </td>
+  }catch{
 
-                  <td>
-                    ${
-                      statValue(
-                        stats,
-                        ["ties","draws","D"]
-                      )
-                    }
-                  </td>
-
-                  <td>
-                    ${
-                      statValue(
-                        stats,
-                        ["losses","L"]
-                      )
-                    }
-                  </td>
-
-                </tr>
-              `;
-            }
-          )
-          .join("");
-
-    $("#standingsWrap")
-      .style.display =
-        "block";
-
-  } catch {
-
-    $("#standingsBody")
-      .innerHTML =
-        "";
-
-  } finally {
-
-    $("#standingsLoading")
-      .style.display =
-        "none";
+    target.innerHTML =
+      `<div class="loading">
+        Não foi possível carregar a tabela.
+      </div>`;
   }
 }
 
 
 /* =========================================================
-   TV
+   TV / FILMES
 ========================================================= */
 
-function logo(domain) {
+const TV_SERVICES = [
 
-  return (
-    "https://www.google.com/s2/favicons?domain_url=https://" +
-    domain +
-    "&sz=128"
-  );
-}
+  [
+    "TV Globo",
+    "Globoplay",
+    "https://globoplay.globo.com/tv-globo/ao-vivo/"
+  ],
 
+  [
+    "SBT",
+    "TV aberta",
+    "https://sbt.com.br/ao-vivo"
+  ],
 
-function renderTv() {
+  [
+    "Band",
+    "TV aberta",
+    "https://www.band.com.br/ao-vivo"
+  ],
 
-  $("#tvGrid")
-    .innerHTML =
-      tvChannels
-        .map(
-          item => `
-            <a
-              class="media-card"
-              href="${item.url}"
-              target="_blank"
-            >
+  [
+    "Record",
+    "TV aberta",
+    "https://record.r7.com/"
+  ],
 
-              <div class="network-logo-wrap">
+  [
+    "XSports",
+    "Esportes ao vivo",
+    "https://xsports.com.br/"
+  ],
 
-                <img
-                  class="network-logo"
-                  src="${
-                    logo(
-                      item.domain
-                    )
-                  }"
-                >
+  [
+    "ge tv",
+    "YouTube",
+    "https://www.youtube.com/@getv"
+  ],
 
-              </div>
+  [
+    "CazéTV",
+    "YouTube",
+    "https://www.youtube.com/@CazeTV"
+  ],
 
-              <div class="media-badge">
-                ${item.badge}
-              </div>
+  [
+    "Canal GOAT",
+    "YouTube",
+    "https://www.youtube.com/@canalgoatbr"
+  ],
 
-              <h4>
-                ${item.name}
-              </h4>
+  [
+    "Premiere",
+    "Globoplay",
+    "https://globoplay.globo.com/canais/premiere/"
+  ],
 
-              <p>
-                ${item.description}
-              </p>
+  [
+    "SporTV",
+    "Globoplay",
+    "https://globoplay.globo.com/canais/sportv/"
+  ]
 
-              <div class="media-open">
-
-                <span>
-                  Abrir
-                </span>
-
-                <span>
-                  ›
-                </span>
-
-              </div>
-
-            </a>
-          `
-        )
-        .join("");
-}
+];
 
 
-/* =========================================================
-   MOVIES
-========================================================= */
+const MOVIES = [
 
-function renderMovies() {
+  [
+    "Mercado Play",
+    "Grátis",
+    "https://play.mercadolivre.com.br/"
+  ],
 
-  $("#movieGrid")
-    .innerHTML =
-      entertainment
-        .map(
-          item => `
-            <a
-              class="media-card"
-              href="${item.url}"
-              target="_blank"
-            >
+  [
+    "Plex",
+    "Grátis",
+    "https://www.plex.tv/watch-free-tv/"
+  ],
 
-              <div class="media-icon">
-                ${item.icon}
-              </div>
+  [
+    "YouTube Kids",
+    "Infantil",
+    "https://www.youtubekids.com/"
+  ],
 
-              <div class="media-badge">
-                ${item.badge}
-              </div>
+  [
+    "Prime Video",
+    "Assinatura",
+    "https://www.primevideo.com/"
+  ],
 
-              <h4>
-                ${item.name}
-              </h4>
+  [
+    "Disney+",
+    "Assinatura",
+    "https://www.disneyplus.com/"
+  ],
 
-              <p>
-                ${item.description}
-              </p>
+  [
+    "Netflix",
+    "Assinatura",
+    "https://www.netflix.com/"
+  ],
 
-              <div class="media-open">
+  [
+    "Max",
+    "Assinatura",
+    "https://www.max.com/"
+  ]
 
-                <span>
-                  Abrir
-                </span>
-
-                <span>
-                  ›
-                </span>
-
-              </div>
-
-            </a>
-          `
-        )
-        .join("");
-}
+];
 
 
-/* =========================================================
-   NAVIGATION
-========================================================= */
-
-function openView(name) {
-
-  $$(".view")
-    .forEach(
-      view =>
-        view.classList
-          .remove(
-            "active"
-          )
-    );
-
-  $$(".nav-btn")
-    .forEach(
-      button =>
-        button.classList
-          .remove(
-            "active"
-          )
-    );
-
-  $(`#view${name}`)
-    ?.classList
-    .add(
-      "active"
-    );
+function renderServices(
+  data,
+  targetId
+){
 
   document
-    .querySelector(
-      `[data-view="${name}"]`
+    .getElementById(
+      targetId
     )
-    ?.classList
-    .add(
-      "active"
-    );
+    .innerHTML =
+      data
+      .map(
+        item => `
+        <a
+          class="service"
+          href="${item[2]}"
+          target="_blank"
+          rel="noopener"
+        >
+          <strong>
+            ${item[0]}
+          </strong>
 
-  if (
-    name === "Table"
-  ) {
-    loadStandings();
-  }
+          <span>
+            ${item[1]}
+          </span>
 
-  window.scrollTo({
-    top:0,
-    behavior:"smooth",
-  });
+          <b
+            style="
+              color:var(--green);
+              font-size:10px;
+            "
+          >
+            Abrir →
+          </b>
+        </a>
+        `
+      )
+      .join("");
 }
-
-
-/* =========================================================
-   EVENTS
-========================================================= */
-
-$$(".nav-btn")
-  .forEach(
-    button => {
-
-      button.onclick =
-        () =>
-          openView(
-            button.dataset.view
-          );
-    }
-  );
-
-
-$$(".game-chip")
-  .forEach(
-    button => {
-
-      button.onclick =
-        () => {
-
-          $$(".game-chip")
-            .forEach(
-              item =>
-                item.classList
-                  .remove(
-                    "active"
-                  )
-            );
-
-          button.classList
-            .add(
-              "active"
-            );
-
-          gameFilter =
-            button.dataset.filter;
-
-          renderGames();
-        };
-    }
-  );
-
-
-$("#searchInput")
-  .oninput =
-    event => {
-
-      searchText =
-        event.target.value;
-
-      renderGames();
-    };
-
-
-$("#leagueSelect")
-  .onchange =
-    loadStandings;
-
-
-$("#refreshBtn")
-  .onclick =
-    async () => {
-
-      geCache.clear();
-
-      analysisCache.clear();
-
-      await refreshGames();
-    };
-
-
-$("#mainModal")
-  .onclick =
-    event => {
-
-      if (
-        event.target.id ===
-        "mainModal"
-      ) {
-        closeModal();
-      }
-    };
-
-
-/* =========================================================
-   AUTO REFRESH
-========================================================= */
-
-setInterval(
-  () => {
-
-    renderGames();
-
-  },
-  30000
-);
-
-
-setInterval(
-  () => {
-
-    geCache.clear();
-
-    refreshGames();
-
-  },
-  30 * 60 * 1000
-);
-
-
-/* =========================================================
-   START
-========================================================= */
-
-renderPremiumStatus();
-
-renderTv();
-
-renderMovies();
-
-refreshGames();
 
 
 /* =========================================================
    PWA
 ========================================================= */
 
-if (
+if(
   "serviceWorker"
   in navigator
-) {
+){
 
   window.addEventListener(
     "load",
     async () => {
 
-      try {
+      try{
 
         const registration =
           await navigator
             .serviceWorker
             .register(
-              "./service-worker.js"
+              "./service-worker.js?v=54"
             );
+
 
         registration.update();
 
-        console.log(
-          `Stanley Sports V${APP_VERSION}`
-        );
-
-      } catch (error) {
+      }catch(error){
 
         console.error(
           "PWA:",
@@ -5827,6 +4381,23 @@ if (
     }
   );
 }
+
+
+/* =========================================================
+   START
+========================================================= */
+
+renderServices(
+  TV_SERVICES,
+  "tvGrid"
+);
+
+renderServices(
+  MOVIES,
+  "moviesGrid"
+);
+
+refreshAll();
 
 </script>
 
