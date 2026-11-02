@@ -1,4 +1,4 @@
-const CACHE_NAME = "futebol-livre-v1";
+const CACHE_NAME = "futebol-livre-v7";
 
 const APP_SHELL = [
   "/-futebol-livre/",
@@ -8,261 +8,158 @@ const APP_SHELL = [
 ];
 
 
-/* ===========================
-   INSTALAÇÃO
-=========================== */
+/* INSTALAÇÃO */
 
-self.addEventListener(
-  "install",
-  event => {
+self.addEventListener("install", event => {
 
-    event.waitUntil(
+  self.skipWaiting();
 
-      caches
-        .open(CACHE_NAME)
-        .then(cache => {
+  event.waitUntil(
+    caches.open(CACHE_NAME)
+      .then(cache => cache.addAll(APP_SHELL))
+  );
 
-          return cache.addAll(
-            APP_SHELL
-          );
-
-        })
-
-    );
-
-    self.skipWaiting();
-
-  }
-);
+});
 
 
-/* ===========================
-   ATIVAÇÃO
-=========================== */
+/* ATIVAÇÃO */
 
-self.addEventListener(
-  "activate",
-  event => {
+self.addEventListener("activate", event => {
 
-    event.waitUntil(
+  event.waitUntil(
 
-      caches
-        .keys()
-        .then(keys => {
+    caches.keys()
+      .then(keys => {
 
-          return Promise.all(
+        return Promise.all(
 
-            keys.map(key => {
+          keys.map(key => {
 
-              if(
-                key !== CACHE_NAME
-              ){
-
-                return caches.delete(
-                  key
-                );
-
-              }
-
-            })
-
-          );
-
-        })
-
-    );
-
-    self.clients.claim();
-
-  }
-);
-
-
-/* ===========================
-   FETCH
-=========================== */
-
-self.addEventListener(
-  "fetch",
-  event => {
-
-    const request =
-      event.request;
-
-
-    if(
-      request.method !== "GET"
-    ){
-      return;
-    }
-
-
-    const url =
-      new URL(
-        request.url
-      );
-
-
-    /*
-      APIs externas e sites externos:
-      sempre buscar online.
-    */
-
-    if(
-      url.origin !== self.location.origin
-    ){
-
-      event.respondWith(
-        fetch(request)
-      );
-
-      return;
-
-    }
-
-
-    /*
-      Navegação:
-      tenta internet primeiro.
-      Se estiver offline,
-      usa o cache.
-    */
-
-    if(
-      request.mode === "navigate"
-    ){
-
-      event.respondWith(
-
-        fetch(request)
-
-          .then(response => {
-
-            const copy =
-              response.clone();
-
-
-            caches
-              .open(CACHE_NAME)
-              .then(cache => {
-
-                cache.put(
-                  request,
-                  copy
-                );
-
-              });
-
-
-            return response;
-
-          })
-
-          .catch(async () => {
-
-            const cached =
-              await caches.match(
-                request
-              );
-
-
-            if(
-              cached
-            ){
-              return cached;
+            if(key !== CACHE_NAME){
+              return caches.delete(key);
             }
 
-
-            return caches.match(
-              "/-futebol-livre/index.html"
-            );
-
           })
 
-      );
+        );
 
-      return;
+      })
+      .then(() => self.clients.claim())
 
-    }
+  );
+
+});
 
 
-    /*
-      Demais arquivos locais:
-      cache primeiro.
-    */
+/* FETCH */
+
+self.addEventListener("fetch", event => {
+
+  const request = event.request;
+
+  if(request.method !== "GET"){
+    return;
+  }
+
+
+  const url = new URL(request.url);
+
+
+  /*
+    PÁGINAS HTML:
+    SEMPRE tenta internet primeiro.
+  */
+
+  if(request.mode === "navigate"){
 
     event.respondWith(
 
-      caches
-        .match(request)
+      fetch(request, {
+        cache:"no-store"
+      })
 
-        .then(cached => {
+      .then(response => {
 
-          if(
-            cached
-          ){
-            return cached;
-          }
+        const clone = response.clone();
 
+        caches.open(CACHE_NAME)
+          .then(cache => {
+            cache.put(request, clone);
+          });
 
-          return fetch(request)
+        return response;
 
-            .then(response => {
+      })
 
-              if(
-                !response
-                ||
-                response.status !== 200
-              ){
+      .catch(() => {
 
-                return response;
+        return caches.match(
+          "/-futebol-livre/index.html"
+        );
 
-              }
-
-
-              const copy =
-                response.clone();
-
-
-              caches
-                .open(CACHE_NAME)
-                .then(cache => {
-
-                  cache.put(
-                    request,
-                    copy
-                  );
-
-                });
-
-
-              return response;
-
-            });
-
-        })
+      })
 
     );
 
-  }
-);
-
-
-/* ===========================
-   ATUALIZAÇÃO MANUAL
-=========================== */
-
-self.addEventListener(
-  "message",
-  event => {
-
-    if(
-      event.data === "SKIP_WAITING"
-    ){
-
-      self.skipWaiting();
-
-    }
+    return;
 
   }
-);
+
+
+  /*
+    ARQUIVOS DO NOSSO APP
+  */
+
+  if(url.origin === self.location.origin){
+
+    event.respondWith(
+
+      fetch(request, {
+        cache:"no-store"
+      })
+
+      .then(response => {
+
+        const clone = response.clone();
+
+        caches.open(CACHE_NAME)
+          .then(cache => {
+            cache.put(request, clone);
+          });
+
+        return response;
+
+      })
+
+      .catch(() =>
+        caches.match(request)
+      )
+
+    );
+
+    return;
+
+  }
+
+
+  /*
+    SITES EXTERNOS / APIs
+    NÃO GUARDAR EM CACHE
+  */
+
+  event.respondWith(
+    fetch(request)
+  );
+
+});
+
+
+/* FORÇAR ATUALIZAÇÃO */
+
+self.addEventListener("message", event => {
+
+  if(event.data === "SKIP_WAITING"){
+    self.skipWaiting();
+  }
+
+});
