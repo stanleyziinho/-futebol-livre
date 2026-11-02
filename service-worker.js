@@ -1,19 +1,34 @@
+/*
+=========================================================
+STANLEY SPORTS
+SERVICE WORKER V54
+=========================================================
+*/
+
 const CACHE_NAME =
-  "stanley-sports-v13";
+  "stanley-sports-v54-20261102";
 
 
 const APP_SHELL = [
 
   "/-futebol-livre/",
+
   "/-futebol-livre/index.html",
+
   "/-futebol-livre/manifest.json",
+
   "/-futebol-livre/stanley-sports-logo.png",
+
   "/-futebol-livre/stanley-sports-icon-192.png",
+
   "/-futebol-livre/stanley-sports-icon-512.png",
+
   "/-futebol-livre/stanley-sports-apple-180.png"
 
 ];
 
+
+/* INSTALL */
 
 self.addEventListener(
   "install",
@@ -25,21 +40,29 @@ self.addEventListener(
     event.waitUntil(
 
       caches
-      .open(
-        CACHE_NAME
-      )
-      .then(
-        cache =>
-          cache.addAll(
-            APP_SHELL
-          )
-      )
+        .open(
+          CACHE_NAME
+        )
+        .then(
+          cache =>
+            cache.addAll(
+              APP_SHELL
+            )
+        )
+        .catch(
+          error =>
+            console.log(
+              "Cache inicial:",
+              error
+            )
+        )
 
     );
-
   }
 );
 
+
+/* ACTIVATE */
 
 self.addEventListener(
   "activate",
@@ -48,46 +71,42 @@ self.addEventListener(
     event.waitUntil(
 
       caches
-      .keys()
-      .then(
-        keys => {
+        .keys()
+        .then(
+          keys =>
 
-          return Promise.all(
+            Promise.all(
 
-            keys.map(
-              key => {
+              keys.map(
+                key => {
 
-                if(
-                  key
-                  !==
-                  CACHE_NAME
-                ){
+                  if(
+                    key !==
+                    CACHE_NAME
+                  ){
 
-                  return(
-                    caches.delete(
+                    return caches.delete(
                       key
-                    )
-                  );
+                    );
+                  }
 
                 }
+              )
 
-              }
             )
 
-          );
-
-        }
-      )
-      .then(
-        () =>
-          self.clients.claim()
-      )
+        )
+        .then(
+          () =>
+            self.clients.claim()
+        )
 
     );
-
   }
 );
 
+
+/* FETCH */
 
 self.addEventListener(
   "fetch",
@@ -98,13 +117,11 @@ self.addEventListener(
 
 
     if(
-      request.method
-      !==
+      request.method !==
       "GET"
     ){
 
       return;
-
     }
 
 
@@ -115,157 +132,185 @@ self.addEventListener(
 
 
     /*
-    HTML
-    INTERNET PRIMEIRO
+    NÃO CACHEAR A API
+    DO WORKER.
     */
 
     if(
-      request.mode
-      ===
+      url.hostname.includes(
+        "workers.dev"
+      )
+    ){
+
+      event.respondWith(
+        fetch(request)
+      );
+
+      return;
+    }
+
+
+    /*
+    NÃO CACHEAR ESPN.
+    */
+
+    if(
+      url.hostname.includes(
+        "espn.com"
+      )
+      ||
+      url.hostname.includes(
+        "api.espn"
+      )
+    ){
+
+      event.respondWith(
+        fetch(request)
+      );
+
+      return;
+    }
+
+
+    /*
+    NAVEGAÇÃO:
+    SEMPRE TENTA A INTERNET
+    PRIMEIRO.
+    */
+
+    if(
+      request.mode ===
       "navigate"
     ){
 
       event.respondWith(
 
-        fetch(
-          request,
-          {
-            cache:"no-store"
-          }
-        )
+        fetch(request)
 
-        .then(
-          response => {
+          .then(
+            response => {
 
-            const copy =
-              response.clone();
+              const copy =
+                response.clone();
 
 
-            caches
-            .open(
-              CACHE_NAME
-            )
-            .then(
-              cache => {
-
-                cache.put(
-                  request,
-                  copy
+              caches
+                .open(
+                  CACHE_NAME
+                )
+                .then(
+                  cache =>
+                    cache.put(
+                      request,
+                      copy
+                    )
                 );
 
-              }
-            );
 
+              return response;
+            }
+          )
 
-            return response;
+          .catch(
+            async () => {
 
-          }
-        )
+              return (
+                await caches.match(
+                  "/-futebol-livre/index.html"
+                )
+              )
+              ||
+              await caches.match(
+                "/-futebol-livre/"
+              );
 
-        .catch(
-          () =>
-            caches.match(
-              "/-futebol-livre/index.html"
-            )
-        )
+            }
+          )
 
       );
 
 
       return;
-
     }
 
 
     /*
-    ARQUIVOS LOCAIS
+    ARQUIVOS LOCAIS:
+    NETWORK FIRST
     */
 
     if(
-      url.origin
-      ===
+      url.origin ===
       self.location.origin
     ){
 
       event.respondWith(
 
-        fetch(
-          request,
-          {
-            cache:"no-store"
-          }
-        )
+        fetch(request)
 
-        .then(
-          response => {
+          .then(
+            response => {
 
-            const copy =
-              response.clone();
+              const copy =
+                response.clone();
 
 
-            caches
-            .open(
-              CACHE_NAME
-            )
-            .then(
-              cache => {
-
-                cache.put(
-                  request,
-                  copy
+              caches
+                .open(
+                  CACHE_NAME
+                )
+                .then(
+                  cache =>
+                    cache.put(
+                      request,
+                      copy
+                    )
                 );
 
-              }
-            );
 
+              return response;
+            }
+          )
 
-            return response;
-
-          }
-        )
-
-        .catch(
-          () =>
-            caches.match(
-              request
-            )
-        )
+          .catch(
+            () =>
+              caches.match(
+                request
+              )
+          )
 
       );
 
 
       return;
-
     }
 
 
     /*
-    APIs EXTERNAS
+    RECURSOS EXTERNOS:
+    DIRETO NA REDE.
     */
 
     event.respondWith(
-      fetch(
-        request
-      )
+      fetch(request)
     );
 
   }
 );
 
 
+/* FORÇAR ATUALIZAÇÃO */
+
 self.addEventListener(
   "message",
   event => {
 
     if(
-      event.data
-      ===
+      event.data ===
       "SKIP_WAITING"
     ){
 
       self.skipWaiting();
-
     }
-
   }
 );
