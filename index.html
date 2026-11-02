@@ -8422,6 +8422,896 @@ renderServices(
 refreshAll();
 
 </script>
+<!-- =========================================================
+STANLEY SPORTS V55.2
+CORREÇÃO:
+1. FREE x PREMIUM
+2. CONFIANÇA SEM "MODERADA • 0%"
+Cole este bloco imediatamente ANTES de </body>
+========================================================= -->
+
+<script>
+
+/* =========================================================
+V55.2 — CONTROLE PREMIUM
+========================================================= */
+
+/*
+IMPORTANTE:
+Por enquanto esse controle é LOCAL, apenas para desenvolvimento.
+
+FREE = usuário normal
+PREMIUM = modo de teste no seu aparelho
+
+Mais para frente substituímos isso por:
+login + banco de dados + assinatura real.
+*/
+
+const SS_PREMIUM_KEY =
+  "stanleySportsPremiumAccess";
+
+
+function ssIsPremium(){
+
+  return(
+    localStorage.getItem(
+      SS_PREMIUM_KEY
+    )
+    ===
+    "true"
+  );
+
+}
+
+
+/*
+MODO DE TESTE
+
+Para ativar Premium no SEU aparelho:
+
+adicione:
+?premium=on
+
+Exemplo:
+
+https://stanleyziinho.github.io/-futebol-livre/?premium=on
+
+Para voltar para FREE:
+
+?premium=off
+*/
+
+(function ssPremiumDevControl(){
+
+  const params =
+    new URLSearchParams(
+      window.location.search
+    );
+
+
+  const mode =
+    params.get(
+      "premium"
+    );
+
+
+  if(
+    mode === "on"
+  ){
+
+    localStorage.setItem(
+      SS_PREMIUM_KEY,
+      "true"
+    );
+
+  }
+
+
+  if(
+    mode === "off"
+  ){
+
+    localStorage.removeItem(
+      SS_PREMIUM_KEY
+    );
+
+  }
+
+})();
+
+
+
+/* =========================================================
+V55.2 — CONFIANÇA CORRIGIDA
+========================================================= */
+
+/*
+CORREÇÃO PRINCIPAL:
+
+ANTES:
+null era convertido com Number(null)
+e virava 0.
+
+Resultado:
+"Moderada • 0%"
+
+AGORA:
+confidence null / vazio / zero
+não é considerado uma confiança válida.
+
+O Stanley Sports calcula a confiança
+pelos dados disponíveis.
+*/
+
+window.localConfidence =
+function(data){
+
+  if(
+    !data
+  ){
+
+    return null;
+
+  }
+
+
+  const rawConfidence =
+    data?.confidence;
+
+
+  /*
+  Só aceita confidence original
+  se realmente existir
+  e for maior que zero.
+  */
+
+  if(
+    rawConfidence !== null
+    &&
+    rawConfidence !== undefined
+    &&
+    rawConfidence !== ""
+  ){
+
+    const parsed =
+      Number(
+        String(
+          rawConfidence
+        )
+        .replace(
+          "%",
+          ""
+        )
+      );
+
+
+    if(
+      Number.isFinite(
+        parsed
+      )
+      &&
+      parsed > 0
+    ){
+
+      return Math.max(
+        1,
+        Math.min(
+          100,
+          Math.round(
+            parsed
+          )
+        )
+      );
+
+    }
+
+  }
+
+
+  /*
+  Se a API não trouxe confiança,
+  calcula com base na quantidade
+  e qualidade dos dados existentes.
+  */
+
+  let score = 40;
+
+  let evidence = 0;
+
+
+  const comparison =
+    data?.comparison
+    ||
+    {};
+
+
+  const comparisonValues = [
+
+    comparison.formHome,
+    comparison.formAway,
+
+    comparison.attackHome,
+    comparison.attackAway,
+
+    comparison.defenseHome,
+    comparison.defenseAway
+
+  ];
+
+
+  comparisonValues.forEach(
+    value => {
+
+      if(
+        typeof numberPercent
+        ===
+        "function"
+        &&
+        numberPercent(
+          value
+        )
+        !==
+        null
+      ){
+
+        score += 3;
+
+        evidence++;
+
+      }
+
+    }
+  );
+
+
+  /*
+  Últimos cinco jogos
+  */
+
+  if(
+    data
+      ?.teams
+      ?.home
+      ?.last5
+  ){
+
+    score += 5;
+
+    evidence++;
+
+  }
+
+
+  if(
+    data
+      ?.teams
+      ?.away
+      ?.last5
+  ){
+
+    score += 5;
+
+    evidence++;
+
+  }
+
+
+  /*
+  Probabilidades completas
+  */
+
+  if(
+    typeof hasProbabilities
+    ===
+    "function"
+    &&
+    hasProbabilities(
+      data
+    )
+  ){
+
+    score += 8;
+
+    evidence += 2;
+
+  }
+
+
+  /*
+  Predição da API
+  */
+
+  if(
+    data
+      ?.prediction
+      ?.winner
+    ||
+    data
+      ?.prediction
+      ?.advice
+  ){
+
+    score += 4;
+
+    evidence++;
+
+  }
+
+
+  /*
+  Sem evidência suficiente,
+  não exibe percentual inventado.
+  */
+
+  if(
+    evidence === 0
+  ){
+
+    return null;
+
+  }
+
+
+  /*
+  Estimativas Stanley Sports
+  recebem teto menor.
+  */
+
+  if(
+    data?.estimated
+  ){
+
+    return Math.min(
+      72,
+      Math.round(
+        score
+      )
+    );
+
+  }
+
+
+  return Math.min(
+    88,
+    Math.round(
+      score
+    )
+  );
+
+};
+
+
+
+/* =========================================================
+RÓTULO DA CONFIANÇA
+========================================================= */
+
+window.confidenceLabel =
+function(value){
+
+  if(
+    value === null
+    ||
+    value === undefined
+    ||
+    !Number.isFinite(
+      Number(
+        value
+      )
+    )
+  ){
+
+    return "Aguardando dados";
+
+  }
+
+
+  const confidence =
+    Number(
+      value
+    );
+
+
+  if(
+    confidence >= 70
+  ){
+
+    return "Alta";
+
+  }
+
+
+  if(
+    confidence >= 40
+  ){
+
+    return "Moderada";
+
+  }
+
+
+  return "Baixa";
+
+};
+
+
+
+/* =========================================================
+RESUMO RÁPIDO CORRIGIDO
+========================================================= */
+
+window.executiveHTML =
+function(
+  game,
+  data
+){
+
+  const confidence =
+    localConfidence(
+      data
+    );
+
+
+  const leader =
+    determineLeader(
+      game,
+      data
+    );
+
+
+  const confidenceText =
+
+    confidence === null
+
+    ?
+
+    "Aguardando dados"
+
+    :
+
+    `${confidenceLabel(
+      confidence
+    )} • ${confidence}%`;
+
+
+  return`
+
+  <section class="executive">
+
+    <div class="executive-label">
+      📌 RESUMO RÁPIDO
+    </div>
+
+
+    <div class="executive-title">
+      Leitura em poucos segundos
+    </div>
+
+
+    <div class="executive-pills">
+
+      <div
+        class="executive-pill green"
+      >
+
+        <small>
+          MAIOR TENDÊNCIA
+        </small>
+
+        <strong>
+          ${leader}
+        </strong>
+
+      </div>
+
+
+      <div
+        class="executive-pill gold"
+      >
+
+        <small>
+          CONFIANÇA
+        </small>
+
+        <strong>
+          ${confidenceText}
+        </strong>
+
+      </div>
+
+
+      <div
+        class="executive-pill green"
+      >
+
+        <small>
+          MODELO
+        </small>
+
+        <strong>
+
+          ${
+            data?.estimated
+
+            ?
+
+            "Stanley"
+
+            :
+
+            "API"
+          }
+
+        </strong>
+
+      </div>
+
+    </div>
+
+
+    <p class="executive-text">
+
+      ${
+        makeSummary(
+          game,
+          data
+        )
+      }
+
+    </p>
+
+  </section>
+
+  `;
+
+};
+
+
+
+/* =========================================================
+TELA DE BLOQUEIO PREMIUM
+========================================================= */
+
+function ssPremiumLockedHTML(){
+
+  return`
+
+  <div
+    style="
+      padding:
+        6px
+        0
+        26px;
+    "
+  >
+
+    <section
+      style="
+        padding:24px;
+        border-radius:24px;
+        border:
+          1px solid
+          rgba(
+            255,
+            212,
+            90,
+            .35
+          );
+        background:
+          linear-gradient(
+            145deg,
+            rgba(
+              255,
+              212,
+              90,
+              .10
+            ),
+            rgba(
+              56,
+              228,
+              125,
+              .04
+            )
+          );
+      "
+    >
+
+      <div
+        style="
+          text-align:center;
+          font-size:58px;
+          margin-bottom:12px;
+        "
+      >
+        👑
+      </div>
+
+
+      <div
+        style="
+          text-align:center;
+          color:var(--gold);
+          font-size:10px;
+          font-weight:950;
+          letter-spacing:1.5px;
+        "
+      >
+        STANLEY SPORTS PREMIUM
+      </div>
+
+
+      <h2
+        style="
+          margin:
+            12px
+            0
+            8px;
+          text-align:center;
+          font-size:29px;
+        "
+      >
+        Análise completa da partida
+      </h2>
+
+
+      <p
+        style="
+          margin:
+            0
+            auto
+            23px;
+          max-width:520px;
+          text-align:center;
+          color:#b9cbbf;
+          line-height:1.6;
+          font-size:14px;
+        "
+      >
+
+        Recursos avançados de análise
+        disponíveis exclusivamente no
+        Stanley Sports Premium.
+
+      </p>
+
+
+      <div
+        style="
+          display:grid;
+          gap:9px;
+        "
+      >
+
+
+        <div
+          style="
+            padding:14px 16px;
+            border-radius:16px;
+            background:var(--card2);
+            font-weight:800;
+          "
+        >
+          🎯 Probabilidade do resultado
+        </div>
+
+
+        <div
+          style="
+            padding:14px 16px;
+            border-radius:16px;
+            background:var(--card2);
+            font-weight:800;
+          "
+        >
+          📌 Leitura em poucos segundos
+        </div>
+
+
+        <div
+          style="
+            padding:14px 16px;
+            border-radius:16px;
+            background:var(--card2);
+            font-weight:800;
+          "
+        >
+          📊 Comparativo das equipes
+        </div>
+
+
+        <div
+          style="
+            padding:14px 16px;
+            border-radius:16px;
+            background:var(--card2);
+            font-weight:800;
+          "
+        >
+          📈 Forma e últimos jogos
+        </div>
+
+
+        <div
+          style="
+            padding:14px 16px;
+            border-radius:16px;
+            background:var(--card2);
+            font-weight:800;
+          "
+        >
+          🔥 Tendência da partida
+        </div>
+
+
+        <div
+          style="
+            padding:14px 16px;
+            border-radius:16px;
+            background:var(--card2);
+            font-weight:800;
+          "
+        >
+          🧠 Confiança da análise
+        </div>
+
+
+        <div
+          style="
+            padding:14px 16px;
+            border-radius:16px;
+            background:var(--card2);
+            font-weight:800;
+          "
+        >
+          👥 Prováveis escalações
+        </div>
+
+
+        <div
+          style="
+            padding:14px 16px;
+            border-radius:16px;
+            background:var(--card2);
+            font-weight:800;
+          "
+        >
+          🚑 Desfalques e pendurados
+        </div>
+
+      </div>
+
+
+      <div
+        style="
+          margin-top:20px;
+          padding:15px;
+          border-radius:16px;
+          background:
+            rgba(
+              255,
+              212,
+              90,
+              .09
+            );
+          color:var(--gold);
+          text-align:center;
+          line-height:1.5;
+          font-size:12px;
+          font-weight:800;
+        "
+      >
+
+        👑 Assinatura Premium em breve
+
+      </div>
+
+    </section>
+
+  </div>
+
+  `;
+
+}
+
+
+
+/* =========================================================
+INTERCEPTA SOMENTE A ANÁLISE PREMIUM
+========================================================= */
+
+/*
+Guarda a função atual da V55.1.
+
+Assim NÃO mexemos em:
+
+- jogos
+- placares
+- GE
+- emissoras
+- tempo real
+- melhores momentos
+- tabela
+- TV
+- filmes
+- favoritos
+- banner
+*/
+
+const ssOriginalOpenAnalysis =
+  window.openAnalysis;
+
+
+/*
+Agora substitui apenas o comportamento
+do botão Análise Premium.
+*/
+
+window.openAnalysis =
+async function(id){
+
+  /*
+  USUÁRIO FREE
+  */
+
+  if(
+    !ssIsPremium()
+  ){
+
+    openModal(
+
+      "👑 Stanley Sports Premium",
+
+      ssPremiumLockedHTML()
+
+    );
+
+    return;
+
+  }
+
+
+  /*
+  USUÁRIO PREMIUM
+
+  Executa exatamente a análise
+  que já estava funcionando
+  na versão anterior.
+  */
+
+  if(
+    typeof ssOriginalOpenAnalysis
+    ===
+    "function"
+  ){
+
+    return await
+      ssOriginalOpenAnalysis(
+        id
+      );
+
+  }
+
+};
+
+
+
+/* =========================================================
+INDICADOR DO MODO ATUAL
+========================================================= */
+
+console.log(
+
+  "Stanley Sports V55.2",
+
+  ssIsPremium()
+  ?
+  "👑 PREMIUM"
+  :
+  "🟢 FREE"
+
+);
+
+</script>
 
 </body>
 </html>
