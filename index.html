@@ -26,10 +26,7 @@
   content="Futebol Livre"
 >
 
-<link
-  rel="manifest"
-  href="manifest.json"
->
+<link rel="manifest" href="manifest.json">
 
 <link
   rel="icon"
@@ -72,6 +69,7 @@ html{
 body{
   margin:0;
   min-height:100vh;
+  color:var(--text);
 
   background:
     radial-gradient(
@@ -80,8 +78,6 @@ body{
       transparent 30%
     ),
     var(--bg);
-
-  color:var(--text);
 
   font-family:
     -apple-system,
@@ -136,8 +132,7 @@ a{
   background:
     rgba(4,17,9,.94);
 
-  backdrop-filter:
-    blur(22px);
+  backdrop-filter:blur(22px);
 
   border-bottom:
     1px solid
@@ -154,7 +149,6 @@ a{
 .app-header h1{
   margin:4px 0 0;
   font-size:25px;
-  letter-spacing:-.8px;
 }
 
 .refresh-btn{
@@ -184,9 +178,7 @@ main{
 
 .hero{
   position:relative;
-
   min-height:390px;
-
   overflow:hidden;
 
   border-radius:30px;
@@ -218,15 +210,13 @@ main{
   inset:0;
 
   background:
-
     linear-gradient(
       90deg,
       rgba(2,11,6,.91) 0%,
       rgba(2,11,6,.72) 43%,
-      rgba(2,11,6,.24) 75%,
-      rgba(2,11,6,.17) 100%
+      rgba(2,11,6,.25) 75%,
+      rgba(2,11,6,.18) 100%
     ),
-
     linear-gradient(
       0deg,
       rgba(2,11,6,.9) 0%,
@@ -265,8 +255,7 @@ main{
 
   border-radius:999px;
 
-  background:
-    rgba(0,0,0,.4);
+  background:rgba(0,0,0,.4);
 
   border:
     1px solid
@@ -276,7 +265,6 @@ main{
 
   font-size:10px;
   font-weight:950;
-  letter-spacing:.8px;
 }
 
 .hero-dot{
@@ -293,9 +281,7 @@ main{
 }
 
 .hero h2{
-  margin:
-    18px 0
-    12px;
+  margin:18px 0 12px;
 
   max-width:470px;
 
@@ -307,6 +293,7 @@ main{
     );
 
   line-height:.96;
+
   letter-spacing:-2px;
 
   text-shadow:
@@ -323,10 +310,6 @@ main{
 
   font-size:13px;
   line-height:1.55;
-
-  text-shadow:
-    0 2px 10px
-    rgba(0,0,0,.8);
 }
 
 .hero-actions{
@@ -351,8 +334,7 @@ main{
     1px solid
     rgba(255,255,255,.13);
 
-  background:
-    rgba(0,0,0,.42);
+  background:rgba(0,0,0,.42);
 
   color:white;
 
@@ -598,9 +580,7 @@ main{
 }
 
 .switch input:checked + .slider::before{
-  transform:
-    translateX(20px);
-
+  transform:translateX(20px);
   background:#04200d;
 }
 
@@ -633,7 +613,6 @@ main{
 
 .section-head h3{
   margin:0;
-
   font-size:25px;
 }
 
@@ -729,6 +708,13 @@ main{
   color:#ffaaaa;
 }
 
+.status.scheduled{
+  background:
+    rgba(140,197,255,.09);
+
+  color:#b7d9ff;
+}
+
 .star{
   width:32px;
   height:32px;
@@ -807,7 +793,7 @@ main{
 }
 
 .score-box{
-  min-width:68px;
+  min-width:76px;
   text-align:center;
 }
 
@@ -818,8 +804,15 @@ main{
   font-weight:950;
 }
 
+.kickoff-label{
+  color:var(--blue);
+
+  font-size:11px;
+  font-weight:900;
+}
+
 .time{
-  margin-top:3px;
+  margin-top:4px;
 
   color:var(--muted);
 
@@ -830,7 +823,7 @@ main{
   margin-bottom:10px;
 
   padding:
-    9px 11px;
+    10px 11px;
 
   border-radius:13px;
 
@@ -850,6 +843,27 @@ main{
   color:#ffe89b;
 }
 
+.notice.live{
+  background:
+    rgba(255,100,100,.08);
+
+  color:#ffb5b5;
+}
+
+.notice.waiting{
+  background:
+    rgba(140,197,255,.08);
+
+  color:#bcdcff;
+}
+
+.notice.ready{
+  background:
+    rgba(57,226,125,.08);
+
+  color:#afffca;
+}
+
 .game-buttons{
   display:grid;
 
@@ -867,7 +881,7 @@ main{
 
 .action{
   padding:
-    10px 8px;
+    11px 8px;
 
   border:
     1px solid
@@ -875,8 +889,7 @@ main{
 
   border-radius:13px;
 
-  background:
-    var(--surface2);
+  background:var(--surface2);
 
   text-decoration:none;
 
@@ -894,14 +907,6 @@ main{
   color:#04200d;
 }
 
-.action.premiere{
-  background:#19121f;
-
-  border-color:#4c355a;
-
-  color:#e7cdff;
-}
-
 .action.highlight{
   background:#27210e;
 
@@ -916,6 +921,14 @@ main{
   border-color:#284a69;
 
   color:#b9d9ff;
+}
+
+.action.premiere{
+  background:#2a173a;
+
+  border-color:#6f3c90;
+
+  color:#e5c1ff;
 }
 
 
@@ -973,14 +986,11 @@ td{
 
 th{
   color:var(--muted);
-  font-size:9px;
 }
 
 .team-cell{
   min-width:190px;
-
   text-align:left;
-
   font-weight:850;
 }
 
@@ -998,13 +1008,8 @@ th{
   object-fit:contain;
 }
 
-tr.mine{
-  background:
-    rgba(57,226,125,.075);
-}
 
-
-/* TV E FILMES */
+/* MEDIA */
 
 .media-grid{
   display:grid;
@@ -1016,16 +1021,12 @@ tr.mine{
 }
 
 .media-card{
-  position:relative;
-
   display:flex;
   flex-direction:column;
 
-  min-height:200px;
+  min-height:190px;
 
   padding:16px;
-
-  overflow:hidden;
 
   border:1px solid var(--line);
 
@@ -1053,12 +1054,7 @@ tr.mine{
 
   border-radius:17px;
 
-  background:
-    rgba(255,255,255,.94);
-
-  box-shadow:
-    0 8px 20px
-    rgba(0,0,0,.18);
+  background:white;
 }
 
 .network-logo{
@@ -1070,7 +1066,6 @@ tr.mine{
 
 .media-icon{
   font-size:29px;
-
   margin-bottom:10px;
 }
 
@@ -1093,32 +1088,15 @@ tr.mine{
   font-weight:950;
 }
 
-.media-badge.live{
-  background:
-    rgba(255,100,100,.1);
-
-  color:#ffaaaa;
-}
-
-.media-badge.paid{
-  background:
-    rgba(216,179,255,.1);
-
-  color:var(--purple);
-}
-
 .media-badge.kids{
+  color:#ffc884;
+
   background:
     rgba(255,190,110,.11);
-
-  color:#ffc884;
 }
 
 .media-card h4{
-  margin:
-    0 0
-    6px;
-
+  margin:0 0 6px;
   font-size:15px;
 }
 
@@ -1152,7 +1130,6 @@ tr.mine{
 
 .media-open span:last-child{
   color:var(--green);
-
   font-size:17px;
 }
 
@@ -1176,7 +1153,7 @@ tr.mine{
 }
 
 
-/* BOTTOM NAV */
+/* BOTTOM */
 
 .bottom-nav{
   position:fixed;
@@ -1202,17 +1179,13 @@ tr.mine{
   background:
     rgba(3,15,8,.97);
 
-  backdrop-filter:
-    blur(22px);
-
   border-top:
     1px solid
     rgba(255,255,255,.055);
 }
 
 .nav-btn{
-  padding:
-    5px 2px;
+  padding:5px 2px;
 
   border:0;
 
@@ -1259,6 +1232,7 @@ tr.mine{
 </style>
 </head>
 
+
 <body>
 
 
@@ -1292,9 +1266,7 @@ tr.mine{
 <section class="hero">
 
   <div class="hero-photo"></div>
-
   <div class="hero-shade"></div>
-
   <div class="hero-green"></div>
 
   <div class="hero-content">
@@ -1349,60 +1321,23 @@ tr.mine{
 <section class="stats">
 
   <div class="stat">
-
-    <small>
-      JOGOS
-    </small>
-
-    <strong id="totalGames">
-      0
-    </strong>
-
+    <small>JOGOS</small>
+    <strong id="totalGames">0</strong>
   </div>
 
   <div class="stat">
-
-    <small>
-      AO VIVO
-    </small>
-
-    <strong
-      id="liveGames"
-      class="red"
-    >
-      0
-    </strong>
-
+    <small>AO VIVO</small>
+    <strong id="liveGames" class="red">0</strong>
   </div>
 
   <div class="stat">
-
-    <small>
-      BRASIL
-    </small>
-
-    <strong
-      id="brazilGames"
-      class="green"
-    >
-      0
-    </strong>
-
+    <small>BRASIL</small>
+    <strong id="brazilGames" class="green">0</strong>
   </div>
 
   <div class="stat">
-
-    <small>
-      FAVORITOS
-    </small>
-
-    <strong
-      id="favoriteCount"
-      class="yellow"
-    >
-      0
-    </strong>
-
+    <small>FAVORITOS</small>
+    <strong id="favoriteCount" class="yellow">0</strong>
   </div>
 
 </section>
@@ -1410,9 +1345,7 @@ tr.mine{
 
 <div class="search">
 
-  <span>
-    🔎
-  </span>
+  <span>🔎</span>
 
   <input
     id="searchInput"
@@ -1462,66 +1395,6 @@ tr.mine{
 </div>
 
 
-<div class="settings">
-
-  <div class="setting">
-
-    <div>
-
-      <strong>
-        Ocultar encerrados
-      </strong>
-
-      <small>
-        Mostra somente partidas relevantes.
-      </small>
-
-    </div>
-
-    <label class="switch">
-
-      <input
-        type="checkbox"
-        id="hideFinished"
-      >
-
-      <span class="slider"></span>
-
-    </label>
-
-  </div>
-
-
-  <div class="setting">
-
-    <div>
-
-      <strong>
-        Tenho Premiere
-      </strong>
-
-      <small>
-        Salva sua preferência neste aparelho.
-      </small>
-
-    </div>
-
-    <label class="switch">
-
-      <input
-        type="checkbox"
-        id="hasPremiere"
-      >
-
-      <span class="slider"></span>
-
-    </label>
-
-  </div>
-
-</div>
-
-
 <div class="section-head">
 
   <div>
@@ -1531,7 +1404,7 @@ tr.mine{
     </span>
 
     <h3>
-      Jogos de hoje
+      Jogos
     </h3>
 
   </div>
@@ -1547,22 +1420,22 @@ tr.mine{
 
 
 <div
-  class="loading"
   id="gamesLoading"
+  class="loading"
 >
   Atualizando partidas...
 </div>
 
 
 <div
-  class="games"
   id="games"
+  class="games"
 ></div>
 
 
 <div
-  class="empty"
   id="gamesEmpty"
+  class="empty"
   style="display:none"
 >
   ⚽ Nenhuma partida encontrada.
@@ -1594,8 +1467,8 @@ tr.mine{
 
 
 <select
-  class="league-select"
   id="leagueSelect"
+  class="league-select"
 >
 
   <option value="bra.1">
@@ -1630,7 +1503,7 @@ tr.mine{
   class="empty"
   style="display:none"
 >
-  Não foi possível carregar a tabela agora.
+  Não foi possível carregar a tabela.
 </div>
 
 
@@ -1657,9 +1530,6 @@ tr.mine{
   <th>V</th>
   <th>E</th>
   <th>D</th>
-  <th>GP</th>
-  <th>GC</th>
-  <th>SG</th>
 
 </tr>
 
@@ -1688,7 +1558,7 @@ tr.mine{
     </span>
 
     <h3>
-      TV ao vivo
+      TV
     </h3>
 
   </div>
@@ -1696,43 +1566,7 @@ tr.mine{
 </div>
 
 
-<div class="chips">
-
-  <button
-    class="chip tv-chip active"
-    data-tv="all"
-  >
-    Tudo
-  </button>
-
-  <button
-    class="chip tv-chip"
-    data-tv="aberta"
-  >
-    📡 TV aberta
-  </button>
-
-  <button
-    class="chip tv-chip"
-    data-tv="esportes"
-  >
-    ⚽ Esportes
-  </button>
-
-  <button
-    class="chip tv-chip"
-    data-tv="noticias"
-  >
-    📰 Notícias
-  </button>
-
-</div>
-
-
-<div
-  id="tvGrid"
-  class="media-grid"
-></div>
+<div class="media-grid" id="tvGrid"></div>
 
 </section>
 
@@ -1759,42 +1593,9 @@ tr.mine{
 </div>
 
 
-<div class="chips">
-
-  <button
-    class="chip movie-chip active"
-    data-movie="all"
-  >
-    Tudo
-  </button>
-
-  <button
-    class="chip movie-chip"
-    data-movie="filmes"
-  >
-    🎬 Filmes
-  </button>
-
-  <button
-    class="chip movie-chip"
-    data-movie="kids"
-  >
-    🧸 Desenhos
-  </button>
-
-  <button
-    class="chip movie-chip"
-    data-movie="paid"
-  >
-    🔒 Assinaturas
-  </button>
-
-</div>
-
-
 <div
-  id="movieGrid"
   class="media-grid"
+  id="movieGrid"
 ></div>
 
 </section>
@@ -1832,10 +1633,11 @@ tr.mine{
   id="favoritesEmpty"
   class="empty"
 >
-  ⭐ Favorite um jogo para ele aparecer aqui.
+  ⭐ Favorite uma partida para ela aparecer aqui.
 </div>
 
 </section>
+
 
 </main>
 
@@ -1886,6 +1688,10 @@ tr.mine{
 
 
 <script>
+
+/* ==================================================
+   LIGAS
+================================================== */
 
 const leagues = [
 
@@ -1949,176 +1755,74 @@ const priorityTeams = [
 ];
 
 
+/* ==================================================
+   TV
+================================================== */
+
 const tvChannels = [
 
   {
     name:"TV Globo",
     domain:"globoplay.globo.com",
-    description:"TV Globo pelo Globoplay. Disponibilidade pode variar por conta e região.",
     badge:"GLOBOPLAY",
-    badgeClass:"paid",
-    category:"aberta",
-    url:"https://globoplay.globo.com/tv-globo/ao-vivo/"
+    description:"TV Globo pelo Globoplay.",
+    url:"https://globoplay.globo.com/tv-globo/ao-vivo/9910452/"
   },
 
   {
     name:"SBT",
     domain:"sbt.com.br",
+    badge:"AO VIVO",
     description:"Programação oficial do SBT.",
-    badge:"AO VIVO • GRÁTIS",
-    badgeClass:"live",
-    category:"aberta",
     url:"https://sbt.com.br/ao-vivo"
   },
 
   {
     name:"Band",
     domain:"band.com.br",
-    description:"Programação oficial da Band.",
     badge:"AO VIVO",
-    badgeClass:"live",
-    category:"aberta",
+    description:"Programação oficial da Band.",
     url:"https://www.band.com.br/ao-vivo"
   },
 
   {
     name:"Record",
     domain:"record.r7.com",
-    description:"Programação e conteúdo oficial da Record.",
     badge:"OFICIAL",
-    badgeClass:"",
-    category:"aberta",
+    description:"Conteúdo oficial da Record.",
     url:"https://record.r7.com/"
   },
 
   {
     name:"RedeTV!",
     domain:"redetv.uol.com.br",
+    badge:"AO VIVO",
     description:"Programação oficial da RedeTV!.",
-    badge:"AO VIVO • GRÁTIS",
-    badgeClass:"live",
-    category:"aberta",
     url:"https://www.redetv.uol.com.br/aovivo/"
   },
 
   {
     name:"TV Cultura",
     domain:"cultura.uol.com.br",
-    description:"Programação oficial da TV Cultura.",
-    badge:"AO VIVO • GRÁTIS",
-    badgeClass:"live",
-    category:"aberta",
-    url:"https://cultura.uol.com.br/aovivo/"
-  },
-
-  {
-    name:"TV Brasil",
-    domain:"tvbrasil.ebc.com.br",
-    description:"WebTV oficial da TV Brasil.",
-    badge:"WEBTV",
-    badgeClass:"",
-    category:"aberta",
-    url:"https://tvbrasil.ebc.com.br/webtv/"
-  },
-
-  {
-    name:"TV Gazeta",
-    domain:"tvgazeta.com.br",
-    description:"Programação da TV Gazeta.",
     badge:"AO VIVO",
-    badgeClass:"live",
-    category:"aberta",
-    url:"https://www.tvgazeta.com.br/aovivo/"
+    description:"Programação da TV Cultura.",
+    url:"https://cultura.uol.com.br/aovivo/"
   },
 
   {
     name:"ge TV",
     domain:"ge.globo.com",
-    description:"Futebol e programação esportiva.",
     badge:"ESPORTES",
-    badgeClass:"",
-    category:"esportes",
+    description:"Canal esportivo digital.",
     url:"https://www.youtube.com/@getv"
   },
 
   {
     name:"CazéTV",
     domain:"youtube.com",
-    description:"Jogos e eventos esportivos.",
-    badge:"ESPORTES • GRÁTIS",
-    badgeClass:"",
-    category:"esportes",
-    url:"https://www.youtube.com/@CazeTV"
-  },
-
-  {
-    name:"Canal GOAT",
-    domain:"youtube.com",
-    description:"Futebol e transmissões esportivas.",
     badge:"ESPORTES",
-    badgeClass:"",
-    category:"esportes",
-    url:"https://www.youtube.com/@canalgoatbr"
-  },
-
-  {
-    name:"CBF",
-    domain:"cbf.com.br",
-    description:"Seleções brasileiras e conteúdo oficial.",
-    badge:"FUTEBOL",
-    badgeClass:"",
-    category:"esportes",
-    url:"https://www.youtube.com/@CBF"
-  },
-
-  {
-    name:"FIFA+",
-    domain:"plus.fifa.com",
-    description:"Futebol internacional e transmissões selecionadas.",
-    badge:"FUTEBOL",
-    badgeClass:"",
-    category:"esportes",
-    url:"https://www.plus.fifa.com/"
-  },
-
-  {
-    name:"Premiere",
-    domain:"globoplay.globo.com",
-    description:"Futebol brasileiro para assinantes.",
-    badge:"ASSINATURA",
-    badgeClass:"paid",
-    category:"esportes",
-    url:"https://globoplay.globo.com/canais/premiere/"
-  },
-
-  {
-    name:"ge",
-    domain:"ge.globo.com",
-    description:"Notícias e resultados.",
-    badge:"NOTÍCIAS",
-    badgeClass:"",
-    category:"noticias",
-    url:"https://ge.globo.com/"
-  },
-
-  {
-    name:"R7 Esportes",
-    domain:"r7.com",
-    description:"Notícias esportivas.",
-    badge:"NOTÍCIAS",
-    badgeClass:"",
-    category:"noticias",
-    url:"https://esportes.r7.com/"
-  },
-
-  {
-    name:"Band Esportes",
-    domain:"band.com.br",
-    description:"Notícias e programas esportivos.",
-    badge:"NOTÍCIAS",
-    badgeClass:"",
-    category:"noticias",
-    url:"https://www.band.com.br/esportes"
+    description:"Jogos e conteúdo esportivo.",
+    url:"https://www.youtube.com/@CazeTV"
   }
 
 ];
@@ -2129,179 +1833,95 @@ const entertainment = [
   {
     name:"Mercado Play",
     icon:"▶️",
-    description:"Filmes e séries grátis.",
     badge:"GRÁTIS",
-    badgeClass:"",
-    category:"filmes",
+    description:"Filmes e séries grátis.",
     url:"https://play.mercadolivre.com.br/filtrar/gratuito"
   },
 
   {
     name:"Plex",
     icon:"🎞️",
-    description:"Filmes, séries e canais gratuitos.",
     badge:"GRÁTIS",
-    badgeClass:"",
-    category:"filmes",
+    description:"Filmes e canais gratuitos.",
     url:"https://watch.plex.tv/pt-BR"
-  },
-
-  {
-    name:"Samsung TV Plus",
-    icon:"📡",
-    description:"Canais gratuitos em aparelhos compatíveis.",
-    badge:"GRÁTIS",
-    badgeClass:"",
-    category:"filmes",
-    url:"https://www.samsung.com/br/tvs/smart-tv/samsung-tv-plus/"
-  },
-
-  {
-    name:"YouTube Kids",
-    icon:"🧒",
-    description:"Conteúdo infantil.",
-    badge:"INFANTIL",
-    badgeClass:"kids",
-    category:"kids",
-    url:"https://www.youtubekids.com/"
   },
 
   {
     name:"Turma da Mônica",
     icon:"🐰",
-    description:"Desenhos da Turma da Mônica.",
     badge:"DESENHOS",
-    badgeClass:"kids",
-    category:"kids",
+    description:"Conteúdo infantil.",
     url:"https://www.youtube.com/results?search_query=Turma+da+Monica+oficial"
   },
 
   {
     name:"Mundo Bita",
     icon:"🎪",
-    description:"Músicas e animações.",
     badge:"INFANTIL",
-    badgeClass:"kids",
-    category:"kids",
+    description:"Músicas e animações.",
     url:"https://www.youtube.com/results?search_query=Mundo+Bita+oficial"
   },
 
   {
     name:"Galinha Pintadinha",
     icon:"🐔",
-    description:"Músicas e desenhos.",
     badge:"INFANTIL",
-    badgeClass:"kids",
-    category:"kids",
+    description:"Músicas infantis.",
     url:"https://www.youtube.com/results?search_query=Galinha+Pintadinha+oficial"
   },
 
   {
     name:"Pocoyo",
     icon:"💙",
-    description:"Desenhos em português.",
     badge:"DESENHOS",
-    badgeClass:"kids",
-    category:"kids",
+    description:"Desenhos infantis.",
     url:"https://www.youtube.com/results?search_query=Pocoyo+portugues+oficial"
   },
 
   {
-    name:"Peppa Pig",
-    icon:"🐷",
-    description:"Episódios em português.",
-    badge:"DESENHOS",
-    badgeClass:"kids",
-    category:"kids",
-    url:"https://www.youtube.com/results?search_query=Peppa+Pig+portugues+oficial"
-  },
-
-  {
-    name:"Masha e o Urso",
-    icon:"🐻",
-    description:"Episódios infantis.",
-    badge:"DESENHOS",
-    badgeClass:"kids",
-    category:"kids",
-    url:"https://www.youtube.com/results?search_query=Masha+e+o+Urso+portugues+oficial"
-  },
-
-  {
-    name:"O Show da Luna",
-    icon:"🔭",
-    description:"Animação educativa.",
-    badge:"EDUCATIVO",
-    badgeClass:"kids",
-    category:"kids",
-    url:"https://www.youtube.com/results?search_query=Show+da+Luna+oficial"
-  },
-
-  {
-    name:"Bob Zoom",
-    icon:"🐜",
-    description:"Música infantil.",
-    badge:"INFANTIL",
-    badgeClass:"kids",
-    category:"kids",
-    url:"https://www.youtube.com/results?search_query=Bob+Zoom+oficial"
-  },
-
-  {
     name:"Prime Video",
-    icon:"📦",
-    description:"Filmes e séries.",
+    icon:"🎬",
     badge:"ASSINATURA",
-    badgeClass:"paid",
-    category:"paid",
+    description:"Filmes e séries.",
     url:"https://www.primevideo.com/"
   },
 
   {
     name:"Disney+",
-    icon:"✨",
-    description:"Disney, Pixar e ESPN.",
+    icon:"🏰",
     badge:"ASSINATURA",
-    badgeClass:"paid",
-    category:"paid",
+    description:"Filmes, séries e desenhos.",
     url:"https://www.disneyplus.com/"
   },
 
   {
     name:"Netflix",
-    icon:"🎬",
-    description:"Filmes e séries.",
+    icon:"🎞️",
     badge:"ASSINATURA",
-    badgeClass:"paid",
-    category:"paid",
+    description:"Filmes e séries.",
     url:"https://www.netflix.com/"
   },
 
   {
     name:"Max",
-    icon:"💜",
-    description:"Filmes e séries.",
+    icon:"🍿",
     badge:"ASSINATURA",
-    badgeClass:"paid",
-    category:"paid",
+    description:"Filmes e séries.",
     url:"https://www.max.com/"
   }
 
 ];
 
 
+/* ==================================================
+   ESTADO
+================================================== */
+
 let allGames = [];
 
-let gameFilter =
-  "all";
+let gameFilter = "all";
 
-let tvFilter =
-  "all";
-
-let movieFilter =
-  "all";
-
-let searchText =
-  "";
+let searchText = "";
 
 let favorites =
   JSON.parse(
@@ -2311,20 +1931,6 @@ let favorites =
     ||
     "[]"
   );
-
-let hideFinished =
-  localStorage.getItem(
-    "flHideFinished"
-  )
-  ===
-  "1";
-
-let hasPremiere =
-  localStorage.getItem(
-    "flPremiere"
-  )
-  ===
-  "1";
 
 
 const $ =
@@ -2343,17 +1949,17 @@ const $$ =
     ];
 
 
+/* ==================================================
+   HELPERS
+================================================== */
+
 function normalize(
   value=""
 ){
 
   return(
-    String(
-      value
-    )
-    .normalize(
-      "NFD"
-    )
+    String(value)
+    .normalize("NFD")
     .replace(
       /[\u0300-\u036f]/g,
       ""
@@ -2364,10 +1970,19 @@ function normalize(
 }
 
 
-function dateKey(){
+function dateKey(
+  offsetDays=0
+){
 
   const d =
     new Date();
+
+  d.setDate(
+    d.getDate()
+    +
+    offsetDays
+  );
+
 
   return(
     `${d.getFullYear()}${
@@ -2399,20 +2014,63 @@ function formatTime(
       iso
     );
 
-  if(
-    Number.isNaN(
-      d.getTime()
-    )
-  ){
-    return "—";
-  }
-
   return(
     d.toLocaleTimeString(
       "pt-BR",
       {
         hour:"2-digit",
         minute:"2-digit"
+      }
+    )
+  );
+
+}
+
+
+function formatDayLabel(
+  iso
+){
+
+  const d =
+    new Date(
+      iso
+    );
+
+  const today =
+    new Date();
+
+  const yesterday =
+    new Date();
+
+  yesterday.setDate(
+    today.getDate()-1
+  );
+
+
+  if(
+    d.toDateString()
+    ===
+    today.toDateString()
+  ){
+    return "Hoje";
+  }
+
+
+  if(
+    d.toDateString()
+    ===
+    yesterday.toDateString()
+  ){
+    return "Ontem";
+  }
+
+
+  return(
+    d.toLocaleDateString(
+      "pt-BR",
+      {
+        day:"2-digit",
+        month:"2-digit"
       }
     )
   );
@@ -2434,8 +2092,6 @@ function isLive(
     .includes(
       String(
         game.state
-        ||
-        ""
       )
       .toLowerCase()
     )
@@ -2451,8 +2107,6 @@ function isFinished(
   return(
     String(
       game.state
-      ||
-      ""
     )
     .toLowerCase()
     ===
@@ -2466,15 +2120,153 @@ function isFinished(
 }
 
 
+function isScheduled(
+  game
+){
+
+  return(
+    !isLive(game)
+    &&
+    !isFinished(game)
+  );
+
+}
+
+
+/* ==================================================
+   15 MINUTOS
+================================================== */
+
+function minutesUntilKickoff(
+  game
+){
+
+  const kickoff =
+    new Date(
+      game.date
+    )
+    .getTime();
+
+
+  return(
+    Math.floor(
+      (
+        kickoff
+        -
+        Date.now()
+      )
+      /
+      60000
+    )
+  );
+
+}
+
+
+function shouldShowBroadcasters(
+  game
+){
+
+  if(
+    isFinished(game)
+  ){
+    return false;
+  }
+
+
+  if(
+    isLive(game)
+  ){
+    return true;
+  }
+
+
+  const minutes =
+    minutesUntilKickoff(
+      game
+    );
+
+
+  return(
+    minutes <= 15
+    &&
+    minutes >= -180
+  );
+
+}
+
+
+/* ==================================================
+   MANTER ENCERRADO POR 24H
+================================================== */
+
+function keepFinishedFor24Hours(
+  game
+){
+
+  if(
+    !isFinished(game)
+  ){
+    return true;
+  }
+
+
+  const kickoff =
+    new Date(
+      game.date
+    )
+    .getTime();
+
+
+  /*
+    Estimativa:
+    duração máxima aproximada do evento = 3 horas.
+  */
+
+  const estimatedEnd =
+    kickoff
+    +
+    (
+      3
+      *
+      60
+      *
+      60
+      *
+      1000
+    );
+
+
+  const expiration =
+    estimatedEnd
+    +
+    (
+      24
+      *
+      60
+      *
+      60
+      *
+      1000
+    );
+
+
+  return(
+    Date.now()
+    <=
+    expiration
+  );
+
+}
+
+
 function isFavorite(
   game
 ){
 
   return(
     favorites.includes(
-      String(
-        game.id
-      )
+      String(game.id)
     )
   );
 
@@ -2490,19 +2282,22 @@ function isPriority(
       `${game.home} ${game.away}`
     );
 
+
   return(
     priorityTeams.some(
       team =>
         text.includes(
-          normalize(
-            team
-          )
+          normalize(team)
         )
     )
   );
 
 }
 
+
+/* ==================================================
+   ESPN
+================================================== */
 
 function parseGame(
   event,
@@ -2512,23 +2307,26 @@ function parseGame(
   const competition =
     event.competitions?.[0];
 
+
   const competitors =
     competition?.competitors
     ||
     [];
 
+
   const home =
     competitors.find(
-      team =>
-        team.homeAway
+      item =>
+        item.homeAway
         ===
         "home"
     );
 
+
   const away =
     competitors.find(
-      team =>
-        team.homeAway
+      item =>
+        item.homeAway
         ===
         "away"
     );
@@ -2536,8 +2334,7 @@ function parseGame(
 
   return{
 
-    id:
-      event.id,
+    id:event.id,
 
     league:
       league.name,
@@ -2608,16 +2405,14 @@ function parseGame(
 }
 
 
-async function fetchLeague(
-  league
+async function fetchLeagueByDate(
+  league,
+  date
 ){
-
-  const url =
-    `https://site.api.espn.com/apis/site/v2/sports/soccer/${league.slug}/scoreboard?dates=${dateKey()}`;
 
   const response =
     await fetch(
-      url,
+      `https://site.api.espn.com/apis/site/v2/sports/soccer/${league.slug}/scoreboard?dates=${date}`,
       {
         cache:"no-store"
       }
@@ -2653,6 +2448,56 @@ async function fetchLeague(
 }
 
 
+async function fetchLeague(
+  league
+){
+
+  const yesterday =
+    await fetchLeagueByDate(
+      league,
+      dateKey(-1)
+    );
+
+
+  const today =
+    await fetchLeagueByDate(
+      league,
+      dateKey(0)
+    );
+
+
+  const combined =
+    [
+      ...yesterday,
+      ...today
+    ];
+
+
+  const unique =
+    new Map();
+
+
+  combined.forEach(
+    game => {
+
+      unique.set(
+        String(game.id),
+        game
+      );
+
+    }
+  );
+
+
+  return(
+    [
+      ...unique.values()
+    ]
+  );
+
+}
+
+
 async function refreshGames(){
 
   $("#gamesLoading")
@@ -2681,6 +2526,16 @@ async function refreshGames(){
     );
 
 
+  /*
+    Remove partidas encerradas há mais de 24h
+  */
+
+  allGames =
+    allGames.filter(
+      keepFinishedFor24Hours
+    );
+
+
   $("#gamesLoading")
   .style.display =
   "none";
@@ -2691,49 +2546,9 @@ async function refreshGames(){
 }
 
 
-function toggleFavorite(
-  id
-){
-
-  id =
-    String(
-      id
-    );
-
-
-  if(
-    favorites.includes(
-      id
-    )
-  ){
-
-    favorites =
-      favorites.filter(
-        item =>
-          item !== id
-      );
-
-  }else{
-
-    favorites.push(
-      id
-    );
-
-  }
-
-
-  localStorage.setItem(
-    "flFavorites",
-    JSON.stringify(
-      favorites
-    )
-  );
-
-
-  renderGames();
-
-}
-
+/* ==================================================
+   LINKS
+================================================== */
 
 function youtubeSearch(
   query
@@ -2765,13 +2580,59 @@ function googleSearch(
 }
 
 
+/* ==================================================
+   FAVORITOS
+================================================== */
+
+function toggleFavorite(
+  id
+){
+
+  id =
+    String(id);
+
+
+  if(
+    favorites.includes(id)
+  ){
+
+    favorites =
+      favorites.filter(
+        item =>
+          item !== id
+      );
+
+  }else{
+
+    favorites.push(id);
+
+  }
+
+
+  localStorage.setItem(
+    "flFavorites",
+    JSON.stringify(
+      favorites
+    )
+  );
+
+
+  renderGames();
+
+}
+
+
+/* ==================================================
+   LOGOS
+================================================== */
+
 function teamLogo(
-  url,
+  logo,
   abbr
 ){
 
   if(
-    !url
+    !logo
   ){
 
     return`
@@ -2786,7 +2647,7 @@ function teamLogo(
   return`
 
     <img
-      src="${url}"
+      src="${logo}"
       alt=""
       loading="lazy"
       onerror="
@@ -2807,67 +2668,116 @@ function teamLogo(
 }
 
 
+/* ==================================================
+   CARD
+================================================== */
+
 function gameCard(
   game
 ){
 
-  const ended =
-    isFinished(
-      game
-    );
-
   const live =
-    isLive(
+    isLive(game);
+
+  const ended =
+    isFinished(game);
+
+  const showBroadcasters =
+    shouldShowBroadcasters(
       game
     );
 
   const fav =
-    isFavorite(
-      game
-    );
+    isFavorite(game);
 
 
-  let status =
-    game.detail
-    ||
-    formatTime(
-      game.date
-    );
+  let statusText = "";
+
+  let statusClass = "";
 
 
   if(
     ended
   ){
-    status =
+
+    statusText =
       "ENCERRADO";
-  }
 
-
-  if(
+  }else if(
     live
   ){
-    status =
+
+    statusText =
       game.detail
       ||
       "AO VIVO";
+
+    statusClass =
+      "live";
+
+  }else{
+
+    statusText =
+      "AGENDADO";
+
+    statusClass =
+      "scheduled";
+
   }
 
 
-  const score =
-    (
-      game.homeScore !== ""
-      ||
-      game.awayScore !== ""
-    )
-    ?
-    `${game.homeScore || 0} × ${game.awayScore || 0}`
-    :
-    "X";
+  let scoreHTML = "";
+
+
+  if(
+    ended
+    ||
+    live
+  ){
+
+    scoreHTML = `
+
+      <div class="score">
+
+        ${
+          game.homeScore
+          ||
+          0
+        }
+
+        ×
+
+        ${
+          game.awayScore
+          ||
+          0
+        }
+
+      </div>
+
+    `;
+
+  }else{
+
+    scoreHTML = `
+
+      <div class="kickoff-label">
+
+        ${formatDayLabel(game.date)}
+
+      </div>
+
+    `;
+
+  }
 
 
   let notice = "";
+
   let buttons = "";
 
+
+/* ENCERRADO */
 
   if(
     ended
@@ -2876,7 +2786,9 @@ function gameCard(
     notice = `
 
       <div class="notice finished">
-        🎬 Partida encerrada — veja os melhores momentos
+
+        🎬 Partida encerrada — disponível por aproximadamente 24h para melhores momentos
+
       </div>
 
     `;
@@ -2913,18 +2825,86 @@ function gameCard(
 
     `;
 
-  }else{
+  }
+
+
+/* A MAIS DE 15 MIN */
+
+  else if(
+    !showBroadcasters
+  ){
+
+    const minutes =
+      minutesUntilKickoff(
+        game
+      );
+
+
+    let message = "";
+
+
+    if(
+      minutes > 15
+    ){
+
+      message =
+        `⏳ ${formatDayLabel(game.date)} às ${formatTime(game.date)} • emissoras serão liberadas 15 minutos antes`;
+
+    }else{
+
+      message =
+        "⏳ Aguardando atualização da partida";
+
+    }
+
 
     notice = `
 
-      <div class="notice">
+      <div class="notice waiting">
+
+        ${message}
+
+      </div>
+
+    `;
+
+
+    buttons = `
+
+      <a
+        class="action primary"
+        href="${
+          googleSearch(
+            `${game.home} ${game.away} onde assistir hoje transmissão`
+          )
+        }"
+        target="_blank"
+        rel="noopener"
+      >
+
+        🔎 Onde assistir
+
+      </a>
+
+    `;
+
+  }
+
+
+/* 15 MIN ANTES OU AO VIVO */
+
+  else{
+
+    notice = `
+
+      <div class="notice ready">
 
         ${
           live
           ?
-          "🔴 Partida ao vivo — verificar fonte oficial"
+          "🔴 Partida em andamento • opções de transmissão liberadas"
           :
-          "📺 Verifique a transmissão oficial"
+          "📺 Faltam 15 minutos ou menos • opções de transmissão liberadas"
         }
 
       </div>
@@ -2938,13 +2918,15 @@ function gameCard(
         class="action"
         href="${
           youtubeSearch(
-            `${game.home} ${game.away} ge TV`
+            `${game.home} ${game.away} ge TV ao vivo`
           )
         }"
         target="_blank"
         rel="noopener"
       >
-        ge TV
+
+        📺 ge TV
+
       </a>
 
 
@@ -2952,57 +2934,53 @@ function gameCard(
         class="action"
         href="${
           youtubeSearch(
-            `${game.home} ${game.away} CazéTV`
+            `${game.home} ${game.away} CazéTV ao vivo`
           )
         }"
         target="_blank"
         rel="noopener"
       >
-        CazéTV
+
+        📺 CazéTV
+
       </a>
 
-    `;
 
+      ${
+        game.group === "brazil"
+        ?
+        `
 
-    if(
-      game.group === "brazil"
-    ){
+          <a
+            class="action premiere"
+            href="https://globoplay.globo.com/canais/premiere/"
+            target="_blank"
+            rel="noopener"
+          >
 
-      buttons += `
+            🔒 Premiere
 
-        <a
-          class="action premiere"
-          href="https://globoplay.globo.com/canais/premiere/"
-          target="_blank"
-          rel="noopener"
-        >
-          🔒 Premiere
-        </a>
+          </a>
 
-      `;
+        `
+        :
+        ""
+      }
 
-    }
-
-
-    buttons += `
 
       <a
         class="action primary"
         href="${
           googleSearch(
-            `${game.home} ${game.away} onde assistir transmissão oficial`
+            `${game.home} ${game.away} onde assistir transmissão oficial hoje`
           )
         }"
         target="_blank"
         rel="noopener"
       >
-        ${
-          live
-          ?
-          "▶ Assistir agora"
-          :
-          "Onde assistir"
-        }
+
+        🔎 Onde assistir
+
       </a>
 
     `;
@@ -3028,7 +3006,9 @@ function gameCard(
       <div class="game-head">
 
         <span class="competition">
+
           ${game.league}
+
         </span>
 
 
@@ -3037,16 +3017,12 @@ function gameCard(
           <span
             class="
               status
-              ${
-                live
-                ?
-                "live"
-                :
-                ""
-              }
+              ${statusClass}
             "
           >
-            ${status}
+
+            ${statusText}
+
           </span>
 
 
@@ -3067,6 +3043,7 @@ function gameCard(
               )
             "
           >
+
             ${
               fav
               ?
@@ -3074,6 +3051,7 @@ function gameCard(
               :
               "☆"
             }
+
           </button>
 
         </div>
@@ -3083,6 +3061,7 @@ function gameCard(
 
       <div class="match">
 
+
         <div class="team">
 
           ${teamLogo(
@@ -3091,7 +3070,9 @@ function gameCard(
           )}
 
           <div class="team-name">
+
             ${game.home}
+
           </div>
 
         </div>
@@ -3099,12 +3080,12 @@ function gameCard(
 
         <div class="score-box">
 
-          <div class="score">
-            ${score}
-          </div>
+          ${scoreHTML}
 
           <div class="time">
+
             ${formatTime(game.date)}
+
           </div>
 
         </div>
@@ -3118,10 +3099,13 @@ function gameCard(
           )}
 
           <div class="team-name">
+
             ${game.away}
+
           </div>
 
         </div>
+
 
       </div>
 
@@ -3130,8 +3114,11 @@ function gameCard(
 
 
       <div class="game-buttons">
+
         ${buttons}
+
       </div>
+
 
     </article>
 
@@ -3140,27 +3127,16 @@ function gameCard(
 }
 
 
+/* ==================================================
+   FILTROS
+================================================== */
+
 function filteredGames(){
 
   let list =
     [
       ...allGames
     ];
-
-
-  if(
-    hideFinished
-  ){
-
-    list =
-      list.filter(
-        game =>
-          !isFinished(
-            game
-          )
-      );
-
-  }
 
 
   if(
@@ -3182,7 +3158,9 @@ function filteredGames(){
     list =
       list.filter(
         game =>
-          game.group === "brazil"
+          game.group
+          ===
+          "brazil"
       );
 
   }
@@ -3207,7 +3185,9 @@ function filteredGames(){
     list =
       list.filter(
         game =>
-          game.group === "europe"
+          game.group
+          ===
+          "europe"
       );
 
   }
@@ -3217,7 +3197,7 @@ function filteredGames(){
     searchText
   ){
 
-    const q =
+    const query =
       normalize(
         searchText
       );
@@ -3229,17 +3209,17 @@ function filteredGames(){
           normalize(
             game.home
           )
-          .includes(q)
+          .includes(query)
           ||
           normalize(
             game.away
           )
-          .includes(q)
+          .includes(query)
           ||
           normalize(
             game.league
           )
-          .includes(q)
+          .includes(query)
       );
 
   }
@@ -3249,7 +3229,24 @@ function filteredGames(){
     (a,b) => {
 
       if(
-        isPriority(a) !== isPriority(b)
+        isLive(a)
+        !==
+        isLive(b)
+      ){
+
+        return(
+          isLive(b)
+          -
+          isLive(a)
+        );
+
+      }
+
+
+      if(
+        isPriority(a)
+        !==
+        isPriority(b)
       ){
 
         return(
@@ -3261,14 +3258,38 @@ function filteredGames(){
       }
 
 
+      /*
+        Jogos futuros em ordem crescente.
+        Encerrados mais recentes primeiro.
+      */
+
       if(
-        isLive(a) !== isLive(b)
+        isFinished(a)
+        &&
+        isFinished(b)
       ){
 
         return(
-          isLive(b)
+          new Date(b.date)
           -
-          isLive(a)
+          new Date(a.date)
+        );
+
+      }
+
+
+      if(
+        isFinished(a)
+        !==
+        isFinished(b)
+      ){
+
+        return(
+          isFinished(a)
+          ?
+          1
+          :
+          -1
         );
 
       }
@@ -3288,6 +3309,10 @@ function filteredGames(){
 
 }
 
+
+/* ==================================================
+   RENDER
+================================================== */
 
 function renderGames(){
 
@@ -3314,7 +3339,9 @@ function renderGames(){
   allGames
   .filter(
     game =>
-      game.group === "brazil"
+      game.group
+      ===
+      "brazil"
   )
   .length;
 
@@ -3334,9 +3361,7 @@ function renderGames(){
   list
   .map(
     game =>
-      gameCard(
-        game
-      )
+      gameCard(game)
   )
   .join("");
 
@@ -3350,7 +3375,7 @@ function renderGames(){
   "block";
 
 
-  const favs =
+  const favoriteGames =
     allGames.filter(
       isFavorite
     );
@@ -3358,19 +3383,17 @@ function renderGames(){
 
   $("#favoriteGames")
   .innerHTML =
-  favs
+  favoriteGames
   .map(
     game =>
-      gameCard(
-        game
-      )
+      gameCard(game)
   )
   .join("");
 
 
   $("#favoritesEmpty")
   .style.display =
-  favs.length
+  favoriteGames.length
   ?
   "none"
   :
@@ -3379,12 +3402,16 @@ function renderGames(){
 }
 
 
+/* ==================================================
+   TABELA
+================================================== */
+
 function statValue(
   stats,
   keys
 ){
 
-  const found =
+  const item =
     stats.find(
       stat =>
         keys.includes(
@@ -3398,9 +3425,9 @@ function statValue(
 
 
   return(
-    found?.displayValue
+    item?.displayValue
     ??
-    found?.value
+    item?.value
     ??
     "-"
   );
@@ -3490,13 +3517,6 @@ async function loadStandings(){
     }
 
 
-    if(
-      !entries.length
-    ){
-      throw new Error();
-    }
-
-
     $("#standingsBody")
     .innerHTML =
     entries
@@ -3506,39 +3526,23 @@ async function loadStandings(){
         index
       ) => {
 
-        const team =
-          row.team
-          ||
-          {};
-
         const stats =
           row.stats
           ||
           [];
 
-        const name =
-          team.displayName
+        const team =
+          row.team
           ||
-          team.name
-          ||
-          "Time";
-
-
-        const mine =
-          priorityTeams.some(
-            item =>
-              normalize(name)
-              .includes(
-                normalize(item)
-              )
-          );
+          {};
 
 
         return`
 
-          <tr class="${mine ? "mine" : ""}">
+          <tr>
 
             <td>
+
               ${
                 statValue(
                   stats,
@@ -3547,6 +3551,7 @@ async function loadStandings(){
                 ||
                 index+1
               }
+
             </td>
 
             <td class="team-cell">
@@ -3561,20 +3566,37 @@ async function loadStandings(){
                   ""
                 }
 
-                ${name}
+                ${
+                  team.displayName
+                  ||
+                  team.name
+                  ||
+                  "Time"
+                }
 
               </div>
 
             </td>
 
-            <td>${statValue(stats,["points","PTS"])}</td>
-            <td>${statValue(stats,["gamesPlayed","GP"])}</td>
-            <td>${statValue(stats,["wins","W"])}</td>
-            <td>${statValue(stats,["ties","draws","D"])}</td>
-            <td>${statValue(stats,["losses","L"])}</td>
-            <td>${statValue(stats,["pointsFor","goalsFor","GF"])}</td>
-            <td>${statValue(stats,["pointsAgainst","goalsAgainst","GA"])}</td>
-            <td>${statValue(stats,["pointDifferential","goalDifference","GD"])}</td>
+            <td>
+              ${statValue(stats,["points","PTS"])}
+            </td>
+
+            <td>
+              ${statValue(stats,["gamesPlayed","GP"])}
+            </td>
+
+            <td>
+              ${statValue(stats,["wins","W"])}
+            </td>
+
+            <td>
+              ${statValue(stats,["ties","draws","D"])}
+            </td>
+
+            <td>
+              ${statValue(stats,["losses","L"])}
+            </td>
 
           </tr>
 
@@ -3606,6 +3628,10 @@ async function loadStandings(){
 }
 
 
+/* ==================================================
+   TV
+================================================== */
+
 function networkLogo(
   domain
 ){
@@ -3617,177 +3643,137 @@ function networkLogo(
 }
 
 
-function tvCard(
-  item
-){
-
-  return`
-
-    <a
-      class="media-card"
-      href="${item.url}"
-      target="_blank"
-      rel="noopener"
-    >
-
-      <div class="network-logo-wrap">
-
-        <img
-          class="network-logo"
-          src="${
-            networkLogo(
-              item.domain
-            )
-          }"
-          alt="${item.name}"
-        >
-
-      </div>
-
-
-      <div
-        class="
-          media-badge
-          ${item.badgeClass || ""}
-        "
-      >
-        ${item.badge}
-      </div>
-
-
-      <h4>
-        ${item.name}
-      </h4>
-
-
-      <p>
-        ${item.description}
-      </p>
-
-
-      <div class="media-open">
-
-        <span>
-          Abrir oficial
-        </span>
-
-        <span>
-          ›
-        </span>
-
-      </div>
-
-    </a>
-
-  `;
-
-}
-
-
-function entertainmentCard(
-  item
-){
-
-  return`
-
-    <a
-      class="media-card"
-      href="${item.url}"
-      target="_blank"
-      rel="noopener"
-    >
-
-      <div class="media-icon">
-        ${item.icon}
-      </div>
-
-
-      <div
-        class="
-          media-badge
-          ${item.badgeClass || ""}
-        "
-      >
-        ${item.badge}
-      </div>
-
-
-      <h4>
-        ${item.name}
-      </h4>
-
-
-      <p>
-        ${item.description}
-      </p>
-
-
-      <div class="media-open">
-
-        <span>
-          Abrir
-        </span>
-
-        <span>
-          ›
-        </span>
-
-      </div>
-
-    </a>
-
-  `;
-
-}
-
-
 function renderTv(){
-
-  const list =
-    tvFilter === "all"
-    ?
-    tvChannels
-    :
-    tvChannels.filter(
-      item =>
-        item.category === tvFilter
-    );
-
 
   $("#tvGrid")
   .innerHTML =
-  list
+  tvChannels
   .map(
-    tvCard
+    item => `
+
+      <a
+        class="media-card"
+        href="${item.url}"
+        target="_blank"
+        rel="noopener"
+      >
+
+        <div class="network-logo-wrap">
+
+          <img
+            class="network-logo"
+            src="${networkLogo(item.domain)}"
+            alt="${item.name}"
+          >
+
+        </div>
+
+        <div class="media-badge">
+
+          ${item.badge}
+
+        </div>
+
+        <h4>
+
+          ${item.name}
+
+        </h4>
+
+        <p>
+
+          ${item.description}
+
+        </p>
+
+        <div class="media-open">
+
+          <span>
+            Abrir oficial
+          </span>
+
+          <span>
+            ›
+          </span>
+
+        </div>
+
+      </a>
+
+    `
   )
   .join("");
 
 }
 
+
+/* ==================================================
+   FILMES
+================================================== */
 
 function renderMovies(){
 
-  const list =
-    movieFilter === "all"
-    ?
-    entertainment
-    :
-    entertainment.filter(
-      item =>
-        item.category === movieFilter
-    );
-
-
   $("#movieGrid")
   .innerHTML =
-  list
+  entertainment
   .map(
-    entertainmentCard
+    item => `
+
+      <a
+        class="media-card"
+        href="${item.url}"
+        target="_blank"
+        rel="noopener"
+      >
+
+        <div class="media-icon">
+
+          ${item.icon}
+
+        </div>
+
+        <div class="media-badge kids">
+
+          ${item.badge}
+
+        </div>
+
+        <h4>
+
+          ${item.name}
+
+        </h4>
+
+        <p>
+
+          ${item.description}
+
+        </p>
+
+        <div class="media-open">
+
+          <span>
+            Abrir
+          </span>
+
+          <span>
+            ›
+          </span>
+
+        </div>
+
+      </a>
+
+    `
   )
   .join("");
 
 }
 
+
+/* ==================================================
+   NAV
+================================================== */
 
 function openView(
   name
@@ -3804,8 +3790,8 @@ function openView(
 
   $$(".nav-btn")
   .forEach(
-    btn =>
-      btn.classList.remove(
+    button =>
+      button.classList.remove(
         "active"
       )
   );
@@ -3817,47 +3803,20 @@ function openView(
   );
 
 
-  const nav =
-    document.querySelector(
-      `[data-view="${name}"]`
-    );
-
-
-  if(
-    nav
-  ){
-
-    nav.classList.add(
-      "active"
-    );
-
-  }
+  document
+  .querySelector(
+    `[data-view="${name}"]`
+  )
+  ?.classList
+  .add(
+    "active"
+  );
 
 
   if(
     name === "Table"
   ){
-
     loadStandings();
-
-  }
-
-
-  if(
-    name === "Tv"
-  ){
-
-    renderTv();
-
-  }
-
-
-  if(
-    name === "Movies"
-  ){
-
-    renderMovies();
-
   }
 
 
@@ -3870,6 +3829,10 @@ function openView(
 
 }
 
+
+/* ==================================================
+   EVENTOS
+================================================== */
 
 $$(".nav-btn")
 .forEach(
@@ -3907,7 +3870,9 @@ $$(".game-chip")
         );
 
 
-        button.classList.add(
+        button
+        .classList
+        .add(
           "active"
         );
 
@@ -3917,76 +3882,6 @@ $$(".game-chip")
 
 
         renderGames();
-
-      }
-    );
-
-  }
-);
-
-
-$$(".tv-chip")
-.forEach(
-  button => {
-
-    button.addEventListener(
-      "click",
-      () => {
-
-        $$(".tv-chip")
-        .forEach(
-          item =>
-            item.classList.remove(
-              "active"
-            )
-        );
-
-
-        button.classList.add(
-          "active"
-        );
-
-
-        tvFilter =
-          button.dataset.tv;
-
-
-        renderTv();
-
-      }
-    );
-
-  }
-);
-
-
-$$(".movie-chip")
-.forEach(
-  button => {
-
-    button.addEventListener(
-      "click",
-      () => {
-
-        $$(".movie-chip")
-        .forEach(
-          item =>
-            item.classList.remove(
-              "active"
-            )
-        );
-
-
-        button.classList.add(
-          "active"
-        );
-
-
-        movieFilter =
-          button.dataset.movie;
-
-
-        renderMovies();
 
       }
     );
@@ -4009,63 +3904,6 @@ $("#searchInput")
 );
 
 
-$("#hideFinished")
-.checked =
-hideFinished;
-
-
-$("#hasPremiere")
-.checked =
-hasPremiere;
-
-
-$("#hideFinished")
-.addEventListener(
-  "change",
-  event => {
-
-    hideFinished =
-      event.target.checked;
-
-
-    localStorage.setItem(
-      "flHideFinished",
-      hideFinished
-      ?
-      "1"
-      :
-      "0"
-    );
-
-
-    renderGames();
-
-  }
-);
-
-
-$("#hasPremiere")
-.addEventListener(
-  "change",
-  event => {
-
-    hasPremiere =
-      event.target.checked;
-
-
-    localStorage.setItem(
-      "flPremiere",
-      hasPremiere
-      ?
-      "1"
-      :
-      "0"
-    );
-
-  }
-);
-
-
 $("#leagueSelect")
 .addEventListener(
   "change",
@@ -4080,11 +3918,30 @@ $("#refreshBtn")
 );
 
 
+/*
+  Atualiza também os botões conforme
+  o relógio se aproxima dos 15 minutos.
+*/
+
+setInterval(
+  renderGames,
+  30000
+);
+
+
+/*
+  Atualiza dados ESPN a cada 60 segundos.
+*/
+
 setInterval(
   refreshGames,
   60000
 );
 
+
+/* ==================================================
+   START
+================================================== */
 
 renderTv();
 
@@ -4094,8 +3951,6 @@ refreshGames();
 
 </script>
 
-
-<!-- PWA / INSTALAÇÃO -->
 
 <script>
 
@@ -4109,30 +3964,17 @@ if(
     () => {
 
       navigator
-        .serviceWorker
-        .register(
-          "./service-worker.js"
-        )
-        .then(
-          registration => {
-
-            console.log(
-              "Futebol Livre PWA ativo:",
-              registration.scope
-            );
-
-          }
-        )
-        .catch(
-          error => {
-
-            console.error(
-              "Erro ao registrar PWA:",
-              error
-            );
-
-          }
-        );
+      .serviceWorker
+      .register(
+        "./service-worker.js"
+      )
+      .catch(
+        error =>
+          console.error(
+            "Erro PWA:",
+            error
+          )
+      );
 
     }
   );
