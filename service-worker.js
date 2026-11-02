@@ -1,260 +1,148 @@
-const CACHE_NAME =
-  "stanley-sports-v9";
-
+const CACHE_NAME = "stanley-sports-v11";
 
 const APP_SHELL = [
-
   "/-futebol-livre/",
   "/-futebol-livre/index.html",
   "/-futebol-livre/manifest.json",
-  "/-futebol-livre/icon.svg"
-
+  "/-futebol-livre/stanley-sports-logo.png",
+  "/-futebol-livre/stanley-sports-icon-192.png",
+  "/-futebol-livre/stanley-sports-icon-512.png",
+  "/-futebol-livre/stanley-sports-apple-180.png"
 ];
 
+self.addEventListener("install", event => {
 
-self.addEventListener(
-  "install",
-  event => {
+  self.skipWaiting();
 
-    self.skipWaiting();
+  event.waitUntil(
+    caches
+      .open(CACHE_NAME)
+      .then(cache => cache.addAll(APP_SHELL))
+  );
 
-
-    event.waitUntil(
-
-      caches
-      .open(
-        CACHE_NAME
-      )
-      .then(
-        cache =>
-          cache.addAll(
-            APP_SHELL
-          )
-      )
-
-    );
-
-  }
-);
+});
 
 
-self.addEventListener(
-  "activate",
-  event => {
+self.addEventListener("activate", event => {
 
-    event.waitUntil(
+  event.waitUntil(
 
-      caches
+    caches
       .keys()
-      .then(
-        keys => {
+      .then(keys => {
 
-          return(
-            Promise.all(
+        return Promise.all(
 
-              keys.map(
-                key => {
+          keys.map(key => {
 
-                  if(
-                    key
-                    !==
-                    CACHE_NAME
-                  ){
+            if (key !== CACHE_NAME) {
+              return caches.delete(key);
+            }
 
-                    return(
-                      caches.delete(
-                        key
-                      )
-                    );
+          })
 
-                  }
+        );
 
-                }
-              )
+      })
+      .then(() => self.clients.claim())
 
-            )
-          );
+  );
 
-        }
-      )
-      .then(
-        () =>
-          self.clients.claim()
-      )
+});
 
-    );
 
+self.addEventListener("fetch", event => {
+
+  const request = event.request;
+
+  if (request.method !== "GET") {
+    return;
   }
-);
+
+  const url = new URL(request.url);
 
 
-self.addEventListener(
-  "fetch",
-  event => {
-
-    const request =
-      event.request;
-
-
-    if(
-      request.method
-      !==
-      "GET"
-    ){
-      return;
-    }
-
-
-    const url =
-      new URL(
-        request.url
-      );
-
-
-    if(
-      request.mode
-      ===
-      "navigate"
-    ){
-
-      event.respondWith(
-
-        fetch(
-          request,
-          {
-            cache:"no-store"
-          }
-        )
-
-        .then(
-          response => {
-
-            const clone =
-              response.clone();
-
-
-            caches
-            .open(
-              CACHE_NAME
-            )
-            .then(
-              cache => {
-
-                cache.put(
-                  request,
-                  clone
-                );
-
-              }
-            );
-
-
-            return response;
-
-          }
-        )
-
-        .catch(
-          () => {
-
-            return(
-              caches.match(
-                "/-futebol-livre/index.html"
-              )
-            );
-
-          }
-        )
-
-      );
-
-
-      return;
-
-    }
-
-
-    if(
-      url.origin
-      ===
-      self.location.origin
-    ){
-
-      event.respondWith(
-
-        fetch(
-          request,
-          {
-            cache:"no-store"
-          }
-        )
-
-        .then(
-          response => {
-
-            const clone =
-              response.clone();
-
-
-            caches
-            .open(
-              CACHE_NAME
-            )
-            .then(
-              cache => {
-
-                cache.put(
-                  request,
-                  clone
-                );
-
-              }
-            );
-
-
-            return response;
-
-          }
-        )
-
-        .catch(
-          () =>
-            caches.match(
-              request
-            )
-        )
-
-      );
-
-
-      return;
-
-    }
-
+  if (request.mode === "navigate") {
 
     event.respondWith(
-      fetch(
-        request
-      )
+
+      fetch(request, {
+        cache: "no-store"
+      })
+
+      .then(response => {
+
+        const clone = response.clone();
+
+        caches
+          .open(CACHE_NAME)
+          .then(cache => {
+
+            cache.put(request, clone);
+
+          });
+
+        return response;
+
+      })
+
+      .catch(() => {
+
+        return caches.match(
+          "/-futebol-livre/index.html"
+        );
+
+      })
+
     );
 
+    return;
   }
-);
 
 
-self.addEventListener(
-  "message",
-  event => {
+  if (url.origin === self.location.origin) {
 
-    if(
-      event.data
-      ===
-      "SKIP_WAITING"
-    ){
+    event.respondWith(
 
-      self.skipWaiting();
+      fetch(request, {
+        cache: "no-store"
+      })
 
-    }
+      .then(response => {
 
+        const clone = response.clone();
+
+        caches
+          .open(CACHE_NAME)
+          .then(cache => {
+
+            cache.put(request, clone);
+
+          });
+
+        return response;
+
+      })
+
+      .catch(() => caches.match(request))
+
+    );
+
+    return;
   }
-);
+
+
+  event.respondWith(
+    fetch(request)
+  );
+
+});
+
+
+self.addEventListener("message", event => {
+
+  if (event.data === "SKIP_WAITING") {
+    self.skipWaiting();
+  }
+
+});
