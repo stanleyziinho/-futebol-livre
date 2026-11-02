@@ -1,7 +1,7 @@
 {
   "name": "Stanley Sports",
   "short_name": "Stanley Sports",
-  "description": "Futebol, placares, tabelas, TV e entretenimento.",
+  "description": "Futebol, placares, tabelas, TV, esportes e entretenimento.",
   "start_url": "/-futebol-livre/",
   "scope": "/-futebol-livre/",
   "display": "standalone",
@@ -15,15 +15,21 @@
   ],
   "icons": [
     {
-      "src": "icon.svg",
-      "sizes": "any",
-      "type": "image/svg+xml",
+      "src": "stanley-sports-icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "icon.svg",
-      "sizes": "any",
-      "type": "image/svg+xml",
+      "src": "stanley-sports-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "stanley-sports-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
       "purpose": "maskable"
     }
   ]
