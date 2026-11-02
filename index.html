@@ -2,7 +2,6 @@
 <html lang="pt-BR">
 
 <head>
-
 <meta charset="utf-8">
 
 <meta
@@ -27,10 +26,7 @@
   content="Stanley Sports"
 >
 
-<link
-  rel="manifest"
-  href="manifest.json"
->
+<link rel="manifest" href="manifest.json">
 
 <link
   rel="icon"
@@ -46,7 +42,6 @@
 
 <title>Stanley Sports</title>
 
-
 <style>
 
 :root{
@@ -56,13 +51,11 @@
   --surface3:#142f1f;
   --line:#1d472d;
   --green:#39e27d;
-  --green2:#20c765;
   --text:#f5fff8;
   --muted:#91aa9a;
   --red:#ff8585;
   --yellow:#ffd867;
   --blue:#8cc5ff;
-  --purple:#debfff;
   --gold:#ffd75e;
 }
 
@@ -79,7 +72,6 @@ body{
   margin:0;
   min-height:100vh;
   color:var(--text);
-
   background:
     radial-gradient(
       circle at 90% 0%,
@@ -97,10 +89,7 @@ body{
     sans-serif;
 
   padding-bottom:
-    calc(
-      100px +
-      env(safe-area-inset-bottom)
-    );
+    calc(100px + env(safe-area-inset-bottom));
 }
 
 button,
@@ -119,9 +108,7 @@ a{
 }
 
 
-/* =========================
-   HEADER
-========================= */
+/* HEADER */
 
 .app-header{
   position:sticky;
@@ -133,22 +120,15 @@ a{
   justify-content:space-between;
 
   padding:
-    calc(
-      10px +
-      env(safe-area-inset-top)
-    )
+    calc(10px + env(safe-area-inset-top))
     16px
     10px;
 
-  background:
-    rgba(4,17,9,.96);
-
-  backdrop-filter:
-    blur(22px);
+  background:rgba(4,17,9,.96);
+  backdrop-filter:blur(22px);
 
   border-bottom:
-    1px solid
-    rgba(255,255,255,.05);
+    1px solid rgba(255,255,255,.05);
 }
 
 .header-brand{
@@ -160,18 +140,15 @@ a{
 .header-logo{
   width:52px;
   height:52px;
-
   border-radius:14px;
   object-fit:cover;
 
   border:
-    1px solid
-    rgba(57,226,125,.3);
+    1px solid rgba(57,226,125,.3);
 }
 
 .brand-small{
   color:var(--green);
-
   font-size:8px;
   font-weight:950;
   letter-spacing:1.5px;
@@ -185,32 +162,18 @@ a{
 .refresh-btn{
   width:44px;
   height:44px;
-
   border-radius:50%;
-
-  border:
-    1px solid
-    var(--line);
-
-  background:
-    var(--surface);
-
+  border:1px solid var(--line);
+  background:var(--surface);
   color:white;
-
   font-size:21px;
 }
 
 
-/* =========================
-   MAIN
-========================= */
+/* MAIN */
 
 main{
-  width:min(
-    860px,
-    100%
-  );
-
+  width:min(860px,100%);
   margin:auto;
   padding:16px;
 }
@@ -224,24 +187,17 @@ main{
 }
 
 
-/* =========================
-   HERO
-========================= */
+/* HERO */
 
 .hero{
   position:relative;
-
   min-height:390px;
-
   overflow:hidden;
-
   margin-bottom:16px;
-
   border-radius:30px;
 
   border:
-    1px solid
-    rgba(57,226,125,.26);
+    1px solid rgba(57,226,125,.26);
 
   background:#07170e;
 }
@@ -255,9 +211,7 @@ main{
 
   background-size:cover;
   background-position:center 37%;
-
-  transform:
-    scale(1.03);
+  transform:scale(1.03);
 }
 
 .hero-shade{
@@ -281,49 +235,35 @@ main{
 .hero-content{
   position:relative;
   z-index:5;
-
   max-width:520px;
-
-  padding:
-    27px
-    23px;
+  padding:27px 23px;
 }
 
 .hero-mini-logo{
   width:74px;
   height:74px;
-
   object-fit:cover;
-
   border-radius:19px;
-
   margin-bottom:15px;
 
   border:
-    1px solid
-    rgba(255,255,255,.15);
+    1px solid rgba(255,255,255,.15);
 }
 
 .hero-label{
   display:inline-flex;
   align-items:center;
   gap:8px;
-
-  padding:
-    8px
-    11px;
+  padding:8px 11px;
 
   border-radius:999px;
 
-  background:
-    rgba(0,0,0,.45);
+  background:rgba(0,0,0,.45);
 
   border:
-    1px solid
-    rgba(57,226,125,.25);
+    1px solid rgba(57,226,125,.25);
 
   color:#dffff0;
-
   font-size:10px;
   font-weight:950;
 }
@@ -331,109 +271,69 @@ main{
 .hero-dot{
   width:8px;
   height:8px;
-
   border-radius:50%;
-
-  background:
-    var(--green);
+  background:var(--green);
 }
 
 .hero h2{
-  margin:
-    18px
-    0
-    12px;
-
+  margin:18px 0 12px;
   max-width:470px;
-
-  font-size:
-    clamp(
-      36px,
-      10vw,
-      55px
-    );
-
+  font-size:clamp(36px,10vw,55px);
   line-height:.96;
-
   letter-spacing:-2px;
 }
 
 .hero p{
   max-width:450px;
-
   margin:0;
-
   color:#d2e7d9;
-
   font-size:13px;
-
   line-height:1.55;
 }
 
 .hero-actions{
   display:flex;
-
   gap:9px;
-
   margin-top:21px;
 }
 
 .hero-btn{
   min-height:45px;
-
   display:flex;
   align-items:center;
   justify-content:center;
-
-  padding:
-    0
-    15px;
+  padding:0 15px;
 
   border-radius:14px;
 
   border:
-    1px solid
-    rgba(255,255,255,.13);
+    1px solid rgba(255,255,255,.13);
 
-  background:
-    rgba(0,0,0,.45);
-
+  background:rgba(0,0,0,.45);
   color:white;
-
   font-size:11px;
   font-weight:950;
 }
 
 .hero-btn.primary{
-  background:
-    var(--green);
-
-  border-color:
-    var(--green);
-
+  background:var(--green);
+  border-color:var(--green);
   color:#04200d;
 }
 
 
-/* =========================
-   PREMIUM HOME
-========================= */
+/* PREMIUM HOME */
 
 .premium-home{
   display:flex;
   align-items:center;
-
   gap:12px;
-
   margin-bottom:18px;
-
   padding:15px;
-
   border-radius:20px;
 
   border:
-    1px solid
-    rgba(255,215,94,.3);
+    1px solid rgba(255,215,94,.3);
 
   background:
     linear-gradient(
@@ -453,107 +353,73 @@ main{
 
 .premium-home-text small{
   display:block;
-
   color:var(--gold);
-
   font-size:8px;
   font-weight:950;
   letter-spacing:1.3px;
-
   margin-bottom:3px;
 }
 
 .premium-home-text strong{
   display:block;
-
   font-size:14px;
 }
 
 .premium-home-text span{
   display:block;
-
   margin-top:3px;
-
   color:var(--muted);
-
   font-size:9px;
 }
 
 .premium-home-btn{
-  flex:0 0 auto;
-
-  padding:
-    10px
-    11px;
-
+  padding:10px 11px;
   border:0;
-
   border-radius:12px;
-
-  background:
-    var(--gold);
-
+  background:var(--gold);
   color:#291f00;
-
   font-size:9px;
   font-weight:950;
 }
 
 
-/* =========================
-   SHORTCUTS
-========================= */
+/* SHORTCUTS */
 
 .sports-shortcuts-section{
-  margin:
-    18px
-    0
-    22px;
+  margin:18px 0 22px;
 }
 
 .shortcut-title-row{
   display:flex;
-
   justify-content:space-between;
-
   align-items:flex-end;
-
   margin-bottom:12px;
 }
 
 .shortcut-title-row small{
   display:block;
-
   color:var(--green);
-
   font-size:9px;
   font-weight:950;
   letter-spacing:1.4px;
-
   margin-bottom:4px;
 }
 
 .shortcut-title-row h3{
   margin:0;
-
   font-size:23px;
 }
 
 .shortcut-title-row > span{
   color:var(--muted);
-
   font-size:9px;
 }
 
 .sports-shortcuts{
   display:flex;
-
   gap:10px;
-
   overflow-x:auto;
-
   padding-bottom:8px;
-
   scrollbar-width:none;
 }
 
@@ -562,24 +428,14 @@ main{
 }
 
 .sport-shortcut{
-  flex:
-    0 0 145px;
-
+  flex:0 0 145px;
   min-height:137px;
-
   display:flex;
-
   flex-direction:column;
-
   justify-content:space-between;
-
   padding:14px;
-
   border-radius:20px;
-
-  border:
-    1px solid
-    var(--line);
+  border:1px solid var(--line);
 
   background:
     linear-gradient(
@@ -594,86 +450,53 @@ main{
 .sport-shortcut-icon{
   width:44px;
   height:44px;
-
   display:grid;
-
   place-items:center;
-
   border-radius:14px;
-
-  background:
-    rgba(57,226,125,.1);
-
+  background:rgba(57,226,125,.1);
   font-size:23px;
 }
 
 .sport-shortcut h4{
-  margin:
-    12px
-    0
-    5px;
-
+  margin:12px 0 5px;
   font-size:13px;
 }
 
 .sport-shortcut p{
   margin:0;
-
   color:var(--muted);
-
   font-size:9px;
-
   line-height:1.35;
 }
 
 .sport-shortcut-open{
   margin-top:10px;
-
   color:var(--green);
-
   font-size:9px;
   font-weight:900;
 }
 
 
-/* =========================
-   STATS
-========================= */
+/* STATS */
 
 .stats{
   display:grid;
-
-  grid-template-columns:
-    repeat(
-      2,
-      1fr
-    );
-
+  grid-template-columns:repeat(2,1fr);
   gap:9px;
-
   margin-bottom:13px;
 }
 
 .stat{
   padding:14px;
-
   border-radius:19px;
-
-  border:
-    1px solid
-    var(--line);
-
-  background:
-    var(--surface);
+  border:1px solid var(--line);
+  background:var(--surface);
 }
 
 .stat small{
   display:block;
-
   margin-bottom:5px;
-
   color:var(--muted);
-
   font-size:9px;
   font-weight:950;
 }
@@ -695,63 +518,38 @@ main{
 }
 
 
-/* =========================
-   SEARCH
-========================= */
+/* SEARCH */
 
 .search{
   position:relative;
-
   margin-bottom:12px;
 }
 
 .search span{
   position:absolute;
-
   left:14px;
   top:50%;
-
-  transform:
-    translateY(-50%);
+  transform:translateY(-50%);
 }
 
 .search input{
   width:100%;
-
-  padding:
-    14px
-    15px
-    14px
-    44px;
-
+  padding:14px 15px 14px 44px;
   border-radius:17px;
-
-  border:
-    1px solid
-    var(--line);
-
+  border:1px solid var(--line);
   outline:none;
-
-  background:
-    var(--surface);
-
+  background:var(--surface);
   color:white;
 }
 
 
-/* =========================
-   CHIPS
-========================= */
+/* CHIPS */
 
 .chips{
   display:flex;
-
   gap:8px;
-
   overflow-x:auto;
-
   padding-bottom:13px;
-
   scrollbar-width:none;
 }
 
@@ -761,119 +559,70 @@ main{
 
 .chip{
   flex:0 0 auto;
-
-  padding:
-    10px
-    14px;
-
+  padding:10px 14px;
   border-radius:999px;
-
-  border:
-    1px solid
-    var(--line);
-
-  background:
-    var(--surface);
-
-  color:
-    var(--muted);
-
+  border:1px solid var(--line);
+  background:var(--surface);
+  color:var(--muted);
   font-size:11px;
   font-weight:900;
 }
 
 .chip.active{
-  background:
-    var(--green);
-
+  background:var(--green);
   color:#04200d;
-
-  border-color:
-    var(--green);
+  border-color:var(--green);
 }
 
 
-/* =========================
-   SECTIONS
-========================= */
+/* SECTION */
 
 .section-head{
   display:flex;
-
   align-items:flex-end;
-
   justify-content:space-between;
-
   gap:10px;
-
-  margin:
-    18px
-    0
-    12px;
+  margin:18px 0 12px;
 }
 
 .eyebrow{
   display:block;
-
-  color:
-    var(--green);
-
+  color:var(--green);
   font-size:9px;
   font-weight:950;
-
   letter-spacing:1.6px;
-
   margin-bottom:4px;
 }
 
 .section-head h3{
   margin:0;
-
   font-size:25px;
 }
 
 .counter{
   min-width:38px;
   height:38px;
-
   display:grid;
-
   place-items:center;
-
   border-radius:999px;
-
-  padding:
-    0
-    11px;
-
-  background:
-    var(--surface2);
-
-  color:
-    var(--green);
-
+  padding:0 11px;
+  background:var(--surface2);
+  color:var(--green);
   font-weight:950;
 }
 
 
-/* =========================
-   GAME CARD
-========================= */
+/* GAME */
 
 .games{
   display:grid;
-
   gap:12px;
 }
 
 .game{
   padding:16px;
-
   border-radius:23px;
-
-  border:
-    1px solid
-    var(--line);
+  border:1px solid var(--line);
 
   background:
     linear-gradient(
@@ -885,350 +634,233 @@ main{
 
 .game.priority{
   box-shadow:
-    inset
-    4px
-    0
-    var(--green);
+    inset 4px 0 var(--green);
 }
 
 .game.heart-team{
   border-color:
     rgba(255,215,94,.55);
-
-  box-shadow:
-    0 0 0 1px
-    rgba(255,215,94,.08);
 }
 
 .heart-label{
   display:inline-block;
-
   margin-bottom:10px;
-
-  padding:
-    5px
-    8px;
-
+  padding:5px 8px;
   border-radius:999px;
-
-  background:
-    rgba(255,215,94,.1);
-
-  color:
-    var(--gold);
-
+  background:rgba(255,215,94,.1);
+  color:var(--gold);
   font-size:8px;
   font-weight:950;
 }
 
 .game-head{
   display:flex;
-
   justify-content:space-between;
-
   align-items:center;
 }
 
 .competition{
-  color:
-    var(--muted);
-
+  color:var(--muted);
   font-size:10px;
   font-weight:950;
 }
 
 .game-right{
   display:flex;
-
   align-items:center;
-
   gap:6px;
 }
 
 .status{
-  padding:
-    6px
-    9px;
-
+  padding:6px 9px;
   border-radius:999px;
-
-  background:
-    rgba(255,255,255,.055);
-
+  background:rgba(255,255,255,.055);
   color:#a7b7ad;
-
   font-size:9px;
   font-weight:950;
 }
 
 .status.live{
-  background:
-    rgba(255,110,110,.13);
-
+  background:rgba(255,110,110,.13);
   color:#ffaaaa;
 }
 
 .status.scheduled{
-  background:
-    rgba(140,197,255,.09);
-
+  background:rgba(140,197,255,.09);
   color:#b7d9ff;
 }
 
 .star{
   width:32px;
   height:32px;
-
   border:0;
-
   border-radius:50%;
-
-  background:
-    rgba(255,255,255,.055);
-
+  background:rgba(255,255,255,.055);
   color:#748b7d;
-
   font-size:18px;
 }
 
 .star.active{
-  color:
-    var(--yellow);
+  color:var(--yellow);
 }
 
 .match{
   display:grid;
-
-  grid-template-columns:
-    1fr
-    auto
-    1fr;
-
+  grid-template-columns:1fr auto 1fr;
   gap:10px;
-
   align-items:center;
-
-  margin:
-    19px
-    0;
+  margin:19px 0;
 }
 
 .team{
   text-align:center;
-
   min-width:0;
 }
 
 .team img{
   width:51px;
   height:51px;
-
   object-fit:contain;
-
   margin-bottom:8px;
 }
 
 .logo-fallback{
   width:51px;
   height:51px;
-
-  margin:
-    0
-    auto
-    8px;
-
+  margin:0 auto 8px;
   display:grid;
-
   place-items:center;
-
   border-radius:50%;
-
-  border:
-    1px solid
-    var(--line);
-
-  background:
-    var(--surface2);
-
-  color:
-    var(--green);
+  border:1px solid var(--line);
+  background:var(--surface2);
+  color:var(--green);
 }
 
 .team-name{
   font-size:13px;
-
   font-weight:900;
-
   line-height:1.25;
 }
 
 .score-box{
   min-width:76px;
-
   text-align:center;
 }
 
 .score{
-  color:
-    var(--green);
-
+  color:var(--green);
   font-size:28px;
   font-weight:950;
 }
 
 .kickoff-label{
-  color:
-    var(--blue);
-
+  color:var(--blue);
   font-size:11px;
   font-weight:900;
 }
 
 .time{
   margin-top:4px;
-
-  color:
-    var(--muted);
-
+  color:var(--muted);
   font-size:10px;
 }
 
 .notice{
   margin-bottom:10px;
-
-  padding:
-    10px
-    11px;
-
+  padding:10px 11px;
   border-radius:13px;
-
-  background:
-    rgba(255,255,255,.045);
-
-  color:
-    var(--muted);
-
+  background:rgba(255,255,255,.045);
+  color:var(--muted);
   font-size:10px;
   font-weight:850;
 }
 
 .notice.finished{
   color:#ffe89b;
-
-  background:
-    rgba(255,216,103,.08);
+  background:rgba(255,216,103,.08);
 }
 
 .notice.waiting{
   color:#bcdcff;
-
-  background:
-    rgba(140,197,255,.08);
+  background:rgba(140,197,255,.08);
 }
 
 .notice.ready{
   color:#afffca;
-
-  background:
-    rgba(57,226,125,.08);
+  background:rgba(57,226,125,.08);
 }
 
 .game-buttons{
   display:grid;
-
-  grid-template-columns:
-    repeat(
-      2,
-      1fr
-    );
-
+  grid-template-columns:repeat(2,1fr);
   gap:7px;
-
   padding-top:11px;
 
   border-top:
-    1px solid
-    rgba(255,255,255,.05);
+    1px solid rgba(255,255,255,.05);
 }
 
 .action{
-  padding:
-    11px
-    8px;
-
+  padding:11px 8px;
   border-radius:13px;
-
-  border:
-    1px solid
-    var(--line);
-
-  background:
-    var(--surface2);
-
+  border:1px solid var(--line);
+  background:var(--surface2);
   text-align:center;
-
   text-decoration:none;
-
   font-size:10px;
   font-weight:900;
 }
 
 .action.primary{
-  background:
-    var(--green);
-
-  border-color:
-    var(--green);
-
+  background:var(--green);
+  border-color:var(--green);
   color:#04200d;
 }
 
 .action.highlight{
   background:#27210e;
-
   border-color:#6a591f;
-
   color:#ffe68e;
 }
 
 .action.details{
   background:#102033;
-
   border-color:#284a69;
-
   color:#b9d9ff;
 }
 
 .action.premiere{
   background:#2a173a;
-
   border-color:#6f3c90;
-
   color:#e5c1ff;
 }
 
+.action.analysis{
+  background:
+    linear-gradient(
+      135deg,
+      #3d3210,
+      #181709
+    );
 
-/* =========================
-   TABLE
-========================= */
+  border-color:
+    #7f6b1f;
+
+  color:
+    #ffe789;
+}
+
+
+/* TABLE */
 
 .league-select,
 .premium-select{
   width:100%;
-
   padding:13px;
-
   border-radius:15px;
-
-  border:
-    1px solid
-    var(--line);
-
+  border:1px solid var(--line);
   outline:none;
-
-  background:
-    var(--surface);
-
+  background:var(--surface);
   color:white;
 }
 
@@ -1238,100 +870,65 @@ main{
 
 .table-wrap{
   overflow-x:auto;
-
   border-radius:20px;
-
-  border:
-    1px solid
-    var(--line);
+  border:1px solid var(--line);
 }
 
 table{
   width:100%;
-
   min-width:650px;
-
-  border-collapse:
-    collapse;
-
-  background:
-    var(--surface);
+  border-collapse:collapse;
+  background:var(--surface);
 }
 
 th,
 td{
-  padding:
-    11px
-    9px;
-
+  padding:11px 9px;
   text-align:center;
-
   font-size:10px;
 
   border-bottom:
-    1px solid
-    rgba(255,255,255,.045);
+    1px solid rgba(255,255,255,.045);
 }
 
 th{
-  color:
-    var(--muted);
+  color:var(--muted);
 }
 
 .team-cell{
   min-width:190px;
-
   text-align:left;
-
   font-weight:850;
 }
 
 .table-team{
   display:flex;
-
   align-items:center;
-
   gap:8px;
 }
 
 .table-team img{
   width:27px;
   height:27px;
-
   object-fit:contain;
 }
 
 
-/* =========================
-   TV / MOVIES
-========================= */
+/* MEDIA */
 
 .media-grid{
   display:grid;
-
-  grid-template-columns:
-    repeat(
-      2,
-      1fr
-    );
-
+  grid-template-columns:repeat(2,1fr);
   gap:10px;
 }
 
 .media-card{
   min-height:190px;
-
   display:flex;
-
   flex-direction:column;
-
   padding:16px;
-
   border-radius:22px;
-
-  border:
-    1px solid
-    var(--line);
+  border:1px solid var(--line);
 
   background:
     linear-gradient(
@@ -1346,106 +943,69 @@ th{
 .network-logo-wrap{
   width:64px;
   height:64px;
-
   display:flex;
-
   justify-content:center;
-
   align-items:center;
-
   margin-bottom:11px;
-
   border-radius:17px;
-
   background:white;
 }
 
 .network-logo{
   width:48px;
   height:48px;
-
   object-fit:contain;
 }
 
 .media-icon{
   font-size:29px;
-
   margin-bottom:10px;
 }
 
 .media-badge{
   align-self:flex-start;
-
-  padding:
-    5px
-    8px;
-
+  padding:5px 8px;
   margin-bottom:8px;
-
   border-radius:999px;
-
-  background:
-    rgba(57,226,125,.1);
-
-  color:
-    var(--green);
-
+  background:rgba(57,226,125,.1);
+  color:var(--green);
   font-size:8px;
-
   font-weight:950;
 }
 
 .media-card h4{
-  margin:
-    0
-    0
-    6px;
-
+  margin:0 0 6px;
   font-size:15px;
 }
 
 .media-card p{
   flex:1;
-
   margin:0;
-
-  color:
-    var(--muted);
-
+  color:var(--muted);
   font-size:10px;
-
   line-height:1.45;
 }
 
 .media-open{
   display:flex;
-
   justify-content:space-between;
-
   margin-top:12px;
-
   padding-top:10px;
 
   border-top:
-    1px solid
-    rgba(255,255,255,.05);
+    1px solid rgba(255,255,255,.05);
 
   font-size:9px;
-
   font-weight:900;
 }
 
 .media-open span:last-child{
-  color:
-    var(--green);
-
+  color:var(--green);
   font-size:17px;
 }
 
 
-/* =========================
-   PREMIUM PAGE
-========================= */
+/* PREMIUM */
 
 .premium-page{
   padding-bottom:20px;
@@ -1453,18 +1013,12 @@ th{
 
 .premium-hero{
   position:relative;
-
   overflow:hidden;
-
-  padding:
-    24px
-    20px;
-
+  padding:24px 20px;
   border-radius:27px;
 
   border:
-    1px solid
-    rgba(255,215,94,.35);
+    1px solid rgba(255,215,94,.35);
 
   background:
     radial-gradient(
@@ -1481,94 +1035,59 @@ th{
 
 .premium-crown{
   font-size:42px;
-
   margin-bottom:12px;
 }
 
 .premium-tag{
   display:inline-block;
-
-  padding:
-    7px
-    10px;
-
+  padding:7px 10px;
   border-radius:999px;
-
-  background:
-    rgba(255,215,94,.12);
-
-  color:
-    var(--gold);
-
+  background:rgba(255,215,94,.12);
+  color:var(--gold);
   font-size:8px;
-
   font-weight:950;
-
   letter-spacing:1.2px;
 }
 
 .premium-hero h2{
-  margin:
-    13px
-    0
-    8px;
-
+  margin:13px 0 8px;
   font-size:31px;
 }
 
 .premium-hero p{
   margin:0;
-
   color:#ccd9cf;
-
   font-size:12px;
-
   line-height:1.55;
 }
 
 .premium-status-card{
   margin-top:15px;
-
   padding:14px;
-
   border-radius:17px;
-
-  background:
-    rgba(0,0,0,.25);
+  background:rgba(0,0,0,.25);
 
   border:
-    1px solid
-    rgba(255,255,255,.08);
+    1px solid rgba(255,255,255,.08);
 }
 
 .premium-status-row{
   display:flex;
-
   align-items:center;
-
-  justify-content:
-    space-between;
-
+  justify-content:space-between;
   gap:10px;
 }
 
 .premium-status-card small{
-  color:
-    var(--muted);
-
+  color:var(--muted);
   font-size:8px;
-
   font-weight:900;
 }
 
 .premium-status-card strong{
   display:block;
-
   margin-top:3px;
-
-  color:
-    var(--gold);
-
+  color:var(--gold);
   font-size:15px;
 }
 
@@ -1582,22 +1101,15 @@ th{
 
 .premium-price span{
   display:block;
-
-  color:
-    var(--muted);
-
+  color:var(--muted);
   font-size:8px;
 }
 
 .activate-premium{
   width:100%;
-
   margin-top:15px;
-
   padding:14px;
-
   border:0;
-
   border-radius:15px;
 
   background:
@@ -1608,179 +1120,104 @@ th{
     );
 
   color:#231c00;
-
   font-weight:950;
-
   font-size:12px;
 }
 
 .activate-premium.active{
-  background:
-    var(--green);
-
+  background:var(--green);
   color:#03200c;
 }
 
 .premium-note{
   margin-top:9px;
-
   text-align:center;
-
-  color:
-    var(--muted);
-
+  color:var(--muted);
   font-size:8px;
 }
 
 .premium-grid{
   display:grid;
-
-  grid-template-columns:
-    repeat(
-      2,
-      1fr
-    );
-
+  grid-template-columns:repeat(2,1fr);
   gap:10px;
-
   margin-top:15px;
 }
 
 .premium-feature{
   min-height:145px;
-
   padding:15px;
-
   border-radius:20px;
-
-  border:
-    1px solid
-    var(--line);
-
-  background:
-    var(--surface);
+  border:1px solid var(--line);
+  background:var(--surface);
 }
 
 .premium-feature-icon{
   font-size:26px;
-
   margin-bottom:10px;
 }
 
 .premium-feature h4{
-  margin:
-    0
-    0
-    5px;
-
+  margin:0 0 5px;
   font-size:13px;
 }
 
 .premium-feature p{
   margin:0;
-
-  color:
-    var(--muted);
-
+  color:var(--muted);
   font-size:9px;
-
   line-height:1.4;
 }
 
 .feature-status{
   display:inline-block;
-
   margin-top:10px;
-
-  padding:
-    5px
-    7px;
-
+  padding:5px 7px;
   border-radius:999px;
-
-  background:
-    rgba(57,226,125,.10);
-
-  color:
-    var(--green);
-
+  background:rgba(57,226,125,.10);
+  color:var(--green);
   font-size:7px;
-
   font-weight:950;
 }
 
 .feature-status.soon{
-  background:
-    rgba(255,215,94,.1);
-
-  color:
-    var(--gold);
+  background:rgba(255,215,94,.1);
+  color:var(--gold);
 }
-
-
-/* =========================
-   PREMIUM TOOLS
-========================= */
 
 .premium-tool{
   margin-top:16px;
-
   padding:17px;
-
   border-radius:22px;
-
-  border:
-    1px solid
-    var(--line);
-
-  background:
-    var(--surface);
+  border:1px solid var(--line);
+  background:var(--surface);
 }
 
 .premium-tool-head{
   display:flex;
-
   justify-content:space-between;
-
   align-items:flex-start;
-
   gap:12px;
-
   margin-bottom:14px;
 }
 
 .premium-tool-head small{
   display:block;
-
-  color:
-    var(--gold);
-
+  color:var(--gold);
   font-size:8px;
-
   font-weight:950;
-
   letter-spacing:1.2px;
-
   margin-bottom:4px;
 }
 
 .premium-tool-head h3{
   margin:0;
-
   font-size:20px;
 }
 
 .premium-tool-head p{
-  margin:
-    5px
-    0
-    0;
-
-  color:
-    var(--muted);
-
+  margin:5px 0 0;
+  color:var(--muted);
   font-size:9px;
-
   line-height:1.4;
 }
 
@@ -1789,155 +1226,12 @@ th{
 }
 
 
-/* =========================
-   AGENDA PREMIUM
-========================= */
-
-.agenda-days{
-  display:flex;
-
-  gap:7px;
-
-  overflow-x:auto;
-
-  padding-bottom:10px;
-
-  scrollbar-width:none;
-}
-
-.agenda-days::-webkit-scrollbar{
-  display:none;
-}
-
-.agenda-day{
-  flex:
-    0 0 76px;
-
-  padding:
-    10px
-    7px;
-
-  border-radius:14px;
-
-  border:
-    1px solid
-    var(--line);
-
-  background:
-    var(--surface2);
-
-  color:
-    var(--muted);
-
-  text-align:center;
-}
-
-.agenda-day strong{
-  display:block;
-
-  font-size:10px;
-}
-
-.agenda-day span{
-  display:block;
-
-  margin-top:3px;
-
-  font-size:8px;
-}
-
-.agenda-day.active{
-  background:
-    var(--green);
-
-  border-color:
-    var(--green);
-
-  color:#04200d;
-}
-
-.agenda-games{
-  display:grid;
-
-  gap:8px;
-
-  margin-top:7px;
-}
-
-.agenda-game{
-  display:grid;
-
-  grid-template-columns:
-    1fr
-    auto
-    1fr;
-
-  gap:8px;
-
-  align-items:center;
-
-  padding:11px;
-
-  border-radius:15px;
-
-  background:
-    var(--surface2);
-
-  border:
-    1px solid
-    rgba(255,255,255,.04);
-}
-
-.agenda-game.heart{
-  border-color:
-    rgba(255,215,94,.45);
-}
-
-.agenda-team{
-  font-size:10px;
-
-  font-weight:850;
-}
-
-.agenda-team.right{
-  text-align:right;
-}
-
-.agenda-time{
-  color:
-    var(--green);
-
-  font-size:10px;
-
-  font-weight:950;
-
-  text-align:center;
-}
-
-.agenda-league{
-  grid-column:
-    1 / -1;
-
-  color:
-    var(--muted);
-
-  font-size:8px;
-
-  text-align:center;
-}
-
-
-/* =========================
-   HEART TEAM
-========================= */
+/* HEART TEAM */
 
 .heart-selected{
   display:none;
-
   margin-top:12px;
-
   padding:14px;
-
   border-radius:16px;
 
   background:
@@ -1948,8 +1242,7 @@ th{
     );
 
   border:
-    1px solid
-    rgba(255,215,94,.25);
+    1px solid rgba(255,215,94,.25);
 }
 
 .heart-selected.active{
@@ -1957,86 +1250,139 @@ th{
 }
 
 .heart-selected small{
-  color:
-    var(--muted);
-
+  color:var(--muted);
   font-size:8px;
 }
 
 .heart-selected strong{
   display:block;
-
   margin-top:4px;
-
-  color:
-    var(--gold);
-
+  color:var(--gold);
   font-size:17px;
 }
 
 .save-team-btn{
   width:100%;
-
   margin-top:10px;
-
   padding:12px;
-
   border:0;
-
   border-radius:13px;
-
-  background:
-    var(--green);
-
+  background:var(--green);
   color:#03200c;
-
   font-size:10px;
-
   font-weight:950;
 }
 
 
-/* =========================
-   ADVANCED STATS
-========================= */
+/* AGENDA */
+
+.agenda-days{
+  display:flex;
+  gap:7px;
+  overflow-x:auto;
+  padding-bottom:10px;
+  scrollbar-width:none;
+}
+
+.agenda-days::-webkit-scrollbar{
+  display:none;
+}
+
+.agenda-day{
+  flex:0 0 76px;
+  padding:10px 7px;
+  border-radius:14px;
+  border:1px solid var(--line);
+  background:var(--surface2);
+  color:var(--muted);
+  text-align:center;
+}
+
+.agenda-day strong{
+  display:block;
+  font-size:10px;
+}
+
+.agenda-day span{
+  display:block;
+  margin-top:3px;
+  font-size:8px;
+}
+
+.agenda-day.active{
+  background:var(--green);
+  border-color:var(--green);
+  color:#04200d;
+}
+
+.agenda-games{
+  display:grid;
+  gap:8px;
+  margin-top:7px;
+}
+
+.agenda-game{
+  display:grid;
+  grid-template-columns:1fr auto 1fr;
+  gap:8px;
+  align-items:center;
+  padding:11px;
+  border-radius:15px;
+  background:var(--surface2);
+
+  border:
+    1px solid rgba(255,255,255,.04);
+}
+
+.agenda-game.heart{
+  border-color:rgba(255,215,94,.45);
+}
+
+.agenda-team{
+  font-size:10px;
+  font-weight:850;
+}
+
+.agenda-team.right{
+  text-align:right;
+}
+
+.agenda-time{
+  color:var(--green);
+  font-size:10px;
+  font-weight:950;
+  text-align:center;
+}
+
+.agenda-league{
+  grid-column:1 / -1;
+  color:var(--muted);
+  font-size:8px;
+  text-align:center;
+}
+
+
+/* STATS PREMIUM */
 
 .advanced-stats{
   display:grid;
-
-  grid-template-columns:
-    repeat(
-      3,
-      1fr
-    );
-
+  grid-template-columns:repeat(3,1fr);
   gap:8px;
-
   margin-top:12px;
 }
 
 .advanced-stat{
-  padding:
-    12px
-    7px;
-
+  padding:12px 7px;
   border-radius:14px;
-
-  background:
-    var(--surface2);
-
+  background:var(--surface2);
   text-align:center;
 }
 
 .advanced-stat small{
   display:block;
-
-  color:
-    var(--muted);
-
+  color:var(--muted);
   font-size:7px;
-
   font-weight:900;
-
   margin-bottom:4px;
 }
 
@@ -2046,268 +1392,416 @@ th{
 
 .form-row{
   display:flex;
-
   gap:6px;
-
   margin-top:12px;
 }
 
 .form-ball{
   width:29px;
   height:29px;
-
   display:grid;
-
   place-items:center;
-
   border-radius:50%;
-
   font-size:9px;
-
   font-weight:950;
 }
 
 .form-ball.w{
-  background:
-    rgba(57,226,125,.18);
-
-  color:
-    var(--green);
+  background:rgba(57,226,125,.18);
+  color:var(--green);
 }
 
 .form-ball.d{
-  background:
-    rgba(255,216,103,.15);
-
-  color:
-    var(--yellow);
+  background:rgba(255,216,103,.15);
+  color:var(--yellow);
 }
 
 .form-ball.l{
-  background:
-    rgba(255,100,100,.15);
-
-  color:
-    #ff9d9d;
+  background:rgba(255,100,100,.15);
+  color:#ff9d9d;
 }
 
 .recent-results{
   display:grid;
-
   gap:7px;
-
   margin-top:12px;
 }
 
 .recent-result{
   display:flex;
-
   align-items:center;
-
-  justify-content:
-    space-between;
-
+  justify-content:space-between;
   gap:8px;
-
   padding:10px;
-
   border-radius:13px;
-
-  background:
-    var(--surface2);
-
+  background:var(--surface2);
   font-size:9px;
 }
 
 .result-score{
-  color:
-    var(--green);
-
+  color:var(--green);
   font-weight:950;
 }
 
 .next-match{
   margin-top:12px;
-
   padding:12px;
-
   border-radius:14px;
-
-  background:
-    rgba(140,197,255,.07);
+  background:rgba(140,197,255,.07);
 
   border:
-    1px solid
-    rgba(140,197,255,.15);
+    1px solid rgba(140,197,255,.15);
 }
 
 .next-match small{
-  color:
-    var(--blue);
-
+  color:var(--blue);
   font-size:8px;
-
   font-weight:950;
 }
 
 .next-match strong{
   display:block;
-
   margin-top:5px;
-
   font-size:12px;
 }
 
 .loading-mini{
   padding:18px;
-
-  color:
-    var(--muted);
-
+  color:var(--muted);
   text-align:center;
-
   font-size:9px;
 }
 
 
-/* =========================
-   EMPTY
-========================= */
+/* ANALYSIS MODAL */
 
-.loading,
-.empty{
-  padding:
-    35px
-    18px;
-
-  text-align:center;
-
-  color:
-    var(--muted);
-
-  border-radius:20px;
-
-  border:
-    1px dashed
-    var(--line);
-}
-
-
-/* =========================
-   BOTTOM NAV
-========================= */
-
-.bottom-nav{
+.analysis-modal{
   position:fixed;
+  inset:0;
+  z-index:9999;
 
-  left:0;
-  right:0;
-  bottom:0;
-
-  z-index:120;
-
-  display:grid;
-
-  grid-template-columns:
-    repeat(
-      6,
-      1fr
-    );
-
-  padding:
-    7px
-    2px
-    calc(
-      7px +
-      env(safe-area-inset-bottom)
-    );
+  display:none;
+  align-items:flex-end;
 
   background:
-    rgba(3,15,8,.98);
+    rgba(0,0,0,.76);
+
+  backdrop-filter:
+    blur(6px);
+}
+
+.analysis-modal.active{
+  display:flex;
+}
+
+.analysis-sheet{
+  width:100%;
+  max-height:92vh;
+  overflow-y:auto;
+
+  border-radius:
+    28px
+    28px
+    0
+    0;
 
   border-top:
     1px solid
-    rgba(255,255,255,.055);
+    rgba(255,215,94,.35);
+
+  background:
+    linear-gradient(
+      180deg,
+      #101a11,
+      #061009
+    );
+
+  padding:
+    18px
+    16px
+    calc(
+      24px +
+      env(safe-area-inset-bottom)
+    );
+}
+
+.analysis-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+}
+
+.analysis-title small{
+  color:var(--gold);
+  font-size:8px;
+  font-weight:950;
+  letter-spacing:1.3px;
+}
+
+.analysis-title h2{
+  margin:5px 0 0;
+  font-size:21px;
+}
+
+.close-analysis{
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  border:1px solid var(--line);
+  background:var(--surface2);
+  color:white;
+  font-size:18px;
+}
+
+.analysis-match{
+  display:grid;
+  grid-template-columns:1fr auto 1fr;
+  gap:8px;
+  align-items:center;
+  margin-top:18px;
+  padding:14px;
+  border-radius:18px;
+  background:var(--surface);
+}
+
+.analysis-team{
+  text-align:center;
+  font-size:12px;
+  font-weight:900;
+}
+
+.analysis-team img{
+  width:52px;
+  height:52px;
+  object-fit:contain;
+  display:block;
+  margin:0 auto 7px;
+}
+
+.analysis-vs{
+  color:var(--gold);
+  font-size:12px;
+  font-weight:950;
+}
+
+.analysis-section{
+  margin-top:14px;
+  padding:14px;
+  border-radius:18px;
+  background:var(--surface);
+
+  border:
+    1px solid var(--line);
+}
+
+.analysis-section h3{
+  margin:0 0 12px;
+  font-size:15px;
+}
+
+.prob-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:8px;
+}
+
+.prob-card{
+  padding:12px 7px;
+  border-radius:14px;
+  background:var(--surface2);
+  text-align:center;
+}
+
+.prob-card small{
+  display:block;
+  color:var(--muted);
+  font-size:7px;
+  margin-bottom:5px;
+}
+
+.prob-card strong{
+  font-size:19px;
+  color:var(--green);
+}
+
+.prob-card.draw strong{
+  color:var(--yellow);
+}
+
+.analysis-comparison{
+  display:grid;
+  gap:9px;
+}
+
+.compare-line{
+  padding:10px;
+  border-radius:13px;
+  background:var(--surface2);
+}
+
+.compare-label{
+  display:flex;
+  justify-content:space-between;
+  gap:8px;
+  margin-bottom:7px;
+  color:var(--muted);
+  font-size:8px;
+}
+
+.compare-values{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:7px;
+}
+
+.compare-value{
+  padding:8px;
+  border-radius:10px;
+  background:rgba(255,255,255,.04);
+  text-align:center;
+  font-size:10px;
+  font-weight:900;
+}
+
+.analysis-tip{
+  padding:12px;
+  border-radius:14px;
+  background:rgba(255,215,94,.07);
+
+  border:
+    1px solid rgba(255,215,94,.16);
+}
+
+.analysis-tip small{
+  display:block;
+  color:var(--gold);
+  font-size:8px;
+  font-weight:950;
+  margin-bottom:5px;
+}
+
+.analysis-tip strong{
+  font-size:13px;
+}
+
+.analysis-warning{
+  margin-top:14px;
+  padding:11px;
+  border-radius:13px;
+  background:rgba(255,216,103,.07);
+  color:#ffe9a4;
+  font-size:9px;
+  line-height:1.45;
+}
+
+.analysis-loading{
+  padding:40px 15px;
+  text-align:center;
+  color:var(--muted);
+  font-size:11px;
+}
+
+.analysis-error{
+  padding:20px;
+  border-radius:16px;
+  background:rgba(255,100,100,.08);
+  color:#ffb4b4;
+  text-align:center;
+  font-size:10px;
+  line-height:1.5;
+}
+
+
+/* EMPTY */
+
+.loading,
+.empty{
+  padding:35px 18px;
+  text-align:center;
+  color:var(--muted);
+  border-radius:20px;
+  border:1px dashed var(--line);
+}
+
+
+/* NAV */
+
+.bottom-nav{
+  position:fixed;
+  left:0;
+  right:0;
+  bottom:0;
+  z-index:120;
+
+  display:grid;
+  grid-template-columns:repeat(6,1fr);
+
+  padding:
+    7px 2px
+    calc(7px + env(safe-area-inset-bottom));
+
+  background:rgba(3,15,8,.98);
+
+  border-top:
+    1px solid rgba(255,255,255,.055);
 }
 
 .nav-btn{
-  padding:
-    5px
-    1px;
-
+  padding:5px 1px;
   border:0;
-
   background:none;
-
   color:#73897b;
-
   font-size:8px;
-
   font-weight:900;
 }
 
 .nav-btn span{
   display:block;
-
   margin-bottom:2px;
-
   font-size:18px;
 }
 
 .nav-btn.active{
-  color:
-    var(--green);
+  color:var(--green);
 }
 
 .nav-btn.premium-nav.active{
-  color:
-    var(--gold);
+  color:var(--gold);
 }
 
 
 @media(min-width:720px){
 
   .stats{
-    grid-template-columns:
-      repeat(
-        4,
-        1fr
-      );
+    grid-template-columns:repeat(4,1fr);
   }
 
   .media-grid{
-    grid-template-columns:
-      repeat(
-        4,
-        1fr
-      );
+    grid-template-columns:repeat(4,1fr);
   }
 
   .premium-grid{
-    grid-template-columns:
-      repeat(
-        3,
-        1fr
-      );
+    grid-template-columns:repeat(3,1fr);
   }
 
   .game-buttons{
-    grid-template-columns:
-      repeat(
-        4,
-        1fr
-      );
+    grid-template-columns:repeat(4,1fr);
+  }
+
+  .analysis-sheet{
+    width:720px;
+    margin:auto;
+    border-radius:28px 28px 0 0;
   }
 
 }
 
 </style>
-
 </head>
 
 
 <body>
-
 
 <header class="app-header">
 
@@ -2333,7 +1827,6 @@ th{
 
   </div>
 
-
   <button
     class="refresh-btn"
     id="refreshBtn"
@@ -2347,14 +1840,11 @@ th{
 <main>
 
 
-<!-- HERO -->
-
 <section class="hero">
 
   <div class="hero-photo"></div>
 
   <div class="hero-shade"></div>
-
 
   <div class="hero-content">
 
@@ -2366,27 +1856,20 @@ th{
 
     <br>
 
-
     <div class="hero-label">
-
       <span class="hero-dot"></span>
-
       STANLEY SPORTS
-
     </div>
-
 
     <h2>
       O esporte começa aqui.
     </h2>
-
 
     <p>
       Futebol, placares, tabelas, TV,
       programas esportivos e entretenimento
       em uma única central.
     </p>
-
 
     <div class="hero-actions">
 
@@ -2396,7 +1879,6 @@ th{
       >
         ⚽ Ver jogos
       </button>
-
 
       <button
         class="hero-btn"
@@ -2412,9 +1894,7 @@ th{
 </section>
 
 
-<!-- =========================
-     JOGOS
-========================= -->
+<!-- JOGOS -->
 
 <section
   id="viewGames"
@@ -2427,7 +1907,6 @@ th{
   <div class="premium-home-icon">
     👑
   </div>
-
 
   <div class="premium-home-text">
 
@@ -2444,7 +1923,6 @@ th{
     </span>
 
   </div>
-
 
   <button
     class="premium-home-btn"
@@ -2490,63 +1968,23 @@ th{
 <section class="stats">
 
   <div class="stat">
-
-    <small>
-      JOGOS
-    </small>
-
-    <strong id="totalGames">
-      0
-    </strong>
-
+    <small>JOGOS</small>
+    <strong id="totalGames">0</strong>
   </div>
 
-
   <div class="stat">
-
-    <small>
-      AO VIVO
-    </small>
-
-    <strong
-      id="liveGames"
-      class="red"
-    >
-      0
-    </strong>
-
+    <small>AO VIVO</small>
+    <strong id="liveGames" class="red">0</strong>
   </div>
 
-
   <div class="stat">
-
-    <small>
-      BRASIL
-    </small>
-
-    <strong
-      id="brazilGames"
-      class="green"
-    >
-      0
-    </strong>
-
+    <small>BRASIL</small>
+    <strong id="brazilGames" class="green">0</strong>
   </div>
 
-
   <div class="stat">
-
-    <small>
-      FAVORITOS
-    </small>
-
-    <strong
-      id="favoriteCount"
-      class="yellow"
-    >
-      0
-    </strong>
-
+    <small>FAVORITOS</small>
+    <strong id="favoriteCount" class="yellow">0</strong>
   </div>
 
 </section>
@@ -2575,14 +2013,12 @@ th{
     Todos
   </button>
 
-
   <button
     class="chip game-chip"
     data-filter="live"
   >
     🔴 Ao vivo
   </button>
-
 
   <button
     class="chip game-chip"
@@ -2591,14 +2027,12 @@ th{
     🇧🇷 Brasil
   </button>
 
-
   <button
     class="chip game-chip"
     data-filter="favorites"
   >
     ⭐ Favoritos
   </button>
-
 
   <button
     class="chip game-chip"
@@ -2623,7 +2057,6 @@ th{
     </h3>
 
   </div>
-
 
   <span
     class="counter"
@@ -2660,9 +2093,7 @@ th{
 </section>
 
 
-<!-- =========================
-     TABELA
-========================= -->
+<!-- TABELA -->
 
 <section
   id="viewTable"
@@ -2691,21 +2122,21 @@ th{
   class="league-select"
 >
 
-  <option value="bra.1">
-    Brasileirão Série A
-  </option>
+<option value="bra.1">
+  Brasileirão Série A
+</option>
 
-  <option value="bra.2">
-    Brasileirão Série B
-  </option>
+<option value="bra.2">
+  Brasileirão Série B
+</option>
 
-  <option value="eng.1">
-    Premier League
-  </option>
+<option value="eng.1">
+  Premier League
+</option>
 
-  <option value="esp.1">
-    LaLiga
-  </option>
+<option value="esp.1">
+  LaLiga
+</option>
 
 </select>
 
@@ -2758,9 +2189,7 @@ th{
 </section>
 
 
-<!-- =========================
-     TV
-========================= -->
+<!-- TV -->
 
 <section
   id="viewTv"
@@ -2783,7 +2212,6 @@ th{
 
 </div>
 
-
 <div
   class="media-grid"
   id="tvGrid"
@@ -2792,9 +2220,7 @@ th{
 </section>
 
 
-<!-- =========================
-     FILMES
-========================= -->
+<!-- FILMES -->
 
 <section
   id="viewMovies"
@@ -2817,7 +2243,6 @@ th{
 
 </div>
 
-
 <div
   class="media-grid"
   id="movieGrid"
@@ -2826,9 +2251,7 @@ th{
 </section>
 
 
-<!-- =========================
-     FAVORITOS
-========================= -->
+<!-- FAVORITOS -->
 
 <section
   id="viewFavorites"
@@ -2868,9 +2291,7 @@ th{
 </section>
 
 
-<!-- =========================
-     PREMIUM
-========================= -->
+<!-- PREMIUM -->
 
 <section
   id="viewPremium"
@@ -2884,21 +2305,18 @@ th{
     👑
   </div>
 
-
   <div class="premium-tag">
     LANÇAMENTO
   </div>
-
 
   <h2>
     Stanley Sports Premium
   </h2>
 
-
   <p>
     Recursos avançados para personalizar sua
     experiência e acompanhar futebol de uma forma
-    muito mais completa.
+    mais completa.
   </p>
 
 
@@ -2917,7 +2335,6 @@ th{
         </strong>
 
       </div>
-
 
       <div class="premium-price">
 
@@ -2944,7 +2361,6 @@ th{
     👑 Ativar Premium grátis
   </button>
 
-
   <div class="premium-note">
     Nenhum pagamento será solicitado durante o lançamento.
   </div>
@@ -2952,10 +2368,7 @@ th{
 </div>
 
 
-<!-- BENEFÍCIOS -->
-
 <div class="premium-grid">
-
 
   <div class="premium-feature">
 
@@ -3002,6 +2415,27 @@ th{
   <div class="premium-feature">
 
     <div class="premium-feature-icon">
+      🔥
+    </div>
+
+    <h4>
+      Análise pré-jogo
+    </h4>
+
+    <p>
+      Probabilidades e comparativos estatísticos.
+    </p>
+
+    <span class="feature-status">
+      DISPONÍVEL
+    </span>
+
+  </div>
+
+
+  <div class="premium-feature">
+
+    <div class="premium-feature-icon">
       ❤️
     </div>
 
@@ -3010,7 +2444,7 @@ th{
     </h4>
 
     <p>
-      Personalize o Stanley Sports para o seu clube.
+      Personalize o Stanley Sports para seu clube.
     </p>
 
     <span class="feature-status">
@@ -3031,28 +2465,7 @@ th{
     </h4>
 
     <p>
-      Salve e acompanhe seus jogos favoritos.
-    </p>
-
-    <span class="feature-status">
-      DISPONÍVEL
-    </span>
-
-  </div>
-
-
-  <div class="premium-feature">
-
-    <div class="premium-feature-icon">
-      🚫
-    </div>
-
-    <h4>
-      Sem anúncios
-    </h4>
-
-    <p>
-      Experiência limpa e sem publicidade.
+      Salve seus jogos favoritos.
     </p>
 
     <span class="feature-status">
@@ -3073,7 +2486,7 @@ th{
     </h4>
 
     <p>
-      Receba alertas mesmo com o aplicativo fechado.
+      Alertas com o aplicativo fechado.
     </p>
 
     <span class="feature-status soon">
@@ -3084,8 +2497,6 @@ th{
 
 </div>
 
-
-<!-- TIME DO CORAÇÃO -->
 
 <div class="premium-tool">
 
@@ -3102,8 +2513,7 @@ th{
       </h3>
 
       <p>
-        Escolha seu clube para destacar seus jogos
-        em todo o aplicativo.
+        Escolha seu clube para destacar seus jogos.
       </p>
 
     </div>
@@ -3144,15 +2554,12 @@ th{
       SEU TIME
     </small>
 
-    <strong id="heartSelectedName">
-    </strong>
+    <strong id="heartSelectedName"></strong>
 
   </div>
 
 </div>
 
-
-<!-- AGENDA -->
 
 <div class="premium-tool">
 
@@ -3169,8 +2576,7 @@ th{
       </h3>
 
       <p>
-        Navegue pelos próximos dias e veja os jogos
-        programados.
+        Veja os jogos programados nos próximos dias.
       </p>
 
     </div>
@@ -3204,8 +2610,6 @@ th{
 </div>
 
 
-<!-- ESTATÍSTICAS -->
-
 <div class="premium-tool">
 
   <div class="premium-tool-head">
@@ -3221,8 +2625,7 @@ th{
       </h3>
 
       <p>
-        Resumo recente do clube escolhido como
-        seu time do coração.
+        Resumo recente do clube escolhido.
       </p>
 
     </div>
@@ -3234,9 +2637,7 @@ th{
   </div>
 
 
-  <div
-    id="statsPremiumContent"
-  >
+  <div id="statsPremiumContent">
 
     <div class="loading-mini">
 
@@ -3249,104 +2650,123 @@ th{
 
 </div>
 
-
 </section>
 
 
 </main>
 
 
-<!-- =========================
-     NAVIGATION
-========================= -->
+<!-- NAV -->
 
 <nav class="bottom-nav">
-
 
 <button
   class="nav-btn active"
   data-view="Games"
 >
-
   <span>⚽</span>
-
   Jogos
-
 </button>
-
 
 <button
   class="nav-btn"
   data-view="Table"
 >
-
   <span>📊</span>
-
   Tabela
-
 </button>
-
 
 <button
   class="nav-btn"
   data-view="Tv"
 >
-
   <span>📺</span>
-
   TV
-
 </button>
-
 
 <button
   class="nav-btn"
   data-view="Movies"
 >
-
   <span>🎬</span>
-
   Filmes
-
 </button>
-
 
 <button
   class="nav-btn"
   data-view="Favorites"
 >
-
   <span>⭐</span>
-
   Favoritos
-
 </button>
-
 
 <button
   class="nav-btn premium-nav"
   data-view="Premium"
 >
-
   <span>👑</span>
-
   Premium
-
 </button>
-
 
 </nav>
 
 
+<!-- MODAL ANALYSIS -->
+
+<div
+  id="analysisModal"
+  class="analysis-modal"
+>
+
+  <div class="analysis-sheet">
+
+    <div class="analysis-top">
+
+      <div class="analysis-title">
+
+        <small>
+          STANLEY SPORTS PREMIUM
+        </small>
+
+        <h2>
+          🔥 Análise da partida
+        </h2>
+
+      </div>
+
+      <button
+        class="close-analysis"
+        onclick="closeAnalysis()"
+      >
+        ✕
+      </button>
+
+    </div>
+
+
+    <div id="analysisContent">
+
+      <div class="analysis-loading">
+        Carregando análise...
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
 <script>
 
-/*
-===============================================
-CONFIG PREMIUM
-===============================================
-*/
+/* =========================================
+   CONFIG
+========================================= */
 
 const PREMIUM_LAUNCH_FREE = true;
+
+const ANALYSIS_WORKER =
+  "https://stanley-sports-api.phwdjnnr9m.workers.dev";
 
 
 let premiumActive =
@@ -3365,6 +2785,8 @@ let heartTeam =
   "";
 
 
+let allGames = [];
+
 let agendaGamesData = [];
 
 let historyGamesData = [];
@@ -3375,12 +2797,33 @@ let agendaLoaded = false;
 
 let historyLoaded = false;
 
+let gameFilter = "all";
 
-/*
-===============================================
-ATALHOS
-===============================================
-*/
+let searchText = "";
+
+let favorites =
+  JSON.parse(
+    localStorage.getItem(
+      "stanleySportsFavorites"
+    )
+    ||
+    "[]"
+  );
+
+
+const $ =
+  selector =>
+    document.querySelector(selector);
+
+
+const $$ =
+  selector =>
+    [...document.querySelectorAll(selector)];
+
+
+/* =========================================
+   SHORTCUTS
+========================================= */
 
 const sportsShortcuts = [
 
@@ -3435,11 +2878,9 @@ const sportsShortcuts = [
 ];
 
 
-/*
-===============================================
-LIGAS
-===============================================
-*/
+/* =========================================
+   LEAGUES
+========================================= */
 
 const leagues = [
 
@@ -3501,11 +2942,9 @@ const priorityTeams = [
 ];
 
 
-/*
-===============================================
-TV
-===============================================
-*/
+/* =========================================
+   TV
+========================================= */
 
 const tvChannels = [
 
@@ -3584,11 +3023,9 @@ const tvChannels = [
 ];
 
 
-/*
-===============================================
-ENTRETENIMENTO
-===============================================
-*/
+/* =========================================
+   ENTERTAINMENT
+========================================= */
 
 const entertainment = [
 
@@ -3685,61 +3122,19 @@ const entertainment = [
 ];
 
 
-/*
-===============================================
-ESTADO
-===============================================
-*/
-
-let allGames = [];
-
-let gameFilter = "all";
-
-let searchText = "";
-
-let favorites =
-  JSON.parse(
-    localStorage.getItem(
-      "stanleySportsFavorites"
-    )
-    ||
-    "[]"
-  );
-
-
-const $ =
-  selector =>
-    document.querySelector(
-      selector
-    );
-
-
-const $$ =
-  selector =>
-    [
-      ...document.querySelectorAll(
-        selector
-      )
-    ];
-
-
-/*
-===============================================
-HELPERS
-===============================================
-*/
+/* =========================================
+   HELPERS
+========================================= */
 
 function normalize(value=""){
 
-  return(
-    String(value)
+  return String(value)
     .normalize("NFD")
     .replace(
       /[\u0300-\u036f]/g,
       ""
     )
-    .toLowerCase()
-  );
+    .toLowerCase();
 
 }
 
@@ -3766,64 +3161,62 @@ function dateKey(offsetDays=0){
     offsetDays
   );
 
-
   return(
     `${d.getFullYear()}${
       String(
         d.getMonth()+1
-      )
-      .padStart(
-        2,
-        "0"
-      )
+      ).padStart(2,"0")
     }${
       String(
         d.getDate()
-      )
-      .padStart(
-        2,
-        "0"
-      )
+      ).padStart(2,"0")
     }`
   );
 
 }
 
 
-function localDateKey(
-  iso
-){
+function apiDate(iso){
 
   const d =
     new Date(iso);
-
 
   return(
     `${d.getFullYear()}-${
       String(
         d.getMonth()+1
-      )
-      .padStart(
-        2,
-        "0"
-      )
+      ).padStart(2,"0")
     }-${
       String(
         d.getDate()
-      )
-      .padStart(
-        2,
-        "0"
-      )
+      ).padStart(2,"0")
     }`
   );
 
 }
 
 
-function dateFromOffset(
-  offset
-){
+function localDateKey(iso){
+
+  const d =
+    new Date(iso);
+
+  return(
+    `${d.getFullYear()}-${
+      String(
+        d.getMonth()+1
+      ).padStart(2,"0")
+    }-${
+      String(
+        d.getDate()
+      ).padStart(2,"0")
+    }`
+  );
+
+}
+
+
+function dateFromOffset(offset){
 
   const d =
     new Date();
@@ -3846,33 +3239,20 @@ function dateFromOffset(
 }
 
 
-function localKeyFromOffset(
-  offset
-){
+function localKeyFromOffset(offset){
 
   const d =
-    dateFromOffset(
-      offset
-    );
-
+    dateFromOffset(offset);
 
   return(
     `${d.getFullYear()}-${
       String(
         d.getMonth()+1
-      )
-      .padStart(
-        2,
-        "0"
-      )
+      ).padStart(2,"0")
     }-${
       String(
         d.getDate()
-      )
-      .padStart(
-        2,
-        "0"
-      )
+      ).padStart(2,"0")
     }`
   );
 
@@ -3900,14 +3280,11 @@ function formatDayLabel(iso){
   const d =
     new Date(iso);
 
-
   const today =
     new Date();
 
-
   const yesterday =
     new Date();
-
 
   yesterday.setDate(
     today.getDate()-1
@@ -3955,9 +3332,7 @@ function isLive(game){
       "in_progress"
     ]
     .includes(
-      String(
-        game.state
-      )
+      String(game.state)
       .toLowerCase()
     )
   );
@@ -3968,9 +3343,7 @@ function isLive(game){
 function isFinished(game){
 
   return(
-    String(
-      game.state
-    )
+    String(game.state)
     .toLowerCase()
     ===
     "post"
@@ -3989,7 +3362,6 @@ function isHeartGame(game){
     return false;
   }
 
-
   return(
     sameTeam(
       game.home,
@@ -4005,11 +3377,9 @@ function isHeartGame(game){
 }
 
 
-/*
-===============================================
-15 MINUTOS
-===============================================
-*/
+/* =========================================
+   15 MIN
+========================================= */
 
 function minutesUntilKickoff(game){
 
@@ -4031,25 +3401,16 @@ function minutesUntilKickoff(game){
 
 function shouldShowBroadcasters(game){
 
-  if(
-    isFinished(game)
-  ){
+  if(isFinished(game)){
     return false;
   }
 
-
-  if(
-    isLive(game)
-  ){
+  if(isLive(game)){
     return true;
   }
 
-
   const minutes =
-    minutesUntilKickoff(
-      game
-    );
-
+    minutesUntilKickoff(game);
 
   return(
     minutes <= 15
@@ -4060,27 +3421,19 @@ function shouldShowBroadcasters(game){
 }
 
 
-/*
-===============================================
-24 HORAS
-===============================================
-*/
+/* =========================================
+   24 HOURS
+========================================= */
 
 function keepFinishedFor24Hours(game){
 
-  if(
-    !isFinished(game)
-  ){
+  if(!isFinished(game)){
     return true;
   }
 
-
   const kickoff =
-    new Date(
-      game.date
-    )
+    new Date(game.date)
     .getTime();
-
 
   const estimatedEnd =
     kickoff
@@ -4092,7 +3445,6 @@ function keepFinishedFor24Hours(game){
       1000
     );
 
-
   const expiration =
     estimatedEnd
     +
@@ -4102,7 +3454,6 @@ function keepFinishedFor24Hours(game){
       60 *
       1000
     );
-
 
   return(
     Date.now()
@@ -4131,7 +3482,6 @@ function isPriority(game){
       `${game.home} ${game.away}`
     );
 
-
   return(
     priorityTeams.some(
       team =>
@@ -4144,11 +3494,9 @@ function isPriority(game){
 }
 
 
-/*
-===============================================
-ESPN
-===============================================
-*/
+/* =========================================
+   ESPN
+========================================= */
 
 function parseGame(
   event,
@@ -4158,12 +3506,10 @@ function parseGame(
   const competition =
     event.competitions?.[0];
 
-
   const competitors =
     competition?.competitors
     ||
     [];
-
 
   const home =
     competitors.find(
@@ -4173,7 +3519,6 @@ function parseGame(
         "home"
     );
 
-
   const away =
     competitors.find(
       item =>
@@ -4181,7 +3526,6 @@ function parseGame(
         ===
         "away"
     );
-
 
   return{
 
@@ -4278,17 +3622,12 @@ async function fetchLeagueByDate(
         }
       );
 
-
-    if(
-      !response.ok
-    ){
+    if(!response.ok){
       return [];
     }
 
-
     const data =
       await response.json();
-
 
     return(
       (
@@ -4304,7 +3643,6 @@ async function fetchLeagueByDate(
           )
       )
     );
-
 
   }catch(error){
 
@@ -4322,7 +3660,6 @@ async function fetchAllLeaguesDate(
   const date =
     dateKey(offset);
 
-
   const results =
     await Promise.allSettled(
 
@@ -4336,7 +3673,6 @@ async function fetchAllLeaguesDate(
 
     );
 
-
   const games =
     results.flatMap(
       result =>
@@ -4349,10 +3685,8 @@ async function fetchAllLeaguesDate(
         []
     );
 
-
   const unique =
     new Map();
-
 
   games.forEach(
     game => {
@@ -4365,11 +3699,8 @@ async function fetchAllLeaguesDate(
     }
   );
 
-
   return(
-    [
-      ...unique.values()
-    ]
+    [...unique.values()]
   );
 
 }
@@ -4381,20 +3712,17 @@ async function refreshGames(){
   .style.display =
   "block";
 
-
   const [
     yesterday,
     today
   ] =
-    await Promise.all([
-      fetchAllLeaguesDate(-1),
-      fetchAllLeaguesDate(0)
-    ]);
-
+  await Promise.all([
+    fetchAllLeaguesDate(-1),
+    fetchAllLeaguesDate(0)
+  ]);
 
   const unique =
     new Map();
-
 
   [
     ...yesterday,
@@ -4411,20 +3739,15 @@ async function refreshGames(){
     }
   );
 
-
   allGames =
-    [
-      ...unique.values()
-    ]
+    [...unique.values()]
     .filter(
       keepFinishedFor24Hours
     );
 
-
   $("#gamesLoading")
   .style.display =
   "none";
-
 
   renderGames();
 
@@ -4433,17 +3756,1825 @@ async function refreshGames(){
 }
 
 
-/*
-===============================================
-AGENDA PREMIUM
-===============================================
-*/
+/* =========================================
+   ANALYSIS PREMIUM
+========================================= */
+
+function cleanPercent(value){
+
+  if(
+    value === null
+    ||
+    value === undefined
+    ||
+    value === ""
+  ){
+    return "—";
+  }
+
+  const text =
+    String(value);
+
+  return(
+    text.includes("%")
+    ?
+    text
+    :
+    `${text}%`
+  );
+
+}
+
+
+function analysisLogo(
+  url,
+  name
+){
+
+  if(!url){
+    return "";
+  }
+
+  return`
+    <img
+      src="${url}"
+      alt="${name}"
+    >
+  `;
+
+}
+
+
+async function openPremiumAnalysis(
+  gameId
+){
+
+  if(!premiumActive){
+
+    openView("Premium");
+
+    return;
+
+  }
+
+
+  const game =
+    [
+      ...allGames,
+      ...agendaGamesData
+    ]
+    .find(
+      item =>
+        String(item.id)
+        ===
+        String(gameId)
+    );
+
+
+  if(!game){
+    return;
+  }
+
+
+  $("#analysisModal")
+  .classList
+  .add(
+    "active"
+  );
+
+
+  document.body.style.overflow =
+    "hidden";
+
+
+  $("#analysisContent")
+  .innerHTML = `
+
+    <div class="analysis-loading">
+
+      🔥 Analisando
+      <strong>${game.home}</strong>
+      x
+      <strong>${game.away}</strong>...
+
+    </div>
+
+  `;
+
+
+  try{
+
+
+    const url =
+      `${ANALYSIS_WORKER}/?home=${
+        encodeURIComponent(
+          game.home
+        )
+      }&away=${
+        encodeURIComponent(
+          game.away
+        )
+      }&date=${
+        apiDate(
+          game.date
+        )
+      }`;
+
+
+    const response =
+      await fetch(
+        url,
+        {
+          cache:"no-store"
+        }
+      );
+
+
+    const data =
+      await response.json();
+
+
+    if(
+      !data.ok
+    ){
+
+      $("#analysisContent")
+      .innerHTML = `
+
+        <div class="analysis-error">
+
+          ⚠️ ${
+            data.message
+            ||
+            data.error
+            ||
+            "Ainda não há análise disponível para esta partida."
+          }
+
+          <br><br>
+
+          Isso pode acontecer quando os nomes dos times
+          são diferentes entre as bases ou quando a
+          API-Football ainda não publicou uma previsão.
+
+        </div>
+
+      `;
+
+      return;
+
+    }
+
+
+    const homeName =
+      data.fixture?.home
+      ||
+      game.home;
+
+
+    const awayName =
+      data.fixture?.away
+      ||
+      game.away;
+
+
+    const homeProb =
+      cleanPercent(
+        data.probabilities?.home
+      );
+
+
+    const drawProb =
+      cleanPercent(
+        data.probabilities?.draw
+      );
+
+
+    const awayProb =
+      cleanPercent(
+        data.probabilities?.away
+      );
+
+
+    const formHome =
+      cleanPercent(
+        data.comparison?.formHome
+      );
+
+
+    const formAway =
+      cleanPercent(
+        data.comparison?.formAway
+      );
+
+
+    const attackHome =
+      cleanPercent(
+        data.comparison?.attackHome
+      );
+
+
+    const attackAway =
+      cleanPercent(
+        data.comparison?.attackAway
+      );
+
+
+    const defenseHome =
+      cleanPercent(
+        data.comparison?.defenseHome
+      );
+
+
+    const defenseAway =
+      cleanPercent(
+        data.comparison?.defenseAway
+      );
+
+
+    const goalsHome =
+      data.prediction?.goalsHome
+      ??
+      "—";
+
+
+    const goalsAway =
+      data.prediction?.goalsAway
+      ??
+      "—";
+
+
+    const underOver =
+      data.prediction?.underOver
+      ||
+      "—";
+
+
+    const advice =
+      data.prediction?.advice
+      ||
+      data.prediction?.winnerComment
+      ||
+      "Sem tendência adicional disponível.";
+
+
+    const winner =
+      data.prediction?.winner
+      ||
+      "Indefinido";
+
+
+    const homeLogo =
+      data.teams?.home?.logo
+      ||
+      game.homeLogo;
+
+
+    const awayLogo =
+      data.teams?.away?.logo
+      ||
+      game.awayLogo;
+
+
+    $("#analysisContent")
+    .innerHTML = `
+
+
+      <div class="analysis-match">
+
+
+        <div class="analysis-team">
+
+          ${
+            analysisLogo(
+              homeLogo,
+              homeName
+            )
+          }
+
+          ${homeName}
+
+        </div>
+
+
+        <div class="analysis-vs">
+
+          ×
+
+        </div>
+
+
+        <div class="analysis-team">
+
+          ${
+            analysisLogo(
+              awayLogo,
+              awayName
+            )
+          }
+
+          ${awayName}
+
+        </div>
+
+
+      </div>
+
+
+      <div class="analysis-section">
+
+        <h3>
+          🎯 Probabilidade do resultado
+        </h3>
+
+
+        <div class="prob-grid">
+
+
+          <div class="prob-card">
+
+            <small>
+              ${homeName}
+            </small>
+
+            <strong>
+              ${homeProb}
+            </strong>
+
+          </div>
+
+
+          <div class="prob-card draw">
+
+            <small>
+              EMPATE
+            </small>
+
+            <strong>
+              ${drawProb}
+            </strong>
+
+          </div>
+
+
+          <div class="prob-card">
+
+            <small>
+              ${awayName}
+            </small>
+
+            <strong>
+              ${awayProb}
+            </strong>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+
+      <div class="analysis-section">
+
+        <h3>
+          📊 Comparativo
+        </h3>
+
+
+        <div class="analysis-comparison">
+
+
+          <div class="compare-line">
+
+            <div class="compare-label">
+
+              <span>
+                Forma
+              </span>
+
+              <span>
+                ${homeName} • ${awayName}
+              </span>
+
+            </div>
+
+            <div class="compare-values">
+
+              <div class="compare-value">
+                ${formHome}
+              </div>
+
+              <div class="compare-value">
+                ${formAway}
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="compare-line">
+
+            <div class="compare-label">
+
+              <span>
+                Ataque
+              </span>
+
+              <span>
+                ${homeName} • ${awayName}
+              </span>
+
+            </div>
+
+            <div class="compare-values">
+
+              <div class="compare-value">
+                ${attackHome}
+              </div>
+
+              <div class="compare-value">
+                ${attackAway}
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="compare-line">
+
+            <div class="compare-label">
+
+              <span>
+                Defesa
+              </span>
+
+              <span>
+                ${homeName} • ${awayName}
+              </span>
+
+            </div>
+
+            <div class="compare-values">
+
+              <div class="compare-value">
+                ${defenseHome}
+              </div>
+
+              <div class="compare-value">
+                ${defenseAway}
+              </div>
+
+            </div>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+
+      <div class="analysis-section">
+
+        <h3>
+          ⚽ Tendência de gols
+        </h3>
+
+
+        <div class="advanced-stats">
+
+
+          <div class="advanced-stat">
+
+            <small>
+              GOLS CASA
+            </small>
+
+            <strong>
+              ${goalsHome}
+            </strong>
+
+          </div>
+
+
+          <div class="advanced-stat">
+
+            <small>
+              GOLS FORA
+            </small>
+
+            <strong>
+              ${goalsAway}
+            </strong>
+
+          </div>
+
+
+          <div class="advanced-stat">
+
+            <small>
+              OVER / UNDER
+            </small>
+
+            <strong style="font-size:13px">
+              ${underOver}
+            </strong>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+
+      <div class="analysis-section">
+
+
+        <h3>
+          🔥 Tendência da API
+        </h3>
+
+
+        <div class="analysis-tip">
+
+          <small>
+            PROVÁVEL VENCEDOR / TENDÊNCIA
+          </small>
+
+          <strong>
+            ${winner}
+          </strong>
+
+        </div>
+
+
+        <div
+          class="analysis-tip"
+          style="margin-top:8px"
+        >
+
+          <small>
+            ANÁLISE
+          </small>
+
+          <strong>
+            ${advice}
+          </strong>
+
+        </div>
+
+
+      </div>
+
+
+      <div class="analysis-warning">
+
+        ⚠️ Os dados acima são estimativas estatísticas
+        fornecidas por uma fonte externa. Não representam
+        garantia de resultado e não devem ser tratados
+        como promessa de ganho.
+
+      </div>
+
+
+    `;
+
+
+  }catch(error){
+
+
+    $("#analysisContent")
+    .innerHTML = `
+
+      <div class="analysis-error">
+
+        Não foi possível carregar a análise agora.
+
+        <br><br>
+
+        Tente novamente em alguns instantes.
+
+      </div>
+
+    `;
+
+  }
+
+}
+
+
+function closeAnalysis(){
+
+  $("#analysisModal")
+  .classList
+  .remove(
+    "active"
+  );
+
+  document.body.style.overflow =
+    "";
+
+}
+
+
+/* =========================================
+   LINKS
+========================================= */
+
+function youtubeSearch(query){
+
+  return(
+    "https://www.youtube.com/results?search_query="
+    +
+    encodeURIComponent(query)
+  );
+
+}
+
+
+function googleSearch(query){
+
+  return(
+    "https://www.google.com/search?q="
+    +
+    encodeURIComponent(query)
+  );
+
+}
+
+
+/* =========================================
+   FAVORITES
+========================================= */
+
+function toggleFavorite(id){
+
+  id =
+    String(id);
+
+
+  if(
+    favorites.includes(id)
+  ){
+
+    favorites =
+      favorites.filter(
+        item =>
+          item !== id
+      );
+
+  }else{
+
+    favorites.push(id);
+
+  }
+
+
+  localStorage.setItem(
+    "stanleySportsFavorites",
+    JSON.stringify(favorites)
+  );
+
+
+  renderGames();
+
+}
+
+
+/* =========================================
+   LOGO
+========================================= */
+
+function teamLogo(
+  logo,
+  abbr
+){
+
+  if(!logo){
+
+    return`
+
+      <div class="logo-fallback">
+
+        ${abbr || "FC"}
+
+      </div>
+
+    `;
+
+  }
+
+
+  return`
+
+    <img
+      src="${logo}"
+      alt=""
+      loading="lazy"
+    >
+
+  `;
+
+}
+
+
+/* =========================================
+   GAME CARD
+========================================= */
+
+function gameCard(game){
+
+  const live =
+    isLive(game);
+
+
+  const ended =
+    isFinished(game);
+
+
+  const showBroadcasters =
+    shouldShowBroadcasters(game);
+
+
+  const fav =
+    isFavorite(game);
+
+
+  const heart =
+    isHeartGame(game);
+
+
+  let statusText =
+    "AGENDADO";
+
+
+  let statusClass =
+    "scheduled";
+
+
+  if(ended){
+
+    statusText =
+      "ENCERRADO";
+
+    statusClass =
+      "";
+
+  }
+
+
+  if(live){
+
+    statusText =
+      game.detail
+      ||
+      "AO VIVO";
+
+    statusClass =
+      "live";
+
+  }
+
+
+  let scoreHTML =
+    "";
+
+
+  if(
+    ended
+    ||
+    live
+  ){
+
+    scoreHTML = `
+
+      <div class="score">
+
+        ${game.homeScore}
+        ×
+        ${game.awayScore}
+
+      </div>
+
+    `;
+
+  }else{
+
+    scoreHTML = `
+
+      <div class="kickoff-label">
+
+        ${
+          formatDayLabel(
+            game.date
+          )
+        }
+
+      </div>
+
+    `;
+
+  }
+
+
+  let notice =
+    "";
+
+
+  let buttons =
+    "";
+
+
+  if(ended){
+
+    notice = `
+
+      <div class="notice finished">
+
+        🎬 Partida encerrada — veja os melhores momentos
+
+      </div>
+
+    `;
+
+
+    buttons = `
+
+      <a
+        class="action highlight"
+        href="${
+          youtubeSearch(
+            `${game.home} ${game.away} melhores momentos oficial`
+          )
+        }"
+        target="_blank"
+        rel="noopener"
+      >
+
+        🎬 Melhores momentos
+
+      </a>
+
+
+      <a
+        class="action details"
+        href="${
+          googleSearch(
+            `${game.home} ${game.away} resultado estatísticas`
+          )
+        }"
+        target="_blank"
+        rel="noopener"
+      >
+
+        📊 Detalhes
+
+      </a>
+
+
+      <button
+        class="action analysis"
+        onclick="
+          openPremiumAnalysis(
+            '${game.id}'
+          )
+        "
+      >
+
+        👑 Análise Premium
+
+      </button>
+
+    `;
+
+  }
+
+
+  else if(
+    !showBroadcasters
+  ){
+
+    notice = `
+
+      <div class="notice waiting">
+
+        ⏳ ${
+          formatDayLabel(
+            game.date
+          )
+        }
+
+        às
+
+        ${
+          formatTime(
+            game.date
+          )
+        }
+
+        • emissoras liberadas 15 minutos antes
+
+      </div>
+
+    `;
+
+
+    buttons = `
+
+      <a
+        class="action primary"
+        href="${
+          googleSearch(
+            `${game.home} ${game.away} onde assistir hoje`
+          )
+        }"
+        target="_blank"
+        rel="noopener"
+      >
+
+        🔎 Onde assistir
+
+      </a>
+
+
+      <button
+        class="action analysis"
+        onclick="
+          openPremiumAnalysis(
+            '${game.id}'
+          )
+        "
+      >
+
+        👑 Análise Premium
+
+      </button>
+
+    `;
+
+  }
+
+
+  else{
+
+    notice = `
+
+      <div class="notice ready">
+
+        ${
+          live
+          ?
+          "🔴 Partida em andamento"
+          :
+          "📺 Opções de transmissão liberadas"
+        }
+
+      </div>
+
+    `;
+
+
+    buttons = `
+
+      <a
+        class="action"
+        href="${
+          youtubeSearch(
+            `${game.home} ${game.away} ge TV ao vivo`
+          )
+        }"
+        target="_blank"
+        rel="noopener"
+      >
+
+        📺 ge TV
+
+      </a>
+
+
+      <a
+        class="action"
+        href="${
+          youtubeSearch(
+            `${game.home} ${game.away} CazéTV ao vivo`
+          )
+        }"
+        target="_blank"
+        rel="noopener"
+      >
+
+        📺 CazéTV
+
+      </a>
+
+
+      ${
+        game.group
+        ===
+        "brazil"
+        ?
+        `
+
+          <a
+            class="action premiere"
+            href="https://globoplay.globo.com/canais/premiere/"
+            target="_blank"
+            rel="noopener"
+          >
+
+            🔒 Premiere
+
+          </a>
+
+        `
+        :
+        ""
+      }
+
+
+      <a
+        class="action primary"
+        href="${
+          googleSearch(
+            `${game.home} ${game.away} onde assistir hoje`
+          )
+        }"
+        target="_blank"
+        rel="noopener"
+      >
+
+        🔎 Onde assistir
+
+      </a>
+
+
+      <button
+        class="action analysis"
+        onclick="
+          openPremiumAnalysis(
+            '${game.id}'
+          )
+        "
+      >
+
+        👑 Análise Premium
+
+      </button>
+
+    `;
+
+  }
+
+
+  return`
+
+    <article
+      class="
+        game
+        ${
+          isPriority(game)
+          ?
+          "priority"
+          :
+          ""
+        }
+        ${
+          heart
+          ?
+          "heart-team"
+          :
+          ""
+        }
+      "
+    >
+
+
+      ${
+        heart
+        ?
+        `
+
+          <div class="heart-label">
+
+            ❤️ SEU TIME DO CORAÇÃO
+
+          </div>
+
+        `
+        :
+        ""
+      }
+
+
+      <div class="game-head">
+
+        <span class="competition">
+
+          ${game.league}
+
+        </span>
+
+
+        <div class="game-right">
+
+          <span
+            class="
+              status
+              ${statusClass}
+            "
+          >
+            ${statusText}
+          </span>
+
+
+          <button
+            class="
+              star
+              ${
+                fav
+                ?
+                "active"
+                :
+                ""
+              }
+            "
+            onclick="
+              toggleFavorite(
+                '${game.id}'
+              )
+            "
+          >
+
+            ${
+              fav
+              ?
+              "★"
+              :
+              "☆"
+            }
+
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <div class="match">
+
+
+        <div class="team">
+
+          ${
+            teamLogo(
+              game.homeLogo,
+              game.homeAbbr
+            )
+          }
+
+          <div class="team-name">
+
+            ${game.home}
+
+          </div>
+
+        </div>
+
+
+        <div class="score-box">
+
+          ${scoreHTML}
+
+          <div class="time">
+
+            ${
+              formatTime(
+                game.date
+              )
+            }
+
+          </div>
+
+        </div>
+
+
+        <div class="team">
+
+          ${
+            teamLogo(
+              game.awayLogo,
+              game.awayAbbr
+            )
+          }
+
+          <div class="team-name">
+
+            ${game.away}
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+
+      ${notice}
+
+
+      <div class="game-buttons">
+
+        ${buttons}
+
+      </div>
+
+
+    </article>
+
+  `;
+
+}
+
+
+/* =========================================
+   FILTER
+========================================= */
+
+function filteredGames(){
+
+  let list =
+    [...allGames];
+
+
+  if(gameFilter === "live"){
+
+    list =
+      list.filter(isLive);
+
+  }
+
+
+  if(gameFilter === "brazil"){
+
+    list =
+      list.filter(
+        game =>
+          game.group
+          ===
+          "brazil"
+      );
+
+  }
+
+
+  if(gameFilter === "favorites"){
+
+    list =
+      list.filter(isFavorite);
+
+  }
+
+
+  if(gameFilter === "europe"){
+
+    list =
+      list.filter(
+        game =>
+          game.group
+          ===
+          "europe"
+      );
+
+  }
+
+
+  if(searchText){
+
+    const query =
+      normalize(searchText);
+
+
+    list =
+      list.filter(
+        game =>
+
+          normalize(game.home)
+          .includes(query)
+
+          ||
+
+          normalize(game.away)
+          .includes(query)
+
+          ||
+
+          normalize(game.league)
+          .includes(query)
+
+      );
+
+  }
+
+
+  list.sort(
+    (a,b) => {
+
+
+      if(
+        isLive(a)
+        !==
+        isLive(b)
+      ){
+
+        return(
+          isLive(b)
+          -
+          isLive(a)
+        );
+
+      }
+
+
+      if(
+        isHeartGame(a)
+        !==
+        isHeartGame(b)
+      ){
+
+        return(
+          isHeartGame(b)
+          -
+          isHeartGame(a)
+        );
+
+      }
+
+
+      if(
+        isFinished(a)
+        &&
+        isFinished(b)
+      ){
+
+        return(
+          new Date(b.date)
+          -
+          new Date(a.date)
+        );
+
+      }
+
+
+      if(
+        isFinished(a)
+        !==
+        isFinished(b)
+      ){
+
+        return(
+          isFinished(a)
+          ?
+          1
+          :
+          -1
+        );
+
+      }
+
+
+      return(
+        new Date(a.date)
+        -
+        new Date(b.date)
+      );
+
+    }
+  );
+
+
+  return list;
+
+}
+
+
+/* =========================================
+   RENDER GAMES
+========================================= */
+
+function renderGames(){
+
+  const list =
+    filteredGames();
+
+
+  $("#totalGames")
+  .textContent =
+    allGames.length;
+
+
+  $("#liveGames")
+  .textContent =
+    allGames
+    .filter(isLive)
+    .length;
+
+
+  $("#brazilGames")
+  .textContent =
+    allGames
+    .filter(
+      game =>
+        game.group
+        ===
+        "brazil"
+    )
+    .length;
+
+
+  $("#favoriteCount")
+  .textContent =
+    favorites.length;
+
+
+  $("#visibleGames")
+  .textContent =
+    list.length;
+
+
+  $("#games")
+  .innerHTML =
+    list
+    .map(gameCard)
+    .join("");
+
+
+  $("#gamesEmpty")
+  .style.display =
+    list.length
+    ?
+    "none"
+    :
+    "block";
+
+
+  const favoriteGames =
+    allGames
+    .filter(isFavorite);
+
+
+  $("#favoriteGames")
+  .innerHTML =
+    favoriteGames
+    .map(gameCard)
+    .join("");
+
+
+  $("#favoritesEmpty")
+  .style.display =
+    favoriteGames.length
+    ?
+    "none"
+    :
+    "block";
+
+}
+
+
+/* =========================================
+   SHORTCUT RENDER
+========================================= */
+
+function renderSportsShortcuts(){
+
+  $("#sportsShortcuts")
+  .innerHTML =
+    sportsShortcuts
+    .map(
+      item => `
+
+        <a
+          class="sport-shortcut"
+          href="${item.url}"
+          target="_blank"
+          rel="noopener"
+        >
+
+          <div>
+
+            <div class="sport-shortcut-icon">
+
+              ${item.icon}
+
+            </div>
+
+            <h4>
+              ${item.name}
+            </h4>
+
+            <p>
+              ${item.description}
+            </p>
+
+          </div>
+
+          <div class="sport-shortcut-open">
+            Abrir →
+          </div>
+
+        </a>
+
+      `
+    )
+    .join("");
+
+}
+
+
+/* =========================================
+   PREMIUM STATUS
+========================================= */
+
+function activatePremium(){
+
+  if(!PREMIUM_LAUNCH_FREE){
+    return;
+  }
+
+
+  premiumActive =
+    true;
+
+
+  localStorage.setItem(
+    "stanleySportsPremium",
+    "active"
+  );
+
+
+  renderPremiumStatus();
+
+  loadAgendaPremium();
+
+
+  if(heartTeam){
+    loadHistoryPremium();
+  }
+
+}
+
+
+function renderPremiumStatus(){
+
+  if(premiumActive){
+
+    $("#premiumPlanStatus")
+    .textContent =
+      "Premium ativo";
+
+
+    $("#activatePremiumBtn")
+    .textContent =
+      "✓ Premium ativado";
+
+
+    $("#activatePremiumBtn")
+    .classList
+    .add("active");
+
+
+    $("#premiumHomeStatus")
+    .textContent =
+      "Seu Premium está ativo.";
+
+  }else{
+
+    $("#premiumPlanStatus")
+    .textContent =
+      "Premium não ativado";
+
+
+    $("#activatePremiumBtn")
+    .textContent =
+      "👑 Ativar Premium grátis";
+
+
+    $("#activatePremiumBtn")
+    .classList
+    .remove("active");
+
+
+    $("#premiumHomeStatus")
+    .textContent =
+      "Ative seu acesso Premium.";
+
+  }
+
+}
+
+
+/* =========================================
+   HEART TEAM
+========================================= */
+
+function getKnownTeams(){
+
+  const source =
+    [
+      ...allGames,
+      ...agendaGamesData,
+      ...historyGamesData
+    ];
+
+
+  const teams =
+    new Set();
+
+
+  source.forEach(
+    game => {
+
+      if(game.home){
+        teams.add(game.home);
+      }
+
+      if(game.away){
+        teams.add(game.away);
+      }
+
+    }
+  );
+
+
+  if(heartTeam){
+    teams.add(heartTeam);
+  }
+
+
+  return(
+    [...teams]
+    .sort(
+      (a,b) =>
+        a.localeCompare(
+          b,
+          "pt-BR"
+        )
+    )
+  );
+
+}
+
+
+function populateHeartTeams(){
+
+  const select =
+    $("#heartTeamSelect");
+
+
+  const teams =
+    getKnownTeams();
+
+
+  select.innerHTML = `
+
+    <option value="">
+      Selecione seu time
+    </option>
+
+  `;
+
+
+  teams.forEach(
+    team => {
+
+      const option =
+        document.createElement(
+          "option"
+        );
+
+
+      option.value =
+        team;
+
+
+      option.textContent =
+        team;
+
+
+      if(
+        sameTeam(
+          team,
+          heartTeam
+        )
+      ){
+
+        option.selected =
+          true;
+
+      }
+
+
+      select.appendChild(
+        option
+      );
+
+    }
+  );
+
+
+  renderHeartSelected();
+
+}
+
+
+function saveHeartTeam(){
+
+  if(!premiumActive){
+
+    openView(
+      "Premium"
+    );
+
+    return;
+
+  }
+
+
+  const selected =
+    $("#heartTeamSelect")
+    .value;
+
+
+  if(!selected){
+    return;
+  }
+
+
+  heartTeam =
+    selected;
+
+
+  localStorage.setItem(
+    "stanleySportsHeartTeam",
+    heartTeam
+  );
+
+
+  historyLoaded =
+    false;
+
+
+  renderHeartSelected();
+
+  renderGames();
+
+  renderAgenda();
+
+  loadHistoryPremium();
+
+}
+
+
+function renderHeartSelected(){
+
+  const box =
+    $("#heartSelected");
+
+
+  if(heartTeam){
+
+    box.classList
+    .add(
+      "active"
+    );
+
+
+    $("#heartSelectedName")
+    .textContent =
+      `❤️ ${heartTeam}`;
+
+  }else{
+
+    box.classList
+    .remove(
+      "active"
+    );
+
+  }
+
+}
+
+
+/* =========================================
+   AGENDA
+========================================= */
 
 async function loadAgendaPremium(){
 
-  if(
-    !premiumActive
-  ){
+  if(!premiumActive){
 
     $("#agendaLoading")
     .textContent =
@@ -4453,9 +5584,7 @@ async function loadAgendaPremium(){
   }
 
 
-  if(
-    agendaLoaded
-  ){
+  if(agendaLoaded){
 
     renderAgenda();
 
@@ -4510,12 +5639,11 @@ async function loadAgendaPremium(){
 
 
   agendaGamesData =
-    [
-      ...unique.values()
-    ];
+    [...unique.values()];
 
 
-  agendaLoaded = true;
+  agendaLoaded =
+    true;
 
 
   $("#agendaLoading")
@@ -4567,19 +5695,13 @@ function renderAgendaDays(){
       );
 
 
-    if(
-      offset === 0
-    ){
-      title =
-        "Hoje";
+    if(offset === 0){
+      title = "Hoje";
     }
 
 
-    if(
-      offset === 1
-    ){
-      title =
-        "Amanhã";
+    if(offset === 1){
+      title = "Amanhã";
     }
 
 
@@ -4632,9 +5754,7 @@ function renderAgendaDays(){
 }
 
 
-function selectAgendaDay(
-  offset
-){
+function selectAgendaDay(offset){
 
   agendaSelectedOffset =
     offset;
@@ -4673,9 +5793,7 @@ function renderAgenda(){
     );
 
 
-  if(
-    !games.length
-  ){
+  if(!games.length){
 
     $("#agendaGames")
     .innerHTML = `
@@ -4747,6 +5865,31 @@ function renderAgenda(){
 
           </div>
 
+
+          <div
+            style="
+              grid-column:1/-1;
+              text-align:center;
+              margin-top:5px;
+            "
+          >
+
+            <button
+              class="action analysis"
+              onclick="
+                openPremiumAnalysis(
+                  '${game.id}'
+                )
+              "
+            >
+
+              👑 Análise Premium
+
+            </button>
+
+          </div>
+
+
         </div>
 
       `
@@ -4756,11 +5899,9 @@ function renderAgenda(){
 }
 
 
-/*
-===============================================
-HISTÓRICO PREMIUM
-===============================================
-*/
+/* =========================================
+   HISTORY
+========================================= */
 
 async function loadHistoryPremium(){
 
@@ -4773,9 +5914,7 @@ async function loadHistoryPremium(){
   }
 
 
-  if(
-    historyLoaded
-  ){
+  if(historyLoaded){
 
     renderAdvancedStats();
 
@@ -4788,7 +5927,7 @@ async function loadHistoryPremium(){
 
     <div class="loading-mini">
 
-      Analisando os resultados recentes de
+      Analisando resultados recentes de
       ${heartTeam}...
 
     </div>
@@ -4798,20 +5937,8 @@ async function loadHistoryPremium(){
 
   const offsets =
     [
-      -1,
-      -2,
-      -3,
-      -4,
-      -5,
-      -6,
-      -7,
-      -8,
-      -9,
-      -10,
-      -11,
-      -12,
-      -13,
-      -14
+      -1,-2,-3,-4,-5,-6,-7,
+      -8,-9,-10,-11,-12,-13,-14
     ];
 
 
@@ -4845,9 +5972,7 @@ async function loadHistoryPremium(){
 
 
   historyGamesData =
-    [
-      ...unique.values()
-    ];
+    [...unique.values()];
 
 
   historyLoaded =
@@ -4859,254 +5984,17 @@ async function loadHistoryPremium(){
 }
 
 
-/*
-===============================================
-TIME DO CORAÇÃO
-===============================================
-*/
-
-function getKnownTeams(){
-
-  const source =
-    [
-      ...allGames,
-      ...agendaGamesData,
-      ...historyGamesData
-    ];
-
-
-  const teams =
-    new Set();
-
-
-  source.forEach(
-    game => {
-
-      if(game.home){
-        teams.add(
-          game.home
-        );
-      }
-
-      if(game.away){
-        teams.add(
-          game.away
-        );
-      }
-
-    }
-  );
-
-
-  if(
-    heartTeam
-  ){
-
-    teams.add(
-      heartTeam
-    );
-
-  }
-
-
-  return(
-    [
-      ...teams
-    ]
-    .sort(
-      (
-        a,
-        b
-      ) =>
-        a.localeCompare(
-          b,
-          "pt-BR"
-        )
-    )
-  );
-
-}
-
-
-function populateHeartTeams(){
-
-  const select =
-    $("#heartTeamSelect");
-
-
-  if(
-    !select
-  ){
-    return;
-  }
-
-
-  const teams =
-    getKnownTeams();
-
-
-  select.innerHTML = `
-
-    <option value="">
-
-      Selecione seu time
-
-    </option>
-
-  `;
-
-
-  teams.forEach(
-    team => {
-
-      const option =
-        document.createElement(
-          "option"
-        );
-
-
-      option.value =
-        team;
-
-
-      option.textContent =
-        team;
-
-
-      if(
-        sameTeam(
-          team,
-          heartTeam
-        )
-      ){
-
-        option.selected =
-          true;
-
-      }
-
-
-      select.appendChild(
-        option
-      );
-
-    }
-  );
-
-
-  renderHeartSelected();
-
-}
-
-
-function saveHeartTeam(){
-
-  if(
-    !premiumActive
-  ){
-
-    openView(
-      "Premium"
-    );
-
-    return;
-
-  }
-
-
-  const selected =
-    $("#heartTeamSelect")
-    .value;
-
-
-  if(
-    !selected
-  ){
-    return;
-  }
-
-
-  heartTeam =
-    selected;
-
-
-  localStorage.setItem(
-    "stanleySportsHeartTeam",
-    heartTeam
-  );
-
-
-  historyLoaded =
-    false;
-
-
-  renderHeartSelected();
-
-  renderGames();
-
-  renderAgenda();
-
-  loadHistoryPremium();
-
-}
-
-
-function renderHeartSelected(){
-
-  const box =
-    $("#heartSelected");
-
-
-  if(
-    !box
-  ){
-    return;
-  }
-
-
-  if(
-    heartTeam
-  ){
-
-    box.classList.add(
-      "active"
-    );
-
-
-    $("#heartSelectedName")
-    .textContent =
-      `❤️ ${heartTeam}`;
-
-  }else{
-
-    box.classList.remove(
-      "active"
-    );
-
-  }
-
-}
-
-
-/*
-===============================================
-ESTATÍSTICAS PREMIUM
-===============================================
-*/
-
 function renderAdvancedStats(){
 
-  if(
-    !heartTeam
-  ){
+  if(!heartTeam){
 
     $("#statsPremiumContent")
     .innerHTML = `
 
       <div class="loading-mini">
 
-        Escolha seu time do coração para
-        visualizar as estatísticas.
+        Escolha seu time do coração para visualizar
+        as estatísticas.
 
       </div>
 
@@ -5138,17 +6026,10 @@ function renderAdvancedStats(){
 
 
   let wins = 0;
-
   let draws = 0;
-
   let losses = 0;
-
   let goalsFor = 0;
-
   let goalsAgainst = 0;
-
-  let points = 0;
-
 
   const forms = [];
 
@@ -5166,25 +6047,17 @@ function renderAdvancedStats(){
       const gf =
         home
         ?
-        Number(
-          game.homeScore
-        )
+        Number(game.homeScore)
         :
-        Number(
-          game.awayScore
-        );
+        Number(game.awayScore);
 
 
       const ga =
         home
         ?
-        Number(
-          game.awayScore
-        )
+        Number(game.awayScore)
         :
-        Number(
-          game.homeScore
-        );
+        Number(game.homeScore);
 
 
       goalsFor +=
@@ -5195,34 +6068,20 @@ function renderAdvancedStats(){
         ga;
 
 
-      if(
-        gf > ga
-      ){
+      if(gf > ga){
 
         wins++;
 
-        points +=
-          3;
-
-        forms.push(
-          "W"
-        );
+        forms.push("W");
 
       }
 
 
-      else if(
-        gf === ga
-      ){
+      else if(gf === ga){
 
         draws++;
 
-        points +=
-          1;
-
-        forms.push(
-          "D"
-        );
+        forms.push("D");
 
       }
 
@@ -5231,9 +6090,7 @@ function renderAdvancedStats(){
 
         losses++;
 
-        forms.push(
-          "L"
-        );
+        forms.push("L");
 
       }
 
@@ -5349,9 +6206,7 @@ function renderAdvancedStats(){
   `;
 
 
-  if(
-    forms.length
-  ){
+  if(forms.length){
 
     html += `
 
@@ -5366,8 +6221,7 @@ function renderAdvancedStats(){
                 class="
                   form-ball
                   ${
-                    form
-                    .toLowerCase()
+                    form.toLowerCase()
                   }
                 "
               >
@@ -5398,9 +6252,7 @@ function renderAdvancedStats(){
   }
 
 
-  if(
-    recent.length
-  ){
+  if(recent.length){
 
     html += `
 
@@ -5444,9 +6296,7 @@ function renderAdvancedStats(){
   }
 
 
-  if(
-    next
-  ){
+  if(next){
 
     const opponent =
       sameTeam(
@@ -5504,24 +6354,6 @@ function renderAdvancedStats(){
   }
 
 
-  if(
-    !recent.length
-  ){
-
-    html += `
-
-      <div class="loading-mini">
-
-        Ainda não encontramos resultados recentes
-        desse time nas competições monitoradas.
-
-      </div>
-
-    `;
-
-  }
-
-
   $("#statsPremiumContent")
   .innerHTML =
     html;
@@ -5529,1113 +6361,9 @@ function renderAdvancedStats(){
 }
 
 
-/*
-===============================================
-PREMIUM STATUS
-===============================================
-*/
-
-function activatePremium(){
-
-  if(
-    !PREMIUM_LAUNCH_FREE
-  ){
-    return;
-  }
-
-
-  premiumActive =
-    true;
-
-
-  localStorage.setItem(
-    "stanleySportsPremium",
-    "active"
-  );
-
-
-  renderPremiumStatus();
-
-  loadAgendaPremium();
-
-
-  if(
-    heartTeam
-  ){
-
-    loadHistoryPremium();
-
-  }
-
-}
-
-
-function renderPremiumStatus(){
-
-  const status =
-    $("#premiumPlanStatus");
-
-
-  const button =
-    $("#activatePremiumBtn");
-
-
-  const home =
-    $("#premiumHomeStatus");
-
-
-  if(
-    premiumActive
-  ){
-
-    status.textContent =
-      "Premium ativo";
-
-
-    button.textContent =
-      "✓ Premium ativado";
-
-
-    button.classList.add(
-      "active"
-    );
-
-
-    home.textContent =
-      "Seu Premium está ativo.";
-
-
-    $("#agendaLoading")
-    .textContent =
-      agendaLoaded
-      ?
-      ""
-      :
-      "Abra a aba Premium para carregar sua agenda.";
-
-  }
-
-
-  else{
-
-    status.textContent =
-      "Premium não ativado";
-
-
-    button.textContent =
-      "👑 Ativar Premium grátis";
-
-
-    button.classList.remove(
-      "active"
-    );
-
-
-    home.textContent =
-      "Ative seu acesso Premium.";
-
-  }
-
-}
-
-
-/*
-===============================================
-LINKS
-===============================================
-*/
-
-function youtubeSearch(
-  query
-){
-
-  return(
-    "https://www.youtube.com/results?search_query="
-    +
-    encodeURIComponent(
-      query
-    )
-  );
-
-}
-
-
-function googleSearch(
-  query
-){
-
-  return(
-    "https://www.google.com/search?q="
-    +
-    encodeURIComponent(
-      query
-    )
-  );
-
-}
-
-
-/*
-===============================================
-FAVORITOS
-===============================================
-*/
-
-function toggleFavorite(
-  id
-){
-
-  id =
-    String(id);
-
-
-  if(
-    favorites.includes(
-      id
-    )
-  ){
-
-    favorites =
-      favorites.filter(
-        item =>
-          item !== id
-      );
-
-  }
-
-
-  else{
-
-    favorites.push(
-      id
-    );
-
-  }
-
-
-  localStorage.setItem(
-    "stanleySportsFavorites",
-    JSON.stringify(
-      favorites
-    )
-  );
-
-
-  renderGames();
-
-}
-
-
-/*
-===============================================
-GAME CARD
-===============================================
-*/
-
-function teamLogo(
-  logo,
-  abbr
-){
-
-  if(
-    !logo
-  ){
-
-    return`
-
-      <div class="logo-fallback">
-
-        ${abbr || "FC"}
-
-      </div>
-
-    `;
-
-  }
-
-
-  return`
-
-    <img
-      src="${logo}"
-      alt=""
-      loading="lazy"
-    >
-
-  `;
-
-}
-
-
-function gameCard(
-  game
-){
-
-  const live =
-    isLive(game);
-
-
-  const ended =
-    isFinished(game);
-
-
-  const showBroadcasters =
-    shouldShowBroadcasters(
-      game
-    );
-
-
-  const fav =
-    isFavorite(
-      game
-    );
-
-
-  const heart =
-    isHeartGame(
-      game
-    );
-
-
-  let statusText =
-    "AGENDADO";
-
-
-  let statusClass =
-    "scheduled";
-
-
-  if(
-    ended
-  ){
-
-    statusText =
-      "ENCERRADO";
-
-
-    statusClass =
-      "";
-
-  }
-
-
-  if(
-    live
-  ){
-
-    statusText =
-      game.detail
-      ||
-      "AO VIVO";
-
-
-    statusClass =
-      "live";
-
-  }
-
-
-  let scoreHTML =
-    "";
-
-
-  if(
-    ended
-    ||
-    live
-  ){
-
-    scoreHTML = `
-
-      <div class="score">
-
-        ${game.homeScore}
-        ×
-        ${game.awayScore}
-
-      </div>
-
-    `;
-
-  }
-
-
-  else{
-
-    scoreHTML = `
-
-      <div class="kickoff-label">
-
-        ${
-          formatDayLabel(
-            game.date
-          )
-        }
-
-      </div>
-
-    `;
-
-  }
-
-
-  let notice =
-    "";
-
-
-  let buttons =
-    "";
-
-
-  if(
-    ended
-  ){
-
-    notice = `
-
-      <div class="notice finished">
-
-        🎬 Partida encerrada — veja os melhores momentos
-
-      </div>
-
-    `;
-
-
-    buttons = `
-
-      <a
-        class="action highlight"
-        href="${
-          youtubeSearch(
-            `${game.home} ${game.away} melhores momentos oficial`
-          )
-        }"
-        target="_blank"
-        rel="noopener"
-      >
-
-        🎬 Melhores momentos
-
-      </a>
-
-
-      <a
-        class="action details"
-        href="${
-          googleSearch(
-            `${game.home} ${game.away} resultado estatísticas`
-          )
-        }"
-        target="_blank"
-        rel="noopener"
-      >
-
-        📊 Detalhes
-
-      </a>
-
-    `;
-
-  }
-
-
-  else if(
-    !showBroadcasters
-  ){
-
-    notice = `
-
-      <div class="notice waiting">
-
-        ⏳ ${
-          formatDayLabel(
-            game.date
-          )
-        }
-
-        às
-
-        ${
-          formatTime(
-            game.date
-          )
-        }
-
-        • emissoras liberadas 15 minutos antes
-
-      </div>
-
-    `;
-
-
-    buttons = `
-
-      <a
-        class="action primary"
-        href="${
-          googleSearch(
-            `${game.home} ${game.away} onde assistir hoje`
-          )
-        }"
-        target="_blank"
-        rel="noopener"
-      >
-
-        🔎 Onde assistir
-
-      </a>
-
-    `;
-
-  }
-
-
-  else{
-
-    notice = `
-
-      <div class="notice ready">
-
-        ${
-          live
-          ?
-          "🔴 Partida em andamento"
-          :
-          "📺 Opções de transmissão liberadas"
-        }
-
-      </div>
-
-    `;
-
-
-    buttons = `
-
-      <a
-        class="action"
-        href="${
-          youtubeSearch(
-            `${game.home} ${game.away} ge TV ao vivo`
-          )
-        }"
-        target="_blank"
-        rel="noopener"
-      >
-
-        📺 ge TV
-
-      </a>
-
-
-      <a
-        class="action"
-        href="${
-          youtubeSearch(
-            `${game.home} ${game.away} CazéTV ao vivo`
-          )
-        }"
-        target="_blank"
-        rel="noopener"
-      >
-
-        📺 CazéTV
-
-      </a>
-
-
-      ${
-        game.group
-        ===
-        "brazil"
-        ?
-        `
-
-          <a
-            class="action premiere"
-            href="https://globoplay.globo.com/canais/premiere/"
-            target="_blank"
-            rel="noopener"
-          >
-
-            🔒 Premiere
-
-          </a>
-
-        `
-        :
-        ""
-      }
-
-
-      <a
-        class="action primary"
-        href="${
-          googleSearch(
-            `${game.home} ${game.away} onde assistir hoje`
-          )
-        }"
-        target="_blank"
-        rel="noopener"
-      >
-
-        🔎 Onde assistir
-
-      </a>
-
-    `;
-
-  }
-
-
-  return`
-
-    <article
-      class="
-        game
-        ${
-          isPriority(game)
-          ?
-          "priority"
-          :
-          ""
-        }
-        ${
-          heart
-          ?
-          "heart-team"
-          :
-          ""
-        }
-      "
-    >
-
-
-      ${
-        heart
-        ?
-        `
-
-          <div class="heart-label">
-
-            ❤️ SEU TIME DO CORAÇÃO
-
-          </div>
-
-        `
-        :
-        ""
-      }
-
-
-      <div class="game-head">
-
-        <span class="competition">
-
-          ${game.league}
-
-        </span>
-
-
-        <div class="game-right">
-
-
-          <span
-            class="
-              status
-              ${statusClass}
-            "
-          >
-
-            ${statusText}
-
-          </span>
-
-
-          <button
-            class="
-              star
-              ${
-                fav
-                ?
-                "active"
-                :
-                ""
-              }
-            "
-            onclick="
-              toggleFavorite(
-                '${game.id}'
-              )
-            "
-          >
-
-            ${
-              fav
-              ?
-              "★"
-              :
-              "☆"
-            }
-
-          </button>
-
-        </div>
-
-      </div>
-
-
-      <div class="match">
-
-
-        <div class="team">
-
-          ${
-            teamLogo(
-              game.homeLogo,
-              game.homeAbbr
-            )
-          }
-
-          <div class="team-name">
-
-            ${game.home}
-
-          </div>
-
-        </div>
-
-
-        <div class="score-box">
-
-          ${scoreHTML}
-
-          <div class="time">
-
-            ${
-              formatTime(
-                game.date
-              )
-            }
-
-          </div>
-
-        </div>
-
-
-        <div class="team">
-
-          ${
-            teamLogo(
-              game.awayLogo,
-              game.awayAbbr
-            )
-          }
-
-          <div class="team-name">
-
-            ${game.away}
-
-          </div>
-
-        </div>
-
-
-      </div>
-
-
-      ${notice}
-
-
-      <div class="game-buttons">
-
-        ${buttons}
-
-      </div>
-
-
-    </article>
-
-  `;
-
-}
-
-
-/*
-===============================================
-FILTER
-===============================================
-*/
-
-function filteredGames(){
-
-  let list =
-    [
-      ...allGames
-    ];
-
-
-  if(
-    gameFilter
-    ===
-    "live"
-  ){
-
-    list =
-      list.filter(
-        isLive
-      );
-
-  }
-
-
-  if(
-    gameFilter
-    ===
-    "brazil"
-  ){
-
-    list =
-      list.filter(
-        game =>
-          game.group
-          ===
-          "brazil"
-      );
-
-  }
-
-
-  if(
-    gameFilter
-    ===
-    "favorites"
-  ){
-
-    list =
-      list.filter(
-        isFavorite
-      );
-
-  }
-
-
-  if(
-    gameFilter
-    ===
-    "europe"
-  ){
-
-    list =
-      list.filter(
-        game =>
-          game.group
-          ===
-          "europe"
-      );
-
-  }
-
-
-  if(
-    searchText
-  ){
-
-    const query =
-      normalize(
-        searchText
-      );
-
-
-    list =
-      list.filter(
-        game =>
-
-          normalize(
-            game.home
-          )
-          .includes(
-            query
-          )
-
-          ||
-
-          normalize(
-            game.away
-          )
-          .includes(
-            query
-          )
-
-          ||
-
-          normalize(
-            game.league
-          )
-          .includes(
-            query
-          )
-
-      );
-
-  }
-
-
-  list.sort(
-    (a,b) => {
-
-
-      if(
-        isLive(a)
-        !==
-        isLive(b)
-      ){
-
-        return(
-          isLive(b)
-          -
-          isLive(a)
-        );
-
-      }
-
-
-      if(
-        isHeartGame(a)
-        !==
-        isHeartGame(b)
-      ){
-
-        return(
-          isHeartGame(b)
-          -
-          isHeartGame(a)
-        );
-
-      }
-
-
-      if(
-        isPriority(a)
-        !==
-        isPriority(b)
-      ){
-
-        return(
-          isPriority(b)
-          -
-          isPriority(a)
-        );
-
-      }
-
-
-      if(
-        isFinished(a)
-        &&
-        isFinished(b)
-      ){
-
-        return(
-          new Date(b.date)
-          -
-          new Date(a.date)
-        );
-
-      }
-
-
-      if(
-        isFinished(a)
-        !==
-        isFinished(b)
-      ){
-
-        return(
-          isFinished(a)
-          ?
-          1
-          :
-          -1
-        );
-
-      }
-
-
-      return(
-        new Date(a.date)
-        -
-        new Date(b.date)
-      );
-
-    }
-  );
-
-
-  return list;
-
-}
-
-
-function renderGames(){
-
-  const list =
-    filteredGames();
-
-
-  $("#totalGames")
-  .textContent =
-    allGames.length;
-
-
-  $("#liveGames")
-  .textContent =
-    allGames
-    .filter(
-      isLive
-    )
-    .length;
-
-
-  $("#brazilGames")
-  .textContent =
-    allGames
-    .filter(
-      game =>
-        game.group
-        ===
-        "brazil"
-    )
-    .length;
-
-
-  $("#favoriteCount")
-  .textContent =
-    favorites.length;
-
-
-  $("#visibleGames")
-  .textContent =
-    list.length;
-
-
-  $("#games")
-  .innerHTML =
-    list
-    .map(
-      gameCard
-    )
-    .join(
-      ""
-    );
-
-
-  $("#gamesEmpty")
-  .style.display =
-    list.length
-    ?
-    "none"
-    :
-    "block";
-
-
-  const favoriteGames =
-    allGames
-    .filter(
-      isFavorite
-    );
-
-
-  $("#favoriteGames")
-  .innerHTML =
-    favoriteGames
-    .map(
-      gameCard
-    )
-    .join(
-      ""
-    );
-
-
-  $("#favoritesEmpty")
-  .style.display =
-    favoriteGames.length
-    ?
-    "none"
-    :
-    "block";
-
-}
-
-
-/*
-===============================================
-ATALHOS
-===============================================
-*/
-
-function renderSportsShortcuts(){
-
-  $("#sportsShortcuts")
-  .innerHTML =
-    sportsShortcuts
-    .map(
-      item => `
-
-        <a
-          class="sport-shortcut"
-          href="${item.url}"
-          target="_blank"
-          rel="noopener"
-        >
-
-          <div>
-
-            <div class="sport-shortcut-icon">
-
-              ${item.icon}
-
-            </div>
-
-
-            <h4>
-
-              ${item.name}
-
-            </h4>
-
-
-            <p>
-
-              ${item.description}
-
-            </p>
-
-          </div>
-
-
-          <div class="sport-shortcut-open">
-
-            Abrir →
-
-          </div>
-
-        </a>
-
-      `
-    )
-    .join(
-      ""
-    );
-
-}
-
-
-/*
-===============================================
-TABLE
-===============================================
-*/
+/* =========================================
+   TABLE
+========================================= */
 
 function statValue(
   stats,
@@ -6645,9 +6373,7 @@ function statValue(
   const item =
     stats.find(
       stat =>
-        keys.includes(
-          stat.name
-        )
+        keys.includes(stat.name)
         ||
         keys.includes(
           stat.abbreviation
@@ -6700,9 +6426,7 @@ async function loadStandings(){
       );
 
 
-    if(
-      !response.ok
-    ){
+    if(!response.ok){
       throw new Error();
     }
 
@@ -6711,7 +6435,8 @@ async function loadStandings(){
       await response.json();
 
 
-    let entries = [];
+    let entries =
+      [];
 
 
     if(
@@ -6777,7 +6502,6 @@ async function loadStandings(){
             <tr>
 
               <td>
-
                 ${
                   statValue(
                     stats,
@@ -6786,7 +6510,6 @@ async function loadStandings(){
                   ||
                   index+1
                 }
-
               </td>
 
 
@@ -6821,68 +6544,23 @@ async function loadStandings(){
 
 
               <td>
-                ${
-                  statValue(
-                    stats,
-                    [
-                      "points",
-                      "PTS"
-                    ]
-                  )
-                }
+                ${statValue(stats,["points","PTS"])}
               </td>
 
-
               <td>
-                ${
-                  statValue(
-                    stats,
-                    [
-                      "gamesPlayed",
-                      "GP"
-                    ]
-                  )
-                }
+                ${statValue(stats,["gamesPlayed","GP"])}
               </td>
 
-
               <td>
-                ${
-                  statValue(
-                    stats,
-                    [
-                      "wins",
-                      "W"
-                    ]
-                  )
-                }
+                ${statValue(stats,["wins","W"])}
               </td>
 
-
               <td>
-                ${
-                  statValue(
-                    stats,
-                    [
-                      "ties",
-                      "draws",
-                      "D"
-                    ]
-                  )
-                }
+                ${statValue(stats,["ties","draws","D"])}
               </td>
 
-
               <td>
-                ${
-                  statValue(
-                    stats,
-                    [
-                      "losses",
-                      "L"
-                    ]
-                  )
-                }
+                ${statValue(stats,["losses","L"])}
               </td>
 
             </tr>
@@ -6891,9 +6569,7 @@ async function loadStandings(){
 
         }
       )
-      .join(
-        ""
-      );
+      .join("");
 
 
     $("#standingsWrap")
@@ -6922,15 +6598,11 @@ async function loadStandings(){
 }
 
 
-/*
-===============================================
-TV
-===============================================
-*/
+/* =========================================
+   TV
+========================================= */
 
-function networkLogo(
-  domain
-){
+function networkLogo(domain){
 
   return(
     `https://www.google.com/s2/favicons?domain_url=https://${domain}&sz=128`
@@ -6958,11 +6630,7 @@ function renderTv(){
 
             <img
               class="network-logo"
-              src="${
-                networkLogo(
-                  item.domain
-                )
-              }"
+              src="${networkLogo(item.domain)}"
               alt="${item.name}"
             >
 
@@ -7006,18 +6674,14 @@ function renderTv(){
 
       `
     )
-    .join(
-      ""
-    );
+    .join("");
 
 }
 
 
-/*
-===============================================
-MOVIES
-===============================================
-*/
+/* =========================================
+   MOVIES
+========================================= */
 
 function renderMovies(){
 
@@ -7078,28 +6742,21 @@ function renderMovies(){
 
       `
     )
-    .join(
-      ""
-    );
+    .join("");
 
 }
 
 
-/*
-===============================================
-NAV
-===============================================
-*/
+/* =========================================
+   NAV
+========================================= */
 
-function openView(
-  name
-){
+function openView(name){
 
   $$(".view")
   .forEach(
     view =>
-      view
-      .classList
+      view.classList
       .remove(
         "active"
       )
@@ -7109,8 +6766,7 @@ function openView(
   $$(".nav-btn")
   .forEach(
     button =>
-      button
-      .classList
+      button.classList
       .remove(
         "active"
       )
@@ -7134,22 +6790,14 @@ function openView(
   );
 
 
-  if(
-    name
-    ===
-    "Table"
-  ){
+  if(name === "Table"){
 
     loadStandings();
 
   }
 
 
-  if(
-    name
-    ===
-    "Premium"
-  ){
+  if(name === "Premium"){
 
     populateHeartTeams();
 
@@ -7158,16 +6806,12 @@ function openView(
     renderPremiumStatus();
 
 
-    if(
-      premiumActive
-    ){
+    if(premiumActive){
 
       loadAgendaPremium();
 
 
-      if(
-        heartTeam
-      ){
+      if(heartTeam){
 
         loadHistoryPremium();
 
@@ -7186,11 +6830,9 @@ function openView(
 }
 
 
-/*
-===============================================
-EVENTS
-===============================================
-*/
+/* =========================================
+   EVENTS
+========================================= */
 
 $$(".nav-btn")
 .forEach(
@@ -7219,20 +6861,17 @@ $$(".game-chip")
       "click",
       () => {
 
-
         $$(".game-chip")
         .forEach(
           item =>
-            item
-            .classList
+            item.classList
             .remove(
               "active"
             )
         );
 
 
-        button
-        .classList
+        button.classList
         .add(
           "active"
         );
@@ -7279,42 +6918,28 @@ $("#refreshBtn")
 
     await refreshGames();
 
+    agendaLoaded =
+      false;
+
+    historyLoaded =
+      false;
+
+  }
+);
+
+
+$("#analysisModal")
+.addEventListener(
+  "click",
+  event => {
 
     if(
-      premiumActive
+      event.target.id
+      ===
+      "analysisModal"
     ){
 
-      agendaLoaded =
-        false;
-
-
-      historyLoaded =
-        false;
-
-
-      if(
-        document
-        .querySelector(
-          "#viewPremium"
-        )
-        .classList
-        .contains(
-          "active"
-        )
-      ){
-
-        await loadAgendaPremium();
-
-
-        if(
-          heartTeam
-        ){
-
-          await loadHistoryPremium();
-
-        }
-
-      }
+      closeAnalysis();
 
     }
 
@@ -7322,9 +6947,9 @@ $("#refreshBtn")
 );
 
 
-/*
-Atualiza relógio dos 15 minutos
-*/
+/* =========================================
+   AUTO UPDATE
+========================================= */
 
 setInterval(
   renderGames,
@@ -7332,21 +6957,15 @@ setInterval(
 );
 
 
-/*
-Atualiza placar
-*/
-
 setInterval(
   refreshGames,
   60000
 );
 
 
-/*
-===============================================
-START
-===============================================
-*/
+/* =========================================
+   START
+========================================= */
 
 renderPremiumStatus();
 
@@ -7361,11 +6980,7 @@ renderHeartSelected();
 refreshGames();
 
 
-/*
-===============================================
-PWA
-===============================================
-*/
+/* PWA */
 
 if(
   "serviceWorker"
@@ -7397,5 +7012,4 @@ if(
 </script>
 
 </body>
-
 </html>
