@@ -1,0 +1,30 @@
+{
+  "name": "Futebol Livre",
+  "short_name": "Futebol Livre",
+  "description": "Futebol, placares, tabelas, TV, filmes, desenhos e entretenimento.",
+  "start_url": "/-futebol-livre/",
+  "scope": "/-futebol-livre/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#041109",
+  "theme_color": "#041109",
+  "lang": "pt-BR",
+  "categories": [
+    "sports",
+    "entertainment"
+  ],
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ]
+}
