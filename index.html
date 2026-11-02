@@ -2,6 +2,7 @@
 <html lang="pt-BR">
 
 <head>
+
 <meta charset="utf-8">
 
 <meta
@@ -26,7 +27,10 @@
   content="Stanley Sports"
 >
 
-<link rel="manifest" href="manifest.json">
+<link
+  rel="manifest"
+  href="manifest.json"
+>
 
 <link
   rel="icon"
@@ -42,12 +46,14 @@
 
 <title>Stanley Sports</title>
 
+
 <style>
 
 :root{
   --bg:#041109;
   --surface:#0b1c12;
   --surface2:#10291a;
+  --surface3:#142f1f;
   --line:#1d472d;
   --green:#39e27d;
   --green2:#20c765;
@@ -91,7 +97,10 @@ body{
     sans-serif;
 
   padding-bottom:
-    calc(100px + env(safe-area-inset-bottom));
+    calc(
+      100px +
+      env(safe-area-inset-bottom)
+    );
 }
 
 button,
@@ -110,7 +119,9 @@ a{
 }
 
 
-/* HEADER */
+/* =========================
+   HEADER
+========================= */
 
 .app-header{
   position:sticky;
@@ -122,15 +133,22 @@ a{
   justify-content:space-between;
 
   padding:
-    calc(10px + env(safe-area-inset-top))
+    calc(
+      10px +
+      env(safe-area-inset-top)
+    )
     16px
     10px;
 
-  background:rgba(4,17,9,.95);
-  backdrop-filter:blur(22px);
+  background:
+    rgba(4,17,9,.96);
+
+  backdrop-filter:
+    blur(22px);
 
   border-bottom:
-    1px solid rgba(255,255,255,.05);
+    1px solid
+    rgba(255,255,255,.05);
 }
 
 .header-brand{
@@ -147,10 +165,8 @@ a{
   object-fit:cover;
 
   border:
-    1px solid rgba(57,226,125,.3);
-
-  box-shadow:
-    0 0 18px rgba(57,226,125,.12);
+    1px solid
+    rgba(57,226,125,.3);
 }
 
 .brand-small{
@@ -171,25 +187,46 @@ a{
   height:44px;
 
   border-radius:50%;
-  border:1px solid var(--line);
 
-  background:var(--surface);
+  border:
+    1px solid
+    var(--line);
+
+  background:
+    var(--surface);
+
   color:white;
 
   font-size:21px;
 }
 
 
-/* MAIN */
+/* =========================
+   MAIN
+========================= */
 
 main{
-  width:min(860px,100%);
+  width:min(
+    860px,
+    100%
+  );
+
   margin:auto;
   padding:16px;
 }
 
+.view{
+  display:none;
+}
 
-/* HERO */
+.view.active{
+  display:block;
+}
+
+
+/* =========================
+   HERO
+========================= */
 
 .hero{
   position:relative;
@@ -203,7 +240,8 @@ main{
   border-radius:30px;
 
   border:
-    1px solid rgba(57,226,125,.26);
+    1px solid
+    rgba(57,226,125,.26);
 
   background:#07170e;
 }
@@ -218,7 +256,8 @@ main{
   background-size:cover;
   background-position:center 37%;
 
-  transform:scale(1.03);
+  transform:
+    scale(1.03);
 }
 
 .hero-shade{
@@ -234,7 +273,7 @@ main{
     ),
     linear-gradient(
       0deg,
-      rgba(2,11,6,.92),
+      rgba(2,11,6,.94),
       transparent 55%
     );
 }
@@ -245,7 +284,9 @@ main{
 
   max-width:520px;
 
-  padding:27px 23px;
+  padding:
+    27px
+    23px;
 }
 
 .hero-mini-logo{
@@ -259,7 +300,8 @@ main{
   margin-bottom:15px;
 
   border:
-    1px solid rgba(255,255,255,.15);
+    1px solid
+    rgba(255,255,255,.15);
 }
 
 .hero-label{
@@ -267,14 +309,18 @@ main{
   align-items:center;
   gap:8px;
 
-  padding:8px 11px;
+  padding:
+    8px
+    11px;
 
   border-radius:999px;
 
-  background:rgba(0,0,0,.45);
+  background:
+    rgba(0,0,0,.45);
 
   border:
-    1px solid rgba(57,226,125,.25);
+    1px solid
+    rgba(57,226,125,.25);
 
   color:#dffff0;
 
@@ -288,17 +334,27 @@ main{
 
   border-radius:50%;
 
-  background:var(--green);
+  background:
+    var(--green);
 }
 
 .hero h2{
-  margin:18px 0 12px;
+  margin:
+    18px
+    0
+    12px;
 
   max-width:470px;
 
-  font-size:clamp(36px,10vw,55px);
+  font-size:
+    clamp(
+      36px,
+      10vw,
+      55px
+    );
 
   line-height:.96;
+
   letter-spacing:-2px;
 }
 
@@ -310,11 +366,13 @@ main{
   color:#d2e7d9;
 
   font-size:13px;
+
   line-height:1.55;
 }
 
 .hero-actions{
   display:flex;
+
   gap:9px;
 
   margin-top:21px;
@@ -327,14 +385,18 @@ main{
   align-items:center;
   justify-content:center;
 
-  padding:0 15px;
+  padding:
+    0
+    15px;
 
   border-radius:14px;
 
   border:
-    1px solid rgba(255,255,255,.13);
+    1px solid
+    rgba(255,255,255,.13);
 
-  background:rgba(0,0,0,.45);
+  background:
+    rgba(0,0,0,.45);
 
   color:white;
 
@@ -343,19 +405,23 @@ main{
 }
 
 .hero-btn.primary{
-  background:var(--green);
-  border-color:var(--green);
+  background:
+    var(--green);
+
+  border-color:
+    var(--green);
 
   color:#04200d;
 }
 
 
-/* PREMIUM BANNER HOME */
+/* =========================
+   PREMIUM HOME
+========================= */
 
 .premium-home{
   display:flex;
   align-items:center;
-  justify-content:space-between;
 
   gap:12px;
 
@@ -366,7 +432,8 @@ main{
   border-radius:20px;
 
   border:
-    1px solid rgba(255,215,94,.3);
+    1px solid
+    rgba(255,215,94,.3);
 
   background:
     linear-gradient(
@@ -377,7 +444,7 @@ main{
 }
 
 .premium-home-icon{
-  font-size:32px;
+  font-size:31px;
 }
 
 .premium-home-text{
@@ -405,9 +472,9 @@ main{
 .premium-home-text span{
   display:block;
 
-  color:var(--muted);
-
   margin-top:3px;
+
+  color:var(--muted);
 
   font-size:9px;
 }
@@ -415,13 +482,16 @@ main{
 .premium-home-btn{
   flex:0 0 auto;
 
-  padding:10px 11px;
+  padding:
+    10px
+    11px;
 
   border:0;
 
   border-radius:12px;
 
-  background:var(--gold);
+  background:
+    var(--gold);
 
   color:#291f00;
 
@@ -430,15 +500,22 @@ main{
 }
 
 
-/* SHORTCUTS */
+/* =========================
+   SHORTCUTS
+========================= */
 
 .sports-shortcuts-section{
-  margin:18px 0 22px;
+  margin:
+    18px
+    0
+    22px;
 }
 
 .shortcut-title-row{
   display:flex;
+
   justify-content:space-between;
+
   align-items:flex-end;
 
   margin-bottom:12px;
@@ -485,19 +562,24 @@ main{
 }
 
 .sport-shortcut{
-  flex:0 0 145px;
+  flex:
+    0 0 145px;
 
   min-height:137px;
 
   display:flex;
+
   flex-direction:column;
+
   justify-content:space-between;
 
   padding:14px;
 
   border-radius:20px;
 
-  border:1px solid var(--line);
+  border:
+    1px solid
+    var(--line);
 
   background:
     linear-gradient(
@@ -514,6 +596,7 @@ main{
   height:44px;
 
   display:grid;
+
   place-items:center;
 
   border-radius:14px;
@@ -525,7 +608,10 @@ main{
 }
 
 .sport-shortcut h4{
-  margin:12px 0 5px;
+  margin:
+    12px
+    0
+    5px;
 
   font-size:13px;
 }
@@ -550,22 +636,18 @@ main{
 }
 
 
-/* VIEWS */
-
-.view{
-  display:none;
-}
-
-.view.active{
-  display:block;
-}
-
-
-/* STATS */
+/* =========================
+   STATS
+========================= */
 
 .stats{
   display:grid;
-  grid-template-columns:repeat(2,1fr);
+
+  grid-template-columns:
+    repeat(
+      2,
+      1fr
+    );
 
   gap:9px;
 
@@ -577,9 +659,12 @@ main{
 
   border-radius:19px;
 
-  border:1px solid var(--line);
+  border:
+    1px solid
+    var(--line);
 
-  background:var(--surface);
+  background:
+    var(--surface);
 }
 
 .stat small{
@@ -610,7 +695,9 @@ main{
 }
 
 
-/* SEARCH */
+/* =========================
+   SEARCH
+========================= */
 
 .search{
   position:relative;
@@ -624,7 +711,8 @@ main{
   left:14px;
   top:50%;
 
-  transform:translateY(-50%);
+  transform:
+    translateY(-50%);
 }
 
 .search input{
@@ -638,17 +726,22 @@ main{
 
   border-radius:17px;
 
-  border:1px solid var(--line);
+  border:
+    1px solid
+    var(--line);
 
   outline:none;
 
-  background:var(--surface);
+  background:
+    var(--surface);
 
   color:white;
 }
 
 
-/* CHIPS */
+/* =========================
+   CHIPS
+========================= */
 
 .chips{
   display:flex;
@@ -669,41 +762,61 @@ main{
 .chip{
   flex:0 0 auto;
 
-  padding:10px 14px;
+  padding:
+    10px
+    14px;
 
   border-radius:999px;
 
-  border:1px solid var(--line);
+  border:
+    1px solid
+    var(--line);
 
-  background:var(--surface);
+  background:
+    var(--surface);
 
-  color:var(--muted);
+  color:
+    var(--muted);
 
   font-size:11px;
   font-weight:900;
 }
 
 .chip.active{
-  background:var(--green);
+  background:
+    var(--green);
+
   color:#04200d;
-  border-color:var(--green);
+
+  border-color:
+    var(--green);
 }
 
 
-/* SECTION */
+/* =========================
+   SECTIONS
+========================= */
 
 .section-head{
   display:flex;
+
   align-items:flex-end;
+
   justify-content:space-between;
 
-  margin:18px 0 12px;
+  gap:10px;
+
+  margin:
+    18px
+    0
+    12px;
 }
 
 .eyebrow{
   display:block;
 
-  color:var(--green);
+  color:
+    var(--green);
 
   font-size:9px;
   font-weight:950;
@@ -724,24 +837,32 @@ main{
   height:38px;
 
   display:grid;
+
   place-items:center;
 
   border-radius:999px;
 
-  padding:0 11px;
+  padding:
+    0
+    11px;
 
-  background:var(--surface2);
+  background:
+    var(--surface2);
 
-  color:var(--green);
+  color:
+    var(--green);
 
   font-weight:950;
 }
 
 
-/* GAME */
+/* =========================
+   GAME CARD
+========================= */
 
 .games{
   display:grid;
+
   gap:12px;
 }
 
@@ -750,7 +871,9 @@ main{
 
   border-radius:23px;
 
-  border:1px solid var(--line);
+  border:
+    1px solid
+    var(--line);
 
   background:
     linear-gradient(
@@ -762,17 +885,53 @@ main{
 
 .game.priority{
   box-shadow:
-    inset 4px 0 var(--green);
+    inset
+    4px
+    0
+    var(--green);
+}
+
+.game.heart-team{
+  border-color:
+    rgba(255,215,94,.55);
+
+  box-shadow:
+    0 0 0 1px
+    rgba(255,215,94,.08);
+}
+
+.heart-label{
+  display:inline-block;
+
+  margin-bottom:10px;
+
+  padding:
+    5px
+    8px;
+
+  border-radius:999px;
+
+  background:
+    rgba(255,215,94,.1);
+
+  color:
+    var(--gold);
+
+  font-size:8px;
+  font-weight:950;
 }
 
 .game-head{
   display:flex;
+
   justify-content:space-between;
+
   align-items:center;
 }
 
 .competition{
-  color:var(--muted);
+  color:
+    var(--muted);
 
   font-size:10px;
   font-weight:950;
@@ -780,12 +939,16 @@ main{
 
 .game-right{
   display:flex;
+
   align-items:center;
+
   gap:6px;
 }
 
 .status{
-  padding:6px 9px;
+  padding:
+    6px
+    9px;
 
   border-radius:999px;
 
@@ -829,20 +992,25 @@ main{
 }
 
 .star.active{
-  color:var(--yellow);
+  color:
+    var(--yellow);
 }
 
 .match{
   display:grid;
 
   grid-template-columns:
-    1fr auto 1fr;
+    1fr
+    auto
+    1fr;
 
   gap:10px;
 
   align-items:center;
 
-  margin:19px 0;
+  margin:
+    19px
+    0;
 }
 
 .team{
@@ -864,39 +1032,53 @@ main{
   width:51px;
   height:51px;
 
-  margin:0 auto 8px;
+  margin:
+    0
+    auto
+    8px;
 
   display:grid;
+
   place-items:center;
 
   border-radius:50%;
 
-  border:1px solid var(--line);
+  border:
+    1px solid
+    var(--line);
 
-  background:var(--surface2);
+  background:
+    var(--surface2);
 
-  color:var(--green);
+  color:
+    var(--green);
 }
 
 .team-name{
   font-size:13px;
+
   font-weight:900;
+
+  line-height:1.25;
 }
 
 .score-box{
   min-width:76px;
+
   text-align:center;
 }
 
 .score{
-  color:var(--green);
+  color:
+    var(--green);
 
   font-size:28px;
   font-weight:950;
 }
 
 .kickoff-label{
-  color:var(--blue);
+  color:
+    var(--blue);
 
   font-size:11px;
   font-weight:900;
@@ -905,7 +1087,8 @@ main{
 .time{
   margin-top:4px;
 
-  color:var(--muted);
+  color:
+    var(--muted);
 
   font-size:10px;
 }
@@ -913,14 +1096,17 @@ main{
 .notice{
   margin-bottom:10px;
 
-  padding:10px 11px;
+  padding:
+    10px
+    11px;
 
   border-radius:13px;
 
   background:
     rgba(255,255,255,.045);
 
-  color:var(--muted);
+  color:
+    var(--muted);
 
   font-size:10px;
   font-weight:850;
@@ -951,24 +1137,33 @@ main{
   display:grid;
 
   grid-template-columns:
-    repeat(2,1fr);
+    repeat(
+      2,
+      1fr
+    );
 
   gap:7px;
 
   padding-top:11px;
 
   border-top:
-    1px solid rgba(255,255,255,.05);
+    1px solid
+    rgba(255,255,255,.05);
 }
 
 .action{
-  padding:11px 8px;
+  padding:
+    11px
+    8px;
 
   border-radius:13px;
 
-  border:1px solid var(--line);
+  border:
+    1px solid
+    var(--line);
 
-  background:var(--surface2);
+  background:
+    var(--surface2);
 
   text-align:center;
 
@@ -979,9 +1174,11 @@ main{
 }
 
 .action.primary{
-  background:var(--green);
+  background:
+    var(--green);
 
-  border-color:var(--green);
+  border-color:
+    var(--green);
 
   color:#04200d;
 }
@@ -1011,22 +1208,32 @@ main{
 }
 
 
-/* TABLE */
+/* =========================
+   TABLE
+========================= */
 
-.league-select{
+.league-select,
+.premium-select{
   width:100%;
 
   padding:13px;
 
-  margin-bottom:12px;
-
   border-radius:15px;
 
-  border:1px solid var(--line);
+  border:
+    1px solid
+    var(--line);
 
-  background:var(--surface);
+  outline:none;
+
+  background:
+    var(--surface);
 
   color:white;
+}
+
+.league-select{
+  margin-bottom:12px;
 }
 
 .table-wrap{
@@ -1034,7 +1241,9 @@ main{
 
   border-radius:20px;
 
-  border:1px solid var(--line);
+  border:
+    1px solid
+    var(--line);
 }
 
 table{
@@ -1042,25 +1251,31 @@ table{
 
   min-width:650px;
 
-  border-collapse:collapse;
+  border-collapse:
+    collapse;
 
-  background:var(--surface);
+  background:
+    var(--surface);
 }
 
 th,
 td{
-  padding:11px 9px;
+  padding:
+    11px
+    9px;
 
   text-align:center;
 
   font-size:10px;
 
   border-bottom:
-    1px solid rgba(255,255,255,.045);
+    1px solid
+    rgba(255,255,255,.045);
 }
 
 th{
-  color:var(--muted);
+  color:
+    var(--muted);
 }
 
 .team-cell{
@@ -1073,7 +1288,9 @@ th{
 
 .table-team{
   display:flex;
+
   align-items:center;
+
   gap:8px;
 }
 
@@ -1085,12 +1302,18 @@ th{
 }
 
 
-/* MEDIA */
+/* =========================
+   TV / MOVIES
+========================= */
 
 .media-grid{
   display:grid;
 
-  grid-template-columns:repeat(2,1fr);
+  grid-template-columns:
+    repeat(
+      2,
+      1fr
+    );
 
   gap:10px;
 }
@@ -1099,13 +1322,16 @@ th{
   min-height:190px;
 
   display:flex;
+
   flex-direction:column;
 
   padding:16px;
 
   border-radius:22px;
 
-  border:1px solid var(--line);
+  border:
+    1px solid
+    var(--line);
 
   background:
     linear-gradient(
@@ -1122,7 +1348,9 @@ th{
   height:64px;
 
   display:flex;
+
   justify-content:center;
+
   align-items:center;
 
   margin-bottom:11px;
@@ -1148,7 +1376,9 @@ th{
 .media-badge{
   align-self:flex-start;
 
-  padding:5px 8px;
+  padding:
+    5px
+    8px;
 
   margin-bottom:8px;
 
@@ -1157,14 +1387,19 @@ th{
   background:
     rgba(57,226,125,.1);
 
-  color:var(--green);
+  color:
+    var(--green);
 
   font-size:8px;
+
   font-weight:950;
 }
 
 .media-card h4{
-  margin:0 0 6px;
+  margin:
+    0
+    0
+    6px;
 
   font-size:15px;
 }
@@ -1174,14 +1409,17 @@ th{
 
   margin:0;
 
-  color:var(--muted);
+  color:
+    var(--muted);
 
   font-size:10px;
+
   line-height:1.45;
 }
 
 .media-open{
   display:flex;
+
   justify-content:space-between;
 
   margin-top:12px;
@@ -1189,20 +1427,25 @@ th{
   padding-top:10px;
 
   border-top:
-    1px solid rgba(255,255,255,.05);
+    1px solid
+    rgba(255,255,255,.05);
 
   font-size:9px;
+
   font-weight:900;
 }
 
 .media-open span:last-child{
-  color:var(--green);
+  color:
+    var(--green);
 
   font-size:17px;
 }
 
 
-/* PREMIUM */
+/* =========================
+   PREMIUM PAGE
+========================= */
 
 .premium-page{
   padding-bottom:20px;
@@ -1210,14 +1453,18 @@ th{
 
 .premium-hero{
   position:relative;
+
   overflow:hidden;
 
-  padding:24px 20px;
+  padding:
+    24px
+    20px;
 
   border-radius:27px;
 
   border:
-    1px solid rgba(255,215,94,.35);
+    1px solid
+    rgba(255,215,94,.35);
 
   background:
     radial-gradient(
@@ -1241,23 +1488,30 @@ th{
 .premium-tag{
   display:inline-block;
 
-  padding:7px 10px;
+  padding:
+    7px
+    10px;
 
   border-radius:999px;
 
   background:
     rgba(255,215,94,.12);
 
-  color:var(--gold);
+  color:
+    var(--gold);
 
   font-size:8px;
+
   font-weight:950;
 
   letter-spacing:1.2px;
 }
 
 .premium-hero h2{
-  margin:13px 0 8px;
+  margin:
+    13px
+    0
+    8px;
 
   font-size:31px;
 }
@@ -1283,22 +1537,27 @@ th{
     rgba(0,0,0,.25);
 
   border:
-    1px solid rgba(255,255,255,.08);
+    1px solid
+    rgba(255,255,255,.08);
 }
 
 .premium-status-row{
   display:flex;
 
   align-items:center;
-  justify-content:space-between;
+
+  justify-content:
+    space-between;
 
   gap:10px;
 }
 
 .premium-status-card small{
-  color:var(--muted);
+  color:
+    var(--muted);
 
   font-size:8px;
+
   font-weight:900;
 }
 
@@ -1307,7 +1566,8 @@ th{
 
   margin-top:3px;
 
-  color:var(--gold);
+  color:
+    var(--gold);
 
   font-size:15px;
 }
@@ -1323,7 +1583,8 @@ th{
 .premium-price span{
   display:block;
 
-  color:var(--muted);
+  color:
+    var(--muted);
 
   font-size:8px;
 }
@@ -1354,7 +1615,8 @@ th{
 }
 
 .activate-premium.active{
-  background:var(--green);
+  background:
+    var(--green);
 
   color:#03200c;
 }
@@ -1364,7 +1626,8 @@ th{
 
   text-align:center;
 
-  color:var(--muted);
+  color:
+    var(--muted);
 
   font-size:8px;
 }
@@ -1373,7 +1636,10 @@ th{
   display:grid;
 
   grid-template-columns:
-    repeat(2,1fr);
+    repeat(
+      2,
+      1fr
+    );
 
   gap:10px;
 
@@ -1387,9 +1653,12 @@ th{
 
   border-radius:20px;
 
-  border:1px solid var(--line);
+  border:
+    1px solid
+    var(--line);
 
-  background:var(--surface);
+  background:
+    var(--surface);
 }
 
 .premium-feature-icon{
@@ -1399,7 +1668,10 @@ th{
 }
 
 .premium-feature h4{
-  margin:0 0 5px;
+  margin:
+    0
+    0
+    5px;
 
   font-size:13px;
 }
@@ -1407,9 +1679,11 @@ th{
 .premium-feature p{
   margin:0;
 
-  color:var(--muted);
+  color:
+    var(--muted);
 
   font-size:9px;
+
   line-height:1.4;
 }
 
@@ -1418,14 +1692,17 @@ th{
 
   margin-top:10px;
 
-  padding:5px 7px;
+  padding:
+    5px
+    7px;
 
   border-radius:999px;
 
   background:
     rgba(57,226,125,.10);
 
-  color:var(--green);
+  color:
+    var(--green);
 
   font-size:7px;
 
@@ -1436,62 +1713,489 @@ th{
   background:
     rgba(255,215,94,.1);
 
-  color:var(--gold);
+  color:
+    var(--gold);
 }
 
-.future-price-card{
-  margin-top:15px;
+
+/* =========================
+   PREMIUM TOOLS
+========================= */
+
+.premium-tool{
+  margin-top:16px;
 
   padding:17px;
 
-  border-radius:20px;
+  border-radius:22px;
 
-  background:var(--surface);
+  border:
+    1px solid
+    var(--line);
 
-  border:1px solid var(--line);
+  background:
+    var(--surface);
 }
 
-.future-price-card small{
-  color:var(--green);
+.premium-tool-head{
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:flex-start;
+
+  gap:12px;
+
+  margin-bottom:14px;
+}
+
+.premium-tool-head small{
+  display:block;
+
+  color:
+    var(--gold);
 
   font-size:8px;
+
   font-weight:950;
+
+  letter-spacing:1.2px;
+
+  margin-bottom:4px;
 }
 
-.future-price-card h4{
-  margin:7px 0;
+.premium-tool-head h3{
+  margin:0;
 
   font-size:20px;
 }
 
-.future-price-card p{
-  margin:0;
+.premium-tool-head p{
+  margin:
+    5px
+    0
+    0;
 
-  color:var(--muted);
+  color:
+    var(--muted);
 
-  font-size:10px;
-  line-height:1.5;
+  font-size:9px;
+
+  line-height:1.4;
+}
+
+.tool-icon{
+  font-size:30px;
 }
 
 
-/* EMPTY */
+/* =========================
+   AGENDA PREMIUM
+========================= */
 
-.loading,
-.empty{
-  padding:35px 18px;
+.agenda-days{
+  display:flex;
+
+  gap:7px;
+
+  overflow-x:auto;
+
+  padding-bottom:10px;
+
+  scrollbar-width:none;
+}
+
+.agenda-days::-webkit-scrollbar{
+  display:none;
+}
+
+.agenda-day{
+  flex:
+    0 0 76px;
+
+  padding:
+    10px
+    7px;
+
+  border-radius:14px;
+
+  border:
+    1px solid
+    var(--line);
+
+  background:
+    var(--surface2);
+
+  color:
+    var(--muted);
+
+  text-align:center;
+}
+
+.agenda-day strong{
+  display:block;
+
+  font-size:10px;
+}
+
+.agenda-day span{
+  display:block;
+
+  margin-top:3px;
+
+  font-size:8px;
+}
+
+.agenda-day.active{
+  background:
+    var(--green);
+
+  border-color:
+    var(--green);
+
+  color:#04200d;
+}
+
+.agenda-games{
+  display:grid;
+
+  gap:8px;
+
+  margin-top:7px;
+}
+
+.agenda-game{
+  display:grid;
+
+  grid-template-columns:
+    1fr
+    auto
+    1fr;
+
+  gap:8px;
+
+  align-items:center;
+
+  padding:11px;
+
+  border-radius:15px;
+
+  background:
+    var(--surface2);
+
+  border:
+    1px solid
+    rgba(255,255,255,.04);
+}
+
+.agenda-game.heart{
+  border-color:
+    rgba(255,215,94,.45);
+}
+
+.agenda-team{
+  font-size:10px;
+
+  font-weight:850;
+}
+
+.agenda-team.right{
+  text-align:right;
+}
+
+.agenda-time{
+  color:
+    var(--green);
+
+  font-size:10px;
+
+  font-weight:950;
+
+  text-align:center;
+}
+
+.agenda-league{
+  grid-column:
+    1 / -1;
+
+  color:
+    var(--muted);
+
+  font-size:8px;
+
+  text-align:center;
+}
+
+
+/* =========================
+   HEART TEAM
+========================= */
+
+.heart-selected{
+  display:none;
+
+  margin-top:12px;
+
+  padding:14px;
+
+  border-radius:16px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,215,94,.10),
+      rgba(57,226,125,.05)
+    );
+
+  border:
+    1px solid
+    rgba(255,215,94,.25);
+}
+
+.heart-selected.active{
+  display:block;
+}
+
+.heart-selected small{
+  color:
+    var(--muted);
+
+  font-size:8px;
+}
+
+.heart-selected strong{
+  display:block;
+
+  margin-top:4px;
+
+  color:
+    var(--gold);
+
+  font-size:17px;
+}
+
+.save-team-btn{
+  width:100%;
+
+  margin-top:10px;
+
+  padding:12px;
+
+  border:0;
+
+  border-radius:13px;
+
+  background:
+    var(--green);
+
+  color:#03200c;
+
+  font-size:10px;
+
+  font-weight:950;
+}
+
+
+/* =========================
+   ADVANCED STATS
+========================= */
+
+.advanced-stats{
+  display:grid;
+
+  grid-template-columns:
+    repeat(
+      3,
+      1fr
+    );
+
+  gap:8px;
+
+  margin-top:12px;
+}
+
+.advanced-stat{
+  padding:
+    12px
+    7px;
+
+  border-radius:14px;
+
+  background:
+    var(--surface2);
+
+  text-align:center;
+}
+
+.advanced-stat small{
+  display:block;
+
+  color:
+    var(--muted);
+
+  font-size:7px;
+
+  font-weight:900;
+
+  margin-bottom:4px;
+}
+
+.advanced-stat strong{
+  font-size:18px;
+}
+
+.form-row{
+  display:flex;
+
+  gap:6px;
+
+  margin-top:12px;
+}
+
+.form-ball{
+  width:29px;
+  height:29px;
+
+  display:grid;
+
+  place-items:center;
+
+  border-radius:50%;
+
+  font-size:9px;
+
+  font-weight:950;
+}
+
+.form-ball.w{
+  background:
+    rgba(57,226,125,.18);
+
+  color:
+    var(--green);
+}
+
+.form-ball.d{
+  background:
+    rgba(255,216,103,.15);
+
+  color:
+    var(--yellow);
+}
+
+.form-ball.l{
+  background:
+    rgba(255,100,100,.15);
+
+  color:
+    #ff9d9d;
+}
+
+.recent-results{
+  display:grid;
+
+  gap:7px;
+
+  margin-top:12px;
+}
+
+.recent-result{
+  display:flex;
+
+  align-items:center;
+
+  justify-content:
+    space-between;
+
+  gap:8px;
+
+  padding:10px;
+
+  border-radius:13px;
+
+  background:
+    var(--surface2);
+
+  font-size:9px;
+}
+
+.result-score{
+  color:
+    var(--green);
+
+  font-weight:950;
+}
+
+.next-match{
+  margin-top:12px;
+
+  padding:12px;
+
+  border-radius:14px;
+
+  background:
+    rgba(140,197,255,.07);
+
+  border:
+    1px solid
+    rgba(140,197,255,.15);
+}
+
+.next-match small{
+  color:
+    var(--blue);
+
+  font-size:8px;
+
+  font-weight:950;
+}
+
+.next-match strong{
+  display:block;
+
+  margin-top:5px;
+
+  font-size:12px;
+}
+
+.loading-mini{
+  padding:18px;
+
+  color:
+    var(--muted);
 
   text-align:center;
 
-  color:var(--muted);
+  font-size:9px;
+}
+
+
+/* =========================
+   EMPTY
+========================= */
+
+.loading,
+.empty{
+  padding:
+    35px
+    18px;
+
+  text-align:center;
+
+  color:
+    var(--muted);
 
   border-radius:20px;
 
   border:
-    1px dashed var(--line);
+    1px dashed
+    var(--line);
 }
 
 
-/* NAV */
+/* =========================
+   BOTTOM NAV
+========================= */
 
 .bottom-nav{
   position:fixed;
@@ -1505,21 +2209,31 @@ th{
   display:grid;
 
   grid-template-columns:
-    repeat(6,1fr);
+    repeat(
+      6,
+      1fr
+    );
 
   padding:
-    7px 2px
-    calc(7px + env(safe-area-inset-bottom));
+    7px
+    2px
+    calc(
+      7px +
+      env(safe-area-inset-bottom)
+    );
 
   background:
     rgba(3,15,8,.98);
 
   border-top:
-    1px solid rgba(255,255,255,.055);
+    1px solid
+    rgba(255,255,255,.055);
 }
 
 .nav-btn{
-  padding:5px 1px;
+  padding:
+    5px
+    1px;
 
   border:0;
 
@@ -1528,6 +2242,7 @@ th{
   color:#73897b;
 
   font-size:8px;
+
   font-weight:900;
 }
 
@@ -1540,11 +2255,13 @@ th{
 }
 
 .nav-btn.active{
-  color:var(--green);
+  color:
+    var(--green);
 }
 
 .nav-btn.premium-nav.active{
-  color:var(--gold);
+  color:
+    var(--gold);
 }
 
 
@@ -1552,22 +2269,34 @@ th{
 
   .stats{
     grid-template-columns:
-      repeat(4,1fr);
+      repeat(
+        4,
+        1fr
+      );
   }
 
   .media-grid{
     grid-template-columns:
-      repeat(4,1fr);
+      repeat(
+        4,
+        1fr
+      );
   }
 
   .premium-grid{
     grid-template-columns:
-      repeat(3,1fr);
+      repeat(
+        3,
+        1fr
+      );
   }
 
   .game-buttons{
     grid-template-columns:
-      repeat(4,1fr);
+      repeat(
+        4,
+        1fr
+      );
   }
 
 }
@@ -1618,10 +2347,14 @@ th{
 <main>
 
 
+<!-- HERO -->
+
 <section class="hero">
 
   <div class="hero-photo"></div>
+
   <div class="hero-shade"></div>
+
 
   <div class="hero-content">
 
@@ -1632,6 +2365,7 @@ th{
     >
 
     <br>
+
 
     <div class="hero-label">
 
@@ -1678,6 +2412,10 @@ th{
 </section>
 
 
+<!-- =========================
+     JOGOS
+========================= -->
+
 <section
   id="viewGames"
   class="view active"
@@ -1689,6 +2427,7 @@ th{
   <div class="premium-home-icon">
     👑
   </div>
+
 
   <div class="premium-home-text">
 
@@ -1705,6 +2444,7 @@ th{
     </span>
 
   </div>
+
 
   <button
     class="premium-home-btn"
@@ -1750,23 +2490,63 @@ th{
 <section class="stats">
 
   <div class="stat">
-    <small>JOGOS</small>
-    <strong id="totalGames">0</strong>
+
+    <small>
+      JOGOS
+    </small>
+
+    <strong id="totalGames">
+      0
+    </strong>
+
   </div>
 
-  <div class="stat">
-    <small>AO VIVO</small>
-    <strong id="liveGames" class="red">0</strong>
-  </div>
 
   <div class="stat">
-    <small>BRASIL</small>
-    <strong id="brazilGames" class="green">0</strong>
+
+    <small>
+      AO VIVO
+    </small>
+
+    <strong
+      id="liveGames"
+      class="red"
+    >
+      0
+    </strong>
+
   </div>
 
+
   <div class="stat">
-    <small>FAVORITOS</small>
-    <strong id="favoriteCount" class="yellow">0</strong>
+
+    <small>
+      BRASIL
+    </small>
+
+    <strong
+      id="brazilGames"
+      class="green"
+    >
+      0
+    </strong>
+
+  </div>
+
+
+  <div class="stat">
+
+    <small>
+      FAVORITOS
+    </small>
+
+    <strong
+      id="favoriteCount"
+      class="yellow"
+    >
+      0
+    </strong>
+
   </div>
 
 </section>
@@ -1795,12 +2575,14 @@ th{
     Todos
   </button>
 
+
   <button
     class="chip game-chip"
     data-filter="live"
   >
     🔴 Ao vivo
   </button>
+
 
   <button
     class="chip game-chip"
@@ -1809,12 +2591,14 @@ th{
     🇧🇷 Brasil
   </button>
 
+
   <button
     class="chip game-chip"
     data-filter="favorites"
   >
     ⭐ Favoritos
   </button>
+
 
   <button
     class="chip game-chip"
@@ -1839,6 +2623,7 @@ th{
     </h3>
 
   </div>
+
 
   <span
     class="counter"
@@ -1875,7 +2660,9 @@ th{
 </section>
 
 
-<!-- TABELA -->
+<!-- =========================
+     TABELA
+========================= -->
 
 <section
   id="viewTable"
@@ -1904,21 +2691,21 @@ th{
   class="league-select"
 >
 
-<option value="bra.1">
-  Brasileirão Série A
-</option>
+  <option value="bra.1">
+    Brasileirão Série A
+  </option>
 
-<option value="bra.2">
-  Brasileirão Série B
-</option>
+  <option value="bra.2">
+    Brasileirão Série B
+  </option>
 
-<option value="eng.1">
-  Premier League
-</option>
+  <option value="eng.1">
+    Premier League
+  </option>
 
-<option value="esp.1">
-  LaLiga
-</option>
+  <option value="esp.1">
+    LaLiga
+  </option>
 
 </select>
 
@@ -1971,7 +2758,9 @@ th{
 </section>
 
 
-<!-- TV -->
+<!-- =========================
+     TV
+========================= -->
 
 <section
   id="viewTv"
@@ -2003,7 +2792,9 @@ th{
 </section>
 
 
-<!-- FILMES -->
+<!-- =========================
+     FILMES
+========================= -->
 
 <section
   id="viewMovies"
@@ -2035,7 +2826,9 @@ th{
 </section>
 
 
-<!-- FAVORITOS -->
+<!-- =========================
+     FAVORITOS
+========================= -->
 
 <section
   id="viewFavorites"
@@ -2075,12 +2868,15 @@ th{
 </section>
 
 
-<!-- PREMIUM -->
+<!-- =========================
+     PREMIUM
+========================= -->
 
 <section
   id="viewPremium"
   class="view premium-page"
 >
+
 
 <div class="premium-hero">
 
@@ -2088,17 +2884,21 @@ th{
     👑
   </div>
 
+
   <div class="premium-tag">
     LANÇAMENTO
   </div>
+
 
   <h2>
     Stanley Sports Premium
   </h2>
 
+
   <p>
-    Mais informação, personalização e recursos
-    exclusivos para quem vive futebol.
+    Recursos avançados para personalizar sua
+    experiência e acompanhar futebol de uma forma
+    muito mais completa.
   </p>
 
 
@@ -2152,6 +2952,8 @@ th{
 </div>
 
 
+<!-- BENEFÍCIOS -->
+
 <div class="premium-grid">
 
 
@@ -2166,34 +2968,11 @@ th{
     </h4>
 
     <p>
-      Jogos e competições organizados para acompanhar
-      sua semana.
+      Veja os jogos dos próximos 7 dias.
     </p>
 
-    <span class="feature-status soon">
-      EM BREVE
-    </span>
-
-  </div>
-
-
-  <div class="premium-feature">
-
-    <div class="premium-feature-icon">
-      🔔
-    </div>
-
-    <h4>
-      Alertas personalizados
-    </h4>
-
-    <p>
-      Início de jogo, gols, resultados e alertas
-      dos seus times.
-    </p>
-
-    <span class="feature-status soon">
-      EM BREVE
+    <span class="feature-status">
+      DISPONÍVEL
     </span>
 
   </div>
@@ -2206,16 +2985,15 @@ th{
     </div>
 
     <h4>
-      Estatísticas avançadas
+      Estatísticas
     </h4>
 
     <p>
-      Forma recente, desempenho e informações
-      detalhadas das partidas.
+      Forma recente, vitórias, derrotas e gols.
     </p>
 
-    <span class="feature-status soon">
-      EM BREVE
+    <span class="feature-status">
+      DISPONÍVEL
     </span>
 
   </div>
@@ -2232,12 +3010,11 @@ th{
     </h4>
 
     <p>
-      Uma experiência personalizada para o seu
-      clube favorito.
+      Personalize o Stanley Sports para o seu clube.
     </p>
 
-    <span class="feature-status soon">
-      EM BREVE
+    <span class="feature-status">
+      DISPONÍVEL
     </span>
 
   </div>
@@ -2254,8 +3031,7 @@ th{
     </h4>
 
     <p>
-      Salve suas partidas favoritas e encontre
-      tudo rapidamente.
+      Salve e acompanhe seus jogos favoritos.
     </p>
 
     <span class="feature-status">
@@ -2276,8 +3052,7 @@ th{
     </h4>
 
     <p>
-      Estrutura preparada para uma experiência
-      Premium limpa.
+      Experiência limpa e sem publicidade.
     </p>
 
     <span class="feature-status">
@@ -2286,26 +3061,194 @@ th{
 
   </div>
 
+
+  <div class="premium-feature">
+
+    <div class="premium-feature-icon">
+      🔔
+    </div>
+
+    <h4>
+      Alertas push
+    </h4>
+
+    <p>
+      Receba alertas mesmo com o aplicativo fechado.
+    </p>
+
+    <span class="feature-status soon">
+      EM BREVE
+    </span>
+
+  </div>
+
 </div>
 
 
-<div class="future-price-card">
+<!-- TIME DO CORAÇÃO -->
 
-  <small>
-    PLANO FUTURO
-  </small>
+<div class="premium-tool">
 
-  <h4>
-    Premium mensal
-  </h4>
+  <div class="premium-tool-head">
 
-  <p>
-    Durante o lançamento o Premium permanece grátis.
-    Quando a assinatura paga for ativada, esta área
-    será conectada ao cadastro e ao pagamento oficial.
-  </p>
+    <div>
+
+      <small>
+        PERSONALIZAÇÃO
+      </small>
+
+      <h3>
+        ❤️ Time do coração
+      </h3>
+
+      <p>
+        Escolha seu clube para destacar seus jogos
+        em todo o aplicativo.
+      </p>
+
+    </div>
+
+    <div class="tool-icon">
+      ❤️
+    </div>
+
+  </div>
+
+
+  <select
+    id="heartTeamSelect"
+    class="premium-select"
+  >
+
+    <option value="">
+      Selecione seu time
+    </option>
+
+  </select>
+
+
+  <button
+    class="save-team-btn"
+    onclick="saveHeartTeam()"
+  >
+    Salvar time do coração
+  </button>
+
+
+  <div
+    id="heartSelected"
+    class="heart-selected"
+  >
+
+    <small>
+      SEU TIME
+    </small>
+
+    <strong id="heartSelectedName">
+    </strong>
+
+  </div>
 
 </div>
+
+
+<!-- AGENDA -->
+
+<div class="premium-tool">
+
+  <div class="premium-tool-head">
+
+    <div>
+
+      <small>
+        PREMIUM
+      </small>
+
+      <h3>
+        📅 Agenda de 7 dias
+      </h3>
+
+      <p>
+        Navegue pelos próximos dias e veja os jogos
+        programados.
+      </p>
+
+    </div>
+
+    <div class="tool-icon">
+      📅
+    </div>
+
+  </div>
+
+
+  <div
+    id="agendaDays"
+    class="agenda-days"
+  ></div>
+
+
+  <div
+    id="agendaLoading"
+    class="loading-mini"
+  >
+    Ative o Premium para carregar sua agenda.
+  </div>
+
+
+  <div
+    id="agendaGames"
+    class="agenda-games"
+  ></div>
+
+</div>
+
+
+<!-- ESTATÍSTICAS -->
+
+<div class="premium-tool">
+
+  <div class="premium-tool-head">
+
+    <div>
+
+      <small>
+        ANÁLISE
+      </small>
+
+      <h3>
+        📊 Estatísticas do seu time
+      </h3>
+
+      <p>
+        Resumo recente do clube escolhido como
+        seu time do coração.
+      </p>
+
+    </div>
+
+    <div class="tool-icon">
+      📊
+    </div>
+
+  </div>
+
+
+  <div
+    id="statsPremiumContent"
+  >
+
+    <div class="loading-mini">
+
+      Escolha seu time do coração para visualizar
+      as estatísticas.
+
+    </div>
+
+  </div>
+
+</div>
+
 
 </section>
 
@@ -2313,14 +3256,22 @@ th{
 </main>
 
 
+<!-- =========================
+     NAVIGATION
+========================= -->
+
 <nav class="bottom-nav">
+
 
 <button
   class="nav-btn active"
   data-view="Games"
 >
+
   <span>⚽</span>
+
   Jogos
+
 </button>
 
 
@@ -2328,8 +3279,11 @@ th{
   class="nav-btn"
   data-view="Table"
 >
+
   <span>📊</span>
+
   Tabela
+
 </button>
 
 
@@ -2337,8 +3291,11 @@ th{
   class="nav-btn"
   data-view="Tv"
 >
+
   <span>📺</span>
+
   TV
+
 </button>
 
 
@@ -2346,8 +3303,11 @@ th{
   class="nav-btn"
   data-view="Movies"
 >
+
   <span>🎬</span>
+
   Filmes
+
 </button>
 
 
@@ -2355,8 +3315,11 @@ th{
   class="nav-btn"
   data-view="Favorites"
 >
+
   <span>⭐</span>
+
   Favoritos
+
 </button>
 
 
@@ -2364,9 +3327,13 @@ th{
   class="nav-btn premium-nav"
   data-view="Premium"
 >
+
   <span>👑</span>
+
   Premium
+
 </button>
+
 
 </nav>
 
@@ -2375,11 +3342,12 @@ th{
 
 /*
 ===============================================
-PREMIUM
+CONFIG PREMIUM
 ===============================================
 */
 
 const PREMIUM_LAUNCH_FREE = true;
+
 
 let premiumActive =
   localStorage.getItem(
@@ -2389,75 +3357,23 @@ let premiumActive =
   "active";
 
 
-function activatePremium(){
-
-  if(!PREMIUM_LAUNCH_FREE){
-    return;
-  }
-
-  premiumActive = true;
-
-  localStorage.setItem(
-    "stanleySportsPremium",
-    "active"
-  );
-
-  renderPremiumStatus();
-
-}
+let heartTeam =
+  localStorage.getItem(
+    "stanleySportsHeartTeam"
+  )
+  ||
+  "";
 
 
-function renderPremiumStatus(){
+let agendaGamesData = [];
 
-  const planStatus =
-    document.querySelector(
-      "#premiumPlanStatus"
-    );
+let historyGamesData = [];
 
-  const button =
-    document.querySelector(
-      "#activatePremiumBtn"
-    );
+let agendaSelectedOffset = 0;
 
-  const homeStatus =
-    document.querySelector(
-      "#premiumHomeStatus"
-    );
+let agendaLoaded = false;
 
-
-  if(premiumActive){
-
-    planStatus.textContent =
-      "Premium ativo";
-
-    button.textContent =
-      "✓ Premium ativado";
-
-    button.classList.add(
-      "active"
-    );
-
-    homeStatus.textContent =
-      "Seu Premium está ativo.";
-
-  }else{
-
-    planStatus.textContent =
-      "Premium não ativado";
-
-    button.textContent =
-      "👑 Ativar Premium grátis";
-
-    button.classList.remove(
-      "active"
-    );
-
-    homeStatus.textContent =
-      "Ative seu acesso Premium.";
-
-  }
-
-}
+let historyLoaded = false;
 
 
 /*
@@ -2769,6 +3685,12 @@ const entertainment = [
 ];
 
 
+/*
+===============================================
+ESTADO
+===============================================
+*/
+
 let allGames = [];
 
 let gameFilter = "all";
@@ -2787,12 +3709,18 @@ let favorites =
 
 const $ =
   selector =>
-    document.querySelector(selector);
+    document.querySelector(
+      selector
+    );
 
 
 const $$ =
   selector =>
-    [...document.querySelectorAll(selector)];
+    [
+      ...document.querySelectorAll(
+        selector
+      )
+    ];
 
 
 /*
@@ -2816,6 +3744,17 @@ function normalize(value=""){
 }
 
 
+function sameTeam(a,b){
+
+  return(
+    normalize(a)
+    ===
+    normalize(b)
+  );
+
+}
+
+
 function dateKey(offsetDays=0){
 
   const d =
@@ -2827,15 +3766,113 @@ function dateKey(offsetDays=0){
     offsetDays
   );
 
+
   return(
     `${d.getFullYear()}${
       String(
         d.getMonth()+1
-      ).padStart(2,"0")
+      )
+      .padStart(
+        2,
+        "0"
+      )
     }${
       String(
         d.getDate()
-      ).padStart(2,"0")
+      )
+      .padStart(
+        2,
+        "0"
+      )
+    }`
+  );
+
+}
+
+
+function localDateKey(
+  iso
+){
+
+  const d =
+    new Date(iso);
+
+
+  return(
+    `${d.getFullYear()}-${
+      String(
+        d.getMonth()+1
+      )
+      .padStart(
+        2,
+        "0"
+      )
+    }-${
+      String(
+        d.getDate()
+      )
+      .padStart(
+        2,
+        "0"
+      )
+    }`
+  );
+
+}
+
+
+function dateFromOffset(
+  offset
+){
+
+  const d =
+    new Date();
+
+  d.setHours(
+    12,
+    0,
+    0,
+    0
+  );
+
+  d.setDate(
+    d.getDate()
+    +
+    offset
+  );
+
+  return d;
+
+}
+
+
+function localKeyFromOffset(
+  offset
+){
+
+  const d =
+    dateFromOffset(
+      offset
+    );
+
+
+  return(
+    `${d.getFullYear()}-${
+      String(
+        d.getMonth()+1
+      )
+      .padStart(
+        2,
+        "0"
+      )
+    }-${
+      String(
+        d.getDate()
+      )
+      .padStart(
+        2,
+        "0"
+      )
     }`
   );
 
@@ -2860,11 +3897,17 @@ function formatTime(iso){
 
 function formatDayLabel(iso){
 
-  const d = new Date(iso);
+  const d =
+    new Date(iso);
 
-  const today = new Date();
 
-  const yesterday = new Date();
+  const today =
+    new Date();
+
+
+  const yesterday =
+    new Date();
+
 
   yesterday.setDate(
     today.getDate()-1
@@ -2912,7 +3955,9 @@ function isLive(game){
       "in_progress"
     ]
     .includes(
-      String(game.state)
+      String(
+        game.state
+      )
       .toLowerCase()
     )
   );
@@ -2923,7 +3968,9 @@ function isLive(game){
 function isFinished(game){
 
   return(
-    String(game.state)
+    String(
+      game.state
+    )
     .toLowerCase()
     ===
     "post"
@@ -2931,6 +3978,28 @@ function isFinished(game){
     game.completed
     ===
     true
+  );
+
+}
+
+
+function isHeartGame(game){
+
+  if(!heartTeam){
+    return false;
+  }
+
+
+  return(
+    sameTeam(
+      game.home,
+      heartTeam
+    )
+    ||
+    sameTeam(
+      game.away,
+      heartTeam
+    )
   );
 
 }
@@ -2962,18 +4031,24 @@ function minutesUntilKickoff(game){
 
 function shouldShowBroadcasters(game){
 
-  if(isFinished(game)){
+  if(
+    isFinished(game)
+  ){
     return false;
   }
 
 
-  if(isLive(game)){
+  if(
+    isLive(game)
+  ){
     return true;
   }
 
 
   const minutes =
-    minutesUntilKickoff(game);
+    minutesUntilKickoff(
+      game
+    );
 
 
   return(
@@ -2987,19 +4062,23 @@ function shouldShowBroadcasters(game){
 
 /*
 ===============================================
-ENCERRADOS POR 24 HORAS
+24 HORAS
 ===============================================
 */
 
 function keepFinishedFor24Hours(game){
 
-  if(!isFinished(game)){
+  if(
+    !isFinished(game)
+  ){
     return true;
   }
 
 
   const kickoff =
-    new Date(game.date)
+    new Date(
+      game.date
+    )
     .getTime();
 
 
@@ -3108,9 +4187,14 @@ function parseGame(
 
     id:event.id,
 
-    league:league.name,
+    league:
+      league.name,
 
-    group:league.group,
+    leagueSlug:
+      league.slug,
+
+    group:
+      league.group,
 
     home:
       home?.team?.displayName
@@ -3143,16 +4227,21 @@ function parseGame(
       "",
 
     homeScore:
-      home?.score
-      ??
-      "",
+      Number(
+        home?.score
+        ??
+        0
+      ),
 
     awayScore:
-      away?.score
-      ??
-      "",
+      Number(
+        away?.score
+        ??
+        0
+      ),
 
-    date:event.date,
+    date:
+      event.date,
 
     state:
       event.status?.type?.state
@@ -3179,56 +4268,128 @@ async function fetchLeagueByDate(
   date
 ){
 
-  const response =
-    await fetch(
-      `https://site.api.espn.com/apis/site/v2/sports/soccer/${league.slug}/scoreboard?dates=${date}`,
-      {
-        cache:"no-store"
-      }
+  try{
+
+    const response =
+      await fetch(
+        `https://site.api.espn.com/apis/site/v2/sports/soccer/${league.slug}/scoreboard?dates=${date}`,
+        {
+          cache:"no-store"
+        }
+      );
+
+
+    if(
+      !response.ok
+    ){
+      return [];
+    }
+
+
+    const data =
+      await response.json();
+
+
+    return(
+      (
+        data.events
+        ||
+        []
+      )
+      .map(
+        event =>
+          parseGame(
+            event,
+            league
+          )
+      )
     );
 
 
-  if(!response.ok){
+  }catch(error){
+
     return [];
+
   }
 
+}
 
-  const data =
-    await response.json();
+
+async function fetchAllLeaguesDate(
+  offset
+){
+
+  const date =
+    dateKey(offset);
+
+
+  const results =
+    await Promise.allSettled(
+
+      leagues.map(
+        league =>
+          fetchLeagueByDate(
+            league,
+            date
+          )
+      )
+
+    );
+
+
+  const games =
+    results.flatMap(
+      result =>
+        result.status
+        ===
+        "fulfilled"
+        ?
+        result.value
+        :
+        []
+    );
+
+
+  const unique =
+    new Map();
+
+
+  games.forEach(
+    game => {
+
+      unique.set(
+        String(game.id),
+        game
+      );
+
+    }
+  );
 
 
   return(
-    (
-      data.events
-      ||
-      []
-    )
-    .map(
-      event =>
-        parseGame(
-          event,
-          league
-        )
-    )
+    [
+      ...unique.values()
+    ]
   );
 
 }
 
 
-async function fetchLeague(league){
+async function refreshGames(){
 
-  const yesterday =
-    await fetchLeagueByDate(
-      league,
-      dateKey(-1)
-    );
+  $("#gamesLoading")
+  .style.display =
+  "block";
 
 
-  const today =
-    await fetchLeagueByDate(
-      league,
-      dateKey()
-    );
+  const [
+    yesterday,
+    today
+  ] =
+    await Promise.all([
+      fetchAllLeaguesDate(-1),
+      fetchAllLeaguesDate(0)
+    ]);
 
 
   const unique =
@@ -3251,38 +4412,10 @@ async function fetchLeague(league){
   );
 
 
-  return(
-    [...unique.values()]
-  );
-
-}
-
-
-async function refreshGames(){
-
-  $("#gamesLoading")
-  .style.display =
-  "block";
-
-
-  const results =
-    await Promise.allSettled(
-      leagues.map(fetchLeague)
-    );
-
-
   allGames =
-    results
-    .flatMap(
-      result =>
-        result.status
-        ===
-        "fulfilled"
-        ?
-        result.value
-        :
-        []
-    )
+    [
+      ...unique.values()
+    ]
     .filter(
       keepFinishedFor24Hours
     );
@@ -3295,6 +4428,1214 @@ async function refreshGames(){
 
   renderGames();
 
+  populateHeartTeams();
+
+}
+
+
+/*
+===============================================
+AGENDA PREMIUM
+===============================================
+*/
+
+async function loadAgendaPremium(){
+
+  if(
+    !premiumActive
+  ){
+
+    $("#agendaLoading")
+    .textContent =
+      "Ative o Premium grátis para liberar a agenda.";
+
+    return;
+  }
+
+
+  if(
+    agendaLoaded
+  ){
+
+    renderAgenda();
+
+    return;
+  }
+
+
+  $("#agendaLoading")
+  .textContent =
+    "Carregando agenda dos próximos 7 dias...";
+
+
+  const offsets =
+    [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ];
+
+
+  const results =
+    await Promise.all(
+      offsets.map(
+        offset =>
+          fetchAllLeaguesDate(
+            offset
+          )
+      )
+    );
+
+
+  const unique =
+    new Map();
+
+
+  results
+  .flat()
+  .forEach(
+    game => {
+
+      unique.set(
+        String(game.id),
+        game
+      );
+
+    }
+  );
+
+
+  agendaGamesData =
+    [
+      ...unique.values()
+    ];
+
+
+  agendaLoaded = true;
+
+
+  $("#agendaLoading")
+  .textContent =
+    "";
+
+
+  renderAgendaDays();
+
+  renderAgenda();
+
+  populateHeartTeams();
+
+}
+
+
+function renderAgendaDays(){
+
+  const container =
+    $("#agendaDays");
+
+
+  container.innerHTML =
+    "";
+
+
+  for(
+    let offset=0;
+    offset<7;
+    offset++
+  ){
+
+    const d =
+      dateFromOffset(
+        offset
+      );
+
+
+    let title =
+      d.toLocaleDateString(
+        "pt-BR",
+        {
+          weekday:"short"
+        }
+      )
+      .replace(
+        ".",
+        ""
+      );
+
+
+    if(
+      offset === 0
+    ){
+      title =
+        "Hoje";
+    }
+
+
+    if(
+      offset === 1
+    ){
+      title =
+        "Amanhã";
+    }
+
+
+    const dateText =
+      d.toLocaleDateString(
+        "pt-BR",
+        {
+          day:"2-digit",
+          month:"2-digit"
+        }
+      );
+
+
+    container.innerHTML += `
+
+      <button
+        class="
+          agenda-day
+          ${
+            agendaSelectedOffset
+            ===
+            offset
+            ?
+            "active"
+            :
+            ""
+          }
+        "
+        onclick="
+          selectAgendaDay(
+            ${offset}
+          )
+        "
+      >
+
+        <strong>
+          ${title}
+        </strong>
+
+        <span>
+          ${dateText}
+        </span>
+
+      </button>
+
+    `;
+
+  }
+
+}
+
+
+function selectAgendaDay(
+  offset
+){
+
+  agendaSelectedOffset =
+    offset;
+
+
+  renderAgendaDays();
+
+  renderAgenda();
+
+}
+
+
+function renderAgenda(){
+
+  const targetKey =
+    localKeyFromOffset(
+      agendaSelectedOffset
+    );
+
+
+  const games =
+    agendaGamesData
+    .filter(
+      game =>
+        localDateKey(
+          game.date
+        )
+        ===
+        targetKey
+    )
+    .sort(
+      (a,b) =>
+        new Date(a.date)
+        -
+        new Date(b.date)
+    );
+
+
+  if(
+    !games.length
+  ){
+
+    $("#agendaGames")
+    .innerHTML = `
+
+      <div class="loading-mini">
+
+        Nenhum jogo encontrado neste dia.
+
+      </div>
+
+    `;
+
+    return;
+
+  }
+
+
+  $("#agendaGames")
+  .innerHTML =
+    games
+    .map(
+      game => `
+
+        <div
+          class="
+            agenda-game
+            ${
+              isHeartGame(game)
+              ?
+              "heart"
+              :
+              ""
+            }
+          "
+        >
+
+          <div class="agenda-team">
+
+            ${
+              isHeartGame(game)
+              ?
+              "❤️ "
+              :
+              ""
+            }
+
+            ${game.home}
+
+          </div>
+
+
+          <div class="agenda-time">
+
+            ${formatTime(game.date)}
+
+          </div>
+
+
+          <div class="agenda-team right">
+
+            ${game.away}
+
+          </div>
+
+
+          <div class="agenda-league">
+
+            ${game.league}
+
+          </div>
+
+        </div>
+
+      `
+    )
+    .join("");
+
+}
+
+
+/*
+===============================================
+HISTÓRICO PREMIUM
+===============================================
+*/
+
+async function loadHistoryPremium(){
+
+  if(
+    !premiumActive
+    ||
+    !heartTeam
+  ){
+    return;
+  }
+
+
+  if(
+    historyLoaded
+  ){
+
+    renderAdvancedStats();
+
+    return;
+  }
+
+
+  $("#statsPremiumContent")
+  .innerHTML = `
+
+    <div class="loading-mini">
+
+      Analisando os resultados recentes de
+      ${heartTeam}...
+
+    </div>
+
+  `;
+
+
+  const offsets =
+    [
+      -1,
+      -2,
+      -3,
+      -4,
+      -5,
+      -6,
+      -7,
+      -8,
+      -9,
+      -10,
+      -11,
+      -12,
+      -13,
+      -14
+    ];
+
+
+  const results =
+    await Promise.all(
+      offsets.map(
+        offset =>
+          fetchAllLeaguesDate(
+            offset
+          )
+      )
+    );
+
+
+  const unique =
+    new Map();
+
+
+  results
+  .flat()
+  .forEach(
+    game => {
+
+      unique.set(
+        String(game.id),
+        game
+      );
+
+    }
+  );
+
+
+  historyGamesData =
+    [
+      ...unique.values()
+    ];
+
+
+  historyLoaded =
+    true;
+
+
+  renderAdvancedStats();
+
+}
+
+
+/*
+===============================================
+TIME DO CORAÇÃO
+===============================================
+*/
+
+function getKnownTeams(){
+
+  const source =
+    [
+      ...allGames,
+      ...agendaGamesData,
+      ...historyGamesData
+    ];
+
+
+  const teams =
+    new Set();
+
+
+  source.forEach(
+    game => {
+
+      if(game.home){
+        teams.add(
+          game.home
+        );
+      }
+
+      if(game.away){
+        teams.add(
+          game.away
+        );
+      }
+
+    }
+  );
+
+
+  if(
+    heartTeam
+  ){
+
+    teams.add(
+      heartTeam
+    );
+
+  }
+
+
+  return(
+    [
+      ...teams
+    ]
+    .sort(
+      (
+        a,
+        b
+      ) =>
+        a.localeCompare(
+          b,
+          "pt-BR"
+        )
+    )
+  );
+
+}
+
+
+function populateHeartTeams(){
+
+  const select =
+    $("#heartTeamSelect");
+
+
+  if(
+    !select
+  ){
+    return;
+  }
+
+
+  const teams =
+    getKnownTeams();
+
+
+  select.innerHTML = `
+
+    <option value="">
+
+      Selecione seu time
+
+    </option>
+
+  `;
+
+
+  teams.forEach(
+    team => {
+
+      const option =
+        document.createElement(
+          "option"
+        );
+
+
+      option.value =
+        team;
+
+
+      option.textContent =
+        team;
+
+
+      if(
+        sameTeam(
+          team,
+          heartTeam
+        )
+      ){
+
+        option.selected =
+          true;
+
+      }
+
+
+      select.appendChild(
+        option
+      );
+
+    }
+  );
+
+
+  renderHeartSelected();
+
+}
+
+
+function saveHeartTeam(){
+
+  if(
+    !premiumActive
+  ){
+
+    openView(
+      "Premium"
+    );
+
+    return;
+
+  }
+
+
+  const selected =
+    $("#heartTeamSelect")
+    .value;
+
+
+  if(
+    !selected
+  ){
+    return;
+  }
+
+
+  heartTeam =
+    selected;
+
+
+  localStorage.setItem(
+    "stanleySportsHeartTeam",
+    heartTeam
+  );
+
+
+  historyLoaded =
+    false;
+
+
+  renderHeartSelected();
+
+  renderGames();
+
+  renderAgenda();
+
+  loadHistoryPremium();
+
+}
+
+
+function renderHeartSelected(){
+
+  const box =
+    $("#heartSelected");
+
+
+  if(
+    !box
+  ){
+    return;
+  }
+
+
+  if(
+    heartTeam
+  ){
+
+    box.classList.add(
+      "active"
+    );
+
+
+    $("#heartSelectedName")
+    .textContent =
+      `❤️ ${heartTeam}`;
+
+  }else{
+
+    box.classList.remove(
+      "active"
+    );
+
+  }
+
+}
+
+
+/*
+===============================================
+ESTATÍSTICAS PREMIUM
+===============================================
+*/
+
+function renderAdvancedStats(){
+
+  if(
+    !heartTeam
+  ){
+
+    $("#statsPremiumContent")
+    .innerHTML = `
+
+      <div class="loading-mini">
+
+        Escolha seu time do coração para
+        visualizar as estatísticas.
+
+      </div>
+
+    `;
+
+    return;
+
+  }
+
+
+  const recent =
+    historyGamesData
+    .filter(
+      game =>
+        isFinished(game)
+        &&
+        isHeartGame(game)
+    )
+    .sort(
+      (a,b) =>
+        new Date(b.date)
+        -
+        new Date(a.date)
+    )
+    .slice(
+      0,
+      5
+    );
+
+
+  let wins = 0;
+
+  let draws = 0;
+
+  let losses = 0;
+
+  let goalsFor = 0;
+
+  let goalsAgainst = 0;
+
+  let points = 0;
+
+
+  const forms = [];
+
+
+  recent.forEach(
+    game => {
+
+      const home =
+        sameTeam(
+          game.home,
+          heartTeam
+        );
+
+
+      const gf =
+        home
+        ?
+        Number(
+          game.homeScore
+        )
+        :
+        Number(
+          game.awayScore
+        );
+
+
+      const ga =
+        home
+        ?
+        Number(
+          game.awayScore
+        )
+        :
+        Number(
+          game.homeScore
+        );
+
+
+      goalsFor +=
+        gf;
+
+
+      goalsAgainst +=
+        ga;
+
+
+      if(
+        gf > ga
+      ){
+
+        wins++;
+
+        points +=
+          3;
+
+        forms.push(
+          "W"
+        );
+
+      }
+
+
+      else if(
+        gf === ga
+      ){
+
+        draws++;
+
+        points +=
+          1;
+
+        forms.push(
+          "D"
+        );
+
+      }
+
+
+      else{
+
+        losses++;
+
+        forms.push(
+          "L"
+        );
+
+      }
+
+    }
+  );
+
+
+  const next =
+    agendaGamesData
+    .filter(
+      game =>
+        isHeartGame(game)
+        &&
+        !isFinished(game)
+        &&
+        new Date(game.date)
+        >
+        new Date()
+    )
+    .sort(
+      (a,b) =>
+        new Date(a.date)
+        -
+        new Date(b.date)
+    )[0];
+
+
+  let html = `
+
+    <div class="advanced-stats">
+
+
+      <div class="advanced-stat">
+
+        <small>
+          JOGOS
+        </small>
+
+        <strong>
+          ${recent.length}
+        </strong>
+
+      </div>
+
+
+      <div class="advanced-stat">
+
+        <small>
+          VITÓRIAS
+        </small>
+
+        <strong class="green">
+          ${wins}
+        </strong>
+
+      </div>
+
+
+      <div class="advanced-stat">
+
+        <small>
+          EMPATES
+        </small>
+
+        <strong class="yellow">
+          ${draws}
+        </strong>
+
+      </div>
+
+
+      <div class="advanced-stat">
+
+        <small>
+          DERROTAS
+        </small>
+
+        <strong class="red">
+          ${losses}
+        </strong>
+
+      </div>
+
+
+      <div class="advanced-stat">
+
+        <small>
+          GOLS PRÓ
+        </small>
+
+        <strong>
+          ${goalsFor}
+        </strong>
+
+      </div>
+
+
+      <div class="advanced-stat">
+
+        <small>
+          GOLS CONTRA
+        </small>
+
+        <strong>
+          ${goalsAgainst}
+        </strong>
+
+      </div>
+
+
+    </div>
+
+  `;
+
+
+  if(
+    forms.length
+  ){
+
+    html += `
+
+      <div class="form-row">
+
+        ${
+          forms
+          .map(
+            form => `
+
+              <div
+                class="
+                  form-ball
+                  ${
+                    form
+                    .toLowerCase()
+                  }
+                "
+              >
+
+                ${
+                  form === "W"
+                  ?
+                  "V"
+                  :
+                  form === "D"
+                  ?
+                  "E"
+                  :
+                  "D"
+                }
+
+              </div>
+
+            `
+          )
+          .join("")
+        }
+
+      </div>
+
+    `;
+
+  }
+
+
+  if(
+    recent.length
+  ){
+
+    html += `
+
+      <div class="recent-results">
+
+        ${
+          recent
+          .map(
+            game => `
+
+              <div class="recent-result">
+
+                <span>
+
+                  ${game.home}
+                  x
+                  ${game.away}
+
+                </span>
+
+
+                <span class="result-score">
+
+                  ${game.homeScore}
+                  ×
+                  ${game.awayScore}
+
+                </span>
+
+              </div>
+
+            `
+          )
+          .join("")
+        }
+
+      </div>
+
+    `;
+
+  }
+
+
+  if(
+    next
+  ){
+
+    const opponent =
+      sameTeam(
+        next.home,
+        heartTeam
+      )
+      ?
+      next.away
+      :
+      next.home;
+
+
+    html += `
+
+      <div class="next-match">
+
+        <small>
+          PRÓXIMO JOGO
+        </small>
+
+        <strong>
+
+          ${heartTeam}
+          x
+          ${opponent}
+
+        </strong>
+
+        <div class="time">
+
+          ${
+            formatDayLabel(
+              next.date
+            )
+          }
+
+          •
+
+          ${
+            formatTime(
+              next.date
+            )
+          }
+
+          •
+
+          ${next.league}
+
+        </div>
+
+      </div>
+
+    `;
+
+  }
+
+
+  if(
+    !recent.length
+  ){
+
+    html += `
+
+      <div class="loading-mini">
+
+        Ainda não encontramos resultados recentes
+        desse time nas competições monitoradas.
+
+      </div>
+
+    `;
+
+  }
+
+
+  $("#statsPremiumContent")
+  .innerHTML =
+    html;
+
+}
+
+
+/*
+===============================================
+PREMIUM STATUS
+===============================================
+*/
+
+function activatePremium(){
+
+  if(
+    !PREMIUM_LAUNCH_FREE
+  ){
+    return;
+  }
+
+
+  premiumActive =
+    true;
+
+
+  localStorage.setItem(
+    "stanleySportsPremium",
+    "active"
+  );
+
+
+  renderPremiumStatus();
+
+  loadAgendaPremium();
+
+
+  if(
+    heartTeam
+  ){
+
+    loadHistoryPremium();
+
+  }
+
+}
+
+
+function renderPremiumStatus(){
+
+  const status =
+    $("#premiumPlanStatus");
+
+
+  const button =
+    $("#activatePremiumBtn");
+
+
+  const home =
+    $("#premiumHomeStatus");
+
+
+  if(
+    premiumActive
+  ){
+
+    status.textContent =
+      "Premium ativo";
+
+
+    button.textContent =
+      "✓ Premium ativado";
+
+
+    button.classList.add(
+      "active"
+    );
+
+
+    home.textContent =
+      "Seu Premium está ativo.";
+
+
+    $("#agendaLoading")
+    .textContent =
+      agendaLoaded
+      ?
+      ""
+      :
+      "Abra a aba Premium para carregar sua agenda.";
+
+  }
+
+
+  else{
+
+    status.textContent =
+      "Premium não ativado";
+
+
+    button.textContent =
+      "👑 Ativar Premium grátis";
+
+
+    button.classList.remove(
+      "active"
+    );
+
+
+    home.textContent =
+      "Ative seu acesso Premium.";
+
+  }
+
 }
 
 
@@ -3304,23 +5645,31 @@ LINKS
 ===============================================
 */
 
-function youtubeSearch(query){
+function youtubeSearch(
+  query
+){
 
   return(
     "https://www.youtube.com/results?search_query="
     +
-    encodeURIComponent(query)
+    encodeURIComponent(
+      query
+    )
   );
 
 }
 
 
-function googleSearch(query){
+function googleSearch(
+  query
+){
 
   return(
     "https://www.google.com/search?q="
     +
-    encodeURIComponent(query)
+    encodeURIComponent(
+      query
+    )
   );
 
 }
@@ -3332,14 +5681,18 @@ FAVORITOS
 ===============================================
 */
 
-function toggleFavorite(id){
+function toggleFavorite(
+  id
+){
 
   id =
     String(id);
 
 
   if(
-    favorites.includes(id)
+    favorites.includes(
+      id
+    )
   ){
 
     favorites =
@@ -3348,16 +5701,23 @@ function toggleFavorite(id){
           item !== id
       );
 
-  }else{
+  }
 
-    favorites.push(id);
+
+  else{
+
+    favorites.push(
+      id
+    );
 
   }
 
 
   localStorage.setItem(
     "stanleySportsFavorites",
-    JSON.stringify(favorites)
+    JSON.stringify(
+      favorites
+    )
   );
 
 
@@ -3366,40 +5726,50 @@ function toggleFavorite(id){
 }
 
 
+/*
+===============================================
+GAME CARD
+===============================================
+*/
+
 function teamLogo(
   logo,
   abbr
 ){
 
-  if(!logo){
+  if(
+    !logo
+  ){
 
     return`
+
       <div class="logo-fallback">
+
         ${abbr || "FC"}
+
       </div>
+
     `;
 
   }
 
 
   return`
+
     <img
       src="${logo}"
       alt=""
       loading="lazy"
     >
+
   `;
 
 }
 
 
-/*
-===============================================
-CARD
-===============================================
-*/
-
-function gameCard(game){
+function gameCard(
+  game
+){
 
   const live =
     isLive(game);
@@ -3410,11 +5780,21 @@ function gameCard(game){
 
 
   const showBroadcasters =
-    shouldShowBroadcasters(game);
+    shouldShowBroadcasters(
+      game
+    );
 
 
   const fav =
-    isFavorite(game);
+    isFavorite(
+      game
+    );
+
+
+  const heart =
+    isHeartGame(
+      game
+    );
 
 
   let statusText =
@@ -3425,10 +5805,13 @@ function gameCard(game){
     "scheduled";
 
 
-  if(ended){
+  if(
+    ended
+  ){
 
     statusText =
       "ENCERRADO";
+
 
     statusClass =
       "";
@@ -3436,12 +5819,15 @@ function gameCard(game){
   }
 
 
-  if(live){
+  if(
+    live
+  ){
 
     statusText =
       game.detail
       ||
       "AO VIVO";
+
 
     statusClass =
       "live";
@@ -3449,7 +5835,8 @@ function gameCard(game){
   }
 
 
-  let scoreHTML = "";
+  let scoreHTML =
+    "";
 
 
   if(
@@ -3462,21 +5849,9 @@ function gameCard(game){
 
       <div class="score">
 
-        ${game.homeScore || 0}
+        ${game.homeScore}
         ×
-        ${game.awayScore || 0}
-
-      </div>
-
-    `;
-
-  }else{
-
-    scoreHTML = `
-
-      <div class="kickoff-label">
-
-        ${formatDayLabel(game.date)}
+        ${game.awayScore}
 
       </div>
 
@@ -3485,12 +5860,36 @@ function gameCard(game){
   }
 
 
-  let notice = "";
+  else{
 
-  let buttons = "";
+    scoreHTML = `
+
+      <div class="kickoff-label">
+
+        ${
+          formatDayLabel(
+            game.date
+          )
+        }
+
+      </div>
+
+    `;
+
+  }
 
 
-  if(ended){
+  let notice =
+    "";
+
+
+  let buttons =
+    "";
+
+
+  if(
+    ended
+  ){
 
     notice = `
 
@@ -3515,7 +5914,9 @@ function gameCard(game){
         target="_blank"
         rel="noopener"
       >
+
         🎬 Melhores momentos
+
       </a>
 
 
@@ -3529,7 +5930,9 @@ function gameCard(game){
         target="_blank"
         rel="noopener"
       >
+
         📊 Detalhes
+
       </a>
 
     `;
@@ -3537,14 +5940,28 @@ function gameCard(game){
   }
 
 
-  else if(!showBroadcasters){
+  else if(
+    !showBroadcasters
+  ){
 
     notice = `
 
       <div class="notice waiting">
 
-        ⏳ ${formatDayLabel(game.date)}
-        às ${formatTime(game.date)}
+        ⏳ ${
+          formatDayLabel(
+            game.date
+          )
+        }
+
+        às
+
+        ${
+          formatTime(
+            game.date
+          )
+        }
+
         • emissoras liberadas 15 minutos antes
 
       </div>
@@ -3564,7 +5981,9 @@ function gameCard(game){
         target="_blank"
         rel="noopener"
       >
+
         🔎 Onde assistir
+
       </a>
 
     `;
@@ -3603,7 +6022,9 @@ function gameCard(game){
         target="_blank"
         rel="noopener"
       >
+
         📺 ge TV
+
       </a>
 
 
@@ -3617,7 +6038,9 @@ function gameCard(game){
         target="_blank"
         rel="noopener"
       >
+
         📺 CazéTV
+
       </a>
 
 
@@ -3625,24 +6048,22 @@ function gameCard(game){
         game.group
         ===
         "brazil"
-
         ?
-
         `
 
-        <a
-          class="action premiere"
-          href="https://globoplay.globo.com/canais/premiere/"
-          target="_blank"
-          rel="noopener"
-        >
-          🔒 Premiere
-        </a>
+          <a
+            class="action premiere"
+            href="https://globoplay.globo.com/canais/premiere/"
+            target="_blank"
+            rel="noopener"
+          >
+
+            🔒 Premiere
+
+          </a>
 
         `
-
         :
-
         ""
       }
 
@@ -3657,7 +6078,9 @@ function gameCard(game){
         target="_blank"
         rel="noopener"
       >
+
         🔎 Onde assistir
+
       </a>
 
     `;
@@ -3677,8 +6100,32 @@ function gameCard(game){
           :
           ""
         }
+        ${
+          heart
+          ?
+          "heart-team"
+          :
+          ""
+        }
       "
     >
+
+
+      ${
+        heart
+        ?
+        `
+
+          <div class="heart-label">
+
+            ❤️ SEU TIME DO CORAÇÃO
+
+          </div>
+
+        `
+        :
+        ""
+      }
 
 
       <div class="game-head">
@@ -3692,13 +6139,16 @@ function gameCard(game){
 
         <div class="game-right">
 
+
           <span
             class="
               status
               ${statusClass}
             "
           >
+
             ${statusText}
+
           </span>
 
 
@@ -3740,10 +6190,12 @@ function gameCard(game){
 
         <div class="team">
 
-          ${teamLogo(
-            game.homeLogo,
-            game.homeAbbr
-          )}
+          ${
+            teamLogo(
+              game.homeLogo,
+              game.homeAbbr
+            )
+          }
 
           <div class="team-name">
 
@@ -3760,7 +6212,11 @@ function gameCard(game){
 
           <div class="time">
 
-            ${formatTime(game.date)}
+            ${
+              formatTime(
+                game.date
+              )
+            }
 
           </div>
 
@@ -3769,10 +6225,12 @@ function gameCard(game){
 
         <div class="team">
 
-          ${teamLogo(
-            game.awayLogo,
-            game.awayAbbr
-          )}
+          ${
+            teamLogo(
+              game.awayLogo,
+              game.awayAbbr
+            )
+          }
 
           <div class="team-name">
 
@@ -3805,14 +6263,16 @@ function gameCard(game){
 
 /*
 ===============================================
-FILTROS
+FILTER
 ===============================================
 */
 
 function filteredGames(){
 
   let list =
-    [...allGames];
+    [
+      ...allGames
+    ];
 
 
   if(
@@ -3822,7 +6282,9 @@ function filteredGames(){
   ){
 
     list =
-      list.filter(isLive);
+      list.filter(
+        isLive
+      );
 
   }
 
@@ -3851,7 +6313,9 @@ function filteredGames(){
   ){
 
     list =
-      list.filter(isFavorite);
+      list.filter(
+        isFavorite
+      );
 
   }
 
@@ -3873,28 +6337,44 @@ function filteredGames(){
   }
 
 
-  if(searchText){
+  if(
+    searchText
+  ){
 
     const query =
-      normalize(searchText);
+      normalize(
+        searchText
+      );
 
 
     list =
       list.filter(
         game =>
 
-          normalize(game.home)
-          .includes(query)
+          normalize(
+            game.home
+          )
+          .includes(
+            query
+          )
 
           ||
 
-          normalize(game.away)
-          .includes(query)
+          normalize(
+            game.away
+          )
+          .includes(
+            query
+          )
 
           ||
 
-          normalize(game.league)
-          .includes(query)
+          normalize(
+            game.league
+          )
+          .includes(
+            query
+          )
 
       );
 
@@ -3915,6 +6395,21 @@ function filteredGames(){
           isLive(b)
           -
           isLive(a)
+        );
+
+      }
+
+
+      if(
+        isHeartGame(a)
+        !==
+        isHeartGame(b)
+      ){
+
+        return(
+          isHeartGame(b)
+          -
+          isHeartGame(a)
         );
 
       }
@@ -3982,12 +6477,6 @@ function filteredGames(){
 }
 
 
-/*
-===============================================
-RENDER
-===============================================
-*/
-
 function renderGames(){
 
   const list =
@@ -3996,73 +6485,85 @@ function renderGames(){
 
   $("#totalGames")
   .textContent =
-  allGames.length;
+    allGames.length;
 
 
   $("#liveGames")
   .textContent =
-  allGames
-  .filter(isLive)
-  .length;
+    allGames
+    .filter(
+      isLive
+    )
+    .length;
 
 
   $("#brazilGames")
   .textContent =
-  allGames
-  .filter(
-    game =>
-      game.group
-      ===
-      "brazil"
-  )
-  .length;
+    allGames
+    .filter(
+      game =>
+        game.group
+        ===
+        "brazil"
+    )
+    .length;
 
 
   $("#favoriteCount")
   .textContent =
-  favorites.length;
+    favorites.length;
 
 
   $("#visibleGames")
   .textContent =
-  list.length;
+    list.length;
 
 
   $("#games")
   .innerHTML =
-  list
-  .map(gameCard)
-  .join("");
+    list
+    .map(
+      gameCard
+    )
+    .join(
+      ""
+    );
 
 
   $("#gamesEmpty")
   .style.display =
-  list.length
-  ?
-  "none"
-  :
-  "block";
+    list.length
+    ?
+    "none"
+    :
+    "block";
 
 
   const favoriteGames =
     allGames
-    .filter(isFavorite);
+    .filter(
+      isFavorite
+    );
 
 
   $("#favoriteGames")
   .innerHTML =
-  favoriteGames
-  .map(gameCard)
-  .join("");
+    favoriteGames
+    .map(
+      gameCard
+    )
+    .join(
+      ""
+    );
 
 
   $("#favoritesEmpty")
   .style.display =
-  favoriteGames.length
-  ?
-  "none"
-  :
-  "block";
+    favoriteGames.length
+    ?
+    "none"
+    :
+    "block";
 
 }
 
@@ -4077,58 +6578,62 @@ function renderSportsShortcuts(){
 
   $("#sportsShortcuts")
   .innerHTML =
-  sportsShortcuts
-  .map(
-    item => `
+    sportsShortcuts
+    .map(
+      item => `
 
-      <a
-        class="sport-shortcut"
-        href="${item.url}"
-        target="_blank"
-        rel="noopener"
-      >
+        <a
+          class="sport-shortcut"
+          href="${item.url}"
+          target="_blank"
+          rel="noopener"
+        >
 
-        <div>
+          <div>
 
-          <div class="sport-shortcut-icon">
+            <div class="sport-shortcut-icon">
 
-            ${item.icon}
+              ${item.icon}
+
+            </div>
+
+
+            <h4>
+
+              ${item.name}
+
+            </h4>
+
+
+            <p>
+
+              ${item.description}
+
+            </p>
 
           </div>
 
-          <h4>
 
-            ${item.name}
+          <div class="sport-shortcut-open">
 
-          </h4>
+            Abrir →
 
-          <p>
+          </div>
 
-            ${item.description}
+        </a>
 
-          </p>
-
-        </div>
-
-
-        <div class="sport-shortcut-open">
-
-          Abrir →
-
-        </div>
-
-      </a>
-
-    `
-  )
-  .join("");
+      `
+    )
+    .join(
+      ""
+    );
 
 }
 
 
 /*
 ===============================================
-TABELA
+TABLE
 ===============================================
 */
 
@@ -4140,7 +6645,9 @@ function statValue(
   const item =
     stats.find(
       stat =>
-        keys.includes(stat.name)
+        keys.includes(
+          stat.name
+        )
         ||
         keys.includes(
           stat.abbreviation
@@ -4163,17 +6670,17 @@ async function loadStandings(){
 
   $("#standingsLoading")
   .style.display =
-  "block";
+    "block";
 
 
   $("#standingsWrap")
   .style.display =
-  "none";
+    "none";
 
 
   $("#standingsError")
   .style.display =
-  "none";
+    "none";
 
 
   try{
@@ -4193,7 +6700,9 @@ async function loadStandings(){
       );
 
 
-    if(!response.ok){
+    if(
+      !response.ok
+    ){
       throw new Error();
     }
 
@@ -4243,106 +6752,153 @@ async function loadStandings(){
 
     $("#standingsBody")
     .innerHTML =
-    entries
-    .map(
-      (
-        row,
-        index
-      ) => {
+      entries
+      .map(
+        (
+          row,
+          index
+        ) => {
 
 
-        const stats =
-          row.stats
-          ||
-          [];
+          const stats =
+            row.stats
+            ||
+            [];
 
 
-        const team =
-          row.team
-          ||
-          {};
+          const team =
+            row.team
+            ||
+            {};
 
 
-        return`
+          return`
 
-          <tr>
+            <tr>
 
-            <td>
-
-              ${
-                statValue(
-                  stats,
-                  ["rank"]
-                )
-                ||
-                index+1
-              }
-
-            </td>
-
-
-            <td class="team-cell">
-
-              <div class="table-team">
+              <td>
 
                 ${
-                  team.logos?.[0]?.href
-                  ?
-                  `
-                    <img
-                      src="${team.logos[0].href}"
-                      alt=""
-                    >
-                  `
-                  :
-                  ""
+                  statValue(
+                    stats,
+                    ["rank"]
+                  )
+                  ||
+                  index+1
                 }
 
+              </td>
+
+
+              <td class="team-cell">
+
+                <div class="table-team">
+
+                  ${
+                    team.logos?.[0]?.href
+                    ?
+                    `
+                      <img
+                        src="${team.logos[0].href}"
+                        alt=""
+                      >
+                    `
+                    :
+                    ""
+                  }
+
+                  ${
+                    team.displayName
+                    ||
+                    team.name
+                    ||
+                    "Time"
+                  }
+
+                </div>
+
+              </td>
+
+
+              <td>
                 ${
-                  team.displayName
-                  ||
-                  team.name
-                  ||
-                  "Time"
+                  statValue(
+                    stats,
+                    [
+                      "points",
+                      "PTS"
+                    ]
+                  )
                 }
-
-              </div>
-
-            </td>
+              </td>
 
 
-            <td>
-              ${statValue(stats,["points","PTS"])}
-            </td>
+              <td>
+                ${
+                  statValue(
+                    stats,
+                    [
+                      "gamesPlayed",
+                      "GP"
+                    ]
+                  )
+                }
+              </td>
 
-            <td>
-              ${statValue(stats,["gamesPlayed","GP"])}
-            </td>
 
-            <td>
-              ${statValue(stats,["wins","W"])}
-            </td>
+              <td>
+                ${
+                  statValue(
+                    stats,
+                    [
+                      "wins",
+                      "W"
+                    ]
+                  )
+                }
+              </td>
 
-            <td>
-              ${statValue(stats,["ties","draws","D"])}
-            </td>
 
-            <td>
-              ${statValue(stats,["losses","L"])}
-            </td>
+              <td>
+                ${
+                  statValue(
+                    stats,
+                    [
+                      "ties",
+                      "draws",
+                      "D"
+                    ]
+                  )
+                }
+              </td>
 
-          </tr>
 
-        `;
+              <td>
+                ${
+                  statValue(
+                    stats,
+                    [
+                      "losses",
+                      "L"
+                    ]
+                  )
+                }
+              </td>
 
-      }
-    )
-    .join("");
+            </tr>
+
+          `;
+
+        }
+      )
+      .join(
+        ""
+      );
 
 
     $("#standingsWrap")
     .style.display =
-    "block";
+      "block";
 
 
   }catch(error){
@@ -4350,7 +6906,7 @@ async function loadStandings(){
 
     $("#standingsError")
     .style.display =
-    "block";
+      "block";
 
 
   }finally{
@@ -4358,7 +6914,7 @@ async function loadStandings(){
 
     $("#standingsLoading")
     .style.display =
-    "none";
+      "none";
 
 
   }
@@ -4368,11 +6924,13 @@ async function loadStandings(){
 
 /*
 ===============================================
-TV / FILMES
+TV
 ===============================================
 */
 
-function networkLogo(domain){
+function networkLogo(
+  domain
+){
 
   return(
     `https://www.google.com/s2/favicons?domain_url=https://${domain}&sz=128`
@@ -4385,148 +6943,166 @@ function renderTv(){
 
   $("#tvGrid")
   .innerHTML =
-  tvChannels
-  .map(
-    item => `
+    tvChannels
+    .map(
+      item => `
 
-      <a
-        class="media-card"
-        href="${item.url}"
-        target="_blank"
-        rel="noopener"
-      >
+        <a
+          class="media-card"
+          href="${item.url}"
+          target="_blank"
+          rel="noopener"
+        >
 
-        <div class="network-logo-wrap">
+          <div class="network-logo-wrap">
 
-          <img
-            class="network-logo"
-            src="${networkLogo(item.domain)}"
-            alt="${item.name}"
-          >
+            <img
+              class="network-logo"
+              src="${
+                networkLogo(
+                  item.domain
+                )
+              }"
+              alt="${item.name}"
+            >
 
-        </div>
-
-
-        <div class="media-badge">
-
-          ${item.badge}
-
-        </div>
+          </div>
 
 
-        <h4>
+          <div class="media-badge">
 
-          ${item.name}
+            ${item.badge}
 
-        </h4>
-
-
-        <p>
-
-          ${item.description}
-
-        </p>
+          </div>
 
 
-        <div class="media-open">
+          <h4>
 
-          <span>
-            Abrir oficial
-          </span>
+            ${item.name}
 
-          <span>
-            ›
-          </span>
-
-        </div>
-
-      </a>
-
-    `
-  )
-  .join("");
-
-}
+          </h4>
 
 
-function renderMovies(){
+          <p>
 
-  $("#movieGrid")
-  .innerHTML =
-  entertainment
-  .map(
-    item => `
+            ${item.description}
 
-      <a
-        class="media-card"
-        href="${item.url}"
-        target="_blank"
-        rel="noopener"
-      >
-
-        <div class="media-icon">
-
-          ${item.icon}
-
-        </div>
+          </p>
 
 
-        <div class="media-badge">
+          <div class="media-open">
 
-          ${item.badge}
+            <span>
+              Abrir oficial
+            </span>
 
-        </div>
+            <span>
+              ›
+            </span>
 
+          </div>
 
-        <h4>
+        </a>
 
-          ${item.name}
-
-        </h4>
-
-
-        <p>
-
-          ${item.description}
-
-        </p>
-
-
-        <div class="media-open">
-
-          <span>
-            Abrir
-          </span>
-
-          <span>
-            ›
-          </span>
-
-        </div>
-
-      </a>
-
-    `
-  )
-  .join("");
+      `
+    )
+    .join(
+      ""
+    );
 
 }
 
 
 /*
 ===============================================
-NAVEGAÇÃO
+MOVIES
 ===============================================
 */
 
-function openView(name){
+function renderMovies(){
+
+  $("#movieGrid")
+  .innerHTML =
+    entertainment
+    .map(
+      item => `
+
+        <a
+          class="media-card"
+          href="${item.url}"
+          target="_blank"
+          rel="noopener"
+        >
+
+          <div class="media-icon">
+
+            ${item.icon}
+
+          </div>
+
+
+          <div class="media-badge">
+
+            ${item.badge}
+
+          </div>
+
+
+          <h4>
+
+            ${item.name}
+
+          </h4>
+
+
+          <p>
+
+            ${item.description}
+
+          </p>
+
+
+          <div class="media-open">
+
+            <span>
+              Abrir
+            </span>
+
+            <span>
+              ›
+            </span>
+
+          </div>
+
+        </a>
+
+      `
+    )
+    .join(
+      ""
+    );
+
+}
+
+
+/*
+===============================================
+NAV
+===============================================
+*/
+
+function openView(
+  name
+){
 
   $$(".view")
   .forEach(
     view =>
       view
       .classList
-      .remove("active")
+      .remove(
+        "active"
+      )
   );
 
 
@@ -4535,13 +7111,17 @@ function openView(name){
     button =>
       button
       .classList
-      .remove("active")
+      .remove(
+        "active"
+      )
   );
 
 
   $(`#view${name}`)
   .classList
-  .add("active");
+  .add(
+    "active"
+  );
 
 
   document
@@ -4549,7 +7129,9 @@ function openView(name){
     `[data-view="${name}"]`
   )
   ?.classList
-  .add("active");
+  .add(
+    "active"
+  );
 
 
   if(
@@ -4559,6 +7141,39 @@ function openView(name){
   ){
 
     loadStandings();
+
+  }
+
+
+  if(
+    name
+    ===
+    "Premium"
+  ){
+
+    populateHeartTeams();
+
+    renderHeartSelected();
+
+    renderPremiumStatus();
+
+
+    if(
+      premiumActive
+    ){
+
+      loadAgendaPremium();
+
+
+      if(
+        heartTeam
+      ){
+
+        loadHistoryPremium();
+
+      }
+
+    }
 
   }
 
@@ -4573,7 +7188,7 @@ function openView(name){
 
 /*
 ===============================================
-EVENTOS
+EVENTS
 ===============================================
 */
 
@@ -4604,18 +7219,23 @@ $$(".game-chip")
       "click",
       () => {
 
+
         $$(".game-chip")
         .forEach(
           item =>
             item
             .classList
-            .remove("active")
+            .remove(
+              "active"
+            )
         );
 
 
         button
         .classList
-        .add("active");
+        .add(
+          "active"
+        );
 
 
         gameFilter =
@@ -4655,12 +7275,55 @@ $("#leagueSelect")
 $("#refreshBtn")
 .addEventListener(
   "click",
-  refreshGames
+  async () => {
+
+    await refreshGames();
+
+
+    if(
+      premiumActive
+    ){
+
+      agendaLoaded =
+        false;
+
+
+      historyLoaded =
+        false;
+
+
+      if(
+        document
+        .querySelector(
+          "#viewPremium"
+        )
+        .classList
+        .contains(
+          "active"
+        )
+      ){
+
+        await loadAgendaPremium();
+
+
+        if(
+          heartTeam
+        ){
+
+          await loadHistoryPremium();
+
+        }
+
+      }
+
+    }
+
+  }
 );
 
 
 /*
-Atualiza liberação dos canais
+Atualiza relógio dos 15 minutos
 */
 
 setInterval(
@@ -4670,7 +7333,7 @@ setInterval(
 
 
 /*
-Atualiza placares
+Atualiza placar
 */
 
 setInterval(
@@ -4681,7 +7344,7 @@ setInterval(
 
 /*
 ===============================================
-INÍCIO
+START
 ===============================================
 */
 
@@ -4693,11 +7356,15 @@ renderTv();
 
 renderMovies();
 
+renderHeartSelected();
+
 refreshGames();
 
 
 /*
+===============================================
 PWA
+===============================================
 */
 
 if(
@@ -4713,6 +7380,13 @@ if(
       .serviceWorker
       .register(
         "./service-worker.js"
+      )
+      .catch(
+        error =>
+          console.error(
+            "Erro PWA:",
+            error
+          )
       );
 
     }
@@ -4721,7 +7395,6 @@ if(
 }
 
 </script>
-
 
 </body>
 
