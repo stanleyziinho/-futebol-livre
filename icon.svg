@@ -15,178 +15,162 @@
 
       <stop
         offset="0%"
-        stop-color="#123d23"
+        stop-color="#06180d"
       />
 
       <stop
         offset="100%"
-        stop-color="#041109"
+        stop-color="#0e321c"
       />
 
     </linearGradient>
 
 
-    <radialGradient
-      id="glow"
-      cx="30%"
-      cy="20%"
-      r="80%"
+    <linearGradient
+      id="green"
+      x1="0"
+      y1="0"
+      x2="1"
+      y2="1"
     >
 
       <stop
         offset="0%"
-        stop-color="#39e27d"
-        stop-opacity=".35"
+        stop-color="#6aff9c"
       />
 
       <stop
         offset="100%"
-        stop-color="#39e27d"
-        stop-opacity="0"
+        stop-color="#20c765"
       />
 
-    </radialGradient>
+    </linearGradient>
 
   </defs>
 
 
-  <!-- fundo -->
-
   <rect
     width="512"
     height="512"
-    rx="120"
+    rx="110"
     fill="url(#bg)"
   />
 
 
-  <rect
-    width="512"
-    height="512"
-    rx="120"
-    fill="url(#glow)"
+  <circle
+    cx="256"
+    cy="214"
+    r="125"
+    fill="none"
+    stroke="#39e27d"
+    stroke-width="11"
+    opacity=".22"
   />
 
-
-  <!-- círculo da bola -->
 
   <circle
     cx="256"
-    cy="230"
-    r="128"
-    fill="#f5fff8"
+    cy="214"
+    r="92"
+    fill="#07180e"
+    stroke="#39e27d"
+    stroke-width="9"
   />
 
 
-  <!-- pentágono central -->
-
-  <path
-    d="
-      M256 171
-      L305 207
-      L286 265
-      L226 265
-      L207 207
-      Z
+  <polygon
+    points="
+      256,154
+      295,182
+      280,227
+      232,227
+      217,182
     "
-    fill="#07170e"
-  />
-
-
-  <!-- partes pretas -->
-
-  <path
-    d="
-      M256 102
-      L215 133
-      L225 174
-      L256 171
-      L287 174
-      L297 133
-      Z
-    "
-    fill="#07170e"
+    fill="url(#green)"
   />
 
 
   <path
     d="
-      M135 192
-      L179 173
-      L207 207
-      L188 248
-      L143 243
-      Z
+      M217 182
+      L179 170
+      L157 205
+      L181 244
+      L232 227
     "
-    fill="#07170e"
+    fill="none"
+    stroke="#39e27d"
+    stroke-width="8"
   />
 
 
   <path
     d="
-      M377 192
-      L333 173
-      L305 207
-      L324 248
-      L369 243
-      Z
+      M295 182
+      L333 170
+      L355 205
+      L331 244
+      L280 227
     "
-    fill="#07170e"
+    fill="none"
+    stroke="#39e27d"
+    stroke-width="8"
   />
 
 
   <path
     d="
-      M181 330
-      L188 282
-      L226 265
-      L258 296
-      L239 342
-      Z
+      M181 244
+      L199 292
+      L245 307
+      L256 266
+      L232 227
     "
-    fill="#07170e"
+    fill="none"
+    stroke="#39e27d"
+    stroke-width="8"
   />
 
 
   <path
     d="
-      M331 330
-      L324 282
-      L286 265
-      L254 296
-      L273 342
-      Z
+      M331 244
+      L313 292
+      L267 307
+      L256 266
+      L280 227
     "
-    fill="#07170e"
+    fill="none"
+    stroke="#39e27d"
+    stroke-width="8"
   />
 
-
-  <!-- nome -->
 
   <text
     x="256"
-    y="420"
+    y="395"
     text-anchor="middle"
-    fill="#39e27d"
-    font-size="52"
-    font-family="Arial, Helvetica, sans-serif"
+    fill="#f4fff8"
+    font-size="78"
     font-weight="900"
+    font-family="Arial, Helvetica, sans-serif"
+    letter-spacing="-5"
   >
-    FL
+    SS
   </text>
 
 
   <text
     x="256"
-    y="455"
+    y="435"
     text-anchor="middle"
-    fill="#dff7e7"
-    font-size="19"
+    fill="#39e27d"
+    font-size="22"
+    font-weight="800"
     font-family="Arial, Helvetica, sans-serif"
-    font-weight="700"
     letter-spacing="3"
   >
-    FUTEBOL LIVRE
+    STANLEY SPORTS
   </text>
 
 </svg>
