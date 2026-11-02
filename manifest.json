@@ -1,7 +1,7 @@
 {
   "name": "Stanley Sports",
   "short_name": "Stanley Sports",
-  "description": "Futebol, placares, tabelas, TV, filmes e entretenimento.",
+  "description": "Futebol, placares, tabelas, TV e entretenimento.",
   "start_url": "/-futebol-livre/",
   "scope": "/-futebol-livre/",
   "display": "standalone",
@@ -9,7 +9,7 @@
   "background_color": "#041109",
   "theme_color": "#041109",
   "lang": "pt-BR",
-  "categories": ["sports","entertainment"],
+  "categories": ["sports", "entertainment"],
   "icons": [
     {
       "src": "icon.svg",
