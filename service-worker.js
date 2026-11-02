@@ -1,6 +1,9 @@
-const CACHE_NAME = "stanley-sports-v12";
+const CACHE_NAME =
+  "stanley-sports-v13";
+
 
 const APP_SHELL = [
+
   "/-futebol-livre/",
   "/-futebol-livre/index.html",
   "/-futebol-livre/manifest.json",
@@ -8,6 +11,7 @@ const APP_SHELL = [
   "/-futebol-livre/stanley-sports-icon-192.png",
   "/-futebol-livre/stanley-sports-icon-512.png",
   "/-futebol-livre/stanley-sports-apple-180.png"
+
 ];
 
 
@@ -17,13 +21,18 @@ self.addEventListener(
 
     self.skipWaiting();
 
+
     event.waitUntil(
 
       caches
-      .open(CACHE_NAME)
+      .open(
+        CACHE_NAME
+      )
       .then(
         cache =>
-          cache.addAll(APP_SHELL)
+          cache.addAll(
+            APP_SHELL
+          )
       )
 
     );
@@ -54,7 +63,11 @@ self.addEventListener(
                   CACHE_NAME
                 ){
 
-                  return caches.delete(key);
+                  return(
+                    caches.delete(
+                      key
+                    )
+                  );
 
                 }
 
@@ -89,7 +102,9 @@ self.addEventListener(
       !==
       "GET"
     ){
+
       return;
+
     }
 
 
@@ -98,6 +113,11 @@ self.addEventListener(
         request.url
       );
 
+
+    /*
+    HTML
+    INTERNET PRIMEIRO
+    */
 
     if(
       request.mode
@@ -122,13 +142,18 @@ self.addEventListener(
 
 
             caches
-            .open(CACHE_NAME)
+            .open(
+              CACHE_NAME
+            )
             .then(
-              cache =>
+              cache => {
+
                 cache.put(
                   request,
                   copy
-                )
+                );
+
+              }
             );
 
 
@@ -151,6 +176,10 @@ self.addEventListener(
 
     }
 
+
+    /*
+    ARQUIVOS LOCAIS
+    */
 
     if(
       url.origin
@@ -175,13 +204,18 @@ self.addEventListener(
 
 
             caches
-            .open(CACHE_NAME)
+            .open(
+              CACHE_NAME
+            )
             .then(
-              cache =>
+              cache => {
+
                 cache.put(
                   request,
                   copy
-                )
+                );
+
+              }
             );
 
 
@@ -192,7 +226,9 @@ self.addEventListener(
 
         .catch(
           () =>
-            caches.match(request)
+            caches.match(
+              request
+            )
         )
 
       );
@@ -203,8 +239,14 @@ self.addEventListener(
     }
 
 
+    /*
+    APIs EXTERNAS
+    */
+
     event.respondWith(
-      fetch(request)
+      fetch(
+        request
+      )
     );
 
   }
