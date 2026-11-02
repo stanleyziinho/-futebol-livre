@@ -9,7 +9,10 @@
   "background_color": "#041109",
   "theme_color": "#041109",
   "lang": "pt-BR",
-  "categories": ["sports", "entertainment"],
+  "categories": [
+    "sports",
+    "entertainment"
+  ],
   "icons": [
     {
       "src": "icon.svg",
