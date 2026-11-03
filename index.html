@@ -12943,7 +12943,8 @@ const ssOriginalRenderAnalysisModal =
 
 
 window.renderAnalysisModal =
-function(game,data,ge){
+function(game,data,ge,preGame){
+
 
   /*
   Primeiro executa exatamente
@@ -12951,11 +12952,12 @@ function(game,data,ge){
   */
 
   const result =
-    ssOriginalRenderAnalysisModal(
-      game,
-      data,
-      ge
-    );
+  ssOriginalRenderAnalysisModal(
+    game,
+    data,
+    ge,
+    preGame
+  );
 
 
   /*
@@ -13545,14 +13547,15 @@ const ssRenderBeforeGoals =
 
 
 window.renderAnalysisModal =
-function(game,data,ge){
+function(game,data,ge,preGame){
 
   const result =
-    ssRenderBeforeGoals(
-      game,
-      data,
-      ge
-    );
+  ssRenderBeforeGoals(
+    game,
+    data,
+    ge,
+    preGame
+  );
 
 
   setTimeout(
@@ -14016,15 +14019,17 @@ window.renderAnalysisModal =
 function(
   game,
   data,
-  ge
+  ge,
+  preGame
 ){
 
   const result =
-    ssSummaryOriginalRender(
-      game,
-      data,
-      ge
-    );
+  ssSummaryOriginalRender(
+    game,
+    data,
+    ge,
+    preGame
+  );
 
 
   setTimeout(
