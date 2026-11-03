@@ -14664,5 +14664,598 @@ console.log(
 );
 
 </script>
+<style>
+.ss-goals-box{
+  margin-top:18px;
+  padding:18px;
+  border-radius:22px;
+  border:1px solid rgba(56,228,125,.30);
+  background:#061b0e;
+}
+
+.ss-goals-box h3{
+  margin:0 0 14px;
+  font-size:20px;
+}
+
+.ss-goals-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:8px;
+}
+
+.ss-goals-card{
+  padding:14px 6px;
+  border-radius:15px;
+  background:#102819;
+  text-align:center;
+}
+
+.ss-goals-card small{
+  display:block;
+  margin-bottom:6px;
+  color:#8da696;
+  font-size:8px;
+  font-weight:900;
+}
+
+.ss-goals-card strong{
+  color:#38e47d;
+  font-size:18px;
+}
+
+.ss-goals-estimated{
+  margin-top:10px;
+  color:#8da696;
+  font-size:9px;
+  text-align:center;
+}
+</style>
+
+<script>
+
+/* =========================================
+TENDÊNCIA DE GOLS — RESTAURAÇÃO REAL
+========================================= */
+
+function ssPercent(value){
+
+  if(
+    value === null ||
+    value === undefined ||
+    value === ""
+  ){
+    return 0;
+  }
+
+  return Math.max(
+    0,
+    Math.min(
+      100,
+      Number(
+        String(value)
+          .replace("%","")
+      ) || 0
+    )
+  );
+
+}
+
+
+function ssSafeNumber(value){
+
+  const n = Number(value);
+
+  return Number.isFinite(n)
+    ? n
+    : 0;
+
+}
+
+
+/* =========================================
+POISSON
+========================================= */
+
+function ssFactorial(number){
+
+  let result = 1;
+
+  for(
+    let i=2;
+    i<=number;
+    i++
+  ){
+    result *= i;
+  }
+
+  return result;
+
+}
+
+
+function ssPoisson(goals,lambda){
+
+  return(
+    Math.exp(-lambda)
+    *
+    Math.pow(lambda,goals)
+    /
+    ssFactorial(goals)
+  );
+
+}
+
+
+function ssGoalMarkets(
+  lambdaHome,
+  lambdaAway
+){
+
+  lambdaHome =
+    Math.max(
+      .1,
+      Math.min(
+        5,
+        lambdaHome
+      )
+    );
+
+  lambdaAway =
+    Math.max(
+      .1,
+      Math.min(
+        5,
+        lambdaAway
+      )
+    );
+
+
+  let over15 = 0;
+  let over25 = 0;
+  let both = 0;
+  let total = 0;
+
+
+  for(
+    let home=0;
+    home<=8;
+    home++
+  ){
+
+    for(
+      let away=0;
+      away<=8;
+      away++
+    ){
+
+      const probability =
+        ssPoisson(
+          home,
+          lambdaHome
+        )
+        *
+        ssPoisson(
+          away,
+          lambdaAway
+        );
+
+
+      total += probability;
+
+
+      if(
+        home + away >= 2
+      ){
+        over15 += probability;
+      }
+
+
+      if(
+        home + away >= 3
+      ){
+        over25 += probability;
+      }
+
+
+      if(
+        home >= 1
+        &&
+        away >= 1
+      ){
+        both += probability;
+      }
+
+    }
+
+  }
+
+
+  return{
+
+    over15:
+      Math.round(
+        over15
+        /
+        total
+        *
+        100
+      ),
+
+    over25:
+      Math.round(
+        over25
+        /
+        total
+        *
+        100
+      ),
+
+    btts:
+      Math.round(
+        both
+        /
+        total
+        *
+        100
+      )
+
+  };
+
+}
+
+
+/* =========================================
+ÚLTIMOS 5
+========================================= */
+
+function ssLast5Stats(team){
+
+  const last5 =
+    team?.last5
+    ||
+    {};
+
+  const goalsFor =
+    last5?.goals?.for
+    ||
+    {};
+
+  const goalsAgainst =
+    last5?.goals?.against
+    ||
+    {};
+
+
+  return{
+
+    goalsForAverage:
+      ssSafeNumber(
+        goalsFor.average
+      ),
+
+    goalsAgainstAverage:
+      ssSafeNumber(
+        goalsAgainst.average
+      )
+
+  };
+
+}
+
+
+/* =========================================
+DADOS DOS MERCADOS
+========================================= */
+
+function ssGetGoalMarketData(data){
+
+  if(!data){
+    return null;
+  }
+
+
+  const provided =
+    data.markets
+    ||
+    {};
+
+
+  const home =
+    ssLast5Stats(
+      data?.teams?.home
+    );
+
+
+  const away =
+    ssLast5Stats(
+      data?.teams?.away
+    );
+
+
+  const lambdaHome =
+    (
+      home.goalsForAverage
+      +
+      away.goalsAgainstAverage
+    )
+    /
+    2;
+
+
+  const lambdaAway =
+    (
+      away.goalsForAverage
+      +
+      home.goalsAgainstAverage
+    )
+    /
+    2;
+
+
+  const calculated =
+    (
+      lambdaHome > 0
+      ||
+      lambdaAway > 0
+    )
+
+    ?
+
+    ssGoalMarkets(
+      lambdaHome || 1,
+      lambdaAway || 1
+    )
+
+    :
+
+    {};
+
+
+  const over15 =
+    provided.over15
+    ??
+    (
+      calculated.over15 != null
+      ?
+      `${calculated.over15}%`
+      :
+      null
+    );
+
+
+  const over25 =
+    provided.over25
+    ??
+    (
+      calculated.over25 != null
+      ?
+      `${calculated.over25}%`
+      :
+      null
+    );
+
+
+  const btts =
+    provided.bothTeamsScore
+    ??
+    (
+      calculated.btts != null
+      ?
+      `${calculated.btts}%`
+      :
+      null
+    );
+
+
+  if(
+    !over15
+    &&
+    !over25
+    &&
+    !btts
+  ){
+    return null;
+  }
+
+
+  return{
+
+    over15,
+    over25,
+    btts,
+
+    estimated:
+      !provided.over15
+      &&
+      !provided.over25
+      &&
+      !provided.bothTeamsScore
+
+  };
+
+}
+
+
+/* =========================================
+HTML
+========================================= */
+
+function ssGoalsHTML(data){
+
+  const markets =
+    ssGetGoalMarketData(
+      data
+    );
+
+
+  if(!markets){
+    return "";
+  }
+
+
+  return`
+    <section
+      class="ss-goals-box"
+      data-ss-goals-real="1"
+    >
+
+      <h3>
+        ⚽ Tendência de gols
+      </h3>
+
+
+      <div class="ss-goals-grid">
+
+        <div class="ss-goals-card">
+
+          <small>
+            MAIS DE 1.5 GOLS
+          </small>
+
+          <strong>
+            ${markets.over15 || "—"}
+          </strong>
+
+        </div>
+
+
+        <div class="ss-goals-card">
+
+          <small>
+            MAIS DE 2.5 GOLS
+          </small>
+
+          <strong>
+            ${markets.over25 || "—"}
+          </strong>
+
+        </div>
+
+
+        <div class="ss-goals-card">
+
+          <small>
+            AMBAS MARCAM
+          </small>
+
+          <strong>
+            ${markets.btts || "—"}
+          </strong>
+
+        </div>
+
+      </div>
+
+
+      ${
+        markets.estimated
+        ?
+        `
+        <div class="ss-goals-estimated">
+          📊 Estimativa Stanley Sports baseada
+          nos últimos jogos das equipes.
+        </div>
+        `
+        :
+        ""
+      }
+
+    </section>
+  `;
+
+}
+
+
+/* =========================================
+APLICA NO PREMIUM
+========================================= */
+
+const ssRenderBeforeGoals =
+  window.renderAnalysisModal;
+
+
+window.renderAnalysisModal =
+function(game,data,ge){
+
+  const result =
+    ssRenderBeforeGoals(
+      game,
+      data,
+      ge
+    );
+
+
+  setTimeout(
+    ()=>{
+
+      const body =
+        document.getElementById(
+          "modalBody"
+        );
+
+
+      if(!body){
+        return;
+      }
+
+
+      if(
+        body.querySelector(
+          "[data-ss-goals-real='1']"
+        )
+      ){
+        return;
+      }
+
+
+      const html =
+        ssGoalsHTML(
+          data
+        );
+
+
+      if(!html){
+        return;
+      }
+
+
+      const warning =
+        body.querySelector(
+          ".warning"
+        );
+
+
+      if(warning){
+
+        warning.insertAdjacentHTML(
+          "beforebegin",
+          html
+        );
+
+      }else{
+
+        body.insertAdjacentHTML(
+          "beforeend",
+          html
+        );
+
+      }
+
+    },
+    80
+  );
+
+
+  return result;
+
+};
+
+
+console.log(
+  "⚽ Tendência de gols original restaurada"
+);
+
+</script>
 </body>
 </html>
