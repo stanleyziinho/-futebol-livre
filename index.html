@@ -14256,5 +14256,413 @@ console.log(
 );
 
 </script>
+<style>
+
+.ss-goals-premium{
+  margin-top:14px;
+  padding:18px;
+  border-radius:22px;
+  border:1px solid rgba(56,228,125,.30);
+  background:#061b0e;
+}
+
+.ss-goals-premium h3{
+  margin:0 0 14px;
+  font-size:20px;
+}
+
+.ss-goals-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:8px;
+}
+
+.ss-goal-card{
+  padding:13px 7px;
+  border-radius:14px;
+  background:#102819;
+  text-align:center;
+}
+
+.ss-goal-card small{
+  display:block;
+  margin-bottom:6px;
+  color:#8da696;
+  font-size:8px;
+  font-weight:900;
+}
+
+.ss-goal-card strong{
+  color:#38e47d;
+  font-size:18px;
+}
+
+.ss-goals-note{
+  margin-top:11px;
+  color:#8da696;
+  font-size:9px;
+  line-height:1.5;
+}
+
+</style>
+
+<script>
+
+/* =========================================================
+STANLEY SPORTS
+RESTAURA TENDÊNCIA DE GOLS / AMBAS MARCAM
+========================================================= */
+
+function ssGoalPercent(value){
+
+  if(
+    value === null
+    ||
+    value === undefined
+    ||
+    value === ""
+  ){
+    return null;
+  }
+
+  const n =
+    parseFloat(
+      String(value)
+        .replace("%","")
+        .replace(",",".")
+    );
+
+  return Number.isFinite(n)
+    ? Math.round(n)
+    : null;
+
+}
+
+
+/* procura o primeiro valor válido */
+function ssFirstGoalValue(...values){
+
+  for(const value of values){
+
+    const n =
+      ssGoalPercent(value);
+
+    if(n !== null){
+      return n;
+    }
+
+  }
+
+  return null;
+
+}
+
+
+/* =========================================================
+LÊ DIFERENTES FORMATOS POSSÍVEIS DA API
+========================================================= */
+
+function ssExtractGoals(data){
+
+  if(!data){
+    return null;
+  }
+
+  const goals =
+    data.goals
+    ||
+    data.goalProbabilities
+    ||
+    data.markets
+    ||
+    {};
+
+  const prediction =
+    data.prediction
+    ||
+    data.predictions
+    ||
+    {};
+
+
+  const over15 =
+    ssFirstGoalValue(
+
+      goals.over15,
+      goals.over1_5,
+      goals.over_1_5,
+
+      data.over15,
+      data.over1_5,
+
+      prediction.over15,
+      prediction.over1_5,
+
+      data?.probabilities?.over15,
+      data?.probabilities?.over1_5
+
+    );
+
+
+  const over25 =
+    ssFirstGoalValue(
+
+      goals.over25,
+      goals.over2_5,
+      goals.over_2_5,
+
+      data.over25,
+      data.over2_5,
+
+      prediction.over25,
+      prediction.over2_5,
+
+      data?.probabilities?.over25,
+      data?.probabilities?.over2_5
+
+    );
+
+
+  const btts =
+    ssFirstGoalValue(
+
+      goals.btts,
+      goals.bothTeamsScore,
+      goals.bothTeamsToScore,
+      goals.bothScore,
+      goals.ambasMarcam,
+
+      data.btts,
+      data.bothTeamsScore,
+      data.bothTeamsToScore,
+
+      prediction.btts,
+      prediction.bothTeamsScore,
+
+      data?.probabilities?.btts,
+      data?.probabilities?.bothTeamsScore
+
+    );
+
+
+  const avg =
+    ssFirstGoalValue(
+
+      goals.average,
+      goals.avg,
+      goals.averageGoals,
+
+      data.averageGoals,
+      data.avgGoals
+
+    );
+
+
+  if(
+    over15 === null
+    &&
+    over25 === null
+    &&
+    btts === null
+    &&
+    avg === null
+  ){
+    return null;
+  }
+
+
+  return{
+    over15,
+    over25,
+    btts,
+    avg
+  };
+
+}
+
+
+/* =========================================================
+MONTA BLOCO
+========================================================= */
+
+function ssGoalsPremiumHTML(data){
+
+  const goals =
+    ssExtractGoals(data);
+
+  if(!goals){
+    return "";
+  }
+
+  let cards = "";
+
+
+  if(goals.over15 !== null){
+
+    cards += `
+      <div class="ss-goal-card">
+        <small>MAIS DE 1.5</small>
+        <strong>${goals.over15}%</strong>
+      </div>
+    `;
+
+  }
+
+
+  if(goals.over25 !== null){
+
+    cards += `
+      <div class="ss-goal-card">
+        <small>MAIS DE 2.5</small>
+        <strong>${goals.over25}%</strong>
+      </div>
+    `;
+
+  }
+
+
+  if(goals.btts !== null){
+
+    cards += `
+      <div class="ss-goal-card">
+        <small>AMBAS MARCAM</small>
+        <strong>${goals.btts}%</strong>
+      </div>
+    `;
+
+  }
+
+
+  if(!cards){
+    return "";
+  }
+
+
+  return `
+    <section
+      class="ss-goals-premium"
+      data-ss-goals="1"
+    >
+
+      <h3>
+        ⚽ Tendência de gols
+      </h3>
+
+      <div class="ss-goals-grid">
+        ${cards}
+      </div>
+
+      <div class="ss-goals-note">
+        Indicadores estatísticos do confronto.
+        Os percentuais são informativos e não
+        garantem resultados.
+      </div>
+
+    </section>
+  `;
+
+}
+
+
+/* =========================================================
+INTERCEPTA O RENDER PREMIUM
+SEM ALTERAR O ORIGINAL
+========================================================= */
+
+const ssOriginalRenderAnalysisModal =
+  window.renderAnalysisModal;
+
+
+window.renderAnalysisModal =
+function(game,data,ge){
+
+  /*
+  Primeiro executa exatamente
+  o painel que já funciona.
+  */
+
+  const result =
+    ssOriginalRenderAnalysisModal(
+      game,
+      data,
+      ge
+    );
+
+
+  /*
+  Depois acrescenta a tendência
+  de gols apenas se ainda não existir.
+  */
+
+  setTimeout(
+    ()=>{
+
+      const body =
+        document.getElementById(
+          "modalBody"
+        );
+
+      if(!body){
+        return;
+      }
+
+
+      if(
+        body.querySelector(
+          "[data-ss-goals='1']"
+        )
+      ){
+        return;
+      }
+
+
+      const html =
+        ssGoalsPremiumHTML(
+          data
+        );
+
+
+      if(!html){
+        return;
+      }
+
+
+      const warning =
+        body.querySelector(
+          ".warning"
+        );
+
+
+      if(warning){
+
+        warning.insertAdjacentHTML(
+          "beforebegin",
+          html
+        );
+
+      }else{
+
+        body.insertAdjacentHTML(
+          "beforeend",
+          html
+        );
+
+      }
+
+    },
+    50
+  );
+
+
+  return result;
+
+};
+
+
+console.log(
+  "⚽ Tendência de gols + Ambas marcam restaurada"
+);
+
+</script>
 </body>
 </html>
