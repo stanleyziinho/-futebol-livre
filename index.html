@@ -5117,25 +5117,60 @@ function renderBroadcastCard(
     gameState(game);
 
 
-  const broadcasters =
+  const geBroadcasters =
 
-    Array.isArray(
-      ge?.broadcasts
-    )
+  Array.isArray(
+    ge?.broadcasts
+  )
 
-    ?
+  ?
 
-    ge.broadcasts
+  ge.broadcasts
 
-    :
+  :
 
-    [];
+  [];
 
 
-  const hasRealtime =
-    Boolean(
-      ge?.realtimeUrl
-    );
+const espnBroadcasters =
+
+  (
+    game
+      ?.rawEvent
+      ?.competitions
+      ?.[0]
+      ?.broadcasts
+    ||
+    game
+      ?.raw
+      ?.competitions
+      ?.[0]
+      ?.broadcasts
+    ||
+    []
+  )
+  .map(
+    item =>
+      item
+        ?.names
+        ?.[0]
+      ||
+      item
+        ?.name
+      ||
+      ""
+  )
+  .filter(Boolean);
+
+
+const broadcasters =
+
+  [
+    ...new Set([
+      ...geBroadcasters,
+      ...espnBroadcasters
+    ])
+  ];
 
 
   const hasFree =
