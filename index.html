@@ -4769,7 +4769,97 @@ async function getGeData(
   }
 
 }
+async function getPreGameData(
+  game,
+  force=false
+){
 
+  window.__stanleyPreGameCache =
+    window.__stanleyPreGameCache
+    ||
+    {};
+
+  const key =
+    `${game.id}-${APP_VERSION}`;
+
+  if(
+    window.__stanleyPreGameCache[key]
+    &&
+    !force
+  ){
+    return window.__stanleyPreGameCache[key];
+  }
+
+  try{
+
+    const url =
+
+      `${WORKER}/?mode=pregame`
+
+      +
+
+      `&home=${
+        encodeURIComponent(
+          game.home
+        )
+      }`
+
+      +
+
+      `&away=${
+        encodeURIComponent(
+          game.away
+        )
+      }`
+
+      +
+
+      `&date=${
+        encodeURIComponent(
+          isoDateFromEvent(
+            game
+          )
+        )
+      }`
+
+      +
+
+      `&v=531301`;
+
+    const response =
+      await fetch(
+        url,
+        {
+          cache:"no-store"
+        }
+      );
+
+    if(
+      !response.ok
+    ){
+      return null;
+    }
+
+    const data =
+      await response.json();
+
+    window.__stanleyPreGameCache[key] =
+      data;
+
+    return data;
+
+  }catch(error){
+
+    console.error(
+      "PREGAME",
+      error
+    );
+
+    return null;
+
+  }
+
+}
 
 /* ========================================
 API FOOTBALL
@@ -7512,13 +7602,11 @@ async function openAnalysis(id){
         item.id === id
     );
 
-
   if(
     !game
   ){
     return;
   }
-
 
   openModal(
 
@@ -7532,7 +7620,6 @@ async function openAnalysis(id){
 
   );
 
-
   const results =
     await Promise.allSettled([
 
@@ -7543,10 +7630,14 @@ async function openAnalysis(id){
       getGeData(
         game,
         true
+      ),
+
+      getPreGameData(
+        game,
+        true
       )
 
     ]);
-
 
   const originalAnalysis =
 
@@ -7562,7 +7653,6 @@ async function openAnalysis(id){
 
     null;
 
-
   const ge =
 
     results[1].status
@@ -7577,12 +7667,19 @@ async function openAnalysis(id){
 
     null;
 
+  const preGame =
 
-  /*
-  V55.1:
-  Primeiro respeita API-Football.
-  Só depois tenta estimativa local.
-  */
+    results[2].status
+    ===
+    "fulfilled"
+
+    ?
+
+    results[2].value
+
+    :
+
+    null;
 
   const analysis =
     buildStanleyEstimate(
@@ -7590,11 +7687,11 @@ async function openAnalysis(id){
       originalAnalysis
     );
 
-
   renderAnalysisModal(
     game,
     analysis,
-    ge
+    ge,
+    preGame
   );
 
 }
@@ -7607,7 +7704,8 @@ RENDER PREMIUM
 function renderAnalysisModal(
   game,
   analysis,
-  ge
+  ge,
+  preGame
 ){
 
   const analysisOK =
@@ -7620,7 +7718,12 @@ function renderAnalysisModal(
     Boolean(
       ge?.found
     );
-
+const preGameOK =
+  Boolean(
+    preGame?.found
+    &&
+    preGame?.hasLineups
+  );
 
   let html =
     `
@@ -7653,12 +7756,16 @@ function renderAnalysisModal(
 
       </span>
 
-      ${
-        geOK
+            ${
+        preGameOK
         ?
         `
         <span class="source-chip">
-          📰 Pré-jogo ge
+          📰 Pré-jogo ${
+            preGame?.sourceLabel
+            ||
+            "confirmado"
+          }
         </span>
         `
         :
@@ -7750,15 +7857,13 @@ function renderAnalysisModal(
   NÃO BLOQUEIA ANÁLISE.
   */
 
-  if(
-    geOK
-    &&
-    ge?.hasLineups
+    if(
+    preGameOK
   ){
 
     html +=
       lineupsHTML(
-        ge
+        preGame
       );
 
   }
