@@ -16190,5 +16190,667 @@ UMA ÚNICA RENDERIZAÇÃO
 })();
 
 </script>
+<style>
+
+/* =========================================================
+STANLEY SPORTS — TV • CATÁLOGO V1
+========================================================= */
+
+#tvGrid{
+  display:block !important;
+}
+
+/* HERO */
+
+.ss-tv-catalog-hero{
+  position:relative;
+  overflow:hidden;
+  min-height:180px;
+  margin-bottom:24px;
+  padding:24px 20px;
+
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+
+  border-radius:24px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(3,16,8,.10),
+      rgba(3,16,8,.97)
+    ),
+    url("./assets/images/ge-tv.png")
+    center/cover;
+
+  border:
+    1px solid
+    rgba(56,228,125,.22);
+}
+
+.ss-tv-catalog-hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(3,16,8,.96),
+      rgba(3,16,8,.22)
+    );
+
+  pointer-events:none;
+}
+
+.ss-tv-catalog-hero-content{
+  position:relative;
+  z-index:2;
+}
+
+.ss-tv-catalog-label{
+  color:var(--green);
+  font-size:9px;
+  font-weight:950;
+  letter-spacing:1.5px;
+}
+
+.ss-tv-catalog-hero h2{
+  margin:7px 0;
+  font-size:29px;
+}
+
+.ss-tv-catalog-hero p{
+  margin:0;
+  color:#c2d3c7;
+  font-size:11px;
+  line-height:1.55;
+  max-width:460px;
+}
+
+
+/* SEÇÕES */
+
+.ss-tv-section{
+  margin-bottom:29px;
+}
+
+.ss-tv-section-title{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:12px;
+}
+
+.ss-tv-section-title h3{
+  margin:0;
+  font-size:19px;
+}
+
+.ss-tv-section-title span{
+  color:var(--muted);
+  font-size:9px;
+  font-weight:800;
+}
+
+
+/* GRID */
+
+.ss-tv-poster-grid{
+  display:grid;
+  grid-template-columns:
+    repeat(3,minmax(0,1fr));
+
+  gap:11px;
+}
+
+
+/* CARD */
+
+.ss-tv-poster{
+  min-width:0;
+  text-decoration:none;
+  color:#fff;
+}
+
+.ss-tv-poster-image{
+  position:relative;
+
+  width:100%;
+  aspect-ratio:2/3;
+
+  overflow:hidden;
+
+  border-radius:15px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #163422,
+      #07150d
+    );
+
+  border:
+    1px solid
+    rgba(255,255,255,.08);
+
+  box-shadow:
+    0 8px 22px
+    rgba(0,0,0,.25);
+}
+
+.ss-tv-poster-image img{
+  width:100%;
+  height:100%;
+
+  display:block;
+
+  object-fit:cover;
+
+  transition:
+    transform .20s ease;
+}
+
+.ss-tv-poster:active
+.ss-tv-poster-image img{
+  transform:scale(.96);
+}
+
+
+/* GRADIENTE */
+
+.ss-tv-poster-image::after{
+  content:"";
+
+  position:absolute;
+  inset:55% 0 0;
+
+  background:
+    linear-gradient(
+      transparent,
+      rgba(0,0,0,.72)
+    );
+
+  pointer-events:none;
+}
+
+
+/* BADGE */
+
+.ss-tv-badge{
+  position:absolute;
+
+  z-index:3;
+
+  top:7px;
+  left:7px;
+
+  padding:4px 6px;
+
+  border-radius:999px;
+
+  background:
+    rgba(3,16,8,.85);
+
+  border:
+    1px solid
+    rgba(56,228,125,.32);
+
+  color:var(--green);
+
+  font-size:6px;
+  font-weight:950;
+  letter-spacing:.5px;
+}
+
+
+/* BOTÃO PLAY */
+
+.ss-tv-play{
+  position:absolute;
+
+  z-index:3;
+
+  right:7px;
+  bottom:7px;
+
+  width:27px;
+  height:27px;
+
+  display:grid;
+  place-items:center;
+
+  border-radius:50%;
+
+  background:
+    rgba(3,16,8,.88);
+
+  border:
+    1px solid
+    rgba(255,255,255,.20);
+
+  font-size:10px;
+}
+
+
+/* NOME */
+
+.ss-tv-poster-name{
+  margin-top:7px;
+
+  color:#fff;
+
+  font-size:11px;
+  font-weight:900;
+
+  line-height:1.18;
+
+  overflow:hidden;
+  white-space:nowrap;
+  text-overflow:ellipsis;
+}
+
+.ss-tv-poster-type{
+  margin-top:3px;
+
+  color:var(--muted);
+
+  font-size:8px;
+  font-weight:700;
+
+  overflow:hidden;
+  white-space:nowrap;
+  text-overflow:ellipsis;
+}
+
+
+@media(max-width:390px){
+
+  .ss-tv-poster-grid{
+    gap:9px;
+  }
+
+  .ss-tv-poster-name{
+    font-size:10px;
+  }
+
+}
+
+</style>
+
+
+<script>
+
+/* =========================================================
+STANLEY SPORTS — CATÁLOGO TV
+SEM OBSERVER / SEM PISCA-PISCA
+========================================================= */
+
+(function(){
+
+  const grid =
+    document.getElementById(
+      "tvGrid"
+    );
+
+  if(!grid){
+    return;
+  }
+
+
+  /* =======================================================
+  TV ABERTA
+  ======================================================= */
+
+  const tvAberta = [
+
+    {
+      name:"TV Globo",
+      type:"TV aberta",
+      image:
+        "./assets/images/globo.png",
+      url:
+        "https://globoplay.globo.com/"
+    },
+
+    {
+      name:"SBT",
+      type:"TV aberta",
+      image:
+        "./assets/images/sbt.png",
+      url:
+        "https://www.sbt.com.br/"
+    },
+
+    {
+      name:"Band",
+      type:"TV aberta",
+      image:
+        "./assets/images/band.png",
+      url:
+        "https://www.band.uol.com.br/"
+    },
+
+    {
+      name:"Record TV",
+      type:"TV aberta",
+      image:
+        "./assets/images/record.png",
+      url:
+        "https://record.r7.com/"
+    },
+
+    {
+      name:"RedeTV!",
+      type:"TV aberta",
+      image:
+        "./assets/images/redetv.png",
+      url:
+        "https://www.redetv.uol.com.br/"
+    },
+
+    {
+      name:"TV Cultura",
+      type:"TV aberta",
+      image:
+        "./assets/images/cultura.png",
+      url:
+        "https://cultura.uol.com.br/"
+    },
+
+    {
+      name:"TV Brasil",
+      type:"TV aberta",
+      image:
+        "./assets/images/tv-brasil.png",
+      url:
+        "https://tvbrasil.ebc.com.br/"
+    }
+
+  ];
+
+
+  /* =======================================================
+  ESPORTES
+  ======================================================= */
+
+  const esportes = [
+
+    {
+      name:"ge TV",
+      type:"Esportes",
+      image:
+        "./assets/images/ge-tv.png",
+      url:
+        "https://ge.globo.com/"
+    },
+
+    {
+      name:"XSports",
+      type:"Esportes",
+      image:
+        "./assets/images/xsports.png",
+      url:
+        "https://xsports.com.br/"
+    },
+
+    {
+      name:"SporTV",
+      type:"Esportes",
+      image:
+        "./assets/images/sportv.png",
+      url:
+        "https://globoplay.globo.com/canais/sportv/"
+    },
+
+    {
+      name:"Premiere",
+      type:"Futebol",
+      image:
+        "./assets/images/premiere.png",
+      url:
+        "https://globoplay.globo.com/canais/premiere/"
+    }
+
+  ];
+
+
+  /* =======================================================
+  FUTEBOL DIGITAL
+  ======================================================= */
+
+  const digital = [
+
+    {
+      name:"CazéTV",
+      type:"Futebol digital",
+      image:
+        "./assets/images/caze-tv.png",
+      url:
+        "https://www.youtube.com/@CazeTV"
+    },
+
+    {
+      name:"Canal GOAT",
+      type:"Futebol digital",
+      image:
+        "./assets/images/canal-goat.png",
+      url:
+        "https://www.youtube.com/@canalgoatbr"
+    },
+
+    {
+      name:"CBF TV",
+      type:"Futebol",
+      image:
+        "./assets/images/cbf-tv.png",
+      url:
+        "https://www.youtube.com/@CBF"
+    },
+
+    {
+      name:"FIFA+",
+      type:"Futebol",
+      image:
+        "./assets/images/fifa.png",
+      url:
+        "https://www.plus.fifa.com/"
+    }
+
+  ];
+
+
+  /* =======================================================
+  CARD
+  ======================================================= */
+
+  function tvCardHTML(
+    item,
+    badge
+  ){
+
+    return `
+      <a
+        class="ss-tv-poster"
+        href="${item.url}"
+        target="_blank"
+        rel="noopener"
+      >
+
+        <div
+          class="ss-tv-poster-image"
+        >
+
+          <img
+            src="${item.image}"
+            alt="${item.name}"
+            loading="lazy"
+
+            onerror="
+              this.style.display='none';
+              this.parentElement.style.background=
+              'linear-gradient(145deg,#163422,#07150d)';
+            "
+          >
+
+          <div
+            class="ss-tv-badge"
+          >
+            ${badge}
+          </div>
+
+          <div
+            class="ss-tv-play"
+          >
+            ▶
+          </div>
+
+        </div>
+
+        <div
+          class="ss-tv-poster-name"
+        >
+          ${item.name}
+        </div>
+
+        <div
+          class="ss-tv-poster-type"
+        >
+          ${item.type}
+        </div>
+
+      </a>
+    `;
+
+  }
+
+
+  /* =======================================================
+  SEÇÃO
+  ======================================================= */
+
+  function tvSectionHTML(
+    icon,
+    title,
+    subtitle,
+    items,
+    badge
+  ){
+
+    return `
+      <section
+        class="ss-tv-section"
+      >
+
+        <div
+          class="ss-tv-section-title"
+        >
+
+          <h3>
+            ${icon} ${title}
+          </h3>
+
+          <span>
+            ${subtitle}
+          </span>
+
+        </div>
+
+        <div
+          class="ss-tv-poster-grid"
+        >
+
+          ${
+            items
+              .map(
+                item =>
+                  tvCardHTML(
+                    item,
+                    badge
+                  )
+              )
+              .join("")
+          }
+
+        </div>
+
+      </section>
+    `;
+
+  }
+
+
+  /* =======================================================
+  RENDERIZA UMA VEZ
+  ======================================================= */
+
+  grid.innerHTML = `
+
+    <section
+      class="ss-tv-catalog-hero"
+    >
+
+      <div
+        class="ss-tv-catalog-hero-content"
+      >
+
+        <div
+          class="ss-tv-catalog-label"
+        >
+          STANLEY SPORTS • TV
+        </div>
+
+        <h2>
+          TV & Esportes
+        </h2>
+
+        <p>
+          Emissoras, canais esportivos e
+          plataformas oficiais organizadas
+          em um catálogo visual.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    ${tvSectionHTML(
+      "📡",
+      "TV Aberta",
+      "principais emissoras",
+      tvAberta,
+      "TV"
+    )}
+
+
+    ${tvSectionHTML(
+      "⚽",
+      "Esportes",
+      "canais esportivos",
+      esportes,
+      "ESPORTE"
+    )}
+
+
+    ${tvSectionHTML(
+      "🔥",
+      "Futebol Digital",
+      "canais oficiais",
+      digital,
+      "FUTEBOL"
+    )}
+
+  `;
+
+
+  console.log(
+    "📺 Stanley Sports — catálogo TV carregado"
+  );
+
+})();
+
+</script>
 </body>
 </html>
