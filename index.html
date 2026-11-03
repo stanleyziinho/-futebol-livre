@@ -17301,5 +17301,193 @@ console.log(
 );
 
 </script>
+<script>
+
+/* =========================================================
+STANLEY SPORTS — CORREÇÃO IMAGENS FILMES/DESENHOS
+ATUA SOMENTE NA ABA FILMES
+========================================================= */
+
+const SS_FILMES_IMAGES_V2 = {
+
+  "Pica-Pau":"./assets/images/pica-pau.png",
+  "Simpsons":"./assets/images/simpsons.png",
+  "Os Simpsons":"./assets/images/simpsons.png",
+  "Dragon Ball":"./assets/images/dragon-ball.png",
+  "Naruto":"./assets/images/naruto.png",
+  "Pokémon":"./assets/images/pokemon.png",
+  "Pokemon":"./assets/images/pokemon.png",
+  "One Piece":"./assets/images/one-piece.png",
+  "Bob Esponja":"./assets/images/bob-esponja.png",
+  "Tom & Jerry":"./assets/images/tom-jerry.png",
+  "Tom e Jerry":"./assets/images/tom-jerry.png",
+  "Turma da Mônica":"./assets/images/turma-monica.png",
+  "Turma da Monica":"./assets/images/turma-monica.png",
+  "Mundo Bita":"./assets/images/mundo-bita.png",
+  "Pocoyo":"./assets/images/pocoyo.png",
+  "Peppa Pig":"./assets/images/peppa-pig.png",
+  "Masha e o Urso":"./assets/images/masha-urso.png",
+  "Galinha Pintadinha":"./assets/images/galinha-pintadinha.png",
+  "O Show da Luna":"./assets/images/show-da-luna.png",
+  "Show da Luna":"./assets/images/show-da-luna.png",
+  "Desenhos Bíblicos":"./assets/images/desenhos-biblicos.png",
+  "Desenhos Biblicos":"./assets/images/desenhos-biblicos.png"
+
+};
+
+
+function ssFixFilmesImages(){
+
+  const root =
+    document.getElementById("viewFilmes")
+    ||
+    document.body;
+
+
+  /*
+  Os cards reais são links.
+  Procuramos pelo nome exibido no card.
+  */
+
+  root
+    .querySelectorAll("a")
+    .forEach(card=>{
+
+      const text =
+        card.textContent
+          .replace(/\s+/g," ")
+          .trim()
+          .toLowerCase();
+
+
+      const match =
+        Object.entries(
+          SS_FILMES_IMAGES_V2
+        )
+        .find(
+          ([name]) =>
+            text.includes(
+              name.toLowerCase()
+            )
+        );
+
+
+      if(!match){
+        return;
+      }
+
+
+      const [
+        name,
+        image
+      ] = match;
+
+
+      const img =
+        card.querySelector("img");
+
+
+      if(!img){
+        return;
+      }
+
+
+      /*
+      Evita processamento repetido.
+      */
+
+      if(
+        img.dataset.ssFilmesV2
+        === image
+      ){
+        return;
+      }
+
+
+      img.dataset.ssFilmesV2 =
+        image;
+
+
+      img.src =
+        image;
+
+
+      img.alt =
+        name;
+
+
+      img.removeAttribute(
+        "srcset"
+      );
+
+
+      img.style.objectFit =
+        "cover";
+
+
+      img.style.width =
+        "100%";
+
+
+      img.style.height =
+        "100%";
+
+    });
+
+}
+
+
+/* primeira aplicação */
+
+setTimeout(
+  ssFixFilmesImages,
+  400
+);
+
+setTimeout(
+  ssFixFilmesImages,
+  1000
+);
+
+setTimeout(
+  ssFixFilmesImages,
+  2000
+);
+
+
+/* reaplica quando a aba é aberta/renderizada */
+
+const ssFilmesImagesObserver =
+  new MutationObserver(
+    ()=>{
+
+      clearTimeout(
+        window.ssFilmesImagesTimer
+      );
+
+      window.ssFilmesImagesTimer =
+        setTimeout(
+          ssFixFilmesImages,
+          100
+        );
+
+    }
+  );
+
+
+ssFilmesImagesObserver.observe(
+  document.body,
+  {
+    childList:true,
+    subtree:true
+  }
+);
+
+
+console.log(
+  "🎬 Filmes e desenhos — imagens locais V2"
+);
+
+</script>
 </body>
 </html>
