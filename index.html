@@ -3784,7 +3784,9 @@ function normalizeGame(
         ?.type
         ?.state
       ||
-          detail:
+      "pre",
+
+    detail:
       status
         ?.type
         ?.shortDetail
@@ -3803,8 +3805,6 @@ function normalizeGame(
 
     rawEvent:
       event
-  };
-
 }
 
 
