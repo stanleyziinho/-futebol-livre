@@ -17489,5 +17489,210 @@ console.log(
 );
 
 </script>
+<script>
+
+/* =========================================================
+STANLEY SPORTS — FILMES/DESENHOS SEM PISCAR
+USA AS IMAGENS LOCAIS DIRETO NO RENDER ORIGINAL
+========================================================= */
+
+const SS_LOCAL_MOVIE_IMAGES = {
+
+  "pica-pau":"./assets/images/pica-pau.png",
+  "simpsons":"./assets/images/simpsons.png",
+  "os simpsons":"./assets/images/simpsons.png",
+  "dragon ball":"./assets/images/dragon-ball.png",
+  "naruto":"./assets/images/naruto.png",
+  "pokemon":"./assets/images/pokemon.png",
+  "pokémon":"./assets/images/pokemon.png",
+  "one piece":"./assets/images/one-piece.png",
+  "bob esponja":"./assets/images/bob-esponja.png",
+  "tom & jerry":"./assets/images/tom-jerry.png",
+  "tom e jerry":"./assets/images/tom-jerry.png",
+  "turma da monica":"./assets/images/turma-monica.png",
+  "turma da mônica":"./assets/images/turma-monica.png",
+  "mundo bita":"./assets/images/mundo-bita.png",
+  "pocoyo":"./assets/images/pocoyo.png",
+  "peppa pig":"./assets/images/peppa-pig.png",
+  "masha e o urso":"./assets/images/masha-urso.png",
+  "galinha pintadinha":"./assets/images/galinha-pintadinha.png",
+  "o show da luna":"./assets/images/show-da-luna.png",
+  "show da luna":"./assets/images/show-da-luna.png",
+  "desenhos biblicos":"./assets/images/desenhos-biblicos.png",
+  "desenhos bíblicos":"./assets/images/desenhos-biblicos.png"
+
+};
+
+
+/* DESLIGA OS DOIS PATCHES ANTERIORES */
+
+try{
+  ssMediaImageObserver.disconnect();
+}catch(e){}
+
+try{
+  ssFilmesImagesObserver.disconnect();
+}catch(e){}
+
+
+/* GUARDA FUNÇÕES ORIGINAIS */
+
+const ssOriginalMovieFindLogo =
+  window.ssMovieFindLogo
+  || ssMovieFindLogo;
+
+const ssOriginalMovieLogoUrl =
+  window.ssMovieLogoUrl
+  || ssMovieLogoUrl;
+
+
+/* =========================================================
+FAZ O RENDER ORIGINAL ENXERGAR IMAGEM LOCAL
+========================================================= */
+
+ssMovieFindLogo =
+function(name){
+
+  const normalized =
+    String(name || "")
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g,"")
+      .toLowerCase()
+      .trim();
+
+
+  const local =
+    Object.entries(
+      SS_LOCAL_MOVIE_IMAGES
+    )
+    .find(
+      ([key]) =>
+        normalized ===
+        key
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g,"")
+          .toLowerCase()
+    );
+
+
+  if(local){
+
+    return{
+      domain:
+        "__LOCAL__" + local[1]
+    };
+
+  }
+
+
+  return ssOriginalMovieFindLogo(
+    name
+  );
+
+};
+
+
+/* =========================================================
+DEVOLVE O PNG DIRETO
+========================================================= */
+
+ssMovieLogoUrl =
+function(domain){
+
+  if(
+    typeof domain === "string"
+    &&
+    domain.startsWith(
+      "__LOCAL__"
+    )
+  ){
+
+    return domain.replace(
+      "__LOCAL__",
+      ""
+    );
+
+  }
+
+
+  return ssOriginalMovieLogoUrl(
+    domain
+  );
+
+};
+
+
+/* =========================================================
+FORÇA UM ÚNICO RENDER FINAL
+========================================================= */
+
+setTimeout(()=>{
+
+  /*
+  dispara novamente a renderização
+  existente da aba, sem criar
+  outro sistema paralelo.
+  */
+
+  const filmes =
+    document.getElementById(
+      "viewFilmes"
+    );
+
+  if(filmes){
+
+    filmes
+      .querySelectorAll(
+        ".ss-movie-logo"
+      )
+      .forEach(img=>{
+
+        const card =
+          img.closest("a");
+
+        if(!card){
+          return;
+        }
+
+        const text =
+          card.textContent
+            .replace(/\s+/g," ")
+            .trim()
+            .toLowerCase();
+
+        const found =
+          Object.entries(
+            SS_LOCAL_MOVIE_IMAGES
+          )
+          .find(
+            ([name]) =>
+              text.includes(
+                name
+              )
+          );
+
+        if(found){
+
+          img.src =
+            found[1];
+
+          img.removeAttribute(
+            "srcset"
+          );
+
+        }
+
+      });
+
+  }
+
+},300);
+
+
+console.log(
+  "🎬 Filmes e desenhos sem piscar"
+);
+
+</script>
 </body>
 </html>
