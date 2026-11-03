@@ -15753,5 +15753,433 @@ console.log(
 );
 
 </script>
+<style>
+
+/* =========================================================
+STANLEY SPORTS — CANAIS ESPORTIVOS NA HOME
+========================================================= */
+
+.ss-sports-channel-section{
+  margin:18px 0 22px;
+}
+
+.ss-sports-channel-head{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:10px;
+  margin-bottom:12px;
+}
+
+.ss-sports-channel-head small{
+  display:block;
+  margin-bottom:4px;
+  color:var(--green);
+  font-size:9px;
+  font-weight:950;
+  letter-spacing:1.4px;
+}
+
+.ss-sports-channel-head h2{
+  margin:0;
+  font-size:24px;
+}
+
+.ss-sports-channel-scroll{
+  display:flex;
+  gap:10px;
+  overflow-x:auto;
+  padding-bottom:6px;
+  scrollbar-width:none;
+}
+
+.ss-sports-channel-scroll::-webkit-scrollbar{
+  display:none;
+}
+
+.ss-sports-channel-card{
+  position:relative;
+  flex:0 0 175px;
+  min-height:174px;
+  overflow:hidden;
+  padding:14px;
+  border-radius:20px;
+  border:1px solid var(--border);
+  background:
+    linear-gradient(
+      145deg,
+      #10291a,
+      #07170e
+    );
+  text-decoration:none;
+  color:#fff;
+}
+
+.ss-sports-channel-card.live{
+  border-color:#ff5555;
+  box-shadow:
+    0 0 0 1px
+    rgba(255,70,70,.15);
+}
+
+.ss-sports-channel-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:8px;
+}
+
+.ss-sports-channel-logo{
+  width:50px;
+  height:50px;
+  display:grid;
+  place-items:center;
+  overflow:hidden;
+  border-radius:14px;
+  background:#fff;
+}
+
+.ss-sports-channel-logo img{
+  width:42px;
+  height:42px;
+  object-fit:contain;
+}
+
+.ss-sports-channel-live{
+  display:none;
+  padding:5px 7px;
+  border-radius:999px;
+  background:#e43737;
+  color:#fff;
+  font-size:8px;
+  font-weight:950;
+}
+
+.ss-sports-channel-card.live
+.ss-sports-channel-live{
+  display:inline-flex;
+}
+
+.ss-sports-channel-card h3{
+  margin:13px 0 5px;
+  font-size:14px;
+  line-height:1.2;
+}
+
+.ss-sports-channel-card p{
+  margin:0;
+  min-height:38px;
+  color:var(--muted);
+  font-size:9px;
+  line-height:1.4;
+}
+
+.ss-sports-channel-open{
+  margin-top:11px;
+  color:var(--green);
+  font-size:9px;
+  font-weight:950;
+}
+
+.ss-sports-channel-card.live
+.ss-sports-channel-open{
+  color:#ff8585;
+}
+
+</style>
+
+<script>
+
+/* =========================================================
+CONFIGURAÇÃO DOS CANAIS
+========================================================= */
+
+const SS_SPORTS_CHANNELS = [
+
+  {
+    name:"Os Donos da Bola MG",
+    description:"Futebol mineiro • Cruzeiro, Atlético e América",
+    domain:"band.com.br",
+    url:
+      "https://www.youtube.com/results?search_query=Os+Donos+da+Bola+MG+Band+Minas+ao+vivo",
+
+    /*
+    Temporariamente false.
+    Depois podemos ligar ao Worker
+    para detectar live real.
+    */
+    live:false
+  },
+
+  {
+    name:"Jogo Aberto",
+    description:"Notícias, futebol e debate esportivo",
+    domain:"band.com.br",
+    url:
+      "https://www.youtube.com/@JogoAberto",
+
+    live:false
+  },
+
+  {
+    name:"Alterosa Esporte",
+    description:"Futebol mineiro e notícias de Minas",
+    domain:"alterosa.com.br",
+    url:
+      "https://www.youtube.com/results?search_query=Alterosa+Esporte+ao+vivo",
+
+    live:false
+  },
+
+  {
+    name:"Esporte Espetacular",
+    description:"Reportagens, futebol e esportes",
+    domain:"globoplay.globo.com",
+    url:
+      "https://www.google.com/search?q=Esporte+Espetacular+Globo+oficial",
+
+    live:false
+  }
+
+];
+
+
+/* =========================================================
+LOGO
+========================================================= */
+
+function ssSportsChannelLogo(domain){
+
+  return(
+    "https://www.google.com/s2/favicons"
+    +
+    "?domain_url=https://"
+    +
+    encodeURIComponent(domain)
+    +
+    "&sz=128"
+  );
+
+}
+
+
+/* =========================================================
+HTML
+========================================================= */
+
+function ssSportsChannelsHTML(){
+
+  return `
+    <section
+      id="ssSportsChannelsSection"
+      class="ss-sports-channel-section"
+    >
+
+      <div class="ss-sports-channel-head">
+
+        <div>
+
+          <small>
+            CONTEÚDO ESPORTIVO
+          </small>
+
+          <h2>
+            📺 Canais esportivos
+          </h2>
+
+        </div>
+
+      </div>
+
+
+      <div class="ss-sports-channel-scroll">
+
+        ${
+          SS_SPORTS_CHANNELS
+            .map(
+              channel=>`
+              <a
+                class="
+                  ss-sports-channel-card
+                  ${
+                    channel.live
+                    ?
+                    "live"
+                    :
+                    ""
+                  }
+                "
+                href="${channel.url}"
+                target="_blank"
+                rel="noopener"
+              >
+
+                <div class="ss-sports-channel-top">
+
+                  <div class="ss-sports-channel-logo">
+
+                    <img
+                      src="${
+                        ssSportsChannelLogo(
+                          channel.domain
+                        )
+                      }"
+                      alt="${channel.name}"
+                      loading="lazy"
+                      referrerpolicy="no-referrer"
+                      onerror="
+                        this.style.display='none'
+                      "
+                    >
+
+                  </div>
+
+
+                  <span class="ss-sports-channel-live">
+                    🔴 AO VIVO
+                  </span>
+
+                </div>
+
+
+                <h3>
+                  ${channel.name}
+                </h3>
+
+
+                <p>
+                  ${channel.description}
+                </p>
+
+
+                <div class="ss-sports-channel-open">
+
+                  ${
+                    channel.live
+                    ?
+                    "Assistir agora →"
+                    :
+                    "Abrir canal →"
+                  }
+
+                </div>
+
+              </a>
+              `
+            )
+            .join("")
+        }
+
+      </div>
+
+    </section>
+  `;
+
+}
+
+
+/* =========================================================
+INSERE NA HOME
+========================================================= */
+
+function ssInsertSportsChannels(){
+
+  /*
+  Evita duplicar.
+  */
+
+  if(
+    document.getElementById(
+      "ssSportsChannelsSection"
+    )
+  ){
+    return;
+  }
+
+
+  /*
+  Procura o bloco Premium
+  que já existe na home.
+  */
+
+  const premium =
+    document.querySelector(
+      ".premium-home"
+    );
+
+
+  if(
+    premium
+  ){
+
+    premium.insertAdjacentHTML(
+      "afterend",
+      ssSportsChannelsHTML()
+    );
+
+    return;
+
+  }
+
+
+  /*
+  Fallback:
+  coloca antes dos indicadores.
+  */
+
+  const stats =
+    document.querySelector(
+      ".stats"
+    );
+
+
+  if(
+    stats
+  ){
+
+    stats.insertAdjacentHTML(
+      "beforebegin",
+      ssSportsChannelsHTML()
+    );
+
+  }
+
+}
+
+
+/* PRIMEIRA EXECUÇÃO */
+
+setTimeout(
+  ssInsertSportsChannels,
+  500
+);
+
+
+/* REAPLICA SE A HOME FOR RECRIADA */
+
+const ssSportsChannelsObserver =
+  new MutationObserver(
+    ()=>{
+
+      ssInsertSportsChannels();
+
+    }
+  );
+
+
+ssSportsChannelsObserver.observe(
+  document.body,
+  {
+    childList:true,
+    subtree:true
+  }
+);
+
+
+console.log(
+  "📺 Canais esportivos adicionados à home"
+);
+
+</script>
 </body>
 </html>
