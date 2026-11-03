@@ -5192,12 +5192,10 @@ const hasRealtime =
   */
 
   if(
-    !ge?.found
-  ){
-
-    box.classList.remove(
-      "ready"
-    );
+  !ge?.found
+  &&
+  broadcasters.length === 0
+){
 
 
     if(
