@@ -14202,5 +14202,59 @@ console.log(
 );
 
 </script>
+<script>
+
+/* =========================================================
+CORREÇÃO — REMOVE DUPLICIDADE "ONDE ACOMPANHAR"
+========================================================= */
+
+window.ssTomorrowExtraHTML = function(game, ge){
+
+  if(!ge){
+    return "";
+  }
+
+  let html = "";
+
+
+  /* SOMENTE ESCALAÇÕES / DESFALQUES / PENDURADOS */
+
+  if(
+    ge?.hasLineups
+    ||
+    ge?.lineups?.home
+    ||
+    ge?.lineups?.away
+  ){
+
+    if(
+      typeof lineupsHTML === "function"
+    ){
+
+      html += lineupsHTML(ge);
+
+    }
+
+  }
+
+
+  /*
+  NÃO adiciona mais geFollowHTML aqui.
+
+  O renderAnalysisModal já cuida de:
+  - transmissão
+  - Tempo Real
+  - cobertura do ge
+  */
+
+  return html;
+
+};
+
+console.log(
+  "✅ Duplicidade Onde acompanhar corrigida"
+);
+
+</script>
 </body>
 </html>
