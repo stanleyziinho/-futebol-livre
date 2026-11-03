@@ -5134,62 +5134,8 @@ function renderBroadcastCard(
 
   [];
 
-const espnCompetition =
-  game
-    ?.rawEvent
-    ?.competitions
-    ?.[0]
-  ||
-  game
-    ?.raw
-    ?.competitions
-    ?.[0]
-  ||
-  {};
-
-
-const espnBroadcasters =
-
-  [
-    ...(
-      espnCompetition.broadcasts
-      ||
-      []
-    ),
-
-    ...(
-      espnCompetition.geoBroadcasts
-      ||
-      []
-    )
-  ]
-
-  .map(
-    item =>
-      item
-        ?.names
-        ?.[0]
-      ||
-      item
-        ?.media
-        ?.shortName
-      ||
-      item
-        ?.name
-      ||
-      ""
-  )
-
-  .filter(Boolean);
-
 const broadcasters =
-
-  [
-    ...new Set([
-      ...geBroadcasters,
-      ...espnBroadcasters
-    ])
-  ];
+  geBroadcasters;
 
 const hasRealtime =
   Boolean(
@@ -5209,8 +5155,6 @@ const hasRealtime =
 
   if(
   !ge?.found
-  &&
-  broadcasters.length === 0
 ){
 
 
