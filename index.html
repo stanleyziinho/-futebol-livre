@@ -5134,24 +5134,36 @@ function renderBroadcastCard(
 
   [];
 
+const espnCompetition =
+  game
+    ?.rawEvent
+    ?.competitions
+    ?.[0]
+  ||
+  game
+    ?.raw
+    ?.competitions
+    ?.[0]
+  ||
+  {};
+
 
 const espnBroadcasters =
 
-  (
-    game
-      ?.rawEvent
-      ?.competitions
-      ?.[0]
-      ?.broadcasts
-    ||
-    game
-      ?.raw
-      ?.competitions
-      ?.[0]
-      ?.broadcasts
-    ||
-    []
-  )
+  [
+    ...(
+      espnCompetition.broadcasts
+      ||
+      []
+    ),
+
+    ...(
+      espnCompetition.geoBroadcasts
+      ||
+      []
+    )
+  ]
+
   .map(
     item =>
       item
@@ -5159,12 +5171,16 @@ const espnBroadcasters =
         ?.[0]
       ||
       item
+        ?.media
+        ?.shortName
+      ||
+      item
         ?.name
       ||
       ""
   )
-  .filter(Boolean);
 
+  .filter(Boolean);
 
 const broadcasters =
 
