@@ -15257,5 +15257,501 @@ console.log(
 );
 
 </script>
+<script>
+
+/* =========================================================
+STANLEY SPORTS — RESUMO INTELIGENTE V2
+Substitui somente o resumo automático repetitivo
+========================================================= */
+
+function ssPct(value){
+
+  if(
+    value === null
+    ||
+    value === undefined
+    ||
+    value === ""
+  ){
+    return null;
+  }
+
+  const n =
+    parseFloat(
+      String(value)
+        .replace("%","")
+        .replace(",",".")
+    );
+
+  return Number.isFinite(n)
+    ? n
+    : null;
+
+}
+
+
+/* =========================================================
+CRIA RESUMO MAIS VARIÁVEL
+========================================================= */
+
+function ssSmartSummary(
+  data,
+  home,
+  away
+){
+
+  if(!data){
+    return "Ainda não há dados suficientes para uma leitura detalhada deste confronto.";
+  }
+
+
+  const pHome =
+    ssPct(
+      data?.probabilities?.home
+    );
+
+  const pDraw =
+    ssPct(
+      data?.probabilities?.draw
+    );
+
+  const pAway =
+    ssPct(
+      data?.probabilities?.away
+    );
+
+
+  const comparison =
+    data?.comparison
+    ||
+    {};
+
+
+  const formHome =
+    ssPct(
+      comparison.formHome
+    );
+
+  const formAway =
+    ssPct(
+      comparison.formAway
+    );
+
+  const attackHome =
+    ssPct(
+      comparison.attackHome
+    );
+
+  const attackAway =
+    ssPct(
+      comparison.attackAway
+    );
+
+  const defenseHome =
+    ssPct(
+      comparison.defenseHome
+    );
+
+  const defenseAway =
+    ssPct(
+      comparison.defenseAway
+    );
+
+
+  let over25 = null;
+  let btts = null;
+
+
+  if(
+    typeof ssGetGoalMarketData
+    ===
+    "function"
+  ){
+
+    const goals =
+      ssGetGoalMarketData(
+        data
+      );
+
+    over25 =
+      ssPct(
+        goals?.over25
+      );
+
+    btts =
+      ssPct(
+        goals?.btts
+      );
+
+  }
+
+
+  const parts = [];
+
+
+  /* =======================================================
+  RESULTADO
+  ======================================================= */
+
+  if(
+    pHome !== null
+    &&
+    pDraw !== null
+    &&
+    pAway !== null
+  ){
+
+    const max =
+      Math.max(
+        pHome,
+        pDraw,
+        pAway
+      );
+
+
+    if(
+      max === pHome
+      &&
+      pHome >= 45
+    ){
+
+      parts.push(
+        `${home} aparece com a maior tendência de resultado.`
+      );
+
+    }
+
+    else if(
+      max === pAway
+      &&
+      pAway >= 45
+    ){
+
+      parts.push(
+        `${away} aparece com a maior tendência de resultado.`
+      );
+
+    }
+
+    else if(
+      max === pDraw
+      &&
+      pDraw >= 35
+    ){
+
+      parts.push(
+        "O empate aparece como cenário relevante na projeção."
+      );
+
+    }
+
+    else{
+
+      parts.push(
+        "A projeção indica um confronto equilibrado."
+      );
+
+    }
+
+  }
+
+
+  /* =======================================================
+  FORMA
+  ======================================================= */
+
+  if(
+    formHome !== null
+    &&
+    formAway !== null
+  ){
+
+    const diff =
+      Math.abs(
+        formHome
+        -
+        formAway
+      );
+
+
+    if(
+      diff >= 12
+    ){
+
+      parts.push(
+        formHome > formAway
+        ?
+        `${home} chega em melhor momento recente.`
+        :
+        `${away} chega em melhor momento recente.`
+      );
+
+    }
+
+  }
+
+
+  /* =======================================================
+  ATAQUE + DEFESA
+  ======================================================= */
+
+  if(
+    attackHome !== null
+    &&
+    attackAway !== null
+    &&
+    defenseHome !== null
+    &&
+    defenseAway !== null
+  ){
+
+    const homeTotal =
+      attackHome
+      +
+      defenseHome;
+
+    const awayTotal =
+      attackAway
+      +
+      defenseAway;
+
+    const diff =
+      Math.abs(
+        homeTotal
+        -
+        awayTotal
+      );
+
+
+    if(
+      diff >= 15
+    ){
+
+      parts.push(
+        homeTotal > awayTotal
+        ?
+        `${home} apresenta vantagem no conjunto ataque e defesa.`
+        :
+        `${away} apresenta vantagem no conjunto ataque e defesa.`
+      );
+
+    }
+
+  }
+
+
+  /* =======================================================
+  GOLS
+  ======================================================= */
+
+  if(
+    over25 !== null
+    &&
+    over25 >= 65
+  ){
+
+    parts.push(
+      "Os números apontam boa possibilidade de uma partida com mais de 2.5 gols."
+    );
+
+  }
+
+  else if(
+    over25 !== null
+    &&
+    over25 <= 40
+  ){
+
+    parts.push(
+      "A tendência de gols é mais moderada para este confronto."
+    );
+
+  }
+
+
+  if(
+    btts !== null
+    &&
+    btts >= 65
+  ){
+
+    parts.push(
+      "Também há boa tendência para ambas as equipes marcarem."
+    );
+
+  }
+
+
+  /* =======================================================
+  FALLBACK
+  ======================================================= */
+
+  if(
+    !parts.length
+  ){
+
+    return "Os dados disponíveis ainda não indicam uma tendência estatística forte para este confronto.";
+
+  }
+
+
+  /*
+  Evita resumo enorme.
+  Usa no máximo 3 frases.
+  */
+
+  return parts
+    .slice(0,3)
+    .join(" ");
+
+}
+
+
+/* =========================================================
+SUBSTITUI O RESUMO ANTIGO
+========================================================= */
+
+if(
+  typeof window.buildStanleySummary
+  ===
+  "function"
+){
+
+  window.buildStanleySummary =
+  function(
+    data,
+    home,
+    away
+  ){
+
+    return ssSmartSummary(
+      data,
+      home,
+      away
+    );
+
+  };
+
+}
+
+
+/* =========================================================
+APLICA TAMBÉM NO RENDER ATUAL
+========================================================= */
+
+const ssSummaryOriginalRender =
+  window.renderAnalysisModal;
+
+
+window.renderAnalysisModal =
+function(
+  game,
+  data,
+  ge
+){
+
+  const result =
+    ssSummaryOriginalRender(
+      game,
+      data,
+      ge
+    );
+
+
+  setTimeout(
+    ()=>{
+
+      const body =
+        document.getElementById(
+          "modalBody"
+        );
+
+
+      if(!body){
+        return;
+      }
+
+
+      const headings =
+        Array.from(
+          body.querySelectorAll(
+            "h3"
+          )
+        );
+
+
+      const summaryHeading =
+        headings.find(
+          h =>
+            h.textContent
+              .toLowerCase()
+              .includes(
+                "resumo stanley sports"
+              )
+        );
+
+
+      if(
+        !summaryHeading
+      ){
+        return;
+      }
+
+
+      const section =
+        summaryHeading.closest(
+          "section"
+        )
+        ||
+        summaryHeading.parentElement;
+
+
+      if(
+        !section
+      ){
+        return;
+      }
+
+
+      const summary =
+        ssSmartSummary(
+          data,
+          game.home,
+          game.away
+        );
+
+
+      const paragraphs =
+        section.querySelectorAll(
+          "p"
+        );
+
+
+      if(
+        paragraphs.length
+      ){
+
+        paragraphs[
+          paragraphs.length - 1
+        ].textContent =
+          summary;
+
+      }
+
+    },
+    80
+  );
+
+
+  return result;
+
+};
+
+
+console.log(
+  "🧠 Resumo Stanley Sports inteligente ativo"
+);
+
+</script>
 </body>
 </html>
