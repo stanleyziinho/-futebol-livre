@@ -16313,5 +16313,468 @@ console.log(
 );
 
 </script>
+<script>
+
+/* =========================================================
+STANLEY SPORTS — RESTAURA HOME + JOGOS FINALIZADOS
+NÃO ALTERA PREMIUM / TV / FILMES / PROBABILIDADES
+========================================================= */
+
+
+/* =========================================================
+1. GARANTE CANAIS ESPORTIVOS NA HOME
+========================================================= */
+
+function ssRestoreSportsChannels(){
+
+  if(
+    document.getElementById(
+      "ssSportsChannelsSection"
+    )
+  ){
+    return;
+  }
+
+
+  if(
+    typeof ssSportsChannelsHTML
+    !==
+    "function"
+  ){
+    console.warn(
+      "Bloco dos canais esportivos não carregou."
+    );
+    return;
+  }
+
+
+  const premium =
+    document.querySelector(
+      ".premium-home"
+    );
+
+
+  const stats =
+    document.querySelector(
+      ".stats"
+    );
+
+
+  if(premium){
+
+    premium.insertAdjacentHTML(
+      "afterend",
+      ssSportsChannelsHTML()
+    );
+
+  }
+
+  else if(stats){
+
+    stats.insertAdjacentHTML(
+      "beforebegin",
+      ssSportsChannelsHTML()
+    );
+
+  }
+
+
+  /*
+  Reaplica logos próprias,
+  se a função existir.
+  */
+
+  setTimeout(
+    ()=>{
+
+      if(
+        typeof ssApplyProgramLogos
+        ===
+        "function"
+      ){
+
+        ssApplyProgramLogos();
+
+      }
+
+    },
+    250
+  );
+
+}
+
+
+/* =========================================================
+2. BUSCA JOGOS POR DATA
+========================================================= */
+
+async function ssFetchLeagueByDate(
+  league,
+  date
+){
+
+  try{
+
+    const response =
+      await fetch(
+
+        `${ESPN_BASE}/${league.slug}/scoreboard?dates=${date}`,
+
+        {
+          cache:"no-store"
+        }
+
+      );
+
+
+    if(!response.ok){
+      return [];
+    }
+
+
+    const data =
+      await response.json();
+
+
+    return(
+      data.events || []
+    )
+    .map(
+      event =>
+        normalizeGame(
+          event,
+          league
+        )
+    );
+
+
+  }catch(error){
+
+    console.error(
+      "Jogos",
+      league.name,
+      date,
+      error
+    );
+
+    return [];
+
+  }
+
+}
+
+
+/* =========================================================
+3. MANTÉM ENCERRADOS RECENTES
+========================================================= */
+
+function ssKeepRecentFinished(game){
+
+  if(
+    gameState(game)
+    !==
+    "finished"
+  ){
+    return true;
+  }
+
+
+  const kickoff =
+    new Date(
+      game.date
+    ).getTime();
+
+
+  /*
+  Mantém jogo encerrado por até 27 horas
+  após o horário original da partida.
+  */
+
+  return(
+    Date.now()
+    <=
+    kickoff
+    +
+    27
+    *
+    60
+    *
+    60
+    *
+    1000
+  );
+
+}
+
+
+/* =========================================================
+4. SUBSTITUI APENAS O REFRESH DOS JOGOS
+========================================================= */
+
+window.refreshAll =
+async function(){
+
+  const gamesBox =
+    document.getElementById(
+      "games"
+    );
+
+
+  if(gamesBox){
+
+    gamesBox.innerHTML = `
+      <div class="loading">
+        ⚽ Atualizando partidas...
+      </div>
+    `;
+
+  }
+
+
+  const today =
+    dateKey(0);
+
+  const yesterday =
+    dateKey(-1);
+
+
+  /*
+  Busca HOJE + ONTEM.
+  */
+
+  const todayResults =
+    await Promise.all(
+
+      LEAGUES.map(
+        league =>
+          ssFetchLeagueByDate(
+            league,
+            today
+          )
+      )
+
+    );
+
+
+  const yesterdayResults =
+    await Promise.all(
+
+      LEAGUES.map(
+        league =>
+          ssFetchLeagueByDate(
+            league,
+            yesterday
+          )
+      )
+
+    );
+
+
+  const map =
+    new Map();
+
+
+  /*
+  Ontem:
+  somente encerrados ainda recentes.
+  */
+
+  yesterdayResults
+    .flat()
+    .filter(
+      game =>
+        gameState(game)
+        ===
+        "finished"
+    )
+    .filter(
+      ssKeepRecentFinished
+    )
+    .forEach(
+      game => {
+
+        map.set(
+          String(game.id),
+          game
+        );
+
+      }
+    );
+
+
+  /*
+  Hoje:
+  todos os jogos.
+  */
+
+  todayResults
+    .flat()
+    .forEach(
+      game => {
+
+        map.set(
+          String(game.id),
+          game
+        );
+
+      }
+    );
+
+
+  allGames =
+    [
+      ...map.values()
+    ]
+    .sort(
+      (a,b)=>{
+
+        /*
+        AO VIVO PRIMEIRO
+        */
+
+        const aLive =
+          gameState(a)
+          ===
+          "live";
+
+        const bLive =
+          gameState(b)
+          ===
+          "live";
+
+
+        if(
+          aLive
+          !==
+          bLive
+        ){
+
+          return(
+            Number(bLive)
+            -
+            Number(aLive)
+          );
+
+        }
+
+
+        /*
+        AGENDADOS ANTES DOS ENCERRADOS
+        */
+
+        const aFinished =
+          gameState(a)
+          ===
+          "finished";
+
+        const bFinished =
+          gameState(b)
+          ===
+          "finished";
+
+
+        if(
+          aFinished
+          !==
+          bFinished
+        ){
+
+          return(
+            aFinished
+            ?
+            1
+            :
+            -1
+          );
+
+        }
+
+
+        /*
+        Dentro da categoria,
+        ordena pelo horário.
+        */
+
+        if(
+          aFinished
+          &&
+          bFinished
+        ){
+
+          return(
+            new Date(b.date)
+            -
+            new Date(a.date)
+          );
+
+        }
+
+
+        return(
+          new Date(a.date)
+          -
+          new Date(b.date)
+        );
+
+      }
+    );
+
+
+  updateStats();
+
+  applyGameFilters();
+
+  renderFavorites();
+
+
+  setTimeout(
+    hydrateBroadcasts,
+    50
+  );
+
+
+  /*
+  Garante novamente os canais
+  depois da atualização.
+  */
+
+  setTimeout(
+    ssRestoreSportsChannels,
+    200
+  );
+
+};
+
+
+/* =========================================================
+5. EXECUTA
+========================================================= */
+
+setTimeout(
+  ssRestoreSportsChannels,
+  400
+);
+
+
+/*
+Atualiza os jogos novamente
+usando HOJE + ONTEM.
+*/
+
+setTimeout(
+  ()=>{
+
+    refreshAll();
+
+  },
+  700
+);
+
+
+console.log(
+  "✅ Canais esportivos + jogos finalizados restaurados"
+);
+
+</script>
 </body>
 </html>
