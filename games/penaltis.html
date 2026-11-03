@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
 <meta charset="UTF-8">
 
 <meta
   name="viewport"
-  content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"
+  content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"
 >
 
 <title>Pênaltis • Stanley Sports</title>
@@ -20,14 +21,138 @@
 html,
 body{
   margin:0;
-  min-height:100%;
+  width:100%;
+  height:100%;
+  overflow:hidden;
+  background:#030a06;
   font-family:
-    Inter,
-    system-ui,
     -apple-system,
     BlinkMacSystemFont,
     "Segoe UI",
     sans-serif;
+}
+
+/* TOPO STANLEY */
+
+.ss-game-top{
+  position:fixed;
+  z-index:20;
+  top:0;
+  left:0;
+  right:0;
+
+  min-height:58px;
+
+  padding:
+    calc(8px + env(safe-area-inset-top))
+    12px
+    8px;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(3,16,8,.98),
+      rgba(3,16,8,.92)
+    );
+
+  border-bottom:
+    1px solid
+    rgba(56,228,125,.16);
+}
+
+.ss-back{
+  color:#b7c9bd;
+  text-decoration:none;
+  font-size:12px;
+  font-weight:900;
+}
+
+.ss-title{
+  text-align:center;
+}
+
+.ss-title strong{
+  display:block;
+  color:#fff;
+  font-size:13px;
+}
+
+.ss-title small{
+  display:block;
+  margin-top:2px;
+  color:#38e47d;
+  font-size:7px;
+  font-weight:950;
+  letter-spacing:1px;
+}
+
+.ss-premium{
+  padding:6px 8px;
+
+  border-radius:999px;
+
+  color:#ffd45a;
+
+  background:
+    rgba(255,212,90,.10);
+
+  border:
+    1px solid
+    rgba(255,212,90,.28);
+
+  font-size:8px;
+  font-weight:950;
+}
+
+/* JOGO */
+
+#gameFrame{
+  position:fixed;
+
+  left:0;
+  right:0;
+
+  top:
+    calc(
+      58px +
+      env(safe-area-inset-top)
+    );
+
+  bottom:0;
+
+  width:100%;
+  height:
+    calc(
+      100% -
+      58px -
+      env(safe-area-inset-top)
+    );
+
+  border:0;
+
+  background:#07170e;
+}
+
+/* BLOQUEIO PREMIUM */
+
+.ss-lock{
+  min-height:100vh;
+
+  padding:
+    env(safe-area-inset-top)
+    25px
+    env(safe-area-inset-bottom);
+
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+
+  text-align:center;
 
   background:
     radial-gradient(
@@ -40,533 +165,44 @@ body{
   color:#fff;
 }
 
-body{
-  min-height:100vh;
-  padding:
-    env(safe-area-inset-top)
-    14px
-    calc(18px + env(safe-area-inset-bottom));
-}
-
-.ss-game{
-  width:min(100%,520px);
-  margin:0 auto;
-}
-
-.ss-top{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin:8px 0 14px;
-}
-
-.ss-back{
-  color:#9cb7a4;
-  text-decoration:none;
-  font-size:12px;
-  font-weight:800;
-}
-
-.ss-premium{
-  padding:6px 9px;
-  border-radius:999px;
-  background:rgba(255,212,90,.12);
-  border:1px solid rgba(255,212,90,.35);
-  color:#ffd45a;
-  font-size:9px;
-  font-weight:950;
-}
-
-.ss-title{
-  margin-bottom:16px;
-}
-
-.ss-title small{
-  color:#38e47d;
-  font-size:9px;
-  font-weight:950;
-  letter-spacing:1.4px;
-}
-
-.ss-title h1{
-  margin:5px 0 2px;
-  font-size:30px;
-}
-
-.ss-title p{
-  margin:0;
-  color:#93aa9a;
-  font-size:11px;
-}
-
-/* PLACAR */
-
-.ss-score{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:8px;
-  margin-bottom:14px;
-}
-
-.ss-score-box{
-  padding:11px 8px;
-  text-align:center;
-  border-radius:14px;
-  background:#0d2617;
-  border:1px solid rgba(56,228,125,.12);
-}
-
-.ss-score-box small{
-  display:block;
-  color:#789082;
-  font-size:7px;
-  font-weight:900;
-  letter-spacing:.7px;
-}
-
-.ss-score-box strong{
-  display:block;
-  margin-top:3px;
-  font-size:21px;
-}
-
-/* ESTÁDIO */
-
-.ss-stadium{
-  position:relative;
-  overflow:hidden;
-  height:430px;
-  border-radius:24px;
-  border:1px solid rgba(255,255,255,.10);
-
-  background:
-    linear-gradient(
-      rgba(3,15,7,.20),
-      rgba(3,15,7,.50)
-    ),
-    linear-gradient(
-      #153969 0 25%,
-      #16733b 25% 100%
-    );
-
-  box-shadow:
-    0 25px 55px
-    rgba(0,0,0,.38);
-}
-
-/* TORCIDA */
-
-.ss-crowd{
-  position:absolute;
-  top:0;
-  left:0;
-  right:0;
-  height:105px;
-
-  background:
-    radial-gradient(
-      circle at 10px 15px,
-      #fff 0 1px,
-      transparent 2px
-    ),
-    radial-gradient(
-      circle at 25px 30px,
-      #ffd45a 0 2px,
-      transparent 3px
-    ),
-    radial-gradient(
-      circle at 40px 12px,
-      #38e47d 0 1px,
-      transparent 2px
-    ),
-    #111d19;
-
-  background-size:50px 42px;
-}
-
-/* GRAMADO */
-
-.ss-field{
-  position:absolute;
-  left:0;
-  right:0;
-  top:100px;
-  bottom:0;
-
-  background:
-    repeating-linear-gradient(
-      90deg,
-      #147137 0 55px,
-      #126631 55px 110px
-    );
-}
-
-.ss-field::after{
-  content:"";
-  position:absolute;
-  left:50%;
-  bottom:-115px;
-  transform:translateX(-50%);
-
-  width:340px;
-  height:220px;
-
-  border:2px solid rgba(255,255,255,.70);
-  border-radius:50%;
-}
-
-/* GOL */
-
-.ss-goal{
-  position:absolute;
-  z-index:4;
-  top:112px;
-  left:50%;
-  transform:translateX(-50%);
-
-  width:82%;
-  height:168px;
-
-  border:
-    7px solid
-    #f1f5f2;
-
-  border-bottom-width:5px;
-
-  box-shadow:
-    0 7px 20px
-    rgba(0,0,0,.30);
-
-  background:
-    repeating-linear-gradient(
-      0deg,
-      transparent 0 22px,
-      rgba(255,255,255,.22) 23px 24px
-    ),
-    repeating-linear-gradient(
-      90deg,
-      transparent 0 30px,
-      rgba(255,255,255,.22) 31px 32px
-    ),
-    rgba(0,0,0,.10);
-}
-
-/* ZONAS DO CHUTE */
-
-.ss-zone{
-  position:absolute;
-  z-index:7;
-
-  width:31%;
-  height:46%;
-
-  border:0;
-  background:transparent;
-
-  cursor:pointer;
-}
-
-.ss-zone:active{
-  background:rgba(56,228,125,.12);
-}
-
-.z1{
-  left:0;
-  top:0;
-}
-
-.z2{
-  right:0;
-  top:0;
-}
-
-.z3{
-  left:34.5%;
-  top:27%;
-}
-
-.z4{
-  left:0;
-  bottom:0;
-}
-
-.z5{
-  right:0;
-  bottom:0;
-}
-
-/* GOLEIRO */
-
-.ss-keeper{
-  position:absolute;
-  z-index:6;
-
-  left:50%;
-  bottom:7px;
-
-  width:54px;
-  height:78px;
-
-  transform:
-    translateX(-50%);
-
-  transition:
-    transform .42s cubic-bezier(.2,.8,.2,1);
-
-  pointer-events:none;
-}
-
-.ss-keeper-head{
-  position:absolute;
-  left:17px;
-  top:0;
-
-  width:20px;
-  height:20px;
-
-  border-radius:50%;
-  background:#d9a679;
-}
-
-.ss-keeper-body{
-  position:absolute;
-  left:12px;
-  top:19px;
-
-  width:30px;
-  height:37px;
-
-  border-radius:8px 8px 4px 4px;
-
-  background:#ffca28;
-}
-
-.ss-keeper-body::before,
-.ss-keeper-body::after{
-  content:"";
-  position:absolute;
-  top:5px;
-
-  width:31px;
-  height:8px;
-
-  background:#ffca28;
-  border-radius:10px;
-}
-
-.ss-keeper-body::before{
-  right:24px;
-  transform:rotate(-24deg);
-}
-
-.ss-keeper-body::after{
-  left:24px;
-  transform:rotate(24deg);
-}
-
-.ss-keeper-legs{
-  position:absolute;
-  left:11px;
-  top:53px;
-
-  width:32px;
-  height:23px;
-
-  border-left:8px solid #111;
-  border-right:8px solid #111;
-}
-
-/* BOLA */
-
-.ss-ball{
-  position:absolute;
-  z-index:10;
-
-  left:50%;
-  bottom:49px;
-
-  width:42px;
-  height:42px;
-
-  display:grid;
-  place-items:center;
-
-  transform:
-    translateX(-50%);
-
-  font-size:39px;
-
-  transition:
-    left .43s ease,
-    bottom .43s ease,
-    transform .43s ease;
-
-  pointer-events:none;
-}
-
-/* PONTO DO PÊNALTI */
-
-.ss-spot{
-  position:absolute;
-  left:50%;
-  bottom:61px;
-
-  width:7px;
-  height:7px;
-
-  transform:translateX(-50%);
-
-  border-radius:50%;
-  background:#fff;
-}
-
-/* MENSAGEM */
-
-.ss-result{
-  position:absolute;
-  z-index:20;
-
-  left:50%;
-  top:300px;
-
-  transform:
-    translateX(-50%);
-
-  width:max-content;
-  max-width:85%;
-
-  padding:10px 16px;
-
-  border-radius:999px;
-
-  background:
-    rgba(3,16,8,.88);
-
-  border:
-    1px solid
-    rgba(255,255,255,.16);
-
-  backdrop-filter:blur(8px);
-
-  font-size:15px;
-  font-weight:950;
-
-  opacity:0;
-
-  transition:.2s;
-
-  pointer-events:none;
-}
-
-.ss-result.show{
-  opacity:1;
-}
-
-/* INSTRUÇÃO */
-
-.ss-instruction{
-  padding:14px 10px 5px;
-  text-align:center;
-
-  color:#9ab0a0;
-  font-size:11px;
-  line-height:1.5;
-}
-
-.ss-shots{
-  display:flex;
-  justify-content:center;
-  gap:8px;
-  margin-top:10px;
-}
-
-.ss-shot-dot{
-  width:13px;
-  height:13px;
-  border-radius:50%;
-
-  background:#173320;
-  border:1px solid #315d3e;
-}
-
-.ss-shot-dot.goal{
-  background:#38e47d;
-  border-color:#38e47d;
-}
-
-.ss-shot-dot.miss{
-  background:#e65353;
-  border-color:#e65353;
-}
-
-.ss-restart{
-  width:100%;
-  min-height:50px;
-
-  margin-top:15px;
-
-  border:0;
-  border-radius:15px;
-
-  background:#38e47d;
-  color:#03210d;
-
-  font-size:13px;
-  font-weight:950;
-
-  display:none;
-}
-
-.ss-restart.show{
-  display:block;
-}
-
-/* BLOQUEIO PREMIUM */
-
-.ss-lock{
-  min-height:90vh;
-
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-
-  text-align:center;
-  padding:25px;
-}
-
 .ss-lock-icon{
-  font-size:60px;
+  font-size:64px;
 }
 
-.ss-lock h2{
-  margin:10px 0 5px;
+.ss-lock h1{
+  margin:12px 0 5px;
+  font-size:27px;
 }
 
 .ss-lock p{
-  color:#93aa9a;
-  line-height:1.5;
+  margin:0;
+  max-width:320px;
+
+  color:#98ad9e;
+
   font-size:12px;
+  line-height:1.6;
 }
 
 .ss-lock a{
-  display:block;
   width:100%;
-  max-width:300px;
+  max-width:320px;
 
-  margin-top:14px;
-  padding:14px;
+  margin-top:20px;
+  padding:15px;
 
   border-radius:14px;
 
-  background:#ffd45a;
-  color:#161000;
-
   text-decoration:none;
+
+  background:#ffd45a;
+  color:#171000;
+
   font-weight:950;
 }
 
 </style>
+
 </head>
 
 <body>
@@ -576,13 +212,13 @@ body{
 <script>
 
 /* =========================================================
-PREMIUM
+STANLEY SPORTS — PREMIUM
 ========================================================= */
 
 const PREMIUM_KEY =
   "stanleyPremium30";
 
-function ssPenaltyPremiumActive(){
+function ssPremiumGameActive(){
 
   try{
 
@@ -593,15 +229,11 @@ function ssPenaltyPremiumActive(){
         )
       );
 
-    if(
-      !data
-      ||
-      !data.expires
-    ){
-      return false;
-    }
-
-    return (
+    return Boolean(
+      data
+      &&
+      data.expires
+      &&
       Date.now()
       <
       Number(data.expires)
@@ -617,11 +249,11 @@ function ssPenaltyPremiumActive(){
 
 
 /* =========================================================
-BLOQUEIO
+USUÁRIO FREE
 ========================================================= */
 
 if(
-  !ssPenaltyPremiumActive()
+  !ssPremiumGameActive()
 ){
 
   document.getElementById(
@@ -634,12 +266,13 @@ if(
         👑
       </div>
 
-      <h2>
+      <h1>
         Jogo Premium
-      </h2>
+      </h1>
 
       <p>
-        Pênaltis faz parte do
+        Pênaltis está disponível
+        exclusivamente para usuários
         Stanley Sports Premium.
       </p>
 
@@ -648,583 +281,63 @@ if(
       </a>
 
     </div>
+
   `;
-
-}else{
-
-  startGame();
 
 }
 
 
 /* =========================================================
-JOGO
+USUÁRIO PREMIUM
 ========================================================= */
 
-function startGame(){
+else{
 
   document.getElementById(
     "app"
   ).innerHTML = `
 
-    <main class="ss-game">
+    <header class="ss-game-top">
 
-      <div class="ss-top">
-
-        <a
-          class="ss-back"
-          href="../index.html"
-        >
-          ‹ Stanley Sports
-        </a>
-
-        <div class="ss-premium">
-          👑 PREMIUM
-        </div>
-
-      </div>
+      <a
+        class="ss-back"
+        href="../index.html"
+      >
+        ‹ Voltar
+      </a>
 
 
       <div class="ss-title">
 
+        <strong>
+          ⚽ Pênaltis
+        </strong>
+
         <small>
-          STANLEY SPORTS • GAMES
+          STANLEY SPORTS GAMES
         </small>
 
-        <h1>
-          🥅 Pênaltis
-        </h1>
-
-        <p>
-          Escolha o canto e bata.
-          São 5 cobranças.
-        </p>
-
       </div>
 
 
-      <div class="ss-score">
-
-        <div class="ss-score-box">
-          <small>GOLS</small>
-          <strong id="goals">
-            0
-          </strong>
-        </div>
-
-        <div class="ss-score-box">
-          <small>DEFESAS</small>
-          <strong id="saves">
-            0
-          </strong>
-        </div>
-
-        <div class="ss-score-box">
-          <small>CHUTE</small>
-          <strong id="shotNumber">
-            1/5
-          </strong>
-        </div>
-
+      <div class="ss-premium">
+        👑 PREMIUM
       </div>
 
-
-      <section class="ss-stadium">
-
-        <div class="ss-crowd"></div>
-
-        <div class="ss-field"></div>
+    </header>
 
 
-        <div
-          class="ss-goal"
-          id="goal"
-        >
+    <iframe
+      id="gameFrame"
+      src="https://mashukui.github.io/web-games/penalty-kick/"
+      allow="
+        autoplay;
+        fullscreen
+      "
+      title="Penalty Kick"
+    ></iframe>
 
-          <button
-            class="ss-zone z1"
-            onclick="shoot(1)"
-            aria-label="Canto superior esquerdo"
-          ></button>
-
-          <button
-            class="ss-zone z2"
-            onclick="shoot(2)"
-            aria-label="Canto superior direito"
-          ></button>
-
-          <button
-            class="ss-zone z3"
-            onclick="shoot(3)"
-            aria-label="Centro"
-          ></button>
-
-          <button
-            class="ss-zone z4"
-            onclick="shoot(4)"
-            aria-label="Canto inferior esquerdo"
-          ></button>
-
-          <button
-            class="ss-zone z5"
-            onclick="shoot(5)"
-            aria-label="Canto inferior direito"
-          ></button>
-
-
-          <div
-            class="ss-keeper"
-            id="keeper"
-          >
-            <div
-              class="ss-keeper-head"
-            ></div>
-
-            <div
-              class="ss-keeper-body"
-            ></div>
-
-            <div
-              class="ss-keeper-legs"
-            ></div>
-          </div>
-
-        </div>
-
-
-        <div class="ss-spot"></div>
-
-        <div
-          class="ss-ball"
-          id="ball"
-        >
-          ⚽
-        </div>
-
-
-        <div
-          class="ss-result"
-          id="result"
-        ></div>
-
-      </section>
-
-
-      <div class="ss-instruction">
-
-        Toque em um canto do gol
-        para cobrar.
-
-        <div
-          class="ss-shots"
-          id="shots"
-        ></div>
-
-      </div>
-
-
-      <button
-        class="ss-restart"
-        id="restart"
-        onclick="resetGame()"
-      >
-        🔄 JOGAR NOVAMENTE
-      </button>
-
-    </main>
   `;
-
-  resetGame();
-
-}
-
-
-/* =========================================================
-ESTADO
-========================================================= */
-
-let currentShot = 0;
-let goals = 0;
-let saves = 0;
-let locked = false;
-let history = [];
-
-
-/* =========================================================
-CHUTE
-========================================================= */
-
-function shoot(zone){
-
-  if(
-    locked
-    ||
-    currentShot >= 5
-  ){
-    return;
-  }
-
-  locked = true;
-
-  const keeperZone =
-    Math.floor(
-      Math.random() * 5
-    ) + 1;
-
-  moveKeeper(
-    keeperZone
-  );
-
-  moveBall(
-    zone
-  );
-
-  const goal =
-    zone !== keeperZone;
-
-  setTimeout(
-    ()=>{
-
-      currentShot++;
-
-      if(goal){
-
-        goals++;
-
-        showResult(
-          "⚽ GOOOOOL!"
-        );
-
-        history.push(
-          "goal"
-        );
-
-      }else{
-
-        saves++;
-
-        showResult(
-          "🧤 DEFENDEU!"
-        );
-
-        history.push(
-          "miss"
-        );
-
-      }
-
-      updateScore();
-      renderShots();
-
-    },
-    430
-  );
-
-
-  setTimeout(
-    ()=>{
-
-      if(
-        currentShot >= 5
-      ){
-
-        finishGame();
-
-      }else{
-
-        resetPositions();
-
-        locked = false;
-
-      }
-
-    },
-    1150
-  );
-
-}
-
-
-/* =========================================================
-MOVIMENTOS
-========================================================= */
-
-function moveKeeper(zone){
-
-  const keeper =
-    document.getElementById(
-      "keeper"
-    );
-
-  const movements = {
-
-    1:
-      "translate(-135%,-42px) rotate(-35deg)",
-
-    2:
-      "translate(35%,-42px) rotate(35deg)",
-
-    3:
-      "translate(-50%,-18px)",
-
-    4:
-      "translate(-135%,0) rotate(-25deg)",
-
-    5:
-      "translate(35%,0) rotate(25deg)"
-
-  };
-
-  keeper.style.transform =
-    movements[zone];
-
-}
-
-
-function moveBall(zone){
-
-  const ball =
-    document.getElementById(
-      "ball"
-    );
-
-  const positions = {
-
-    1:{
-      left:"23%",
-      bottom:"235px"
-    },
-
-    2:{
-      left:"77%",
-      bottom:"235px"
-    },
-
-    3:{
-      left:"50%",
-      bottom:"190px"
-    },
-
-    4:{
-      left:"23%",
-      bottom:"145px"
-    },
-
-    5:{
-      left:"77%",
-      bottom:"145px"
-    }
-
-  };
-
-  ball.style.left =
-    positions[zone].left;
-
-  ball.style.bottom =
-    positions[zone].bottom;
-
-  ball.style.transform =
-    "translateX(-50%) scale(.68) rotate(320deg)";
-
-}
-
-
-/* =========================================================
-PLACAR
-========================================================= */
-
-function updateScore(){
-
-  document.getElementById(
-    "goals"
-  ).textContent =
-    goals;
-
-  document.getElementById(
-    "saves"
-  ).textContent =
-    saves;
-
-  document.getElementById(
-    "shotNumber"
-  ).textContent =
-    currentShot >= 5
-    ?
-    "5/5"
-    :
-    `${currentShot + 1}/5`;
-
-}
-
-
-function renderShots(){
-
-  const target =
-    document.getElementById(
-      "shots"
-    );
-
-  target.innerHTML =
-    Array
-      .from(
-        {length:5}
-      )
-      .map(
-        (_,index)=>{
-
-          const result =
-            history[index];
-
-          return `
-            <div
-              class="
-                ss-shot-dot
-                ${result || ""}
-              "
-            ></div>
-          `;
-
-        }
-      )
-      .join("");
-
-}
-
-
-/* =========================================================
-RESULTADO
-========================================================= */
-
-function showResult(text){
-
-  const result =
-    document.getElementById(
-      "result"
-    );
-
-  result.textContent =
-    text;
-
-  result.classList.add(
-    "show"
-  );
-
-}
-
-
-function finishGame(){
-
-  locked = true;
-
-  const result =
-    document.getElementById(
-      "result"
-    );
-
-  let message = "";
-
-  if(
-    goals === 5
-  ){
-
-    message =
-      "🏆 PERFEITO! 5/5";
-
-  }else if(
-    goals >= 4
-  ){
-
-    message =
-      `🔥 Craque! ${goals}/5`;
-
-  }else if(
-    goals >= 3
-  ){
-
-    message =
-      `⚽ Boa! ${goals}/5`;
-
-  }else{
-
-    message =
-      `😅 ${goals}/5 — tente novamente`;
-
-  }
-
-  result.textContent =
-    message;
-
-  result.classList.add(
-    "show"
-  );
-
-
-  document.getElementById(
-    "restart"
-  ).classList.add(
-    "show"
-  );
-
-}
-
-
-/* =========================================================
-RESET
-========================================================= */
-
-function resetPositions(){
-
-  const keeper =
-    document.getElementById(
-      "keeper"
-    );
-
-  const ball =
-    document.getElementById(
-      "ball"
-    );
-
-  const result =
-    document.getElementById(
-      "result"
-    );
-
-  keeper.style.transform =
-    "translateX(-50%)";
-
-  ball.style.left =
-    "50%";
-
-  ball.style.bottom =
-    "49px";
-
-  ball.style.transform =
-    "translateX(-50%)";
-
-  result.classList.remove(
-    "show"
-  );
-
-}
-
-
-function resetGame(){
-
-  currentShot = 0;
-  goals = 0;
-  saves = 0;
-  history = [];
-  locked = false;
-
-  resetPositions();
-  updateScore();
-  renderShots();
-
-  document.getElementById(
-    "restart"
-  ).classList.remove(
-    "show"
-  );
 
 }
 
