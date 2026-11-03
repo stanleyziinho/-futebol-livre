@@ -11722,5 +11722,184 @@ console.log(
 );
 
 </script>
+<style>
+.ss-paywall{padding:22px;border:1px solid #80691f;border-radius:22px;background:#0d2115}
+.ss-paywall h2{text-align:center;margin:8px 0;color:#fff}
+.ss-price{text-align:center;color:#ffd45a;font-size:30px;font-weight:900;margin:12px}
+.ss-benefits{display:grid;gap:8px;margin:18px 0}
+.ss-benefits div{background:#12301e;padding:12px;border-radius:12px}
+.ss-code{width:100%;padding:14px;border-radius:12px;border:1px solid #276c40;background:#07170e;color:#fff}
+.ss-activate{width:100%;padding:14px;margin-top:10px;border:0;border-radius:12px;background:#ffd45a;font-weight:900}
+.ss-msg{text-align:center;margin-top:10px;font-weight:800}
+</style>
+
+<script>
+const PREMIUM_CODE="STANLEY5";
+const PREMIUM_DAYS=30;
+const PREMIUM_KEY="stanleyPremium30";
+
+function premiumData(){
+  try{
+    return JSON.parse(localStorage.getItem(PREMIUM_KEY));
+  }catch(e){
+    return null;
+  }
+}
+
+function premiumActive(){
+  const d=premiumData();
+
+  if(!d || !d.expires){
+    return false;
+  }
+
+  if(Date.now()>=d.expires){
+    localStorage.removeItem(PREMIUM_KEY);
+    return false;
+  }
+
+  return true;
+}
+
+function premiumDaysLeft(){
+  const d=premiumData();
+
+  if(!d){
+    return 0;
+  }
+
+  return Math.ceil(
+    (d.expires-Date.now())/
+    86400000
+  );
+}
+
+function activatePremium(){
+
+  const input=document.getElementById("premiumCode");
+  const msg=document.getElementById("premiumMsg");
+
+  const code=(input.value || "")
+    .trim()
+    .toUpperCase();
+
+  if(code!==PREMIUM_CODE){
+    msg.style.color="#ff8f8f";
+    msg.textContent="Código inválido.";
+    return;
+  }
+
+  const now=Date.now();
+
+  localStorage.setItem(
+    PREMIUM_KEY,
+    JSON.stringify({
+      activated:now,
+      expires:now+(PREMIUM_DAYS*86400000)
+    })
+  );
+
+  msg.style.color="#38e47d";
+  msg.textContent="👑 Premium ativado por 30 dias!";
+
+  setTimeout(()=>{
+    closeModal();
+  },800);
+}
+
+function premiumScreen(){
+
+  return `
+    <div class="ss-paywall">
+
+      <div style="text-align:center;font-size:55px">
+        👑
+      </div>
+
+      <h2>
+        Stanley Sports Premium
+      </h2>
+
+      <div class="ss-price">
+        R$ 5,00
+        <div style="font-size:10px;color:#8da696">
+          válido por 30 dias
+        </div>
+      </div>
+
+      <div class="ss-benefits">
+
+        <div>🎯 Probabilidades</div>
+
+        <div>📊 Comparativo das equipes</div>
+
+        <div>📈 Forma e últimos jogos</div>
+
+        <div>🔥 Tendências da partida</div>
+
+        <div>🧠 Confiança da análise</div>
+
+        <div>👥 Prováveis escalações</div>
+
+        <div>🚑 Desfalques e pendurados</div>
+
+      </div>
+
+      <input
+        id="premiumCode"
+        class="ss-code"
+        placeholder="Digite seu código"
+        autocomplete="off"
+      >
+
+      <button
+        class="ss-activate"
+        onclick="activatePremium()"
+      >
+        LIBERAR PREMIUM
+      </button>
+
+      <div
+        id="premiumMsg"
+        class="ss-msg"
+      ></div>
+
+    </div>
+  `;
+}
+
+
+/* GUARDA A ANÁLISE QUE JÁ FUNCIONA */
+const oldOpenAnalysis=window.openAnalysis;
+
+
+/* FREE OU PREMIUM */
+window.openAnalysis=async function(id){
+
+  if(premiumActive()){
+
+    return await oldOpenAnalysis(id);
+
+  }
+
+  openModal(
+    "👑 Stanley Sports Premium",
+    premiumScreen()
+  );
+
+};
+
+
+/* COMPATIBILIDADE COM O BLOCO ANTIGO */
+window.ssIsPremium=function(){
+  return premiumActive();
+};
+
+console.log(
+  premiumActive()
+  ? "👑 Premium ativo - "+premiumDaysLeft()+" dias restantes"
+  : "🔒 Premium bloqueado"
+);
+</script>
 </body>
 </html>
