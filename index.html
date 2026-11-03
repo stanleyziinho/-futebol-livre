@@ -13643,5 +13643,185 @@ console.log(
 );
 
 </script>
+<script>
+/* =========================================================
+CORREÇÃO DEFINITIVA DO BOTÃO
+ANÁLISE COMPLETA — PRÉ-JOGO
+========================================================= */
+
+window.ssOpenTomorrowAnalysis = async function(id){
+
+  const games =
+    window.ssTomorrowGamesCache || [];
+
+  const game =
+    games.find(
+      item =>
+        String(item.id) === String(id)
+    );
+
+  if(!game){
+
+    openModal(
+      "⚠️ Análise",
+      `
+      <div class="loading">
+        Jogo não encontrado no pré-jogo.
+      </div>
+      `
+    );
+
+    return;
+  }
+
+
+  /* ABRE O MODAL IMEDIATAMENTE */
+  openModal(
+    "🔥 Análise da partida",
+    `
+    <div class="loading">
+      👑 Carregando análise Premium...
+    </div>
+    `
+  );
+
+
+  try{
+
+    const results =
+      await Promise.allSettled([
+        getAnalysisData(game),
+        getGeData(game,true)
+      ]);
+
+
+    const originalAnalysis =
+      results[0].status === "fulfilled"
+      ? results[0].value
+      : null;
+
+
+    const ge =
+      results[1].status === "fulfilled"
+      ? results[1].value
+      : null;
+
+
+    const analysis =
+      typeof buildStanleyEstimate === "function"
+      ? buildStanleyEstimate(
+          game,
+          originalAnalysis
+        )
+      : originalAnalysis;
+
+
+    renderAnalysisModal(
+      game,
+      analysis,
+      ge
+    );
+
+
+  }catch(error){
+
+    console.error(
+      "PRE-JOGO PREMIUM:",
+      error
+    );
+
+
+    const body =
+      document.getElementById(
+        "modalBody"
+      );
+
+
+    if(body){
+
+      body.innerHTML = `
+        <div
+          style="
+            padding:25px;
+            text-align:center;
+            line-height:1.6;
+            color:var(--muted)
+          "
+        >
+          ⚠️ A análise não pôde ser
+          carregada neste momento.
+        </div>
+      `;
+
+    }
+
+  }
+
+};
+
+
+/* =========================================================
+CAPTURA O CLIQUE SEM DEPENDER DO ONCLICK
+========================================================= */
+
+document.addEventListener(
+  "click",
+  function(event){
+
+    const button =
+      event.target.closest(
+        ".ss-tomorrow-btn"
+      );
+
+    if(!button){
+      return;
+    }
+
+
+    event.preventDefault();
+    event.stopPropagation();
+
+
+    /*
+    O botão atual contém:
+    onclick="ssOpenTomorrowAnalysis('ID')"
+
+    Pegamos o ID diretamente dele.
+    */
+
+    const onclick =
+      button.getAttribute(
+        "onclick"
+      ) || "";
+
+
+    const match =
+      onclick.match(
+        /ssOpenTomorrowAnalysis\(['"]([^'"]+)['"]\)/
+      );
+
+
+    if(!match){
+      return;
+    }
+
+
+    const id =
+      match[1];
+
+
+    window.ssOpenTomorrowAnalysis(
+      id
+    );
+
+  },
+  true
+);
+
+
+console.log(
+  "✅ Clique Análise Completa corrigido"
+);
+</script>
 </body>
 </html>
