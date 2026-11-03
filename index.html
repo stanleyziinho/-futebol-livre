@@ -3791,14 +3791,14 @@ function normalizeGame(
         ?.type
         ?.shortDetail
       ||
-      status
-        ?.type
-        ?.detail
-      ||
-      "",
+      clock:
+  status
+    ?.displayClock
+  ||
+  "",
 
-    clock:
-      status
+rawEvent:
+  event.
         ?.displayClock
       ||
       ""
