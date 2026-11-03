@@ -1,1 +1,591 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
 
+<head>
+<meta charset="UTF-8">
+
+<meta
+  name="viewport"
+  content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover"
+>
+
+<title>Stanley Sports • Retro Games</title>
+
+<style>
+
+*{
+  box-sizing:border-box;
+  -webkit-tap-highlight-color:transparent;
+}
+
+html,
+body{
+  margin:0;
+  min-height:100%;
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  background:#030a06;
+  color:#fff;
+}
+
+body{
+  padding:
+    calc(12px + env(safe-area-inset-top))
+    14px
+    calc(24px + env(safe-area-inset-bottom));
+}
+
+.ss-wrap{
+  width:min(100%,600px);
+  margin:auto;
+}
+
+.ss-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:22px;
+}
+
+.ss-back{
+  color:#a4b8aa;
+  text-decoration:none;
+  font-size:12px;
+  font-weight:900;
+}
+
+.ss-premium{
+  padding:7px 10px;
+  border-radius:999px;
+  color:#ffd45a;
+  background:rgba(255,212,90,.10);
+  border:1px solid rgba(255,212,90,.30);
+  font-size:8px;
+  font-weight:950;
+}
+
+.ss-hero{
+  padding:22px;
+  margin-bottom:20px;
+
+  border-radius:24px;
+
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(56,228,125,.20),
+      transparent 40%
+    ),
+    linear-gradient(
+      145deg,
+      #12301e,
+      #06120b
+    );
+
+  border:
+    1px solid
+    rgba(56,228,125,.18);
+}
+
+.ss-hero small{
+  color:#38e47d;
+  font-weight:950;
+  font-size:8px;
+  letter-spacing:1.3px;
+}
+
+.ss-hero h1{
+  margin:7px 0 4px;
+  font-size:30px;
+}
+
+.ss-hero p{
+  margin:0;
+  color:#9eb0a3;
+  font-size:11px;
+  line-height:1.5;
+}
+
+.ss-grid{
+  display:grid;
+  grid-template-columns:
+    repeat(2,minmax(0,1fr));
+  gap:12px;
+}
+
+.ss-console{
+  min-height:145px;
+
+  padding:16px;
+
+  border-radius:20px;
+
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+
+  background:#0d2416;
+
+  border:
+    1px solid
+    rgba(255,255,255,.08);
+
+  cursor:pointer;
+}
+
+.ss-console:active{
+  transform:scale(.97);
+}
+
+.ss-icon{
+  font-size:34px;
+}
+
+.ss-console strong{
+  display:block;
+  font-size:14px;
+  margin-top:8px;
+}
+
+.ss-console span{
+  display:block;
+  margin-top:4px;
+  color:#879b8d;
+  font-size:9px;
+}
+
+.ss-console.ps1{
+  background:
+    linear-gradient(
+      145deg,
+      #1a2545,
+      #080d18
+    );
+}
+
+.ss-console.nes{
+  background:
+    linear-gradient(
+      145deg,
+      #472020,
+      #140808
+    );
+}
+
+.ss-console.snes{
+  background:
+    linear-gradient(
+      145deg,
+      #3a2854,
+      #100918
+    );
+}
+
+.ss-console.sega{
+  background:
+    linear-gradient(
+      145deg,
+      #173c5b,
+      #07121b
+    );
+}
+
+.ss-console.n64{
+  background:
+    linear-gradient(
+      145deg,
+      #184630,
+      #07160e
+    );
+}
+
+.ss-section{
+  margin-top:28px;
+}
+
+.ss-section h2{
+  margin:0 0 12px;
+  font-size:17px;
+}
+
+.ss-info{
+  padding:15px;
+  border-radius:16px;
+  background:#0b1e12;
+  color:#91a496;
+  font-size:10px;
+  line-height:1.55;
+}
+
+.ss-lock{
+  min-height:88vh;
+
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+
+  text-align:center;
+}
+
+.ss-lock-icon{
+  font-size:60px;
+}
+
+.ss-lock h2{
+  margin:10px 0 5px;
+}
+
+.ss-lock p{
+  max-width:300px;
+  color:#91a496;
+  font-size:12px;
+  line-height:1.5;
+}
+
+.ss-lock a{
+  width:100%;
+  max-width:300px;
+
+  margin-top:15px;
+  padding:14px;
+
+  border-radius:14px;
+
+  background:#ffd45a;
+  color:#171000;
+
+  text-decoration:none;
+  font-weight:950;
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="app"></div>
+
+<script>
+
+/* ==========================================
+PREMIUM
+========================================== */
+
+const PREMIUM_KEY =
+  "stanleyPremium30";
+
+function premiumActive(){
+
+  try{
+
+    const data =
+      JSON.parse(
+        localStorage.getItem(
+          PREMIUM_KEY
+        )
+      );
+
+    return Boolean(
+      data
+      &&
+      data.expires
+      &&
+      Date.now()
+      <
+      Number(data.expires)
+    );
+
+  }catch(e){
+
+    return false;
+
+  }
+
+}
+
+
+/* ==========================================
+FREE
+========================================== */
+
+if(
+  !premiumActive()
+){
+
+  document.getElementById(
+    "app"
+  ).innerHTML = `
+
+    <div class="ss-lock">
+
+      <div class="ss-lock-icon">
+        👑
+      </div>
+
+      <h2>
+        Retro Games Premium
+      </h2>
+
+      <p>
+        A Central Retrô faz parte
+        do Stanley Sports Premium.
+      </p>
+
+      <a href="../index.html">
+        VOLTAR AO STANLEY SPORTS
+      </a>
+
+    </div>
+
+  `;
+
+}
+
+
+/* ==========================================
+PREMIUM
+========================================== */
+
+else{
+
+  document.getElementById(
+    "app"
+  ).innerHTML = `
+
+    <main class="ss-wrap">
+
+      <div class="ss-top">
+
+        <a
+          class="ss-back"
+          href="../index.html"
+        >
+          ‹ Stanley Sports
+        </a>
+
+        <div class="ss-premium">
+          👑 PREMIUM
+        </div>
+
+      </div>
+
+
+      <section class="ss-hero">
+
+        <small>
+          STANLEY SPORTS • GAMES
+        </small>
+
+        <h1>
+          🎮 Central Retrô
+        </h1>
+
+        <p>
+          Escolha um console e carregue
+          um jogo compatível diretamente
+          do seu aparelho.
+        </p>
+
+      </section>
+
+
+      <section class="ss-grid">
+
+        <div
+          class="ss-console ps1"
+          onclick="
+            openConsole(
+              'psx',
+              'PlayStation 1'
+            )
+          "
+        >
+
+          <div class="ss-icon">
+            🎮
+          </div>
+
+          <div>
+            <strong>
+              PlayStation 1
+            </strong>
+
+            <span>
+              PS1 • controles virtuais
+            </span>
+          </div>
+
+        </div>
+
+
+        <div
+          class="ss-console nes"
+          onclick="
+            openConsole(
+              'nes',
+              'Nintendo / NES'
+            )
+          "
+        >
+
+          <div class="ss-icon">
+            🍄
+          </div>
+
+          <div>
+            <strong>
+              Nintendo / NES
+            </strong>
+
+            <span>
+              plataforma e clássicos
+            </span>
+          </div>
+
+        </div>
+
+
+        <div
+          class="ss-console snes"
+          onclick="
+            openConsole(
+              'snes',
+              'Super Nintendo'
+            )
+          "
+        >
+
+          <div class="ss-icon">
+            🕹️
+          </div>
+
+          <div>
+            <strong>
+              Super Nintendo
+            </strong>
+
+            <span>
+              SNES
+            </span>
+          </div>
+
+        </div>
+
+
+        <div
+          class="ss-console sega"
+          onclick="
+            openConsole(
+              'segaMD',
+              'Mega Drive'
+            )
+          "
+        >
+
+          <div class="ss-icon">
+            ⚡
+          </div>
+
+          <div>
+            <strong>
+              Mega Drive
+            </strong>
+
+            <span>
+              Sega Genesis
+            </span>
+          </div>
+
+        </div>
+
+
+        <div
+          class="ss-console n64"
+          onclick="
+            openConsole(
+              'n64',
+              'Nintendo 64'
+            )
+          "
+        >
+
+          <div class="ss-icon">
+            🟢
+          </div>
+
+          <div>
+            <strong>
+              Nintendo 64
+            </strong>
+
+            <span>
+              N64
+            </span>
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <section class="ss-section">
+
+        <h2>
+          Como jogar
+        </h2>
+
+        <div class="ss-info">
+
+          Escolha o console e depois selecione
+          no seu aparelho um arquivo de jogo
+          que você tenha direito de utilizar.
+
+          <br><br>
+
+          O jogo roda diretamente no navegador.
+          No celular, o EmulatorJS disponibiliza
+          controles virtuais compatíveis com toque.
+
+        </div>
+
+      </section>
+
+    </main>
+
+  `;
+
+}
+
+
+/* ==========================================
+ABRE EMULADOR
+========================================== */
+
+function openConsole(
+  core,
+  name
+){
+
+  localStorage.setItem(
+    "ssRetroCore",
+    core
+  );
+
+  localStorage.setItem(
+    "ssRetroName",
+    name
+  );
+
+  location.href =
+    "./emulator.html";
+
+}
+
+</script>
+
+</body>
+</html>
