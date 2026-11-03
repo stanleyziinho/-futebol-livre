@@ -5172,7 +5172,10 @@ const broadcasters =
     ])
   ];
 
-
+const hasRealtime =
+  Boolean(
+    ge?.realtimeUrl
+  );
   const hasFree =
     Boolean(
       ge?.freeStream?.available
