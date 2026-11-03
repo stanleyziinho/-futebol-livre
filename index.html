@@ -5082,10 +5082,11 @@ async function hydrateBroadcasts(){
     }
 
 
-    const ge =
-      await getGeData(
-        game
-      );
+  const ge =
+  await getGeData(
+    game,
+    true
+  );
 
 
     renderBroadcastCard(
