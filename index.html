@@ -12681,5 +12681,967 @@ console.log(
 );
 
 </script>
+<style>
+.ss-premium-panel{
+  padding:18px;
+  border-radius:22px;
+  border:1px solid rgba(255,212,90,.28);
+  background:linear-gradient(145deg,rgba(255,212,90,.08),rgba(56,228,125,.04));
+}
+
+.ss-premium-validity{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:8px;
+  margin:14px 0 18px;
+}
+
+.ss-premium-validity div{
+  padding:12px 8px;
+  border-radius:14px;
+  background:#0f2919;
+  text-align:center;
+}
+
+.ss-premium-validity small{
+  display:block;
+  color:#8da696;
+  font-size:8px;
+  margin-bottom:4px;
+}
+
+.ss-premium-validity strong{
+  font-size:12px;
+}
+
+.ss-tomorrow-list{
+  display:grid;
+  gap:10px;
+  margin-top:14px;
+}
+
+.ss-tomorrow-game{
+  padding:14px;
+  border-radius:18px;
+  border:1px solid rgba(56,228,125,.20);
+  background:#0a1d12;
+}
+
+.ss-tomorrow-head{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  color:#8da696;
+  font-size:9px;
+  margin-bottom:12px;
+}
+
+.ss-tomorrow-match{
+  display:grid;
+  grid-template-columns:1fr auto 1fr;
+  gap:10px;
+  align-items:center;
+}
+
+.ss-tomorrow-team{
+  text-align:center;
+  font-size:11px;
+  font-weight:900;
+}
+
+.ss-tomorrow-team img{
+  width:42px;
+  height:42px;
+  object-fit:contain;
+  display:block;
+  margin:0 auto 5px;
+}
+
+.ss-tomorrow-time{
+  text-align:center;
+  font-size:12px;
+  font-weight:950;
+}
+
+.ss-tomorrow-btn{
+  width:100%;
+  margin-top:12px;
+  min-height:42px;
+  border:0;
+  border-radius:12px;
+  background:#38e47d;
+  color:#03210d;
+  font-weight:950;
+}
+
+.ss-premium-empty{
+  padding:18px;
+  border-radius:16px;
+  background:#0f2919;
+  color:#8da696;
+  text-align:center;
+  line-height:1.5;
+}
+</style>
+
+<script>
+
+/* =========================================================
+PREMIUM — VALIDADE + PRÉ-JOGO DE AMANHÃ
+========================================================= */
+
+function ssFmtDate(ts){
+
+  return new Date(ts)
+    .toLocaleDateString("pt-BR");
+
+}
+
+
+function ssTomorrowISO(){
+
+  const now =
+    new Date();
+
+  const br =
+    new Date(
+      now.toLocaleString(
+        "en-US",
+        {
+          timeZone:"America/Sao_Paulo"
+        }
+      )
+    );
+
+  br.setDate(
+    br.getDate()+1
+  );
+
+  const y =
+    br.getFullYear();
+
+  const m =
+    String(
+      br.getMonth()+1
+    ).padStart(2,"0");
+
+  const d =
+    String(
+      br.getDate()
+    ).padStart(2,"0");
+
+  return `${y}-${m}-${d}`;
+
+}
+
+
+function ssTomorrowDateCompact(){
+
+  return ssTomorrowISO()
+    .replaceAll("-","");
+
+}
+
+
+function ssPremiumInfoHTML(){
+
+  if(
+    typeof premiumData!=="function"
+    ||
+    typeof premiumActive!=="function"
+  ){
+
+    return "";
+
+  }
+
+  const data =
+    premiumData();
+
+  if(
+    !data
+    ||
+    !premiumActive()
+  ){
+
+    return "";
+
+  }
+
+  const days =
+
+    typeof premiumDaysLeft==="function"
+
+    ?
+
+    premiumDaysLeft()
+
+    :
+
+    Math.max(
+      0,
+      Math.ceil(
+        (data.expires-Date.now())
+        /
+        86400000
+      )
+    );
+
+
+  return `
+    <div class="ss-premium-validity">
+
+      <div>
+        <small>ATIVADO EM</small>
+        <strong>
+          ${ssFmtDate(data.activated)}
+        </strong>
+      </div>
+
+      <div>
+        <small>VÁLIDO ATÉ</small>
+        <strong>
+          ${ssFmtDate(data.expires)}
+        </strong>
+      </div>
+
+      <div>
+        <small>RESTANTE</small>
+        <strong>
+          ${days} dias
+        </strong>
+      </div>
+
+    </div>
+  `;
+
+}
+
+
+/* =========================================================
+BUSCA JOGOS DE AMANHÃ
+========================================================= */
+
+async function ssLoadTomorrowGames(){
+
+  const leagues = [
+    "bra.1",
+    "bra.2",
+    "bra.copa_do_brazil",
+    "conmebol.libertadores",
+    "conmebol.sudamericana",
+    "uefa.champions",
+    "eng.1",
+    "esp.1"
+  ];
+
+  const date =
+    ssTomorrowDateCompact();
+
+  const games = [];
+
+
+  for(
+    const league
+    of leagues
+  ){
+
+    try{
+
+      const url =
+        `${ESPN_BASE}/${league}/scoreboard?dates=${date}`;
+
+      const response =
+        await fetch(
+          url,
+          {
+            cache:"no-store"
+          }
+        );
+
+
+      if(
+        !response.ok
+      ){
+        continue;
+      }
+
+
+      const data =
+        await response.json();
+
+
+      const events =
+
+        Array.isArray(
+          data?.events
+        )
+
+        ?
+
+        data.events
+
+        :
+
+        [];
+
+
+      for(
+        const event
+        of events
+      ){
+
+        const competition =
+          event
+            ?.competitions
+            ?.[0];
+
+
+        const competitors =
+          competition
+            ?.competitors
+          ||
+          [];
+
+
+        const home =
+          competitors.find(
+            x =>
+              x.homeAway
+              ===
+              "home"
+          );
+
+
+        const away =
+          competitors.find(
+            x =>
+              x.homeAway
+              ===
+              "away"
+          );
+
+
+        if(
+          !home
+          ||
+          !away
+        ){
+          continue;
+        }
+
+
+        games.push({
+
+          id:
+            String(
+              event.id
+            ),
+
+          league:
+            event
+              ?.league
+              ?.name
+            ||
+            data
+              ?.leagues
+              ?.[0]
+              ?.name
+            ||
+            league,
+
+          date:
+            event.date,
+
+          home:
+            home
+              ?.team
+              ?.displayName
+            ||
+            home
+              ?.team
+              ?.shortDisplayName
+            ||
+            "Mandante",
+
+          away:
+            away
+              ?.team
+              ?.displayName
+            ||
+            away
+              ?.team
+              ?.shortDisplayName
+            ||
+            "Visitante",
+
+          homeLogo:
+            home
+              ?.team
+              ?.logo
+            ||
+            "",
+
+          awayLogo:
+            away
+              ?.team
+              ?.logo
+            ||
+            "",
+
+          status:
+            competition
+              ?.status
+              ?.type
+              ?.name
+            ||
+            "STATUS_SCHEDULED",
+
+          rawEvent:
+            event
+
+        });
+
+      }
+
+    }catch(error){
+
+      console.error(
+        "Tomorrow ESPN",
+        league,
+        error
+      );
+
+    }
+
+  }
+
+
+  const unique = [];
+
+  const seen =
+    new Set();
+
+
+  for(
+    const game
+    of games
+  ){
+
+    if(
+      seen.has(
+        game.id
+      )
+    ){
+      continue;
+    }
+
+
+    seen.add(
+      game.id
+    );
+
+
+    unique.push(
+      game
+    );
+
+  }
+
+
+  unique.sort(
+    (a,b)=>
+      new Date(a.date)
+      -
+      new Date(b.date)
+  );
+
+
+  return unique;
+
+}
+
+
+/* =========================================================
+HORÁRIO
+========================================================= */
+
+function ssGameTime(date){
+
+  try{
+
+    return new Date(date)
+      .toLocaleTimeString(
+        "pt-BR",
+        {
+          hour:"2-digit",
+          minute:"2-digit",
+          timeZone:"America/Sao_Paulo"
+        }
+      );
+
+  }catch(error){
+
+    return "--:--";
+
+  }
+
+}
+
+
+/* =========================================================
+RENDER DOS JOGOS
+========================================================= */
+
+function ssTomorrowGamesHTML(games){
+
+  if(
+    !games.length
+  ){
+
+    return `
+      <div class="ss-premium-empty">
+        Nenhum jogo encontrado para amanhã
+        nas competições monitoradas.
+      </div>
+    `;
+
+  }
+
+
+  return `
+    <div class="ss-tomorrow-list">
+
+      ${
+        games
+          .map(
+            game=>`
+            <div class="ss-tomorrow-game">
+
+              <div class="ss-tomorrow-head">
+
+                <span>
+                  ${game.league}
+                </span>
+
+                <span>
+                  ${ssTomorrowISO()}
+                </span>
+
+              </div>
+
+
+              <div class="ss-tomorrow-match">
+
+                <div class="ss-tomorrow-team">
+
+                  ${
+                    game.homeLogo
+                    ?
+                    `
+                    <img
+                      src="${game.homeLogo}"
+                      alt="${game.home}"
+                    >
+                    `
+                    :
+                    ""
+                  }
+
+                  ${game.home}
+
+                </div>
+
+
+                <div class="ss-tomorrow-time">
+                  ${ssGameTime(game.date)}
+                </div>
+
+
+                <div class="ss-tomorrow-team">
+
+                  ${
+                    game.awayLogo
+                    ?
+                    `
+                    <img
+                      src="${game.awayLogo}"
+                      alt="${game.away}"
+                    >
+                    `
+                    :
+                    ""
+                  }
+
+                  ${game.away}
+
+                </div>
+
+              </div>
+
+
+              <button
+                class="ss-tomorrow-btn"
+                onclick="ssOpenTomorrowAnalysis('${game.id}')"
+              >
+                👑 Análise completa
+              </button>
+
+            </div>
+            `
+          )
+          .join("")
+      }
+
+    </div>
+  `;
+
+}
+
+
+/* =========================================================
+CACHE DOS JOGOS DE AMANHÃ
+========================================================= */
+
+window.ssTomorrowGamesCache = [];
+
+
+/* =========================================================
+ANÁLISE CORRIGIDA
+========================================================= */
+
+async function ssOpenTomorrowAnalysis(id){
+
+  const game =
+    window
+      .ssTomorrowGamesCache
+      ?.find(
+        item =>
+          String(item.id)
+          ===
+          String(id)
+      );
+
+
+  if(
+    !game
+  ){
+
+    console.error(
+      "Jogo de amanhã não encontrado:",
+      id
+    );
+
+    return;
+
+  }
+
+
+  openModal(
+
+    "🔥 Análise da partida",
+
+    `
+    <div class="loading">
+      👑 Preparando análise Premium...
+    </div>
+    `
+
+  );
+
+
+  try{
+
+    const results =
+      await Promise.allSettled([
+
+        getAnalysisData(
+          game
+        ),
+
+        getGeData(
+          game,
+          true
+        )
+
+      ]);
+
+
+    const originalAnalysis =
+
+      results[0].status
+      ===
+      "fulfilled"
+
+      ?
+
+      results[0].value
+
+      :
+
+      null;
+
+
+    const ge =
+
+      results[1].status
+      ===
+      "fulfilled"
+
+      ?
+
+      results[1].value
+
+      :
+
+      null;
+
+
+    const analysis =
+
+      typeof buildStanleyEstimate
+      ===
+      "function"
+
+      ?
+
+      buildStanleyEstimate(
+        game,
+        originalAnalysis
+      )
+
+      :
+
+      originalAnalysis;
+
+
+    renderAnalysisModal(
+      game,
+      analysis,
+      ge
+    );
+
+
+  }catch(error){
+
+    console.error(
+      "Erro análise jogo amanhã:",
+      error
+    );
+
+
+    const body =
+      document.getElementById(
+        "modalBody"
+      );
+
+
+    if(
+      body
+    ){
+
+      body.innerHTML =
+        `
+        <div
+          style="
+            padding:25px;
+            text-align:center;
+            color:var(--muted);
+            line-height:1.6
+          "
+        >
+          ⚠️ Não foi possível carregar
+          a análise deste confronto.
+        </div>
+        `;
+
+    }
+
+  }
+
+}
+
+
+/* =========================================================
+ABRE A ÁREA PREMIUM EXISTENTE
+========================================================= */
+
+async function ssOpenPremiumHome(){
+
+  if(
+    typeof premiumActive
+    ===
+    "function"
+    &&
+    !premiumActive()
+  ){
+
+    openModal(
+      "👑 Stanley Sports Premium",
+      premiumScreen()
+    );
+
+    return;
+
+  }
+
+
+  openModal(
+
+    "👑 Stanley Sports Premium",
+
+    `
+    <div class="ss-premium-panel">
+
+      <div
+        style="
+          color:var(--gold);
+          font-size:10px;
+          font-weight:950;
+          letter-spacing:1px
+        "
+      >
+        STANLEY SPORTS PREMIUM
+      </div>
+
+
+      <h2
+        style="
+          margin:8px 0 4px;
+          font-size:26px
+        "
+      >
+        Análises inteligentes + pré-jogo
+      </h2>
+
+
+      <div
+        style="
+          color:var(--muted);
+          font-size:11px;
+          line-height:1.5
+        "
+      >
+        Probabilidades, forma, tendências,
+        escalações, transmissão e tempo real.
+      </div>
+
+
+      ${ssPremiumInfoHTML()}
+
+
+      <div
+        style="
+          margin-top:18px;
+          color:var(--gold);
+          font-size:10px;
+          font-weight:950;
+          letter-spacing:1px
+        "
+      >
+        📅 PRÉ-JOGO DE AMANHÃ
+      </div>
+
+
+      <div
+        id="ssTomorrowGames"
+        class="ss-premium-empty"
+        style="margin-top:10px"
+      >
+        Carregando jogos de amanhã...
+      </div>
+
+    </div>
+    `
+
+  );
+
+
+  const games =
+    await ssLoadTomorrowGames();
+
+
+  window.ssTomorrowGamesCache =
+    games;
+
+
+  const target =
+    document.getElementById(
+      "ssTomorrowGames"
+    );
+
+
+  if(
+    target
+  ){
+
+    target.outerHTML =
+      ssTomorrowGamesHTML(
+        games
+      );
+
+  }
+
+}
+
+
+/* =========================================================
+LIGA O BOTÃO PREMIUM DA HOME
+========================================================= */
+
+function ssBindPremiumHome(){
+
+  const buttons =
+    document.querySelectorAll(
+      ".premium-home-btn"
+    );
+
+
+  buttons.forEach(
+    button=>{
+
+      button.onclick =
+        ssOpenPremiumHome;
+
+    }
+  );
+
+}
+
+
+/* PRIMEIRA EXECUÇÃO */
+
+setTimeout(
+  ssBindPremiumHome,
+  500
+);
+
+
+/* REAPLICA SE A HOME FOR RECRIADA */
+
+const ssPremiumHomeObserver =
+  new MutationObserver(
+    ()=>{
+
+      ssBindPremiumHome();
+
+    }
+  );
+
+
+ssPremiumHomeObserver.observe(
+  document.body,
+  {
+    childList:true,
+    subtree:true
+  }
+);
+
+
+console.log(
+  "👑 Premium + validade + jogos de amanhã + análise corrigida"
+);
+
+</script>
 </body>
 </html>
