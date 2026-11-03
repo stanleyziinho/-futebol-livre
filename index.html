@@ -16776,5 +16776,315 @@ console.log(
 );
 
 </script>
+<script>
+
+/* =========================================================
+STANLEY SPORTS — AO VIVO POR HORÁRIO
+NÃO ALTERA JOGOS / PREMIUM / TV / FILMES
+========================================================= */
+
+const SS_PROGRAM_SCHEDULE = {
+
+  "Alterosa Esporte":{
+    days:[1,2,3,4,5],
+    start:"11:45",
+    end:"12:45"
+  },
+
+  "Jogo Aberto":{
+    days:[1,2,3,4,5],
+    start:"11:00",
+    end:"12:50"
+  },
+
+  "Os Donos da Bola MG":{
+    days:[1,2,3,4,5],
+    start:"12:50",
+    end:"14:30"
+  }
+
+};
+
+
+/* =========================================================
+HORÁRIO DE BRASÍLIA
+========================================================= */
+
+function ssBrazilNow(){
+
+  const parts =
+    new Intl.DateTimeFormat(
+      "pt-BR",
+      {
+        timeZone:"America/Sao_Paulo",
+        weekday:"short",
+        hour:"2-digit",
+        minute:"2-digit",
+        hour12:false
+      }
+    )
+    .formatToParts(
+      new Date()
+    );
+
+
+  const get =
+    type =>
+      parts.find(
+        item =>
+          item.type === type
+      )?.value || "";
+
+
+  const weekday =
+    get("weekday")
+      .toLowerCase()
+      .replace(".","");
+
+
+  const days = {
+
+    "dom":0,
+    "seg":1,
+    "ter":2,
+    "qua":3,
+    "qui":4,
+    "sex":5,
+    "sáb":6,
+    "sab":6
+
+  };
+
+
+  return{
+
+    day:
+      days[weekday],
+
+    time:
+      `${get("hour")}:${get("minute")}`
+
+  };
+
+}
+
+
+/* =========================================================
+CONVERTE HORÁRIO
+========================================================= */
+
+function ssTimeMinutes(time){
+
+  const [
+    hour,
+    minute
+  ] =
+    time
+      .split(":")
+      .map(Number);
+
+
+  return(
+    hour * 60
+    +
+    minute
+  );
+
+}
+
+
+/* =========================================================
+VERIFICA SE ESTÁ NO HORÁRIO
+========================================================= */
+
+function ssProgramIsLive(name){
+
+  const schedule =
+    SS_PROGRAM_SCHEDULE[
+      name
+    ];
+
+
+  if(!schedule){
+    return false;
+  }
+
+
+  const now =
+    ssBrazilNow();
+
+
+  if(
+    !schedule.days.includes(
+      now.day
+    )
+  ){
+    return false;
+  }
+
+
+  const current =
+    ssTimeMinutes(
+      now.time
+    );
+
+
+  const start =
+    ssTimeMinutes(
+      schedule.start
+    );
+
+
+  const end =
+    ssTimeMinutes(
+      schedule.end
+    );
+
+
+  return(
+    current >= start
+    &&
+    current < end
+  );
+
+}
+
+
+/* =========================================================
+ATUALIZA CARDS
+========================================================= */
+
+function ssUpdateProgramLiveStatus(){
+
+  document
+    .querySelectorAll(
+      ".ss-sports-channel-card"
+    )
+    .forEach(
+      card => {
+
+        const title =
+          card.querySelector(
+            "h3"
+          );
+
+
+        if(!title){
+          return;
+        }
+
+
+        const name =
+          title
+            .textContent
+            .trim();
+
+
+        const live =
+          ssProgramIsLive(
+            name
+          );
+
+
+        card.classList.toggle(
+          "live",
+          live
+        );
+
+
+        const badge =
+          card.querySelector(
+            ".ss-sports-channel-live"
+          );
+
+
+        const action =
+          card.querySelector(
+            ".ss-sports-channel-open"
+          );
+
+
+        if(badge){
+
+          badge.textContent =
+            "🔴 AO VIVO";
+
+        }
+
+
+        if(action){
+
+          action.textContent =
+            live
+            ?
+            "Assistir agora →"
+            :
+            "Abrir canal →";
+
+        }
+
+      }
+    );
+
+}
+
+
+/* =========================================================
+ATUALIZA TAMBÉM O ARRAY EXISTENTE
+========================================================= */
+
+function ssSyncProgramSchedule(){
+
+  if(
+    typeof SS_SPORTS_CHANNELS
+    !==
+    "undefined"
+  ){
+
+    SS_SPORTS_CHANNELS
+      .forEach(
+        channel => {
+
+          channel.live =
+            ssProgramIsLive(
+              channel.name
+            );
+
+        }
+      );
+
+  }
+
+
+  ssUpdateProgramLiveStatus();
+
+}
+
+
+/* =========================================================
+EXECUTA
+========================================================= */
+
+setTimeout(
+  ssSyncProgramSchedule,
+  900
+);
+
+
+/*
+Atualiza a cada 1 minuto.
+*/
+
+setInterval(
+  ssSyncProgramSchedule,
+  60000
+);
+
+
+console.log(
+  "🔴 AO VIVO por horário ativado"
+);
+
+</script>
 </body>
 </html>
