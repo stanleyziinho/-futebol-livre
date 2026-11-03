@@ -15940,6 +15940,845 @@ console.log(
 );
 
 </script>
+<style>
 
+/* =========================================================
+STANLEY SPORTS — FILMES & DESENHOS • CATÁLOGO V1
+========================================================= */
+
+#moviesGrid{
+  display:block !important;
+}
+
+
+/* CABEÇALHO */
+
+.ss-catalog-hero{
+  position:relative;
+  overflow:hidden;
+  min-height:185px;
+  margin-bottom:24px;
+  padding:24px 20px;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  border-radius:24px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(3,16,8,.10),
+      rgba(3,16,8,.96)
+    ),
+    url("./assets/images/netflix.png")
+    center/cover;
+
+  border:
+    1px solid
+    rgba(56,228,125,.22);
+}
+
+.ss-catalog-hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(3,16,8,.95),
+      rgba(3,16,8,.30)
+    );
+
+  pointer-events:none;
+}
+
+.ss-catalog-hero-content{
+  position:relative;
+  z-index:2;
+}
+
+.ss-catalog-label{
+  color:var(--green);
+  font-size:9px;
+  font-weight:950;
+  letter-spacing:1.5px;
+}
+
+.ss-catalog-hero h2{
+  margin:7px 0 7px;
+  font-size:29px;
+}
+
+.ss-catalog-hero p{
+  margin:0;
+  max-width:470px;
+  color:#c2d3c7;
+  font-size:11px;
+  line-height:1.55;
+}
+
+
+/* SEÇÕES */
+
+.ss-catalog-section{
+  margin-bottom:28px;
+}
+
+.ss-catalog-title{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:12px;
+}
+
+.ss-catalog-title h3{
+  margin:0;
+  font-size:19px;
+}
+
+.ss-catalog-title span{
+  color:var(--muted);
+  font-size:9px;
+  font-weight:800;
+}
+
+
+/* GRID DE PÔSTERES */
+
+.ss-poster-grid{
+  display:grid;
+  grid-template-columns:
+    repeat(3,minmax(0,1fr));
+  gap:11px;
+}
+
+
+/* PÔSTER */
+
+.ss-poster{
+  min-width:0;
+  text-decoration:none;
+  color:#fff;
+}
+
+.ss-poster-image{
+  position:relative;
+  width:100%;
+  aspect-ratio:2/3;
+  overflow:hidden;
+  border-radius:15px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #163422,
+      #07150d
+    );
+
+  border:
+    1px solid
+    rgba(255,255,255,.08);
+
+  box-shadow:
+    0 8px 22px
+    rgba(0,0,0,.25);
+}
+
+.ss-poster-image img{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+  transition:
+    transform .20s ease,
+    opacity .20s ease;
+}
+
+.ss-poster:active
+.ss-poster-image img{
+  transform:scale(.96);
+}
+
+
+/* GRADIENTE SOBRE A CAPA */
+
+.ss-poster-image::after{
+  content:"";
+  position:absolute;
+  inset:55% 0 0;
+
+  background:
+    linear-gradient(
+      transparent,
+      rgba(0,0,0,.68)
+    );
+
+  pointer-events:none;
+}
+
+
+/* BADGE */
+
+.ss-poster-badge{
+  position:absolute;
+  z-index:3;
+  top:7px;
+  left:7px;
+
+  padding:
+    4px
+    6px;
+
+  border-radius:999px;
+
+  background:
+    rgba(3,16,8,.83);
+
+  border:
+    1px solid
+    rgba(56,228,125,.30);
+
+  color:var(--green);
+
+  font-size:6px;
+  font-weight:950;
+  letter-spacing:.5px;
+}
+
+
+/* PLAY */
+
+.ss-poster-play{
+  position:absolute;
+  z-index:3;
+  right:7px;
+  bottom:7px;
+
+  width:26px;
+  height:26px;
+
+  display:grid;
+  place-items:center;
+
+  border-radius:50%;
+
+  background:
+    rgba(3,16,8,.86);
+
+  border:
+    1px solid
+    rgba(255,255,255,.18);
+
+  font-size:10px;
+}
+
+
+/* TEXTO */
+
+.ss-poster-name{
+  margin-top:7px;
+  color:#fff;
+
+  font-size:11px;
+  font-weight:900;
+
+  line-height:1.18;
+
+  overflow:hidden;
+  white-space:nowrap;
+  text-overflow:ellipsis;
+}
+
+.ss-poster-type{
+  margin-top:3px;
+
+  color:var(--muted);
+
+  font-size:8px;
+  font-weight:700;
+
+  overflow:hidden;
+  white-space:nowrap;
+  text-overflow:ellipsis;
+}
+
+
+/* STREAMING */
+
+.ss-streaming-grid{
+  display:grid;
+  grid-template-columns:
+    repeat(4,minmax(0,1fr));
+  gap:9px;
+}
+
+.ss-streaming-card{
+  min-width:0;
+  text-decoration:none;
+  text-align:center;
+}
+
+.ss-streaming-logo{
+  aspect-ratio:1/1;
+
+  display:grid;
+  place-items:center;
+
+  overflow:hidden;
+
+  border-radius:16px;
+
+  background:#fff;
+
+  border:
+    1px solid
+    rgba(255,255,255,.12);
+}
+
+.ss-streaming-logo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.ss-streaming-name{
+  margin-top:6px;
+
+  color:#dce8df;
+
+  font-size:8px;
+  font-weight:850;
+
+  overflow:hidden;
+  white-space:nowrap;
+  text-overflow:ellipsis;
+}
+
+
+/* TELAS PEQUENAS */
+
+@media(max-width:390px){
+
+  .ss-poster-grid{
+    gap:9px;
+  }
+
+  .ss-poster-name{
+    font-size:10px;
+  }
+
+  .ss-streaming-grid{
+    grid-template-columns:
+      repeat(4,minmax(0,1fr));
+  }
+
+}
+
+</style>
+
+
+<script>
+
+/* =========================================================
+STANLEY SPORTS — CATÁLOGO FILMES/DESENHOS
+UMA ÚNICA RENDERIZAÇÃO
+========================================================= */
+
+(function(){
+
+  const grid =
+    document.getElementById(
+      "moviesGrid"
+    );
+
+  if(!grid){
+    return;
+  }
+
+
+  /* =======================================================
+  DADOS
+  ======================================================= */
+
+  const streaming = [
+
+    {
+      name:"Netflix",
+      image:
+        "./assets/images/netflix.png",
+      url:
+        "https://www.netflix.com/"
+    },
+
+    {
+      name:"Prime Video",
+      image:
+        "./assets/images/prime-video.png",
+      url:
+        "https://www.primevideo.com/"
+    },
+
+    {
+      name:"Disney+",
+      image:
+        "./assets/images/disney+.png",
+      url:
+        "https://www.disneyplus.com/"
+    },
+
+    {
+      name:"Max",
+      image:
+        "./assets/images/max.png",
+      url:
+        "https://www.max.com/"
+    },
+
+    {
+      name:"Mercado Play",
+      image:
+        "./assets/images/mercado-play.png",
+      url:
+        "https://play.mercadolivre.com.br/"
+    },
+
+    {
+      name:"Plex",
+      image:
+        "./assets/images/plex.png",
+      url:
+        "https://www.plex.tv/"
+    },
+
+    {
+      name:"YouTube Kids",
+      image:
+        "./assets/images/youtube-kids.png",
+      url:
+        "https://www.youtubekids.com/"
+    }
+
+  ];
+
+
+  const infantil = [
+
+    {
+      name:"Mundo Bita",
+      type:"Infantil",
+      image:
+        "./assets/images/mundo-bita.png",
+      url:
+        "https://www.youtube.com/results?search_query=Mundo+Bita+oficial"
+    },
+
+    {
+      name:"Galinha Pintadinha",
+      type:"Infantil",
+      image:
+        "./assets/images/galinha-pintadinha.png",
+      url:
+        "https://www.youtube.com/results?search_query=Galinha+Pintadinha+oficial"
+    },
+
+    {
+      name:"Pocoyo",
+      type:"Infantil",
+      image:
+        "./assets/images/pocoyo.png",
+      url:
+        "https://www.youtube.com/results?search_query=Pocoyo+portugues+oficial"
+    },
+
+    {
+      name:"Peppa Pig",
+      type:"Infantil",
+      image:
+        "./assets/images/peppa-pig.png",
+      url:
+        "https://www.youtube.com/results?search_query=Peppa+Pig+portugues+oficial"
+    },
+
+    {
+      name:"Masha e o Urso",
+      type:"Infantil",
+      image:
+        "./assets/images/masha-urso.png",
+      url:
+        "https://www.youtube.com/results?search_query=Masha+e+o+Urso+portugues+oficial"
+    },
+
+    {
+      name:"O Show da Luna",
+      type:"Infantil",
+      image:
+        "./assets/images/show-da-luna.png",
+      url:
+        "https://www.youtube.com/results?search_query=Show+da+Luna+oficial"
+    },
+
+    {
+      name:"Bob Zoom",
+      type:"Infantil",
+      image:
+        "./assets/images/bob-zoom.png",
+      url:
+        "https://www.youtube.com/results?search_query=Bob+Zoom+oficial"
+    },
+
+    {
+      name:"Turma da Mônica",
+      type:"Infantil",
+      image:
+        "./assets/images/turma-monica.png",
+      url:
+        "https://www.youtube.com/results?search_query=Turma+da+Monica+oficial"
+    },
+
+    {
+      name:"Desenhos Bíblicos",
+      type:"Infantil",
+      image:
+        "./assets/images/desenhos-biblicos.png",
+      url:
+        "https://www.youtube.com/results?search_query=desenhos+biblicos+infantis+oficial"
+    }
+
+  ];
+
+
+  const anime = [
+
+    {
+      name:"Dragon Ball",
+      type:"Anime",
+      image:
+        "./assets/images/dragon-ball.png",
+      url:
+        "https://www.youtube.com/results?search_query=Dragon+Ball+oficial"
+    },
+
+    {
+      name:"Naruto",
+      type:"Anime",
+      image:
+        "./assets/images/naruto.png",
+      url:
+        "https://www.youtube.com/results?search_query=Naruto+oficial"
+    },
+
+    {
+      name:"Pokémon",
+      type:"Anime",
+      image:
+        "./assets/images/pokemon.png",
+      url:
+        "https://www.youtube.com/results?search_query=Pokemon+oficial+portugues"
+    },
+
+    {
+      name:"One Piece",
+      type:"Anime",
+      image:
+        "./assets/images/one-piece.png",
+      url:
+        "https://www.youtube.com/results?search_query=One+Piece+oficial"
+    }
+
+  ];
+
+
+  const classicos = [
+
+    {
+      name:"Pica-Pau",
+      type:"Clássico",
+      image:
+        "./assets/images/pica-pau.png",
+      url:
+        "https://www.youtube.com/results?search_query=Pica-Pau+portugues+oficial"
+    },
+
+    {
+      name:"Os Simpsons",
+      type:"Animação",
+      image:
+        "./assets/images/simpsons.png",
+      url:
+        "https://www.youtube.com/results?search_query=Os+Simpsons+oficial"
+    },
+
+    {
+      name:"Bob Esponja",
+      type:"Desenho",
+      image:
+        "./assets/images/bob-esponja.png",
+      url:
+        "https://www.youtube.com/results?search_query=Bob+Esponja+portugues+oficial"
+    },
+
+    {
+      name:"Tom & Jerry",
+      type:"Clássico",
+      image:
+        "./assets/images/tom-jerry.png",
+      url:
+        "https://www.youtube.com/results?search_query=Tom+e+Jerry+portugues+oficial"
+    }
+
+  ];
+
+
+  /* =======================================================
+  HTML PÔSTER
+  ======================================================= */
+
+  function posterHTML(
+    item,
+    badge
+  ){
+
+    return`
+      <a
+        class="ss-poster"
+        href="${item.url}"
+        target="_blank"
+        rel="noopener"
+      >
+
+        <div class="ss-poster-image">
+
+          <img
+            src="${item.image}"
+            alt="${item.name}"
+            loading="lazy"
+          >
+
+          <div class="ss-poster-badge">
+            ${badge}
+          </div>
+
+          <div class="ss-poster-play">
+            ▶
+          </div>
+
+        </div>
+
+        <div class="ss-poster-name">
+          ${item.name}
+        </div>
+
+        <div class="ss-poster-type">
+          ${item.type}
+        </div>
+
+      </a>
+    `;
+
+  }
+
+
+  /* =======================================================
+  SEÇÃO
+  ======================================================= */
+
+  function sectionHTML(
+    icon,
+    title,
+    subtitle,
+    items,
+    badge
+  ){
+
+    return`
+      <section
+        class="ss-catalog-section"
+      >
+
+        <div
+          class="ss-catalog-title"
+        >
+
+          <h3>
+            ${icon} ${title}
+          </h3>
+
+          <span>
+            ${subtitle}
+          </span>
+
+        </div>
+
+        <div
+          class="ss-poster-grid"
+        >
+
+          ${
+            items
+              .map(
+                item =>
+                  posterHTML(
+                    item,
+                    badge
+                  )
+              )
+              .join("")
+          }
+
+        </div>
+
+      </section>
+    `;
+
+  }
+
+
+  /* =======================================================
+  STREAMING
+  ======================================================= */
+
+  function streamingHTML(){
+
+    return`
+      <section
+        class="ss-catalog-section"
+      >
+
+        <div
+          class="ss-catalog-title"
+        >
+
+          <h3>
+            🎬 Streaming
+          </h3>
+
+          <span>
+            plataformas
+          </span>
+
+        </div>
+
+        <div
+          class="ss-streaming-grid"
+        >
+
+          ${
+            streaming
+              .map(
+                item =>`
+                <a
+                  class="ss-streaming-card"
+                  href="${item.url}"
+                  target="_blank"
+                  rel="noopener"
+                >
+
+                  <div
+                    class="ss-streaming-logo"
+                  >
+
+                    <img
+                      src="${item.image}"
+                      alt="${item.name}"
+                      loading="lazy"
+                    >
+
+                  </div>
+
+                  <div
+                    class="ss-streaming-name"
+                  >
+                    ${item.name}
+                  </div>
+
+                </a>
+              `
+              )
+              .join("")
+          }
+
+        </div>
+
+      </section>
+    `;
+
+  }
+
+
+  /* =======================================================
+  RENDERIZA
+  ======================================================= */
+
+  grid.innerHTML = `
+
+    <section
+      class="ss-catalog-hero"
+    >
+
+      <div
+        class="ss-catalog-hero-content"
+      >
+
+        <div
+          class="ss-catalog-label"
+        >
+          STANLEY SPORTS • ENTRETENIMENTO
+        </div>
+
+        <h2>
+          Filmes & Desenhos
+        </h2>
+
+        <p>
+          Streaming, desenhos infantis,
+          animes e clássicos em um catálogo
+          mais visual.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    ${streamingHTML()}
+
+
+    ${sectionHTML(
+      "👶",
+      "Infantil",
+      "para a criançada",
+      infantil,
+      "INFANTIL"
+    )}
+
+
+    ${sectionHTML(
+      "⚡",
+      "Animes",
+      "mais populares",
+      anime,
+      "ANIME"
+    )}
+
+
+    ${sectionHTML(
+      "📺",
+      "Clássicos",
+      "desenhos e animações",
+      classicos,
+      "CLÁSSICO"
+    )}
+
+  `;
+
+
+  console.log(
+    "🎬 Stanley Sports — catálogo Filmes & Desenhos carregado"
+  );
+
+})();
+
+</script>
 </body>
 </html>
