@@ -13823,5 +13823,384 @@ console.log(
   "✅ Clique Análise Completa corrigido"
 );
 </script>
+<script>
+
+/* =========================================================
+PREMIUM AMANHÃ — COMPLEMENTOS GE
+Escalações + Desfalques + Pendurados + Transmissão
+========================================================= */
+
+function ssTomorrowExtraHTML(game, ge){
+
+  if(!ge){
+    return "";
+  }
+
+
+  let html = "";
+
+
+  /* =======================================================
+  ESCALAÇÕES / DESFALQUES / PENDURADOS
+  ======================================================= */
+
+  if(
+    ge?.hasLineups
+    ||
+    ge?.lineups?.home
+    ||
+    ge?.lineups?.away
+  ){
+
+    if(
+      typeof lineupsHTML === "function"
+    ){
+
+      html +=
+        lineupsHTML(
+          ge
+        );
+
+    }
+
+  }
+
+
+  /* =======================================================
+  TRANSMISSÃO / TEMPO REAL
+  ======================================================= */
+
+  const hasBroadcasts =
+    Array.isArray(
+      ge?.broadcasts
+    )
+    &&
+    ge.broadcasts.length > 0;
+
+
+  const hasRealtime =
+    Boolean(
+      ge?.realtimeUrl
+    );
+
+
+  const hasFreeStream =
+    Boolean(
+      ge?.freeStream?.available
+      &&
+      ge?.freeStream?.url
+    );
+
+
+  const hasArticle =
+    Boolean(
+      ge?.articleUrl
+    );
+
+
+  if(
+    hasBroadcasts
+    ||
+    hasRealtime
+    ||
+    hasFreeStream
+    ||
+    hasArticle
+  ){
+
+    if(
+      typeof geFollowHTML === "function"
+    ){
+
+      html +=
+        geFollowHTML(
+          game,
+          ge
+        );
+
+    }
+
+  }
+
+
+  return html;
+
+}
+
+
+/* =========================================================
+SUBSTITUI SOMENTE A FUNÇÃO DO PRÉ-JOGO
+========================================================= */
+
+window.ssOpenTomorrowAnalysis = async function(id){
+
+  const games =
+    window.ssTomorrowGamesCache || [];
+
+
+  const game =
+    games.find(
+      item =>
+        String(item.id)
+        ===
+        String(id)
+    );
+
+
+  if(!game){
+
+    openModal(
+      "⚠️ Análise",
+      `
+      <div class="loading">
+        Jogo não encontrado no pré-jogo.
+      </div>
+      `
+    );
+
+    return;
+
+  }
+
+
+  openModal(
+    "🔥 Análise da partida",
+    `
+    <div class="loading">
+      👑 Carregando análise Premium...
+    </div>
+    `
+  );
+
+
+  try{
+
+    const results =
+      await Promise.allSettled([
+
+        getAnalysisData(
+          game
+        ),
+
+        getGeData(
+          game,
+          true
+        )
+
+      ]);
+
+
+    const originalAnalysis =
+      results[0].status
+      ===
+      "fulfilled"
+
+      ?
+
+      results[0].value
+
+      :
+
+      null;
+
+
+    const ge =
+      results[1].status
+      ===
+      "fulfilled"
+
+      ?
+
+      results[1].value
+
+      :
+
+      null;
+
+
+    const analysis =
+      typeof buildStanleyEstimate
+      ===
+      "function"
+
+      ?
+
+      buildStanleyEstimate(
+        game,
+        originalAnalysis
+      )
+
+      :
+
+      originalAnalysis;
+
+
+    /*
+    Primeiro renderiza exatamente
+    o Premium que já está funcionando.
+    */
+
+    renderAnalysisModal(
+      game,
+      analysis,
+      ge
+    );
+
+
+    /*
+    Depois acrescenta somente
+    os dados GE disponíveis.
+    */
+
+    const extra =
+      ssTomorrowExtraHTML(
+        game,
+        ge
+      );
+
+
+    if(
+      extra
+    ){
+
+      const body =
+        document.getElementById(
+          "modalBody"
+        );
+
+
+      if(
+        body
+      ){
+
+        const warning =
+          body.querySelector(
+            ".warning"
+          );
+
+
+        /*
+        Insere os complementos
+        antes do aviso final.
+        */
+
+        if(
+          warning
+        ){
+
+          warning.insertAdjacentHTML(
+            "beforebegin",
+            extra
+          );
+
+        }else{
+
+          body.insertAdjacentHTML(
+            "beforeend",
+            extra
+          );
+
+        }
+
+      }
+
+    }
+
+
+  }catch(error){
+
+    console.error(
+      "PRE-JOGO PREMIUM GE:",
+      error
+    );
+
+
+    const body =
+      document.getElementById(
+        "modalBody"
+      );
+
+
+    if(
+      body
+    ){
+
+      body.innerHTML = `
+        <div
+          style="
+            padding:25px;
+            text-align:center;
+            color:var(--muted);
+            line-height:1.6
+          "
+        >
+          ⚠️ Não foi possível carregar
+          a análise completa neste momento.
+        </div>
+      `;
+
+    }
+
+  }
+
+};
+
+
+/* =========================================================
+CLIQUE DO BOTÃO
+========================================================= */
+
+document.addEventListener(
+  "click",
+  function(event){
+
+    const button =
+      event.target.closest(
+        ".ss-tomorrow-btn"
+      );
+
+
+    if(!button){
+      return;
+    }
+
+
+    event.preventDefault();
+    event.stopPropagation();
+
+
+    const onclick =
+      button.getAttribute(
+        "onclick"
+      )
+      ||
+      "";
+
+
+    const match =
+      onclick.match(
+        /ssOpenTomorrowAnalysis\(['"]([^'"]+)['"]\)/
+      );
+
+
+    if(!match){
+      return;
+    }
+
+
+    window.ssOpenTomorrowAnalysis(
+      match[1]
+    );
+
+  },
+  true
+);
+
+
+console.log(
+  "👥📺 Premium amanhã com complementos GE ativo"
+);
+
+</script>
 </body>
 </html>
