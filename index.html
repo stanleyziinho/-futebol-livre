@@ -16181,5 +16181,138 @@ console.log(
 );
 
 </script>
+<script>
+
+/* =========================================================
+LOGOS PRÓPRIAS DOS PROGRAMAS — HOME
+NÃO ALTERA MAIS NADA
+========================================================= */
+
+const SS_PROGRAM_LOGOS = {
+
+  "Os Donos da Bola MG":
+    "https://pubimg.band.com.br/Files/Band_Minas_Donos_da_Bola_Share_Imagem.jpg",
+
+  "Jogo Aberto":
+    "https://img.band.com.br/image/2024/06/06/jogo-aberto-share-03236.jpg",
+
+  "Alterosa Esporte":
+    "https://pbs.twimg.com/media/EcExE2SXkAAMvax.jpg",
+
+  "Esporte Espetacular":
+    "https://s2-memoriaglobo.glbimg.com/HhyMboAplvzqya14g9Q8rTpv4lg%3D/328x141%3A1744x934/1080x608/smart/filters%3Amax_age%283600%29/https%3A/i.s3.glbimg.com/v1/AUTH_ee6202d7f3f346a7a5d7affb807d8893/internal_photos/bs/2022/O/M/AHKH1QSYAR7ButgUBpUw/esporte-espetacular-logo-home.png"
+
+};
+
+
+/* =========================================================
+APLICA AS IMAGENS NOS CARDS JÁ EXISTENTES
+========================================================= */
+
+function ssApplyProgramLogos(){
+
+  const cards =
+    document.querySelectorAll(
+      ".ss-sports-channel-card"
+    );
+
+
+  cards.forEach(
+    card => {
+
+      const title =
+        card.querySelector(
+          "h3"
+        );
+
+
+      const logoBox =
+        card.querySelector(
+          ".ss-sports-channel-logo"
+        );
+
+
+      if(
+        !title
+        ||
+        !logoBox
+      ){
+        return;
+      }
+
+
+      const name =
+        title.textContent
+          .trim();
+
+
+      const image =
+        SS_PROGRAM_LOGOS[
+          name
+        ];
+
+
+      if(
+        !image
+      ){
+        return;
+      }
+
+
+      logoBox.innerHTML =
+        `
+        <img
+          src="${image}"
+          alt="${name}"
+          loading="lazy"
+          referrerpolicy="no-referrer"
+          style="
+            width:100%;
+            height:100%;
+            object-fit:cover;
+          "
+        >
+        `;
+
+    }
+  );
+
+}
+
+
+/* PRIMEIRA EXECUÇÃO */
+
+setTimeout(
+  ssApplyProgramLogos,
+  700
+);
+
+
+/* REAPLICA CASO A HOME SEJA RECRIADA */
+
+const ssProgramLogoObserver =
+  new MutationObserver(
+    ()=>{
+
+      ssApplyProgramLogos();
+
+    }
+  );
+
+
+ssProgramLogoObserver.observe(
+  document.body,
+  {
+    childList:true,
+    subtree:true
+  }
+);
+
+
+console.log(
+  "📺 Logos próprias dos programas aplicadas"
+);
+
+</script>
 </body>
 </html>
