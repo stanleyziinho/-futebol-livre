@@ -3784,25 +3784,25 @@ function normalizeGame(
         ?.type
         ?.state
       ||
-      "pre",
-
-    detail:
+          detail:
       status
         ?.type
         ?.shortDetail
       ||
-      clock:
-  status
-    ?.displayClock
-  ||
-  "",
+      status
+        ?.type
+        ?.detail
+      ||
+      "",
 
-rawEvent:
-  event.
+    clock:
+      status
         ?.displayClock
       ||
-      ""
+      "",
 
+    rawEvent:
+      event
   };
 
 }
