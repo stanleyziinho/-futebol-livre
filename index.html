@@ -17694,5 +17694,204 @@ console.log(
 );
 
 </script>
+<style>
+/* Esconde a logo antiga até a imagem local estar pronta */
+#viewFilmes .ss-movie-logo{
+  opacity:0;
+}
+
+#viewFilmes .ss-movie-logo[data-ss-local-ready="1"]{
+  opacity:1;
+}
+</style>
+
+<script>
+
+/* =========================================================
+STANLEY SPORTS — FILMES FINAL SEM PISCAR
+========================================================= */
+
+/* DESLIGA TODOS OS OBSERVERS QUE ESTAVAM DISPUTANDO A IMAGEM */
+
+try{
+  ssMovieObserver.disconnect();
+}catch(e){}
+
+try{
+  ssMediaImageObserver.disconnect();
+}catch(e){}
+
+try{
+  ssFilmesImagesObserver.disconnect();
+}catch(e){}
+
+
+/* =========================================================
+MAPA FINAL DAS IMAGENS
+========================================================= */
+
+const SS_FILMES_FINAL = {
+
+  "pica-pau":"./assets/images/pica-pau.png",
+  "simpsons":"./assets/images/simpsons.png",
+  "dragon ball":"./assets/images/dragon-ball.png",
+  "naruto":"./assets/images/naruto.png",
+  "pokemon":"./assets/images/pokemon.png",
+  "pokémon":"./assets/images/pokemon.png",
+  "one piece":"./assets/images/one-piece.png",
+  "bob esponja":"./assets/images/bob-esponja.png",
+  "tom & jerry":"./assets/images/tom-jerry.png",
+  "tom e jerry":"./assets/images/tom-jerry.png",
+  "turma da monica":"./assets/images/turma-monica.png",
+  "turma da mônica":"./assets/images/turma-monica.png",
+  "mundo bita":"./assets/images/mundo-bita.png",
+  "pocoyo":"./assets/images/pocoyo.png",
+  "peppa pig":"./assets/images/peppa-pig.png",
+  "masha e o urso":"./assets/images/masha-urso.png",
+  "galinha pintadinha":"./assets/images/galinha-pintadinha.png",
+  "o show da luna":"./assets/images/show-da-luna.png",
+  "show da luna":"./assets/images/show-da-luna.png",
+  "desenhos biblicos":"./assets/images/desenhos-biblicos.png",
+  "desenhos bíblicos":"./assets/images/desenhos-biblicos.png"
+
+};
+
+
+/* =========================================================
+APLICA SEM RECRIAR O CARD
+========================================================= */
+
+function ssFilmesFinalApply(){
+
+  const root =
+    document.getElementById(
+      "viewFilmes"
+    );
+
+  if(!root){
+    return;
+  }
+
+
+  root
+    .querySelectorAll("a")
+    .forEach(card=>{
+
+      const text =
+        card.textContent
+          .replace(/\s+/g," ")
+          .trim()
+          .toLowerCase();
+
+
+      const found =
+        Object.entries(
+          SS_FILMES_FINAL
+        )
+        .find(
+          ([name]) =>
+            text.includes(name)
+        );
+
+
+      if(!found){
+        return;
+      }
+
+
+      const img =
+        card.querySelector(
+          ".ss-movie-logo"
+        )
+        ||
+        card.querySelector("img");
+
+
+      if(!img){
+        return;
+      }
+
+
+      img.src =
+        found[1];
+
+      img.removeAttribute(
+        "srcset"
+      );
+
+      img.removeAttribute(
+        "referrerpolicy"
+      );
+
+      img.dataset.ssLocalReady =
+        "1";
+
+      img.style.objectFit =
+        "cover";
+
+    });
+
+}
+
+
+/* PRIMEIRA APLICAÇÃO */
+
+ssFilmesFinalApply();
+
+setTimeout(
+  ssFilmesFinalApply,
+  100
+);
+
+
+/* =========================================================
+OBSERVA SOMENTE NOVOS CARDS
+NÃO REAGE À TROCA DE SRC
+========================================================= */
+
+const ssFilmesFinalObserver =
+  new MutationObserver(
+    mutations=>{
+
+      const hasNewNodes =
+        mutations.some(
+          mutation =>
+            mutation.addedNodes.length > 0
+        );
+
+      if(
+        hasNewNodes
+      ){
+        ssFilmesFinalApply();
+      }
+
+    }
+  );
+
+
+const ssFilmesRoot =
+  document.getElementById(
+    "viewFilmes"
+  );
+
+
+if(ssFilmesRoot){
+
+  ssFilmesFinalObserver.observe(
+    ssFilmesRoot,
+    {
+      childList:true,
+      subtree:true
+    }
+  );
+
+}
+
+
+console.log(
+  "🎬 Filmes locais estáveis — sem piscar"
+);
+
+</script>
 </body>
 </html>
