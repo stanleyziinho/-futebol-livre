@@ -16182,10 +16182,11 @@ console.log(
 
 </script>
 <script>
+<script>
 
 /* =========================================================
-LOGOS PRÓPRIAS DOS PROGRAMAS — HOME
-NÃO ALTERA MAIS NADA
+LOGOS DOS PROGRAMAS — CORRIGIDO
+SEM LOOP / SEM ALTERAR O RESTANTE
 ========================================================= */
 
 const SS_PROGRAM_LOGOS = {
@@ -16205,32 +16206,30 @@ const SS_PROGRAM_LOGOS = {
 };
 
 
-/* =========================================================
-APLICA AS IMAGENS NOS CARDS JÁ EXISTENTES
-========================================================= */
-
 function ssApplyProgramLogos(){
 
-  const cards =
-    document.querySelectorAll(
+  document
+    .querySelectorAll(
       ".ss-sports-channel-card"
-    );
+    )
+    .forEach(card=>{
 
-
-  cards.forEach(
-    card => {
+      /* já processado = não mexe novamente */
+      if(
+        card.dataset.ssProgramLogo
+        ===
+        "1"
+      ){
+        return;
+      }
 
       const title =
-        card.querySelector(
-          "h3"
-        );
-
+        card.querySelector("h3");
 
       const logoBox =
         card.querySelector(
           ".ss-sports-channel-logo"
         );
-
 
       if(
         !title
@@ -16240,64 +16239,65 @@ function ssApplyProgramLogos(){
         return;
       }
 
-
       const name =
-        title.textContent
-          .trim();
-
+        title.textContent.trim();
 
       const image =
-        SS_PROGRAM_LOGOS[
-          name
-        ];
+        SS_PROGRAM_LOGOS[name];
 
-
-      if(
-        !image
-      ){
+      if(!image){
         return;
       }
 
+      /* marca ANTES de alterar o DOM */
+      card.dataset.ssProgramLogo =
+        "1";
 
-      logoBox.innerHTML =
-        `
+      logoBox.innerHTML = `
         <img
           src="${image}"
           alt="${name}"
           loading="lazy"
-          referrerpolicy="no-referrer"
           style="
             width:100%;
             height:100%;
             object-fit:cover;
           "
+          onerror="
+            this.style.display='none'
+          "
         >
-        `;
+      `;
 
-    }
-  );
+    });
 
 }
 
 
-/* PRIMEIRA EXECUÇÃO */
+/* executa apenas quando necessário */
 
 setTimeout(
   ssApplyProgramLogos,
-  700
+  800
 );
 
 
-/* REAPLICA CASO A HOME SEJA RECRIADA */
+/* observer protegido contra loop */
 
 const ssProgramLogoObserver =
-  new MutationObserver(
-    ()=>{
+  new MutationObserver(()=>{
 
-      ssApplyProgramLogos();
+    clearTimeout(
+      window.ssProgramLogoTimer
+    );
 
-    }
-  );
+    window.ssProgramLogoTimer =
+      setTimeout(
+        ssApplyProgramLogos,
+        150
+      );
+
+  });
 
 
 ssProgramLogoObserver.observe(
@@ -16310,7 +16310,7 @@ ssProgramLogoObserver.observe(
 
 
 console.log(
-  "📺 Logos próprias dos programas aplicadas"
+  "✅ Logos dos programas corrigidas"
 );
 
 </script>
