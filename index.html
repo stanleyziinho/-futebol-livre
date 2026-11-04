@@ -17022,5 +17022,82 @@ window.ssOpenTomorrowAnalysis = async function(id) {
   }
 };
 </script>
+<!-- STANLEY SPORTS V55.3 — correção segura de escalações parciais -->
+<script>
+(function () {
+  'use strict';
+  if (window.__ssPremium553Installed) return;
+  window.__ssPremium553Installed = true;
+
+  // Só melhora a apresentação: nunca inventa jogadores ou resultados.
+  const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({
+    '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;'
+  })[c]);
+  const text = value => {
+    if (Array.isArray(value)) return value.map(text).filter(Boolean).join('; ');
+    if (typeof value === 'string' || typeof value === 'number') return String(value).trim();
+    return '';
+  };
+  const hasInfo = team => !!(team && [team.lineup,team.coach,team.absences,team.suspended]
+    .some(value => text(value).length > 0));
+
+  window.lineupsHTML = function(source) {
+    const home = source?.lineups?.home || null;
+    const away = source?.lineups?.away || null;
+    if (!hasInfo(home) && !hasInfo(away)) return '';
+
+    function card(team, fallback) {
+      const name = esc(text(team?.team) || fallback);
+      const lineup = text(team?.lineup);
+      const coach = text(team?.coach);
+      const absences = text(team?.absences);
+      const suspended = text(team?.suspended);
+      return `<div class="lineup-card">
+        <h4>${name}</h4>
+        ${coach ? `<div class="coach">Técnico: ${esc(coach)}</div>` : ''}
+        ${lineup ? `<div class="lineup-label">PROVÁVEL ESCALAÇÃO</div><p class="lineup-text">${esc(lineup)}</p>` : `<p class="lineup-text" style="opacity:.7">Escalação ainda não divulgada pela fonte.</p>`}
+        ${absences ? `<div class="lineup-extra">🚑 <strong>Desfalques:</strong> ${esc(absences)}</div>` : ''}
+        ${suspended ? `<div class="lineup-extra">🟨 <strong>Pendurados:</strong> ${esc(suspended)}</div>` : ''}
+      </div>`;
+    }
+    return `<section class="block ss-v553-lineups"><h3>👥 Prováveis escalações</h3>
+      ${card(home, source?.home || 'Mandante')}
+      ${card(away, source?.away || 'Visitante')}
+      <p style="color:var(--muted);font-size:11px;line-height:1.5;margin-top:12px">Informações sujeitas a alterações até a divulgação oficial dos titulares.</p>
+    </section>`;
+  };
+
+  // Caso a fonte mande dados parciais sem marcar hasLineups, exibe o que existe.
+  const previousRender = window.renderAnalysisModal;
+  if (typeof previousRender === 'function') {
+    window.renderAnalysisModal = function(game, analysis, ge, preGame) {
+      const result = previousRender.apply(this, arguments);
+      const body = document.getElementById('modalBody');
+      if (!body) return result;
+      const source = preGame?.lineups ? preGame : (ge?.lineups ? ge : null);
+      if (source && !body.querySelector('.lineup-card')) {
+        const markup = window.lineupsHTML(source);
+        if (markup) {
+          const warning = body.querySelector('.warning');
+          if (warning) warning.insertAdjacentHTML('beforebegin', markup);
+          else body.insertAdjacentHTML('beforeend', markup);
+        }
+      }
+      return result;
+    };
+  }
+
+  // Evita uma segunda seção de escalações quando o complemento GE também as oferece.
+  const previousExtra = window.ssTomorrowExtraHTML;
+  if (typeof previousExtra === 'function') {
+    window.ssTomorrowExtraHTML = function(game, ge) {
+      if (document.getElementById('modalBody')?.querySelector('.lineup-card')) return '';
+      return previousExtra.apply(this, arguments);
+    };
+  }
+  console.info('Stanley Sports Premium V55.3: exibição parcial de escalações ativa');
+})();
+</script>
+
 </body>
 </html>
