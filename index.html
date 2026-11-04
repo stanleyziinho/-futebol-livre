@@ -16965,5 +16965,62 @@ SEM OBSERVER / SEM PISCA-PISCA
 })();
 
 </script>
+<!-- STANLEY SPORTS PREMIUM: correção isolada de escalações de pré-jogo -->
+<script>
+window.ssOpenTomorrowAnalysis = async function(id) {
+  const game = (window.ssTomorrowGamesCache || []).find(
+    item => String(item.id) === String(id)
+  );
+
+  if (!game) {
+    openModal('⚠️ Análise', '<div class="loading">Jogo não encontrado no pré-jogo.</div>');
+    return;
+  }
+
+  openModal('🔥 Análise da partida',
+    '<div class="loading">👑 Carregando análise Premium...</div>');
+
+  try {
+    const [analysisResult, geResult, preGameResult] = await Promise.allSettled([
+      getAnalysisData(game),
+      getGeData(game, true),
+      getPreGameData(game, true)
+    ]);
+
+    const rawAnalysis = analysisResult.status === 'fulfilled'
+      ? analysisResult.value : null;
+    const ge = geResult.status === 'fulfilled' ? geResult.value : null;
+    const preGame = preGameResult.status === 'fulfilled'
+      ? preGameResult.value : null;
+
+    const analysis = typeof buildStanleyEstimate === 'function'
+      ? buildStanleyEstimate(game, rawAnalysis)
+      : rawAnalysis;
+
+    renderAnalysisModal(game, analysis, ge, preGame);
+
+    if (typeof ssTomorrowExtraHTML === 'function') {
+      const extra = ssTomorrowExtraHTML(game, ge);
+      const body = document.getElementById('modalBody');
+      if (extra && body) {
+        const warning = body.querySelector('.warning');
+        if (warning) warning.insertAdjacentHTML('beforebegin', extra);
+        else body.insertAdjacentHTML('beforeend', extra);
+      }
+    }
+
+    console.info('Stanley Premium:', {
+      analysis: !!rawAnalysis,
+      probabilities: typeof hasProbabilities === 'function' && hasProbabilities(analysis),
+      preGameFound: !!preGame?.found,
+      hasLineups: !!preGame?.hasLineups
+    });
+  } catch (error) {
+    console.error('Stanley Premium pré-jogo:', error);
+    const body = document.getElementById('modalBody');
+    if (body) body.innerHTML = '<div class="loading">⚠️ Não foi possível carregar a análise.</div>';
+  }
+};
+</script>
 </body>
 </html>
