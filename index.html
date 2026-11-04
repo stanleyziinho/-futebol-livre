@@ -17098,6 +17098,123 @@ window.ssOpenTomorrowAnalysis = async function(id) {
   console.info('Stanley Sports Premium V55.3: exibição parcial de escalações ativa');
 })();
 </script>
-
+<!-- STANLEY SPORTS PREMIUM V56.0 - cole antes de </body> -->
+<script>
+/* STANLEY SPORTS PREMIUM V56.0 — extensão de interface; NÃO substitui o Worker */
+(function () {
+  'use strict';
+  if (window.__ssPremiumV560) return;
+  window.__ssPremiumV560 = true;
+  const escapeHTML = value => String(value ?? '').replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+  const valueText = x => {
+    if (Array.isArray(x)) return x.map(valueText).filter(Boolean).join('; ');
+    if (typeof x === 'string' || typeof x === 'number') return String(x).trim();
+    return '';
+  };
+  const pct = v => {
+    if (v === null || v === undefined || v === '') return null;
+    const n = Number(String(v).replace('%','').replace(',','.'));
+    return Number.isFinite(n) && n >= 0 && n <= 100 ? Math.round(n) : null;
+  };
+  const percentBox = (label, raw) => {
+    const p = pct(raw);
+    return `<div class="ss56-stat"><small>${escapeHTML(label)}</small><strong>${p === null ? '—' : p + '%'}</strong>${p === null ? '<em>Indisponível</em>' : ''}</div>`;
+  };
+  const safeLink = candidate => {
+    try {const url = new URL(candidate);return url.protocol === 'https:' ? url.href : '';} catch{return '';}
+  };
+  const sourceSearch = (domain, game, topic) => 'https://www.google.com/search?q=' + encodeURIComponent(`site:${domain} "${game?.home || ''}" "${game?.away || ''}" ${topic}`);
+  const link = (href, title) => `<a class="ss56-link" href="${escapeHTML(href)}" target="_blank" rel="noopener noreferrer">${escapeHTML(title)} ↗</a>`;
+  const lineUpCard = (team, fallback) => {
+    const lineup = valueText(team?.lineup);
+    const coach = valueText(team?.coach);
+    const absences = valueText(team?.absences);
+    const suspended = valueText(team?.suspended);
+    const content = lineup || coach || absences || suspended;
+    return `<div class="ss56-team"><h4>${escapeHTML(valueText(team?.team) || fallback)}</h4>
+      ${coach ? `<p><b>Técnico:</b> ${escapeHTML(coach)}</p>` : ''}
+      ${lineup ? `<p><b>Provável escalação:</b> ${escapeHTML(lineup)}</p>` : `<p class="ss56-muted">${content ? 'Escalação ainda não divulgada pela fonte.' : 'Sem informações de escalação disponíveis.'}</p>`}
+      ${absences ? `<p><b>🚑 Desfalques:</b> ${escapeHTML(absences)}</p>` : ''}
+      ${suspended ? `<p><b>🟨 Pendurados/suspensos:</b> ${escapeHTML(suspended)}</p>` : ''}
+    </div>`;
+  };
+  function renderV56(game, data, ge, preGame) {
+    const body = document.getElementById('modalBody');
+    if (!body) return;
+    const sources = [preGame, ge];
+    const findTeam = key => {
+      for (const source of sources) {
+        const team = source?.lineups?.[key];
+        if (team && [team.lineup, team.coach, team.absences, team.suspended].some(x => valueText(x))) return team;
+      }
+      return null;
+    };
+    const home = findTeam('home'), away = findTeam('away');
+    const probabilities = data?.probabilities || {};
+    const markets = data?.markets || {};
+    const channels = Array.isArray(ge?.broadcasts) ? ge.broadcasts.filter(x => typeof x === 'string' && x.trim()) : [];
+    let watching = '';
+    if (channels.length && typeof window.geFollowHTML === 'function') {
+      try {watching = window.geFollowHTML(game, ge) || '';} catch (err) {console.warn('SS56 channels', err);}
+    }
+    const articleUrls = [preGame?.geArticleUrl, ge?.articleUrl, preGame?.fallbackArticleUrl].map(safeLink).filter(Boolean);
+    const sourceLinks = [
+      link(articleUrls.find(u => /ge\.globo\.com/.test(u)) || sourceSearch('ge.globo.com', game, 'prováveis escalações desfalques'), 'ge — escalações'),
+      link(articleUrls.find(u => /espn\.com/.test(u)) || sourceSearch('espn.com.br', game, 'escalações notícias'), 'ESPN — cobertura'),
+      link(articleUrls.find(u => /cnnbrasil\.com\.br/.test(u)) || sourceSearch('cnnbrasil.com.br', game, 'futebol onde assistir'), 'CNN Brasil — notícias')
+    ].join('');
+    let matchHeader = '';
+    try {if (typeof window.premiumMatchHTML === 'function') matchHeader = window.premiumMatchHTML(game) || '';} catch {}
+    if (!matchHeader) matchHeader = `<section class="ss56-match">${escapeHTML(game?.home || 'Mandante')} <b>×</b> ${escapeHTML(game?.away || 'Visitante')}</section>`;
+    body.innerHTML = `<div class="ss56-root" data-stanley-v="56.0">
+      <div class="ss56-badge">STANLEY SPORTS • PREMIUM V56.0</div>
+      ${matchHeader}
+      <section class="ss56-card"><h3>📺 Onde assistir</h3>
+      ${watching || (channels.length ? `<p>${channels.map(escapeHTML).join(' • ')}</p>` : '<p class="ss56-muted">Transmissão ainda não identificada nas fontes consultadas.</p>')}
+      ${!watching && safeLink(ge?.articleUrl) ? link(safeLink(ge.articleUrl), 'Ver cobertura do ge') : ''}</section>
+      <section class="ss56-card"><h3>👥 Prováveis escalações e desfalques</h3>
+      <div class="ss56-teams">${lineUpCard(home, game?.home || 'Mandante')}${lineUpCard(away, game?.away || 'Visitante')}</div>
+      <div class="ss56-links">${sourceLinks}</div><p class="ss56-muted ss56-note">Dados sujeitos a atualização. Os links de pesquisa abrem resultados das fontes indicadas quando não há uma matéria específica identificada.</p></section>
+      <section class="ss56-card"><h3>🎯 Probabilidade do resultado</h3><div class="ss56-stats">
+      ${percentBox(game?.home || 'Mandante', probabilities.home)}${percentBox('Empate', probabilities.draw)}${percentBox(game?.away || 'Visitante', probabilities.away)}
+      </div><p class="ss56-muted ss56-note">${escapeHTML(data?.sourceLabel || 'Fonte estatística não disponível')} • Percentuais exibidos somente quando recebidos ou estimados com base estatística.</p></section>
+      <section class="ss56-card"><h3>⚽ Probabilidades de gols</h3><div class="ss56-stats">
+      ${percentBox('Mais de 1,5 gols', markets.over15)}${percentBox('Mais de 2,5 gols', markets.over25)}${percentBox('Ambas marcam', markets.bothTeamsScore)}
+      </div><p class="ss56-muted ss56-note">Mercados sem base suficiente aparecem como indisponíveis; nenhum percentual é inventado.</p></section>
+      <div class="ss56-disclaimer">⚠️ Análises estatísticas são informativas e não garantem resultados. Consulte as fontes para informações atualizadas.</div>
+    </div>`;
+  }
+  const styles = document.createElement('style');
+  styles.textContent = `
+    .ss56-root{color:#ecfff0;font-family:inherit;padding-bottom:12px}
+    .ss56-badge{display:inline-flex;background:#063c23;color:#55df84;font-weight:900;border-radius:999px;padding:10px 14px;margin:8px 0 14px;font-size:11px;letter-spacing:.8px}
+    .ss56-card{border:1px solid #236d3f;border-radius:22px;background:#061b10;padding:18px;margin:16px 0}
+    .ss56-card h3{font-size:20px;margin:0 0 17px;color:#f2fff5;font-weight:850}
+    .ss56-teams{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+    .ss56-team{min-width:0;background:#11271a;border-radius:16px;padding:14px;overflow-wrap:anywhere}
+    .ss56-team h4{font-size:17px;margin:0 0 10px;color:#f9d565}
+    .ss56-team p{font-size:12px;line-height:1.55;margin:9px 0;color:#deeee1}
+    .ss56-team b{color:#6ee798}
+    .ss56-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+    .ss56-stat{background:#102b1b;border-radius:14px;padding:14px 7px;text-align:center;min-width:0}
+    .ss56-stat small{display:block;color:#abcab4;font-size:10px;min-height:31px;line-height:1.4;overflow-wrap:anywhere}
+    .ss56-stat strong{display:block;font-size:25px;color:#6de593;margin-top:8px}
+    .ss56-stat em{font-size:9px;color:#9ea9a0;font-style:normal;display:block}
+    .ss56-links{display:grid;grid-template-columns:1fr;gap:8px;margin-top:14px}
+    .ss56-link{display:block;text-decoration:none;text-align:center;color:#c4ffd2!important;background:#103721;border:1px solid #27854a;border-radius:13px;padding:13px 9px;font-size:13px;font-weight:750}
+    .ss56-muted{color:#9eafa4!important;line-height:1.5}
+    .ss56-note{font-size:11px;margin:12px 0 0}
+    .ss56-disclaimer{background:#172113;border-radius:16px;padding:15px;color:#e5d177;font-size:11px;line-height:1.5}
+    .ss56-match{border-radius:20px;background:#0b2d1b;text-align:center;padding:28px 10px;font-size:20px;font-weight:800}
+    @media(max-width:480px){.ss56-teams{grid-template-columns:1fr}.ss56-card{padding:15px}.ss56-stat strong{font-size:21px}}
+  `;
+  document.head.appendChild(styles);
+  // Substitui apenas o renderizador visual. Não altera as consultas, outras abas ou Worker.
+  window.renderAnalysisModal = renderV56;
+  // Evita que o complemento antigo duplique escalações ao abrir jogos de amanhã.
+  window.ssTomorrowExtraHTML = function () {return '';};
+  console.info('Stanley Sports Premium V56.0 ativo');
+})();
+</script>
 </body>
 </html>
