@@ -17355,6 +17355,77 @@ window.ssOpenTomorrowAnalysis = async function(id) {
   console.info('Stanley Sports Premium V56.2 ativo');
 })();
 </script>
+<!-- STANLEY SPORTS V56.3 — cole uma única vez antes de </body> -->
+<script>
+(function(){
+  'use strict';
+  if (window.__ss563) return;
+  window.__ss563 = true;
 
+  // A V56.2 adicionava links mesmo quando o jogo já tinha emissoras.
+  // A fonte correta é ge.broadcasts, e não texto no HTML.
+  const previousBroadcast = window.renderBroadcastCard;
+  if (typeof previousBroadcast === 'function') {
+    window.renderBroadcastCard = function(game, ge, box) {
+      const output = previousBroadcast.apply(this, arguments);
+      if (box) {
+        const article = box.closest('.game');
+        const helper = article && article.querySelector('.ss562-card-help');
+        if (helper) {
+          const hasChannels = Array.isArray(ge?.broadcasts) && ge.broadcasts.some(Boolean);
+          const hasFree = Boolean(ge?.freeStream?.available && ge?.freeStream?.url);
+          helper.hidden = hasChannels || hasFree;
+        }
+      }
+      return output;
+    };
+  }
+
+  const originalCard = window.gameHTML;
+  if (typeof originalCard === 'function') {
+    window.gameHTML = function(game) {
+      // Preserva os botões originais; mantém os links opcionais só até a transmissão carregar.
+      return originalCard.apply(this, arguments);
+    };
+  }
+
+  const originalPremium = window.renderAnalysisModal;
+  if (typeof originalPremium === 'function') {
+    window.renderAnalysisModal = function(game, data, ge, preGame) {
+      const result = originalPremium.apply(this, arguments);
+      const body = document.getElementById('modalBody');
+      const root = body?.querySelector('.ss56-root');
+      if (!root) return result;
+      const sections = [...root.querySelectorAll(':scope > .ss56-card')];
+      const findSection = term => sections.find(section => section.querySelector('h3')?.textContent?.includes(term));
+      const resultCard = findSection('Probabilidade do resultado');
+      const goalCard = findSection('Probabilidades de gols');
+      const watchingCard = findSection('Onde assistir');
+      const lineupsCard = findSection('Prováveis escalações');
+      // Destaque principal do Premium: resultado e gols, antes das outras seções.
+      const header = root.querySelector('.ss56-badge');
+      const matchHeader = header?.nextElementSibling;
+      let anchor = matchHeader || header;
+      [resultCard,goalCard,watchingCard,lineupsCard].forEach(card => {
+        if (card && anchor) { anchor.insertAdjacentElement('afterend',card); anchor=card; }
+      });
+      // Fonte/links editoriais são úteis apenas quando as escalações não vieram.
+      if (lineupsCard) {
+        const haveHome = Boolean(preGame?.lineups?.home?.lineup || ge?.lineups?.home?.lineup);
+        const haveAway = Boolean(preGame?.lineups?.away?.lineup || ge?.lineups?.away?.lineup);
+        const links = lineupsCard.querySelector('.ss56-links');
+        if (links) links.hidden = haveHome && haveAway;
+        const note = lineupsCard.querySelector('.ss56-note');
+        if (note) note.hidden = haveHome && haveAway;
+      }
+      return result;
+    };
+  }
+  const style = document.createElement('style');
+  style.textContent = '.ss562-card-help[hidden],.ss56-links[hidden],.ss56-note[hidden]{display:none!important}.ss56-links{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:6px!important}.ss56-links .ss56-link{font-size:11px!important;padding:10px 5px!important}';
+  document.head.appendChild(style);
+  console.info('Stanley Sports V56.3 — links sem duplicação, probabilidades em destaque');
+})();
+</script>
 </body>
 </html>
