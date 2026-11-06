@@ -17504,5 +17504,110 @@ window.ssOpenTomorrowAnalysis = async function(id) {
   console.info('Stanley Sports V56.7: cache estatístico protegido');
 })();
 </script>
+<!-- STANLEY SPORTS V56.8 — SINCRONIZAÇÃO DE ANÁLISES E ESCALAÇÕES.
+     Cole UMA VEZ antes de </body> no index.html.
+     Não muda cards, canais, layout, tabelas ou cálculos. -->
+<script>
+(function(){
+  'use strict';
+  if (window.__ssSync568) return;
+  window.__ssSync568 = true;
+  const API = 'https://stanley-sports-api.phwdjnnr9m.workers.dev';
+  const analysisMemo = new Map(), pregameMemo = new Map();
+  const inFlight = new Map();
+  const clean = x => String(x || '').normalize('NFD').replace(/[\u0300-\u036f]/g,'')
+    .toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();
+  const pct = value => value == null || value === '' ? NaN :
+    Number(String(value).replace('%','').replace(',','.'));
+  function dayInBrazil(game){
+    const d = new Date(game?.date);
+    if (!Number.isFinite(d.getTime())) return '';
+    const parts = new Intl.DateTimeFormat('en-US',{
+      timeZone:'America/Sao_Paulo',year:'numeric',month:'2-digit',day:'2-digit'
+    }).formatToParts(d);
+    const v = name => parts.find(p=>p.type===name)?.value || '';
+    return [v('year'),v('month'),v('day')].join('-');
+  }
+  function identity(game, data, day, isPregame){
+    if (!data || data.ok === false) return false;
+    const f = isPregame ? data : data.fixture;
+    if (!f) return false;
+    if (clean(isPregame?f.home:f.home) !== clean(game.home) ||
+        clean(isPregame?f.away:f.away) !== clean(game.away)) return false;
+    const raw = isPregame ? f.date : f.date;
+    if (raw) {
+      const when = Date.parse(raw);
+      const requested = Date.parse(day+'T12:00:00-03:00');
+      if (Number.isFinite(when) && Number.isFinite(requested) &&
+          Math.abs(when-requested) > 40*3600000) return false;
+    }
+    return true;
+  }
+  function validAnalysis(game,data,day){
+    if (!identity(game,data,day,false)) return false;
+    const p=data.probabilities || {};
+    const nums=[pct(p.home),pct(p.draw),pct(p.away)];
+    return nums.every(n=>Number.isFinite(n) && n>=0 && n<=100) &&
+      Math.abs(nums.reduce((a,b)=>a+b,0)-100)<=2;
+  }
+  function hasPregame(data){
+    const l=data?.lineups;
+    return Boolean(l?.home?.lineup || l?.away?.lineup || data?.hasExtraInfo || data?.found);
+  }
+  async function read(endpoint,game,day){
+    const url=new URL(API+'/');
+    if(endpoint) url.searchParams.set('mode',endpoint);
+    url.searchParams.set('home',game.home);
+    url.searchParams.set('away',game.away);
+    url.searchParams.set('date',day);
+    url.searchParams.set('v','568');
+    const response=await fetch(url.toString(),{cache:'no-store',headers:{'Cache-Control':'no-cache'}});
+    if(!response.ok) throw new Error('HTTP '+response.status);
+    return response.json();
+  }
+  async function shared(kind,game){
+    if(!game?.date || !game?.home || !game?.away) return null;
+    const day=dayInBrazil(game);
+    if(!day) return null;
+    const key=[kind,day,clean(game.home),clean(game.away)].join('|');
+    const memo=kind==='pregame'?pregameMemo:analysisMemo;
+    const found=memo.get(key);
+    const ttl=kind==='pregame'?60*1000:2*60*1000;
+    if(found && Date.now()-found.savedAt<ttl) return found.data;
+    if(inFlight.has(key)) return inFlight.get(key);
+    const task=(async()=>{
+      try{
+        const data=await read(kind==='pregame'?'pregame':'',game,day);
+        const valid=kind==='pregame' ? identity(game,data,day,true) && hasPregame(data)
+          : validAnalysis(game,data,day);
+        if(valid){
+          // Não rebaixar pré-jogo: manter escalações já recebidas quando nova fonte vier incompleta.
+          if(kind==='pregame' && found?.data){
+            const score=x=>Number(Boolean(x?.lineups?.home?.lineup))+
+              Number(Boolean(x?.lineups?.away?.lineup));
+            if(score(found.data)>score(data)) return found.data;
+          }
+          memo.set(key,{data,savedAt:Date.now()});
+          return data;
+        }
+      }catch(error){console.warn('Stanley V56.8: '+kind,error?.message||error);}
+      return found?.data||null;
+    })();
+    inFlight.set(key,task);
+    try {return await task;} finally {inFlight.delete(key);}
+  }
+  // Substitui apenas as funções de aquisição; o render Premium não é modificado.
+  window.getAnalysisData=async game=>shared('analysis',game);
+  window.getPreGameData=async game=>shared('pregame',game);
+  // Atualiza registro PWA quando houver novo arquivo service-worker.js publicado.
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load',()=>{
+      navigator.serviceWorker.register('./service-worker.js?v=568')
+        .then(r=>r.update()).catch(e=>console.warn('Stanley PWA V56.8',e));
+    });
+  }
+  console.info('Stanley Sports V56.8: análises e escalações sincronizadas');
+})();
+</script>
 </body>
 </html>
