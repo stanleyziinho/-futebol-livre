@@ -18015,6 +18015,7 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 })();
 </script>
 <!-- FIM STANLEY SPORTS V57 | GAMES + MUSIC + TNT SPORTS -->
+</body>
 </html>
 <!-- STANLEY SPORTS V57.1 | MUSIC YOUTUBE + SPOTIFY SEPARADO -->
 <style>
@@ -18050,7 +18051,7 @@ const list=document.getElementById('ss57-music-list');if(!list)return;
 list.querySelectorAll('.ss57-card').forEach(card=>{
 const name=card.querySelector('h3')?.textContent?.trim();
 const a=card.querySelector('a.ss57-link');
-if(!a||!terms[name])return;
+a.href=yt(terms[name]);if(a.textContent!=='▶ YouTube')a.textContent='▶ YouTube';a.target='_blank';a.rel='noopener noreferrer';
 a.href=yt(terms[name]);a.textContent='▶ YouTube';a.target='_blank';a.rel='noopener noreferrer';
 a.style.background='#d92336';a.style.color='white';
 });
