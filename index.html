@@ -17427,5 +17427,82 @@ window.ssOpenTomorrowAnalysis = async function(id) {
   console.info('Stanley Sports V56.3 — links sem duplicação, probabilidades em destaque');
 })();
 </script>
+<!-- STANLEY SPORTS V56.7 — correção isolada de cache das probabilidades.
+     COLE APENAS UMA VEZ IMEDIATAMENTE ANTES DE </body> NO index.html.
+     Não modifica transmissão, escalações, gols, cards ou estilos. -->
+<script>
+(function () {
+  'use strict';
+  if (window.__ssAnalysisCache567) return;
+  window.__ssAnalysisCache567 = true;
+
+  const memory = new Map();
+  const pending = new Map();
+  const TTL = 5 * 60 * 1000;
+  const clean = x => String(x || '').normalize('NFD')
+    .replace(/[\u0300-\u036f]/g,'').toLowerCase()
+    .replace(/[^a-z0-9]+/g,' ').trim();
+  function validForGame(data, game, day) {
+    const fixture = data?.fixture;
+    if (!fixture || clean(fixture.home) !== clean(game.home) ||
+        clean(fixture.away) !== clean(game.away)) return false;
+    const p = data.probabilities || {};
+    const percent = n => n === null || n === undefined || n === ''
+      ? NaN : Number(String(n).replace('%','').replace(',','.'));
+    const values = [percent(p.home),percent(p.draw),percent(p.away)];
+    if (values.some(n => !Number.isFinite(n) || n < 0 || n > 100)) return false;
+    if (Math.abs(values.reduce((a,b)=>a+b,0)-100)>2) return false;
+    // Permite diferença de data UTC em jogos noturnos, sem aceitar outra rodada.
+    if(fixture.date) {
+      const event = Date.parse(fixture.date);
+      const requested = Date.parse(day+'T12:00:00-03:00');
+      if(Number.isFinite(event) && Number.isFinite(requested) &&
+         Math.abs(event-requested)>40*3600000) return false;
+    }
+    return true;
+  }
+
+  window.getAnalysisData = async function ssGetAnalysis567(game) {
+    if (!game || !game.home || !game.away || !game.date) return null;
+    const day = typeof isoDateFromEvent === 'function'
+      ? isoDateFromEvent(game)
+      : new Date(game.date).toISOString().slice(0,10);
+    const key = [day,clean(game.home),clean(game.away)].join('|');
+    const now = Date.now();
+    const remembered = memory.get(key);
+    if (remembered && now-remembered.savedAt<TTL) return remembered.data;
+    if (pending.has(key)) return pending.get(key);
+
+    const task = (async () => {
+      try {
+        const base = typeof WORKER === 'string' ? WORKER
+          : 'https://stanley-sports-api.phwdjnnr9m.workers.dev';
+        const url = base + '/?home=' + encodeURIComponent(game.home)
+          + '&away=' + encodeURIComponent(game.away)
+          + '&date=' + encodeURIComponent(day)
+          + '&v=567';
+        const response = await fetch(url,{cache:'no-store'});
+        if(!response.ok) throw new Error('HTTP '+response.status);
+        const data = await response.json();
+        if(validForGame(data,game,day)) {
+          memory.set(key,{data,savedAt:Date.now()});
+          // Atualiza também o cache legado sem nunca gravar resposta vazia.
+          if(typeof analysisCache !== 'undefined')
+            analysisCache[String(game.id)+'-'+String(APP_VERSION)] = data;
+          return data;
+        }
+        console.warn('Stanley V56.7: análise vazia ou confronto divergente',key);
+      } catch (error) {
+        console.warn('Stanley V56.7: consulta indisponível',error);
+      }
+      // Se a API falhou, conserva uma análise válida anterior desta MESMA partida.
+      return remembered?.data || null;
+    })();
+    pending.set(key,task);
+    try { return await task; } finally { pending.delete(key); }
+  };
+  console.info('Stanley Sports V56.7: cache estatístico protegido');
+})();
+</script>
 </body>
 </html>
