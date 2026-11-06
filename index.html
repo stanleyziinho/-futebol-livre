@@ -17834,4 +17834,185 @@ window.ssOpenTomorrowAnalysis = async function(id) {
 </script>
 <!-- FIM STANLEY SPORTS | BOTOES SOCIAIS DESTAQUE V2 -->
 </body>
+<!-- ===============================================================
+ STANLEY SPORTS V57 | GAMES + MUSIC + TNT SPORTS
+ COLAR UMA ÚNICA VEZ IMEDIATAMENTE ANTES DE </body>
+ Compatível: Safari iOS, Chrome Android, navegadores desktop.
+ Não modifica Worker, API, previsões, Premium ou módulos existentes.
+ Remover somente este bloco para reverter.
+================================================================ -->
+<style>
+/* Tudo com prefixo ss57 para evitar conflitos */
+#ss57Games,#ss57Music{color:#f2fff5}
+#ss57Games *,#ss57Music *{box-sizing:border-box}
+.ss57-head{padding:20px;border-radius:22px;border:1px solid #315b39;background:linear-gradient(130deg,#183c26,#081a10);margin-bottom:15px}
+.ss57-kicker{color:#ffd45a;font-size:10px;font-weight:900;letter-spacing:1.4px}
+.ss57-head h2{margin:8px 0 6px;font-size:clamp(25px,5vw,34px);line-height:1.1}
+.ss57-head p,.ss57-hint{font-size:12px;line-height:1.6;color:#a9c5b2}
+.ss57-input{width:100%;padding:14px;border-radius:13px;background:#0e2819;border:1px solid #41704d;color:#fff;font-size:16px;outline-offset:2px}
+.ss57-chips{display:flex;gap:7px;overflow-x:auto;padding:12px 1px 16px;scrollbar-width:thin}
+.ss57-chip{flex:0 0 auto;border-radius:999px;padding:10px 14px;border:1px solid #395640;background:#10271b;color:#c2dac9;font-size:12px;font-weight:800}
+.ss57-chip[aria-pressed="true"]{background:#38e47d;color:#062211;border-color:#38e47d}
+.ss57-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+.ss57-card{min-width:0;border-radius:18px;border:1px solid #2a5238;background:linear-gradient(145deg,#143222,#091a11);padding:15px;position:relative}
+.ss57-symbol{display:grid;place-items:center;height:64px;width:64px;border-radius:18px;background:var(--ss57-tint,#1b563c);font-size:32px;margin-bottom:10px}
+.ss57-card h3{font-size:16px;margin:0 0 5px;overflow-wrap:anywhere}
+.ss57-card p{font-size:11px;color:#a8c4b1;line-height:1.5;min-height:47px;margin:0 0 12px}
+.ss57-actions{display:flex;gap:7px;align-items:stretch}
+.ss57-link,.ss57-action{display:inline-flex;align-items:center;justify-content:center;min-height:43px;padding:9px 10px;border-radius:11px;background:#38e47d;border:1px solid transparent;color:#062211!important;text-decoration:none!important;font-size:11px;font-weight:900;text-align:center}
+.ss57-link{flex:1}
+.ss57-action{flex:0 0 44px;background:#21472f;color:#ffd45a!important;border-color:#3b5d43;font-size:20px}
+.ss57-action[aria-pressed="true"]{background:#654b18;color:#fff!important}
+.ss57-note{margin:14px 0;padding:13px;border-radius:12px;background:#112b1b;color:#b2c8ba;font-size:11px;line-height:1.6}
+.ss57-subtitle{font-size:20px;margin:21px 0 11px}
+.ss57-two-links{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.ss57-two-links a{display:flex;justify-content:center;align-items:center;padding:13px 8px;border-radius:12px;color:white!important;text-decoration:none!important;font-weight:900;font-size:12px;background:#153926;border:1px solid #315740}
+.ss57-two-links a:first-child{background:#b91d2d}
+.ss57-embedbox{margin-top:15px;border:1px solid #315740;border-radius:18px;background:#0c2617;padding:15px}
+.ss57-embedbox h3{margin:0 0 7px;font-size:17px}
+.ss57-embedbox p{margin:0 0 12px;color:#b1c8bb;font-size:12px;line-height:1.5}
+.ss57-embedbox button{padding:12px 15px;border:0;border-radius:11px;background:#38e47d;color:#05220f;font-weight:900;margin-top:9px}
+.ss57-error{color:#ffa0a0;font-size:12px;min-height:16px;margin:8px 0}
+#ss57Player iframe{border:0;border-radius:12px;width:100%;height:352px;margin-top:12px;background:#121212}
+#ss57TNT{margin:14px 0;padding:15px;display:flex;align-items:center;gap:12px;border-radius:18px;border:1px solid #4d495b;background:linear-gradient(120deg,#291327,#111b24)}
+#ss57TNT .ss57-tnt-symbol{display:grid;place-items:center;width:52px;height:52px;flex:0 0 52px;border-radius:15px;background:#ec3448;color:white;font-size:16px;font-weight:950}
+#ss57TNT .ss57-tnt-copy{min-width:0;flex:1}
+#ss57TNT strong{display:block;font-size:14px}
+#ss57TNT small{color:#c2b5c5;font-size:10px;line-height:1.4;display:block;margin-top:4px}
+#ss57TNT a{font-size:11px;font-weight:900;padding:11px;background:#f9ce56;color:#221726;text-decoration:none;border-radius:10px;white-space:nowrap}
+/* O menu antigo possui 6 abas; permitir rolagem para 8 sem esmagar os textos. */
+.bottom-nav.ss57-navigation{display:flex!important;gap:0;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x proximity;scrollbar-width:none;-webkit-overflow-scrolling:touch;justify-content:flex-start}
+.bottom-nav.ss57-navigation::-webkit-scrollbar{display:none}
+.bottom-nav.ss57-navigation>.nav-btn{flex:0 0 max(65px,12.5%);min-height:47px;padding:2px 6px;scroll-snap-align:center;white-space:nowrap}
+@media(min-width:760px){.ss57-grid{grid-template-columns:repeat(4,minmax(0,1fr))}.bottom-nav.ss57-navigation{justify-content:center}.bottom-nav.ss57-navigation>.nav-btn{flex:0 0 90px}}
+@media(max-width:370px){.ss57-card{padding:11px}.ss57-symbol{width:55px;height:55px;font-size:28px}.ss57-card h3{font-size:14px}.ss57-actions{gap:5px}.ss57-link{font-size:10px;padding:8px 4px}.ss57-action{flex-basis:38px}}
+</style>
+<script>
+(function(){
+'use strict';
+if(window.__ss57EntertainmentInstalled)return;
+window.__ss57EntertainmentInstalled=true;
+
+const GAMES=[
+ {id:'sonic',name:'Sonic',emoji:'💨',group:'Aventura',desc:'Vídeos e novidades oficiais da SEGA.',url:'https://www.youtube.com/@SonictheHedgehog',tint:'#164b8e'},
+ {id:'mario',name:'Super Mario',emoji:'🍄',group:'Aventura',desc:'Trailers e vídeos dos jogos Nintendo.',url:'https://www.youtube.com/@NintendoAmerica',tint:'#7d2530'},
+ {id:'roblox',name:'Roblox',emoji:'🧱',group:'Online',desc:'Eventos, criadores e notícias oficiais.',url:'https://www.youtube.com/@Roblox',tint:'#34495e'},
+ {id:'freefire',name:'Free Fire',emoji:'🔥',group:'Competitivo',desc:'Novidades, campeonatos e vídeos.',url:'https://www.youtube.com/@garenafreefirebrasil',tint:'#6d3f18'},
+ {id:'minecraft',name:'Minecraft',emoji:'⛏️',group:'Aventura',desc:'Construções, novidades e gameplays.',url:'https://www.youtube.com/@minecraft',tint:'#2b5835'},
+ {id:'fortnite',name:'Fortnite',emoji:'🎯',group:'Competitivo',desc:'Notícias oficiais e torneios.',url:'https://www.youtube.com/@fortnite',tint:'#633d91'},
+ {id:'gta',name:'GTA',emoji:'🚗',group:'Aventura',desc:'Trailers e novidades da Rockstar Games.',url:'https://www.youtube.com/@RockstarGames',tint:'#614228'},
+ {id:'eafc',name:'EA Sports FC',emoji:'⚽',group:'Esportes',desc:'Futebol virtual e competições.',url:'https://www.youtube.com/@easportsfc',tint:'#23536a'}
+];
+const MUSIC=[
+ {id:'sertanejo',name:'Sertanejo',emoji:'🤠',desc:'Playlists e artistas de sertanejo.',term:'sertanejo',tint:'#5e4024'},
+ {id:'funk',name:'Funk',emoji:'🔥',desc:'Funk brasileiro e lançamentos.',term:'funk brasileiro',tint:'#68304d'},
+ {id:'pagode',name:'Pagode',emoji:'🥁',desc:'Pagode, samba e rodas de música.',term:'pagode',tint:'#40552b'},
+ {id:'gospel',name:'Gospel',emoji:'🙏',desc:'Louvor e música gospel.',term:'gospel brasileiro',tint:'#324e72'},
+ {id:'trap',name:'Rap e Trap',emoji:'🎤',desc:'Rimas, hip-hop e trap.',term:'trap brasileiro',tint:'#5f3048'},
+ {id:'pop',name:'Pop',emoji:'🎵',desc:'Hits nacionais e internacionais.',term:'pop hits',tint:'#633c8b'},
+ {id:'rock',name:'Rock',emoji:'🎸',desc:'Clássicos e novidades do rock.',term:'rock',tint:'#4b3d36'},
+ {id:'eletronica',name:'Eletrônica',emoji:'🎧',desc:'Dance, EDM e música eletrônica.',term:'eletrônica',tint:'#245961'}
+];
+const favKey='stanleySportsV57Fav';
+let favs=[];
+try{const raw=JSON.parse(localStorage.getItem(favKey)||'[]');if(Array.isArray(raw))favs=raw.filter(x=>typeof x==='string');}catch(e){}
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const box=(id)=>document.getElementById(id);
+const selected={games:'Todos',music:'Todos'};
+const queries={games:'',music:''};
+function chip(label,scope){return `<button type="button" class="ss57-chip" data-ss57-filter="${esc(scope)}" data-value="${esc(label)}" aria-pressed="${selected[scope]===label}">${esc(label)}</button>`;}
+function card(item,scope){
+ const favId=scope+':'+item.id;
+ const saved=favs.includes(favId);
+ const url=scope==='games'?item.url:'https://open.spotify.com/search/'+encodeURIComponent(item.term);
+ return `<article class="ss57-card"><div class="ss57-symbol" style="--ss57-tint:${item.tint}">${item.emoji}</div><h3>${esc(item.name)}</h3><p>${esc(item.desc)}</p><div class="ss57-actions"><a class="ss57-link" target="_blank" rel="noopener noreferrer" href="${esc(url)}">${scope==='games'?'▶ Ver vídeos':'♫ Spotify'}</a><button type="button" class="ss57-action" data-ss57-fav="${esc(favId)}" aria-label="${saved?'Remover favorito':'Adicionar favorito'}: ${esc(item.name)}" aria-pressed="${saved}">${saved?'★':'☆'}</button></div></article>`;
+}
+function draw(scope){
+ const data=scope==='games'?GAMES:MUSIC;
+ const list=box('ss57-'+scope+'-list');
+ if(!list)return;
+ const term=queries[scope].trim().toLocaleLowerCase('pt-BR');
+ const filtered=data.filter(x=>{
+  const byGroup=selected[scope]==='Todos'||(selected[scope]==='Favoritos'?favs.includes(scope+':'+x.id):x.group===selected[scope]);
+  return byGroup&&(x.name+' '+x.desc+' '+(x.group||'')).toLocaleLowerCase('pt-BR').includes(term);
+ });
+ list.innerHTML=filtered.length?filtered.map(x=>card(x,scope)).join(''):'<p class="ss57-note">Nenhum resultado encontrado. Tente outra busca ou filtro.</p>';
+ const chips=box('ss57-'+scope+'-chips');
+ if(chips)chips.querySelectorAll('[data-ss57-filter]').forEach(el=>el.setAttribute('aria-pressed',String(el.dataset.value===selected[scope])));
+}
+function section(scope,title,kicker,description,placeholder){
+ const isGames=scope==='games';
+ const tags=isGames?['Todos','Aventura','Online','Competitivo','Esportes','Favoritos']:['Todos','Favoritos'];
+ return `<div id="ss57${isGames?'Games':'Music'}"><header class="ss57-head"><span class="ss57-kicker">${kicker}</span><h2>${title}</h2><p>${description}</p></header><label class="ss57-hint" for="ss57-${scope}-search">Buscar ${isGames?'jogos':'estilos musicais'}</label><input class="ss57-input" id="ss57-${scope}-search" type="search" placeholder="${placeholder}" autocomplete="off"/><div id="ss57-${scope}-chips" class="ss57-chips">${tags.map(x=>chip(x,scope)).join('')}</div><div id="ss57-${scope}-list" class="ss57-grid"></div>${isGames?'<p class="ss57-note">Os botões levam a canais e vídeos oficiais. Transmissões ao vivo dependem da programação de cada canal.</p>':`<h3 class="ss57-subtitle">🎶 Clipes e playlists</h3><div class="ss57-two-links"><a href="https://www.youtube.com/@YouTubeMusic" target="_blank" rel="noopener noreferrer">▶ YouTube Music</a><a href="https://open.spotify.com/" target="_blank" rel="noopener noreferrer">♫ Spotify</a></div><div class="ss57-embedbox"><h3>🎧 Player Spotify</h3><p>Cole o link público de uma música, álbum ou playlist do Spotify para ouvir pelo player oficial, quando o Spotify permitir. Sem baixar ou copiar áudio.</p><input id="ss57-spotify-url" class="ss57-input" type="url" inputmode="url" placeholder="https://open.spotify.com/playlist/..." aria-label="Link público do Spotify"><button id="ss57-spotify-open" type="button">Abrir player</button><p id="ss57-player-error" class="ss57-error" role="status"></p><div id="ss57Player"></div></div><p class="ss57-note">Reprodução completa pode exigir login ou assinatura no Spotify. Alguns conteúdos ficam disponíveis apenas como prévias.</p>`}</div>`;
+}
+function addTabs(){
+ const main=document.querySelector('main');const nav=document.querySelector('.bottom-nav');
+ if(!main||!nav)return;
+ if(!box('viewGames')){
+  const sec=document.createElement('section');sec.id='viewGames';sec.className='view';sec.innerHTML=section('games','Stanley Games','🎮 SUA CENTRAL GAMER','Sonic, Mario, Roblox, Free Fire, Minecraft, Fortnite, GTA e futebol virtual.','Busque Sonic, Roblox, GTA...');main.appendChild(sec);
+ }
+ if(!box('viewMusic')){
+  const sec=document.createElement('section');sec.id='viewMusic';sec.className='view';sec.innerHTML=section('music','Stanley Music','🎵 MÚSICA E ENTRETENIMENTO','Explore estilos, playlists, clipes e o player oficial do Spotify.','Busque funk, sertanejo, rock...');main.appendChild(sec);
+ }
+ for(const [id,title,icon] of [['Games','Games','🎮'],['Music','Música','🎵']]){
+  if(!nav.querySelector(`[data-view="${id}"]`)){
+   const b=document.createElement('button');b.type='button';b.className='nav-btn';b.dataset.view=id;b.innerHTML=`<span>${icon}</span>${title}`;
+   b.addEventListener('click',()=>{if(typeof window.openView==='function')window.openView(id,b);else if(typeof openView==='function')openView(id,b);b.scrollIntoView({block:'nearest',inline:'nearest',behavior:'smooth'});});
+   const premium=nav.querySelector('[data-view="Premium"]');nav.insertBefore(b,premium||null);
+  }
+ }
+ nav.classList.add('ss57-navigation');
+ draw('games');draw('music');
+}
+function addTNT(){
+ if(box('ss57TNT'))return;
+ const sports=box('ssSportsChannelsSection');const tv=box('viewTV');
+ const html=`<div id="ss57TNT"><div class="ss57-tnt-symbol">TNT</div><div class="ss57-tnt-copy"><strong>TNT Sports Brasil</strong><small>Conteúdo esportivo oficial. Lives apenas quando disponíveis.</small></div><a href="https://www.youtube.com/@TNTSportsBR" target="_blank" rel="noopener noreferrer">Abrir ↗</a></div>`;
+ if(sports)sports.insertAdjacentHTML('beforeend',html);
+ else if(tv){const grid=box('tvGrid');if(grid)grid.insertAdjacentHTML('beforebegin',html);else tv.insertAdjacentHTML('beforeend',html);}
+ // Na aba TV, acrescenta um atalho independente sem modificar TV_SERVICES.
+ if(tv && !box('ss57TNTtv')){
+  const link=document.createElement('a');link.id='ss57TNTtv';link.className='service';link.href='https://www.youtube.com/@TNTSportsBR';link.target='_blank';link.rel='noopener noreferrer';link.innerHTML='<strong>TNT Sports Brasil</strong><span>Canal oficial • transmissões disponíveis</span><b style="color:#38e47d;font-size:10px">Abrir canal →</b>';
+  box('tvGrid')?.appendChild(link);
+ }
+}
+function openSpotify(){
+ const input=box('ss57-spotify-url');const err=box('ss57-player-error');const player=box('ss57Player');
+ if(!input||!err||!player)return;
+ err.textContent='';
+ let u;try{u=new URL(input.value.trim());}catch(e){err.textContent='Cole um link válido do Spotify.';return;}
+ const parts=u.pathname.split('/').filter(Boolean);
+ const ix=parts[0]?.startsWith('intl-')?1:0;
+ const type=parts[ix],id=parts[ix+1];
+ if(u.protocol!=='https:'||u.hostname!=='open.spotify.com'||!['track','album','playlist','episode','show','artist'].includes(type)||!/^[A-Za-z0-9]{10,32}$/.test(id||'')){
+  err.textContent='Use um link público de música, álbum, artista ou playlist em open.spotify.com.';return;
+ }
+ player.replaceChildren();
+ const frame=document.createElement('iframe');frame.src='https://open.spotify.com/embed/'+type+'/'+id;
+ frame.title='Spotify — conteúdo selecionado';frame.loading='lazy';frame.allow='autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture';frame.referrerPolicy='strict-origin-when-cross-origin';
+ player.appendChild(frame);
+}
+function install(){
+ addTabs();addTNT();
+ document.addEventListener('input',e=>{
+  for(const scope of ['games','music'])if(e.target?.id==='ss57-'+scope+'-search'){queries[scope]=e.target.value;draw(scope);}
+ });
+ document.addEventListener('click',e=>{
+  const filter=e.target.closest('[data-ss57-filter]');
+  if(filter){const s=filter.dataset.ss57Filter;if(s==='games'||s==='music'){selected[s]=filter.dataset.value;draw(s);}return;}
+  const fav=e.target.closest('[data-ss57-fav]');
+  if(fav){const id=fav.dataset.ss57Fav;favs=favs.includes(id)?favs.filter(x=>x!==id):[...favs,id];try{localStorage.setItem(favKey,JSON.stringify(favs));}catch(ex){}draw(id.split(':')[0]);return;}
+  if(e.target.closest('#ss57-spotify-open'))openSpotify();
+ });
+ // A home já usa scripts que criam o bloco de esportes. Se for inserido após este script, observar uma única vez.
+ if(!box('ss57TNT')){
+  const host=box('viewJogos')||box('viewTV');
+  if(host){const observer=new MutationObserver(()=>{if(box('ssSportsChannelsSection')||box('viewTV')){addTNT();observer.disconnect();}});observer.observe(host,{childList:true,subtree:true});setTimeout(()=>observer.disconnect(),6000);}
+ }
+ console.info('Stanley Sports V57: Games + Music + TNT carregados');
+}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',install,{once:true});else install();
+})();
+</script>
+<!-- FIM STANLEY SPORTS V57 | GAMES + MUSIC + TNT SPORTS -->
 </html>
