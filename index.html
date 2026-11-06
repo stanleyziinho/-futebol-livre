@@ -17716,7 +17716,7 @@ window.ssOpenTomorrowAnalysis = async function(id) {
       const ge = results[1].status === 'fulfilled' ? results[1].value : null;
       const pre = results[2].status === 'fulfilled' ? results[2].value : null;
       // Consulta direta somente quando a integração existente não obteve previsão válida.
-      if (!good(game, analysis)) analysis = await fetchForecast(game);
+      // Não repetir consulta à API após falha.
       const finalAnalysis = typeof buildStanleyEstimate === 'function'
         ? buildStanleyEstimate(game, analysis) : analysis;
       renderAnalysisModal(game, finalAnalysis, ge, pre);
@@ -17745,12 +17745,12 @@ window.ssOpenTomorrowAnalysis = async function(id) {
   async function tick() {
     if (!canUpdate()) return;
     const now = Date.now();
-    if (!updatingGames && now-lastGames >= 120000 && !modalOpen() && typeof refreshAll === 'function') {
+     now-lastGames >= 3000&& !modalOpen() && typeof refreshAll === 'function') {
       updatingGames = true; lastGames = now;
       try { await refreshAll(); } catch(e) {console.warn('Stanley atualização de jogos:',e);}
       finally {updatingGames = false;}
     }
-    if (!updatingTomorrow && now-lastTomorrow >= 300000 &&
+    if (!updatingTomorrow  now-lastTomorrow >= 900000 &&
         document.querySelector('.ss-tomorrow-list') && typeof ssLoadTomorrowGames === 'function' &&
         typeof ssTomorrowGamesHTML === 'function') {
       updatingTomorrow = true; lastTomorrow = now;
@@ -17765,7 +17765,7 @@ window.ssOpenTomorrowAnalysis = async function(id) {
       finally {updatingTomorrow = false;}
     }
   }
-  setInterval(tick, 30000);
+  setInterval(tick, 60000);
   window.addEventListener('online',tick);
   document.addEventListener('visibilitychange', () => {if (canUpdate()) tick();});
   // Não promete placar instantâneo: dados dependem do intervalo de atualização da ESPN.
