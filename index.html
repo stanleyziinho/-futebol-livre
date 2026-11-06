@@ -17504,13 +17504,16 @@ window.ssOpenTomorrowAnalysis = async function(id) {
   console.info('Stanley Sports V56.7: cache estatístico protegido');
 })();
 </script>
-<!-- STANLEY SPORTS V56.8 — SINCRONIZAÇÃO DE ANÁLISES E ESCALAÇÕES.
+<!-- STANLEY SPORTS V56.8.1 — CORREÇÃO CORS E SINCRONIZAÇÃO DE ANÁLISES E ESCALAÇÕES.
      Cole UMA VEZ antes de </body> no index.html.
      Não muda cards, canais, layout, tabelas ou cálculos. -->
 <script>
 (function(){
   'use strict';
-  if (window.__ssSync568) return;
+  if (window.__ssSync5681) return;
+  window.__ssSync5681 = true;
+  // Substitui com segurança o patch V56.8 quando usado em seu lugar.
+  if (window.__ssSync568) console.info('Correção CORS da V56.8 ativa');
   window.__ssSync568 = true;
   const API = 'https://stanley-sports-api.phwdjnnr9m.workers.dev';
   const analysisMemo = new Map(), pregameMemo = new Map();
@@ -17560,8 +17563,8 @@ window.ssOpenTomorrowAnalysis = async function(id) {
     url.searchParams.set('home',game.home);
     url.searchParams.set('away',game.away);
     url.searchParams.set('date',day);
-    url.searchParams.set('v','568');
-    const response=await fetch(url.toString(),{cache:'no-store',headers:{'Cache-Control':'no-cache'}});
+    url.searchParams.set('v','5681');
+    const response=await fetch(url.toString(),{cache:'no-store'});
     if(!response.ok) throw new Error('HTTP '+response.status);
     return response.json();
   }
