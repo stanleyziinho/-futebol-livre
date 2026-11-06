@@ -18369,5 +18369,145 @@ if(document.readyState==='loading'){
 <!-- FIM STANLEY SPORTS V58 -->
 
 
+<!-- STANLEY SPORTS V59 - INSTALAÇÃO -->
+<style>
+#ss-install-box {
+  margin:18px 0;
+  padding:18px;
+  border:1px solid #23864a;
+  border-radius:20px;
+  background:linear-gradient(135deg,#123522,#06170e);
+  color:#fff;
+}
+#ss-install-box strong {
+  display:block;
+  font-size:19px;
+  margin-bottom:5px;
+}
+#ss-install-box p {
+  color:#b2cbbb;
+  font-size:12px;
+  margin:5px 0 14px;
+}
+#ss-install-btn {
+  display:block;
+  width:100%;
+  border:0;
+  border-radius:13px;
+  background:#2ee478;
+  color:#04190b;
+  font-size:16px;
+  font-weight:900;
+  padding:15px;
+  cursor:pointer;
+}
+#ss-install-help {
+  display:none;
+  margin-top:14px;
+  padding:12px;
+  background:#092617;
+  border-radius:12px;
+  font-size:13px;
+  line-height:1.6;
+  color:#e4fff0;
+}
+</style>
+
+<script>
+(function(){
+'use strict';
+if(window.__stanleyInstallV59)return;
+window.__stanleyInstallV59=true;
+
+let installPrompt=null;
+
+window.addEventListener('beforeinstallprompt',event=>{
+  event.preventDefault();
+  installPrompt=event;
+});
+
+function isInstalled(){
+  return window.matchMedia(
+    '(display-mode: standalone)'
+  ).matches || navigator.standalone===true;
+}
+
+function setup(){
+  if(isInstalled())return;
+
+  const home=document.getElementById('viewJogos');
+  if(!home)return;
+
+  const hero=home.querySelector('.hero');
+  if(!hero || document.getElementById('ss-install-box'))return;
+
+  const section=document.createElement('section');
+  section.id='ss-install-box';
+  section.innerHTML=`
+    <strong>📲 Instale o Stanley Sports</strong>
+    <p>Gratuito • Android, iPhone e PC</p>
+    <button id="ss-install-btn" type="button">
+      ⬇ Instalar aplicativo
+    </button>
+    <div id="ss-install-help" role="status"></div>
+  `;
+
+  hero.insertAdjacentElement('afterend',section);
+
+  const btn=document.getElementById('ss-install-btn');
+  const help=document.getElementById('ss-install-help');
+
+  btn.addEventListener('click',async()=>{
+    if(isInstalled()){
+      help.textContent='O aplicativo já está instalado.';
+      help.style.display='block';
+      return;
+    }
+
+    if(installPrompt){
+      const prompt=installPrompt;
+      installPrompt=null;
+      await prompt.prompt();
+      return;
+    }
+
+    const ua=navigator.userAgent;
+    const ios=/iPhone|iPad|iPod/i.test(ua);
+
+    if(ios){
+      help.textContent=
+        'No iPhone, abra o site no Safari. '+
+        'Toque em Compartilhar e selecione '+
+        '"Adicionar à Tela de Início". '+
+        'Depois confirme em Adicionar.';
+    }else if(/Android/i.test(ua)){
+      help.textContent=
+        'Abra o Stanley Sports no Chrome. '+
+        'Toque no menu de três pontos e escolha '+
+        '"Instalar app" ou "Adicionar à tela inicial".';
+    }else{
+      help.textContent=
+        'No computador, abra o site no Chrome ou Edge. '+
+        'Procure a opção de instalação na barra de '+
+        'endereços ou no menu do navegador.';
+    }
+
+    help.style.display='block';
+  });
+
+  window.addEventListener('appinstalled',()=>{
+    section.remove();
+  });
+}
+
+if(document.readyState==='loading'){
+  document.addEventListener('DOMContentLoaded',setup,{once:true});
+}else{
+  setup();
+}
+})();
+</script>
+<!-- FIM STANLEY SPORTS V59 -->
+
 </body>
 </html>
