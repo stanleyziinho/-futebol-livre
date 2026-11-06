@@ -16965,13 +16965,12 @@ SEM OBSERVER / SEM PISCA-PISCA
 })();
 
 </script>
-<!-- STANLEY SPORTS PREMIUM: correção isolada de escalações de pré-jogo -->
+<!-- STANLEY SPORTS — PRÉ-JOGO SEM TRAVAMENTO (substitui somente o bloco antigo de pré-jogo) -->
 <script>
 window.ssOpenTomorrowAnalysis = async function(id) {
   const game = (window.ssTomorrowGamesCache || []).find(
     item => String(item.id) === String(id)
   );
-
   if (!game) {
     openModal('⚠️ Análise', '<div class="loading">Jogo não encontrado no pré-jogo.</div>');
     return;
@@ -16980,46 +16979,72 @@ window.ssOpenTomorrowAnalysis = async function(id) {
   openModal('🔥 Análise da partida',
     '<div class="loading">👑 Carregando análise Premium...</div>');
 
-  try {
-    const [analysisResult, geResult, preGameResult] = await Promise.allSettled([
-      getAnalysisData(game),
-      getGeData(game, true),
-      getPreGameData(game, true)
-    ]);
+  const body = document.getElementById('modalBody');
+  const token = String(Date.now()) + ':' + String(id) + ':' + Math.random();
+  if (body) body.dataset.ssTomorrowToken = token;
+  let analysis = null;
+  let ge = null;
+  let preGame = null;
+  let rendered = false;
+  let finished = false;
 
-    const rawAnalysis = analysisResult.status === 'fulfilled'
-      ? analysisResult.value : null;
-    const ge = geResult.status === 'fulfilled' ? geResult.value : null;
-    const preGame = preGameResult.status === 'fulfilled'
-      ? preGameResult.value : null;
+  const stillOpen = () => {
+    const current = document.getElementById('modalBody');
+    return !!current && current.dataset.ssTomorrowToken === token &&
+      document.getElementById('modal')?.classList.contains('open');
+  };
 
-    const analysis = typeof buildStanleyEstimate === 'function'
-      ? buildStanleyEstimate(game, rawAnalysis)
-      : rawAnalysis;
-
-    renderAnalysisModal(game, analysis, ge, preGame);
-
-    if (typeof ssTomorrowExtraHTML === 'function') {
-      const extra = ssTomorrowExtraHTML(game, ge);
-      const body = document.getElementById('modalBody');
-      if (extra && body) {
-        const warning = body.querySelector('.warning');
-        if (warning) warning.insertAdjacentHTML('beforebegin', extra);
-        else body.insertAdjacentHTML('beforeend', extra);
+  function render() {
+    if (!stillOpen()) return;
+    const target = document.getElementById('modalBody');
+    const oldScroll = target.scrollTop;
+    try {
+      const finalAnalysis = typeof buildStanleyEstimate === 'function'
+        ? buildStanleyEstimate(game, analysis) : analysis;
+      renderAnalysisModal(game, finalAnalysis, ge, preGame);
+      target.scrollTop = rendered ? oldScroll : 0;
+      rendered = true;
+    } catch (error) {
+      console.error('Pré-jogo Premium: erro de apresentação', error);
+      if (!rendered) {
+        target.innerHTML = '<div class="loading">⚠️ Não foi possível exibir a análise.</div>';
       }
     }
-
-    console.info('Stanley Premium:', {
-      analysis: !!rawAnalysis,
-      probabilities: typeof hasProbabilities === 'function' && hasProbabilities(analysis),
-      preGameFound: !!preGame?.found,
-      hasLineups: !!preGame?.hasLineups
-    });
-  } catch (error) {
-    console.error('Stanley Premium pré-jogo:', error);
-    const body = document.getElementById('modalBody');
-    if (body) body.innerHTML = '<div class="loading">⚠️ Não foi possível carregar a análise.</div>';
   }
+
+  // O carregamento da transmissão e da escalação NUNCA bloqueia os percentuais.
+  // Se a API de probabilidades demorar, libera a interface em 12 segundos.
+  const loadingDeadline = setTimeout(() => {
+    finished = true;
+    render();
+  }, 12000);
+
+  const safeRead = (label, fn, onData) => Promise.resolve()
+    .then(fn)
+    .then(data => {
+      if (!stillOpen()) return;
+      onData(data || null);
+      if (label === 'probabilidades' && !finished) {
+        finished = true;
+        clearTimeout(loadingDeadline);
+        render();
+      } else if (rendered) {
+        render();
+      }
+    })
+    .catch(error => {
+      console.warn('Pré-jogo Premium: ' + label, error);
+      if (label === 'probabilidades' && !finished) {
+        finished = true;
+        clearTimeout(loadingDeadline);
+        render();
+      }
+    });
+
+  // Mantém exatamente as fontes e funções de cálculo existentes.
+  void safeRead('probabilidades', () => getAnalysisData(game), value => { analysis = value; });
+  void safeRead('transmissão', () => getGeData(game, true), value => { ge = value; });
+  void safeRead('escalações', () => getPreGameData(game, true), value => { preGame = value; });
 };
 </script>
 <!-- STANLEY SPORTS V55.3 — correção segura de escalações parciais -->
