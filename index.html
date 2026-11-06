@@ -17778,73 +17778,7 @@ window.ssOpenTomorrowAnalysis = async function(id) {
   console.info('Stanley Sports V56.9: atualização controlada e pré-jogo ativo');
 })();
 </script>
-<!-- STANLEY SPORTS — ATUALIZAÇÃO UNIVERSAL V57.0: cole antes de </body> -->
-<script>
-(function () {
-  'use strict';
-  if (window.__stanleyUniversal57) return;
-  window.__stanleyUniversal57 = true;
-  const ROOT = '/-futebol-livre/';
-  const RELEASE = 'stanley-20261106-universal-1';
-  let baseline = '', busy = false, pendingReload = false, controllerSeen = false;
-  const active = () => document.visibilityState === 'visible' && navigator.onLine !== false;
-  const modalOpen = () => document.getElementById('modal')?.classList.contains('open');
-  const reload = () => {
-    if (!pendingReload || modalOpen() || !active()) return;
-    location.replace(ROOT + '?updated=' + Date.now() + location.hash);
-  };
-  async function checkRelease() {
-    if (busy || !active()) return;
-    busy = true;
-    try {
-      const res = await fetch(ROOT + 'index.html?ss_release_check=' + Date.now(),
-        {cache:'no-store'});
-      if (!res.ok) return;
-      const html = await res.text();
-      const remote = html.match(/const RELEASE = '([^']+)'/)?.[1] || '';
-      const hash = await crypto.subtle.digest('SHA-256',
-        new TextEncoder().encode(html));
-      const signature = Array.from(new Uint8Array(hash)).slice(0,16)
-        .map(v => v.toString(16).padStart(2,'0')).join('');
-      if ((remote && remote !== RELEASE) ||
-          (baseline && baseline !== signature)) pendingReload = true;
-      baseline = signature;
-      reload();
-    } catch (e) {
-      console.warn('Stanley Sports: verificação de atualização', e);
-    } finally { busy = false; }
-  }
-  async function updatePWA() {
-    if (!('serviceWorker' in navigator)) return;
-    try {
-      const reg = await navigator.serviceWorker.register(
-        ROOT + 'service-worker.js?v=universal-20261106',
-        {updateViaCache:'none'}
-      );
-      await reg.update();
-    } catch(e) { console.warn('Stanley Sports: atualização do PWA', e); }
-  }
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.addEventListener('controllerchange', () => {
-      if (controllerSeen) return;
-      controllerSeen = true;
-      pendingReload = true;
-      reload();
-    });
-  }
-  // Verifica mudanças quando o app é aberto, volta ao primeiro plano e a cada 4 min.
-  window.addEventListener('load', () => {
-    updatePWA();
-    setTimeout(checkRelease, 12000);
-  });
-  document.addEventListener('visibilitychange', () => {
-    if (active()) { updatePWA(); checkRelease(); }
-  });
-  window.addEventListener('online', () => { updatePWA(); checkRelease(); });
-  setInterval(checkRelease, 4*60*1000);
-  setInterval(reload, 15000);
-  console.info('Stanley Sports — atualizador universal habilitado');
-})();
+
 </script>
 </body>
 </html>
