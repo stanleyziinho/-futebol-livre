@@ -17722,4 +17722,115 @@ window.ssOpenTomorrowAnalysis = async function(id) {
 <!-- FIM STANLEY SPORTS | PREMIUM GRATUITO + REDES SOCIAIS | V1 -->
 
 </body>
+<!-- STANLEY SPORTS | BOTOES SOCIAIS DESTAQUE V2 -->
+<style>
+  #ss-social-home-v2 {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    margin: 12px 0 20px;
+    padding: 18px 16px;
+    border: 1px solid rgba(255,212,90,.42);
+    border-radius: 20px;
+    background: linear-gradient(130deg,#18351e 0%,#0c2419 56%,#102719 100%);
+    box-shadow: 0 12px 26px rgba(0,0,0,.22),inset 0 1px 0 rgba(255,255,255,.05);
+    color: #fff;
+  }
+  #ss-social-home-v2:before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    width: 155px;
+    height: 155px;
+    right: -65px;
+    top: -85px;
+    border-radius: 50%;
+    background: rgba(255,212,90,.12);
+    filter: blur(12px);
+  }
+  #ss-social-home-v2 .ssh-kicker {
+    margin: 0 0 7px;
+    color: #ffd45a;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+  }
+  #ss-social-home-v2 .ssh-title {
+    margin: 0;
+    color: #fff;
+    font-size: clamp(18px,4.6vw,22px);
+    font-weight: 900;
+    line-height: 1.25;
+  }
+  #ss-social-home-v2 .ssh-subtitle {
+    margin: 7px 0 16px;
+    color: #c1d3c7;
+    font-size: 12px;
+    line-height: 1.5;
+  }
+  #ss-social-home-v2 .ssh-buttons {
+    display: grid;
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    gap: 10px;
+  }
+  #ss-social-home-v2 .ssh-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-width: 0;
+    min-height: 56px;
+    padding: 12px 8px;
+    border-radius: 14px;
+    border: 1px solid rgba(255,255,255,.23);
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 900;
+    box-shadow: 0 6px 14px rgba(0,0,0,.18);
+    transition: transform .15s ease,filter .15s ease;
+  }
+  #ss-social-home-v2 .ssh-link:active {transform: scale(.97)}
+  #ss-social-home-v2 .ssh-link:focus-visible {outline: 3px solid #ffd45a;outline-offset: 3px}
+  #ss-social-home-v2 .ssh-youtube {background: linear-gradient(135deg,#ed2939,#a90e24)}
+  #ss-social-home-v2 .ssh-instagram {background: linear-gradient(125deg,#6d35bd,#ae35a0,#de5460)}
+  #ss-social-home-v2 .ssh-link svg {flex:0 0 23px;width:23px;height:23px;fill:currentColor}
+  #ss-social-home-v2 .ssh-footer {margin:12px 0 0;text-align:center;font-size:10px;line-height:1.5;color:#a9c7ae}
+  @media (max-width:350px) {
+    #ss-social-home-v2 .ssh-buttons{grid-template-columns:1fr}
+  }
+</style>
+<script>
+(function ssSocialHomeV2(){
+  'use strict';
+  function insert(){
+    // Local exato: logo abaixo do banner STANLEY SPORTS PREMIUM da tela inicial.
+    const banner = document.querySelector('#viewJogos .premium-home');
+    if(!banner || document.getElementById('ss-social-home-v2')) return;
+    const card=document.createElement('section');
+    card.id='ss-social-home-v2';
+    card.setAttribute('aria-label','Redes oficiais do Stanley Sports');
+    card.innerHTML=`
+      <p class="ssh-kicker">â¡ Comunidade Stanley Sports</p>
+      <h3 class="ssh-title">Acompanhe nosso futebol! â½</h3>
+      <p class="ssh-subtitle">Novidades, anÃ¡lises e conteÃºdos exclusivos nas nossas redes oficiais.</p>
+      <div class="ssh-buttons">
+        <a class="ssh-link ssh-youtube" href="https://www.youtube.com/@StanleySports" target="_blank" rel="noopener noreferrer" aria-label="Abrir YouTube oficial do Stanley Sports">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a2.9 2.9 0 0 0-2.05-2.05C19.64 3.67 12 3.67 12 3.67s-7.64 0-9.45.48A2.9 2.9 0 0 0 .5 6.2 30.3 30.3 0 0 0 0 12a30.3 30.3 0 0 0 .5 5.8 2.9 2.9 0 0 0 2.05 2.05c1.81.48 9.45.48 9.45.48s7.64 0 9.45-.48a2.9 2.9 0 0 0 2.05-2.05A30.3 30.3 0 0 0 24 12a30.3 30.3 0 0 0-.5-5.8ZM9.6 15.57V8.43L15.85 12Z"/></svg>
+          <span>YouTube</span>
+        </a>
+        <a class="ssh-link ssh-instagram" href="https://www.instagram.com/stanl_eysports/" target="_blank" rel="noopener noreferrer" aria-label="Abrir Instagram oficial do Stanley Sports">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm5.5-3a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Z"/></svg>
+          <span>Instagram</span>
+        </a>
+      </div>
+      <p class="ssh-footer">ð Premium gratuito. Siga por vontade prÃ³pria, sem bloqueios.</p>`;
+    banner.insertAdjacentElement('afterend',card);
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',insert,{once:true});
+  else insert();
+})();
+</script>
+<!-- FIM STANLEY SPORTS | BOTOES SOCIAIS DESTAQUE V2 -->
 </html>
