@@ -17668,5 +17668,58 @@ window.ssOpenTomorrowAnalysis = async function(id) {
   console.info('Stanley Sports V56.8.2: previsões pré-jogo protegidas');
 })();
 </script>
+<!-- STANLEY SPORTS | PREMIUM GRATUITO + REDES SOCIAIS | V1 -->
+<!-- Cole este bloco uma única vez, imediatamente ANTES de </body> no index.html. -->
+<style>
+  #ss-social-premium-v1{margin:18px 0;padding:18px;border:1px solid rgba(56,228,125,.30);border-radius:20px;background:linear-gradient(140deg,#092015,#102c1e);color:#fff}
+  #ss-social-premium-v1 .ss-social-heading{font-weight:900;font-size:16px;margin:0 0 5px}
+  #ss-social-premium-v1 .ss-social-description{color:#acc6b7;font-size:12px;line-height:1.6;margin:0 0 14px}
+  #ss-social-premium-v1 .ss-social-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  #ss-social-premium-v1 a{display:block;text-align:center;text-decoration:none;padding:13px 7px;border-radius:12px;font-weight:850;font-size:12px;color:white;background:#193e2a;border:1px solid rgba(255,255,255,.16)}
+  #ss-social-premium-v1 a:first-child{background:#bf202c}
+  #ss-social-premium-v1 a:last-child{background:#7442a4}
+  #ss-social-premium-v1 .ss-social-note{display:block;margin-top:12px;color:#8fae9c;font-size:11px;text-align:center;line-height:1.5}
+</style>
+<script>
+(function ssPremiumGratisRedesV1(){
+  'use strict';
+  // Somente a interface de acesso é liberada; não altera o motor de previsão.
+  window.premiumActive = function(){ return true; };
+  window.ssIsPremium = function(){ return true; };
+  // Substitui a validade de 30 dias por informação correta sobre acesso gratuito.
+  window.ssPremiumInfoHTML = function(){
+    return '<div style="padding:13px 15px;margin:10px 0 16px;border-radius:13px;background:#102b1b;color:#38e47d;font-weight:900;font-size:12px;text-align:center">👑 Premium gratuito para todos — sem código e sem assinatura</div>';
+  };
+  // Um eventual modal antigo de cobrança nunca exibirá preço/código.
+  window.premiumScreen = function(){
+    return '<div style="padding:25px 16px;text-align:center;background:#0d2115;color:#fff;border-radius:18px"><h2>👑 Stanley Sports Premium</h2><p>As análises são gratuitas para todos. Abra um jogo e toque em Análise Premium.</p></div>';
+  };
+  function addSocialCard(){
+    const view=document.getElementById('viewPremium');
+    if(!view || document.getElementById('ss-social-premium-v1')) return;
+    const wrap=document.createElement('section');
+    wrap.id='ss-social-premium-v1';
+    wrap.innerHTML=`
+      <p class="ss-social-heading">⚽ Acompanhe o Stanley Sports</p>
+      <p class="ss-social-description">Análises e probabilidades gratuitas. Apoie o projeto acompanhando as novidades nas nossas redes!</p>
+      <div class="ss-social-actions">
+        <a href="https://www.youtube.com/@StanleySports" target="_blank" rel="noopener noreferrer" aria-label="Abrir YouTube Stanley Sports">▶ YouTube</a>
+        <a href="https://www.instagram.com/stanl_eysports/" target="_blank" rel="noopener noreferrer" aria-label="Abrir Instagram Stanley Sports">◎ Instagram</a>
+      </div>
+      <small class="ss-social-note">Seguir é opcional. Nenhum recurso é bloqueado por inscrição.</small>`;
+    const header=view.querySelector('.section-head');
+    if(header) header.insertAdjacentElement('afterend',wrap);
+    else view.insertAdjacentElement('afterbegin',wrap);
+  }
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',addSocialCard,{once:true});
+  }else{
+    addSocialCard();
+  }
+  console.info('Stanley Sports: Premium gratuito + redes V1 carregado');
+})();
+</script>
+<!-- FIM STANLEY SPORTS | PREMIUM GRATUITO + REDES SOCIAIS | V1 -->
+
 </body>
 </html>
