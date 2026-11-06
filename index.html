@@ -17504,14 +17504,14 @@ window.ssOpenTomorrowAnalysis = async function(id) {
   console.info('Stanley Sports V56.7: cache estatístico protegido');
 })();
 </script>
-<!-- STANLEY SPORTS V56.8.1 — CORREÇÃO CORS E SINCRONIZAÇÃO DE ANÁLISES E ESCALAÇÕES.
+<!-- STANLEY SPORTS V56.8.2 — RECUPERAÇÃO SEGURA DE PREVISÕES PRÉ-JOGO.
      Cole UMA VEZ antes de </body> no index.html.
      Não muda cards, canais, layout, tabelas ou cálculos. -->
 <script>
 (function(){
   'use strict';
-  if (window.__ssSync5681) return;
-  window.__ssSync5681 = true;
+  if (window.__ssSync5682) return;
+  window.__ssSync5682 = true;
   // Substitui com segurança o patch V56.8 quando usado em seu lugar.
   if (window.__ssSync568) console.info('Correção CORS da V56.8 ativa');
   window.__ssSync568 = true;
@@ -17533,25 +17533,45 @@ window.ssOpenTomorrowAnalysis = async function(id) {
   }
   function identity(game, data, day, isPregame){
     if (!data || data.ok === false) return false;
-    const f = isPregame ? data : data.fixture;
-    if (!f) return false;
-    if (clean(isPregame?f.home:f.home) !== clean(game.home) ||
-        clean(isPregame?f.away:f.away) !== clean(game.away)) return false;
-    const raw = isPregame ? f.date : f.date;
-    if (raw) {
-      const when = Date.parse(raw);
-      const requested = Date.parse(day+'T12:00:00-03:00');
-      if (Number.isFinite(when) && Number.isFinite(requested) &&
-          Math.abs(when-requested) > 40*3600000) return false;
+    const f=isPregame ? data : data.fixture;
+    if (!f || clean(f.home)!==clean(game.home) || clean(f.away)!==clean(game.away)) return false;
+    if (f.date) {
+      const fixtureTime=Date.parse(f.date);
+      const gameTime=Date.parse(game.date);
+      // ESPN e API-Football podem usar datas civis diferentes por causa de UTC.
+      // Valida pelo horário real da partida, quando disponível.
+      if (Number.isFinite(fixtureTime) && Number.isFinite(gameTime)) {
+        if(Math.abs(fixtureTime-gameTime)>36*3600000) return false;
+      } else if(Number.isFinite(fixtureTime)) {
+        const brazilDay=dayInBrazil({date:f.date});
+        if(brazilDay!==day) return false;
+      }
     }
     return true;
   }
   function validAnalysis(game,data,day){
-    if (!identity(game,data,day,false)) return false;
+    if(!identity(game,data,day,false)) return false;
     const p=data.probabilities || {};
     const nums=[pct(p.home),pct(p.draw),pct(p.away)];
-    return nums.every(n=>Number.isFinite(n) && n>=0 && n<=100) &&
+    return nums.every(n=>Number.isFinite(n)&&n>=0&&n<=100) &&
       Math.abs(nums.reduce((a,b)=>a+b,0)-100)<=2;
+  }
+  // Apenas previsões anteriormente validadas. Nenhuma resposta vazia vira cache.
+  const PREFIX='stanley:prematch:5682:';
+  function fromSaved(game,day,key){
+    try {
+      const item=JSON.parse(localStorage.getItem(PREFIX+key)||'null');
+      if(!item || !Number.isFinite(item.savedAt) ||
+         Date.now()-item.savedAt>48*3600000 || !validAnalysis(game,item.data,day)) return null;
+      return item.data;
+    }catch{return null;}
+  }
+  function saveAnalysis(key,data){
+    try{localStorage.setItem(PREFIX+key,JSON.stringify({savedAt:Date.now(),data}));}
+    catch(e){console.warn('Stanley: armazenamento local indisponível',e);}
+  }
+  function savedLabel(data){
+    return {...data,sourceLabel:(data.sourceLabel||'Previsão estatística')+' • pré-jogo salvo'};
   }
   function hasPregame(data){
     const l=data?.lineups;
@@ -17563,7 +17583,7 @@ window.ssOpenTomorrowAnalysis = async function(id) {
     url.searchParams.set('home',game.home);
     url.searchParams.set('away',game.away);
     url.searchParams.set('date',day);
-    url.searchParams.set('v','5681');
+    url.searchParams.set('v','5682');
     const response=await fetch(url.toString(),{cache:'no-store'});
     if(!response.ok) throw new Error('HTTP '+response.status);
     return response.json();
@@ -17579,25 +17599,36 @@ window.ssOpenTomorrowAnalysis = async function(id) {
     if(found && Date.now()-found.savedAt<ttl) return found.data;
     if(inFlight.has(key)) return inFlight.get(key);
     const task=(async()=>{
+      const old=kind==='analysis' ? (found?.data||fromSaved(game,day,key)) : found?.data;
       try{
-        const data=await read(kind==='pregame'?'pregame':'',game,day);
-        const valid=kind==='pregame' ? identity(game,data,day,true) && hasPregame(data)
-          : validAnalysis(game,data,day);
-        if(valid){
-          // Não rebaixar pré-jogo: manter escalações já recebidas quando nova fonte vier incompleta.
-          if(kind==='pregame' && found?.data){
-            const score=x=>Number(Boolean(x?.lineups?.home?.lineup))+
-              Number(Boolean(x?.lineups?.away?.lineup));
-            if(score(found.data)>score(data)) return found.data;
-          }
-          memo.set(key,{data,savedAt:Date.now()});
-          return data;
+        // Só consulta o dia civil brasileiro primeiro. Busca UTC apenas se diferente
+        // e necessário, mantendo identificação por equipes e horário do confronto.
+        const dates=[day];
+        if(kind==='analysis') {
+          const utc=new Date(game.date).toISOString().slice(0,10);
+          if(utc!==day) dates.push(utc);
         }
-      }catch(error){console.warn('Stanley V56.8: '+kind,error?.message||error);}
-      return found?.data||null;
+        for(const queryDay of dates){
+          const data=await read(kind==='pregame'?'pregame':'',game,queryDay);
+          const valid=kind==='pregame' ? identity(game,data,day,true)&&hasPregame(data)
+            : validAnalysis(game,data,day);
+          if(valid){
+            if(kind==='pregame' && found?.data){
+              const score=x=>Number(Boolean(x?.lineups?.home?.lineup))+
+                Number(Boolean(x?.lineups?.away?.lineup));
+              if(score(found.data)>score(data)) return found.data;
+            }
+            memo.set(key,{data,savedAt:Date.now()});
+            if(kind==='analysis') saveAnalysis(key,data);
+            return data;
+          }
+        }
+      }catch(error){console.warn('Stanley V56.8.2: '+kind,error?.message||error);}
+      if(kind==='analysis' && old && validAnalysis(game,old,day)) return savedLabel(old);
+      return old||null;
     })();
     inFlight.set(key,task);
-    try {return await task;} finally {inFlight.delete(key);}
+    try{return await task;}finally{inFlight.delete(key);}
   }
   // Substitui apenas as funções de aquisição; o render Premium não é modificado.
   window.getAnalysisData=async game=>shared('analysis',game);
@@ -17609,8 +17640,9 @@ window.ssOpenTomorrowAnalysis = async function(id) {
         .then(r=>r.update()).catch(e=>console.warn('Stanley PWA V56.8',e));
     });
   }
-  console.info('Stanley Sports V56.8: análises e escalações sincronizadas');
+  console.info('Stanley Sports V56.8.2: previsões pré-jogo protegidas');
 })();
 </script>
+
 </body>
 </html>
