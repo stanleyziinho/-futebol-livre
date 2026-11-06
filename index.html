@@ -18184,5 +18184,190 @@ else install();
 </script>
 <!-- FIM STANLEY SPORTS V57.2 -->
 
+<!-- STANLEY SPORTS V58 — GAMES + MUSIC -->
+<style>
+#ss57Games .ss57-head,
+#ss57Music .ss57-head {
+  position:relative;
+  overflow:hidden;
+  background-color:#102015;
+  background-position:center;
+  background-size:cover;
+  background-repeat:no-repeat;
+  border:1px solid rgba(255,255,255,.18);
+  min-height:160px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+#ss57Games .ss57-head {
+  background-image:
+    linear-gradient(90deg,rgba(0,0,0,.83),rgba(0,0,0,.27)),
+    url('./assets/images/logos-games.png');
+}
+#ss57Music .ss57-head {
+  background-image:
+    linear-gradient(90deg,rgba(0,0,0,.83),rgba(0,0,0,.27)),
+    url('./assets/images/plataformas-musica.png');
+}
+#ss57Games .ss57-head h2,
+#ss57Music .ss57-head h2,
+#ss57Games .ss57-head p,
+#ss57Music .ss57-head p,
+#ss57Games .ss57-kicker,
+#ss57Music .ss57-kicker {
+  position:relative;
+  z-index:1;
+  text-shadow:0 2px 9px rgba(0,0,0,.95);
+}
+#ss57Games .ss57-head p,
+#ss57Music .ss57-head p {
+  color:#fff;
+}
+#ss57Games .ss572-cover,
+#ss57Music .ss572-cover {
+  width:100%;
+  aspect-ratio:2/3;
+  overflow:hidden;
+}
+#ss57Games .ss572-cover img,
+#ss57Music .ss572-cover img {
+  display:block;
+  width:100%;
+  height:100%;
+  padding:0;
+  box-sizing:border-box;
+  object-fit:cover;
+  object-position:center;
+  background:transparent;
+}
+</style>
+
+<script>
+(function(){
+'use strict';
+if(window.__stanleyV58Installed)return;
+window.__stanleyV58Installed=true;
+
+const assets={
+ games:{
+  sonic:'sonic.png',
+  mario:'mario.png',
+  roblox:'roblox.png',
+  freefire:'free-fire.png',
+  minecraft:'minecraft.png',
+  fortnite:'fortnite.png',
+  gta:'gta-v.png',
+  eafc:'ea-sports-fc-mobile.png'
+ },
+ music:{
+  sertanejo:'sertanejo-hits.png',
+  funk:'love-funk.png',
+  pagode:'pagode.png',
+  gospel:'musica-gospel.png',
+  trap:'funk.png',
+  pop:'pop.png',
+  rock:'rock.png',
+  eletronica:'eletronica.png'
+ }
+};
+
+const names={
+ games:{
+  'Sonic':'sonic',
+  'Super Mario':'mario',
+  'Roblox':'roblox',
+  'Free Fire':'freefire',
+  'Minecraft':'minecraft',
+  'Fortnite':'fortnite',
+  'GTA':'gta',
+  'EA Sports FC':'eafc'
+ },
+ music:{
+  'Sertanejo':'sertanejo',
+  'Funk':'funk',
+  'Pagode':'pagode',
+  'Gospel':'gospel',
+  'Rap e Trap':'trap',
+  'Pop':'pop',
+  'Rock':'rock',
+  'Eletrônica':'eletronica'
+ }
+};
+
+const marioUrl='https://mario.nintendo.com/';
+
+function fix(scope){
+ const list=document.getElementById(
+   'ss57-'+scope+'-list'
+ );
+ if(!list)return;
+
+ for(const card of list.querySelectorAll('.ss57-card')){
+  const title=card.querySelector('h3')
+    ?.textContent?.trim();
+  const id=names[scope][title];
+  if(!id)continue;
+
+  const cover=card.querySelector('.ss572-cover');
+  if(cover){
+   const filename=assets[scope][id];
+   const src='./assets/images/'+
+     encodeURIComponent(filename);
+   let img=cover.querySelector('img');
+
+   if(!img){
+    img=document.createElement('img');
+    img.alt=title;
+    img.loading='lazy';
+    img.onerror=()=>{img.hidden=true;};
+    cover.querySelector('.ss572-emoji')?.remove();
+    cover.prepend(img);
+   }
+
+   if(!img.getAttribute('src') ||
+     !img.getAttribute('src').endsWith(
+       encodeURIComponent(filename)
+     )){
+    img.src=src;
+   }
+  }
+
+  if(scope==='games'&&id==='mario'){
+   const a=card.querySelector('a.ss57-link');
+   if(a){
+    a.href=marioUrl;
+    a.target='_blank';
+    a.rel='noopener noreferrer';
+   }
+  }
+ }
+}
+
+function init(){
+ for(const scope of ['games','music']){
+  const list=document.getElementById(
+    'ss57-'+scope+'-list'
+  );
+  if(!list)continue;
+
+  fix(scope);
+  new MutationObserver(()=>fix(scope))
+    .observe(list,{childList:true});
+ }
+}
+
+if(document.readyState==='loading'){
+ document.addEventListener(
+  'DOMContentLoaded',init,{once:true}
+ );
+}else{
+ init();
+}
+})();
+</script>
+<!-- FIM STANLEY SPORTS V58 -->
+
+
 </body>
 </html>
