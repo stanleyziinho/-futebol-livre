@@ -6,7 +6,7 @@ SERVICE WORKER V54
 */
 
 const CACHE_NAME =
-  "stanley-sports-v54-20261102";
+  "stanley-sports-v568-20261106";
 
 
 const APP_SHELL = [
