@@ -18090,5 +18090,99 @@ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',
 })();
 </script>
 <!-- FIM STANLEY SPORTS V57.1 -->
+
+<!-- STANLEY SPORTS V57.2 | CARDS GAMES E MUSIC IGUAIS A TV E FILMES -->
+<style>
+#ss57Games .ss57-grid,#ss57Music .ss57-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px 10px}
+#ss57Games .ss57-card,#ss57Music .ss57-card{padding:0;border:0;background:none;border-radius:0;box-shadow:none;min-width:0}
+#ss57Games .ss57-card>.ss57-symbol,#ss57Music .ss57-card>.ss57-symbol{display:none}
+#ss57Games .ss572-cover,#ss57Music .ss572-cover{position:relative;width:100%;aspect-ratio:2/3;overflow:hidden;border-radius:15px;border:1px solid rgba(255,255,255,.09);box-shadow:0 8px 22px rgba(0,0,0,.25);background:linear-gradient(145deg,#163422,#07150d);cursor:pointer}
+#ss57Games .ss572-cover img,#ss57Music .ss572-cover img{display:block;width:100%;height:100%;object-fit:contain;padding:8px;box-sizing:border-box;background:#fff}
+#ss57Games .ss572-cover:after,#ss57Music .ss572-cover:after{content:"";position:absolute;inset:60% 0 0;background:linear-gradient(transparent,rgba(0,0,0,.58));pointer-events:none}
+#ss57Games .ss572-badge,#ss57Music .ss572-badge{position:absolute;z-index:2;top:7px;left:7px;padding:5px 6px;border-radius:999px;background:rgba(3,16,8,.88);border:1px solid rgba(56,228,125,.32);color:#38e47d;font-size:8px;font-weight:900}
+#ss57Games .ss572-play,#ss57Music .ss572-play{position:absolute;z-index:2;right:8px;bottom:8px;background:rgba(3,16,8,.90);color:#fff;width:28px;height:28px;display:grid;place-items:center;border-radius:50%;border:1px solid rgba(255,255,255,.22)}
+#ss57Games .ss572-emoji,#ss57Music .ss572-emoji{display:grid;place-items:center;width:100%;height:100%;font-size:52px;background:#133321}
+#ss57Games .ss57-card h3,#ss57Music .ss57-card h3{font-size:12px;font-weight:900;line-height:1.2;margin:9px 0 4px;white-space:normal;overflow-wrap:anywhere}
+#ss57Games .ss57-card p,#ss57Music .ss57-card p{font-size:10px;min-height:0;margin:0 0 7px;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;color:#97ab9f}
+#ss57Games .ss57-actions,#ss57Music .ss57-actions{gap:5px;align-items:stretch}
+#ss57Games .ss57-link,#ss57Music .ss57-link{min-height:32px;padding:6px 3px;font-size:10px;border-radius:9px}
+#ss57Games .ss57-action,#ss57Music .ss57-action{flex:0 0 32px;min-height:32px;padding:2px;font-size:17px;border-radius:9px}
+@media(min-width:760px){#ss57Games .ss57-grid,#ss57Music .ss57-grid{grid-template-columns:repeat(5,minmax(0,1fr));gap:17px}}
+@media(max-width:345px){#ss57Games .ss57-grid,#ss57Music .ss57-grid{gap:8px}#ss57Games .ss57-link,#ss57Music .ss57-link{font-size:9px}}
+</style>
+<script>
+(function(){
+'use strict';
+if(window.__ss572CardsInstalled)return;
+window.__ss572CardsInstalled=true;
+const IMAGE={
+ games:{sonic:'sonic.png',roblox:'roblox.png',freefire:'free-fire.png',minecraft:'minecraft.png',fortnite:'fortnite.png',gta:'gta-v.png',eafc:'ea-sports-fc-mobile.png'},
+ music:{sertanejo:'sertanejo-hits.png',funk:'love-funk.png',pagode:'pagode.png',gospel:'musica-gospel.png',trap:'Trap .png',pop:'pop.png',rock:'rock.png',eletronica:'eletronica.png'}
+};
+const NAME={games:{'Sonic':'sonic','Super Mario':'mario','Roblox':'roblox','Free Fire':'freefire','Minecraft':'minecraft','Fortnite':'fortnite','GTA':'gta','EA Sports FC':'eafc'},music:{'Sertanejo':'sertanejo','Funk':'funk','Pagode':'pagode','Gospel':'gospel','Rap e Trap':'trap','Pop':'pop','Rock':'rock','Eletrônica':'eletronica'}};
+function refresh(scope){
+ const list=document.getElementById('ss57-'+scope+'-list');if(!list)return;
+ list.querySelectorAll('.ss57-card').forEach(card=>{
+  if(card.querySelector('.ss572-cover'))return;
+  const label=card.querySelector('h3')?.textContent.trim();
+  const key=NAME[scope][label];if(!key)return;
+  const img=IMAGE[scope][key];
+  const symbol=card.querySelector('.ss57-symbol')?.textContent.trim()||'🎮';
+  const cover=document.createElement('div');cover.className='ss572-cover';
+  cover.setAttribute('role','button');cover.tabIndex=0;
+  cover.setAttribute('aria-label','Abrir '+label);
+  if(img){
+   const el=document.createElement('img');
+   el.src='./assets/images/'+encodeURIComponent(img);
+   el.alt=label;el.loading='lazy';
+   el.onerror=()=>{
+    el.remove();
+    const fallback=document.createElement('span');
+    fallback.className='ss572-emoji';
+    fallback.textContent=symbol;
+    cover.insertBefore(fallback,cover.firstChild);
+   };
+   cover.appendChild(el);
+  }else{
+   const fallback=document.createElement('span');
+   fallback.className='ss572-emoji';
+   fallback.textContent=symbol;
+   cover.appendChild(fallback);
+  }
+  const flag=document.createElement('span');
+  flag.className='ss572-badge';
+  flag.textContent=scope==='games'?'GAME':'MÚSICA';
+  cover.appendChild(flag);
+  const play=document.createElement('span');
+  play.className='ss572-play';
+  play.textContent='▶';
+  cover.appendChild(play);
+  const open=()=>card.querySelector('a.ss57-link')?.click();
+  cover.addEventListener('click',open);
+  cover.addEventListener('keydown',e=>{
+   if(e.key==='Enter'||e.key===' '){
+    e.preventDefault();open();
+   }
+  });
+  card.insertBefore(cover,card.firstChild);
+ });
+}
+function install(){
+ for(const scope of ['games','music']){
+  const list=document.getElementById('ss57-'+scope+'-list');
+  if(!list)continue;
+  refresh(scope);
+  const obs=new MutationObserver(()=>refresh(scope));
+  obs.observe(list,{childList:true});
+ }
+ console.info('Stanley Sports V57.2: cards visuais carregados');
+}
+if(document.readyState==='loading')
+ document.addEventListener('DOMContentLoaded',install,{once:true});
+else install();
+})();
+</script>
+<!-- FIM STANLEY SPORTS V57.2 -->
+
 </body>
 </html>
