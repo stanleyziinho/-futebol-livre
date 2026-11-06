@@ -17745,12 +17745,12 @@ window.ssOpenTomorrowAnalysis = async function(id) {
   async function tick() {
     if (!canUpdate()) return;
     const now = Date.now();
-     now-lastGames >= 3000&& !modalOpen() && typeof refreshAll === 'function') {
+     if (!updatingGames && now-lastGames >= 300000 && !modalOpen() && typeof refreshAll === 'function') {
       updatingGames = true; lastGames = now;
       try { await refreshAll(); } catch(e) {console.warn('Stanley atualização de jogos:',e);}
       finally {updatingGames = false;}
     }
-    if (!updatingTomorrow  now-lastTomorrow >= 900000 &&
+    if (!updatingTomorrow && now-lastTomorrow >= 900000 &&
         document.querySelector('.ss-tomorrow-list') && typeof ssLoadTomorrowGames === 'function' &&
         typeof ssTomorrowGamesHTML === 'function') {
       updatingTomorrow = true; lastTomorrow = now;
