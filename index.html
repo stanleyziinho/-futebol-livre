@@ -18767,5 +18767,86 @@ if(document.readyState==='loading'){
 </script>
 <!-- FIM STANLEY SPORTS V60 -->
 
+<!-- STANLEY SPORTS V61 - LOGOS DOS CANAIS -->
+<style>
+#ss57TNT .ss60-card {
+  padding:0!important;
+  overflow:hidden;
+  gap:0!important;
+}
+#ss57TNT .ss60-logo {
+  width:100%!important;
+  height:auto!important;
+  aspect-ratio:3/2;
+  border-radius:0!important;
+  background:#07180e!important;
+}
+#ss57TNT .ss60-logo img {
+  width:100%!important;
+  height:100%!important;
+  object-fit:cover!important;
+  display:block;
+}
+#ss57TNT .ss60-card h4 {
+  margin:12px 12px 4px!important;
+}
+#ss57TNT .ss60-card>small {
+  margin:0 12px 8px!important;
+}
+#ss57TNT .ss60-card>a {
+  margin:10px 12px 12px!important;
+}
+</style>
+
+<script>
+(function(){
+'use strict';
+if(window.__stanleyV61Logos)return;
+window.__stanleyV61Logos=true;
+
+const logos={
+ 'TNT Sports':'Tntsports.png',
+ 'CazéTV':'caze-tv.png',
+ 'XSports':'XSports.png',
+ 'SportyNet':'SportyNet.png'
+};
+
+function aplicarLogos(){
+ const painel=document.getElementById('ss57TNT');
+ if(!painel)return;
+
+ painel.querySelectorAll('.ss60-card').forEach(card=>{
+  const nome=card.querySelector('h4')
+    ?.textContent?.trim();
+  const arquivo=logos[nome];
+  const area=card.querySelector('.ss60-logo');
+  if(!arquivo||!area)return;
+
+  let imagem=area.querySelector('img');
+
+  if(!imagem){
+   imagem=document.createElement('img');
+   imagem.alt=nome;
+   area.appendChild(imagem);
+  }
+
+  imagem.src='./assets/images/'+arquivo;
+  imagem.onerror=function(){
+   this.style.display='none';
+  };
+ });
+}
+
+if(document.readyState==='loading'){
+ document.addEventListener(
+  'DOMContentLoaded',aplicarLogos,{once:true}
+ );
+}else{
+ aplicarLogos();
+}
+})();
+</script>
+<!-- FIM STANLEY SPORTS V61 -->
+ 
 </body>
 </html>
