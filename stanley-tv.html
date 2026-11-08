@@ -19,9 +19,9 @@ header{display:flex;align-items:center;justify-content:space-between;gap:12px;pa
 video{width:100%;height:100%;background:black}.placeholder{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:20px;color:var(--muted);background:linear-gradient(140deg,#09162a,#102747);pointer-events:none}
 .placeholder strong{display:block;color:white;font-size:22px}.placeholder span{font-size:53px}
 .info{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:13px 0 20px}.info h2{font-size:18px;margin:0}.sub{color:var(--muted);font-size:12px;margin-top:4px}
-.section-title{font-size:19px;margin:0 0 12px}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
-.channel{min-width:0;position:relative;border:1px solid var(--line);border-radius:15px;background:linear-gradient(150deg,#172b45,#0d1b2d);padding:11px;text-align:center;color:var(--txt);min-height:142px;display:flex;flex-direction:column;justify-content:space-between;align-items:center;gap:9px}
-.channel.active{outline:2px solid var(--blue)}.logo{height:70px;width:100%;object-fit:contain}.fallback{font-size:38px;font-weight:900;height:70px;display:grid;place-items:center;color:var(--gold)}.name{font-size:12px;font-weight:800;overflow-wrap:anywhere}.fav{position:absolute;right:6px;top:5px;border:0;background:#031222c9;color:#fff;border-radius:7px;font-size:19px;padding:2px 7px}.fav.on{color:#ffe35c}
+.section-title{font-size:19px;margin:0 0 12px}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.channel{min-width:0;position:relative;border:1px solid var(--line);border-radius:15px;background:linear-gradient(150deg,#172b45,#0d1b2d);padding:11px;text-align:center;color:var(--txt);min-height:165px;display:flex;flex-direction:column;justify-content:space-between;align-items:center;gap:9px}
+.channel.active{outline:2px solid var(--blue)}.logo{height:88px;width:100%;object-fit:contain}.fallback{font-size:38px;font-weight:900;height:70px;display:grid;place-items:center;color:var(--gold)}.name{font-size:12px;font-weight:800;overflow-wrap:anywhere}.fav{position:absolute;right:6px;top:5px;border:0;background:#031222c9;color:#fff;border-radius:7px;font-size:19px;padding:2px 7px}.fav.on{color:#ffe35c}
 .panel{background:#101f32;border:1px solid var(--line);border-radius:18px;padding:16px;margin-bottom:14px}.panel h3{margin:0 0 10px;font-size:17px}.panel p{font-size:12px;color:var(--muted);line-height:1.5}
 .stack{display:grid;gap:9px}.field{min-width:0;width:100%;border:1px solid var(--line);border-radius:10px;padding:11px;background:#071525;color:white}
 .note{margin:15px 0;color:var(--muted);font-size:12px;line-height:1.5}.empty{border:1px dashed #3c536e;padding:25px;border-radius:16px;color:var(--muted);text-align:center;grid-column:1/-1;line-height:1.6}
@@ -32,20 +32,20 @@ footer{padding:28px 0;color:var(--muted);font-size:12px;text-align:center}
 </head>
 <body>
 <div class="wrap">
-<header><div class="brand">STANLEY <b>TV</b><small>BY STANLEY SPORTS · V1.0</small></div><a class="btn" style="text-decoration:none" href="./index.html">← Stanley Sports</a></header>
-<div class="hero"><div><h1>Sua TV. Seu universo.</h1><p>Canais ao vivo, esportes, filmes e entretenimento em um só lugar.<br>Importe apenas playlists que você tem autorização para utilizar.</p></div><div class="tv">📺</div></div>
-<div class="toolbar"><input class="search" type="search" id="search" placeholder="🔎 Buscar canais..." aria-label="Buscar canais"><button class="btn" id="refresh">↻ Atualizar lista</button></div>
+<header><div class="brand">STANLEY <b>TV</b><small>BY STANLEY SPORTS Â· V1.1</small></div><a class="btn" style="text-decoration:none" href="./index.html">â Stanley Sports</a></header>
+<div class="hero"><div><h1>Sua TV. Seu universo.</h1><p>Canais ao vivo, esportes, filmes e entretenimento em um sÃ³ lugar.<br>Importe apenas playlists que vocÃª tem autorizaÃ§Ã£o para utilizar.</p></div><div class="tv">ðº</div></div>
+<div class="toolbar"><input class="search" type="search" id="search" placeholder="ð Buscar canais..." aria-label="Buscar canais"><button class="btn" id="refresh">â» Atualizar lista</button></div>
 <div class="chips" id="categories"></div>
 <div class="layout"><main>
-<div class="screen"><video id="player" controls playsinline preload="none"></video><div class="placeholder" id="placeholder"><div><span>▶</span><strong>Selecione um canal</strong>Adicione uma lista autorizada ou experimente o vídeo de teste.</div></div></div>
-<div class="info"><div><h2 id="playing">Nenhum canal selecionado</h2><div class="sub" id="playingCat">Stanley TV · Transmissão</div></div><button class="btn" id="fullscreen">⛶ Tela cheia</button></div>
-<h2 class="section-title">📡 Canais disponíveis <span class="small" id="count"></span></h2><div class="grid" id="channels"></div>
+<div class="screen"><iframe id="officialFrame" title="Player oficial" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" style="display:none;width:100%;height:100%;border:0"></iframe><video id="player" controls playsinline preload="none"></video><div class="placeholder" id="placeholder"><div><span>â¶</span><strong>Selecione um canal</strong>Escolha um canal do catÃ¡logo ou teste o player.</div></div></div>
+<div class="info"><div><h2 id="playing">Nenhum canal selecionado</h2><div class="sub" id="playingCat">Stanley TV Â· TransmissÃ£o</div><div class="sub" id="officialLink" style="display:none"></div></div><button class="btn" id="fullscreen">â¶ Tela cheia</button></div>
+<div class="note">Canais com indicaÃ§Ã£o âSite oficialâ abrem na pÃ¡gina da emissora. A presenÃ§a no catÃ¡logo nÃ£o significa autorizaÃ§Ã£o para retransmitir o sinal.</div><h2 class="section-title">ð¡ Canais disponÃ­veis <span class="small" id="count"></span></h2><div class="grid" id="channels"></div>
 </main><aside>
-<section class="panel"><h3>📥 Importar lista M3U</h3><p>Insira um endereço HTTPS de playlist M3U ou escolha um arquivo salvo no celular. Somente listas autorizadas. Alguns servidores bloqueiam a leitura por CORS.</p><div class="stack"><input class="field" id="url" type="url" placeholder="https://exemplo.com/canais.m3u"><button class="btn primary" id="importUrl">Importar pelo link</button><input class="field" type="file" id="file" accept=".m3u,.m3u8,.txt,audio/x-mpegurl,application/vnd.apple.mpegurl"><button class="btn" id="demo">▶ Testar player com vídeo demonstrativo</button><button class="btn" id="clear">Remover canais importados</button></div><div class="status" id="status" role="status"></div></section>
-<section class="panel"><h3>⭐ Meus favoritos</h3><p>Toque na estrela de um canal para salvá-lo neste dispositivo. Use a categoria Favoritos para visualizar seus canais favoritos.</p></section>
-<section class="premium"><b>👑 Stanley TV Premium</b><p class="small">Área reservada para futuro catálogo licenciado. Nenhum canal de assinatura é disponibilizado nesta versão.</p></section>
-<div class="note">A reprodução depende do formato, da fonte e do navegador. Fontes HTTP podem ser bloqueadas no GitHub Pages (HTTPS). Algumas transmissões exigem aplicativo próprio ou autorização de incorporação.</div>
-</aside></div><footer>© Stanley Sports · Stanley TV V1.0 · Player experimental independente</footer></div>
+<section class="panel"><h3>ð¥ Importar lista M3U</h3><p>Insira um endereÃ§o HTTPS de playlist M3U ou escolha um arquivo salvo no celular. Somente listas autorizadas. Alguns servidores bloqueiam a leitura por CORS.</p><div class="stack"><input class="field" id="url" type="url" placeholder="https://exemplo.com/canais.m3u"><button class="btn primary" id="importUrl">Importar pelo link</button><input class="field" type="file" id="file" accept=".m3u,.m3u8,.txt,audio/x-mpegurl,application/vnd.apple.mpegurl"><button class="btn" id="demo">â¶ Testar player com vÃ­deo demonstrativo</button><button class="btn" id="clear">Remover canais importados</button></div><div class="status" id="status" role="status"></div></section>
+<section class="panel"><h3>ð CatÃ¡logo inicial V1.1</h3><p>Uma seleÃ§Ã£o de acessos oficiais brasileiros. A TV CÃ¢mara oferece player incorporado; outros serviÃ§os abrem em suas prÃ³prias plataformas. Novos canais poderÃ£o ser adicionados mediante confirmaÃ§Ã£o de licenciamento ou permissÃ£o de incorporaÃ§Ã£o.</p></section><section class="panel"><h3>â­ Meus favoritos</h3><p>Toque na estrela de um canal para salvÃ¡-lo neste dispositivo. Use a categoria Favoritos para visualizar seus canais favoritos.</p></section>
+<section class="premium"><b>ð Stanley TV Premium</b><p class="small">Ãrea reservada para futuro catÃ¡logo licenciado. Nenhum canal de assinatura Ã© disponibilizado nesta versÃ£o.</p></section>
+<div class="note">A reproduÃ§Ã£o depende do formato, da fonte e do navegador. Fontes HTTP podem ser bloqueadas no GitHub Pages (HTTPS). Algumas transmissÃµes exigem aplicativo prÃ³prio ou autorizaÃ§Ã£o de incorporaÃ§Ã£o.</div>
+</aside></div><footer>Â© Stanley Sports Â· Stanley TV V1.1 Â· Player experimental independente</footer></div>
 <script src="https://cdn.jsdelivr.net/npm/hls.js@1/dist/hls.min.js"></script>
 <script>
 (function(){
@@ -55,11 +55,21 @@ const el=id=>document.getElementById(id);
 let channels=[],favs=[],category='Todos',selected='',hls=null,playlistURL='';
 try{channels=JSON.parse(localStorage.getItem(KEY)||'[]');favs=JSON.parse(localStorage.getItem(FAV)||'[]');playlistURL=localStorage.getItem(SRC)||'';}catch(e){channels=[];favs=[];}
 channels=Array.isArray(channels)?channels:[];favs=Array.isArray(favs)?favs:[];
+const BUILTIN=[
+{id:'tv-camara',name:'TV CÃ¢mara',group:'NotÃ­cias',mode:'embed',url:'https://www2.camara.leg.br/camaranoticias/tv/embedAoVivo.html',logo:'',mark:'ðï¸'},
+{id:'tv-brasil',name:'TV Brasil',group:'TV aberta',mode:'external',url:'https://tvbrasil.ebc.com.br/webtv/',logo:'',mark:'ð§ð·'},
+{id:'tv-senado',name:'TV Senado',group:'NotÃ­cias',mode:'external',url:'https://www12.senado.leg.br/tv/programas/ao-vivo',logo:'',mark:'ðï¸'},
+{id:'canal-gov',name:'Canal Gov',group:'NotÃ­cias',mode:'external',url:'https://www.ebc.com.br/sobre/canal-gov',logo:'',mark:'ð¡'},
+{id:'cazetv',name:'CazÃ©TV',group:'Esportes',mode:'external',url:'https://www.youtube.com/@CazeTV/live',logo:'',mark:'â½'},
+{id:'tv-brasil-animada',name:'TV Brasil Animada',group:'Infantil',mode:'external',url:'https://tvbrasil.ebc.com.br/tvbrasilanimada',logo:'',mark:'ð§¸'},
+{id:'tv-brasil-play',name:'TV Brasil Play',group:'Filmes e sÃ©ries',mode:'external',url:'https://tvbrasilplay.com.br/',logo:'',mark:'ð¬'}
+];
+const allChannels=()=>[...BUILTIN,...channels.filter(c=>!BUILTIN.some(b=>b.id===c.id))];
 const clean=s=>String(s||'').trim();
 const safeUrl=s=>{try{const u=new URL(s,location.href);return ['https:','http:'].includes(u.protocol)?u.href:'';}catch(e){return ''}};
 const setStatus=s=>el('status').textContent=s;
-const catOf=c=>{const t=(c.group||'').toLowerCase();if(/esport|sport|futebol/.test(t))return 'Esportes';if(/film|cinema|movie|series|série/.test(t))return 'Filmes e séries';if(/notícia|noticia|news|jornal/.test(t))return 'Notícias';if(/infantil|desenho|kids|anima/.test(t))return 'Infantil';if(/música|musica|music/.test(t))return 'Música';return c.group||'Outros'};
-function save(){try{localStorage.setItem(KEY,JSON.stringify(channels));localStorage.setItem(FAV,JSON.stringify(favs));localStorage.setItem(SRC,playlistURL);}catch(e){setStatus('Armazenamento do dispositivo indisponível.');}}
+const catOf=c=>{const t=(c.group||'').toLowerCase();if(/esport|sport|futebol/.test(t))return 'Esportes';if(/film|cinema|movie|series|sÃ©rie/.test(t))return 'Filmes e sÃ©ries';if(/notÃ­cia|noticia|news|jornal/.test(t))return 'NotÃ­cias';if(/infantil|desenho|kids|anima/.test(t))return 'Infantil';if(/mÃºsica|musica|music/.test(t))return 'MÃºsica';return c.group||'Outros'};
+function save(){try{localStorage.setItem(KEY,JSON.stringify(channels));localStorage.setItem(FAV,JSON.stringify(favs));localStorage.setItem(SRC,playlistURL);}catch(e){setStatus('Armazenamento do dispositivo indisponÃ­vel.');}}
 function parseM3U(text,base){
 const lines=text.replace(/\r/g,'').split('\n');const list=[];let meta=null;
 for(const raw of lines){const line=raw.trim();if(!line)continue;
@@ -70,32 +80,40 @@ if(meta){const url=safeUrl(new URL(line,base||location.href).href);if(url){list.
 }return list.filter((c,i,a)=>a.findIndex(x=>x.id===c.id)===i);
 }
 function render(){
-const categories=['Todos','Favoritos',...new Set(channels.map(catOf))];
+const listing=allChannels();const categories=['Todos','Favoritos',...new Set(listing.map(catOf))];
 el('categories').replaceChildren(...categories.map(c=>{const b=document.createElement('button');b.className='chip'+(c===category?' on':'');b.textContent=c;b.onclick=()=>{category=c;render()};return b}));
-const q=clean(el('search').value).toLowerCase();const visible=channels.filter(c=>(category==='Todos'||(category==='Favoritos'?favs.includes(c.id):catOf(c)===category))&&(!q||(c.name+' '+c.group).toLowerCase().includes(q)));
+const q=clean(el('search').value).toLowerCase();const visible=listing.filter(c=>(category==='Todos'||(category==='Favoritos'?favs.includes(c.id):catOf(c)===category))&&(!q||(c.name+' '+c.group).toLowerCase().includes(q)));
 el('count').textContent='('+visible.length+')';const root=el('channels');root.replaceChildren();
-if(!visible.length){const d=document.createElement('div');d.className='empty';d.textContent=channels.length?'Nenhum canal encontrado. Experimente outra busca ou categoria.':'Sua biblioteca está vazia. Importe uma lista M3U autorizada para começar.';root.append(d);}
-for(const c of visible){const card=document.createElement('div');card.className='channel'+(selected===c.id?' active':'');card.setAttribute('role','button');card.tabIndex=0;card.onclick=()=>play(c);card.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();play(c)}};const star=document.createElement('button');star.type='button';star.className='fav'+(favs.includes(c.id)?' on':'');star.textContent=favs.includes(c.id)?'★':'☆';star.setAttribute('aria-label','Alternar favorito');star.onclick=e=>{e.stopPropagation();favs=favs.includes(c.id)?favs.filter(x=>x!==c.id):[...favs,c.id];save();render()};card.append(star);
-if(c.logo){const img=document.createElement('img');img.className='logo';img.alt='';img.loading='lazy';img.referrerPolicy='no-referrer';img.src=c.logo;img.onerror=()=>{img.remove();const d=document.createElement('div');d.className='fallback';d.textContent='📺';card.insertBefore(d,card.querySelector('.name'))};card.append(img)}else{const d=document.createElement('div');d.className='fallback';d.textContent='📺';card.append(d)}
-const name=document.createElement('div');name.className='name';name.textContent=c.name;card.append(name);root.append(card)}
+if(!visible.length){const d=document.createElement('div');d.className='empty';d.textContent=listing.length?'Nenhum canal encontrado. Experimente outra busca ou categoria.':'Nenhum canal nesta categoria. Importe uma lista autorizada para adicionar mais opÃ§Ãµes.';root.append(d);}
+for(const c of visible){const card=document.createElement('div');card.className='channel'+(selected===c.id?' active':'');card.setAttribute('role','button');card.tabIndex=0;card.onclick=()=>play(c);card.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();play(c)}};const star=document.createElement('button');star.type='button';star.className='fav'+(favs.includes(c.id)?' on':'');star.textContent=favs.includes(c.id)?'â':'â';star.setAttribute('aria-label','Alternar favorito');star.onclick=e=>{e.stopPropagation();favs=favs.includes(c.id)?favs.filter(x=>x!==c.id):[...favs,c.id];save();render()};card.append(star);
+if(c.logo){const img=document.createElement('img');img.className='logo';img.alt='';img.loading='lazy';img.referrerPolicy='no-referrer';img.src=c.logo;img.onerror=()=>{img.remove();const d=document.createElement('div');d.className='fallback';d.textContent=c.mark||'ðº';card.insertBefore(d,card.querySelector('.name'))};card.append(img)}else{const d=document.createElement('div');d.className='fallback';d.textContent=c.mark||'ðº';card.append(d)}
+const name=document.createElement('div');name.className='name';name.textContent=c.name;card.append(name);if(c.mode==='external'){const tag=document.createElement('small');tag.style.color='#9dafc7';tag.textContent='â Site oficial';card.append(tag)}root.append(card)}
 }
-function stop(){if(hls){hls.destroy();hls=null;}const v=el('player');v.pause();v.removeAttribute('src');v.load();}
+function stop(){if(hls){hls.destroy();hls=null;}el('officialFrame').src='about:blank';el('officialFrame').style.display='none';el('player').style.display='block';el('officialLink').style.display='none';const v=el('player');v.pause();v.removeAttribute('src');v.load();}
 function play(c){
 stop();selected=c.id;el('playing').textContent=c.name;el('playingCat').textContent=catOf(c);el('placeholder').style.display='none';render();
+if(c.mode==='external'){
+ el('placeholder').style.display='grid';el('placeholder').innerHTML='<div><span>â</span><strong>ConteÃºdo no site oficial</strong>Toque no link abaixo para assistir na plataforma da emissora.</div>';
+ const area=el('officialLink');area.replaceChildren();const a=document.createElement('a');a.href=c.url;a.target='_blank';a.rel='noopener noreferrer';a.textContent='â¶ Abrir transmissÃ£o / catÃ¡logo oficial';a.style.color='#ffe35c';area.append(a);area.style.display='block';setStatus('Este canal utiliza a pÃ¡gina oficial; nÃ£o hÃ¡ retransmissÃ£o incorporada.');return;
+}
+if(c.mode==='embed'){
+ el('player').style.display='none';el('officialFrame').src=c.url;el('officialFrame').style.display='block';setStatus('Player incorporado da TV CÃ¢mara. Se nÃ£o carregar, abra a pÃ¡gina oficial.');
+ const area=el('officialLink');area.replaceChildren();const a=document.createElement('a');a.href='https://www2.camara.leg.br/camaranoticias/tv/aoVivo.html';a.target='_blank';a.rel='noopener noreferrer';a.textContent='Abrir TV CÃ¢mara no site oficial';a.style.color='#ffe35c';area.append(a);area.style.display='block';return;
+}
 const v=el('player'),url=c.url,isHls=/\.m3u8(?:[?#]|$)/i.test(url);
 if(isHls&&v.canPlayType('application/vnd.apple.mpegurl')){v.src=url;v.play().catch(()=>setStatus('Toque em reproduzir no player.'))}
-else if(isHls&&window.Hls&&Hls.isSupported()){hls=new Hls({enableWorker:true});hls.loadSource(url);hls.attachMedia(v);hls.on(Hls.Events.MANIFEST_PARSED,()=>v.play().catch(()=>setStatus('Toque em reproduzir no player.')));hls.on(Hls.Events.ERROR,(event,data)=>{if(data.fatal)setStatus('Não foi possível reproduzir o stream. Verifique a fonte, CORS ou permissões.');});}
-else{v.src=url;v.play().catch(()=>setStatus('Formato não suportado ou reprodução bloqueada.'))}
+else if(isHls&&window.Hls&&Hls.isSupported()){hls=new Hls({enableWorker:true});hls.loadSource(url);hls.attachMedia(v);hls.on(Hls.Events.MANIFEST_PARSED,()=>v.play().catch(()=>setStatus('Toque em reproduzir no player.')));hls.on(Hls.Events.ERROR,(event,data)=>{if(data.fatal)setStatus('NÃ£o foi possÃ­vel reproduzir o stream. Verifique a fonte, CORS ou permissÃµes.');});}
+else{v.src=url;v.play().catch(()=>setStatus('Formato nÃ£o suportado ou reproduÃ§Ã£o bloqueada.'))}
 }
-el('player').addEventListener('error',()=>setStatus('O vídeo não carregou. A fonte pode estar offline ou bloquear reprodução externa.'));
+el('player').addEventListener('error',()=>setStatus('O vÃ­deo nÃ£o carregou. A fonte pode estar offline ou bloquear reproduÃ§Ã£o externa.'));
 el('search').addEventListener('input',render);
-el('fullscreen').onclick=()=>{const v=el('player');if(v.webkitEnterFullscreen)v.webkitEnterFullscreen();else if(v.requestFullscreen)v.requestFullscreen().catch(()=>setStatus('Tela cheia indisponível.'))};
-function importText(s,base){const list=parseM3U(s,base);if(!list.length){setStatus('Nenhum canal válido encontrado. O arquivo deve conter linhas #EXTINF e URLs de transmissão.');return}channels=list;category='Todos';selected='';stop();el('placeholder').style.display='grid';el('playing').textContent='Nenhum canal selecionado';save();render();setStatus(list.length+' canais importados. A reprodução depende de cada fonte.');}
-el('importUrl').onclick=async()=>{const url=safeUrl(el('url').value);if(!url||!url.startsWith('https:')){setStatus('Informe uma URL HTTPS válida.');return}setStatus('Carregando playlist...');try{const r=await fetch(url,{cache:'no-store'});if(!r.ok)throw new Error('HTTP '+r.status);const s=await r.text();playlistURL=url;importText(s,url)}catch(e){setStatus('Não foi possível importar: '+e.message+'. Verifique CORS ou use o arquivo M3U.')}};
+el('fullscreen').onclick=()=>{if(el('officialFrame').style.display!=='none'){setStatus('Para tela cheia, utilize o controle do player da emissora.');return;}const v=el('player');if(v.webkitEnterFullscreen)v.webkitEnterFullscreen();else if(v.requestFullscreen)v.requestFullscreen().catch(()=>setStatus('Tela cheia indisponÃ­vel.'))};
+function importText(s,base){const list=parseM3U(s,base);if(!list.length){setStatus('Nenhum canal vÃ¡lido encontrado. O arquivo deve conter linhas #EXTINF e URLs de transmissÃ£o.');return}channels=list;category='Todos';selected='';stop();el('placeholder').style.display='grid';el('playing').textContent='Nenhum canal selecionado';save();render();setStatus(list.length+' canais importados. A reproduÃ§Ã£o depende de cada fonte.');}
+el('importUrl').onclick=async()=>{const url=safeUrl(el('url').value);if(!url||!url.startsWith('https:')){setStatus('Informe uma URL HTTPS vÃ¡lida.');return}setStatus('Carregando playlist...');try{const r=await fetch(url,{cache:'no-store'});if(!r.ok)throw new Error('HTTP '+r.status);const s=await r.text();playlistURL=url;importText(s,url)}catch(e){setStatus('NÃ£o foi possÃ­vel importar: '+e.message+'. Verifique CORS ou use o arquivo M3U.')}};
 el('file').onchange=async e=>{const f=e.target.files[0];if(!f)return;playlistURL='';importText(await f.text(),location.href)};
 el('refresh').onclick=()=>{if(!playlistURL){setStatus('Para atualizar pela internet, importe uma playlist por link HTTPS.');return}el('url').value=playlistURL;el('importUrl').click()};
-el('clear').onclick=()=>{if(!confirm('Remover os canais importados deste dispositivo?'))return;channels=[];playlistURL='';selected='';stop();el('placeholder').style.display='grid';el('playing').textContent='Nenhum canal selecionado';save();render();setStatus('Canais removidos. Favoritos preservados.')};
-el('demo').onclick=()=>{setStatus('Vídeo demonstrativo HLS, não é um canal de TV.');play({id:'demo',name:'Vídeo demonstrativo (teste de player)',group:'Teste',url:'https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8',logo:''})};
+el('clear').onclick=()=>{if(!confirm('Remover os canais importados deste dispositivo?'))return;channels=[];playlistURL='';selected='';stop();el('placeholder').style.display='grid';el('playing').textContent='Nenhum canal selecionado';save();render();setStatus('Listas importadas removidas. CatÃ¡logo oficial preservado.')};
+el('demo').onclick=()=>{setStatus('VÃ­deo demonstrativo HLS, nÃ£o Ã© um canal de TV.');play({id:'demo',name:'VÃ­deo demonstrativo (teste de player)',group:'Teste',url:'https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8',logo:''})};
 if(playlistURL)el('url').value=playlistURL;render();
 })();
 </script>
