@@ -911,5 +911,155 @@ $('backupFile').onchange=async e=>{
 render();
 })();
 </script>
+
+<!-- STANLEY TV V1.3 - MINI PLAYER FLUTUANTE -->
+<style>
+#stanley-player-anchor {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  position: relative;
+}
+
+#stanley-player-anchor > .screen {
+  width: 100%;
+  height: 100%;
+}
+
+#stanley-player-anchor > .screen.stanley-floating {
+  position: fixed !important;
+  width: min(58vw, 320px) !important;
+  height: auto !important;
+  aspect-ratio: 16 / 9;
+  bottom: calc(15px + env(safe-area-inset-bottom)) !important;
+  right: 12px !important;
+  top: auto !important;
+  left: auto !important;
+  z-index: 99999 !important;
+  border: 2px solid #ffe45f !important;
+  border-radius: 14px !important;
+  background: #000 !important;
+  box-shadow: 0 10px 35px rgba(0,0,0,.85);
+}
+
+#stanley-player-anchor .screen.stanley-floating video,
+#stanley-player-anchor .screen.stanley-floating iframe {
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 430px) {
+  #stanley-player-anchor > .screen.stanley-floating {
+    width: 62vw !important;
+    max-width: 260px !important;
+  }
+}
+</style>
+
+<script>
+(function(){
+  'use strict';
+
+  function iniciarMiniPlayer(){
+    const screen = document.querySelector('main .screen');
+    const video = document.getElementById('player');
+    const frame = document.getElementById('frame');
+    const playing = document.getElementById('playing');
+
+    if(!screen || !video || !playing) return;
+    if(document.getElementById('stanley-player-anchor')) return;
+
+    const anchor = document.createElement('div');
+    anchor.id = 'stanley-player-anchor';
+
+    screen.parentNode.insertBefore(anchor, screen);
+    anchor.appendChild(screen);
+
+    let ticking = false;
+
+    function atualizarPlayer(){
+      ticking = false;
+
+      const iframeAtivo =
+        frame &&
+        getComputedStyle(frame).display !== 'none' &&
+        frame.getAttribute('src') &&
+        frame.getAttribute('src') !== 'about:blank';
+
+      const videoAtivo =
+        Boolean(video.currentSrc || video.getAttribute('src'));
+
+      const canalSelecionado =
+        playing.textContent.trim() !==
+        'Nenhum canal selecionado';
+
+      const passouDoPlayer =
+        anchor.getBoundingClientRect().bottom < 0;
+
+      const modoTelaCheia =
+        Boolean(document.fullscreenElement);
+
+      const flutuar =
+        passouDoPlayer &&
+        canalSelecionado &&
+        (iframeAtivo || videoAtivo) &&
+        !modoTelaCheia;
+
+      screen.classList.toggle('stanley-floating', flutuar);
+    }
+
+    function solicitarAtualizacao(){
+      if(!ticking){
+        ticking = true;
+        requestAnimationFrame(atualizarPlayer);
+      }
+    }
+
+    window.addEventListener('scroll', solicitarAtualizacao, {
+      passive: true
+    });
+
+    window.addEventListener('resize', solicitarAtualizacao);
+    document.addEventListener(
+      'fullscreenchange',
+      solicitarAtualizacao
+    );
+
+    const observer = new MutationObserver(solicitarAtualizacao);
+    observer.observe(playing, {
+      childList: true,
+      characterData: true,
+      subtree: true
+    });
+
+    observer.observe(video, {
+      attributes: true,
+      attributeFilter: ['src']
+    });
+
+    if(frame){
+      observer.observe(frame, {
+        attributes: true,
+        attributeFilter: ['src', 'style']
+      });
+    }
+
+    video.addEventListener('playing', solicitarAtualizacao);
+    video.addEventListener('emptied', solicitarAtualizacao);
+
+    atualizarPlayer();
+  }
+
+  if(document.readyState === 'loading'){
+    document.addEventListener(
+      'DOMContentLoaded',
+      iniciarMiniPlayer
+    );
+  }else{
+    iniciarMiniPlayer();
+  }
+})();
+</script>
+<!-- FIM MINI PLAYER FLUTUANTE -->
+
 </body>
 </html>
