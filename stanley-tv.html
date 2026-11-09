@@ -1187,5 +1187,64 @@ render();
 }
 </style>
 <!-- FIM STANLEY TV V2.1 - COMPACT LAYOUT -->
+
+<!-- STANLEY TV V2.1.1 - 3 CANAIS POR LINHA -->
+<style>
+/* Tres canais por linha em qualquer viewport */
+#channels,
+#favoriteGrid {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 7px !important;
+  width: 100% !important;
+  min-width: 0 !important;
+}
+
+/* Cards compactos */
+#channels .channel,
+#favoriteGrid .channel {
+  width: 100% !important;
+  min-width: 0 !important;
+  min-height: 112px !important;
+  padding: 7px 4px !important;
+  border-radius: 11px !important;
+  gap: 5px !important;
+}
+
+/* Logos */
+#channels .channel img,
+#favoriteGrid .channel img {
+  width: 100% !important;
+  height: 48px !important;
+  object-fit: contain !important;
+}
+
+/* Texto dos canais */
+#channels .channel-name,
+#favoriteGrid .channel-name {
+  font-size: 10px !important;
+  line-height: 1.2 !important;
+  overflow-wrap: anywhere !important;
+}
+
+/* Nomes sem logo */
+#channels .fallback,
+#favoriteGrid .fallback {
+  height: 48px !important;
+  font-size: 12px !important;
+  overflow: hidden !important;
+}
+
+/* Estrela de favoritos */
+#channels .star,
+#favoriteGrid .star {
+  font-size: 13px !important;
+  padding: 2px 5px !important;
+  top: 4px !important;
+  right: 4px !important;
+}
+</style>
+<!-- FIM STANLEY TV V2.1.1 -->
+
 </body>
 </html>
