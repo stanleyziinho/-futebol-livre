@@ -1248,5 +1248,294 @@ render();
 </style>
 <!-- FIM STANLEY TV V2.1.1 -->
 
+<!-- STANLEY TV V2.2 - LOGOS E MINI PLAYER -->
+<style>
+/* Melhor contraste das logos */
+#channels .channel img,
+#favoriteGrid .channel img {
+  background: #edf2ef !important;
+  border-radius: 7px !important;
+  padding: 5px !important;
+  object-fit: contain !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  height: 48px !important;
+}
+
+/* Nomes sem imagem */
+#channels .fallback,
+#favoriteGrid .fallback {
+  color: #13e887 !important;
+  font-weight: 800 !important;
+  font-size: 12px !important;
+  overflow: hidden !important;
+}
+
+/* Preservar tres colunas no iPhone */
+@media(max-width:520px) {
+  #channels,
+  #favoriteGrid {
+    display: grid !important;
+    grid-template-columns:
+      repeat(3,minmax(0,1fr)) !important;
+    gap: 7px !important;
+  }
+
+  #channels .channel,
+  #favoriteGrid .channel {
+    min-width: 0 !important;
+    min-height: 112px !important;
+    padding: 7px 4px !important;
+  }
+}
+
+/* Alca para movimentar o mini player */
+#stanley-v22-drag {
+  display: none;
+  position: absolute;
+  z-index: 30;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 92px;
+  height: 28px;
+  padding: 4px 12px;
+  border-radius: 0 0 12px 12px;
+  background: rgba(4,30,17,.94);
+  border: 1px solid #13e887;
+  color: #13e887;
+  font-size: 11px;
+  font-weight: 800;
+  text-align: center;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  cursor: grab;
+}
+
+#playerBox.player-floating
+#stanley-v22-drag {
+  display: block;
+}
+
+#stanley-v22-drag:active {
+  cursor: grabbing;
+}
+
+/* Evita ultrapassar a tela */
+#playerBox.player-floating {
+  max-width: calc(100vw - 16px) !important;
+  max-height: 75vh !important;
+}
+</style>
+
+<script>
+(function(){
+  'use strict';
+
+  function initV22(){
+
+    const player =
+      document.getElementById('playerBox');
+
+    if(!player) return;
+
+    if(document.getElementById(
+      'stanley-v22-drag'
+    )) return;
+
+    const handle =
+      document.createElement('div');
+
+    handle.id = 'stanley-v22-drag';
+    handle.textContent = '⠿ ARRASTAR';
+    handle.setAttribute(
+      'aria-label',
+      'Arrastar mini player'
+    );
+
+    player.appendChild(handle);
+
+    let dragging = false;
+    let startX = 0;
+    let startY = 0;
+    let initialLeft = 0;
+    let initialTop = 0;
+
+    function clamp(value,min,max){
+      return Math.min(max,Math.max(min,value));
+    }
+
+    function setPosition(x,y){
+      const width = player.offsetWidth;
+      const height = player.offsetHeight;
+
+      const maxX = Math.max(
+        8,
+        window.innerWidth-width-8
+      );
+
+      const maxY = Math.max(
+        8,
+        window.innerHeight-height-8
+      );
+
+      const left = clamp(x,8,maxX);
+      const top = clamp(y,8,maxY);
+
+      player.style.setProperty(
+        'left',left+'px','important'
+      );
+
+      player.style.setProperty(
+        'top',top+'px','important'
+      );
+
+      player.style.setProperty(
+        'right','auto','important'
+      );
+
+      player.style.setProperty(
+        'bottom','auto','important'
+      );
+    }
+
+    function resetPosition(){
+      player.style.removeProperty('left');
+      player.style.removeProperty('top');
+      player.style.removeProperty('right');
+      player.style.removeProperty('bottom');
+    }
+
+    handle.addEventListener(
+      'pointerdown',
+      function(e){
+
+        if(!player.classList.contains(
+          'player-floating'
+        )) return;
+
+        dragging = true;
+
+        const rect =
+          player.getBoundingClientRect();
+
+        startX = e.clientX;
+        startY = e.clientY;
+
+        initialLeft = rect.left;
+        initialTop = rect.top;
+
+        handle.setPointerCapture(e.pointerId);
+
+        e.preventDefault();
+      }
+    );
+
+    handle.addEventListener(
+      'pointermove',
+      function(e){
+
+        if(!dragging) return;
+
+        const dx = e.clientX-startX;
+        const dy = e.clientY-startY;
+
+        setPosition(
+          initialLeft+dx,
+          initialTop+dy
+        );
+
+        e.preventDefault();
+      }
+    );
+
+    function endDrag(e){
+      if(!dragging) return;
+
+      dragging = false;
+
+      if(handle.hasPointerCapture(
+        e.pointerId
+      )){
+        handle.releasePointerCapture(
+          e.pointerId
+        );
+      }
+    }
+
+    handle.addEventListener(
+      'pointerup',endDrag
+    );
+
+    handle.addEventListener(
+      'pointercancel',endDrag
+    );
+
+    /* Quando voltar ao player normal,
+       restaurar a posicao original */
+    const observer = new MutationObserver(
+      function(){
+
+        if(!player.classList.contains(
+          'player-floating'
+        )){
+          dragging = false;
+          resetPosition();
+        }
+      }
+    );
+
+    observer.observe(player,{
+      attributes:true,
+      attributeFilter:['class']
+    });
+
+    /* Mantem a janela dentro da tela */
+    window.addEventListener(
+      'resize',
+      function(){
+
+        if(!player.classList.contains(
+          'player-floating'
+        )) return;
+
+        const rect =
+          player.getBoundingClientRect();
+
+        if(player.style.left ||
+           player.style.top){
+          setPosition(rect.left,rect.top);
+        }
+      }
+    );
+
+    /* Ao fechar, remover posicao manual */
+    const close =
+      document.getElementById('miniClose');
+
+    if(close){
+      close.addEventListener(
+        'click',
+        resetPosition
+      );
+    }
+
+    console.log(
+      'Stanley TV V2.2 - controles ativos'
+    );
+  }
+
+  if(document.readyState==='loading'){
+    document.addEventListener(
+      'DOMContentLoaded',initV22
+    );
+  }else{
+    initV22();
+  }
+})();
+</script>
+<!-- FIM STANLEY TV V2.2 -->
+
 </body>
 </html>
