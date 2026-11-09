@@ -1537,5 +1537,431 @@ render();
 </script>
 <!-- FIM STANLEY TV V2.2 -->
 
+<!-- STANLEY TV V2.3 - ESPORTES E DIAGNOSTICO -->
+<style>
+#stv23 {
+  background:#091b11;
+  border:1px solid #245c3b;
+  border-radius:16px;
+  padding:13px;
+  margin:12px 0 18px;
+}
+#stv23 h3 {
+  margin:0 0 7px;
+  color:#13e887;
+  font-size:17px;
+}
+#stv23 p {
+  color:#9db9a7;
+  font-size:12px;
+  line-height:1.5;
+}
+.stv23-tools {
+  display:flex;
+  gap:7px;
+  flex-wrap:wrap;
+  margin:12px 0;
+}
+.stv23-tools button {
+  background:#123722;
+  color:#eafff2;
+  border:1px solid #327952;
+  border-radius:10px;
+  padding:9px 11px;
+  font-size:12px;
+  font-weight:700;
+}
+#stv23-results {
+  max-height:310px;
+  overflow-y:auto;
+  display:grid;
+  gap:7px;
+}
+.stv23-item {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:8px;
+  padding:9px;
+  background:#10271a;
+  border:1px solid #214b32;
+  border-radius:10px;
+}
+.stv23-name {
+  flex:1;
+  min-width:0;
+  overflow-wrap:anywhere;
+  font-size:12px;
+  font-weight:700;
+}
+.stv23-status {
+  font-size:10px;
+  color:#bad0c1;
+  text-align:center;
+}
+.stv23-item button {
+  background:#14d77d;
+  color:#03140b;
+  border:0;
+  border-radius:8px;
+  padding:8px;
+  font-size:11px;
+  font-weight:800;
+}
+#stv23-current {
+  padding:9px;
+  border:1px solid #296545;
+  border-radius:9px;
+  color:#bde9cf;
+  font-size:12px;
+}
+</style>
+
+<script>
+(function(){
+'use strict';
+
+const STORAGE='stanley-tv-v23-tests';
+const BASE='stanley-tv-v12';
+
+const $=id=>document.getElementById(id);
+
+if($('stv23'))return;
+
+let tests={};
+
+try{
+  tests=JSON.parse(
+    localStorage.getItem(STORAGE)||'{}'
+  );
+}catch{
+  tests={};
+}
+
+function store(){
+  try{
+    localStorage.setItem(
+      STORAGE,
+      JSON.stringify(tests)
+    );
+  }catch(e){
+    console.warn(
+      'Não foi possível salvar diagnóstico',e
+    );
+  }
+}
+
+function normalize(s){
+  return String(s||'')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g,'')
+    .toLowerCase()
+    .trim();
+}
+
+function currentName(){
+  return $('playing')
+    ?$('playing').textContent.trim()
+    :'';
+}
+
+function getStatus(name){
+  return tests[normalize(name)]||null;
+}
+
+function statusText(name){
+  const t=getStatus(name);
+
+  if(!t)return 'Não testado';
+
+  if(t.status==='ok'){
+    return '✓ Reprodução confirmada';
+  }
+
+  if(t.status==='error'){
+    return '✕ Falha detectada';
+  }
+
+  return 'Não testado';
+}
+
+const box=document.createElement('section');
+box.id='stv23';
+
+box.innerHTML=`
+  <h3>⚽ Esportes Brasil</h3>
+  <p>
+    Canais esportivos encontrados nas suas
+    playlists. Teste cada transmissão e veja
+    o resultado registrado no iPhone.
+  </p>
+  <div class="stv23-tools">
+    <button type="button" id="stv23-sports">
+      ⚽ Esportes Brasil
+    </button>
+    <button type="button" id="stv23-working">
+      ✓ Funcionaram
+    </button>
+    <button type="button" id="stv23-all">
+      Todos os candidatos
+    </button>
+  </div>
+  <div id="stv23-current">
+    Selecione um canal para iniciar o diagnóstico.
+  </div>
+  <p id="stv23-count"></p>
+  <div id="stv23-results"></div>
+`;
+
+const categories=$('categories');
+categories.parentNode.insertBefore(
+  box,categories
+);
+
+const known=[
+  'cazetv','caze tv','ge tv','getv',
+  'canal goat','xsports','x sports',
+  'n sports','nsports','sportynet',
+  'tnt sports brasil','bandsports',
+  'sft combat','nba brasil'
+];
+
+function isBrazilCandidate(c){
+  const name=normalize(c.name);
+  const group=normalize(c.group);
+
+  if(known.some(k=>name.includes(k))){
+    return true;
+  }
+
+  const sports=
+    /esport|sport|futebol|football/.test(group);
+
+  const brazil=
+    /brasil|brazil|br\b|brasileir/.test(
+      name+' '+group
+    );
+
+  return sports&&brazil;
+}
+
+function getCandidates(){
+  let state;
+
+  try{
+    state=JSON.parse(
+      localStorage.getItem(BASE)||'{}'
+    );
+  }catch{
+    state={};
+  }
+
+  const sources=Array.isArray(state.sources)
+    ?state.sources:[];
+
+  const map=new Map();
+
+  for(const source of sources){
+    for(const c of source.items||[]){
+      if(!c||!c.name)continue;
+
+      if(isBrazilCandidate(c)){
+        const key=c.url||normalize(c.name);
+        if(!map.has(key)){
+          map.set(key,c);
+        }
+      }
+    }
+  }
+
+  return [...map.values()].sort(
+    (a,b)=>a.name.localeCompare(
+      b.name,'pt-BR'
+    )
+  );
+}
+
+let mode='all';
+
+function renderSports(){
+  const all=getCandidates();
+  const filtered=all.filter(c=>{
+    if(mode==='working'){
+      return getStatus(c.name)?.status==='ok';
+    }
+    return true;
+  });
+
+  $('stv23-count').textContent=
+    filtered.length+' canais encontrados'+
+    (mode==='working'?' com reprodução confirmada':'');
+
+  const root=$('stv23-results');
+  root.replaceChildren();
+
+  if(!filtered.length){
+    const p=document.createElement('p');
+    p.textContent=
+      'Nenhum canal encontrado neste filtro.';
+    root.append(p);
+    return;
+  }
+
+  for(const c of filtered){
+    const item=document.createElement('div');
+    item.className='stv23-item';
+
+    const name=document.createElement('span');
+    name.className='stv23-name';
+    name.textContent=c.name;
+
+    const status=document.createElement('span');
+    status.className='stv23-status';
+    status.textContent=statusText(c.name);
+
+    const play=document.createElement('button');
+    play.type='button';
+    play.textContent='▶ Testar';
+
+    play.onclick=()=>{
+      // Seleciona a categoria Todos.
+      const chips=[
+        ...document.querySelectorAll(
+          '#categories button'
+        )
+      ];
+
+      const allChip=chips.find(
+        b=>b.textContent.trim()==='Todos'
+      );
+
+      if(allChip)allChip.click();
+
+      const search=$('search');
+
+      search.value=c.name;
+      search.dispatchEvent(
+        new Event('input',{bubbles:true})
+      );
+
+      const cards=[
+        ...document.querySelectorAll(
+          '#channels .channel'
+        )
+      ];
+
+      const target=cards.find(card=>{
+        const label=card.querySelector(
+          '.channel-name'
+        );
+        return label&&
+          label.textContent.trim()===c.name;
+      });
+
+      if(target){
+        target.click();
+
+        $('playerAnchor').scrollIntoView({
+          behavior:'smooth',
+          block:'center'
+        });
+      }else{
+        $('stv23-current').textContent=
+          'Canal não localizado na lista visível.';
+      }
+    };
+
+    item.append(name,status,play);
+    root.append(item);
+  }
+}
+
+function setResult(value){
+  const name=currentName();
+
+  if(!name||
+    name==='Nenhum canal selecionado'){
+    return;
+  }
+
+  // Não marca players externos como testados.
+  const frame=$('frame');
+  if(frame&&!frame.classList.contains('hidden')){
+    return;
+  }
+
+  tests[normalize(name)]={
+    status:value,
+    date:new Date().toISOString()
+  };
+
+  store();
+
+  $('stv23-current').textContent=
+    name+' — '+statusText(name);
+
+  renderSports();
+}
+
+const video=$('video');
+
+if(video){
+  // Confirmar apenas quando o vídeo
+  // realmente começar a reproduzir.
+  video.addEventListener(
+    'playing',
+    ()=>setResult('ok')
+  );
+
+  video.addEventListener(
+    'error',
+    ()=>setResult('error')
+  );
+}
+
+// Detectar a tela de erro do player existente.
+const placeholder=$('placeholder');
+
+if(placeholder){
+  const observer=new MutationObserver(()=>{
+    const text=placeholder.textContent||'';
+
+    if(
+      placeholder.style.display==='grid'&&
+      text.includes('Canal indisponível')
+    ){
+      setResult('error');
+    }
+  });
+
+  observer.observe(placeholder,{
+    childList:true,
+    subtree:true,
+    attributes:true,
+    attributeFilter:['style']
+  });
+}
+
+$('stv23-sports').onclick=()=>{
+  mode='all';
+  renderSports();
+};
+
+$('stv23-working').onclick=()=>{
+  mode='working';
+  renderSports();
+};
+
+$('stv23-all').onclick=()=>{
+  mode='all';
+  renderSports();
+};
+
+renderSports();
+
+})();
+</script>
+<!-- FIM STANLEY TV V2.3 -->
+
 </body>
 </html>
