@@ -1591,5 +1591,143 @@ body {
 </style>
 <!-- FIM CORRECAO MOBILE -->
 
+<!-- STANLEY TV V1.4.2 - LAYOUT ESTAVEL -->
+<style>
+html {
+  width: 100%;
+  overflow-x: clip;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  width: 100%;
+  min-width: 0;
+  overflow-x: clip;
+}
+
+.wrap {
+  width: 100%;
+  min-width: 0;
+  max-width: 1250px;
+  margin-inline: auto;
+}
+
+.layout,
+.layout > main,
+.layout > aside {
+  min-width: 0;
+  max-width: 100%;
+}
+
+#stanley-player-anchor {
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  aspect-ratio: 16 / 9 !important;
+  position: relative !important;
+}
+
+#stanley-player-anchor > .screen:not(.stanley-floating) {
+  position: relative !important;
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  max-width: 100% !important;
+  aspect-ratio: 16 / 9 !important;
+  inset: auto !important;
+}
+
+#stanley-player-anchor > .screen.stanley-floating {
+  position: fixed !important;
+  height: auto !important;
+  aspect-ratio: 16 / 9 !important;
+  top: auto !important;
+  left: auto !important;
+  right: 12px !important;
+  bottom: calc(14px + env(safe-area-inset-bottom)) !important;
+  z-index: 99999 !important;
+}
+
+#stanley-player-anchor .screen video,
+#stanley-player-anchor .screen iframe {
+  display: block;
+  position: absolute !important;
+  inset: 0;
+  width: 100% !important;
+  height: 100% !important;
+  min-width: 0 !important;
+  object-fit: contain;
+}
+
+#stanley-v14-navigation,
+.player-info,
+.toolbar {
+  max-width: 100%;
+  min-width: 0;
+}
+
+#stanley-v14-current,
+.player-info > div {
+  min-width: 0;
+}
+
+@media(max-width:860px) {
+  .layout {
+    display: grid !important;
+    grid-template-columns: minmax(0,1fr) !important;
+    width: 100% !important;
+  }
+
+  .grid {
+    display: grid !important;
+    grid-template-columns: repeat(2,minmax(0,1fr)) !important;
+    width: 100% !important;
+  }
+
+  .channel {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .logo {
+    width: 100%;
+    max-width: 100%;
+    height: 78px;
+    object-fit: contain;
+  }
+}
+
+@media(max-width:430px) {
+  .wrap {
+    padding: 12px !important;
+  }
+
+  .screen {
+    border-radius: 12px;
+  }
+
+  #stanley-player-anchor.mini-small
+  .screen.stanley-floating {
+    width: 44vw !important;
+    max-width: 190px !important;
+  }
+
+  #stanley-player-anchor.mini-medium
+  .screen.stanley-floating {
+    width: 62vw !important;
+    max-width: 270px !important;
+  }
+
+  #stanley-player-anchor.mini-large
+  .screen.stanley-floating {
+    width: 80vw !important;
+    max-width: 360px !important;
+  }
+}
+</style>
+<!-- FIM LAYOUT ESTAVEL V1.4.2 -->
+
 </body>
 </html>
