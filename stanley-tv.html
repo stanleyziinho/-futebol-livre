@@ -954,5 +954,238 @@ e.target.value='';
 render();
 })();
 </script>
+<!-- STANLEY TV V2.1 - COMPACT LAYOUT -->
+<style>
+/* cards mais compactos */
+.grid{
+  grid-template-columns:repeat(5,minmax(0,1fr)) !important;
+  gap:10px !important;
+}
+
+.channel{
+  min-height:135px !important;
+  padding:10px 8px !important;
+  border-radius:14px !important;
+  gap:6px !important;
+}
+
+.channel img{
+  height:62px !important;
+  width:100% !important;
+  object-fit:contain !important;
+}
+
+.fallback{
+  height:62px !important;
+  font-size:18px !important;
+}
+
+.channel-name{
+  font-size:11px !important;
+  line-height:1.2 !important;
+  display:-webkit-box;
+  -webkit-line-clamp:2;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+  text-align:center;
+}
+
+.star{
+  padding:3px 7px !important;
+  font-size:15px !important;
+  top:5px !important;
+  right:5px !important;
+}
+
+/* cabeçalho e áreas superiores um pouco mais compactas */
+.heading{
+  margin:16px 0 10px !important;
+}
+
+.toolbar{
+  gap:8px !important;
+  margin-bottom:10px !important;
+}
+
+.categories{
+  padding-bottom:10px !important;
+}
+
+.recent{
+  gap:10px !important;
+}
+
+.recent-card{
+  flex:0 0 155px !important;
+  padding:10px !important;
+}
+
+.recent-card img{
+  height:78px !important;
+}
+
+/* mini player menor para não cobrir tantos canais */
+.player-floating{
+  width:min(52vw,230px) !important;
+}
+
+.player-floating.mini-small{
+  width:min(40vw,170px) !important;
+}
+
+.player-floating.mini-large{
+  width:min(72vw,320px) !important;
+}
+
+.mini-controls{
+  padding:14px 5px 4px !important;
+}
+
+.mini-title{
+  font-size:10px !important;
+  margin-bottom:4px !important;
+}
+
+.mini-buttons button{
+  min-width:26px !important;
+  min-height:24px !important;
+  font-size:11px !important;
+  padding:2px 5px !important;
+}
+
+/* player principal mais bem encaixado */
+.player-anchor{
+  margin-bottom:2px !important;
+}
+
+.player-info{
+  margin:10px 0 6px !important;
+}
+
+.player-info h3{
+  font-size:16px !important;
+}
+
+.navigation{
+  gap:7px !important;
+  margin-bottom:14px !important;
+}
+
+/* tablet */
+@media(max-width:900px){
+  .grid{
+    grid-template-columns:repeat(4,minmax(0,1fr)) !important;
+  }
+}
+
+/* iPhone */
+@media(max-width:520px){
+  .app{
+    padding:10px !important;
+  }
+
+  .dashboard{
+    gap:8px !important;
+    margin-bottom:18px !important;
+  }
+
+  .feature{
+    min-height:118px !important;
+    padding:12px 6px !important;
+    border-radius:14px !important;
+  }
+
+  .feature strong{
+    font-size:13px !important;
+  }
+
+  .feature small{
+    font-size:10px !important;
+  }
+
+  .side-stats{
+    gap:8px !important;
+  }
+
+  .stat{
+    padding:10px !important;
+    border-radius:14px !important;
+  }
+
+  .heading h2{
+    font-size:18px !important;
+  }
+
+  .field{
+    padding:11px !important;
+  }
+
+  .grid{
+    grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+    gap:8px !important;
+  }
+
+  .channel{
+    min-height:122px !important;
+    padding:8px 6px !important;
+    border-radius:13px !important;
+  }
+
+  .channel img{
+    height:50px !important;
+  }
+
+  .fallback{
+    height:50px !important;
+    font-size:15px !important;
+  }
+
+  .channel-name{
+    font-size:10px !important;
+    line-height:1.15 !important;
+  }
+
+  .star{
+    font-size:13px !important;
+    padding:2px 6px !important;
+  }
+
+  .recent-card{
+    flex:0 0 138px !important;
+  }
+
+  .recent-card img{
+    height:70px !important;
+  }
+
+  .player-floating{
+    width:min(48vw,205px) !important;
+    right:10px !important;
+    bottom:calc(12px + env(safe-area-inset-bottom)) !important;
+  }
+
+  .player-floating.mini-small{
+    width:min(36vw,155px) !important;
+  }
+
+  .player-floating.mini-large{
+    width:min(68vw,285px) !important;
+  }
+
+  .navigation .btn{
+    padding:9px 6px !important;
+    font-size:12px !important;
+  }
+
+  .actions{
+    gap:6px !important;
+  }
+
+  .btn{
+    padding:10px 12px !important;
+  }
+}
+</style>
+<!-- FIM STANLEY TV V2.1 - COMPACT LAYOUT -->
 </body>
 </html>
