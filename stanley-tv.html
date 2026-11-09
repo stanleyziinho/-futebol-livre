@@ -1061,5 +1061,409 @@ render();
 </script>
 <!-- FIM MINI PLAYER FLUTUANTE -->
 
+<!-- STANLEY TV V1.4 - CONTROLES DO MINI PLAYER -->
+
+<style>
+/* Navegação entre canais */
+#stanley-v14-navigation {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  margin:14px 0 20px;
+  padding:12px;
+  background:#102039;
+  border:1px solid #2b4260;
+  border-radius:15px;
+}
+
+.stanley-v14-btn {
+  background:#1a3453;
+  border:1px solid #365b80;
+  color:white;
+  border-radius:10px;
+  padding:11px 15px;
+  font-size:14px;
+  font-weight:800;
+  cursor:pointer;
+}
+
+#stanley-v14-current {
+  min-width:0;
+  flex:1;
+  text-align:center;
+  font-size:12px;
+  font-weight:700;
+  color:#ffe45f;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+/* Controles exclusivos da janela flutuante */
+#stanley-v14-mini {
+  display:none;
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  z-index:100;
+  padding:7px;
+  background:linear-gradient(
+    transparent,
+    rgba(0,0,0,.95)
+  );
+}
+
+.screen.stanley-floating #stanley-v14-mini {
+  display:block;
+}
+
+#stanley-v14-mini-title {
+  display:block;
+  font-size:11px;
+  font-weight:800;
+  color:white;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  margin-bottom:6px;
+  text-shadow:0 1px 4px black;
+}
+
+.stanley-v14-actions {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:5px;
+}
+
+.stanley-v14-mini-btn {
+  background:rgba(13,35,60,.95);
+  color:white;
+  border:1px solid #567596;
+  border-radius:7px;
+  min-width:31px;
+  min-height:28px;
+  padding:3px 6px;
+  font-size:12px;
+  font-weight:800;
+}
+
+#stanley-v14-mini-close {
+  background:#9d2538;
+}
+
+#stanley-player-anchor.mini-small
+.screen.stanley-floating {
+  width:44vw !important;
+  max-width:190px !important;
+}
+
+#stanley-player-anchor.mini-medium
+.screen.stanley-floating {
+  width:62vw !important;
+  max-width:270px !important;
+}
+
+#stanley-player-anchor.mini-large
+.screen.stanley-floating {
+  width:80vw !important;
+  max-width:360px !important;
+}
+
+/* Fechar o flutuante sem parar o vídeo */
+#stanley-player-anchor.mini-closed
+.screen.stanley-floating {
+  position:relative !important;
+  width:100% !important;
+  max-width:none !important;
+  height:100% !important;
+  inset:auto !important;
+  border:1px solid #2b4260 !important;
+  box-shadow:none !important;
+}
+
+#stanley-player-anchor.mini-closed
+#stanley-v14-mini {
+  display:none !important;
+}
+
+@media(max-width:430px){
+  .stanley-v14-btn{
+    padding:10px;
+    font-size:12px;
+  }
+
+  #stanley-v14-navigation{
+    gap:6px;
+    padding:9px;
+  }
+
+  #stanley-v14-mini-title{
+    font-size:10px;
+  }
+}
+</style>
+
+<script>
+(function(){
+  'use strict';
+
+  function iniciarStanleyV14(){
+
+    if(document.getElementById(
+      'stanley-v14-navigation'
+    )) return;
+
+    const screen=document.querySelector(
+      'main .screen'
+    );
+
+    const playing=document.getElementById(
+      'playing'
+    );
+
+    const playerInfo=document.querySelector(
+      '.player-info'
+    );
+
+    const anchor=document.getElementById(
+      'stanley-player-anchor'
+    );
+
+    if(!screen || !playing || !playerInfo || !anchor){
+      console.warn('Stanley V1.4: estrutura não encontrada');
+      return;
+    }
+
+    let sizeIndex=1;
+    let wasAbove=false;
+
+    const sizes=[
+      'mini-small',
+      'mini-medium',
+      'mini-large'
+    ];
+
+    anchor.classList.add('mini-medium');
+
+    // Retorna os cards atualmente exibidos
+    function cards(){
+      return Array.from(
+        document.querySelectorAll(
+          '#channels .channel'
+        )
+      );
+    }
+
+    // Seleciona o canal anterior ou próximo
+    function mudarCanal(direcao){
+
+      const lista=cards();
+
+      if(!lista.length){
+        return;
+      }
+
+      let atual=lista.findIndex(
+        c=>c.classList.contains('active')
+      );
+
+      let proximo;
+
+      if(atual<0){
+        proximo=direcao>0?0:lista.length-1;
+      }else{
+        proximo=(
+          atual+direcao+lista.length
+        )%lista.length;
+      }
+
+      const destino=lista[proximo];
+
+      if(destino){
+        anchor.classList.remove('mini-closed');
+        destino.click();
+        atualizarNome();
+      }
+    }
+
+    // Botões principais
+    const navigation=document.createElement('div');
+    navigation.id='stanley-v14-navigation';
+
+    const prev=document.createElement('button');
+    prev.type='button';
+    prev.className='stanley-v14-btn';
+    prev.textContent='◀ Anterior';
+    prev.onclick=()=>mudarCanal(-1);
+
+    const current=document.createElement('div');
+    current.id='stanley-v14-current';
+    current.textContent='Selecione um canal';
+
+    const next=document.createElement('button');
+    next.type='button';
+    next.className='stanley-v14-btn';
+    next.textContent='Próximo ▶';
+    next.onclick=()=>mudarCanal(1);
+
+    navigation.append(prev,current,next);
+
+    playerInfo.insertAdjacentElement(
+      'afterend',
+      navigation
+    );
+
+    // Controles flutuantes
+    const mini=document.createElement('div');
+    mini.id='stanley-v14-mini';
+
+    const title=document.createElement('span');
+    title.id='stanley-v14-mini-title';
+
+    const actions=document.createElement('div');
+    actions.className='stanley-v14-actions';
+
+    function botao(texto,acao,id){
+      const b=document.createElement('button');
+      b.type='button';
+      b.className='stanley-v14-mini-btn';
+      b.textContent=texto;
+
+      if(id)b.id=id;
+
+      b.onclick=e=>{
+        e.stopPropagation();
+        acao();
+      };
+
+      return b;
+    }
+
+    const miniPrev=botao(
+      '◀',
+      ()=>mudarCanal(-1)
+    );
+
+    const miniNext=botao(
+      '▶',
+      ()=>mudarCanal(1)
+    );
+
+    const resize=botao(
+      '⤢',
+      ()=>{
+        anchor.classList.remove(sizes[sizeIndex]);
+
+        sizeIndex=(sizeIndex+1)%sizes.length;
+
+        anchor.classList.add(sizes[sizeIndex]);
+      }
+    );
+
+    const expand=botao(
+      '⛶',
+      ()=>{
+        const video=document.getElementById('player');
+
+        if(video && video.style.display!=='none'){
+          if(video.webkitEnterFullscreen){
+            video.webkitEnterFullscreen();
+          }else if(video.requestFullscreen){
+            video.requestFullscreen().catch(()=>{});
+          }
+        }else{
+          sizeIndex=2;
+
+          sizes.forEach(s=>anchor.classList.remove(s));
+          anchor.classList.add('mini-large');
+        }
+      }
+    );
+
+    const close=botao(
+      '✕',
+      ()=>{
+        anchor.classList.add('mini-closed');
+      },
+      'stanley-v14-mini-close'
+    );
+
+    actions.append(
+      miniPrev,
+      miniNext,
+      resize,
+      expand,
+      close
+    );
+
+    mini.append(title,actions);
+    screen.append(mini);
+
+    // Atualiza nome do canal
+    function atualizarNome(){
+      const nome=playing.textContent.trim();
+
+      title.textContent=nome;
+      current.textContent=nome;
+    }
+
+    const observer=new MutationObserver(
+      atualizarNome
+    );
+
+    observer.observe(playing,{
+      childList:true,
+      characterData:true,
+      subtree:true
+    });
+
+    // Reativa o mini player ao voltar
+    // para a posição original do vídeo
+    function acompanharRolagem(){
+      const above=anchor.getBoundingClientRect().bottom>=0;
+
+      if(above && !wasAbove){
+        anchor.classList.remove('mini-closed');
+      }
+
+      wasAbove=above;
+    }
+
+    window.addEventListener(
+      'scroll',
+      acompanharRolagem,
+      {passive:true}
+    );
+
+    window.addEventListener(
+      'resize',
+      acompanharRolagem
+    );
+
+    atualizarNome();
+    acompanharRolagem();
+
+    console.log(
+      'Stanley TV V1.4 - Controles ativados'
+    );
+  }
+
+  if(document.readyState==='loading'){
+    document.addEventListener(
+      'DOMContentLoaded',
+      iniciarStanleyV14
+    );
+  }else{
+    iniciarStanleyV14();
+  }
+
+})();
+</script>
+
+<!-- FIM STANLEY TV V1.4 -->
+
 </body>
 </html>
