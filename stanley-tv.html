@@ -1963,5 +1963,415 @@ renderSports();
 </script>
 <!-- FIM STANLEY TV V2.3 -->
 
+<!-- STANLEY TV V2.4 - LIMPEZA DE CANAIS -->
+<style>
+#stv24-panel{
+  margin:12px 0 16px;
+  padding:13px;
+  background:#091e13;
+  border:1px solid #286644;
+  border-radius:15px;
+  color:#e8fff0;
+}
+#stv24-panel h3{
+  color:#12e884;
+  font-size:16px;
+  margin:0 0 7px;
+}
+#stv24-panel p{
+  font-size:12px;
+  color:#adc9b7;
+  line-height:1.5;
+}
+.stv24-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+  margin:12px 0;
+}
+.stv24-actions button,
+.stv24-restore{
+  border:1px solid #378353;
+  border-radius:9px;
+  background:#143923;
+  color:white;
+  font-size:11px;
+  font-weight:bold;
+  padding:9px;
+}
+#stv24-hidden{
+  max-height:250px;
+  overflow-y:auto;
+}
+.stv24-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:8px;
+  border-bottom:1px solid #234b32;
+  padding:8px 0;
+  font-size:12px;
+}
+.stv24-row span{
+  overflow-wrap:anywhere;
+  min-width:0;
+}
+.stv24-hide{
+  position:absolute!important;
+  left:4px!important;
+  bottom:4px!important;
+  z-index:9!important;
+  background:#461d23!important;
+  border:1px solid #a54c55!important;
+  border-radius:7px!important;
+  color:#fff!important;
+  font-size:12px!important;
+  width:25px!important;
+  height:25px!important;
+  padding:0!important;
+  cursor:pointer;
+}
+.stv24-hidden-card{
+  display:none!important;
+}
+</style>
+
+<script>
+(function(){
+'use strict';
+
+const KEY='stanley-tv-v24-hidden';
+const TESTS='stanley-tv-v23-tests';
+
+const $=id=>document.getElementById(id);
+
+function normalize(value){
+  return String(value||'')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g,'')
+    .toLowerCase()
+    .trim();
+}
+
+let hidden={};
+
+try{
+  const value=JSON.parse(
+    localStorage.getItem(KEY)||'{}'
+  );
+
+  if(value && typeof value==='object' &&
+     !Array.isArray(value)){
+    hidden=value;
+  }
+}catch(e){
+  hidden={};
+}
+
+function save(){
+  try{
+    localStorage.setItem(
+      KEY,
+      JSON.stringify(hidden)
+    );
+    return true;
+  }catch(e){
+    alert('Não foi possível salvar a limpeza.');
+    return false;
+  }
+}
+
+const categories=$('categories');
+const channels=$('channels');
+const favorites=$('favoriteGrid');
+
+if(!categories||!channels||!favorites){
+  return;
+}
+
+if($('stv24-panel'))return;
+
+const panel=document.createElement('section');
+panel.id='stv24-panel';
+
+panel.innerHTML=`
+<h3>🧹 Limpeza de Canais</h3>
+<p>
+  Oculte canais que não funcionam.
+  Nenhuma playlist M3U será apagada.
+</p>
+<div id="stv24-count"></div>
+<div class="stv24-actions">
+  <button id="stv24-errors" type="button">
+    Ocultar falhas detectadas
+  </button>
+  <button id="stv24-list" type="button">
+    Ver canais ocultos
+  </button>
+  <button id="stv24-restoreall" type="button">
+    Restaurar todos
+  </button>
+</div>
+<div id="stv24-hidden"
+     style="display:none"></div>
+`;
+
+categories.parentNode.insertBefore(
+  panel,
+  categories
+);
+
+function refreshOriginal(){
+  const search=$('search');
+
+  if(search){
+    search.dispatchEvent(
+      new Event('input',{bubbles:true})
+    );
+  }
+}
+
+function refreshSummary(){
+  const count=Object.keys(hidden).length;
+
+  $('stv24-count').textContent=
+    count+' canais ocultos';
+
+  const root=$('stv24-hidden');
+  const wasOpen=root.style.display!=='none';
+
+  root.replaceChildren();
+
+  for(const [id,name] of Object.entries(hidden)){
+    const row=document.createElement('div');
+    row.className='stv24-row';
+
+    const label=document.createElement('span');
+    label.textContent=name;
+
+    const button=document.createElement('button');
+    button.className='stv24-restore';
+    button.type='button';
+    button.textContent='Restaurar';
+
+    button.onclick=()=>{
+      delete hidden[id];
+
+      if(save()){
+        refreshOriginal();
+        refreshSummary();
+      }
+    };
+
+    row.append(label,button);
+    root.append(row);
+  }
+
+  if(!count){
+    const p=document.createElement('p');
+    p.textContent='Nenhum canal oculto.';
+    root.append(p);
+  }
+
+  root.style.display=wasOpen?'block':'none';
+}
+
+function applyCards(root){
+  for(const card of root.querySelectorAll(
+    '.channel'
+  )){
+    const label=card.querySelector(
+      '.channel-name'
+    );
+
+    if(!label)continue;
+
+    const name=label.textContent.trim();
+    const id=normalize(name);
+
+    card.classList.toggle(
+      'stv24-hidden-card',
+      Object.prototype.hasOwnProperty.call(
+        hidden,id
+      )
+    );
+
+    if(card.querySelector('.stv24-hide')){
+      continue;
+    }
+
+    const button=document.createElement('button');
+
+    button.className='stv24-hide';
+    button.type='button';
+    button.textContent='✕';
+    button.title='Ocultar este canal';
+    button.setAttribute(
+      'aria-label',
+      'Ocultar '+name
+    );
+
+    button.addEventListener('keydown',e=>{
+      e.stopPropagation();
+    });
+
+    button.onclick=e=>{
+      e.preventDefault();
+      e.stopPropagation();
+
+      hidden[id]=name;
+
+      if(!save()){
+        delete hidden[id];
+        return;
+      }
+
+      applyAll();
+      refreshSummary();
+    };
+
+    card.append(button);
+  }
+}
+
+function applyAll(){
+  applyCards(channels);
+  applyCards(favorites);
+
+  const recents=$('recentChannels');
+
+  if(recents){
+    for(const card of recents.querySelectorAll(
+      '.recent-card'
+    )){
+      const label=card.querySelector('strong');
+
+      if(!label)continue;
+
+      card.style.display=
+        Object.prototype.hasOwnProperty.call(
+          hidden,
+          normalize(label.textContent)
+        )?'none':'';
+    }
+  }
+}
+
+// Reaplica a limpeza quando o sistema
+// recriar os cards após busca ou filtros.
+const observer=new MutationObserver(()=>{
+  applyAll();
+});
+
+observer.observe(channels,{
+  childList:true
+});
+
+observer.observe(favorites,{
+  childList:true
+});
+
+const recents=$('recentChannels');
+
+if(recents){
+  observer.observe(recents,{
+    childList:true
+  });
+}
+
+$('stv24-list').onclick=()=>{
+  const root=$('stv24-hidden');
+
+  const opening=root.style.display==='none';
+
+  refreshSummary();
+
+  root.style.display=opening?'block':'none';
+};
+
+$('stv24-restoreall').onclick=()=>{
+  const count=Object.keys(hidden).length;
+
+  if(!count)return;
+
+  if(!confirm(
+    'Restaurar todos os '+count+
+    ' canais ocultos?'
+  ))return;
+
+  const previous=hidden;
+  hidden={};
+
+  if(!save()){
+    hidden=previous;
+    return;
+  }
+
+  refreshOriginal();
+  applyAll();
+  refreshSummary();
+};
+
+$('stv24-errors').onclick=()=>{
+  let tests={};
+
+  try{
+    tests=JSON.parse(
+      localStorage.getItem(TESTS)||'{}'
+    );
+  }catch(e){
+    tests={};
+  }
+
+  // Somente canais cujo último resultado
+  // registrado foi uma falha.
+  const failed=Object.entries(tests).filter(
+    ([name,result])=>
+      result && result.status==='error' &&
+      !Object.prototype.hasOwnProperty.call(
+        hidden,name
+      )
+  );
+
+  if(!failed.length){
+    alert(
+      'Nenhuma nova falha registrada. '+
+      'Teste os canais primeiro.'
+    );
+    return;
+  }
+
+  if(!confirm(
+    'Ocultar '+failed.length+
+    ' canais com falha registrada? '+
+    'Você poderá restaurá-los depois.'
+  ))return;
+
+  const previous={...hidden};
+
+  for(const [name] of failed){
+    hidden[name]=name;
+  }
+
+  if(!save()){
+    hidden=previous;
+    return;
+  }
+
+  refreshOriginal();
+  applyAll();
+  refreshSummary();
+};
+
+applyAll();
+refreshSummary();
+
+console.log(
+  'Stanley TV V2.4 - Limpeza ativa'
+);
+})();
+</script>
+<!-- FIM STANLEY TV V2.4 -->
+
 </body>
 </html>
