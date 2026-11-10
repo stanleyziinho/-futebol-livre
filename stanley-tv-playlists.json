@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "description": "Playlists compartilhadas da Stanley TV. Use apenas fontes publicas ou autorizadas, sem tokens ou credenciais.",
+  "playlists": [
+    {
+      "id": "iptv-br-oficial",
+      "name": "IPTV Brasil",
+      "url": "https://iptv-org.github.io/iptv/countries/br.m3u"
+    }
+  ]
+}
