@@ -4,22 +4,41 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#06110e">
-<title>STANLEY TV BOX | V4.2</title>
+<title>STANLEY TV BOX | V4.5</title>
 <script src="https://cdn.jsdelivr.net/npm/hls.js@1.6.15/dist/hls.min.js" defer></script>
 <style>
 :root{color-scheme:dark;--bg:#030908;--panel:#101d19;--panel2:#152b23;--line:#2a493e;--green:#27ed9b;--text:#f2fff8;--dim:#b1c4bb;--gold:#f6cb77}
 *{box-sizing:border-box}html,body{margin:0;min-height:100%;background:var(--bg);color:var(--text);font:16px system-ui,-apple-system,Arial,sans-serif}body{background:radial-gradient(ellipse 80% 45% at 75% -10%,#165b3a8c,transparent),var(--bg)}button,input,select{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,select:focus-visible,.channel:focus-visible{outline:4px solid var(--green);outline-offset:3px;box-shadow:0 0 0 8px #15e39130}button:disabled{opacity:.4}.hidden{display:none!important}
-.app{padding:clamp(15px,3vw,42px);max-width:1900px;margin:auto}.header{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:28px}.logo{font-weight:1000;font-size:clamp(27px,3vw,45px);letter-spacing:-1.8px}.logo b{color:var(--green)}.logo small{display:block;color:#9db9ac;letter-spacing:3px;font-size:11px;font-weight:750}.header-actions,.toolbar,.filters,.player-actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center}.btn{border:1px solid var(--line);border-radius:13px;padding:13px 18px;color:var(--text);background:var(--panel2);font-weight:750}.btn.primary{background:var(--green);border-color:var(--green);color:#042417}.btn.active,.chip.active{background:#19885b;color:white;border-color:#35ffc0}.btn.warn{border-color:#815e36;color:var(--gold)}.hero{padding:clamp(20px,3vw,45px);border:1px solid #2b7256;border-radius:28px;background:linear-gradient(100deg,#0b3829,#0b1d19 64%,#142819);display:flex;gap:30px;justify-content:space-between;align-items:center;margin-bottom:22px}.hero h1{margin:0 0 8px;font-size:clamp(25px,3.5vw,54px);line-height:1.07}.hero p{max-width:760px;color:#b8d5c8;line-height:1.5;margin:0}.hero-stat{text-align:center;min-width:155px}.hero-stat strong{display:block;font-size:clamp(32px,5vw,65px);color:var(--green)}.hero-stat span{color:var(--dim)}.layout{display:grid;grid-template-columns:minmax(270px,340px) minmax(0,1fr);gap:24px}.sidebar,.content,.panel{background:#0b1714;border:1px solid #203e32;border-radius:22px;padding:19px;min-width:0}.sidebar h2,.content h2{font-size:19px;margin:0 0 17px}.source-list{display:grid;gap:9px;max-height:380px;overflow-y:auto;padding:4px}.source-btn{width:100%;text-align:left;border-radius:13px;background:#12271e;border:1px solid #2c4839;color:white;padding:15px;display:flex;align-items:center;justify-content:space-between;gap:8px}.source-btn.active{background:#16573c;border-color:var(--green)}.source-btn span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.source-btn small{color:#a8ccbb;flex-shrink:0}.mini{font-size:13px;color:var(--dim);line-height:1.55}.sidebar-actions{display:grid;gap:9px;margin-top:17px}.toolbar{margin-bottom:16px}.search{background:#07130f;border:1px solid #355a49;border-radius:12px;padding:13px;color:white;min-width:170px;flex:1;outline:none}.chip{background:#12251d;border:1px solid #345545;border-radius:999px;color:#e7fff2;padding:11px 17px;white-space:nowrap}.filters{margin-bottom:20px;max-height:115px;overflow:auto;padding:5px}.section-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 15px}.section-head h2{margin:0}.count{color:var(--green);font-size:14px}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:15px}.channel{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;min-height:180px;border:1px solid #335343;border-radius:18px;background:linear-gradient(145deg,#173a2a,#0c1713);padding:17px 12px;color:white;text-align:center;overflow:hidden}.channel:hover,.channel.selected{border-color:var(--green);background:linear-gradient(145deg,#1a593d,#0c241a)}.channel img{width:100%;height:85px;object-fit:contain}.channel .fallback{display:grid;place-items:center;width:100%;height:85px;font-size:38px;color:var(--green)}.channel strong{font-size:15px;line-height:1.3;overflow-wrap:anywhere}.channel small{font-size:11px;color:#abcdbb}.heart{position:absolute;top:7px;right:8px;color:var(--gold);font-size:21px}.empty{padding:30px;color:#bdd2c7;border:1px dashed #335646;border-radius:17px;line-height:1.55}.status{color:var(--gold);min-height:24px;margin:13px 0;font-size:14px}.player-wrap{position:fixed;inset:0;background:#000e;display:none;align-items:center;justify-content:center;z-index:50;padding:15px}.player-wrap.open{display:flex}.player-shell{width:min(1250px,100%);background:#040b08;border:1px solid #316149;border-radius:18px;overflow:hidden}.player-top{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:12px 16px;background:#102b1f}.player-top strong{font-size:clamp(15px,2vw,25px);overflow-wrap:anywhere}.video-box{position:relative;background:black;aspect-ratio:16/9;max-height:72vh}.video-box video,.video-box iframe{position:absolute;inset:0;width:100%;height:100%;border:0}.video-box video{object-fit:contain}.player-message{position:absolute;inset:0;display:flex;justify-content:center;align-items:center;text-align:center;padding:20px;background:radial-gradient(circle,#153924,#000);color:#d6ffea;line-height:1.7}.player-message.off{display:none}.player-actions{padding:13px 16px;justify-content:center;background:#0d1c15}.modal{position:fixed;inset:0;z-index:70;background:#000c;display:none;align-items:center;justify-content:center;padding:14px}.modal.open{display:flex}.modal-card{width:min(720px,100%);max-height:90vh;overflow:auto;background:#0c2119;border:1px solid #328b65;border-radius:22px;padding:26px}.modal-card h2{margin:0 0 14px}.form-row{display:grid;gap:7px;margin:16px 0}.form-row label{color:#bbd8c8}.form-row input{padding:13px;border-radius:10px;border:1px solid #41614f;background:#07150f;color:white;width:100%}.source-management{margin-top:14px;display:grid;gap:8px}.manage-row{display:flex;align-items:center;gap:8px;justify-content:space-between;background:#132b20;border-radius:10px;padding:10px;flex-wrap:wrap}.manage-row span{flex:1;overflow-wrap:anywhere}.guide{color:#bdd0c4;font-size:13px;line-height:1.55}#fileImport,#backupImport{display:none}
+.app{padding:clamp(15px,3vw,42px);max-width:1900px;margin:auto}.header{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:28px}.logo{font-weight:1000;font-size:clamp(27px,3vw,45px);letter-spacing:-1.8px}.logo b{color:var(--green)}.logo small{display:block;color:#9db9ac;letter-spacing:3px;font-size:11px;font-weight:750}.header-actions,.toolbar,.filters,.player-actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center}.btn{border:1px solid var(--line);border-radius:13px;padding:13px 18px;color:var(--text);background:var(--panel2);font-weight:750}.btn.primary{background:var(--green);border-color:var(--green);color:#042417}.btn.active,.chip.active{background:#19885b;color:white;border-color:#35ffc0}.btn.warn{border-color:#815e36;color:var(--gold)}.hero{padding:clamp(20px,3vw,45px);border:1px solid #2b7256;border-radius:28px;background:linear-gradient(100deg,#0b3829,#0b1d19 64%,#142819);display:flex;gap:30px;justify-content:space-between;align-items:center;margin-bottom:22px}.hero h1{margin:0 0 8px;font-size:clamp(25px,3.5vw,54px);line-height:1.07}.hero p{max-width:760px;color:#b8d5c8;line-height:1.5;margin:0}.hero-stat{text-align:center;min-width:155px}.hero-stat strong{display:block;font-size:clamp(32px,5vw,65px);color:var(--green)}.hero-stat span{color:var(--dim)}.layout{display:grid;grid-template-columns:minmax(270px,340px) minmax(0,1fr);gap:24px}.sidebar,.content,.panel{background:#0b1714;border:1px solid #203e32;border-radius:22px;padding:19px;min-width:0}.sidebar h2,.content h2{font-size:19px;margin:0 0 17px}.source-list{display:grid;gap:9px;max-height:55vh;overflow-y:auto;padding:4px}.source-btn{width:100%;text-align:left;border-radius:13px;background:#12271e;border:1px solid #2c4839;color:white;padding:15px;display:flex;align-items:center;justify-content:space-between;gap:8px}.source-btn.active{background:#16573c;border-color:var(--green)}.source-btn span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.source-btn small{color:#a8ccbb;flex-shrink:0}.mini{font-size:13px;color:var(--dim);line-height:1.55}.sidebar-actions{display:grid;gap:9px;margin-top:17px}.toolbar{margin-bottom:16px}.search{background:#07130f;border:1px solid #355a49;border-radius:12px;padding:13px;color:white;min-width:170px;flex:1;outline:none}.chip{background:#12251d;border:1px solid #345545;border-radius:999px;color:#e7fff2;padding:11px 17px;white-space:nowrap}.filters{margin-bottom:20px;max-height:none;overflow:visible;padding:5px}.section-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 15px}.section-head h2{margin:0}.count{color:var(--green);font-size:14px}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:15px}.channel{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;min-height:180px;border:1px solid #335343;border-radius:18px;background:linear-gradient(145deg,#173a2a,#0c1713);padding:17px 12px;color:white;text-align:center;overflow:hidden}.channel:hover,.channel.selected{border-color:var(--green);background:linear-gradient(145deg,#1a593d,#0c241a)}.channel img{width:100%;height:85px;object-fit:contain}.channel .fallback{display:grid;place-items:center;width:100%;height:85px;font-size:38px;color:var(--green)}.channel strong{font-size:15px;line-height:1.3;overflow-wrap:anywhere}.channel small{font-size:11px;color:#abcdbb}.heart{position:absolute;top:7px;right:8px;color:var(--gold);font-size:21px}.empty{padding:30px;color:#bdd2c7;border:1px dashed #335646;border-radius:17px;line-height:1.55}.status{color:var(--gold);min-height:24px;margin:13px 0;font-size:14px}.player-wrap{position:fixed;inset:0;background:#000e;display:none;align-items:center;justify-content:center;z-index:50;padding:15px}.player-wrap.open{display:flex}.player-shell{width:min(1250px,100%);background:#040b08;border:1px solid #316149;border-radius:18px;overflow:hidden}.player-top{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:12px 16px;background:#102b1f}.player-top strong{font-size:clamp(15px,2vw,25px);overflow-wrap:anywhere}.video-box{position:relative;background:black;aspect-ratio:16/9;max-height:72vh}.video-box video,.video-box iframe{position:absolute;inset:0;width:100%;height:100%;border:0}.video-box video{object-fit:contain}.player-message{position:absolute;inset:0;display:flex;justify-content:center;align-items:center;text-align:center;padding:20px;background:radial-gradient(circle,#153924,#000);color:#d6ffea;line-height:1.7}.player-message.off{display:none}.player-actions{padding:13px 16px;justify-content:center;background:#0d1c15}.modal{position:fixed;inset:0;z-index:70;background:#000c;display:none;align-items:center;justify-content:center;padding:14px}.modal.open{display:flex}.modal-card{width:min(720px,100%);max-height:90vh;overflow:auto;background:#0c2119;border:1px solid #328b65;border-radius:22px;padding:26px}.modal-card h2{margin:0 0 14px}.form-row{display:grid;gap:7px;margin:16px 0}.form-row label{color:#bbd8c8}.form-row input{padding:13px;border-radius:10px;border:1px solid #41614f;background:#07150f;color:white;width:100%}.source-management{margin-top:14px;display:grid;gap:8px}.manage-row{display:flex;align-items:center;gap:8px;justify-content:space-between;background:#132b20;border-radius:10px;padding:10px;flex-wrap:wrap}.manage-row span{flex:1;overflow-wrap:anywhere}.guide{color:#bdd0c4;font-size:13px;line-height:1.55}#fileImport,#backupImport{display:none}
 @media(max-width:850px){.layout{grid-template-columns:1fr}.sidebar{order:2}.hero{align-items:flex-start}.hero-stat{min-width:90px}.grid{grid-template-columns:repeat(auto-fill,minmax(130px,1fr))}.channel{min-height:150px}}@media(max-width:520px){.hero{padding:19px}.hero-stat{display:none}.header-actions{width:100%}.header-actions .btn{flex:1}.player-wrap{padding:0}.player-shell{border-radius:0}.player-actions .btn{padding:10px 12px}.video-box{max-height:65vh}}@media(min-width:1100px){body.tv-mode .app{max-width:none;padding:3vw 4vw}body.tv-mode .grid{grid-template-columns:repeat(5,minmax(0,1fr));gap:20px}body.tv-mode .channel{min-height:200px}body.tv-mode .btn{font-size:19px;padding:17px 23px}body.tv-mode .source-btn{font-size:18px;padding:18px}}
+
+/* V4.5 â TV Box: navegaÃ§Ã£o leve, aÃ§Ãµes acessÃ­veis e categorias visÃ­veis. */
+body.player-open{overflow:hidden}
+.more-row{display:flex;justify-content:center;padding:22px 0}
+.more-row button{min-width:260px}
+body.tv-mode .layout{grid-template-columns:minmax(235px,285px) minmax(0,1fr);gap:18px}
+body.tv-mode .hero{padding:24px 30px;margin-bottom:16px}
+body.tv-mode .hero h1{font-size:32px}
+body.tv-mode .hero p{font-size:14px}
+body.tv-mode .grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:13px}
+body.tv-mode .channel{min-height:170px;padding:12px 8px}
+body.tv-mode .channel img,body.tv-mode .channel .fallback{height:72px}
+body.tv-mode .channel strong{font-size:14px}
+body.tv-mode .btn{font-size:15px;padding:12px 14px}
+body.tv-mode .source-btn{font-size:15px;padding:13px}
+body.tv-mode .filters{max-height:none;overflow:visible}
+body.tv-mode .chip{padding:10px 12px}
+@media(max-width:850px){body.tv-mode .layout{grid-template-columns:1fr}}
+@media(max-width:650px){body.tv-mode .grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 </style>
 </head>
 <body>
 <div class="app">
-<header class="header"><div class="logo">STANLEY <b>TV</b><small>BOX EDITION &#8226; V4.2</small></div><nav class="header-actions"><button class="btn" id="modeBtn" type="button">&#128250; Modo TV: Auto</button><button class="btn" id="settingsBtn" type="button">&#9881;&#65039; Playlists</button><a class="btn" href="stanley-tv.html" style="text-decoration:none">&#128241; Vers&#227;o celular</a></nav></header>
+<header class="header"><div class="logo">STANLEY <b>TV</b><small>BOX EDITION &#8226; V4.5</small></div><nav class="header-actions"><button class="btn" id="modeBtn" type="button">&#128250; Modo TV: Auto</button><button class="btn" id="settingsBtn" type="button">&#9881;&#65039; Playlists</button><a class="btn" href="stanley-tv.html" style="text-decoration:none">&#128241; Vers&#227;o celular</a></nav></header>
 <section class="hero"><div><h1>Sua TV. Seu controle.<br><span style="color:var(--green)">Sua programa&#231;&#227;o.</span></h1><p>Navegue com as setas e o bot&#227;o OK do controle remoto, escolha uma playlist e assista em tela grande.</p></div><div class="hero-stat"><strong id="total">0</strong><span>canais dispon&#237;veis</span></div></section>
-<div class="layout"><aside class="sidebar"><h2>&#128193; Minhas playlists</h2><div id="sourceList" class="source-list"></div><div class="sidebar-actions"><button class="btn primary" id="addBtn">+ Adicionar playlist M3U</button><button class="btn" id="favoritesBtn">&#9733; Meus favoritos</button><button class="btn" id="refreshBtn">&#8635; Atualizar listas por link</button><button class="btn" id="cloudRefreshBtn">&#9729; Sincronizar cat&#225;logo online</button><button class="btn" id="backupBtn">&#8645; Backup / Restaurar</button></div><p class="mini">As listas do cat&#225;logo online aparecem automaticamente. Edite stanley-tv-playlists.json pelo iPhone para atualizar a TV Box, sem pendrive.</p></aside><main class="content"><div class="toolbar"><input class="search" id="search" placeholder="Buscar canais por nome..." aria-label="Buscar canais"><button class="btn" id="clearBtn">Limpar</button></div><div id="filters" class="filters"></div><div class="section-head"><h2 id="listTitle">Todos os canais</h2><span class="count" id="count">0 canais</span></div><div id="grid" class="grid"></div><p id="status" class="status" role="status"></p></main></div>
+<div class="layout"><aside class="sidebar"><h2>&#128193; Minhas playlists</h2><div id="sourceList" class="source-list"></div><div class="sidebar-actions"><button class="btn primary" id="addBtn">+ Adicionar playlist M3U</button><button class="btn" id="favoritesBtn">&#9733; Meus favoritos</button><button class="btn" id="refreshBtn">&#8635; Atualizar listas por link</button><button class="btn" id="cloudRefreshBtn">&#9729; Sincronizar cat&#225;logo online</button><button class="btn" id="backupBtn">&#8645; Backup / Restaurar</button></div><p class="mini">As listas do cat&#225;logo online aparecem automaticamente. Edite stanley-tv-playlists.json pelo iPhone para atualizar a TV Box, sem pendrive.</p></aside><main class="content"><div class="toolbar"><input class="search" id="search" placeholder="Buscar canais por nome..." aria-label="Buscar canais"><button class="btn" id="clearBtn">Limpar</button></div><div id="filters" class="filters"></div><div class="section-head"><h2 id="listTitle">Todos os canais</h2><span class="count" id="count">0 canais</span></div><div id="grid" class="grid"></div><div class="more-row"><button class="btn primary" id="loadMore" type="button" style="display:none">Carregar mais canais</button></div><p id="status" class="status" role="status"></p></main></div>
 </div>
-<div id="playerWrap" class="player-wrap" role="dialog" aria-modal="true" aria-label="Reprodutor"><div class="player-shell"><div class="player-top"><strong id="playingTitle">STANLEY TV</strong><button id="closePlayer" class="btn">&#10005; Fechar</button></div><div id="videoBox" class="video-box"><video id="video" autoplay controls playsinline></video><iframe id="frame" class="hidden" title="Transmiss&#227;o de TV" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe><div id="playerMessage" class="player-message">Selecione um canal.</div></div><div class="player-actions"><button class="btn" id="prevChannel">&#9664; Anterior</button><button class="btn" id="favoriteChannel">&#9734; Favorito</button><button class="btn primary" id="fullscreen">&#9974; Tela cheia</button><button class="btn" id="nextChannel">Pr&#243;ximo &#9654;</button></div></div></div>
+<div id="playerWrap" class="player-wrap" role="dialog" aria-modal="true" aria-label="Reprodutor"><div class="player-shell"><div class="player-top"><strong id="playingTitle">STANLEY TV</strong><button id="closePlayer" class="btn">&#10005; Voltar aos canais</button></div><div id="videoBox" class="video-box"><video id="video" autoplay controls playsinline></video><iframe id="frame" class="hidden" title="Transmiss&#227;o de TV" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe><div id="playerMessage" class="player-message">Selecione um canal.</div></div><div class="player-actions"><button class="btn" id="prevChannel">&#9664; Anterior</button><button class="btn" id="favoriteChannel">&#9734; Favorito</button><button class="btn primary" id="fullscreen">&#9974; Tela cheia</button><button class="btn" id="nextChannel">Pr&#243;ximo &#9654;</button><button class="btn" id="backToChannels">&#8617; Voltar Ã  lista</button></div></div></div>
 <div id="modal" class="modal" role="dialog" aria-modal="true" aria-label="Gerenciar playlists"><div class="modal-card"><h2>Gerenciar playlists</h2><p class="guide">Adicione somente listas e transmiss&#245;es para as quais voc&#234; possui autoriza&#231;&#227;o. Links M3U podem ser bloqueados por CORS no navegador da TV Box.</p><div class="form-row"><label for="listName">Nome da lista</label><input id="listName" placeholder="Ex.: Canais esportivos"></div><div class="form-row"><label for="listUrl">Link HTTPS da playlist M3U</label><input id="listUrl" type="url" placeholder="https://exemplo.com/lista.m3u"></div><div class="header-actions"><button class="btn primary" id="importLink">Importar link</button><button class="btn" id="importFile">Importar arquivo .m3u</button><button class="btn" id="exportBackup">Exportar backup JSON</button><button class="btn" id="restoreBackup">Restaurar backup JSON</button><button class="btn" id="closeModal">Fechar</button></div><input type="file" id="fileImport" accept=".m3u,.m3u8,.txt,audio/x-mpegurl"><input type="file" id="backupImport" accept=".json,application/json"><h3>Listas adicionadas</h3><div class="source-management" id="manageSources"></div><p class="guide" id="modalStatus"></p></div></div>
 <script>
 (()=>{'use strict';
@@ -33,24 +52,70 @@ const BUILTIN=[
 {id:'cazetv',name:'Caz\u00e9TV',group:'Esportes',mode:'external',url:'https://www.youtube.com/@CazeTV/live'},
 {id:'tv-brasil-animada',name:'TV Brasil Animada',group:'Infantil',mode:'external',url:'https://tvbrasil.ebc.com.br/tvbrasilanimada'},
 {id:'tv-brasil-play',name:'TV Brasil Play',group:'Filmes e s\u00e9ries',mode:'external',url:'https://tvbrasilplay.com.br/'}];
-let state={sources:[],favs:[]},source='all',category='Todos',search='',current=null,hls=null,shown=[],returnFocus=null,busy=false;
+let pageLimit=48;const PAGE_STEP=48;let state={sources:[],favs:[]},source='all',category='Todos',search='',current=null,hls=null,shown=[],returnFocus=null,busy=false;
 const validUrl=(v,base)=>{try{const u=new URL(v,base||location.href);return /^https?:$/.test(u.protocol)?u.href:''}catch{return ''}};
 const uniqueId=()=>`list-${Date.now()}-${Math.random().toString(36).slice(2,8)}`;
 const msg=(s)=>{$('status').textContent=s;$('modalStatus').textContent=s};
 function read(){try{const raw=JSON.parse(localStorage.getItem(STORE)||'null');if(raw&&Array.isArray(raw.sources)&&Array.isArray(raw.favs))state={sources:raw.sources,favs:raw.favs}}catch{} }
 function save(){try{localStorage.setItem(STORE,JSON.stringify(state));return true}catch{msg('Armazenamento insuficiente. Exporte um backup e remova listas antigas.');return false}}
 read();
-// O armazenamento da TV Box é separado do navegador do iPhone.
+// O armazenamento da TV Box Ã© separado do navegador do iPhone.
 function mode(){const stored=localStorage.getItem(MODE)||'auto';const params=new URLSearchParams(location.search),forced=params.get('mode');const setting=['auto','tv','normal'].includes(forced)?forced:stored;const detected=/Android.+(?:TV|Box)|SMART-TV|GoogleTV|Tizen|Web0S|AFT|BRAVIA|HbbTV/i.test(navigator.userAgent)||matchMedia('(min-width:1100px) and (pointer:coarse)').matches;document.body.classList.toggle('tv-mode',setting==='tv'||setting==='auto'&&detected);$('modeBtn').textContent='\ud83d\udcfa Modo TV: '+(setting==='auto'?'Auto':setting==='tv'?'Ligado':'Desligado');return setting}
 $('modeBtn').onclick=()=>{let prev=localStorage.getItem(MODE)||'auto';let next=prev==='auto'?'tv':prev==='tv'?'normal':'auto';localStorage.setItem(MODE,next);history.replaceState(null,'',location.pathname);mode()};mode();
 function isHLS(text){return /#EXT-X-(?:STREAM-INF|TARGETDURATION|MEDIA-SEQUENCE|ENDLIST|PLAYLIST-TYPE|KEY|MAP|PART-INF|VERSION)\b/i.test(text)}
 function parseM3U(text,base){if(isHLS(text))throw Error('Esse endere\u00e7o \u00e9 uma transmiss\u00e3o HLS, n\u00e3o uma playlist M3U.');if(!/^\s*#EXTM3U(?:\s|$)/i.test(text))throw Error('Cabe\u00e7alho #EXTM3U n\u00e3o encontrado.');let meta=null;const items=[];for(const raw of text.replace(/\r/g,'').split('\n')){const line=raw.trim();if(!line)continue;if(line.startsWith('#EXTINF')){const attr=k=>(line.match(new RegExp(k+'="([^"]*)"','i'))||[])[1]||'';const comma=line.indexOf(',');meta={name:comma<0?'':line.slice(comma+1).trim(),group:attr('group-title')||'Outros',logo:validUrl(attr('tvg-logo'),base)};continue}if(line.startsWith('#EXTGRP:')&&meta){meta.group=line.slice(8).trim();continue}if(line.startsWith('#'))continue;if(meta){const url=validUrl(line,base);if(url&&meta.name&&!/\.(?:ts|m4s)(?:[?#]|$)/i.test(url))items.push({...meta,url,id:url});meta=null}}return [...new Map(items.map(x=>[x.id,x])).values()]}
-function channels(){const map=new Map();if(source==='all'||source==='official')BUILTIN.forEach(c=>map.set(c.id,c));for(const s of state.sources){if(source!=='all'&&source!==s.id)continue;for(const c of s.items||[]){const url=validUrl(c.url);if(url&&c.name&&!/\.(?:ts|m4s)(?:[?#]|$)/i.test(url)&&!map.has(url))map.set(url,{...c,id:url,url})}}return [...map.values()]}
+function channels(){const map=new Map();if(source==='official')BUILTIN.forEach(c=>map.set(c.id,c));for(const s of state.sources){if(source!=='all'&&source!==s.id)continue;for(const c of s.items||[]){const url=validUrl(c.url);if(url&&c.name&&!/\.(?:ts|m4s)(?:[?#]|$)/i.test(url)&&!map.has(url))map.set(url,{...c,id:url,url})}}return [...map.values()]}
 function allCount(){const s=source;source='all';const total=channels().length;source=s;return total}
 function isFav(c){return state.favs.includes(c.id)||state.favs.includes(c.url)}
 function el(tag,cls,text){const x=document.createElement(tag);if(cls)x.className=cls;if(text!==undefined)x.textContent=text;return x}
-function render(){const all=channels(),groups=['Todos',...new Set(all.map(c=>c.group||'Outros'))];if(!groups.includes(category))category='Todos';const filters=$('filters');filters.replaceChildren();for(const g of groups){const b=el('button','chip'+(g===category?' active':''),g);b.onclick=()=>{category=g;render()};filters.append(b)}const sources=[{id:'all',name:'Todas as listas',count:allCount()},{id:'official',name:'Canais oficiais',count:BUILTIN.length},...state.sources.map(s=>({id:s.id,name:s.name,count:(s.items||[]).length}))];const side=$('sourceList');side.replaceChildren();for(const s of sources){const b=el('button','source-btn'+(source===s.id?' active':''));b.append(el('span','',s.name),el('small','',String(s.count)));b.onclick=()=>{source=s.id;category='Todos';render()};side.append(b)}$('total').textContent=allCount();let list=all.filter(c=>(category==='Todos'||(c.group||'Outros')===category)&&(!search||(c.name+' '+(c.group||'')).toLowerCase().includes(search)));if(source==='favorites')list=all.filter(c=>isFav(c));shown=list;$('listTitle').textContent=source==='favorites'?'Meus favoritos':sources.find(s=>s.id===source)?.name||'Canais';$('count').textContent=list.length+' canais';const grid=$('grid');grid.replaceChildren();if(!list.length)grid.append(el('p','empty','Nenhum canal nesta sele\u00e7\u00e3o. Adicione uma playlist ou escolha outra categoria.'));for(const c of list){const b=el('button','channel'+(current?.id===c.id?' selected':''));b.setAttribute('aria-label','Assistir '+c.name);if(c.logo&&validUrl(c.logo)){const img=el('img');img.src=c.logo;img.alt='';img.loading='lazy';img.onerror=()=>{img.remove();b.insertBefore(el('div','fallback','\u25b6'),b.firstChild)};b.append(img)}else b.append(el('div','fallback','\u25b6'));b.append(el('strong','',c.name),el('small','',c.group||'Outros'));if(isFav(c))b.append(el('span','heart','\u2605'));b.onclick=()=>openPlayer(c);grid.append(b)}}
-$('search').setAttribute('tabindex','-1');$('search').oninput=e=>{search=e.target.value.trim().toLowerCase();render()};$('clearBtn').onclick=()=>{$('search').value='';search='';render()};$('favoritesBtn').onclick=()=>{source='all';category='Todos';search='';$('search').value='';render();shown=channels().filter(isFav);$('listTitle').textContent='Meus favoritos';$('count').textContent=shown.length+' canais';const grid=$('grid');grid.replaceChildren();for(const c of shown){const b=el('button','channel');b.append(el('div','fallback','\u2605'),el('strong','',c.name));b.onclick=()=>openPlayer(c);grid.append(b)}if(!shown.length)grid.append(el('p','empty','Nenhum favorito ainda. Abra um canal e pressione Favorito.'))};
+// Categorias padronizadas: uma entrada M3U pode ter varios grupos separados por ponto e virgula.
+const CATEGORIES=['Todos','Esportes','Filmes','SÃ©ries','Infantil','NotÃ­cias','TV aberta','MÃºsica','DocumentÃ¡rios','Entretenimento','Outros'];
+function categoryOf(c){const g=String(c.group||'').toLowerCase();const n=String(c.name||'').toLowerCase();
+ if(/sports?|esporte|football|soccer|futebol/.test(g))return 'Esportes';
+ if(/movies?|filmes?|cinema/.test(g))return 'Filmes';
+ if(/series|sÃ©ries|classic/.test(g))return 'SÃ©ries';
+ if(/kids?|children|infantil|animation|animaÃ§Ã£o/.test(g))return 'Infantil';
+ if(/news|notÃ­cias|jornal|legislative/.test(g))return 'NotÃ­cias';
+ if(/music|mÃºsica/.test(g))return 'MÃºsica';
+ if(/documentary|documentÃ¡rios|education|science/.test(g))return 'DocumentÃ¡rios';
+ if(/general|tv aberta|local|regional/.test(g))return 'TV aberta';
+ if(/entertainment|comedy|lifestyle|reality/.test(g))return 'Entretenimento';
+ return 'Outros';
+}
+function distinctSources(){const seen=new Set();return state.sources.filter(s=>{const key=validUrl(s.url)||s.id;if(seen.has(key))return false;seen.add(key);return true})}
+function render(){
+ const all=channels();
+ const filters=$('filters');filters.replaceChildren();
+ for(const g of CATEGORIES){const total=g==='Todos'?all.length:all.filter(c=>categoryOf(c)===g).length;
+  if(!total&&g!=='Todos')continue;
+  const b=el('button','chip'+(g===category?' active':''),g+' Â· '+total);
+  b.onclick=()=>{category=g;pageLimit=PAGE_STEP;render();focusFirstChannel()};filters.append(b);
+ }
+ const sources=[{id:'all',name:'Todas as listas',count:allCount()},{id:'official',name:'Canais oficiais',count:BUILTIN.length},...distinctSources().map(s=>({id:s.id,name:s.name,count:(s.items||[]).length}))];
+ const side=$('sourceList');side.replaceChildren();
+ for(const sr of sources){const b=el('button','source-btn'+(source===sr.id?' active':''));b.append(el('span','',sr.name),el('small','',String(sr.count)));
+  b.onclick=()=>{source=sr.id;category='Todos';pageLimit=PAGE_STEP;render();focusFirstChannel()};side.append(b)}
+ $('total').textContent=allCount();
+ let list=all.filter(c=>(category==='Todos'||categoryOf(c)===category)&&(!search||(c.name+' '+(c.group||'')).toLowerCase().includes(search)));
+ if(source==='favorites')list=all.filter(c=>isFav(c));
+ shown=list;
+ $('listTitle').textContent=source==='favorites'?'Meus favoritos':sources.find(sr=>sr.id===source)?.name||'Canais';
+ $('count').textContent=list.length+' canais';
+ const grid=$('grid');grid.replaceChildren();
+ if(!list.length)grid.append(el('p','empty','Nenhum canal nesta seleÃ§Ã£o. Escolha outra lista ou categoria.'));
+ for(const c of list.slice(0,pageLimit)){
+  const b=el('button','channel'+(current?.id===c.id?' selected':''));b.dataset.channelId=c.id;b.setAttribute('aria-label','Assistir '+c.name);
+  if(c.logo&&validUrl(c.logo)){const img=el('img');img.src=c.logo;img.alt='';img.loading='lazy';img.onerror=()=>{img.remove();b.insertBefore(el('div','fallback','â¶'),b.firstChild)};b.append(img)}else b.append(el('div','fallback','â¶'));
+  b.append(el('strong','',c.name),el('small','',categoryOf(c)));
+  if(isFav(c))b.append(el('span','heart','â'));
+  b.onclick=()=>openPlayer(c);grid.append(b)
+ }
+ const more=$('loadMore');more.style.display=list.length>pageLimit?'inline-block':'none';
+ more.textContent='Carregar mais canais ('+Math.min(PAGE_STEP,Math.max(0,list.length-pageLimit))+')';
+}
+function focusFirstChannel(){const first=$('grid').querySelector('.channel');if(first){first.focus({preventScroll:true});first.scrollIntoView({block:'center',inline:'nearest'})}}
+$('loadMore').onclick=()=>{const old=pageLimit;pageLimit+=PAGE_STEP;render();const target=$('grid').querySelectorAll('.channel')[old];if(target){target.focus({preventScroll:true});target.scrollIntoView({block:'center'})}};
+$('search').setAttribute('tabindex','-1');$('search').oninput=e=>{search=e.target.value.trim().toLowerCase();pageLimit=PAGE_STEP;render()};$('clearBtn').onclick=()=>{$('search').value='';search='';pageLimit=PAGE_STEP;render()};$('favoritesBtn').onclick=()=>{source='all';category='Todos';search='';$('search').value='';render();shown=channels().filter(isFav);$('listTitle').textContent='Meus favoritos';$('count').textContent=shown.length+' canais';const grid=$('grid');grid.replaceChildren();for(const c of shown){const b=el('button','channel');b.append(el('div','fallback','\u2605'),el('strong','',c.name));b.onclick=()=>openPlayer(c);grid.append(b)}if(!shown.length)grid.append(el('p','empty','Nenhum favorito ainda. Abra um canal e pressione Favorito.'))};
 let playbackGeneration=0;
 function closeMedia(){
  playbackGeneration++;
@@ -60,7 +125,7 @@ function closeMedia(){
  $('playerMessage').classList.remove('off');
 }
 function openPlayer(c){
- returnFocus=document.activeElement;current=c;$('playerWrap').classList.add('open');
+ returnFocus=document.activeElement;current=c;$('playerWrap').classList.add('open');document.body.classList.add('player-open');
  $('playingTitle').textContent=c.name;
  $('favoriteChannel').textContent=isFav(c)?'\u2605 Favoritado':'\u2606 Favorito';
  closeMedia();const gen=playbackGeneration;
@@ -108,9 +173,18 @@ function openPlayer(c){
  }catch(e){updateError('falha ao iniciar')}
  $('closePlayer').focus();
 }
-function closePlayer(){closeMedia();$('playerWrap').classList.remove('open');current=null;render();if(returnFocus?.isConnected)returnFocus.focus()}
+function closePlayer(){
+ const selectedId=current?.id,oldScroll=window.scrollY;
+ if(document.fullscreenElement)document.exitFullscreen().catch(()=>{});
+ closeMedia();$('playerWrap').classList.remove('open');document.body.classList.remove('player-open');current=null;
+ render();window.scrollTo(0,oldScroll);
+ const match=[...$('grid').querySelectorAll('.channel')].find(b=>b.dataset.channelId===selectedId);
+ const target=match||$('grid .channel')||$('sourceList .source-btn');
+ if(target){target.focus({preventScroll:true});target.scrollIntoView({block:'nearest',inline:'nearest'})}
+}
+$('backToChannels').onclick=closePlayer;
 $('closePlayer').onclick=closePlayer;$('favoriteChannel').onclick=()=>{if(!current)return;const id=current.id;state.favs=isFav(current)?state.favs.filter(x=>x!==id&&x!==current.url):[...state.favs,id];save();$('favoriteChannel').textContent=isFav(current)?'\u2605 Favoritado':'\u2606 Favorito'};
-function step(n){const list=shown.length?shown:channels();if(!list.length)return;let i=list.findIndex(c=>c.id===current?.id);openPlayer(list[(i+n+list.length)%list.length])}
+function step(n){const list=shown.length?shown:channels();if(!list.length)return;let i=list.findIndex(c=>c.id===current?.id);openPlayer(list[(i+n+list.length)%list.length])} 
 $('prevChannel').onclick=()=>step(-1);$('nextChannel').onclick=()=>step(1);
 $('fullscreen').onclick=async()=>{const target=$('videoBox');try{if(document.fullscreenElement)await document.exitFullscreen();else if(target.requestFullscreen)await target.requestFullscreen();else if($('video').webkitEnterFullscreen)$('video').webkitEnterFullscreen();else msg('Tela cheia n\u00e3o suportada pelo navegador.')}catch{msg('O navegador bloqueou a tela cheia.')}};
 function showModal(){returnFocus=document.activeElement;$('modal').classList.add('open');renderManage();$('closeModal').focus()}function hideModal(){$('modal').classList.remove('open');if(returnFocus?.isConnected)returnFocus.focus()}
@@ -125,8 +199,8 @@ $('refreshBtn').onclick=async()=>{if(busy)return;const sources=state.sources.fil
 $('exportBackup').onclick=()=>{const data=JSON.stringify({format:'stanley-tv-v4-compatible',sources:state.sources,favs:state.favs,recents:[]},null,2);const a=document.createElement('a');const u=URL.createObjectURL(new Blob([data],{type:'application/json'}));a.href=u;a.download='stanley-tv-box-backup.json';a.click();setTimeout(()=>URL.revokeObjectURL(u),3000)};
 $('restoreBackup').onclick=()=>$('backupImport').click();$('backupImport').onchange=async e=>{const f=e.target.files?.[0];if(!f)return;try{const data=JSON.parse(await f.text());if(!Array.isArray(data.sources)||!Array.isArray(data.favs))throw Error('Formato de backup inv\u00e1lido');if(!confirm('Substituir playlists e favoritos deste navegador pelo backup?'))return;const old=state;state={sources:data.sources,favs:data.favs};if(!save()){state=old;throw Error('Falha ao salvar backup')};source='all';render();renderManage();msg('Backup restaurado com sucesso.')}catch(err){msg('Erro: '+err.message)}finally{e.target.value=''}};
 $('modal').addEventListener('click',e=>{if(e.target===$('modal'))hideModal()});
-// Navegação TV Box: as setas NUNCA focam a busca e não acionam o teclado virtual.
-// A busca continua disponível através do mouse do controle remoto.
+// NavegaÃ§Ã£o TV Box: as setas NUNCA focam a busca e nÃ£o acionam o teclado virtual.
+// A busca continua disponÃ­vel atravÃ©s do mouse do controle remoto.
 function visibleRemoteButtons(){
  return [...document.querySelectorAll('.app button:not(:disabled),.app a[href]')]
   .filter(x=>x.getClientRects().length>0 && !x.closest('.hidden'));
@@ -149,7 +223,8 @@ function navigateRemote(direction){
   const sameBand=cross<(horizontal?Math.max(ar.height,r.height):Math.max(ar.width,r.width))*.65;
   return {x,primary,cross,score:primary+cross*(sameBand?.75:2.4)};
  }).filter(v=>v.primary>3).sort((a,b)=>a.score-b.score);
- if(candidates.length){candidates[0].x.focus();candidates[0].x.scrollIntoView({block:'nearest',inline:'nearest'});}
+ if(candidates.length){candidates[0].x.focus();candidates[0].x.scrollIntoView({block:'center',inline:'nearest'});}
+ else if(active.classList.contains('channel')&&direction==='ArrowDown'&&$('loadMore').style.display!=='none'){$('loadMore').focus();$('loadMore').scrollIntoView({block:'center'});} 
 }
 document.addEventListener('keydown',e=>{
  const tag=document.activeElement?.tagName||'';
@@ -160,8 +235,12 @@ document.addEventListener('keydown',e=>{
   e.preventDefault();return;
  }
  if($('playerWrap').classList.contains('open')){
-  if(e.key==='ArrowRight'&&document.activeElement===$('video')){step(1);e.preventDefault()}
-  if(e.key==='ArrowLeft'&&document.activeElement===$('video')){step(-1);e.preventDefault()}
+  if(arrow){
+   const buttons=[$('closePlayer'),$('prevChannel'),$('favoriteChannel'),$('fullscreen'),$('nextChannel'),$('backToChannels')];
+   const i=buttons.indexOf(document.activeElement);
+   const n=e.key==='ArrowRight'||e.key==='ArrowDown'?1:-1;
+   buttons[(Math.max(0,i)+n+buttons.length)%buttons.length].focus();e.preventDefault();
+  }
   return;
  }
  if($('modal').classList.contains('open'))return;
@@ -171,21 +250,21 @@ document.addEventListener('keydown',e=>{
   navigateRemote(e.key);e.preventDefault();return;
  }
 });
-// Na abertura, selecione um botão navegável em vez do campo Buscar.
+// Na abertura, selecione um botÃ£o navegÃ¡vel em vez do campo Buscar.
 window.addEventListener('load',()=>{
  if(document.activeElement===document.body||document.activeElement===$('search')){
   const first=document.querySelector('#grid .channel')||document.querySelector('#sourceList .source-btn');
   if(first)first.focus({preventScroll:true});
  }
 });
-// V4.4 — Catálogo remoto compartilhado, sem pendrive.
-// Cadastra URLs públicas/autorizadas no arquivo stanley-tv-playlists.json da mesma pasta.
+// V4.4 â CatÃ¡logo remoto compartilhado, sem pendrive.
+// Cadastra URLs pÃºblicas/autorizadas no arquivo stanley-tv-playlists.json da mesma pasta.
 const CATALOG_URL = new URL('stanley-tv-playlists.json', location.href).href;
 const CATALOG_PREFIX='cloud-catalog:';
 const CATALOG_CHECK_MS=5*60*1000;
 let syncing=false;
 function cleanRemoteSources(data){
- if(!data||!Array.isArray(data.playlists))throw Error('Catálogo JSON sem o campo playlists.');
+ if(!data||!Array.isArray(data.playlists))throw Error('CatÃ¡logo JSON sem o campo playlists.');
  const seen=new Set();
  return data.playlists.map((p,i)=>{
   const url=validUrl(p&&p.url);
@@ -202,10 +281,10 @@ async function syncOnlineCatalog(showMessages=true){
  if(showMessages)msg('Sincronizando listas online...');
  try{
   const r=await fetch(CATALOG_URL+'?v='+Date.now(),{cache:'no-store'});
-  if(!r.ok)throw Error('Catálogo não publicado (HTTP '+r.status+')');
+  if(!r.ok)throw Error('CatÃ¡logo nÃ£o publicado (HTTP '+r.status+')');
   const remote=cleanRemoteSources(await r.json());
   let loaded=0,failed=0;
-  // Guarde playlists não gerenciadas pelo catálogo: jamais apague o usuário.
+  // Guarde playlists nÃ£o gerenciadas pelo catÃ¡logo: jamais apague o usuÃ¡rio.
   const local=state.sources.filter(s=>!String(s.id).startsWith(CATALOG_PREFIX));
   const oldCloud=new Map(state.sources.filter(s=>String(s.id).startsWith(CATALOG_PREFIX)).map(s=>[s.id,s]));
   const next=[];
@@ -224,19 +303,19 @@ async function syncOnlineCatalog(showMessages=true){
     else next.push({...p,items:[],error:String(err.message||err)});
    }
   }
-  // Só troca dados após confirmar que o catálogo JSON é válido.
+  // SÃ³ troca dados apÃ³s confirmar que o catÃ¡logo JSON Ã© vÃ¡lido.
   const previousState=state;
   state={...state,sources:[...local,...next]};
-  if(!save()){state=previousState;throw Error('Sem espaço para salvar');}
+  if(!save()){state=previousState;throw Error('Sem espaÃ§o para salvar');}
   if(!state.sources.some(s=>s.id===source))source='all';
   render();
-  if(showMessages)msg('Catálogo atualizado: '+remote.length+' lista(s); '+loaded+' carregada(s); '+failed+' falha(s).');
- }catch(err){if(showMessages)msg('Sincronização indisponível: '+String(err.message||err)+'. Listas locais preservadas.');}
+  if(showMessages)msg('CatÃ¡logo atualizado: '+remote.length+' lista(s); '+loaded+' carregada(s); '+failed+' falha(s).');
+ }catch(err){if(showMessages)msg('SincronizaÃ§Ã£o indisponÃ­vel: '+String(err.message||err)+'. Listas locais preservadas.');}
  finally{syncing=false;}
 }
 $('cloudRefreshBtn').onclick=()=>syncOnlineCatalog(true);
-// Evita duplicar o canal quando a lista já foi importada manualmente.
-// Atualização automática a cada 5 minutos enquanto a TV está aberta.
+// Evita duplicar o canal quando a lista jÃ¡ foi importada manualmente.
+// AtualizaÃ§Ã£o automÃ¡tica a cada 5 minutos enquanto a TV estÃ¡ aberta.
 render();
 syncOnlineCatalog(true);
 setInterval(()=>{if(!document.hidden)syncOnlineCatalog(false)},CATALOG_CHECK_MS);
