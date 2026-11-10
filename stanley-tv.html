@@ -61,7 +61,46 @@ function save(){try{localStorage.setItem(STORE,JSON.stringify(state));return tru
 function saveRecents(){try{localStorage.setItem(RECENT,JSON.stringify(recents))}catch{}}
 function parseM3U(input,base){const out=[];let meta=null;for(const row of input.replace(/\r/g,'').split('\n')){const line=row.trim();if(!line)continue;if(line.startsWith('#EXTINF')){const attr=k=>{const m=line.match(new RegExp(k+'="([^"]*)"','i'));return m?m[1]:''};const comma=line.indexOf(',');meta={name:comma>=0?line.slice(comma+1).trim():'Canal',group:attr('group-title')||'Outros',logo:attr('tvg-logo')};continue}if(line.startsWith('#EXTGRP:')&&meta){meta.group=line.slice(8).trim();continue}if(line.startsWith('#'))continue;if(meta){const url=urlOf(line,base);if(url)out.push({id:url,url,name:meta.name,group:meta.group,logo:urlOf(meta.logo,base)});meta=null}}return [...new Map(out.map(c=>[c.id,c])).values()]}
 function merged(){const map=new Map();for(const c of BUILTIN)map.set(c.id,c);for(const src of state.sources){for(const c of src.items||[]){if(!c||!urlOf(c.url))continue;const id=urlOf(c.url);if(!map.has(id))map.set(id,{...c,id})}}return [...map.values()]}
-function cat(c){const t=(c.group||'').toLowerCase();if(/esport|sport|futebol/.test(t))return 'Esportes';if(/film|cinema|movie|series|s\u00E9rie/.test(t))return 'Filmes e s\u00E9ries';if(/not\u00EDcia|noticia|news|jornal/.test(t))return 'Not\u00EDcias';if(/infantil|kids|desenho|anima/.test(t))return 'Infantil';if(/m\u00FAsica|musica|music/.test(t))return 'M\u00FAsica';return c.group||'Outros'}
+
+function cat(c){
+  const normalize = value => String(value || '')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase();
+
+  const name = normalize(c.name);
+  const group = normalize(c.group);
+  const text = name + ' ' + group;
+
+  const sports =
+    /esport|sport|futebol|football|soccer|basket|basquete|nba|nfl|volei|tenis|tennis|formula ?1|f1\b|mma|ufc|combate|luta|racing|motorsport|live events|eventos esportivos/i;
+
+  const sportsChannels =
+    /espn|sportv|premiere|bandsports|xsports|x sports|tnt sports|cazetv|caze tv|canal goat|ge tv|getv|sportynet|nsports|n sports|dazn|fox sports|sky sports|eurosport|bein sports|arena sport|red bull tv/i;
+
+  if(sports.test(text) || sportsChannels.test(name)){
+    return 'Esportes';
+  }
+
+  if(/film|cinema|movie|serie|series/.test(group)){
+    return 'Filmes e séries';
+  }
+
+  if(/noticia|news|jornal/.test(group)){
+    return 'Notícias';
+  }
+
+  if(/infantil|kids|desenho|anima/.test(group)){
+    return 'Infantil';
+  }
+
+  if(/musica|music/.test(group)){
+    return 'Música';
+  }
+
+  return c.group || 'Outros';
+}
+
 function filtered(){const q=$('search').value.trim().toLowerCase();return merged().filter(c=>(category==='Todos'||category==='Favoritos'&&state.favs.includes(c.id)||cat(c)===category)&&(!q||(c.name+' '+(c.group||'')).toLowerCase().includes(q)))}
 function makeCard(c){const card=document.createElement('div');card.className='channel'+(active===c.id?' selected':'');card.tabIndex=0;card.setAttribute('role','button');card.setAttribute('aria-label','Assistir '+c.name);card.onclick=()=>{setView('live',false);play(c)};card.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();card.click()}};const star=document.createElement('button');star.className='star'+(state.favs.includes(c.id)?' on':'');star.textContent=state.favs.includes(c.id)?'\u2605':'\u2606';star.setAttribute('aria-label','Favoritar '+c.name);star.onclick=e=>{e.stopPropagation();const had=state.favs.includes(c.id);state.favs=had?state.favs.filter(x=>x!==c.id):[...state.favs,c.id];if(!save()){state.favs=had?[...state.favs,c.id]:state.favs.filter(x=>x!==c.id)}render()};card.append(star);const fallback=()=>{const d=document.createElement('div');d.className='fallback';d.textContent=(c.name||'TV').slice(0,14);card.insertBefore(d,card.querySelector('.channel-name'))};if(c.logo&&urlOf(c.logo)){const img=document.createElement('img');img.src=c.logo;img.alt='';img.loading='lazy';img.referrerPolicy='no-referrer';img.onerror=()=>{img.remove();fallback()};card.append(img)}else{const d=document.createElement('div');d.className='fallback';d.textContent=(c.name||'TV').slice(0,14);card.append(d)}const name=document.createElement('div');name.className='channel-name';name.textContent=c.name;card.append(name);return card}
 function render(){const all=merged();$('featureChannels').textContent=all.length+' canais';$('favoritesCount').textContent=state.favs.length+' canais';$('playlistsCount').textContent=state.sources.length+' listas';const groups=['Todos','Favoritos',...new Set(all.map(cat))];$('categories').replaceChildren(...groups.map(g=>{const b=document.createElement('button');b.className='chip'+(category===g?' active':'');b.textContent=g;b.onclick=()=>{category=g;pageSize=36;render()};return b}));const list=filtered();$('channelCount').textContent='('+list.length+')';$('channels').replaceChildren(...list.slice(0,pageSize).map(makeCard));$('loadMore').style.display=list.length>pageSize?'inline-block':'none';const favs=all.filter(c=>state.favs.includes(c.id));$('favoriteGrid').replaceChildren(...favs.map(makeCard));if(!favs.length){const d=document.createElement('div');d.className='grid-empty';d.textContent='Nenhum favorito ainda.';$('favoriteGrid').append(d)}const recentList=recents.map(id=>all.find(c=>c.id===id)).filter(Boolean);const root=$('recentChannels');root.replaceChildren();if(!recentList.length){const d=document.createElement('p');d.className='muted';d.textContent='Os canais que voc\u00EA assistir aparecer\u00E3o aqui.';root.append(d)}for(const c of recentList){const b=document.createElement('button');b.className='recent-card';if(c.logo&&urlOf(c.logo)){const img=document.createElement('img');img.src=c.logo;img.alt='';img.loading='lazy';img.onerror=()=>{img.remove()};b.append(img)}else{const d=document.createElement('div');d.className='fallback';d.textContent=c.name.slice(0,12);b.append(d)}const label=document.createElement('strong');label.textContent=c.name;const small=document.createElement('small');small.textContent='\u25B6 Assistir';b.append(label,small);b.onclick=()=>{setView('live');play(c);$('playerAnchor').scrollIntoView({behavior:'smooth',block:'start'})};root.append(b)}renderSources()}
