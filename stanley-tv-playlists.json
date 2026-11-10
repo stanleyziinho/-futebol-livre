@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "description": "Playlists compartilhadas da Stanley TV. Use apenas fontes publicas ou autorizadas, sem tokens ou credenciais.",
+  "description": "Playlists online da Stanley TV Box - somente fontes escolhidas",
   "playlists": [
     {
-      "id": "iptv-br-oficial",
-      "name": "IPTV Brasil",
-      "url": "https://iptv-org.github.io/iptv/countries/br.m3u"
+      "id": "esportes-importados",
+      "name": "Esportes",
+      "url": "https://iptv-org.github.io/iptv/categories/sports.m3u"
     }
   ]
 }
