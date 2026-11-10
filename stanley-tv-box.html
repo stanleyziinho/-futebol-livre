@@ -50,8 +50,63 @@ function isFav(c){return state.favs.includes(c.id)||state.favs.includes(c.url)}
 function el(tag,cls,text){const x=document.createElement(tag);if(cls)x.className=cls;if(text!==undefined)x.textContent=text;return x}
 function render(){const all=channels(),groups=['Todos',...new Set(all.map(c=>c.group||'Outros'))];if(!groups.includes(category))category='Todos';const filters=$('filters');filters.replaceChildren();for(const g of groups){const b=el('button','chip'+(g===category?' active':''),g);b.onclick=()=>{category=g;render()};filters.append(b)}const sources=[{id:'all',name:'Todas as listas',count:allCount()},{id:'official',name:'Canais oficiais',count:BUILTIN.length},...state.sources.map(s=>({id:s.id,name:s.name,count:(s.items||[]).length}))];const side=$('sourceList');side.replaceChildren();for(const s of sources){const b=el('button','source-btn'+(source===s.id?' active':''));b.append(el('span','',s.name),el('small','',String(s.count)));b.onclick=()=>{source=s.id;category='Todos';render()};side.append(b)}$('total').textContent=allCount();let list=all.filter(c=>(category==='Todos'||(c.group||'Outros')===category)&&(!search||(c.name+' '+(c.group||'')).toLowerCase().includes(search)));if(source==='favorites')list=all.filter(c=>isFav(c));shown=list;$('listTitle').textContent=source==='favorites'?'Meus favoritos':sources.find(s=>s.id===source)?.name||'Canais';$('count').textContent=list.length+' canais';const grid=$('grid');grid.replaceChildren();if(!list.length)grid.append(el('p','empty','Nenhum canal nesta sele\u00e7\u00e3o. Adicione uma playlist ou escolha outra categoria.'));for(const c of list){const b=el('button','channel'+(current?.id===c.id?' selected':''));b.setAttribute('aria-label','Assistir '+c.name);if(c.logo&&validUrl(c.logo)){const img=el('img');img.src=c.logo;img.alt='';img.loading='lazy';img.onerror=()=>{img.remove();b.insertBefore(el('div','fallback','\u25b6'),b.firstChild)};b.append(img)}else b.append(el('div','fallback','\u25b6'));b.append(el('strong','',c.name),el('small','',c.group||'Outros'));if(isFav(c))b.append(el('span','heart','\u2605'));b.onclick=()=>openPlayer(c);grid.append(b)}}
 $('search').oninput=e=>{search=e.target.value.trim().toLowerCase();render()};$('clearBtn').onclick=()=>{$('search').value='';search='';render()};$('favoritesBtn').onclick=()=>{source='all';category='Todos';search='';$('search').value='';render();shown=channels().filter(isFav);$('listTitle').textContent='Meus favoritos';$('count').textContent=shown.length+' canais';const grid=$('grid');grid.replaceChildren();for(const c of shown){const b=el('button','channel');b.append(el('div','fallback','\u2605'),el('strong','',c.name));b.onclick=()=>openPlayer(c);grid.append(b)}if(!shown.length)grid.append(el('p','empty','Nenhum favorito ainda. Abra um canal e pressione Favorito.'))};
-function closeMedia(){if(hls){hls.destroy();hls=null}const v=$('video');v.pause();v.removeAttribute('src');v.load();$('frame').src='about:blank';$('frame').classList.add('hidden');$('playerMessage').classList.remove('off')}
-function openPlayer(c){returnFocus=document.activeElement;current=c;$('playerWrap').classList.add('open');$('playingTitle').textContent=c.name;$('favoriteChannel').textContent=isFav(c)?'\u2605 Favoritado':'\u2606 Favorito';closeMedia();const info=$('playerMessage');info.textContent='Carregando '+c.name+'...';const url=validUrl(c.url);if(!url){info.textContent='Endere\u00e7o inv\u00e1lido.';return}if(c.mode==='external'){info.textContent='Este canal oficial abre no site do fornecedor. Use OK para abrir o site.';const open=el('button','btn primary','Abrir site oficial');open.onclick=()=>window.open(url,'_blank','noopener,noreferrer');info.replaceChildren(el('p','',`Canal: ${c.name}`),open);$('closePlayer').focus();return}if(c.mode==='embed'){$('frame').classList.remove('hidden');$('frame').src=url;info.classList.add('off');$('closePlayer').focus();return}const v=$('video');v.classList.remove('hidden');const hlsStream=/\.m3u8(?:[?#]|$)/i.test(url);if(hlsStream&&window.Hls&&Hls.isSupported()){hls=new Hls({enableWorker:true,lowLatencyMode:true});hls.loadSource(url);hls.attachMedia(v);hls.on(Hls.Events.MANIFEST_PARSED,()=>v.play().catch(()=>{info.textContent='Pressione Play no v\u00eddeo para iniciar.'}));hls.on(Hls.Events.ERROR,(_,data)=>{if(data.fatal){info.textContent='Falha ao reproduzir. Verifique o link, CORS e o codec.';info.classList.remove('off')}})}else{v.src=url;v.play().catch(()=>{info.textContent='Pressione Play no v\u00eddeo para iniciar.'})}v.onplaying=()=>info.classList.add('off');v.onerror=()=>{info.textContent='Este formato n\u00e3o \u00e9 compat\u00edvel ou o servidor bloqueou a reprodu\u00e7\u00e3o.';info.classList.remove('off')};$('closePlayer').focus()}
+let playbackGeneration=0;
+function closeMedia(){
+ playbackGeneration++;
+ if(hls){hls.destroy();hls=null}
+ const v=$('video');v.pause();v.onerror=null;v.onplaying=null;v.removeAttribute('src');v.load();
+ $('frame').src='about:blank';$('frame').classList.add('hidden');
+ $('playerMessage').classList.remove('off');
+}
+function openPlayer(c){
+ returnFocus=document.activeElement;current=c;$('playerWrap').classList.add('open');
+ $('playingTitle').textContent=c.name;
+ $('favoriteChannel').textContent=isFav(c)?'\u2605 Favoritado':'\u2606 Favorito';
+ closeMedia();const gen=playbackGeneration;
+ const info=$('playerMessage');info.replaceChildren();info.textContent='Carregando '+c.name+'...';
+ const url=validUrl(c.url);
+ if(!url){info.textContent='Endere\u00e7o inv\u00e1lido.';return}
+ if(c.mode==='external'){
+  info.textContent='Este canal oficial abre no site do fornecedor.';
+  const open=el('button','btn primary','Abrir site oficial');
+  open.onclick=()=>window.open(url,'_blank','noopener,noreferrer');
+  info.replaceChildren(el('p','',`Canal: ${c.name}`),open);$('closePlayer').focus();return;
+ }
+ if(c.mode==='embed'){$('frame').classList.remove('hidden');$('frame').src=url;info.classList.add('off');$('closePlayer').focus();return}
+ const v=$('video');v.classList.remove('hidden');
+ const isHls=/\.m3u8(?:[?#]|$)/i.test(url);
+ let engine='native',attemptedFallback=false;
+ const updateError=detail=>{
+  if(gen!==playbackGeneration)return;
+  info.textContent='N\u00e3o foi poss\u00edvel reproduzir este canal'+(detail?' ('+detail+')':'')+'. O servidor pode bloquear o navegador ou o formato pode ser incompat\u00edvel.';
+  info.classList.remove('off');
+ };
+ const tryPlay=()=>{const promise=v.play();if(promise&&promise.catch)promise.catch(err=>{
+  if(gen!==playbackGeneration)return;
+  if(err?.name==='NotAllowedError'){info.textContent='Pressione Play no v\u00eddeo para iniciar.';info.classList.remove('off')}
+ })};
+ const useHlsJs=()=>{
+  if(gen!==playbackGeneration||attemptedFallback||!isHls||!window.Hls||!Hls.isSupported())return false;
+  attemptedFallback=true;engine='hls.js';
+  try{
+   v.pause();v.removeAttribute('src');v.load();
+   hls=new Hls({enableWorker:true});
+   hls.attachMedia(v);hls.on(Hls.Events.MEDIA_ATTACHED,()=>{if(gen===playbackGeneration)hls.loadSource(url)});
+   hls.on(Hls.Events.MANIFEST_PARSED,()=>{if(gen===playbackGeneration)tryPlay()});
+   hls.on(Hls.Events.ERROR,(_,data)=>{if(gen!==playbackGeneration||!data.fatal)return;updateError(data.type||'erro HLS')});
+   info.textContent='Tentando reprodutor alternativo...';return true;
+  }catch{return false}
+ };
+ v.onplaying=()=>{if(gen===playbackGeneration)info.classList.add('off')};
+ v.onerror=()=>{if(gen!==playbackGeneration)return;if(engine==='native'&&useHlsJs())return;updateError('erro de m\u00eddia')};
+ try{
+  // Como na Stanley TV original, priorizar HLS nativo do Safari e de TVs compat\u00edveis.
+  if(isHls&&v.canPlayType('application/vnd.apple.mpegurl')){v.src=url;tryPlay()}
+  else if(isHls&&useHlsJs()){}
+  else{v.src=url;tryPlay()}
+ }catch(e){updateError('falha ao iniciar')}
+ $('closePlayer').focus();
+}
 function closePlayer(){closeMedia();$('playerWrap').classList.remove('open');current=null;render();if(returnFocus?.isConnected)returnFocus.focus()}
 $('closePlayer').onclick=closePlayer;$('favoriteChannel').onclick=()=>{if(!current)return;const id=current.id;state.favs=isFav(current)?state.favs.filter(x=>x!==id&&x!==current.url):[...state.favs,id];save();$('favoriteChannel').textContent=isFav(current)?'\u2605 Favoritado':'\u2606 Favorito'};
 function step(n){const list=shown.length?shown:channels();if(!list.length)return;let i=list.findIndex(c=>c.id===current?.id);openPlayer(list[(i+n+list.length)%list.length])}
