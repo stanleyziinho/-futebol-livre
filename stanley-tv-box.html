@@ -178,7 +178,24 @@ window.addEventListener('load',()=>{
   if(first)first.focus({preventScroll:true});
  }
 });
+// V4.3 â playlist brasileira pÃºblica carregada pela internet, sem pendrive.
+// NÃ£o altera as playlists jÃ¡ salvas e nÃ£o inclui fontes privadas.
+const AUTO_BR_URL='https://iptv-org.github.io/iptv/countries/br.m3u';
+async function loadOnlinePlaylists(){
+ const existing=state.sources.find(s=>s.url===AUTO_BR_URL);
+ if(existing && Array.isArray(existing.items) && existing.items.length) return;
+ msg('Carregando canais brasileiros pela internet...');
+ try{
+  const items=await getPlaylist(AUTO_BR_URL);
+  if(existing){existing.items=items;existing.updated=new Date().toISOString()}
+  else state.sources.push({id:'stanley-br-online',name:'IPTV Brasil (online)',url:AUTO_BR_URL,items,updated:new Date().toISOString()});
+  if(!save())msg('Canais carregados, mas sem espaÃ§o para salvar na TV Box.');
+  else msg(items.length+' canais brasileiros carregados! Selecione IPTV Brasil no menu.');
+  render();
+ }catch(err){msg('NÃ£o foi possÃ­vel carregar IPTV Brasil: '+err.message+'. Verifique a internet da TV Box.');}
+}
 render();
+loadOnlinePlaylists();
 })();
 </script>
 </body>
