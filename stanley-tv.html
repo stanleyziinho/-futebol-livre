@@ -160,7 +160,213 @@ async function refreshOne(id){const s=state.sources.find(x=>x.id===id);if(!s||!s
 $('refreshAll').onclick=async()=>{if(busy)return;const sources=state.sources.filter(s=>s.url&&!isMisreadHLS(s));if(!sources.length){status('Nenhuma playlist por link.');return}busy=true;let ok=0,failed=0;for(const s of sources){const old=s.items;try{s.items=await fetchList(s.url);if(!save())throw Error('Armazenamento cheio');ok++}catch{s.items=old;failed++}}busy=false;render();status(ok+' listas atualizadas, '+failed+' falhas.')};
 $('exportBackup').onclick=()=>{const data=JSON.stringify({format:'stanley-tv-v3.3',sources:state.sources,favs:state.favs,recents},null,2);const url=URL.createObjectURL(new Blob([data],{type:'application/json'}));const a=document.createElement('a');a.href=url;a.download='stanley-tv-backup.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),3000)};
 $('restoreBackup').onclick=()=>$('backupFile').click();$('backupFile').onchange=async e=>{const f=e.target.files?.[0];if(!f)return;try{const data=JSON.parse(await f.text());if(!Array.isArray(data.sources)||!Array.isArray(data.favs))throw Error('Formato inv\u00E1lido');if(!confirm('Restaurar este backup?'))return;const old=state,oldRecents=recents;state={sources:data.sources,favs:data.favs};recents=Array.isArray(data.recents)?data.recents:[];if(!save()){state=old;recents=oldRecents;throw Error('Sem espa\u00E7o para restaurar')}saveRecents();render();status('Backup restaurado.')}catch(err){status('Erro: '+err.message)}finally{e.target.value=''}};
+
+/* STANLEY TV V3.4 - CATALOGO PUBLICO */
+
+let officialSources = [];
+
+const previousRender = render;
+const previousRenderSources = renderSources;
+
+/* Junta canais oficiais e pessoais */
+merged = function(){
+  const map = new Map();
+
+  if(selectedSource === 'all' ||
+     selectedSource === 'official'){
+    for(const c of BUILTIN){
+      map.set(c.id,c);
+    }
+  }
+
+  for(const src of officialSources){
+    if(selectedSource !== 'all' &&
+       selectedSource !== src.id) continue;
+
+    for(const c of channelsFromSource(src)){
+      const id = urlOf(c.url);
+      if(id && !map.has(id)){
+        map.set(id,{...c,id});
+      }
+    }
+  }
+
+  for(const src of state.sources){
+    if(selectedSource !== 'all' &&
+       selectedSource !== src.id) continue;
+
+    for(const c of channelsFromSource(src)){
+      const id = urlOf(c.url);
+      if(id && !map.has(id)){
+        map.set(id,{...c,id});
+      }
+    }
+  }
+
+  return [...map.values()];
+};
+
+/* Cria um acesso separado por playlist */
+sourceOptions = function(){
+  const personal = state.sources.filter(s =>
+    !officialSources.some(
+      p => p.url && p.url === s.url
+    )
+  );
+
+  return [
+    {
+      id:'all',
+      name:'Todas as listas',
+      count:allChannels().length
+    },
+    {
+      id:'official',
+      name:'Canais oficiais',
+      count:BUILTIN.length
+    },
+    ...officialSources.map(s=>({
+      id:s.id,
+      name:s.name,
+      count:channelsFromSource(s).length
+    })),
+    ...personal.map(s=>({
+      id:s.id,
+      name:s.name,
+      count:channelsFromSource(s).length
+    }))
+  ];
+};
+
+/* Exibe tambem as listas publicas */
+renderSources = function(){
+  previousRenderSources();
+
+  const root = $('sources');
+
+  for(const src of [...officialSources].reverse()){
+    const row = document.createElement('div');
+    row.className = 'source';
+
+    const data = document.createElement('div');
+    data.className = 'source-data';
+
+    const title = document.createElement('strong');
+    title.textContent = src.name + ' - OFICIAL';
+
+    const description = document.createElement('small');
+    description.textContent =
+      channelsFromSource(src).length +
+      ' canais - catalogo compartilhado';
+
+    const open = document.createElement('button');
+    open.type = 'button';
+    open.className = 'source-open';
+    open.textContent = 'Abrir';
+    open.onclick = () => selectSource(src.id);
+
+    data.append(title,description);
+    row.append(data,open);
+    root.prepend(row);
+  }
+};
+
+/* Atualiza contador da vitrine */
+render = function(){
+  previousRender();
+
+  $('playlistsCount').textContent =
+    (officialSources.length + state.sources.length) +
+    ' listas';
+};
+
+/* Carrega o catalogo do GitHub */
+async function loadOfficialCatalog(){
+  const title =
+    document.querySelector('.playlist-picker-title');
+
+  if(title){
+    title.textContent =
+      'Carregando catalogo oficial...';
+  }
+
+  try{
+    const response = await fetch(
+      './stanley-tv-playlists.json?v=' + Date.now(),
+      {cache:'no-store'}
+    );
+
+    if(!response.ok){
+      throw Error('HTTP ' + response.status);
+    }
+
+    const config = await response.json();
+
+    if(!Array.isArray(config.playlists)){
+      throw Error('Formato de catalogo invalido');
+    }
+
+    const configured = config.playlists.filter(
+      item => item &&
+        item.enabled !== false &&
+        item.url &&
+        item.url.startsWith('https://')
+    );
+
+    const results = await Promise.allSettled(
+      configured.map(async (item,index)=>{
+        const items = await fetchList(item.url);
+
+        return {
+          id:'public:' + (item.id || index),
+          name:item.name || 'Lista oficial',
+          url:item.url,
+          items,
+          official:true
+        };
+      })
+    );
+
+    officialSources = results
+      .filter(r=>r.status === 'fulfilled')
+      .map(r=>r.value);
+
+    const failures = results.length -
+      officialSources.length;
+
+    if(title){
+      title.textContent =
+        'Catalogo oficial: ' +
+        officialSources.length +
+        ' listas carregadas' +
+        (failures ? ' - ' + failures +
+          ' indisponiveis' : '');
+    }
+
+    render();
+
+  }catch(error){
+    if(title){
+      title.textContent =
+        'Catalogo online indisponivel. ' +
+        'Listas pessoais preservadas.';
+    }
+
+    console.warn(
+      'Stanley TV: erro no catalogo',
+      error
+    );
+
+    render();
+  }
+}
+
+/* Inicia a Stanley TV */
 render();
+loadOfficialCatalog();
+
+/* FIM V3.4 */
+
 })();
 </script>
 </body>
