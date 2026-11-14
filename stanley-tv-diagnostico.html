@@ -1,1 +1,71 @@
-
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>STANLEY TV | Diagnóstico de Reprodução</title>
+<style>
+:root{color-scheme:dark;--bg:#06110d;--card:#10271e;--green:#23e69c;--line:#386b54;--ink:#f0fff6}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Arial,sans-serif;padding:16px;line-height:1.4}
+main{max-width:1100px;margin:auto}header{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+h1{font-size:clamp(23px,4vw,38px);margin:8px 0}h1 span{color:var(--green)}p{color:#c4d8cb}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;margin:14px 0}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+button{border:1px solid #49775f;background:#1b4431;color:white;border-radius:10px;padding:14px;font:inherit;font-weight:bold;cursor:pointer;min-height:54px}
+button.primary{background:var(--green);color:#062015}button:focus-visible{outline:4px solid white;outline-offset:3px}
+.small{font-size:13px;color:#bdd6c7}.tag{font-size:14px;font-weight:bold;color:var(--green)}
+video{width:100%;max-height:350px;aspect-ratio:16/9;background:black;border-radius:10px}
+pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#05100b;border-radius:10px;padding:12px;font:13px ui-monospace,monospace;max-height:340px;overflow-y:auto}
+.row{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}.row button{flex:1}
+@media(max-width:680px){.grid{grid-template-columns:1fr}}
+</style>
+<script defer src="https://cdn.jsdelivr.net/npm/hls.js@1.6.15/dist/hls.min.js"></script>
+</head>
+<body>
+<main>
+<header><h1>STANLEY <span>TV</span> | Diagnóstico</h1><span class="tag">TESTE INDEPENDENTE</span></header>
+<p>Use as setas e OK do controle remoto. Testes sem instalar apps, sem alterar listas nem favoritos. Faça os três testes na TV Box.</p>
+<div class="panel"><strong>Informações do navegador</strong><div id="info" class="small"></div></div>
+<div class="grid">
+ <section class="panel"><h2>1. Vídeo MP4</h2><p>Verifica se o navegador reproduz um vídeo comum.</p><button class="primary" id="testMp4">Testar MP4</button><p id="statusMp4">Não testado</p></section>
+ <section class="panel"><h2>2. Vídeo HLS.js</h2><p>Verifica a reprodução de uma transmissão HLS usando HLS.js.</p><button class="primary" id="testHls">Testar HLS.js</button><p id="statusHls">Não testado</p></section>
+ <section class="panel"><h2>3. Manifesto M3U8</h2><p>Testa acesso à playlist HLS pelo JavaScript. Um bloqueio CORS pode aparecer aqui.</p><button class="primary" id="testManifest">Testar manifesto</button><p id="statusManifest">Não testado</p></section>
+</div>
+<div class="panel"><h2>Reprodutor de teste</h2><video id="player" controls playsinline preload="none"></video><div class="row"><button id="stop">Parar vídeo</button><button id="copy">Copiar relatório</button><button id="clear">Limpar histórico</button></div></div>
+<div class="panel"><h2>Relatório de diagnóstico</h2><pre id="log" aria-live="polite">Nenhum teste executado.</pre><p class="small">O relatório mostra resultados técnicos. Não cole senhas, tokens ou links privados nesta página.</p></div>
+</main>
+<script>
+(()=>{
+'use strict';
+const $=id=>document.getElementById(id);
+const MP4='https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4';
+const HLS='https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8';
+const video=$('player');let hls=null,serial=0,events=[];
+const line=s=>{events.push(new Date().toLocaleTimeString('pt-BR')+' | '+s);$('log').textContent=events.join('\n');$('log').scrollTop=$('log').scrollHeight};
+function status(id,msg){$(id).textContent=msg;line(msg)}
+function stop(){serial++;if(hls){try{hls.destroy()}catch(_){}hls=null}try{video.pause();video.removeAttribute('src');video.load()}catch(_){}video.onplaying=null;video.onerror=null;video.onstalled=null}
+function watch(label,id,token){video.onplaying=()=>{if(token===serial)status(id,label+': REPRODUZIU (imagem/áudio conforme o vídeo)')};video.onerror=()=>{if(token===serial)status(id,label+': erro de vídeo, código '+(video.error?video.error.code:'desconhecido'))};video.onstalled=()=>{if(token===serial)line(label+': carregamento interrompido (stalled)')}}
+function tryPlay(id,label,token){const p=video.play();if(p&&p.catch)p.catch(e=>{if(token===serial)status(id,label+': play() falhou - '+e.name+': '+e.message)})}
+$('testMp4').onclick=()=>{stop();const t=serial;status('statusMp4','MP4: carregando...');watch('MP4','statusMp4',t);video.src=MP4;video.load();tryPlay('statusMp4','MP4',t)};
+$('testHls').onclick=()=>{stop();const t=serial;status('statusHls','HLS: verificando recursos...');watch('HLS','statusHls',t);if(!window.Hls){status('statusHls','HLS: biblioteca HLS.js não carregou (CDN bloqueada/sem rede)');return}if(!Hls.isSupported()){status('statusHls','HLS: MediaSource/HLS.js não suportados neste navegador');return}try{
+ hls=new Hls({enableWorker:false,lowLatencyMode:false,maxBufferLength:12,backBufferLength:5});
+ hls.on(Hls.Events.MEDIA_ATTACHED,()=>{if(t===serial){line('HLS: mídia vinculada');hls.loadSource(HLS)}});
+ hls.on(Hls.Events.MANIFEST_PARSED,(_,data)=>{if(t===serial){line('HLS: manifesto interpretado, níveis='+data.levels.length);tryPlay('statusHls','HLS',t)}});
+ hls.on(Hls.Events.ERROR,(_,e)=>{if(t!==serial)return;const response=e.response?(' HTTP '+(e.response.code||'?')):'';line('HLS: '+e.type+' / '+e.details+response+' / fatal='+e.fatal);if(e.fatal)status('statusHls','HLS: falhou '+e.details+response+' (rede, CORS, servidor ou codec)')});
+ hls.attachMedia(video);
+ }catch(e){status('statusHls','HLS: erro JavaScript - '+e.message)}};
+$('testManifest').onclick=async()=>{const id='statusManifest';status(id,'Manifesto: solicitando arquivo M3U8...');const ctl=new AbortController();const timeout=setTimeout(()=>ctl.abort(),12000);try{
+ const r=await fetch(HLS,{mode:'cors',cache:'no-store',signal:ctl.signal});
+ const body=await r.text();const valid=body.trimStart().startsWith('#EXTM3U');
+ status(id,'Manifesto: HTTP '+r.status+', '+body.length+' caracteres, EXT M3U='+valid);
+ line('Manifesto: content-type='+r.headers.get('content-type'));
+ }catch(e){status(id,'Manifesto: falha '+e.name+' - '+e.message+' (pode ser CORS, rede ou TLS)')}finally{clearTimeout(timeout)}};
+$('stop').onclick=()=>{stop();line('Vídeo parado')};
+$('clear').onclick=()=>{events=[];$('log').textContent='Histórico limpo'};
+$('copy').onclick=async()=>{const report='STANLEY TV - Diagnóstico\n'+$('info').innerText+'\n\n'+events.join('\n');try{await navigator.clipboard.writeText(report);line('Relatório copiado')}catch(_){const t=document.createElement('textarea');t.value=report;document.body.append(t);t.select();const ok=document.execCommand('copy');t.remove();line(ok?'Relatório copiado':'Cópia não suportada; tire uma foto do relatório')}};
+const capability='MP4/H.264: '+(video.canPlayType('video/mp4; codecs="avc1.42E01E, mp4a.40.2"')||'não')+' | HLS nativo: '+(video.canPlayType('application/vnd.apple.mpegurl')||'não')+' | MediaSource: '+Boolean(window.MediaSource);
+$('info').textContent=navigator.userAgent+'\n'+capability;
+line('Página carregada. '+capability);
+})();
+</script>
+</body></html>
