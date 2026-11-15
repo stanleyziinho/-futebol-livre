@@ -1,75 +1,86 @@
 <!doctype html>
-<html lang="pt-BR">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="referrer" content="strict-origin-when-cross-origin">
-<meta name="theme-color" content="#07140e">
-<title>STANLEY TV | Teste Híbrido V1.1</title>
+<html lang="pt-BR"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="referrer" content="strict-origin-when-cross-origin"><meta name="theme-color" content="#07140e">
+<title>STANLEY TV HÍBRIDA V1.2 | Laboratório</title>
 <script defer src="https://cdn.jsdelivr.net/npm/hls.js@1.6.15/dist/hls.min.js"></script>
 <style>
-:root{color-scheme:dark;--bg:#07120d;--panel:#11251b;--green:#29ec9c;--border:#355743;--text:#f6fff9;--muted:#afc6b7}
-*{box-sizing:border-box}html,body{margin:0;min-height:100%;font:16px Arial,sans-serif;background:var(--bg);color:var(--text)}
-button{font:inherit;cursor:pointer;border:1px solid var(--border);border-radius:11px;background:#193c2a;color:white;padding:12px 15px}
-button:focus-visible{outline:4px solid white;outline-offset:3px}button.active{background:var(--green);color:#082515;font-weight:800}
-header{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:17px 22px;border-bottom:1px solid var(--border);flex-wrap:wrap}
-h1{font-size:25px;margin:0;font-weight:900}h1 span{color:var(--green)}small{color:var(--muted)}
-.toolbar{display:flex;gap:8px;flex-wrap:wrap}.wrap{padding:17px 22px;max-width:1460px;margin:auto}
-.intro{font-size:14px;color:var(--muted);margin:0 0 16px}.layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,38%);gap:17px;align-items:start}
-.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(195px,1fr));gap:13px}.channel{display:flex;align-items:flex-start;flex-direction:column;text-align:left;min-height:175px;gap:10px;padding:16px;background:linear-gradient(135deg,#204834,#0d2319)}
-.channel strong{font-size:19px}.channel .emoji{font-size:39px}.channel small{line-height:1.4}.channel.selected{border:2px solid var(--green)}
-.player{background:#10251b;border:1px solid #3c7254;border-radius:15px;overflow:hidden;position:sticky;top:12px;min-width:0}
-.player-head{padding:11px 13px;display:flex;align-items:center;justify-content:space-between;gap:6px}.player-head strong{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.screen{aspect-ratio:16/9;background:#000;position:relative}.screen video,.screen iframe{width:100%;height:100%;border:0;display:block}.hidden{display:none!important}
-.overlay-status{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none;text-align:center;padding:20px;background:#0009;font-size:14px}.overlay-status.hidden{display:none}
-.controls{display:flex;flex-wrap:wrap;gap:7px;padding:12px}.controls button{flex:1;white-space:nowrap;font-size:13px;padding:10px}
-.note{font-size:12px;line-height:1.5;color:var(--muted);padding:0 14px 12px}.diagnostic{font:12px/1.5 monospace;overflow-wrap:anywhere;border-top:1px solid var(--border);padding:9px 13px;color:#b7f6d7}
-@media(max-width:850px){.layout{grid-template-columns:minmax(0,1fr)}.player{position:static;grid-row:1}.cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:480px){header,.wrap{padding:12px}.cards{gap:9px}.channel{min-height:140px;padding:11px}.channel strong{font-size:16px}.channel .emoji{font-size:30px}}
-</style>
-</head>
-<body>
-<header><div><h1>STANLEY <span>TV</span></h1><small>LABORATÓRIO HÍBRIDO • V1.1</small></div><div class="toolbar"><button id="tvMode">⛶ Tela TV</button><button id="closePlayer">■ Parar</button></div></header>
-<main class="wrap"><p class="intro">Teste independente: um canal HLS e um vídeo do YouTube no mesmo mini player. Não altera os aplicativos oficiais.</p>
-<div class="layout">
-<section><h2>Escolha o conteúdo</h2><div class="cards" id="cards">
-<button class="channel" data-id="monica"><span class="emoji">🎨</span><strong>Turma da Mônica</strong><small>Infantil • YouTube oficial incorporado</small></button>
-<button class="channel" data-id="amazon"><span class="emoji">📡</span><strong>Amazon Sat</strong><small>TV ao vivo • Transmissão HLS</small></button>
-</div><p class="intro" style="margin-top:16px">Na TV Box: use as setas e OK para selecionar; os botões do player também aceitam controle remoto.</p></section>
-<section class="player" id="player"><div class="player-head"><strong id="title">Selecione um conteúdo</strong><small id="type">Aguardando</small></div>
-<div class="screen" id="screen"><video id="video" controls playsinline preload="none" class="hidden"></video><iframe id="youtube" class="hidden" title="Player oficial do YouTube" allow="autoplay;encrypted-media;picture-in-picture;fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe><div id="overlayStatus" class="overlay-status">Selecione um card para iniciar</div></div>
-<div class="controls"><button id="retry">↻ Repetir</button><button id="switch">⇄ Trocar player</button><button id="expand">⛶ Expandir</button></div>
-<div class="diagnostic" id="diagnostic" role="status" aria-live="polite">Nenhum teste iniciado.</div>
-<p class="note">A reprodução automática do YouTube é solicitada ao selecionar o card; alguns navegadores exigem um toque adicional, especialmente para iniciar com som. O YouTube utiliza seu player oficial e pode exibir anúncios. Nem todo vídeo permite incorporação. O canal HLS depende da disponibilidade do servidor.</p></section>
-</div></main>
+:root{color-scheme:dark;--bg:#06120d;--panel:#11291e;--card:#143324;--accent:#2deb9c;--edge:#315b44;--text:#f3fff9;--muted:#b0c7b8}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:var(--bg);color:var(--text);font:15px Arial,system-ui,sans-serif}
+button,input,select{font:inherit}button{cursor:pointer;border:1px solid var(--edge);border-radius:10px;background:#183a29;color:#fff;padding:10px 13px}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #fff;outline-offset:2px}
+button.active,.primary{background:var(--accent);color:#052519;font-weight:800}
+header{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:13px 20px;border-bottom:1px solid var(--edge)}
+.brand{font-size:24px;font-weight:900}.brand span{color:var(--accent)}.brand small{display:block;font-size:11px;font-weight:400;letter-spacing:1px;color:var(--muted)}
+.actions{display:flex;gap:7px;flex-wrap:wrap}.wrap{max-width:1480px;margin:auto;padding:16px 20px}.muted{color:var(--muted)}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,36%);gap:16px;align-items:start}
+.filters{display:flex;gap:7px;overflow-x:auto;padding:5px 1px 13px;scrollbar-width:thin}.filters button{white-space:nowrap;font-size:13px}
+.searchrow{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px;flex-wrap:wrap}
+input,select{background:#0b1f15;color:white;border:1px solid #44765a;border-radius:9px;padding:11px}
+#search{width:min(100%,300px)}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:11px}
+.card{position:relative;text-align:left;background:linear-gradient(145deg,#194e35,#10261b);min-height:163px;padding:14px;display:flex;flex-direction:column;align-items:flex-start;gap:11px}
+.card strong{font-size:17px}.card small{line-height:1.4;color:#d0e8d9}.card .emoji{font-size:33px}.card.selected{border:2px solid var(--accent)}
+.card .tag{font-size:10px;border:1px solid #4a8262;padding:4px 6px;border-radius:7px;color:#b4f2d3}
+.player{background:var(--panel);border:1px solid var(--edge);border-radius:14px;overflow:hidden;position:sticky;top:12px}
+.playerhead,.controlrow{display:flex;align-items:center;justify-content:space-between;gap:6px;padding:10px;flex-wrap:wrap}
+.playerhead strong{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:70%}
+.screen{width:100%;aspect-ratio:16/9;background:#000;position:relative}
+.screen video,.screen iframe{width:100%;height:100%;border:0;display:block}.hidden{display:none!important}
+.notice{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:18px;background:#000a;pointer-events:none}
+.controlrow{justify-content:center}.controlrow button{flex:1;font-size:12px;padding:9px 6px}
+.diagnostic{font:11px/1.5 monospace;color:#9ff0c5;overflow-wrap:anywhere;padding:10px 12px;border-top:1px solid var(--edge)}
+.note{font-size:12px;line-height:1.5;padding:0 12px 10px;color:var(--muted)}
+.form{margin-top:14px;border:1px solid var(--edge);border-radius:12px;padding:13px;background:#10271b}
+.form h3{font-size:16px;margin:0 0 8px}.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.formgrid input,.formgrid select{min-width:0;width:100%}
+.form button{margin-top:8px}.footer{padding:18px 20px;text-align:center;color:var(--muted);font-size:12px}
+@media(max-width:920px){.layout{grid-template-columns:minmax(0,1fr)}.player{position:static;grid-row:1}.grid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}}
+@media(max-width:520px){header,.wrap{padding:12px}.brand{font-size:20px}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.card{min-height:140px;padding:10px}.formgrid{grid-template-columns:1fr}}
+</style></head><body>
+<header><div class="brand">STANLEY <span>TV</span><small>HÍBRIDA • LABORATÓRIO V1.2</small></div><div class="actions"><button id="tvMode">⛶ Modo TV</button><button id="stop">■ Parar</button></div></header>
+<main class="wrap">
+<p class="muted" style="margin:0 0 12px">Teste independente — YouTube incorporado + IPTV HLS. Nada é alterado nos aplicativos oficiais.</p>
+<div class="layout"><section>
+<nav id="categories" class="filters" aria-label="Categorias"></nav>
+<div class="searchrow"><input id="search" type="search" placeholder="Buscar conteúdo" aria-label="Buscar conteúdo" autocomplete="off"><span class="muted" id="count">2 conteúdos</span></div>
+<div id="cards" class="grid"></div>
+<div class="form"><h3>➕ Adicionar vídeo do YouTube ao teste</h3>
+<p class="muted" style="font-size:12px">Use links de vídeos oficiais cuja incorporação seja permitida. O cadastro fica apenas neste dispositivo.</p>
+<div class="formgrid"><input id="newName" placeholder="Nome do conteúdo" maxlength="100"><input id="newUrl" placeholder="https://youtube.com/watch?v=..." inputmode="url"><select id="newCategory" aria-label="Categoria"><option>Infantil</option><option>Esportes</option><option>Filmes</option><option>Séries</option><option>Notícias</option><option>Entretenimento</option><option>Música</option><option>Educação</option></select><button id="add" class="primary">Adicionar ao teste</button></div>
+<p class="muted" id="formStatus" role="status" style="font-size:12px"></p></div>
+</section>
+<section class="player" id="player"><div class="playerhead"><strong id="playing">Selecione um conteúdo</strong><small id="format" class="muted">Aguardando</small></div>
+<div class="screen" id="screen"><video id="video" controls playsinline preload="none" class="hidden"></video><iframe id="youtube" class="hidden" title="Player oficial do YouTube" allow="autoplay;encrypted-media;picture-in-picture;fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe><div id="videoNotice" class="notice">Selecione um card para iniciar</div></div>
+<div class="controlrow"><button id="retry">↻ Repetir</button><button id="favorite">☆ Favorito</button><button id="expand" class="primary">⛶ Expandir</button></div>
+<div id="diagnostic" class="diagnostic">Nenhum teste iniciado.</div>
+<p class="note">O YouTube pode mostrar anúncios e limitar reprodução automática. Quando permitido, o vídeo inicia ao selecionar o card. A disponibilidade de cada vídeo incorporado depende do proprietário e do YouTube.</p>
+</section></div></main><footer class="footer">STANLEY TV HÍBRIDA V1.2 · Versão de testes · Catálogo oficial não modificado</footer>
 <script>
-(function(){'use strict';
-const $=id=>document.getElementById(id);
-const contents={
- monica:{name:'Turma da Mônica',kind:'YouTube',embed:'https://www.youtube-nocookie.com/embed/MQwzkKwmIWY?playsinline=1&rel=0&autoplay=1&mute=0'},
- amazon:{name:'Amazon Sat',kind:'HLS',url:'https://amazonsat.brasilstream.com.br/hls/amazonsat/index.m3u8'}
-};
-let current=null,hls=null,sequence=0,hasPlayed=false;
+(()=>{'use strict';
+const $=id=>document.getElementById(id),KEY='stanley-hibrida-v12',categories=['Todos','Infantil','Esportes','Filmes','Séries','Notícias','Entretenimento','Música','Educação','TV ao vivo','Favoritos'];
+const fixed=[{id:'monica',name:'Turma da Mônica',category:'Infantil',type:'youtube',videoId:'MQwzkKwmIWY',icon:'🎨'}, {id:'amazon',name:'Amazon Sat',category:'TV ao vivo',type:'hls',url:'https://amazonsat.brasilstream.com.br/hls/amazonsat/index.m3u8',icon:'📡'}];
+let saved={items:[],favs:[]};try{const p=JSON.parse(localStorage.getItem(KEY)||'{}');if(Array.isArray(p.items)&&Array.isArray(p.favs))saved=p}catch{}
+let category='Todos',query='',current=null,seq=0,hls=null;const items=()=>[...fixed,...saved.items];
+const persist=()=>{try{localStorage.setItem(KEY,JSON.stringify(saved));return true}catch{$('formStatus').textContent='Sem espaço para salvar neste aparelho';return false}};
+function youtubeId(raw){try{const u=new URL(raw);if(!['youtube.com','www.youtube.com','m.youtube.com','youtube-nocookie.com','www.youtube-nocookie.com','youtu.be','www.youtu.be'].includes(u.hostname))return null;const id=u.hostname.includes('youtu.be')?u.pathname.split('/')[1]:u.pathname.startsWith('/shorts/')||u.pathname.startsWith('/live/')||u.pathname.startsWith('/embed/')?u.pathname.split('/')[2]:u.searchParams.get('v');return /^[\w-]{11}$/.test(id||'')?id:null}catch{return null}}
+function button(label,handler,active){const b=document.createElement('button');b.textContent=label;if(active)b.classList.add('active');b.onclick=handler;return b}
+function render(){const nav=$('categories');nav.replaceChildren();for(const c of categories){const n=c==='Todos'?items().length:c==='Favoritos'?saved.favs.length:items().filter(i=>i.category===c).length;if(!n&&c!=='Todos'&&c!=='Favoritos')continue;nav.append(button(c+' ('+n+')',()=>{category=c;render()},category===c))}
+ const q=query.toLocaleLowerCase('pt-BR');const list=items().filter(i=>(category==='Todos'||category==='Favoritos'&&saved.favs.includes(i.id)||i.category===category)&&i.name.toLocaleLowerCase('pt-BR').includes(q));$('count').textContent=list.length+' conteúdo(s)';const grid=$('cards');grid.replaceChildren();for(const i of list){const b=button('',()=>play(i.id));b.className='card'+(current===i.id?' selected':'');b.dataset.id=i.id;const icon=document.createElement('span');icon.className='emoji';icon.textContent=i.icon||'▶️';const title=document.createElement('strong');title.textContent=i.name;const tag=document.createElement('span');tag.className='tag';tag.textContent=i.type==='youtube'?'YouTube oficial':'HLS';const meta=document.createElement('small');meta.textContent=i.category+(saved.favs.includes(i.id)?' · ★ Favorito':'');b.append(icon,title,tag,meta);grid.append(b)}}
+function notice(msg){$('videoNotice').textContent=msg;$('videoNotice').classList.remove('hidden')}
 function log(msg){$('diagnostic').textContent=msg}
-function notice(msg){$('overlayStatus').textContent=msg;$('overlayStatus').classList.remove('hidden')}
-function clearMedia(){sequence++;if(hls){try{hls.destroy()}catch(e){}hls=null}const v=$('video');v.onplaying=null;v.onerror=null;try{v.pause();v.removeAttribute('src');v.load()}catch(e){}$('youtube').src='about:blank';$('youtube').classList.add('hidden');v.classList.add('hidden');hasPlayed=false}
-function play(id){if(!contents[id])return;current=id;const c=contents[id];clearMedia();const token=sequence;$('title').textContent=c.name;$('type').textContent=c.kind;document.querySelectorAll('.channel').forEach(b=>b.classList.toggle('selected',b.dataset.id===id));notice('Carregando '+c.name+'...');log('Iniciando '+c.kind);
- if(c.kind==='YouTube'){$('youtube').classList.remove('hidden');$('youtube').src=c.embed;$('overlayStatus').classList.add('hidden');log('YouTube: reprodução automática solicitada. Se o navegador bloquear o áudio, pressione Play uma vez.');return}
- const v=$('video');v.classList.remove('hidden');v.onplaying=()=>{if(token!==sequence)return;hasPlayed=true;$('overlayStatus').classList.add('hidden');log('HLS: vídeo reproduzindo')};v.onerror=()=>{if(token===sequence){notice('Falha do vídeo. Tente novamente.');log('HTMLMediaElement erro '+(v.error?.code||'desconhecido'))}};
- const start=()=>{if(token!==sequence)return;const attempt=v.play();if(attempt&&attempt.catch)attempt.catch(e=>{if(token===sequence){notice('Clique em reproduzir ou pressione OK no vídeo.');log('play(): '+e.name)}})};
- try{if(v.canPlayType('application/vnd.apple.mpegurl')&&/iPad|iPhone|iPod/.test(navigator.userAgent)){v.src=c.url;v.load();start()}
- else if(window.Hls&&Hls.isSupported()){const engine=new Hls({enableWorker:false,lowLatencyMode:false,maxBufferLength:18,backBufferLength:4,maxBufferSize:16*1024*1024});hls=engine;engine.on(Hls.Events.MEDIA_ATTACHED,()=>{if(token===sequence)engine.loadSource(c.url)});engine.on(Hls.Events.MANIFEST_PARSED,()=>{if(token===sequence)start()});engine.on(Hls.Events.ERROR,(_,error)=>{if(token!==sequence)return;log('HLS: '+error.details+(error.fatal?' (fatal)':''));if(error.fatal){notice('Transmissão não disponível neste navegador.');if(error.type===Hls.ErrorTypes.MEDIA_ERROR){try{engine.recoverMediaError()}catch(e){}}}});engine.attachMedia(v)}
- else if(v.canPlayType('application/vnd.apple.mpegurl')){v.src=c.url;v.load();start()}
- else{notice('Este navegador não oferece suporte a HLS.');log('HLS.js indisponível')}}catch(e){notice('Falha ao iniciar o player');log(e.message)}}
-function stop(){clearMedia();$('title').textContent='Selecione um conteúdo';$('type').textContent='Aguardando';notice('Selecione um card para iniciar');log('Player parado');document.querySelectorAll('.channel').forEach(b=>b.classList.remove('selected'))}
-document.querySelectorAll('.channel').forEach(b=>b.addEventListener('click',()=>play(b.dataset.id)));
-$('retry').onclick=()=>{if(current)play(current)};
-$('switch').onclick=()=>play(current==='amazon'?'monica':'amazon');
-$('closePlayer').onclick=stop;
-$('expand').onclick=()=>{const p=$('screen').requestFullscreen?.();if(p?.catch)p.catch(()=>log('Tela cheia não permitida pelo navegador'))};
+function clear(){seq++;if(hls){try{hls.destroy()}catch{}hls=null}const v=$('video');v.onplaying=null;v.onerror=null;try{v.pause();v.removeAttribute('src');v.load()}catch{}const y=$('youtube');y.src='about:blank';y.classList.add('hidden');v.classList.add('hidden')}
+function play(id){const c=items().find(x=>x.id===id);if(!c)return;clear();current=id;const token=seq;$('playing').textContent=c.name;$('format').textContent=c.type==='youtube'?'YouTube':'HLS';$('favorite').textContent=saved.favs.includes(id)?'★ Favorito':'☆ Favorito';notice('Carregando '+c.name+'...');render();if(c.type==='youtube'){$('youtube').classList.remove('hidden');$('youtube').src='https://www.youtube-nocookie.com/embed/'+encodeURIComponent(c.videoId)+'?playsinline=1&rel=0&autoplay=1&mute=0';$('videoNotice').classList.add('hidden');log('Player oficial do YouTube carregado. Se houver bloqueio de autoplay, pressione Play.');return}
+ const v=$('video');v.classList.remove('hidden');v.onplaying=()=>{if(token!==seq)return;$('videoNotice').classList.add('hidden');log('HLS reproduzindo')};v.onerror=()=>{if(token===seq){notice('Erro de vídeo. Tente novamente.');log('HTMLMediaElement '+(v.error?.code||'erro desconhecido'))}};
+ const start=()=>{if(token!==seq)return;try{const p=v.play();if(p?.catch)p.catch(e=>{if(token===seq){notice('Pressione Play para iniciar');log('play(): '+e.name)}})}catch(e){log(e.message)}};
+ try{if(/iPhone|iPad|iPod/i.test(navigator.userAgent)&&v.canPlayType('application/vnd.apple.mpegurl')){v.src=c.url;v.load();start()}else if(window.Hls&&Hls.isSupported()){const engine=new Hls({enableWorker:false,lowLatencyMode:false,maxBufferLength:18,backBufferLength:4,maxBufferSize:16*1024*1024});hls=engine;engine.on(Hls.Events.MEDIA_ATTACHED,()=>{if(token===seq)engine.loadSource(c.url)});engine.on(Hls.Events.MANIFEST_PARSED,()=>{if(token===seq)start()});engine.on(Hls.Events.ERROR,(_,e)=>{if(token!==seq)return;log('HLS: '+e.details+(e.fatal?' (fatal)':''));if(e.fatal){notice('Transmissão indisponível neste navegador');if(e.type===Hls.ErrorTypes.MEDIA_ERROR){try{engine.recoverMediaError()}catch{}}}});engine.attachMedia(v)}else if(v.canPlayType('application/vnd.apple.mpegurl')){v.src=c.url;v.load();start()}else notice('HLS não suportado neste navegador')}catch(e){notice('Erro ao iniciar vídeo');log(e.message)}}
+function stop(){clear();current=null;$('playing').textContent='Selecione um conteúdo';$('format').textContent='Aguardando';notice('Selecione um card para iniciar');log('Player parado');render()}
+$('retry').onclick=()=>{if(current)play(current)};$('stop').onclick=stop;
+$('favorite').onclick=()=>{if(!current)return;const k=saved.favs.indexOf(current);if(k<0)saved.favs.push(current);else saved.favs.splice(k,1);persist();$('favorite').textContent=k<0?'★ Favorito':'☆ Favorito';render()};
+$('search').oninput=e=>{query=e.target.value.trim();render()};
+$('add').onclick=()=>{const name=$('newName').value.trim(),id=youtubeId($('newUrl').value.trim()),cat=$('newCategory').value;if(!name||!id){$('formStatus').textContent='Informe nome e link válido de um vídeo do YouTube.';return}if(items().some(x=>x.videoId===id)){$('formStatus').textContent='Esse vídeo já está cadastrado neste aparelho.';return}const entry={id:'yt-'+id,name,category:cat,type:'youtube',videoId:id,icon:cat==='Infantil'?'🎨':cat==='Esportes'?'⚽':'▶️'};saved.items.push(entry);persist();category=cat;query='';$('search').value='';$('newName').value='';$('newUrl').value='';$('formStatus').textContent='Adicionado somente neste aparelho. Teste a reprodução: nem todo vídeo permite incorporação.';render()};
+$('expand').onclick=()=>{const p=$('screen').requestFullscreen?.();if(p?.catch)p.catch(()=>log('Tela cheia não autorizada'))};
 $('tvMode').onclick=()=>{if(document.fullscreenElement){document.exitFullscreen?.()}else{const p=document.documentElement.requestFullscreen?.();if(p?.catch)p.catch(()=>log('Modo TV não permitido'))}};
-// Navegação espacial por setas para controles que não oferecem navegação automática.
-document.addEventListener('keydown',e=>{if(e.key==='Escape'||e.key==='Backspace'){if(document.fullscreenElement){document.exitFullscreen?.()}else stop();e.preventDefault();return}if(!e.key.startsWith('Arrow')||e.target.tagName==='VIDEO')return;const buttons=[...document.querySelectorAll('button')].filter(b=>b.getClientRects().length);const active=document.activeElement;const a=active?.getBoundingClientRect?.();if(!buttons.includes(active)||!a){buttons[0]?.focus();e.preventDefault();return}const cx=a.left+a.width/2,cy=a.top+a.height/2;let best=null,bestScore=Infinity;for(const b of buttons){if(b===active)continue;const r=b.getBoundingClientRect(),dx=r.left+r.width/2-cx,dy=r.top+r.height/2-cy;const primary=e.key==='ArrowRight'?dx:e.key==='ArrowLeft'?-dx:e.key==='ArrowDown'?dy:-dy;if(primary<=4)continue;const secondary=e.key==='ArrowRight'||e.key==='ArrowLeft'?Math.abs(dy):Math.abs(dx),score=primary+secondary*2;if(score<bestScore){bestScore=score;best=b}}if(best){best.focus();best.scrollIntoView({block:'nearest'});e.preventDefault()}});
+// Controle remoto: setas movem foco entre botões, sem capturar digitação do campo de busca.
+document.addEventListener('keydown',e=>{if(e.key==='Escape'||e.key==='Backspace'&&e.target.tagName!=='INPUT'){if(document.fullscreenElement)document.exitFullscreen?.();else stop();e.preventDefault();return}if(!e.key.startsWith('Arrow')||['INPUT','SELECT','VIDEO'].includes(e.target.tagName))return;const bs=[...document.querySelectorAll('button')].filter(b=>b.getClientRects().length);const a=document.activeElement;if(!bs.includes(a)){bs[0]?.focus();e.preventDefault();return}const r=a.getBoundingClientRect(),x=r.left+r.width/2,y=r.top+r.height/2;let best=null,bestScore=Infinity;for(const b of bs){if(b===a)continue;const q=b.getBoundingClientRect(),dx=q.left+q.width/2-x,dy=q.top+q.height/2-y,forward=e.key==='ArrowRight'?dx:e.key==='ArrowLeft'?-dx:e.key==='ArrowDown'?dy:-dy;if(forward<=4)continue;const sideways=e.key==='ArrowRight'||e.key==='ArrowLeft'?Math.abs(dy):Math.abs(dx),score=forward+sideways*2;if(score<bestScore){bestScore=score;best=b}}if(best){best.focus();best.scrollIntoView({block:'nearest'});e.preventDefault()}});
+render();
 })();
-</script>
-</body></html>
+</script></body></html>
