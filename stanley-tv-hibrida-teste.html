@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="theme-color" content="#07140e">
+<title>STANLEY TV | Teste Híbrido V1.0</title>
+<script defer src="https://cdn.jsdelivr.net/npm/hls.js@1.6.15/dist/hls.min.js"></script>
+<style>
+:root{color-scheme:dark;--bg:#07120d;--panel:#11251b;--green:#29ec9c;--border:#355743;--text:#f6fff9;--muted:#afc6b7}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;font:16px Arial,sans-serif;background:var(--bg);color:var(--text)}
+button{font:inherit;cursor:pointer;border:1px solid var(--border);border-radius:11px;background:#193c2a;color:white;padding:12px 15px}
+button:focus-visible{outline:4px solid white;outline-offset:3px}button.active{background:var(--green);color:#082515;font-weight:800}
+header{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:17px 22px;border-bottom:1px solid var(--border);flex-wrap:wrap}
+h1{font-size:25px;margin:0;font-weight:900}h1 span{color:var(--green)}small{color:var(--muted)}
+.toolbar{display:flex;gap:8px;flex-wrap:wrap}.wrap{padding:17px 22px;max-width:1460px;margin:auto}
+.intro{font-size:14px;color:var(--muted);margin:0 0 16px}.layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,38%);gap:17px;align-items:start}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(195px,1fr));gap:13px}.channel{display:flex;align-items:flex-start;flex-direction:column;text-align:left;min-height:175px;gap:10px;padding:16px;background:linear-gradient(135deg,#204834,#0d2319)}
+.channel strong{font-size:19px}.channel .emoji{font-size:39px}.channel small{line-height:1.4}.channel.selected{border:2px solid var(--green)}
+.player{background:#10251b;border:1px solid #3c7254;border-radius:15px;overflow:hidden;position:sticky;top:12px;min-width:0}
+.player-head{padding:11px 13px;display:flex;align-items:center;justify-content:space-between;gap:6px}.player-head strong{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.screen{aspect-ratio:16/9;background:#000;position:relative}.screen video,.screen iframe{width:100%;height:100%;border:0;display:block}.hidden{display:none!important}
+.overlay-status{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none;text-align:center;padding:20px;background:#0009;font-size:14px}.overlay-status.hidden{display:none}
+.controls{display:flex;flex-wrap:wrap;gap:7px;padding:12px}.controls button{flex:1;white-space:nowrap;font-size:13px;padding:10px}
+.note{font-size:12px;line-height:1.5;color:var(--muted);padding:0 14px 12px}.diagnostic{font:12px/1.5 monospace;overflow-wrap:anywhere;border-top:1px solid var(--border);padding:9px 13px;color:#b7f6d7}
+@media(max-width:850px){.layout{grid-template-columns:minmax(0,1fr)}.player{position:static;grid-row:1}.cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:480px){header,.wrap{padding:12px}.cards{gap:9px}.channel{min-height:140px;padding:11px}.channel strong{font-size:16px}.channel .emoji{font-size:30px}}
+</style>
+</head>
+<body>
+<header><div><h1>STANLEY <span>TV</span></h1><small>LABORATÓRIO HÍBRIDO • V1.0</small></div><div class="toolbar"><button id="tvMode">⛶ Tela TV</button><button id="closePlayer">■ Parar</button></div></header>
+<main class="wrap"><p class="intro">Teste independente: um canal HLS e um vídeo do YouTube no mesmo mini player. Não altera os aplicativos oficiais.</p>
+<div class="layout">
+<section><h2>Escolha o conteúdo</h2><div class="cards" id="cards">
+<button class="channel" data-id="monica"><span class="emoji">🎨</span><strong>Turma da Mônica</strong><small>Infantil • YouTube oficial incorporado</small></button>
+<button class="channel" data-id="amazon"><span class="emoji">📡</span><strong>Amazon Sat</strong><small>TV ao vivo • Transmissão HLS</small></button>
+</div><p class="intro" style="margin-top:16px">Na TV Box: use as setas e OK para selecionar; os botões do player também aceitam controle remoto.</p></section>
+<section class="player" id="player"><div class="player-head"><strong id="title">Selecione um conteúdo</strong><small id="type">Aguardando</small></div>
+<div class="screen" id="screen"><video id="video" controls playsinline preload="none" class="hidden"></video><iframe id="youtube" class="hidden" title="Player oficial do YouTube" allow="autoplay;encrypted-media;picture-in-picture;fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe><div id="overlayStatus" class="overlay-status">Selecione um card para iniciar</div></div>
+<div class="controls"><button id="retry">↻ Repetir</button><button id="switch">⇄ Trocar player</button><button id="expand">⛶ Expandir</button></div>
+<div class="diagnostic" id="diagnostic" role="status" aria-live="polite">Nenhum teste iniciado.</div>
+<p class="note">O YouTube utiliza seu player oficial e pode exibir anúncios. Nem todo vídeo permite incorporação. O canal HLS depende da disponibilidade do servidor.</p></section>
+</div></main>
+<script>
+(function(){'use strict';
+const $=id=>document.getElementById(id);
+const contents={
+ monica:{name:'Turma da Mônica',kind:'YouTube',embed:'https://www.youtube-nocookie.com/embed/MQwzkKwmIWY?playsinline=1&rel=0'},
+ amazon:{name:'Amazon Sat',kind:'HLS',url:'https://amazonsat.brasilstream.com.br/hls/amazonsat/index.m3u8'}
+};
+let current=null,hls=null,sequence=0,hasPlayed=false;
+function log(msg){$('diagnostic').textContent=msg}
+function notice(msg){$('overlayStatus').textContent=msg;$('overlayStatus').classList.remove('hidden')}
+function clearMedia(){sequence++;if(hls){try{hls.destroy()}catch(e){}hls=null}const v=$('video');v.onplaying=null;v.onerror=null;try{v.pause();v.removeAttribute('src');v.load()}catch(e){}$('youtube').src='about:blank';$('youtube').classList.add('hidden');v.classList.add('hidden');hasPlayed=false}
+function play(id){if(!contents[id])return;current=id;const c=contents[id];clearMedia();const token=sequence;$('title').textContent=c.name;$('type').textContent=c.kind;document.querySelectorAll('.channel').forEach(b=>b.classList.toggle('selected',b.dataset.id===id));notice('Carregando '+c.name+'...');log('Iniciando '+c.kind);
+ if(c.kind==='YouTube'){$('youtube').classList.remove('hidden');$('youtube').src=c.embed;$('overlayStatus').classList.add('hidden');log('Player oficial do YouTube carregado. Reprodução deve ser confirmada visualmente.');return}
+ const v=$('video');v.classList.remove('hidden');v.onplaying=()=>{if(token!==sequence)return;hasPlayed=true;$('overlayStatus').classList.add('hidden');log('HLS: vídeo reproduzindo')};v.onerror=()=>{if(token===sequence){notice('Falha do vídeo. Tente novamente.');log('HTMLMediaElement erro '+(v.error?.code||'desconhecido'))}};
+ const start=()=>{if(token!==sequence)return;const attempt=v.play();if(attempt&&attempt.catch)attempt.catch(e=>{if(token===sequence){notice('Clique em reproduzir ou pressione OK no vídeo.');log('play(): '+e.name)}})};
+ try{if(v.canPlayType('application/vnd.apple.mpegurl')&&/iPad|iPhone|iPod/.test(navigator.userAgent)){v.src=c.url;v.load();start()}
+ else if(window.Hls&&Hls.isSupported()){const engine=new Hls({enableWorker:false,lowLatencyMode:false,maxBufferLength:18,backBufferLength:4,maxBufferSize:16*1024*1024});hls=engine;engine.on(Hls.Events.MEDIA_ATTACHED,()=>{if(token===sequence)engine.loadSource(c.url)});engine.on(Hls.Events.MANIFEST_PARSED,()=>{if(token===sequence)start()});engine.on(Hls.Events.ERROR,(_,error)=>{if(token!==sequence)return;log('HLS: '+error.details+(error.fatal?' (fatal)':''));if(error.fatal){notice('Transmissão não disponível neste navegador.');if(error.type===Hls.ErrorTypes.MEDIA_ERROR){try{engine.recoverMediaError()}catch(e){}}}});engine.attachMedia(v)}
+ else if(v.canPlayType('application/vnd.apple.mpegurl')){v.src=c.url;v.load();start()}
+ else{notice('Este navegador não oferece suporte a HLS.');log('HLS.js indisponível')}}catch(e){notice('Falha ao iniciar o player');log(e.message)}}
+function stop(){clearMedia();$('title').textContent='Selecione um conteúdo';$('type').textContent='Aguardando';notice('Selecione um card para iniciar');log('Player parado');document.querySelectorAll('.channel').forEach(b=>b.classList.remove('selected'))}
+document.querySelectorAll('.channel').forEach(b=>b.addEventListener('click',()=>play(b.dataset.id)));
+$('retry').onclick=()=>{if(current)play(current)};
+$('switch').onclick=()=>play(current==='amazon'?'monica':'amazon');
+$('closePlayer').onclick=stop;
+$('expand').onclick=()=>{const p=$('screen').requestFullscreen?.();if(p?.catch)p.catch(()=>log('Tela cheia não permitida pelo navegador'))};
+$('tvMode').onclick=()=>{if(document.fullscreenElement){document.exitFullscreen?.()}else{const p=document.documentElement.requestFullscreen?.();if(p?.catch)p.catch(()=>log('Modo TV não permitido'))}};
+// Navegação espacial por setas para controles que não oferecem navegação automática.
+document.addEventListener('keydown',e=>{if(e.key==='Escape'||e.key==='Backspace'){if(document.fullscreenElement){document.exitFullscreen?.()}else stop();e.preventDefault();return}if(!e.key.startsWith('Arrow')||e.target.tagName==='VIDEO')return;const buttons=[...document.querySelectorAll('button')].filter(b=>b.getClientRects().length);const active=document.activeElement;const a=active?.getBoundingClientRect?.();if(!buttons.includes(active)||!a){buttons[0]?.focus();e.preventDefault();return}const cx=a.left+a.width/2,cy=a.top+a.height/2;let best=null,bestScore=Infinity;for(const b of buttons){if(b===active)continue;const r=b.getBoundingClientRect(),dx=r.left+r.width/2-cx,dy=r.top+r.height/2-cy;const primary=e.key==='ArrowRight'?dx:e.key==='ArrowLeft'?-dx:e.key==='ArrowDown'?dy:-dy;if(primary<=4)continue;const secondary=e.key==='ArrowRight'||e.key==='ArrowLeft'?Math.abs(dy):Math.abs(dx),score=primary+secondary*2;if(score<bestScore){bestScore=score;best=b}}if(best){best.focus();best.scrollIntoView({block:'nearest'});e.preventDefault()}});
+})();
+</script>
+</body></html>
