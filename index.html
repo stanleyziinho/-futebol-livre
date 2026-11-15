@@ -3425,6 +3425,31 @@ const ESPN_STANDINGS =
 
 
 const LEAGUES = [
+  
+/* STANLEY SPORTS V62
+   AMPLIACAO DE COMPETICOES
+   Preserva as ligas existentes.
+*/
+
+[
+  {
+    slug: "uefa.nations",
+    name: "UEFA Nations League",
+    brazil: false
+  },
+  {
+    slug: "fifa.friendly",
+    name: "Amistosos de Seleções",
+    brazil: false
+  }
+].forEach(league => {
+  if (!LEAGUES.some(
+    atual => atual.slug === league.slug
+  )) {
+    LEAGUES.push(league);
+  }
+});
+
 
   {
     slug:"bra.1",
