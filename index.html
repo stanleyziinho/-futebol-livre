@@ -18912,5 +18912,176 @@ if(document.readyState==='loading'){
 </style>
 <!-- FIM V61.2 -->
 
+<!-- STANLEY SPORTS V62.1 - JOGOS ENCERRADOS -->
+<style>
+#ss621-results {
+  margin:18px 0;
+  padding:0;
+  border:1px solid #286d43;
+  border-radius:18px;
+  background:linear-gradient(135deg,#123724,#081b11);
+  overflow:hidden;
+}
+#ss621-results summary {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  padding:18px;
+  cursor:pointer;
+  list-style:none;
+}
+#ss621-results summary::-webkit-details-marker {
+  display:none;
+}
+#ss621-results .ss621-title {
+  color:#fff;
+  font-size:18px;
+  font-weight:900;
+}
+#ss621-results .ss621-info {
+  display:block;
+  color:#abc9b3;
+  font-size:12px;
+  margin-top:5px;
+}
+#ss621-results .ss621-icon {
+  font-size:23px;
+  color:#3ae783;
+}
+#ss621-results[open] .ss621-icon {
+  transform:rotate(180deg);
+}
+#ss621-results .ss621-body {
+  padding:0 12px 15px;
+}
+#ss621-results .ss621-empty {
+  padding:15px;
+  color:#b7cdbc;
+  text-align:center;
+  font-size:13px;
+}
+#ss621-refresh {
+  width:100%;
+  padding:12px;
+  margin-bottom:12px;
+  border:1px solid #2e8950;
+  background:#173d29;
+  color:#fff;
+  border-radius:10px;
+  font-weight:800;
+}
+</style>
+
+<script>
+(function(){
+  'use strict';
+
+  if(window.__stanleyResults621)return;
+  window.__stanleyResults621=true;
+
+  function mostrarResultados(){
+    const destino=document.getElementById(
+      'ss621-results-list'
+    );
+
+    if(!destino)return;
+
+    if(
+      typeof allGames==='undefined' ||
+      !Array.isArray(allGames) ||
+      typeof gameState!=='function' ||
+      typeof renderGames!=='function'
+    ){
+      destino.innerHTML=
+        '<div class="ss621-empty">'+
+        'Resultados ainda indisponíveis.'+
+        '</div>';
+      return;
+    }
+
+    const encerrados=allGames
+      .filter(jogo=>gameState(jogo)==='finished')
+      .sort((a,b)=>new Date(b.date)-new Date(a.date))
+      .slice(0,12);
+
+    const info=document.getElementById(
+      'ss621-results-info'
+    );
+
+    if(info){
+      info.textContent=encerrados.length
+        ? encerrados.length+' resultados disponíveis'
+        : 'Nenhum resultado disponível no momento';
+    }
+
+    renderGames(encerrados,'ss621-results-list');
+  }
+
+  function iniciar(){
+    const principal=document.getElementById(
+      'viewJogos'
+    );
+    const jogos=document.getElementById(
+      'gamesSection'
+    );
+
+    if(!principal||!jogos)return;
+    if(document.getElementById('ss621-results'))return;
+
+    const card=document.createElement('details');
+    card.id='ss621-results';
+
+    card.innerHTML=`
+      <summary>
+        <div>
+          <div class="ss621-title">
+            🏁 Jogos encerrados
+          </div>
+          <span
+            class="ss621-info"
+            id="ss621-results-info"
+          >
+            Toque para consultar os resultados
+          </span>
+        </div>
+        <span class="ss621-icon">⌄</span>
+      </summary>
+
+      <div class="ss621-body">
+        <button
+          id="ss621-refresh"
+          type="button"
+        >
+          ↻ Atualizar resultados
+        </button>
+        <div
+          id="ss621-results-list"
+          class="games"
+        ></div>
+      </div>
+    `;
+
+    jogos.insertAdjacentElement('beforebegin',card);
+
+    card.addEventListener('toggle',()=>{
+      if(card.open)mostrarResultados();
+    });
+
+    card.querySelector('#ss621-refresh')
+      .addEventListener('click',mostrarResultados);
+  }
+
+  if(document.readyState==='loading'){
+    document.addEventListener(
+      'DOMContentLoaded',iniciar,{once:true}
+    );
+  }else{
+    iniciar();
+  }
+})();
+</script>
+<!-- FIM STANLEY SPORTS V62.1 -->
+
 </body>
 </html>
