@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="theme-color" content="#07140e">
-<title>STANLEY TV | Teste Híbrido V1.0</title>
+<title>STANLEY TV | Teste Híbrido V1.1</title>
 <script defer src="https://cdn.jsdelivr.net/npm/hls.js@1.6.15/dist/hls.min.js"></script>
 <style>
 :root{color-scheme:dark;--bg:#07120d;--panel:#11251b;--green:#29ec9c;--border:#355743;--text:#f6fff9;--muted:#afc6b7}
@@ -29,7 +29,7 @@ h1{font-size:25px;margin:0;font-weight:900}h1 span{color:var(--green)}small{colo
 </style>
 </head>
 <body>
-<header><div><h1>STANLEY <span>TV</span></h1><small>LABORATÓRIO HÍBRIDO • V1.0</small></div><div class="toolbar"><button id="tvMode">⛶ Tela TV</button><button id="closePlayer">■ Parar</button></div></header>
+<header><div><h1>STANLEY <span>TV</span></h1><small>LABORATÓRIO HÍBRIDO • V1.1</small></div><div class="toolbar"><button id="tvMode">⛶ Tela TV</button><button id="closePlayer">■ Parar</button></div></header>
 <main class="wrap"><p class="intro">Teste independente: um canal HLS e um vídeo do YouTube no mesmo mini player. Não altera os aplicativos oficiais.</p>
 <div class="layout">
 <section><h2>Escolha o conteúdo</h2><div class="cards" id="cards">
@@ -40,13 +40,13 @@ h1{font-size:25px;margin:0;font-weight:900}h1 span{color:var(--green)}small{colo
 <div class="screen" id="screen"><video id="video" controls playsinline preload="none" class="hidden"></video><iframe id="youtube" class="hidden" title="Player oficial do YouTube" allow="autoplay;encrypted-media;picture-in-picture;fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe><div id="overlayStatus" class="overlay-status">Selecione um card para iniciar</div></div>
 <div class="controls"><button id="retry">↻ Repetir</button><button id="switch">⇄ Trocar player</button><button id="expand">⛶ Expandir</button></div>
 <div class="diagnostic" id="diagnostic" role="status" aria-live="polite">Nenhum teste iniciado.</div>
-<p class="note">O YouTube utiliza seu player oficial e pode exibir anúncios. Nem todo vídeo permite incorporação. O canal HLS depende da disponibilidade do servidor.</p></section>
+<p class="note">A reprodução automática do YouTube é solicitada ao selecionar o card; alguns navegadores exigem um toque adicional, especialmente para iniciar com som. O YouTube utiliza seu player oficial e pode exibir anúncios. Nem todo vídeo permite incorporação. O canal HLS depende da disponibilidade do servidor.</p></section>
 </div></main>
 <script>
 (function(){'use strict';
 const $=id=>document.getElementById(id);
 const contents={
- monica:{name:'Turma da Mônica',kind:'YouTube',embed:'https://www.youtube-nocookie.com/embed/MQwzkKwmIWY?playsinline=1&rel=0'},
+ monica:{name:'Turma da Mônica',kind:'YouTube',embed:'https://www.youtube-nocookie.com/embed/MQwzkKwmIWY?playsinline=1&rel=0&autoplay=1&mute=0'},
  amazon:{name:'Amazon Sat',kind:'HLS',url:'https://amazonsat.brasilstream.com.br/hls/amazonsat/index.m3u8'}
 };
 let current=null,hls=null,sequence=0,hasPlayed=false;
@@ -54,7 +54,7 @@ function log(msg){$('diagnostic').textContent=msg}
 function notice(msg){$('overlayStatus').textContent=msg;$('overlayStatus').classList.remove('hidden')}
 function clearMedia(){sequence++;if(hls){try{hls.destroy()}catch(e){}hls=null}const v=$('video');v.onplaying=null;v.onerror=null;try{v.pause();v.removeAttribute('src');v.load()}catch(e){}$('youtube').src='about:blank';$('youtube').classList.add('hidden');v.classList.add('hidden');hasPlayed=false}
 function play(id){if(!contents[id])return;current=id;const c=contents[id];clearMedia();const token=sequence;$('title').textContent=c.name;$('type').textContent=c.kind;document.querySelectorAll('.channel').forEach(b=>b.classList.toggle('selected',b.dataset.id===id));notice('Carregando '+c.name+'...');log('Iniciando '+c.kind);
- if(c.kind==='YouTube'){$('youtube').classList.remove('hidden');$('youtube').src=c.embed;$('overlayStatus').classList.add('hidden');log('Player oficial do YouTube carregado. Reprodução deve ser confirmada visualmente.');return}
+ if(c.kind==='YouTube'){$('youtube').classList.remove('hidden');$('youtube').src=c.embed;$('overlayStatus').classList.add('hidden');log('YouTube: reprodução automática solicitada. Se o navegador bloquear o áudio, pressione Play uma vez.');return}
  const v=$('video');v.classList.remove('hidden');v.onplaying=()=>{if(token!==sequence)return;hasPlayed=true;$('overlayStatus').classList.add('hidden');log('HLS: vídeo reproduzindo')};v.onerror=()=>{if(token===sequence){notice('Falha do vídeo. Tente novamente.');log('HTMLMediaElement erro '+(v.error?.code||'desconhecido'))}};
  const start=()=>{if(token!==sequence)return;const attempt=v.play();if(attempt&&attempt.catch)attempt.catch(e=>{if(token===sequence){notice('Clique em reproduzir ou pressione OK no vídeo.');log('play(): '+e.name)}})};
  try{if(v.canPlayType('application/vnd.apple.mpegurl')&&/iPad|iPhone|iPod/.test(navigator.userAgent)){v.src=c.url;v.load();start()}
@@ -72,4 +72,4 @@ $('tvMode').onclick=()=>{if(document.fullscreenElement){document.exitFullscreen?
 document.addEventListener('keydown',e=>{if(e.key==='Escape'||e.key==='Backspace'){if(document.fullscreenElement){document.exitFullscreen?.()}else stop();e.preventDefault();return}if(!e.key.startsWith('Arrow')||e.target.tagName==='VIDEO')return;const buttons=[...document.querySelectorAll('button')].filter(b=>b.getClientRects().length);const active=document.activeElement;const a=active?.getBoundingClientRect?.();if(!buttons.includes(active)||!a){buttons[0]?.focus();e.preventDefault();return}const cx=a.left+a.width/2,cy=a.top+a.height/2;let best=null,bestScore=Infinity;for(const b of buttons){if(b===active)continue;const r=b.getBoundingClientRect(),dx=r.left+r.width/2-cx,dy=r.top+r.height/2-cy;const primary=e.key==='ArrowRight'?dx:e.key==='ArrowLeft'?-dx:e.key==='ArrowDown'?dy:-dy;if(primary<=4)continue;const secondary=e.key==='ArrowRight'||e.key==='ArrowLeft'?Math.abs(dy):Math.abs(dx),score=primary+secondary*2;if(score<bestScore){bestScore=score;best=b}}if(best){best.focus();best.scrollIntoView({block:'nearest'});e.preventDefault()}});
 })();
 </script>
-</body></html> 
+</body></html>
