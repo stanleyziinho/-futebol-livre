@@ -1,0 +1,220 @@
+name: Stanley TV - Comedy Central
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '35 12 * * *'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: stanley-comedy-central
+  cancel-in-progress: false
+
+jobs:
+  atualizar:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Baixar repositorio
+        uses: actions/checkout@v4
+
+      - name: Importar playlists Comedy Central
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+        run: |
+          python3 - <<'PY'
+          import os
+          import json
+          import sys
+          import urllib.parse
+          import urllib.request
+          import urllib.error
+          from pathlib import Path
+          from datetime import datetime, timezone
+
+          KEY = os.environ.get('YOUTUBE_API_KEY', '').strip()
+
+          if not KEY:
+              sys.exit('Secret YOUTUBE_API_KEY nao configurado')
+
+          BASE = 'https://www.googleapis.com/youtube/v3/'
+
+          def api(endpoint, **params):
+              params['key'] = KEY
+              url = BASE + endpoint + '?' + urllib.parse.urlencode(params)
+              try:
+                  with urllib.request.urlopen(url, timeout=35) as r:
+                      return json.load(r)
+              except urllib.error.HTTPError as e:
+                  raise RuntimeError(
+                      'YouTube API HTTP ' + str(e.code)
+                  ) from None
+
+          def paginas(endpoint, **params):
+              token = None
+              while True:
+                  args = dict(params)
+                  if token:
+                      args['pageToken'] = token
+
+                  resultado = api(endpoint, **args)
+
+                  for item in resultado.get('items', []):
+                      yield item
+
+                  token = resultado.get('nextPageToken')
+                  if not token:
+                      break
+
+          canal = api(
+              'channels',
+              part='id,snippet',
+              forHandle='@comedycentralbr'
+          )
+
+          encontrados = canal.get('items', [])
+
+          if not encontrados:
+              sys.exit('Canal Comedy Central nao localizado')
+
+          channel_id = encontrados[0]['id']
+
+          playlists = list(paginas(
+              'playlists',
+              part='snippet,status',
+              channelId=channel_id,
+              maxResults=50
+          ))
+
+          print('Playlists encontradas:', len(playlists))
+
+          playlist_info = []
+          referencias = {}
+
+          for playlist in playlists:
+              pid = playlist['id']
+              titulo = playlist.get(
+                  'snippet', {}
+              ).get('title', 'Comedy Central')
+
+              playlist_info.append({
+                  'id': pid,
+                  'name': titulo
+              })
+
+              for item in paginas(
+                  'playlistItems',
+                  part='contentDetails',
+                  playlistId=pid,
+                  maxResults=50
+              ):
+                  vid = item.get(
+                      'contentDetails', {}
+                  ).get('videoId')
+
+                  if vid:
+                      referencias.setdefault(vid, []).append({
+                          'id': pid,
+                          'name': titulo
+                      })
+
+          print('Videos unicos encontrados:', len(referencias))
+
+          ids = list(referencias)
+          videos = []
+
+          for inicio in range(0, len(ids), 50):
+              lote = ids[inicio:inicio+50]
+
+              resposta = api(
+                  'videos',
+                  part='snippet,status',
+                  id=','.join(lote),
+                  maxResults=50
+              )
+
+              for video in resposta.get('items', []):
+                  sn = video.get('snippet', {})
+                  st = video.get('status', {})
+                  vid = video['id']
+
+                  if st.get('privacyStatus') != 'public':
+                      continue
+
+                  if st.get('embeddable') is not True:
+                      continue
+
+                  if sn.get('channelId') != channel_id:
+                      continue
+
+                  titulo = sn.get('title', '').strip()
+                  if not titulo:
+                      continue
+
+                  videos.append({
+                      'id': 'comedy-' + vid,
+                      'name': titulo,
+                      'category': 'Comedy Central',
+                      'type': 'youtube',
+                      'videoId': vid,
+                      'source': 'youtube',
+                      'channel': 'Comedy Central Brasil',
+                      'playlists': referencias[vid],
+                      'thumbnail':
+                          'https://i.ytimg.com/vi/' +
+                          vid + '/hqdefault.jpg',
+                      'publishedAt': sn.get('publishedAt', '')
+                  })
+
+          videos.sort(
+              key=lambda x: x['publishedAt'],
+              reverse=True
+          )
+
+          resultado = {
+              'version': 1,
+              'source': 'Comedy Central Brasil',
+              'channelId': channel_id,
+              'updatedAt': datetime.now(
+                  timezone.utc
+              ).isoformat(),
+              'playlistCount': len(playlist_info),
+              'playlists': playlist_info,
+              'count': len(videos),
+              'items': videos
+          }
+
+          if not videos:
+              sys.exit(
+                  'Nenhum video publico incorporavel; '
+                  'catalogo anterior preservado'
+              )
+
+          Path('stanley-comedy-central.json').write_text(
+              json.dumps(
+                  resultado,
+                  ensure_ascii=False,
+                  indent=2
+              ) + '\n',
+              encoding='utf-8'
+          )
+
+          print('Videos importados:', len(videos))
+          PY
+
+      - name: Salvar catalogo no GitHub
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add stanley-comedy-central.json
+
+          if git diff --cached --quiet; then
+            echo "Catalogo sem alteracoes"
+          else
+            git commit -m "Atualizar Comedy Central"
+            git pull --rebase origin "${GITHUB_REF_NAME}"
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+          fi
