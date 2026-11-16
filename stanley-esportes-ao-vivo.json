@@ -1,9 +1,22 @@
 {
   "version": 2,
   "source": "YouTube Data API - esportes ao vivo",
-  "updatedAt": "2026-11-16T12:07:13.944982+00:00",
-  "count": 11,
+  "updatedAt": "2026-11-16T13:20:03.292890+00:00",
+  "count": 17,
   "items": [
+    {
+      "id": "esporte-live-b5MuSftI2Mc",
+      "name": "🇸🇩 SUDÃO X SENEGAL 🇸🇳 | AO VIVO | ELIMINATÓRIAS DA COPA AFRICANA DE NAÇÕES 2027",
+      "category": "Jogos ao Vivo",
+      "type": "youtube",
+      "videoId": "b5MuSftI2Mc",
+      "source": "youtube",
+      "channel": "Cartaxo Sports",
+      "modality": "Futebol",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/b5MuSftI2Mc/hqdefault.jpg",
+      "startedAt": "2026-11-16T12:57:13Z"
+    },
     {
       "id": "esporte-live-U7_igiVbSX8",
       "name": "Tupelo vs Roff | LIVE Basketball High School @Oklahoma | 17-Nov 2026",
@@ -16,19 +29,6 @@
       "liveStatus": "live",
       "thumbnail": "https://i.ytimg.com/vi/U7_igiVbSX8/hqdefault.jpg",
       "startedAt": "2026-09-26T18:03:20Z"
-    },
-    {
-      "id": "esporte-live-OeNjQb4QsFA",
-      "name": "AO VIVO: CRUZEIRO NC X SÃO PAULO NC BRASILEIRÃO GOLKIPER 2026 | 4º RODADA | JOGO 3º",
-      "category": "Jogos ao Vivo",
-      "type": "youtube",
-      "videoId": "OeNjQb4QsFA",
-      "source": "youtube",
-      "channel": "NC TRAINING - UNIDADE STADIUM",
-      "modality": "Futebol",
-      "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/OeNjQb4QsFA/hqdefault.jpg",
-      "startedAt": "2026-11-16T10:06:22Z"
     },
     {
       "id": "esporte-live-BVowoZygOmo",
@@ -44,30 +44,43 @@
       "startedAt": "2026-11-16T11:45:44Z"
     },
     {
-      "id": "esporte-live-oDGw8aCMdWo",
-      "name": "🔴 AO VIVO | MONTENEGRO SUB-21 x BÓSNIA E HERZEGOVINA SUB-21 | JOGOS AMISTOSOS⚽🔥 | RADAR DO JOGO",
+      "id": "esporte-live-6k8gwkE88J4",
+      "name": "GRÊMIO SE PREPARA PARA JOGO DECISIVO E RENATO VAI FALAR | COMO É BOM SER DO GRÊMIO #86",
       "category": "Jogos ao Vivo",
       "type": "youtube",
-      "videoId": "oDGw8aCMdWo",
+      "videoId": "6k8gwkE88J4",
+      "source": "youtube",
+      "channel": "Rádio Imortal",
+      "modality": "Futsal",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/6k8gwkE88J4/hqdefault.jpg",
+      "startedAt": "2026-11-16T13:01:33Z"
+    },
+    {
+      "id": "esporte-live-BHTxLEFMN6s",
+      "name": "🔴 AO VIVO | PAYSANDU-PA x PONTE NOVA SUB-20 | BRA CP U20 ⚽🔥 | RADAR DO JOGO",
+      "category": "Jogos ao Vivo",
+      "type": "youtube",
+      "videoId": "BHTxLEFMN6s",
       "source": "youtube",
       "channel": "Sr. Antony Oficial",
       "modality": "Futebol",
       "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/oDGw8aCMdWo/hqdefault.jpg",
-      "startedAt": "2026-11-16T10:29:49Z"
+      "thumbnail": "https://i.ytimg.com/vi/BHTxLEFMN6s/hqdefault.jpg",
+      "startedAt": "2026-11-16T12:39:47Z"
     },
     {
-      "id": "esporte-live-UDkj-8MCj_A",
-      "name": "🔴 AO VIVO | UZBEQUISTÃO SUB-20 x VENEZUELA SUB-20 | JOGOS AMISTOSOS ⚽🔥 | RADAR DO JOGO",
+      "id": "esporte-live-n_aO2xgGHV0",
+      "name": "🔴 AO VIVO | TAPAJÓS-PA SUB-20 x REMO SUB-20 | BRA CP U20 ⚽🔥 | RADAR DO JOGO",
       "category": "Jogos ao Vivo",
       "type": "youtube",
-      "videoId": "UDkj-8MCj_A",
+      "videoId": "n_aO2xgGHV0",
       "source": "youtube",
       "channel": "Sr. Antony Oficial",
-      "modality": "Futsal",
+      "modality": "Futebol",
       "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/UDkj-8MCj_A/hqdefault.jpg",
-      "startedAt": "2026-11-16T10:37:12Z"
+      "thumbnail": "https://i.ytimg.com/vi/n_aO2xgGHV0/hqdefault.jpg",
+      "startedAt": "2026-11-16T12:42:07Z"
     },
     {
       "id": "esporte-live--W5k-EQFNPM",
@@ -81,6 +94,71 @@
       "liveStatus": "live",
       "thumbnail": "https://i.ytimg.com/vi/-W5k-EQFNPM/hqdefault.jpg",
       "startedAt": "2026-10-21T14:12:07Z"
+    },
+    {
+      "id": "esporte-live-BNsw5y26_FQ",
+      "name": "🔴 OBRAS VENCE REMO NO FUTSAL | PAYSANDU BUSCA REFORÇOS | REMO X CHAPECOENSE",
+      "category": "Jogos ao Vivo",
+      "type": "youtube",
+      "videoId": "BNsw5y26_FQ",
+      "source": "youtube",
+      "channel": "voxesporte / Fala, Abner!",
+      "modality": "Futebol",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/BNsw5y26_FQ/hqdefault.jpg",
+      "startedAt": "2026-11-16T13:05:25Z"
+    },
+    {
+      "id": "esporte-live-TWSHhUoOI1g",
+      "name": "BOM DIA ESPORTE: RONALDINHO GAÚCHO VOLTOU! BRASIL PERDE, UFC 334, NBA, CR7 x JJ  E CORINTHIANS!",
+      "category": "Programas Esportivos",
+      "type": "youtube",
+      "videoId": "TWSHhUoOI1g",
+      "source": "youtube",
+      "channel": "Coy Esportes",
+      "modality": "Futebol",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/TWSHhUoOI1g/hqdefault.jpg",
+      "startedAt": "2026-11-16T12:30:23Z"
+    },
+    {
+      "id": "esporte-live-y1FKr1YGfxg",
+      "name": "BOM DIA ESPORTE: RONALDINHO GAÚCHO VOLTOU! BRASIL PERDE, UFC 334, NBA, CR7 x JJ  E CORINTHIANS! 📱",
+      "category": "Programas Esportivos",
+      "type": "youtube",
+      "videoId": "y1FKr1YGfxg",
+      "source": "youtube",
+      "channel": "Coy Esportes",
+      "modality": "Futebol",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/y1FKr1YGfxg/hqdefault.jpg",
+      "startedAt": "2026-11-16T12:30:25Z"
+    },
+    {
+      "id": "esporte-live-drLhGmbmha0",
+      "name": "BOM DIA ESPORTE: RONALDINHO GAÚCHO VOLTOU! BRASIL PERDE, UFC 334, NBA, CR7 x JJ  E CORINTHIANS!",
+      "category": "Programas Esportivos",
+      "type": "youtube",
+      "videoId": "drLhGmbmha0",
+      "source": "youtube",
+      "channel": "Coy o Corintiano",
+      "modality": "Futebol",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/drLhGmbmha0/hqdefault.jpg",
+      "startedAt": "2026-11-16T12:30:23Z"
+    },
+    {
+      "id": "esporte-live-NAKHg8XvYcg",
+      "name": "BOM DIA ESPORTE: RONALDINHO GAÚCHO VOLTOU! BRASIL PERDE, UFC 334, NBA, CR7 x JJ  E CORINTHIANS! 📱",
+      "category": "Programas Esportivos",
+      "type": "youtube",
+      "videoId": "NAKHg8XvYcg",
+      "source": "youtube",
+      "channel": "Coy o Corintiano",
+      "modality": "Futebol",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/NAKHg8XvYcg/hqdefault.jpg",
+      "startedAt": "2026-11-16T12:30:24Z"
     },
     {
       "id": "esporte-live-ADWI_yx6WxM",
@@ -109,17 +187,17 @@
       "startedAt": "2026-11-16T12:02:57Z"
     },
     {
-      "id": "esporte-live-QR6tWUah9a0",
-      "name": "🚨ÚLTIMAS NOTÍCIAS DO FLAMENGO | AO VIVO",
+      "id": "esporte-live-wuxaWtTsPJc",
+      "name": "COLORADAS CAMPEÃS | JU NA SÉRIE A | VASCO ESCAPOU E MIRASSOL SE LASCOU? | SEGUE O FIO | 16/11/2026",
       "category": "Programas Esportivos",
       "type": "youtube",
-      "videoId": "QR6tWUah9a0",
+      "videoId": "wuxaWtTsPJc",
       "source": "youtube",
-      "channel": "LEO ANDRADE",
+      "channel": "Gaúcha Esportes",
       "modality": "Futebol",
       "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/QR6tWUah9a0/hqdefault.jpg",
-      "startedAt": "2026-11-16T11:01:02Z"
+      "thumbnail": "https://i.ytimg.com/vi/wuxaWtTsPJc/hqdefault.jpg",
+      "startedAt": "2026-11-16T12:44:30Z"
     },
     {
       "id": "esporte-live-NRvGqpq699c",
@@ -135,17 +213,17 @@
       "startedAt": "2026-09-18T11:03:24Z"
     },
     {
-      "id": "esporte-live-aLX0HhtEleU",
-      "name": "CAFÉ COM A IMORTAL #66 — GRÊMIO FAZ ÚLTIMOS AJUSTES ANTES DA RETA FINAL DO BRASILEIRÃO",
+      "id": "esporte-live-A8wGwGE2qzY",
+      "name": "🔴 GOLEIRO NO RADAR DO FLAMENGO? I ÚLTIMOS TREINOS ANTES DA VOLTA DO BRASILEIRÃO",
       "category": "Programas Esportivos",
       "type": "youtube",
-      "videoId": "aLX0HhtEleU",
+      "videoId": "A8wGwGE2qzY",
       "source": "youtube",
-      "channel": "Rádio Imortal",
-      "modality": "Futsal",
+      "channel": "Placar Rubro-Negro",
+      "modality": "Futebol",
       "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/aLX0HhtEleU/hqdefault.jpg",
-      "startedAt": "2026-11-16T10:31:56Z"
+      "thumbnail": "https://i.ytimg.com/vi/A8wGwGE2qzY/hqdefault.jpg",
+      "startedAt": "2026-11-16T12:16:04Z"
     }
   ]
 }
