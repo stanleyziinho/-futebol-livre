@@ -20,7 +20,7 @@ button,input{font:inherit}button{cursor:pointer;color:inherit;border:1px solid v
 </style></head><body>
 <div id="shade" class="shade"></div><div id="shell" class="shell">
 <aside class="side"><div class="brand">▶ STANLEY <b>TV</b><small>HÍBRIDA · V1.5</small></div><nav class="menu" id="menu" aria-label="Navegação"></nav><p class="meta">IPTV e YouTube no mesmo aplicativo. Falhas registradas somente neste aparelho.</p></aside>
-<main class="main"><div class="topbar"><input id="search" class="search" placeholder="Buscar canais ou vídeos" aria-label="Buscar"><div class="tabs"><button id="popular" class="active">Populares</button><button id="favoritesTab">Favoritos</button></div><span id="count" class="count">Carregando...</span></div>
+<main class="main"><div class="topbar"><input id="search" class="search" placeholder="Buscar canais ou vídeos" aria-label="Buscar"><div class="tabs"><button id="popular" class="active">Todos</button><button id="favoritesTab">Favoritos</button></div><span id="count" class="count">Carregando...</span></div>
 <h1 id="heading" class="heading">Destaques</h1>
 <div class="layout"><section class="catalog"><div id="cards" class="grid"></div><button id="more" class="more hidden">Carregar mais</button><div class="tools"><button id="refresh">↻ Atualizar IPTV</button><button id="clearFailures">Limpar histórico de falhas</button><button id="tvMode">⛶ Modo TV</button></div><p id="status" class="status">Carregando playlists...</p></section>
 <section id="player" class="player" aria-label="Mini player"><div class="player-head"><div class="identity"><strong id="playing">Selecione um conteúdo</strong><small id="playerSub">IPTV / YouTube</small></div><span id="liveBadge" class="live">AO VIVO</span><button id="minimize" title="Minimizar player">−</button><button id="close" title="Fechar vídeo">✕</button></div><div id="screen" class="screen"><video id="video" controls playsinline preload="none" class="hidden"></video><iframe id="youtube" class="hidden" title="Player oficial do YouTube" allow="autoplay;encrypted-media;picture-in-picture;fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe><div id="notice" class="notice">Selecione um canal</div></div><div class="controls"><button id="prev">◀ Anterior</button><button id="favorite">☆ Favorito</button><button id="next">Próximo ▶</button><button id="expand" class="primary">⛶ Expandir</button><button id="retry">↻ Repetir</button></div><div id="diagnostic" class="diag">Aguardando reprodução</div></section></div>
@@ -210,7 +210,7 @@ const groups=[
   'Educação',
   'Outros'
 ];
-let saved={items:[],favs:[]},failures={},iptv=[],category='Destaques',section='all',sub='Todos',expandedMenu='iptv',query='',limit=24,current=null,shown=[],hls=null,seq=0,expanded=false,busy=false;
+let saved={items:[],favs:[]},failures={},iptv=[],category='Lista',section='all'sub='Todos',expandedMenu='iptv',query='',limit=24,current=null,shown=[],hls=null,seq=0,expanded=false,busy=false;
 try{const x=JSON.parse(localStorage.getItem(STORE)||'{}');if(Array.isArray(x.items))saved.items=x.items;if(Array.isArray(x.favs))saved.favs=x.favs}catch{}
 try{const f=JSON.parse(localStorage.getItem(FSTORE)||'{}');if(f&&typeof f==='object'&&!Array.isArray(f))failures=f}catch{}
 const save=()=>{try{localStorage.setItem(STORE,JSON.stringify(saved))}catch{}};
@@ -397,7 +397,130 @@ async function carregarComedyCentral(){
 function findList(){const q=norm(query);return items().filter(c=>{if(category==='Favoritos'&&!saved.favs.includes(c.id))return false;if(category==='Destaques'&&!['monica','bob-esponja','amazon'].includes(c.id))return false;if(category!=='Destaques'&&category!=='Favoritos'){if(section!=='all'&&c.source!==section)return false;if(sub!=='Todos'&&c.category!==sub)return false}return !q||norm(c.name).includes(q)})}
 function setView(sec,subcat){section=sec;sub=subcat||'Todos';category='Lista';limit=24;render();}
 function makeButton(label,fn,cls=''){const b=document.createElement('button');b.textContent=label;b.className=cls;b.onclick=fn;return b}
-function renderMenu(){const menu=$('menu');menu.replaceChildren();menu.append(makeButton('⌂  Destaques',()=>{category='Destaques';render()},category==='Destaques'?'active':''));for(const sec of ['iptv','youtube']){const title=sec==='iptv'?'📺  IPTV':'▶  YouTube';menu.append(makeButton(title+'  '+(expandedMenu===sec?'⌄':'›'),()=>{expandedMenu=expandedMenu===sec?'':sec;setView(sec,'Todos')},'parent'+(section===sec&&category==='Lista'?' active':'')));if(expandedMenu===sec){menu.append(makeButton('Todos',()=>setView(sec,'Todos'),'child'+(section===sec&&sub==='Todos'&&category==='Lista'?' active':'')));for(const cat of groups){if(!items().some(c=>c.source===sec&&c.category===cat))continue;menu.append(makeButton(cat,()=>setView(sec,cat),'child'+(section===sec&&sub===cat&&category==='Lista'?' active':'')))}}}const div=document.createElement('div');div.className='sep';menu.append(div);menu.append(makeButton('♡  Favoritos',()=>{category='Favoritos';render()},category==='Favoritos'?'active':''));menu.append(makeButton('▦  Todos os conteúdos',()=>setView('all','Todos'),section==='all'&&category==='Lista'?'active':''))}
+let menusAbertos = {
+  esportes: true,
+  infantil: false,
+  iptv: false,
+  youtube: false
+};
+
+function renderMenu(){
+  const menu = $('menu');
+  menu.replaceChildren();
+
+  function botaoPai(texto, grupo){
+    const aberto = menusAbertos[grupo];
+
+    menu.append(makeButton(
+      texto + (aberto ? ' ⌄' : ' ›'),
+      () => {
+        menusAbertos[grupo] = !menusAbertos[grupo];
+        renderMenu();
+      },
+      'parent'
+    ));
+  }
+
+  function botaoFilho(texto, secao, categoria){
+    const ativo =
+      category === 'Lista' &&
+      section === secao &&
+      sub === categoria;
+
+    menu.append(makeButton(
+      texto,
+      () => setView(secao, categoria),
+      'child' + (ativo ? ' active' : '')
+    ));
+  }
+
+  botaoPai('⚽ Esportes', 'esportes');
+
+  if(menusAbertos.esportes){
+    botaoFilho('Jogos ao Vivo', 'youtube', 'Jogos ao Vivo');
+    botaoFilho('Programas Esportivos', 'youtube', 'Programas Esportivos');
+
+    menu.append(makeButton(
+      'Futebol de Hoje',
+      () => {
+        if(typeof window.stanleyAbrirFutebolHoje === 'function'){
+          window.stanleyAbrirFutebolHoje();
+        }else{
+          alert('Módulo Futebol de Hoje indisponível.');
+        }
+      },
+      'child'
+    ));
+  }
+
+  botaoPai('🧸 Infantil', 'infantil');
+
+  if(menusAbertos.infantil){
+    botaoFilho('Desenhos', 'youtube', 'Infantil');
+    botaoFilho('Anime', 'youtube', 'Anime');
+    botaoFilho('Infantil ao Vivo', 'youtube', 'Infantis ao Vivo');
+  }
+
+  const div = document.createElement('div');
+  div.className = 'sep';
+  menu.append(div);
+
+  botaoPai('📺 IPTV', 'iptv');
+
+  if(menusAbertos.iptv){
+    botaoFilho('Todos os canais', 'iptv', 'Todos');
+
+    for(const cat of groups){
+      if(!items().some(c =>
+        c.source === 'iptv' && c.category === cat
+      )) continue;
+
+      botaoFilho(cat, 'iptv', cat);
+    }
+  }
+
+  botaoPai('▶ YouTube', 'youtube');
+
+  if(menusAbertos.youtube){
+    botaoFilho('Todos os vídeos', 'youtube', 'Todos');
+
+    const categoriasOrganizadas = [
+      'Esportes',
+      'Jogos ao Vivo',
+      'Programas Esportivos',
+      'Infantil',
+      'Infantis ao Vivo',
+      'Anime'
+    ];
+
+    for(const cat of groups){
+      if(categoriasOrganizadas.includes(cat)) continue;
+
+      if(!items().some(c =>
+        c.source === 'youtube' && c.category === cat
+      )) continue;
+
+      botaoFilho(cat, 'youtube', cat);
+    }
+  }
+
+  menu.append(document.createElement('div')).className = 'sep';
+
+  menu.append(makeButton(
+    '♡ Favoritos',
+    () => {
+      category = 'Favoritos';
+      render();
+    },
+    category === 'Favoritos' ? 'active' : ''
+  ));
+
+  menu.append(makeButton(
+    '▦ Todos os conteúdos',
+    () => setView('all', 'Todos'),
+    section === 'all' && category === 'Lista' ? 'active' : ''
+  ));
+}
 function thumb(c){return c.type==='youtube'?'https://i.ytimg.com/vi/'+encodeURIComponent(c.videoId)+'/hqdefault.jpg':valid(c.logo)}
 function render(){renderMenu();shown=findList();const title=category==='Destaques'?'Destaques':category==='Favoritos'?'Favoritos':(section==='youtube'?'YouTube':section==='iptv'?'IPTV':'Todos')+(sub!=='Todos'?' · '+sub:'');$('heading').textContent=title;$('count').textContent=shown.length+' conteúdos';$('popular').classList.toggle('active',category!=='Favoritos');$('favoritesTab').classList.toggle('active',category==='Favoritos');const grid=$('cards');grid.replaceChildren();const frag=document.createDocumentFragment();for(const c of shown.slice(0,limit)){const b=makeButton('',()=>play(c),'card'+(current?.id===c.id?' selected':''));b.setAttribute('aria-label','Assistir '+c.name);const cv=document.createElement('div');cv.className='cover';const pic=thumb(c);if(pic){const img=document.createElement('img');img.alt='';img.loading='lazy';img.decoding='async';img.className=c.type==='youtube'?'yt-image':'logo-image';img.src=pic;img.onerror=()=>{img.remove();cv.append(Object.assign(document.createElement('span'),{className:'fallback',textContent:'▣'}))};cv.append(img)}else cv.append(Object.assign(document.createElement('span'),{className:'fallback',textContent:'▣'}));const tag=document.createElement('span');tag.className='tag';tag.textContent=c.type==='youtube'?'YouTube':'IPTV';cv.append(tag);if(c.type==='hls'&&c.urls?.every(u=>failures[u]?.status==='fail')){const chip=document.createElement('span');chip.className='failchip';chip.textContent='Falhou aqui';cv.append(chip)}const name=document.createElement('span');name.className='name';name.textContent=c.name;const sub=document.createElement('span');sub.className='sub';sub.textContent=c.category+(c.urls?.length>1?' · '+c.urls.length+' fontes':'')+(saved.favs.includes(c.id)?' · ★':'');b.append(cv,name,sub);frag.append(b)}grid.append(frag);$('more').classList.toggle('hidden',shown.length<=limit);$('more').textContent='Carregar mais ('+Math.max(0,shown.length-limit)+')'}
 function note(msg){$('notice').textContent=msg;$('notice').classList.remove('hidden')}function diagnostic(msg){$('diagnostic').textContent=msg}
@@ -407,7 +530,7 @@ function play(c){if(!c)return;clear();current=c;$('shell').classList.add('mini-o
 function closePlayer(){if(expanded)toggleExpand();clear();current=null;$('shell').classList.remove('mini-on');render()}
 function toggleExpand(){expanded=!expanded;$('player').classList.toggle('expanded',expanded);$('shade').classList.toggle('on',expanded);$('expand').textContent=expanded?'↙ Reduzir':'⛶ Expandir'}
 function advance(d){if(!shown.length)return;const i=shown.findIndex(x=>x.id===current?.id);play(shown[(i+d+shown.length)%shown.length])}
-$('prev').onclick=()=>advance(-1);$('next').onclick=()=>advance(1);$('retry').onclick=()=>play(current);$('close').onclick=closePlayer;$('minimize').onclick=()=>{if(expanded)toggleExpand();else closePlayer()};$('expand').onclick=toggleExpand;$('shade').onclick=()=>{if(expanded)toggleExpand()};$('favorite').onclick=()=>{if(!current)return;let i=saved.favs.indexOf(current.id);if(i>=0)saved.favs.splice(i,1);else saved.favs.push(current.id);save();$('favorite').textContent=i>=0?'♡ Favorito':'♥ Favorito';render()};$('more').onclick=()=>{limit+=24;render()};$('search').oninput=e=>{query=e.target.value.trim();limit=24;render()};$('popular').onclick=()=>{category='Destaques';render()};$('favoritesTab').onclick=()=>{category='Favoritos';render()};$('clearFailures').onclick=()=>{failures={};failSave();render();$('status').textContent='Histórico de falhas limpo neste aparelho.'};$('tvMode').onclick=()=>{if(document.fullscreenElement)document.exitFullscreen?.();else document.documentElement.requestFullscreen?.().catch?.(()=>{})};
+$('prev').onclick=()=>advance(-1);$('next').onclick=()=>advance(1);$('retry').onclick=()=>play(current);$('close').onclick=closePlayer;$('minimize').onclick=()=>{if(expanded)toggleExpand();else closePlayer()};$('expand').onclick=toggleExpand;$('shade').onclick=()=>{if(expanded)toggleExpand()};$('favorite').onclick=()=>{if(!current)return;let i=saved.favs.indexOf(current.id);if(i>=0)saved.favs.splice(i,1);else saved.favs.push(current.id);save();$('favorite').textContent=i>=0?'♡ Favorito':'♥ Favorito';render()};$('more').onclick=()=>{limit+=24;render()};$('search').oninput=e=>{query=e.target.value.trim();limit=24;render()};$('popular').onclick=()=>setView('all','Todos');$('favoritesTab').onclick=()=>{category='Favoritos';render()};$('clearFailures').onclick=()=>{failures={};failSave();render();$('status').textContent='Histórico de falhas limpo neste aparelho.'};$('tvMode').onclick=()=>{if(document.fullscreenElement)document.exitFullscreen?.();else document.documentElement.requestFullscreen?.().catch?.(()=>{})};
 async function sync(){if(busy)return;busy=true;$('refresh').disabled=true;$('status').textContent='Sincronizando playlists...';try{const resp=await fetch(CATALOG+'?v='+Date.now(),{cache:'no-store'});if(!resp.ok)throw Error('HTTP '+resp.status);const doc=await resp.json();if(!Array.isArray(doc.playlists))throw Error('Catálogo inválido');const records=[];let failCount=0;for(const p of doc.playlists){const url=valid(p.url);if(!url)continue;try{const controller=new AbortController(),timeout=setTimeout(()=>controller.abort(),18000);let result;try{result=await fetch(url,{cache:'no-store',signal:controller.signal})}finally{clearTimeout(timeout)}if(!result.ok)throw Error('HTTP '+result.status);records.push(...parseM3U(await result.text(),url,p))}catch{failCount++}}if(records.length){iptv=compactChannels(records);try{sessionStorage.setItem(CACHE,JSON.stringify(iptv))}catch{}}$('status').textContent=records.length+' entradas agrupadas em '+iptv.length+' canais IPTV · '+failCount+' lista(s) falharam. Compatibilidade é avaliada por aparelho.';render()}catch(e){$('status').textContent='Erro ao carregar catálogo: '+e.message;render()}finally{busy=false;$('refresh').disabled=false}}
 $('refresh').onclick=sync;
 document.addEventListener('keydown',e=>{if((e.key==='Escape'||e.key==='Backspace')&&!['INPUT','TEXTAREA'].includes(e.target.tagName)){if(expanded)toggleExpand();else if(current)closePlayer();e.preventDefault();return}if(!e.key.startsWith('Arrow')||['INPUT','VIDEO'].includes(e.target.tagName))return;const btns=[...document.querySelectorAll('button')].filter(b=>!b.disabled&&b.getClientRects().length);const a=document.activeElement;if(!btns.includes(a)){btns[0]?.focus();e.preventDefault();return}const r=a.getBoundingClientRect(),x=r.left+r.width/2,y=r.top+r.height/2;let closest=null,score=Infinity;for(const b of btns){if(b===a)continue;const q=b.getBoundingClientRect(),dx=q.left+q.width/2-x,dy=q.top+q.height/2-y,forward=e.key==='ArrowRight'?dx:e.key==='ArrowLeft'?-dx:e.key==='ArrowDown'?dy:-dy;if(forward<=3)continue;const side=/Right|Left/.test(e.key)?Math.abs(dy):Math.abs(dx),s=forward+2*side;if(s<score){score=s;closest=b}}if(closest){closest.focus();closest.scrollIntoView({block:'nearest',inline:'nearest'});e.preventDefault()}});
