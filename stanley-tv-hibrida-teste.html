@@ -204,6 +204,9 @@ const groups=[
   'Música',
   'Documentários',
   'Entretenimento',
+  
+  'Comedy Central',
+
   'Educação',
   'Outros'
 ];
@@ -221,6 +224,8 @@ function compactChannels(rows){const map=new Map(),alias=new Map();for(const row
 
 let filmesAutomaticos = [];
 let esportesAutomaticos = [];
+
+let comedyAutomaticos = [];
 
 
 function items(){
@@ -242,6 +247,12 @@ function items(){
     ...esportesAutomaticos.filter(x =>
       !idsExistentes.has(x.videoId) &&
       !filmesAutomaticos.some(f => f.videoId === x.videoId)
+    ),
+
+    ...comedyAutomaticos.filter(x =>
+      !idsExistentes.has(x.videoId) &&
+      !filmesAutomaticos.some(f => f.videoId === x.videoId) &&
+      !esportesAutomaticos.some(e => e.videoId === x.videoId)
     ),
 
     ...iptv.filter(x =>
@@ -336,6 +347,50 @@ async function carregarEsportesAutomaticos(){
       'Erro no catálogo esportivo:',
       erro
     );
+  }
+}
+
+async function carregarComedyCentral(){
+  try {
+    const resposta = await fetch(
+      'stanley-comedy-central.json?v=' + Date.now(),
+      { cache: 'no-store' }
+    );
+
+    if(!resposta.ok){
+      throw Error('HTTP ' + resposta.status);
+    }
+
+    const dados = await resposta.json();
+
+    if(!Array.isArray(dados.items)){
+      throw Error('Catálogo inválido');
+    }
+
+    comedyAutomaticos = dados.items
+      .filter(x =>
+        x.videoId &&
+        /^[a-zA-Z0-9_-]{11}$/.test(x.videoId)
+      )
+      .map(x => ({
+        id: x.id || 'comedy-' + x.videoId,
+        name: x.name || 'Comedy Central',
+        category: 'Comedy Central',
+        type: 'youtube',
+        videoId: x.videoId,
+        source: 'youtube'
+      }));
+
+    render();
+
+    console.log(
+      'Comedy Central:',
+      comedyAutomaticos.length,
+      'vídeos carregados'
+    );
+
+  } catch(erro) {
+    console.error('Erro Comedy Central:', erro);
   }
 }
 
