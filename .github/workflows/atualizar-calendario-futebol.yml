@@ -1,0 +1,253 @@
+
+name: Stanley Football Live - Jogos de Hoje
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '10 7,11,15,19,23 * * *'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: stanley-calendario-futebol
+  cancel-in-progress: false
+
+jobs:
+  atualizar:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Baixar repositorio
+        uses: actions/checkout@v4
+
+      - name: Consultar calendario de futebol
+        run: |
+          python3 - <<'PY'
+          import json
+          import sys
+          import time
+          import urllib.request
+          import urllib.error
+          from datetime import datetime, timedelta, timezone
+          from zoneinfo import ZoneInfo
+          from pathlib import Path
+
+          FUSO = ZoneInfo('America/Sao_Paulo')
+          hoje = datetime.now(FUSO).date()
+          ontem = hoje - timedelta(days=1)
+          amanha = hoje + timedelta(days=1)
+
+          intervalo = (
+              ontem.strftime('%Y%m%d') + '-' +
+              amanha.strftime('%Y%m%d')
+          )
+
+          ligas = {
+              'bra.1': 'Brasileirão Série A',
+              'bra.2': 'Brasileirão Série B',
+              'bra.copa_do_brazil': 'Copa do Brasil',
+              'conmebol.libertadores': 'Libertadores',
+              'conmebol.sudamericana': 'Sul-Americana',
+              'arg.1': 'Campeonato Argentino',
+              'eng.1': 'Premier League',
+              'eng.2': 'Championship',
+              'esp.1': 'La Liga',
+              'ita.1': 'Serie A Italiana',
+              'ger.1': 'Bundesliga',
+              'fra.1': 'Ligue 1',
+              'por.1': 'Liga Portugal',
+              'ned.1': 'Campeonato Holandês',
+              'uefa.champions': 'Champions League',
+              'uefa.europa': 'Europa League',
+              'uefa.europa.conf': 'Conference League',
+              'uefa.wchampions': 'Champions Feminina',
+              'usa.1': 'MLS',
+              'usa.nwsl': 'NWSL',
+              'mex.1': 'Liga MX',
+              'fifa.world': 'Copa do Mundo',
+              'col.1': 'Campeonato Colombiano',
+              'uru.1': 'Campeonato Uruguaio',
+              'ecu.1': 'Campeonato Equatoriano'
+          }
+
+          def consultar(codigo):
+              url = (
+                  'https://site.api.espn.com/apis/site/v2/'
+                  'sports/soccer/' + codigo +
+                  '/scoreboard?dates=' + intervalo +
+                  '&limit=200'
+              )
+
+              req = urllib.request.Request(
+                  url,
+                  headers={
+                      'User-Agent': 'Mozilla/5.0',
+                      'Accept': 'application/json'
+                  }
+              )
+
+              for tentativa in range(2):
+                  try:
+                      with urllib.request.urlopen(
+                          req, timeout=20
+                      ) as resposta:
+                          return json.load(resposta).get('events', [])
+                  except Exception as erro:
+                      if tentativa == 1:
+                          print(
+                              'Falha:', codigo,
+                              type(erro).__name__
+                          )
+                          return None
+                      time.sleep(2)
+
+          def equipe(competidores, lado):
+              for c in competidores:
+                  if c.get('homeAway') == lado:
+                      t = c.get('team') or {}
+                      return {
+                          'id': str(t.get('id') or ''),
+                          'nome': (
+                              t.get('displayName') or
+                              t.get('name') or ''
+                          ),
+                          'sigla': t.get('abbreviation') or '',
+                          'escudo': t.get('logo') or '',
+                          'placar': c.get('score')
+                      }
+              return None
+
+          jogos = {}
+          ligas_ok = 0
+
+          for codigo, campeonato in ligas.items():
+              eventos = consultar(codigo)
+
+              if eventos is None:
+                  continue
+
+              ligas_ok += 1
+
+              for evento in eventos:
+                  try:
+                      inicio = datetime.fromisoformat(
+                          evento['date'].replace('Z', '+00:00')
+                      ).astimezone(FUSO)
+                  except (KeyError, ValueError, TypeError):
+                      continue
+
+                  if inicio.date() != hoje:
+                      continue
+
+                  competicao = (
+                      evento.get('competitions') or [{}]
+                  )[0]
+
+                  competidores = (
+                      competicao.get('competitors') or []
+                  )
+
+                  mandante = equipe(competidores, 'home')
+                  visitante = equipe(competidores, 'away')
+
+                  if not mandante or not visitante:
+                      continue
+
+                  status = (
+                      evento.get('status') or {}
+                  ).get('type') or {}
+
+                  estado = status.get('state', 'pre')
+
+                  jogo_id = (
+                      codigo + ':' +
+                      str(evento.get('id', ''))
+                  )
+
+                  jogos[jogo_id] = {
+                      'id': jogo_id,
+                      'campeonato': campeonato,
+                      'liga': codigo,
+                      'casa': mandante,
+                      'fora': visitante,
+                      'data': inicio.date().isoformat(),
+                      'hora': inicio.strftime('%H:%M'),
+                      'inicioUTC': evento.get('date'),
+                      'estado': (
+                          'ao_vivo' if estado == 'in'
+                          else 'encerrado' if estado == 'post'
+                          else 'agendado'
+                      ),
+                      'descricaoStatus': (
+                          status.get('description') or ''
+                      ),
+                      'transmissaoYouTube': None
+                  }
+
+              print(
+                  campeonato,
+                  '| eventos consultados:', len(eventos)
+              )
+
+              time.sleep(0.2)
+
+          if ligas_ok == 0:
+              sys.exit(
+                  'Nenhuma liga respondeu. '
+                  'Catalogo anterior preservado.'
+              )
+
+          lista = sorted(
+              jogos.values(),
+              key=lambda x: (
+                  x['inicioUTC'],
+                  x['campeonato'],
+                  x['id']
+              )
+          )
+
+          resultado = {
+              'version': 1,
+              'source': 'ESPN - dados publicos nao oficiais',
+              'data': hoje.isoformat(),
+              'timezone': 'America/Sao_Paulo',
+              'updatedAt': datetime.now(
+                  timezone.utc
+              ).isoformat(),
+              'ligasConsultadas': ligas_ok,
+              'ligasConfiguradas': len(ligas),
+              'count': len(lista),
+              'items': lista
+          }
+
+          Path('stanley-jogos-hoje.json').write_text(
+              json.dumps(
+                  resultado,
+                  ensure_ascii=False,
+                  indent=2
+              ) + '\n',
+              encoding='utf-8'
+          )
+
+          print(
+              'STANLEY FOOTBALL LIVE:',
+              len(lista), 'jogos em',
+              ligas_ok, 'ligas consultadas'
+          )
+          PY
+
+      - name: Salvar calendario no GitHub
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add stanley-jogos-hoje.json
+
+          if git diff --cached --quiet; then
+            echo "Calendario sem alteracoes"
+          else
+            git commit -m "Atualizar calendario de futebol"
+            git pull --rebase origin "${GITHUB_REF_NAME}"
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+          fi
