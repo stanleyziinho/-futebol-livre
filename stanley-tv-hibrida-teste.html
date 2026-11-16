@@ -413,10 +413,13 @@ $('refresh').onclick=sync;
 document.addEventListener('keydown',e=>{if((e.key==='Escape'||e.key==='Backspace')&&!['INPUT','TEXTAREA'].includes(e.target.tagName)){if(expanded)toggleExpand();else if(current)closePlayer();e.preventDefault();return}if(!e.key.startsWith('Arrow')||['INPUT','VIDEO'].includes(e.target.tagName))return;const btns=[...document.querySelectorAll('button')].filter(b=>!b.disabled&&b.getClientRects().length);const a=document.activeElement;if(!btns.includes(a)){btns[0]?.focus();e.preventDefault();return}const r=a.getBoundingClientRect(),x=r.left+r.width/2,y=r.top+r.height/2;let closest=null,score=Infinity;for(const b of btns){if(b===a)continue;const q=b.getBoundingClientRect(),dx=q.left+q.width/2-x,dy=q.top+q.height/2-y,forward=e.key==='ArrowRight'?dx:e.key==='ArrowLeft'?-dx:e.key==='ArrowDown'?dy:-dy;if(forward<=3)continue;const side=/Right|Left/.test(e.key)?Math.abs(dy):Math.abs(dx),s=forward+2*side;if(s<score){score=s;closest=b}}if(closest){closest.focus();closest.scrollIntoView({block:'nearest',inline:'nearest'});e.preventDefault()}});
 try{const cached=JSON.parse(sessionStorage.getItem(CACHE)||'null');if(Array.isArray(cached))iptv=cached}catch{}
 
+
 render();
 sync();
 carregarFilmesAutomaticos();
 carregarEsportesAutomaticos();
+carregarComedyCentral();
+
 
 })();
 </script>
