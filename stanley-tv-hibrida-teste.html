@@ -21,7 +21,9 @@ button,input{font:inherit}button{cursor:pointer;color:inherit;border:1px solid v
 <div id="shade" class="shade"></div><div id="shell" class="shell">
 <aside class="side"><div class="brand">▶ STANLEY <b>TV</b><small>HÍBRIDA · V1.5</small></div><nav class="menu" id="menu" aria-label="Navegação"></nav><p class="meta">IPTV e YouTube no mesmo aplicativo. Falhas registradas somente neste aparelho.</p></aside>
 <main class="main"><div class="topbar"><input id="search" class="search" placeholder="Buscar canais ou vídeos" aria-label="Buscar"><div class="tabs"><button id="popular" class="active">Todos</button><button id="favoritesTab">Favoritos</button></div><span id="count" class="count">Carregando...</span></div>
-<h1 id="heading" class="heading">Destaques</h1>
+
+<h1 id="heading" class="heading">Todos os conteúdos</h1>
+
 <div class="layout"><section class="catalog"><div id="cards" class="grid"></div><button id="more" class="more hidden">Carregar mais</button><div class="tools"><button id="refresh">↻ Atualizar IPTV</button><button id="clearFailures">Limpar histórico de falhas</button><button id="tvMode">⛶ Modo TV</button></div><p id="status" class="status">Carregando playlists...</p></section>
 <section id="player" class="player" aria-label="Mini player"><div class="player-head"><div class="identity"><strong id="playing">Selecione um conteúdo</strong><small id="playerSub">IPTV / YouTube</small></div><span id="liveBadge" class="live">AO VIVO</span><button id="minimize" title="Minimizar player">−</button><button id="close" title="Fechar vídeo">✕</button></div><div id="screen" class="screen"><video id="video" controls playsinline preload="none" class="hidden"></video><iframe id="youtube" class="hidden" title="Player oficial do YouTube" allow="autoplay;encrypted-media;picture-in-picture;fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe><div id="notice" class="notice">Selecione um canal</div></div><div class="controls"><button id="prev">◀ Anterior</button><button id="favorite">☆ Favorito</button><button id="next">Próximo ▶</button><button id="expand" class="primary">⛶ Expandir</button><button id="retry">↻ Repetir</button></div><div id="diagnostic" class="diag">Aguardando reprodução</div></section></div>
 </main></div>
@@ -504,7 +506,11 @@ function renderMenu(){
     }
   }
 
-  menu.append(document.createElement('div')).className = 'sep';
+  
+const separadorFinal = document.createElement('div');
+separadorFinal.className = 'sep';
+menu.append(separadorFinal);
+
 
   menu.append(makeButton(
     '♡ Favoritos',
