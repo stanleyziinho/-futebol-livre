@@ -210,7 +210,7 @@ const groups=[
   'Educação',
   'Outros'
 ];
-let saved={items:[],favs:[]},failures={},iptv=[],category='Lista',section='all'sub='Todos',expandedMenu='iptv',query='',limit=24,current=null,shown=[],hls=null,seq=0,expanded=false,busy=false;
+let saved={items:[],favs:[]},failures={},iptv=[],category='Lista',section='all',sub='Todos',expandedMenu='iptv',query='',limit=24,current=null,shown=[],hls=null,seq=0,expanded=false,busy=false;
 try{const x=JSON.parse(localStorage.getItem(STORE)||'{}');if(Array.isArray(x.items))saved.items=x.items;if(Array.isArray(x.favs))saved.favs=x.favs}catch{}
 try{const f=JSON.parse(localStorage.getItem(FSTORE)||'{}');if(f&&typeof f==='object'&&!Array.isArray(f))failures=f}catch{}
 const save=()=>{try{localStorage.setItem(STORE,JSON.stringify(saved))}catch{}};
