@@ -1,3 +1,4 @@
+
 name: Stanley Sports - Esportes ao Vivo
 
 on:
@@ -19,167 +20,152 @@ jobs:
       - name: Baixar repositorio
         uses: actions/checkout@v4
 
-      - name: Pesquisar transmissoes esportivas em andamento
+      - name: Buscar e filtrar transmissoes esportivas
         env:
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
         run: |
           python3 - <<'PY'
           import json
           import os
+          import re
           import sys
           import urllib.error
           import urllib.parse
           import urllib.request
+          import unicodedata
           from datetime import datetime, timezone
           from pathlib import Path
 
           KEY = os.environ.get('YOUTUBE_API_KEY', '').strip()
           if not KEY:
-              sys.exit('ERRO: segredo YOUTUBE_API_KEY nao configurado.')
+              sys.exit('Configure o secret YOUTUBE_API_KEY.')
 
-          API = 'https://www.googleapis.com/youtube/v3/'
+          def normalizar(texto):
+              texto = unicodedata.normalize('NFD', str(texto or ''))
+              return ''.join(c for c in texto if unicodedata.category(c) != 'Mn').lower()
 
-          def consultar(rota, **parametros):
-              parametros['key'] = KEY
-              url = API + rota + '?' + urllib.parse.urlencode(parametros)
+          def consultar(endpoint, **params):
+              params['key'] = KEY
+              url = 'https://www.googleapis.com/youtube/v3/' + endpoint + '?' + urllib.parse.urlencode(params)
               try:
-                  with urllib.request.urlopen(url, timeout=35) as resp:
-                      return json.load(resp)
-              except urllib.error.HTTPError as erro:
-                  msg = erro.read().decode('utf-8', 'replace')[:500]
-                  raise RuntimeError(
-                      'YouTube API HTTP %s: %s' % (erro.code, msg)
-                  ) from None
+                  with urllib.request.urlopen(url, timeout=35) as response:
+                      return json.load(response)
+              except urllib.error.HTTPError as exc:
+                  # A URL com a chave de API nunca aparece no log.
+                  raise RuntimeError('YouTube API retornou HTTP %s' % exc.code) from None
 
-          pesquisas = [
-              ('futebol ao vivo', 'Futebol'),
-              ('futsal ao vivo', 'Futsal'),
-              ('basquete ao vivo', 'Basquete'),
-              ('volei ao vivo', 'Volei'),
+          buscas = [
+              ('futebol jogo ao vivo', 'Futebol'),
+              ('futebol feminino ao vivo', 'Futebol'),
+              ('futsal jogo ao vivo', 'Futsal'),
+              ('basquete jogo ao vivo', 'Basquete'),
+              ('volei jogo ao vivo', 'Volei'),
           ]
-
-          caze_id = None
-          try:
-              canal = consultar(
-                  'channels', part='id', forHandle='@CazeTV'
-              )
-              encontrados = canal.get('items', [])
-              if encontrados:
-                  caze_id = encontrados[0]['id']
-          except Exception as erro:
-              print('Nao foi possivel identificar CazeTV:', erro)
-
           candidatos = {}
 
-          def pesquisar(termo, modalidade, channel_id=None):
-              args = dict(
-                  part='snippet',
-                  type='video',
-                  eventType='live',
-                  videoEmbeddable='true',
-                  videoSyndicated='true',
-                  maxResults=50,
-                  order='relevance',
-                  relevanceLanguage='pt',
-                  safeSearch='moderate'
-              )
+          def buscar(termo, modalidade, channel_id=None):
+              args = dict(part='snippet', type='video', eventType='live',
+                          videoEmbeddable='true', maxResults=50,
+                          order='relevance', relevanceLanguage='pt',
+                          safeSearch='moderate')
               if channel_id:
                   args['channelId'] = channel_id
               else:
                   args['q'] = termo
+              for item in consultar('search', **args).get('items', []):
+                  video_id = item.get('id', {}).get('videoId')
+                  if video_id:
+                      candidatos.setdefault(video_id, modalidade)
+              print('Busca realizada:', termo or 'CazeTV')
 
-              dados = consultar('search', **args)
+          for termo, modalidade in buscas:
+              buscar(termo, modalidade)
 
-              for item in dados.get('items', []):
-                  vid = item.get('id', {}).get('videoId')
-                  if vid and vid not in candidatos:
-                      candidatos[vid] = modalidade
+          canal = consultar('channels', part='id', forHandle='@CazeTV')
+          canais = canal.get('items', [])
+          if canais:
+              buscar('', 'Esportes', channel_id=canais[0]['id'])
 
-              print(
-                  'Busca:', termo or 'CazeTV',
-                  '| candidatos:', len(candidatos)
-              )
+          bloqueios = re.compile(
+              r'camera ao vivo|webcam|transito|tempo real.*cidade|'
+              r'culto|oracao|missa|evangelho|pregacao|'
+              r'jornal da|plantao policial|horoscopo|desenho|infantil|'
+              r'filme completo|musica relaxante|lofi|cassino|aposta ao vivo|'
+              r'politica|eleicoes|guerra|noticiario geral'
+          )
+          esportes = re.compile(
+              r'\b(futebol|futsal|basquete|basketball|nba|volei|voleibol|'
+              r'handebol|tenis|tennis|corrida|automobilismo|formula 1|f1|'
+              r'esporte|esportes|sport|sports|campeonato|copa|liga|'
+              r'brasileirao|libertadores|sul americana|amistoso|'
+              r'partida|jogo|semifinal|quartas de final|final da|'
+              r'gol|atletico|cruzeiro|flamengo|palmeiras|corinthians|'
+              r'gremio|fluminense|botafogo|santos|vasco)\b'
+          )
+          partida = re.compile(r'\b(?:x|vs|versus)\b|\b(?:jogo|partida|amistoso|campeonato|torneio)\b')
+          programa = re.compile(
+              r'\b(debate|resenha|mesa redonda|pre jogo|pos jogo|'
+              r'analise|noticias do|giro esportivo|esporte|esportes|'
+              r'sports|coletiva|entrevista|react|reacao)\b'
+          )
 
-          for termo, modalidade in pesquisas:
-              pesquisar(termo, modalidade)
-
-          if caze_id:
-              pesquisar('', 'Esportes', channel_id=caze_id)
-
-          agora = datetime.now(timezone.utc).isoformat()
-          atuais = []
+          itens = []
           ids = list(candidatos)
-
           for inicio in range(0, len(ids), 50):
               lote = ids[inicio:inicio+50]
-              resultado = consultar(
-                  'videos',
-                  part='snippet,status,liveStreamingDetails',
-                  id=','.join(lote),
-                  maxResults=50
-              )
-
-              for v in resultado.get('items', []):
-                  sn = v.get('snippet', {})
-                  st = v.get('status', {})
-                  detalhes = v.get('liveStreamingDetails', {})
-                  vid = v.get('id')
-
-                  if not vid or st.get('privacyStatus') != 'public':
-                      continue
-                  if st.get('embeddable') is not True:
+              dados = consultar('videos', part='snippet,status,liveStreamingDetails',
+                                id=','.join(lote), maxResults=50)
+              for video in dados.get('items', []):
+                  sn = video.get('snippet', {})
+                  st = video.get('status', {})
+                  live = video.get('liveStreamingDetails', {})
+                  vid = video['id']
+                  if st.get('privacyStatus') != 'public' or st.get('embeddable') is not True:
                       continue
                   if sn.get('liveBroadcastContent') != 'live':
                       continue
-                  if (
-                      not detalhes.get('actualStartTime')
-                      or detalhes.get('actualEndTime')
-                  ):
+                  if not live.get('actualStartTime') or live.get('actualEndTime'):
                       continue
-
                   titulo = sn.get('title', '').strip()
-                  if not titulo:
+                  canal_nome = sn.get('channelTitle', '').strip()
+                  texto = normalizar(titulo + ' ' + canal_nome)
+                  titulo_norm = normalizar(titulo)
+                  if not titulo or bloqueios.search(titulo_norm):
                       continue
-
-                  atuais.append({
+                  if not esportes.search(texto):
+                      continue
+                  # Categoria indicativa, nao comprova transmissao com imagens.
+                  if partida.search(titulo_norm) and not programa.search(titulo_norm):
+                      categoria = 'Jogos ao Vivo'
+                  else:
+                      categoria = 'Programas Esportivos'
+                  itens.append({
                       'id': 'esporte-live-' + vid,
                       'name': titulo,
-                      'category': 'Esportes ao Vivo',
+                      'category': categoria,
                       'type': 'youtube',
                       'videoId': vid,
                       'source': 'youtube',
-                      'channel': sn.get('channelTitle', ''),
-                      'channelId': sn.get('channelId', ''),
+                      'channel': canal_nome,
                       'modality': candidatos[vid],
                       'liveStatus': 'live',
-                      'thumbnail': (
-                          'https://i.ytimg.com/vi/' +
-                          vid + '/hqdefault.jpg'
-                      ),
-                      'startedAt': detalhes.get('actualStartTime'),
+                      'thumbnail': 'https://i.ytimg.com/vi/' + vid + '/hqdefault.jpg',
+                      'startedAt': live['actualStartTime']
                   })
 
-          atuais.sort(key=lambda x: (x['channel'], x['name']))
-
-          dados = {
-              'version': 1,
+          itens.sort(key=lambda x: (x['category'] != 'Jogos ao Vivo', x['channel'], x['name']))
+          saida = {
+              'version': 2,
               'source': 'YouTube Data API - esportes ao vivo',
-              'updatedAt': agora,
-              'count': len(atuais),
-              'items': atuais,
+              'updatedAt': datetime.now(timezone.utc).isoformat(),
+              'count': len(itens),
+              'items': itens
           }
-
           Path('stanley-esportes-ao-vivo.json').write_text(
-              json.dumps(
-                  dados, ensure_ascii=False, indent=2
-              ) + '\n',
+              json.dumps(saida, ensure_ascii=False, indent=2) + '\n',
               encoding='utf-8'
           )
-
-          print(
-              'Transmissoes encontradas:',
-              len(atuais)
-          )
+          print('Transmissoes esportivas aprovadas:', len(itens))
           PY
 
       - name: Publicar catalogo
@@ -187,11 +173,10 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add stanley-esportes-ao-vivo.json
-
           if git diff --cached --quiet; then
             echo "Catalogo sem mudancas"
           else
-            git commit -m "Atualizar esportes ao vivo Stanley TV"
+            git commit -m "Filtrar esportes ao vivo Stanley TV"
             git pull --rebase origin "${GITHUB_REF_NAME}"
             git push origin "HEAD:${GITHUB_REF_NAME}"
           fi
