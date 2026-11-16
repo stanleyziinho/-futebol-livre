@@ -57,7 +57,32 @@ input,select{background:#0b1f15;color:white;border:1px solid #44765a;border-radi
 <script>
 (()=>{'use strict';
 const $=id=>document.getElementById(id),KEY='stanley-hibrida-v12',categories=['Todos','Infantil','Esportes','Filmes','Séries','Notícias','Entretenimento','Música','Educação','TV ao vivo','Favoritos'];
-const fixed=[{id:'monica',name:'Turma da Mônica',category:'Infantil',type:'youtube',videoId:'MQwzkKwmIWY',icon:'🎨'}, {id:'amazon',name:'Amazon Sat',category:'TV ao vivo',type:'hls',url:'https://amazonsat.brasilstream.com.br/hls/amazonsat/index.m3u8',icon:'📡'}];
+const fixed=[
+  {
+    id:'monica',
+    name:'Turma da Mônica',
+    category:'Infantil',
+    type:'youtube',
+    videoId:'MQwzkKwmIWY',
+    icon:'🎨'
+  },
+  {
+    id:'bob-esponja',
+    name:'Bob Esponja ao Vivo',
+    category:'Infantil',
+    type:'youtube',
+    videoId:'dI6zxmg97u4',
+    icon:'🧽'
+  },
+  {
+    id:'amazon',
+    name:'Amazon Sat',
+    category:'TV ao vivo',
+    type:'hls',
+    url:'https://amazonsat.brasilstream.com.br/hls/amazonsat/index.m3u8',
+    icon:'📡'
+  }
+];
 let saved={items:[],favs:[]};try{const p=JSON.parse(localStorage.getItem(KEY)||'{}');if(Array.isArray(p.items)&&Array.isArray(p.favs))saved=p}catch{}
 let category='Todos',query='',current=null,seq=0,hls=null;const items=()=>[...fixed,...saved.items];
 const persist=()=>{try{localStorage.setItem(KEY,JSON.stringify(saved));return true}catch{$('formStatus').textContent='Sem espaço para salvar neste aparelho';return false}};
