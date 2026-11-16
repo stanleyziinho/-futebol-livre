@@ -54,4 +54,56 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape'||e.key==='Backspace'
 try{const v=JSON.parse(sessionStorage.getItem(CACHE)||'null');if(v&&Array.isArray(v.iptv)&&Array.isArray(v.playlists)){iptv=v.iptv;playlists=v.playlists}}catch{}
 render();sync();
 })();
+<!-- STANLEY TV HIBRIDA V1.4 - CORRECAO DE CARACTERES -->
+<script>
+(() => {
+  'use strict';
+  const decoder = new TextDecoder('utf-8', { fatal: true });
+  const bad = /[ÃÂâð]/;
+  function corrigir(texto) {
+    if (!texto || !bad.test(texto)) return texto;
+    const bytes = Array.from(texto, c => c.charCodeAt(0));
+    if (bytes.some(v => v > 255)) return texto;
+    try { return decoder.decode(Uint8Array.from(bytes)); }
+    catch { return texto; }
+  }
+  function visitar(elemento) {
+    if (!elemento) return;
+    if (elemento.nodeType === Node.TEXT_NODE) {
+      const novo = corrigir(elemento.nodeValue);
+      if (novo !== elemento.nodeValue) elemento.nodeValue = novo;
+      return;
+    }
+    if (elemento.nodeType !== Node.ELEMENT_NODE ||
+        ['SCRIPT', 'STYLE', 'IFRAME', 'VIDEO'].includes(elemento.tagName)) return;
+    ['title', 'placeholder', 'aria-label'].forEach(attr => {
+      const original = elemento.getAttribute(attr);
+      if (original) {
+        const novo = corrigir(original);
+        if (novo !== original) elemento.setAttribute(attr, novo);
+      }
+    });
+    const walker = document.createTreeWalker(elemento, NodeFilter.SHOW_TEXT);
+    while (walker.nextNode()) {
+      const n = walker.currentNode;
+      if (n.parentElement && ['SCRIPT', 'STYLE'].includes(n.parentElement.tagName)) continue;
+      const novo = corrigir(n.nodeValue);
+      if (novo !== n.nodeValue) n.nodeValue = novo;
+    }
+  }
+  document.title = corrigir(document.title);
+  visitar(document.body);
+  const observer = new MutationObserver(changes => {
+    changes.forEach(change => {
+      if (change.type === 'characterData') visitar(change.target);
+      if (change.type === 'childList') change.addedNodes.forEach(visitar);
+      if (change.type === 'attributes') visitar(change.target);
+    });
+  });
+  observer.observe(document.body, {
+    childList: true, subtree: true, characterData: true,
+    attributes: true, attributeFilter: ['title', 'placeholder', 'aria-label']
+  });
+})();
+</script>
 </script></body></html>
