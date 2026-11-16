@@ -29,10 +29,103 @@ button,input{font:inherit}button{cursor:pointer;color:inherit;border:1px solid v
 (()=>{'use strict';
 const $=id=>document.getElementById(id),CATALOG='stanley-tv-playlists.json',STORE='stanley-integrada-v10',FSTORE='stanley-tv-hibrida-falhas-v15',CACHE='stanley-hibrida-iptv-v15';
 const fixed=[
-{id:'monica',name:'Turma da Mônica',category:'Infantil',type:'youtube',videoId:'MQwzkKwmIWY',source:'youtube'},
-{id:'bob-esponja',name:'Bob Esponja ao Vivo',category:'Infantil',type:'youtube',videoId:'dI6zxmg97u4',source:'youtube'},
-{id:'amazon',name:'Amazon Sat',category:'TV ao vivo',type:'hls',url:'https://amazonsat.brasilstream.com.br/hls/amazonsat/index.m3u8',urls:['https://amazonsat.brasilstream.com.br/hls/amazonsat/index.m3u8'],source:'iptv'}];
-const groups=['TV ao vivo','Infantil','Esportes','Filmes','Séries','Notícias','Música','Documentários','Entretenimento','Educação','Outros'];
+  {
+    id:'monica',
+    name:'Turma da Mônica',
+    category:'Infantil',
+    type:'youtube',
+    videoId:'MQwzkKwmIWY',
+    source:'youtube'
+  },
+  {
+    id:'bob-esponja',
+    name:'Bob Esponja ao Vivo',
+    category:'Infantis ao Vivo',
+    type:'youtube',
+    videoId:'dI6zxmg97u4',
+    source:'youtube'
+  },
+  {
+    id:'kids-live-1',
+    name:'Infantil ao Vivo 01',
+    category:'Infantis ao Vivo',
+    type:'youtube',
+    videoId:'-AXFzRqghoQ',
+    source:'youtube'
+  },
+  {
+    id:'kids-live-2',
+    name:'Infantil ao Vivo 02',
+    category:'Infantis ao Vivo',
+    type:'youtube',
+    videoId:'1G3t-e2xSe0',
+    source:'youtube'
+  },
+  {
+    id:'kids-live-3',
+    name:'Infantil ao Vivo 03',
+    category:'Infantis ao Vivo',
+    type:'youtube',
+    videoId:'IQOHuiu6lww',
+    source:'youtube'
+  },
+  {
+    id:'kids-live-4',
+    name:'Infantil ao Vivo 04',
+    category:'Infantis ao Vivo',
+    type:'youtube',
+    videoId:'4FgzVJHoNX8',
+    source:'youtube'
+  },
+  {
+    id:'kids-live-5',
+    name:'Infantil ao Vivo 05',
+    category:'Infantis ao Vivo',
+    type:'youtube',
+    videoId:'7YUMSi-IpsY',
+    source:'youtube'
+  },
+  {
+    id:'kids-live-6',
+    name:'Infantil ao Vivo 06',
+    category:'Infantis ao Vivo',
+    type:'youtube',
+    videoId:'0qOKCQmL0NU',
+    source:'youtube'
+  },
+  {
+    id:'kids-live-7',
+    name:'Infantil ao Vivo 07',
+    category:'Infantis ao Vivo',
+    type:'youtube',
+    videoId:'zulcUzfANTo',
+    source:'youtube'
+  },
+  {
+    id:'amazon',
+    name:'Amazon Sat',
+    category:'TV ao vivo',
+    type:'hls',
+    url:'https://amazonsat.brasilstream.com.br/hls/amazonsat/index.m3u8',
+    urls:['https://amazonsat.brasilstream.com.br/hls/amazonsat/index.m3u8'],
+    source:'iptv'
+  }
+];
+
+const groups=[
+  'TV ao vivo',
+  'Infantis ao Vivo',
+  'Infantil',
+  'Esportes',
+  'Filmes',
+  'Séries',
+  'Notícias',
+  'Música',
+  'Documentários',
+  'Entretenimento',
+  'Educação',
+  'Outros'
+];
 let saved={items:[],favs:[]},failures={},iptv=[],category='Destaques',section='all',sub='Todos',expandedMenu='iptv',query='',limit=24,current=null,shown=[],hls=null,seq=0,expanded=false,busy=false;
 try{const x=JSON.parse(localStorage.getItem(STORE)||'{}');if(Array.isArray(x.items))saved.items=x.items;if(Array.isArray(x.favs))saved.favs=x.favs}catch{}
 try{const f=JSON.parse(localStorage.getItem(FSTORE)||'{}');if(f&&typeof f==='object'&&!Array.isArray(f))failures=f}catch{}
