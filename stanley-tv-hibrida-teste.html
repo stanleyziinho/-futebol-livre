@@ -17,6 +17,309 @@ button,input{font:inherit}button{cursor:pointer;color:inherit;border:1px solid v
 .player{display:none;min-width:0;background:linear-gradient(145deg,#153c29,#07160f);border:1px solid #40c78b;border-radius:17px;box-shadow:0 14px 40px #000b,0 0 18px #26e99b22;overflow:hidden}.mini-on .player{display:block;position:sticky;top:18px;align-self:start}.player-head{display:flex;align-items:center;gap:8px;padding:12px}.player-head .identity{flex:1;min-width:0}.player-head strong{display:block;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.player-head small{display:block;color:#a4cfb6;font-size:11px;margin-top:3px}.live{border:1px solid #22d891;color:#64fac0;border-radius:20px;padding:5px 8px;font-size:10px}.player-head button{padding:6px 9px}.screen{position:relative;background:#000;aspect-ratio:16/9}.screen video,.screen iframe{width:100%;height:100%;border:0;display:block}.notice{position:absolute;inset:0;display:grid;place-items:center;padding:20px;text-align:center;background:#07140feb;font-size:12px}.controls{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:5px;padding:9px}.controls button{font-size:10px;padding:9px 2px;overflow:hidden;text-overflow:ellipsis}.controls button.primary{background:var(--accent);color:#082115;font-weight:bold}.diag{padding:0 12px 10px;font-size:10px;color:#90b9a2;overflow-wrap:anywhere}.shade{display:none;position:fixed;inset:0;background:#000c;z-index:99}.shade.on{display:block}.player.expanded{display:flex!important;position:fixed!important;z-index:100;inset:3%!important;height:94dvh;max-width:none;flex-direction:column;top:3%!important}.player.expanded .screen{flex:1;min-height:0;aspect-ratio:auto}.player.expanded .diag{display:none}
 @media(max-width:1150px){.grid{grid-template-columns:repeat(4,minmax(0,1fr))}.shell{grid-template-columns:190px minmax(0,1fr)}.mini-on .layout{grid-template-columns:minmax(0,1fr) 40%}.mini-on .grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:750px){.shell{grid-template-columns:1fr}.side{position:relative;height:auto;padding:12px}.brand{margin:4px 4px 10px;font-size:18px}.menu{flex-direction:row;overflow-x:auto;gap:4px;scrollbar-width:thin}.menu button{width:auto;flex:none;padding:9px;font-size:12px}.menu .sep,.side .meta{display:none}.menu button.child{padding:8px}.main{padding:13px}.grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px 8px}.mini-on .layout{display:block}.mini-on .grid{grid-template-columns:repeat(3,minmax(0,1fr))}.mini-on .catalog{padding-bottom:290px}.mini-on .player{position:fixed;bottom:8px;right:8px;top:auto;width:min(94vw,405px);z-index:10}.controls{gap:3px}.controls button{font-size:9px;padding:8px 1px}.count{margin-left:0}.card .name{font-size:12px}}
+/* STANLEY TV PREMIUM V2 - DESIGN FLUTUANTE */
+
+:root {
+  --accent: #48ff92;
+  --line: #2a5744;
+}
+
+/* FUNDO PREMIUM */
+body {
+  background:
+    radial-gradient(ellipse at 96% 0%, #123c24, transparent 36%),
+    radial-gradient(ellipse at 3% 100%, #073b20, transparent 38%),
+    #030c09;
+}
+
+/* PAINEL PRINCIPAL */
+.shell {
+  grid-template-columns: 270px minmax(0, 1fr);
+  gap: 14px;
+  padding: 14px;
+}
+
+/* BARRA LATERAL FLUTUANTE */
+.side {
+  top: 14px;
+  height: calc(100dvh - 28px);
+  padding: 22px 14px;
+  overflow-x: hidden;
+  border: 1px solid #2f9c66;
+  border-radius: 26px;
+  background: linear-gradient(
+    160deg,
+    rgba(11,56,34,.98),
+    rgba(4,23,17,.98) 55%,
+    rgba(8,63,34,.93)
+  );
+  box-shadow:
+    0 0 0 1px #164a32 inset,
+    0 18px 46px #0009,
+    0 0 28px #1be67525;
+}
+
+/* LOGO */
+.brand {
+  font-size: 24px;
+  line-height: 1.1;
+  letter-spacing: .4px;
+  margin: 8px 10px 23px;
+  text-shadow: 0 0 22px #3afa8550;
+}
+
+.brand small {
+  color: #67faa0;
+  font-size: 11px;
+}
+
+/* ORGANIZACAO DOS MENUS */
+.menu {
+  padding: 4px 2px 12px;
+  gap: 7px;
+}
+
+/* BOTOES PROFISSIONAIS */
+.menu button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 46px;
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid transparent !important;
+  border-radius: 14px;
+  background: transparent;
+  color: #e1f8eb;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.3;
+  text-align: left;
+  white-space: normal;
+  overflow: visible;
+  transform: translate3d(0,0,0);
+  transition:
+    transform .18s ease,
+    background .18s ease,
+    border-color .18s ease,
+    box-shadow .18s ease,
+    color .18s ease;
+}
+
+/* CATEGORIAS EXPANSIVEIS */
+.menu button.parent {
+  background: linear-gradient(
+    115deg,
+    #123e2bb8,
+    #071b15dd
+  );
+  border-color: #28734a88 !important;
+  font-weight: 800;
+  justify-content: space-between;
+  padding: 14px;
+}
+
+/* SUBCATEGORIAS */
+.menu button.child {
+  min-height: 39px;
+  margin-left: 10px;
+  width: calc(100% - 10px);
+  padding: 9px 11px 9px 24px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #c6e9d2;
+}
+
+.menu button.child::before {
+  content: "";
+  position: absolute;
+  left: 10px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #42dc80;
+  box-shadow: 0 0 9px #42dc8080;
+}
+
+/* EFEITO FLUTUANTE AO PASSAR O MOUSE
+   OU SELECIONAR PELO CONTROLE REMOTO */
+.menu button:is(:hover,:focus,:focus-visible) {
+  background: linear-gradient(
+    100deg,
+    #19d668,
+    #066e42
+  ) !important;
+  color: #fff !important;
+  border-color: #75ffae !important;
+  box-shadow:
+    0 0 0 1px #7fffaa66 inset,
+    0 6px 22px #28ff8870,
+    0 2px 10px #0008 !important;
+  transform:
+    translate3d(5px,-2px,0) scale(1.025);
+  outline: 2px solid #e0ffec;
+  outline-offset: 2px;
+  z-index: 2;
+}
+
+/* ITEM SELECIONADO */
+.menu button.active {
+  background: linear-gradient(
+    105deg,
+    #138d51,
+    #075f3c
+  ) !important;
+  color: #fff !important;
+  border-color: #5af6a1 !important;
+  box-shadow:
+    inset 3px 0 #90ffc0,
+    0 0 16px #28e9874a;
+}
+
+.menu button.child:is(:hover,:focus,:focus-visible) {
+  transform:
+    translate3d(3px,-1px,0) scale(1.01);
+}
+
+.menu .sep {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #32b27590,
+    transparent
+  );
+  margin: 11px 4px;
+  height: 1px;
+}
+
+/* CONTEUDO */
+.main {
+  padding: 24px 20px 40px 8px;
+}
+
+.search {
+  max-width: 650px;
+  background: linear-gradient(
+    120deg,
+    #0a2018,
+    #0c1616
+  );
+  border-color: #438b6b;
+  box-shadow: 0 4px 24px #0006;
+}
+
+.search:focus {
+  outline: 2px solid #66ffaf;
+  box-shadow: 0 0 24px #30d98555;
+}
+
+.heading {
+  font-size: 27px;
+  font-weight: 800;
+  letter-spacing: -.6px;
+  border-left: 4px solid #50fc94;
+  padding-left: 13px;
+}
+
+/* CARDS COM DESTAQUE AO FOCO */
+.card .cover {
+  border-radius: 15px;
+  border: 1px solid #275943;
+  box-shadow: 0 8px 20px #0007;
+  transition:
+    transform .2s ease,
+    box-shadow .2s ease,
+    border-color .2s ease;
+}
+
+.card:is(:hover,:focus,:focus-visible) .cover {
+  transform: translateY(-5px) scale(1.025);
+  border-color: #62ffae;
+  box-shadow:
+    0 12px 30px #000a,
+    0 0 22px #2cef8160;
+}
+
+/* MINI PLAYER */
+.player {
+  border-color: #5efe9a;
+  box-shadow:
+    0 16px 45px #000c,
+    0 0 24px #3cff7c44;
+}
+
+/* BOTOES DO PLAYER */
+.tools button:is(:hover,:focus-visible),
+.controls button:is(:hover,:focus-visible) {
+  border-color: #55fda1;
+  background: #16774a;
+  box-shadow: 0 0 18px #2cf08155;
+  outline: 2px solid #caffde;
+  outline-offset: 2px;
+}
+
+/* TV BOX E TELAS MEDIAS */
+@media(max-width:1150px) {
+  .shell {
+    grid-template-columns: 220px minmax(0,1fr);
+    gap: 9px;
+  }
+  .side { padding: 14px 9px; }
+  .main { padding: 20px 14px 30px 4px; }
+}
+
+/* CELULAR */
+@media(max-width:750px) {
+  .shell {
+    display: block;
+    padding: 8px;
+  }
+  .side {
+    position: relative;
+    top: auto;
+    height: auto;
+    max-height: 245px;
+    overflow: auto;
+    border-radius: 18px;
+    padding: 12px;
+  }
+  .brand {
+    font-size: 19px;
+    margin: 3px 6px 10px;
+  }
+  .menu {
+    flex-direction: row;
+    overflow-x: auto;
+    gap: 7px;
+    padding: 5px;
+  }
+  .menu button,
+  .menu button.parent,
+  .menu button.child {
+    flex: none;
+    width: auto;
+    min-height: 38px;
+    margin: 0;
+    padding: 10px 13px;
+    font-size: 12px;
+    white-space: nowrap;
+  }
+  .menu button.child {
+    padding-left: 23px;
+  }
+  .main {
+    padding: 15px 5px 28px;
+  }
+  .heading { font-size: 23px; }
+}
+
+/* ACESSIBILIDADE */
+@media(prefers-reduced-motion:reduce) {
+  .menu button,
+  .card .cover {
+    transition: none;
+  }
+}
 </style></head><body>
 <div id="shade" class="shade"></div><div id="shell" class="shell">
 <aside class="side"><div class="brand">▶ STANLEY <b>TV</b><small>HÍBRIDA · V1.5</small></div><nav class="menu" id="menu" aria-label="Navegação"></nav><p class="meta">IPTV e YouTube no mesmo aplicativo. Falhas registradas somente neste aparelho.</p></aside>
