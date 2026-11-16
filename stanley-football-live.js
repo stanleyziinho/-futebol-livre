@@ -91,32 +91,10 @@
   modal.append(cab, aviso, lista);
   document.body.append(modal);
 
-    const menu = document.getElementById('menu');
-  const lateral = document.querySelector('.side');
-
-  if (!menu || !lateral) return;
-
-  const futebolBtn = btn('⚽ Futebol de Hoje', () => {
+      window.stanleyAbrirFutebolHoje = function(){
     modal.style.display = 'block';
     carregar();
-  });
-
-  futebolBtn.id = 'stanley-football-menu';
-  futebolBtn.style.cssText = [
-    'display:block',
-    'width:100%',
-    'margin:8px 0 12px',
-    'padding:13px 15px',
-    'text-align:left',
-    'background:#146c49',
-    'border:1px solid #24e99b',
-    'border-radius:11px',
-    'color:#ffffff',
-    'font-size:14px',
-    'font-weight:700'
-  ].join(';');
-
-  lateral.insertBefore(futebolBtn, menu);
+  };
 
   async function pegarLiga(codigo, nome) {
     try {
