@@ -157,8 +157,12 @@ const groups=[
   'TV ao vivo',
   'Infantis ao Vivo',
   'Infantil',
+  
   'Esportes',
+  'Jogos ao Vivo',
+  'Programas Esportivos',
   'Filmes',
+
   'Séries',
   'Notícias',
   'Música',
@@ -178,7 +182,10 @@ function keyOf(c){const id=String(c.tvgId||'').trim().toLowerCase();if(id&&id!==
 function classify(group){const s=norm(group);if(/kids|infantil|children|animation|cartoon/.test(s))return 'Infantil';if(/sport|esporte|soccer|football/.test(s))return 'Esportes';if(/movie|filme|cinema/.test(s))return 'Filmes';if(/series|classic/.test(s))return 'Séries';if(/news|noticia|legislative/.test(s))return 'Notícias';if(/music|musica/.test(s))return 'Música';if(/document|education/.test(s))return 'Documentários';if(/entertainment|comedy|lifestyle/.test(s))return 'Entretenimento';if(/general|tv aberta/.test(s))return 'TV ao vivo';return 'Outros'}
 function parseM3U(t,base,playlist){if(!/^\s*#EXTM3U(?:\s|$)/i.test(t))throw Error('Não é uma playlist M3U');let m=null;const out=[];for(const raw of t.replace(/\r/g,'').split('\n')){const line=raw.trim();if(line.startsWith('#EXTINF')){const a=k=>(line.match(new RegExp(k+'="([^"]*)"','i'))||[])[1]||'';m={name:line.slice(line.indexOf(',')+1).trim(),logo:a('tvg-logo'),group:a('group-title')||'Outros',tvgId:a('tvg-id')}}else if(line.startsWith('#EXTGRP:')&&m)m.group=line.slice(8);else if(line&&!line.startsWith('#')&&m){let url='';try{url=valid(new URL(line,base).href)}catch{}if(url&&m.name)out.push({...m,url,category:classify(m.group),source:playlist.id});m=null}}return out}
 function compactChannels(rows){const map=new Map(),alias=new Map();for(const row of rows){const k=keyOf(row),nameKey='name:'+norm(row.name).replace(/\b(?:hd|sd|fhd|uhd|4k|1080p|720p)\b/g,'').replace(/\s+/g,' ').trim();let key=alias.get(k)||alias.get(nameKey)||k;let c=map.get(key);if(!c){c={id:'channel-'+key,name:row.name,category:row.category,type:'hls',source:'iptv',url:row.url,urls:[],logo:row.logo||'',tvgId:row.tvgId||''};map.set(key,c)}if(!c.urls.includes(row.url))c.urls.push(row.url);if(!c.logo&&row.logo)c.logo=row.logo;if(c.category==='Outros'&&row.category!=='Outros')c.category=row.category;alias.set(k,key);alias.set(nameKey,key)}return [...map.values()]}
+
 let filmesAutomaticos = [];
+let esportesAutomaticos = [];
+
 
 function items(){
   const manuais = saved.items.filter(x =>
@@ -195,6 +202,12 @@ function items(){
     ...fixed,
     ...manuais,
     ...filmesAutomaticos.filter(x => !idsExistentes.has(x.videoId)),
+    
+    ...esportesAutomaticos.filter(x =>
+      !idsExistentes.has(x.videoId) &&
+      !filmesAutomaticos.some(f => f.videoId === x.videoId)
+    ),
+
     ...iptv.filter(x =>
       !fixed.some(f =>
         f.type === 'hls' && (f.urls || []).includes(x.url)
@@ -237,6 +250,59 @@ async function carregarFilmesAutomaticos(){
     console.error('Erro ao carregar filmes:', erro);
   }
 }
+
+async function carregarEsportesAutomaticos(){
+  try {
+    const resposta = await fetch(
+      'stanley-esportes-ao-vivo.json?v=' + Date.now(),
+      {cache:'no-store'}
+    );
+
+    if(!resposta.ok){
+      throw Error('HTTP ' + resposta.status);
+    }
+
+    const dados = await resposta.json();
+
+    if(!Array.isArray(dados.items)){
+      throw Error('Catálogo esportivo inválido');
+    }
+
+    esportesAutomaticos = dados.items
+      .filter(x =>
+        x.videoId &&
+        /^[a-zA-Z0-9_-]{11}$/.test(x.videoId)
+      )
+      .map(x => ({
+        id: x.id,
+        name: x.name,
+        category: (
+          x.category === 'Jogos ao Vivo'
+            ? 'Jogos ao Vivo'
+            : 'Programas Esportivos'
+        ),
+        type: 'youtube',
+        videoId: x.videoId,
+        source: 'youtube',
+        liveStatus: 'live'
+      }));
+
+    render();
+
+    console.log(
+      'STANLEY SPORTS: ' +
+      esportesAutomaticos.length +
+      ' transmissões carregadas.'
+    );
+
+  } catch(erro) {
+    console.error(
+      'Erro no catálogo esportivo:',
+      erro
+    );
+  }
+}
+
 function findList(){const q=norm(query);return items().filter(c=>{if(category==='Favoritos'&&!saved.favs.includes(c.id))return false;if(category==='Destaques'&&!['monica','bob-esponja','amazon'].includes(c.id))return false;if(category!=='Destaques'&&category!=='Favoritos'){if(section!=='all'&&c.source!==section)return false;if(sub!=='Todos'&&c.category!==sub)return false}return !q||norm(c.name).includes(q)})}
 function setView(sec,subcat){section=sec;sub=subcat||'Todos';category='Lista';limit=24;render();}
 function makeButton(label,fn,cls=''){const b=document.createElement('button');b.textContent=label;b.className=cls;b.onclick=fn;return b}
@@ -255,8 +321,11 @@ async function sync(){if(busy)return;busy=true;$('refresh').disabled=true;$('sta
 $('refresh').onclick=sync;
 document.addEventListener('keydown',e=>{if((e.key==='Escape'||e.key==='Backspace')&&!['INPUT','TEXTAREA'].includes(e.target.tagName)){if(expanded)toggleExpand();else if(current)closePlayer();e.preventDefault();return}if(!e.key.startsWith('Arrow')||['INPUT','VIDEO'].includes(e.target.tagName))return;const btns=[...document.querySelectorAll('button')].filter(b=>!b.disabled&&b.getClientRects().length);const a=document.activeElement;if(!btns.includes(a)){btns[0]?.focus();e.preventDefault();return}const r=a.getBoundingClientRect(),x=r.left+r.width/2,y=r.top+r.height/2;let closest=null,score=Infinity;for(const b of btns){if(b===a)continue;const q=b.getBoundingClientRect(),dx=q.left+q.width/2-x,dy=q.top+q.height/2-y,forward=e.key==='ArrowRight'?dx:e.key==='ArrowLeft'?-dx:e.key==='ArrowDown'?dy:-dy;if(forward<=3)continue;const side=/Right|Left/.test(e.key)?Math.abs(dy):Math.abs(dx),s=forward+2*side;if(s<score){score=s;closest=b}}if(closest){closest.focus();closest.scrollIntoView({block:'nearest',inline:'nearest'});e.preventDefault()}});
 try{const cached=JSON.parse(sessionStorage.getItem(CACHE)||'null');if(Array.isArray(cached))iptv=cached}catch{}
+
 render();
 sync();
 carregarFilmesAutomaticos();
+carregarEsportesAutomaticos();
+
 })();
 </script></body></html>
