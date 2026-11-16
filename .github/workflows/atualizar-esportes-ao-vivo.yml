@@ -1,0 +1,197 @@
+name: Stanley Sports - Esportes ao Vivo
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 */4 * * *'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: stanley-esportes-ao-vivo
+  cancel-in-progress: false
+
+jobs:
+  atualizar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Baixar repositorio
+        uses: actions/checkout@v4
+
+      - name: Pesquisar transmissoes esportivas em andamento
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+        run: |
+          python3 - <<'PY'
+          import json
+          import os
+          import sys
+          import urllib.error
+          import urllib.parse
+          import urllib.request
+          from datetime import datetime, timezone
+          from pathlib import Path
+
+          KEY = os.environ.get('YOUTUBE_API_KEY', '').strip()
+          if not KEY:
+              sys.exit('ERRO: segredo YOUTUBE_API_KEY nao configurado.')
+
+          API = 'https://www.googleapis.com/youtube/v3/'
+
+          def consultar(rota, **parametros):
+              parametros['key'] = KEY
+              url = API + rota + '?' + urllib.parse.urlencode(parametros)
+              try:
+                  with urllib.request.urlopen(url, timeout=35) as resp:
+                      return json.load(resp)
+              except urllib.error.HTTPError as erro:
+                  msg = erro.read().decode('utf-8', 'replace')[:500]
+                  raise RuntimeError(
+                      'YouTube API HTTP %s: %s' % (erro.code, msg)
+                  ) from None
+
+          pesquisas = [
+              ('futebol ao vivo', 'Futebol'),
+              ('futsal ao vivo', 'Futsal'),
+              ('basquete ao vivo', 'Basquete'),
+              ('volei ao vivo', 'Volei'),
+          ]
+
+          caze_id = None
+          try:
+              canal = consultar(
+                  'channels', part='id', forHandle='@CazeTV'
+              )
+              encontrados = canal.get('items', [])
+              if encontrados:
+                  caze_id = encontrados[0]['id']
+          except Exception as erro:
+              print('Nao foi possivel identificar CazeTV:', erro)
+
+          candidatos = {}
+
+          def pesquisar(termo, modalidade, channel_id=None):
+              args = dict(
+                  part='snippet',
+                  type='video',
+                  eventType='live',
+                  videoEmbeddable='true',
+                  videoSyndicated='true',
+                  maxResults=50,
+                  order='relevance',
+                  relevanceLanguage='pt',
+                  safeSearch='moderate'
+              )
+              if channel_id:
+                  args['channelId'] = channel_id
+              else:
+                  args['q'] = termo
+
+              dados = consultar('search', **args)
+
+              for item in dados.get('items', []):
+                  vid = item.get('id', {}).get('videoId')
+                  if vid and vid not in candidatos:
+                      candidatos[vid] = modalidade
+
+              print(
+                  'Busca:', termo or 'CazeTV',
+                  '| candidatos:', len(candidatos)
+              )
+
+          for termo, modalidade in pesquisas:
+              pesquisar(termo, modalidade)
+
+          if caze_id:
+              pesquisar('', 'Esportes', channel_id=caze_id)
+
+          agora = datetime.now(timezone.utc).isoformat()
+          atuais = []
+          ids = list(candidatos)
+
+          for inicio in range(0, len(ids), 50):
+              lote = ids[inicio:inicio+50]
+              resultado = consultar(
+                  'videos',
+                  part='snippet,status,liveStreamingDetails',
+                  id=','.join(lote),
+                  maxResults=50
+              )
+
+              for v in resultado.get('items', []):
+                  sn = v.get('snippet', {})
+                  st = v.get('status', {})
+                  detalhes = v.get('liveStreamingDetails', {})
+                  vid = v.get('id')
+
+                  if not vid or st.get('privacyStatus') != 'public':
+                      continue
+                  if st.get('embeddable') is not True:
+                      continue
+                  if sn.get('liveBroadcastContent') != 'live':
+                      continue
+                  if (
+                      not detalhes.get('actualStartTime')
+                      or detalhes.get('actualEndTime')
+                  ):
+                      continue
+
+                  titulo = sn.get('title', '').strip()
+                  if not titulo:
+                      continue
+
+                  atuais.append({
+                      'id': 'esporte-live-' + vid,
+                      'name': titulo,
+                      'category': 'Esportes ao Vivo',
+                      'type': 'youtube',
+                      'videoId': vid,
+                      'source': 'youtube',
+                      'channel': sn.get('channelTitle', ''),
+                      'channelId': sn.get('channelId', ''),
+                      'modality': candidatos[vid],
+                      'liveStatus': 'live',
+                      'thumbnail': (
+                          'https://i.ytimg.com/vi/' +
+                          vid + '/hqdefault.jpg'
+                      ),
+                      'startedAt': detalhes.get('actualStartTime'),
+                  })
+
+          atuais.sort(key=lambda x: (x['channel'], x['name']))
+
+          dados = {
+              'version': 1,
+              'source': 'YouTube Data API - esportes ao vivo',
+              'updatedAt': agora,
+              'count': len(atuais),
+              'items': atuais,
+          }
+
+          Path('stanley-esportes-ao-vivo.json').write_text(
+              json.dumps(
+                  dados, ensure_ascii=False, indent=2
+              ) + '\n',
+              encoding='utf-8'
+          )
+
+          print(
+              'Transmissoes encontradas:',
+              len(atuais)
+          )
+          PY
+
+      - name: Publicar catalogo
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add stanley-esportes-ao-vivo.json
+
+          if git diff --cached --quiet; then
+            echo "Catalogo sem mudancas"
+          else
+            git commit -m "Atualizar esportes ao vivo Stanley TV"
+            git pull --rebase origin "${GITHUB_REF_NAME}"
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+          fi
