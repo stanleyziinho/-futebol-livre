@@ -1,21 +1,60 @@
 {
   "version": 2,
   "source": "YouTube Data API - esportes ao vivo",
-  "updatedAt": "2026-11-17T17:14:07.844531+00:00",
-  "count": 20,
+  "updatedAt": "2026-11-17T21:00:33.150886+00:00",
+  "count": 28,
   "items": [
     {
-      "id": "esporte-live-h1qU7T1jULM",
-      "name": "Togo x Argélia AO VIVO | Eliminatórias da Copa Africana de Nações 2027",
+      "id": "esporte-live-PyknjkvDfQM",
+      "name": "JOGO AREOSA terça feira, vôlei intermediário amador",
       "category": "Jogos ao Vivo",
       "type": "youtube",
-      "videoId": "h1qU7T1jULM",
+      "videoId": "PyknjkvDfQM",
       "source": "youtube",
-      "channel": "Cartaxo Sports",
+      "channel": "AssociaçãovoleiballAreosa",
+      "modality": "Volei",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/PyknjkvDfQM/hqdefault.jpg",
+      "startedAt": "2026-11-17T20:17:39Z"
+    },
+    {
+      "id": "esporte-live-bvZ5Q6UvshI",
+      "name": "✅ Argentina vs Costa Rica [En Vivo] 🏆 Amistoso Internacional",
+      "category": "Jogos ao Vivo",
+      "type": "youtube",
+      "videoId": "bvZ5Q6UvshI",
+      "source": "youtube",
+      "channel": "Cábala Futbolera",
       "modality": "Futebol",
       "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/h1qU7T1jULM/hqdefault.jpg",
-      "startedAt": "2026-11-17T15:57:52Z"
+      "thumbnail": "https://i.ytimg.com/vi/bvZ5Q6UvshI/hqdefault.jpg",
+      "startedAt": "2026-11-17T20:05:17Z"
+    },
+    {
+      "id": "esporte-live-V-PN90RhlJE",
+      "name": "✅ Chile vs Colombia [En Vivo] 🏆 Amistoso Internacional",
+      "category": "Jogos ao Vivo",
+      "type": "youtube",
+      "videoId": "V-PN90RhlJE",
+      "source": "youtube",
+      "channel": "Cábala Futbolera",
+      "modality": "Futebol",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/V-PN90RhlJE/hqdefault.jpg",
+      "startedAt": "2026-11-17T20:00:55Z"
+    },
+    {
+      "id": "esporte-live-E1OF-K0HxBI",
+      "name": "AO VIVO: DINAMARCA X NORUEGA NATIONS LEAGUE DIRETO DO ESTÁDIO PARKEN | NARRAÇÃO",
+      "category": "Jogos ao Vivo",
+      "type": "youtube",
+      "videoId": "E1OF-K0HxBI",
+      "source": "youtube",
+      "channel": "Dibrou Sports Brasil",
+      "modality": "Futebol",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/E1OF-K0HxBI/hqdefault.jpg",
+      "startedAt": "2026-11-17T19:16:06Z"
     },
     {
       "id": "esporte-live-Wi8SEKVtsjo",
@@ -44,17 +83,43 @@
       "startedAt": "2026-11-17T13:17:12Z"
     },
     {
-      "id": "esporte-live-M1hjFSqEZb0",
-      "name": "🔴 RÚSSIA X VENEZUELA AO VIVO | AMISTOSO INTERNACIONAL 2026 | PLACAR EM TEMPO REAL",
+      "id": "esporte-live-dBzO5ksL_cw",
+      "name": "🔴 PAÍS DE GALES X PORTUGAL AO VIVO | NATIONS LEAGUE 2026/27 | PLACAR EM TEMPO REAL",
       "category": "Jogos ao Vivo",
       "type": "youtube",
-      "videoId": "M1hjFSqEZb0",
+      "videoId": "dBzO5ksL_cw",
       "source": "youtube",
       "channel": "Futebol Stats",
       "modality": "Futebol",
       "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/M1hjFSqEZb0/hqdefault.jpg",
-      "startedAt": "2026-11-17T15:25:23Z"
+      "thumbnail": "https://i.ytimg.com/vi/dBzO5ksL_cw/hqdefault.jpg",
+      "startedAt": "2026-11-17T19:15:53Z"
+    },
+    {
+      "id": "esporte-live-BJPXixVp-_Q",
+      "name": "DINAMARCA X NORUEGA - AO VIVO - UEFA NATIONS LEAGUE | 6ª RODADA",
+      "category": "Jogos ao Vivo",
+      "type": "youtube",
+      "videoId": "BJPXixVp-_Q",
+      "source": "youtube",
+      "channel": "Game Sports GS",
+      "modality": "Futebol",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/BJPXixVp-_Q/hqdefault.jpg",
+      "startedAt": "2026-11-17T19:30:15Z"
+    },
+    {
+      "id": "esporte-live-AngOCdYU5hI",
+      "name": "FUTEBOL AO VIVO | • INTERNO • | PSG  X MANCHESTER | ARENA DINIZ |",
+      "category": "Jogos ao Vivo",
+      "type": "youtube",
+      "videoId": "AngOCdYU5hI",
+      "source": "youtube",
+      "channel": "JhonnyTvOficial",
+      "modality": "Futebol",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/AngOCdYU5hI/hqdefault.jpg",
+      "startedAt": "2026-11-17T20:56:31Z"
     },
     {
       "id": "esporte-live-U7_igiVbSX8",
@@ -70,108 +135,95 @@
       "startedAt": "2026-09-26T18:03:20Z"
     },
     {
-      "id": "esporte-live-d_uO2Bl9Xu8",
-      "name": "AO VIVO | Audax x Pouso Alegre | Copa M2 Sub-16 2026 | Portal Brazuca",
+      "id": "esporte-live-WLfxDqb91rE",
+      "name": "DINAMARCA X NORUEGA AO VIVO | NARRAÇÃO EM PORTUGUÊS | LIGA DAS NAÇÕES",
       "category": "Jogos ao Vivo",
       "type": "youtube",
-      "videoId": "d_uO2Bl9Xu8",
+      "videoId": "WLfxDqb91rE",
       "source": "youtube",
-      "channel": "PORTAL BRAZUCA",
+      "channel": "MATCHDAY TV",
       "modality": "Futebol",
       "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/d_uO2Bl9Xu8/hqdefault.jpg",
-      "startedAt": "2026-11-17T15:45:33Z"
+      "thumbnail": "https://i.ytimg.com/vi/WLfxDqb91rE/hqdefault.jpg",
+      "startedAt": "2026-11-17T19:17:48Z"
     },
     {
-      "id": "esporte-live-DnVRFjfyLfE",
-      "name": "AO VIVO | Comercial x Soccer Pro | Copa M2 Sub-16 2026 | Portal Brazuca",
+      "id": "esporte-live-Ko_NW5RbrpA",
+      "name": "FLAMENGO RUMO AO TÍTULO, CRISE NO CORINTHIANS E VINI JR. BRILHA PELA SELEÇÃO! I DEU JOGO",
       "category": "Jogos ao Vivo",
       "type": "youtube",
-      "videoId": "DnVRFjfyLfE",
+      "videoId": "Ko_NW5RbrpA",
       "source": "youtube",
-      "channel": "PORTAL BRAZUCA",
+      "channel": "N Sports",
       "modality": "Futebol",
       "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/DnVRFjfyLfE/hqdefault.jpg",
-      "startedAt": "2026-11-17T16:13:53Z"
+      "thumbnail": "https://i.ytimg.com/vi/Ko_NW5RbrpA/hqdefault.jpg",
+      "startedAt": "2026-11-17T20:00:08Z"
     },
     {
-      "id": "esporte-live-Tm1Fg46TmgU",
-      "name": "AO VIVO | Cuiabá x A7 | Copa M2 Sub-16 2026 | Portal Brazuca",
+      "id": "esporte-live-5e7Rqe4rLjk",
+      "name": "🔴 DINAMARCA X NORUEGA | AO VIVO | LIGA DAS NAÇÕES UEFA | JOGO AO VIVO COM IMAGENS DO ESTÁDIO PARKEN",
       "category": "Jogos ao Vivo",
       "type": "youtube",
-      "videoId": "Tm1Fg46TmgU",
+      "videoId": "5e7Rqe4rLjk",
       "source": "youtube",
-      "channel": "PORTAL BRAZUCA",
+      "channel": "Na Rede Oficial",
       "modality": "Futebol",
       "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/Tm1Fg46TmgU/hqdefault.jpg",
-      "startedAt": "2026-11-17T16:13:50Z"
+      "thumbnail": "https://i.ytimg.com/vi/5e7Rqe4rLjk/hqdefault.jpg",
+      "startedAt": "2026-11-17T18:50:03Z"
     },
     {
-      "id": "esporte-live-bV6TgQjPbuM",
-      "name": "AO VIVO | Juventude x Volta Redonda | Copa M2 Sub-16 2026 | Portal Brazuca",
+      "id": "esporte-live-2DCpSRUxE88",
+      "name": "🔴 PAÍS DE GALES X PORTUGAL | AO VIVO | LIGA DAS NAÇÕES | JOGO AO VIVO COM IMAGENS DO CARDIFF CITY",
       "category": "Jogos ao Vivo",
       "type": "youtube",
-      "videoId": "bV6TgQjPbuM",
+      "videoId": "2DCpSRUxE88",
       "source": "youtube",
-      "channel": "PORTAL BRAZUCA",
+      "channel": "Na Rede Oficial",
       "modality": "Futebol",
       "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/bV6TgQjPbuM/hqdefault.jpg",
-      "startedAt": "2026-11-17T15:45:06Z"
+      "thumbnail": "https://i.ytimg.com/vi/2DCpSRUxE88/hqdefault.jpg",
+      "startedAt": "2026-11-17T18:03:47Z"
     },
     {
-      "id": "esporte-live-9L7I4gmkeQ4",
-      "name": "AO VIVO | União Barbarense x Cats | Copa M2 Sub-16 2026 | Portal Brazuca",
+      "id": "esporte-live-gmlkKf55uFc",
+      "name": "Resultado do jogo do bicho ao vivo - PTN - 18:20 - 17/11/2026",
       "category": "Jogos ao Vivo",
       "type": "youtube",
-      "videoId": "9L7I4gmkeQ4",
-      "source": "youtube",
-      "channel": "PORTAL BRAZUCA",
-      "modality": "Futebol",
-      "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/9L7I4gmkeQ4/hqdefault.jpg",
-      "startedAt": "2026-11-17T15:45:10Z"
-    },
-    {
-      "id": "esporte-live-yr96XOb7ndg",
-      "name": "Resultado do jogo do bicho ao vivo - PT - 14:20 - 17/11/2026",
-      "category": "Jogos ao Vivo",
-      "type": "youtube",
-      "videoId": "yr96XOb7ndg",
+      "videoId": "gmlkKf55uFc",
       "source": "youtube",
       "channel": "Palpites do Xerifão jb",
       "modality": "Futebol",
       "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/yr96XOb7ndg/hqdefault.jpg",
-      "startedAt": "2026-11-17T16:47:53Z"
+      "thumbnail": "https://i.ytimg.com/vi/gmlkKf55uFc/hqdefault.jpg",
+      "startedAt": "2026-11-17T20:57:20Z"
     },
     {
-      "id": "esporte-live-nfPN5EFd8IY",
-      "name": "🔴 Singapura x Brasil | AO VIVO | Copa do Brasil 2026 | Rádio Craque Neto",
+      "id": "esporte-live-H3t-QOyn9II",
+      "name": "O QUE DEU CERTO E O QUE DEU ERRADO NA SELEÇÃO; SEEDORF ABRE O JOGO NO CORINTHIANS - Quebrada FC",
       "category": "Jogos ao Vivo",
       "type": "youtube",
-      "videoId": "nfPN5EFd8IY",
+      "videoId": "H3t-QOyn9II",
       "source": "youtube",
-      "channel": "Rádio Craque Neto",
+      "channel": "Podpah TV",
       "modality": "Futebol",
       "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/nfPN5EFd8IY/hqdefault.jpg",
-      "startedAt": "2026-11-17T09:30:23Z"
+      "thumbnail": "https://i.ytimg.com/vi/H3t-QOyn9II/hqdefault.jpg",
+      "startedAt": "2026-11-17T20:32:07Z"
     },
     {
-      "id": "esporte-live-rkBkqxvqCXM",
-      "name": "VENEZUELA VS RUSIA EN VIVO ⚽️ COMO LLEGA LA VINOTINTO? 🔥 AMISTOSO INTERNACIONAL 🔥 [ FÚTBOL HOY ]",
+      "id": "esporte-live-OTm0r4Luv38",
+      "name": "POLÔNIA X SUÉCIA AO VIVO | 6ª RODADA NATIONS LEAGUE 2026/27",
       "category": "Jogos ao Vivo",
       "type": "youtube",
-      "videoId": "rkBkqxvqCXM",
+      "videoId": "OTm0r4Luv38",
       "source": "youtube",
-      "channel": "Salimos Por abajo",
+      "channel": "RW Esportes 360",
       "modality": "Futebol",
       "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/rkBkqxvqCXM/hqdefault.jpg",
-      "startedAt": "2026-11-17T15:19:19Z"
+      "thumbnail": "https://i.ytimg.com/vi/OTm0r4Luv38/hqdefault.jpg",
+      "startedAt": "2026-11-17T19:32:44Z"
     },
     {
       "id": "esporte-live--W5k-EQFNPM",
@@ -187,6 +239,32 @@
       "startedAt": "2026-10-21T14:12:07Z"
     },
     {
+      "id": "esporte-live-n939uMXIonc",
+      "name": "AO VIVO VAMOS FALAR DE FLAMENGO E AS CRÍTICAS DA TORCIDA!",
+      "category": "Programas Esportivos",
+      "type": "youtube",
+      "videoId": "n939uMXIonc",
+      "source": "youtube",
+      "channel": "CANAL CRÔNICA ESPORTIVA RN",
+      "modality": "Futebol",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/n939uMXIonc/hqdefault.jpg",
+      "startedAt": "2026-11-17T20:50:29Z"
+    },
+    {
+      "id": "esporte-live-WGllVIgZSpU",
+      "name": "🚨 SUPER PLANTÃO URGENTE! CHEGADA DE LUIZ HENRIQUE NO FLAMENGO! ACABOU DE ACERTAR! NOVO CAMISA 9! E+",
+      "category": "Programas Esportivos",
+      "type": "youtube",
+      "videoId": "WGllVIgZSpU",
+      "source": "youtube",
+      "channel": "Central FLA",
+      "modality": "Futebol",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/WGllVIgZSpU/hqdefault.jpg",
+      "startedAt": "2026-11-17T17:20:54Z"
+    },
+    {
       "id": "esporte-live-PPiQm4iCAYg",
       "name": "EMMY WELLS | UEFA + BWSL | DablioMPlay FC Women’s | GTA VI 30PS5 PRO !NO! | EA SPORTS FC™ 27 PC",
       "category": "Programas Esportivos",
@@ -198,19 +276,6 @@
       "liveStatus": "live",
       "thumbnail": "https://i.ytimg.com/vi/PPiQm4iCAYg/hqdefault.jpg",
       "startedAt": "2026-11-17T15:01:46Z"
-    },
-    {
-      "id": "esporte-live-DuVae8D34fU",
-      "name": "CORINTHIANS AO VIVO: SEEDORF CONCEDE ENTREVISTA COLETIVA | ESPN",
-      "category": "Programas Esportivos",
-      "type": "youtube",
-      "videoId": "DuVae8D34fU",
-      "source": "youtube",
-      "channel": "ESPN Brasil",
-      "modality": "Futebol",
-      "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/DuVae8D34fU/hqdefault.jpg",
-      "startedAt": "2026-11-17T17:03:26Z"
     },
     {
       "id": "esporte-live-ADWI_yx6WxM",
@@ -226,17 +291,56 @@
       "startedAt": "2026-10-23T09:34:43Z"
     },
     {
-      "id": "esporte-live-DcG0u-e2TzE",
-      "name": "AO VIVO | União São Bernardo x GH Sports | Copa M2 Sub-16 2026 | Portal Brazuca",
+      "id": "esporte-live-ejCrGy7zGMM",
+      "name": "🔴 ATLÉTICO-MG X SÃO PAULO AO VIVO | COPA DO BRASIL SUB-20 2026 | IFTV SPORTS",
       "category": "Programas Esportivos",
       "type": "youtube",
-      "videoId": "DcG0u-e2TzE",
+      "videoId": "ejCrGy7zGMM",
       "source": "youtube",
-      "channel": "PORTAL BRAZUCA",
+      "channel": "IFTV SPORTS",
       "modality": "Futebol",
       "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/DcG0u-e2TzE/hqdefault.jpg",
-      "startedAt": "2026-11-17T15:45:40Z"
+      "thumbnail": "https://i.ytimg.com/vi/ejCrGy7zGMM/hqdefault.jpg",
+      "startedAt": "2026-11-17T20:43:10Z"
+    },
+    {
+      "id": "esporte-live-1uRgGhCUxwE",
+      "name": "Lives Vôlei Rmello",
+      "category": "Programas Esportivos",
+      "type": "youtube",
+      "videoId": "1uRgGhCUxwE",
+      "source": "youtube",
+      "channel": "Lives Vôlei",
+      "modality": "Volei",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/1uRgGhCUxwE/hqdefault.jpg",
+      "startedAt": "2026-11-17T20:34:03Z"
+    },
+    {
+      "id": "esporte-live-RERbDf5eHm0",
+      "name": "O TEMPO Sports AO VIVO 🐓🦊 | CRUZEIRO X PALMEIRAS TERÁ CASA CHEIA + GALO SE PREPARA PARA O BOCA",
+      "category": "Programas Esportivos",
+      "type": "youtube",
+      "videoId": "RERbDf5eHm0",
+      "source": "youtube",
+      "channel": "O TEMPO",
+      "modality": "Futebol",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/RERbDf5eHm0/hqdefault.jpg",
+      "startedAt": "2026-11-17T20:03:10Z"
+    },
+    {
+      "id": "esporte-live-nSHBP5fB5IU",
+      "name": "O TEMPO Sports AO VIVO 🐓🦊 | CRUZEIRO X PALMEIRAS TERÁ CASA CHEIA + GALO SE PREPARA PARA O BOCA",
+      "category": "Programas Esportivos",
+      "type": "youtube",
+      "videoId": "nSHBP5fB5IU",
+      "source": "youtube",
+      "channel": "O TEMPO Sports",
+      "modality": "Futebol",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/nSHBP5fB5IU/hqdefault.jpg",
+      "startedAt": "2026-11-17T20:03:10Z"
     },
     {
       "id": "esporte-live-NRvGqpq699c",
@@ -252,17 +356,17 @@
       "startedAt": "2026-09-18T11:03:24Z"
     },
     {
-      "id": "esporte-live-oB3NGAPJK3I",
-      "name": "CAMPO NEUTRO 17/11/2026",
+      "id": "esporte-live-AUrEE5JdM88",
+      "name": "ESPORTES NA ONDA | 17/11/2026",
       "category": "Programas Esportivos",
       "type": "youtube",
-      "videoId": "oB3NGAPJK3I",
+      "videoId": "AUrEE5JdM88",
       "source": "youtube",
       "channel": "Rádio Caxias Esportes",
-      "modality": "Basquete",
+      "modality": "Futebol",
       "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/oB3NGAPJK3I/hqdefault.jpg",
-      "startedAt": "2026-11-17T15:59:43Z"
+      "thumbnail": "https://i.ytimg.com/vi/AUrEE5JdM88/hqdefault.jpg",
+      "startedAt": "2026-11-17T20:29:59Z"
     }
   ]
 }
