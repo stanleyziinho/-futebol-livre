@@ -2,7 +2,7 @@
   "version": 1,
   "source": "Comedy Central Brasil",
   "channelId": "UCgOObQ-WkK2EA4CwXWspHGQ",
-  "updatedAt": "2026-11-16T13:14:43.402311+00:00",
+  "updatedAt": "2026-11-17T13:49:42.454371+00:00",
   "playlistCount": 126,
   "playlists": [
     {
@@ -510,8 +510,25 @@
       "name": "South Park No Comedy Central"
     }
   ],
-  "count": 6415,
+  "count": 6416,
   "items": [
+    {
+      "id": "comedy-tMUbTv1-POM",
+      "name": "Fome | Todo Mundo Odeia o Chris",
+      "category": "Comedy Central",
+      "type": "youtube",
+      "videoId": "tMUbTv1-POM",
+      "source": "youtube",
+      "channel": "Comedy Central Brasil",
+      "playlists": [
+        {
+          "id": "PLn6ERh_yI-q1XlSRpQpmFg7PXvS2hAz6d",
+          "name": "Todo Mundo Odeia O Chris"
+        }
+      ],
+      "thumbnail": "https://i.ytimg.com/vi/tMUbTv1-POM/hqdefault.jpg",
+      "publishedAt": "2026-11-16T21:00:25Z"
+    },
     {
       "id": "comedy-HR2lVESWC1g",
       "name": "Não decorei a tabuada, mas decorei isto aqui #KenanEKelNoComedy #KenanEKel #TáNaPlutoTV",
