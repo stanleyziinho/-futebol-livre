@@ -1,86 +1,34 @@
 {
   "version": 2,
   "source": "YouTube Data API - esportes ao vivo",
-  "updatedAt": "2026-11-17T13:20:30.246719+00:00",
-  "count": 25,
+  "updatedAt": "2026-11-17T17:14:07.844531+00:00",
+  "count": 20,
   "items": [
     {
-      "id": "esporte-live-8H0nu5-UDXY",
-      "name": "ETIÓPIA X MOÇAMBIQUE AO VIVO DO BAHIR DAR STADIUM | ELIMINATÓRIAS DA COPA AFRICANA DE NAÇÕES 2027",
+      "id": "esporte-live-h1qU7T1jULM",
+      "name": "Togo x Argélia AO VIVO | Eliminatórias da Copa Africana de Nações 2027",
       "category": "Jogos ao Vivo",
       "type": "youtube",
-      "videoId": "8H0nu5-UDXY",
-      "source": "youtube",
-      "channel": "+3 Minutos",
-      "modality": "Futebol",
-      "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/8H0nu5-UDXY/hqdefault.jpg",
-      "startedAt": "2026-11-17T12:48:18Z"
-    },
-    {
-      "id": "esporte-live-m6RUGIeR4pE",
-      "name": "SUDÃO DO SUL X ANGOLA AO VIVO DO JUBA STADIUM | ELIMINATÓRIAS DA COPA AFRICANA DE NAÇÕES 2027",
-      "category": "Jogos ao Vivo",
-      "type": "youtube",
-      "videoId": "m6RUGIeR4pE",
-      "source": "youtube",
-      "channel": "+3 Minutos",
-      "modality": "Futebol",
-      "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/m6RUGIeR4pE/hqdefault.jpg",
-      "startedAt": "2026-11-17T12:50:37Z"
-    },
-    {
-      "id": "esporte-live-2amqLnEkUdI",
-      "name": "TANZÂNIA x NIGÉRIA AO VIVO | ELIMINATÓRIAS DA COPA AFRICANA DE NAÇÕES 2027",
-      "category": "Jogos ao Vivo",
-      "type": "youtube",
-      "videoId": "2amqLnEkUdI",
+      "videoId": "h1qU7T1jULM",
       "source": "youtube",
       "channel": "Cartaxo Sports",
       "modality": "Futebol",
       "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/2amqLnEkUdI/hqdefault.jpg",
-      "startedAt": "2026-11-17T12:56:45Z"
+      "thumbnail": "https://i.ytimg.com/vi/h1qU7T1jULM/hqdefault.jpg",
+      "startedAt": "2026-11-17T15:57:52Z"
     },
     {
-      "id": "esporte-live-7PJTcOIzlpQ",
-      "name": "✅ Japón vs Paraguay [En Vivo] 🏆 Amistoso Internacional",
+      "id": "esporte-live-Wi8SEKVtsjo",
+      "name": "AO VIVO: PAÍS DE GALES X PORTUGAL NATIONS LEAGUE DIRETO DO CARDIFF CITY STADIUM | NARRAÇÃO",
       "category": "Jogos ao Vivo",
       "type": "youtube",
-      "videoId": "7PJTcOIzlpQ",
+      "videoId": "Wi8SEKVtsjo",
       "source": "youtube",
-      "channel": "Cábala Futbolera",
+      "channel": "Dibrou Sports Brasil",
       "modality": "Futebol",
       "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/7PJTcOIzlpQ/hqdefault.jpg",
-      "startedAt": "2026-11-17T11:46:34Z"
-    },
-    {
-      "id": "esporte-live-k-IYFImm2aM",
-      "name": "JAPÃO X PARAGUAI AO VIVO | Amistoso internacional em Singapura | Narração em português",
-      "category": "Jogos ao Vivo",
-      "type": "youtube",
-      "videoId": "k-IYFImm2aM",
-      "source": "youtube",
-      "channel": "Dimensão Esportiva",
-      "modality": "Volei",
-      "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/k-IYFImm2aM/hqdefault.jpg",
-      "startedAt": "2026-11-17T13:00:11Z"
-    },
-    {
-      "id": "esporte-live-7HxlPbYyNUE",
-      "name": "🔴 SIMULAÇÃO DA TABELA! | DANILO E HUGUINHO VÃO PRO JOGO? | R$33 MILHÕES PRA COMPRAR MEDINA!",
-      "category": "Jogos ao Vivo",
-      "type": "youtube",
-      "videoId": "7HxlPbYyNUE",
-      "source": "youtube",
-      "channel": "Fogo na Rede",
-      "modality": "Futebol",
-      "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/7HxlPbYyNUE/hqdefault.jpg",
-      "startedAt": "2026-11-17T12:48:34Z"
+      "thumbnail": "https://i.ytimg.com/vi/Wi8SEKVtsjo/hqdefault.jpg",
+      "startedAt": "2026-11-17T17:03:59Z"
     },
     {
       "id": "esporte-live-4xjfIWBXZgo",
@@ -96,6 +44,19 @@
       "startedAt": "2026-11-17T13:17:12Z"
     },
     {
+      "id": "esporte-live-M1hjFSqEZb0",
+      "name": "🔴 RÚSSIA X VENEZUELA AO VIVO | AMISTOSO INTERNACIONAL 2026 | PLACAR EM TEMPO REAL",
+      "category": "Jogos ao Vivo",
+      "type": "youtube",
+      "videoId": "M1hjFSqEZb0",
+      "source": "youtube",
+      "channel": "Futebol Stats",
+      "modality": "Futebol",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/M1hjFSqEZb0/hqdefault.jpg",
+      "startedAt": "2026-11-17T15:25:23Z"
+    },
+    {
       "id": "esporte-live-U7_igiVbSX8",
       "name": "Tupelo vs Roff | LIVE Basketball High School @Oklahoma | 17-Nov 2026",
       "category": "Jogos ao Vivo",
@@ -109,69 +70,82 @@
       "startedAt": "2026-09-26T18:03:20Z"
     },
     {
-      "id": "esporte-live-TxW40mipWAY",
-      "name": "AO VIVO: ATL MINEIRO NC X PALMEIRAS  NC BRASILEIRÃO GOLKIPER 2026 | 4º RODADA | JOGO 4º",
+      "id": "esporte-live-d_uO2Bl9Xu8",
+      "name": "AO VIVO | Audax x Pouso Alegre | Copa M2 Sub-16 2026 | Portal Brazuca",
       "category": "Jogos ao Vivo",
       "type": "youtube",
-      "videoId": "TxW40mipWAY",
-      "source": "youtube",
-      "channel": "NC TRAINING - UNIDADE STADIUM",
-      "modality": "Futebol",
-      "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/TxW40mipWAY/hqdefault.jpg",
-      "startedAt": "2026-11-17T10:03:32Z"
-    },
-    {
-      "id": "esporte-live-7tm0Q1LxZfo",
-      "name": "🚨 AO VIVO: O MELHOR PÓS-JOGO DE BRASIL 7x0 SINGAPURA!",
-      "category": "Jogos ao Vivo",
-      "type": "youtube",
-      "videoId": "7tm0Q1LxZfo",
-      "source": "youtube",
-      "channel": "OWTV",
-      "modality": "Futebol",
-      "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/7tm0Q1LxZfo/hqdefault.jpg",
-      "startedAt": "2026-11-17T12:17:51Z"
-    },
-    {
-      "id": "esporte-live-NcWgLmveCOg",
-      "name": "AO VIVO | Desportivo Real x Ecus Suzano | Copa M2 Sub-16 2026 | Portal Brazuca",
-      "category": "Jogos ao Vivo",
-      "type": "youtube",
-      "videoId": "NcWgLmveCOg",
+      "videoId": "d_uO2Bl9Xu8",
       "source": "youtube",
       "channel": "PORTAL BRAZUCA",
       "modality": "Futebol",
       "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/NcWgLmveCOg/hqdefault.jpg",
-      "startedAt": "2026-11-17T11:49:16Z"
+      "thumbnail": "https://i.ytimg.com/vi/d_uO2Bl9Xu8/hqdefault.jpg",
+      "startedAt": "2026-11-17T15:45:33Z"
     },
     {
-      "id": "esporte-live-sLxOsgivDmY",
-      "name": "AO VIVO | Jabaquara x Catanduvense | Copa M2 Sub-16 2026 | Portal Brazuca",
+      "id": "esporte-live-DnVRFjfyLfE",
+      "name": "AO VIVO | Comercial x Soccer Pro | Copa M2 Sub-16 2026 | Portal Brazuca",
       "category": "Jogos ao Vivo",
       "type": "youtube",
-      "videoId": "sLxOsgivDmY",
+      "videoId": "DnVRFjfyLfE",
       "source": "youtube",
       "channel": "PORTAL BRAZUCA",
       "modality": "Futebol",
       "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/sLxOsgivDmY/hqdefault.jpg",
-      "startedAt": "2026-11-17T11:46:12Z"
+      "thumbnail": "https://i.ytimg.com/vi/DnVRFjfyLfE/hqdefault.jpg",
+      "startedAt": "2026-11-17T16:13:53Z"
     },
     {
-      "id": "esporte-live-6aYXTTOngEc",
-      "name": "Resultado do jogo do bicho ao vivo - PPT - 09:20 - 17/11/2026",
+      "id": "esporte-live-Tm1Fg46TmgU",
+      "name": "AO VIVO | Cuiabá x A7 | Copa M2 Sub-16 2026 | Portal Brazuca",
       "category": "Jogos ao Vivo",
       "type": "youtube",
-      "videoId": "6aYXTTOngEc",
+      "videoId": "Tm1Fg46TmgU",
+      "source": "youtube",
+      "channel": "PORTAL BRAZUCA",
+      "modality": "Futebol",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/Tm1Fg46TmgU/hqdefault.jpg",
+      "startedAt": "2026-11-17T16:13:50Z"
+    },
+    {
+      "id": "esporte-live-bV6TgQjPbuM",
+      "name": "AO VIVO | Juventude x Volta Redonda | Copa M2 Sub-16 2026 | Portal Brazuca",
+      "category": "Jogos ao Vivo",
+      "type": "youtube",
+      "videoId": "bV6TgQjPbuM",
+      "source": "youtube",
+      "channel": "PORTAL BRAZUCA",
+      "modality": "Futebol",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/bV6TgQjPbuM/hqdefault.jpg",
+      "startedAt": "2026-11-17T15:45:06Z"
+    },
+    {
+      "id": "esporte-live-9L7I4gmkeQ4",
+      "name": "AO VIVO | União Barbarense x Cats | Copa M2 Sub-16 2026 | Portal Brazuca",
+      "category": "Jogos ao Vivo",
+      "type": "youtube",
+      "videoId": "9L7I4gmkeQ4",
+      "source": "youtube",
+      "channel": "PORTAL BRAZUCA",
+      "modality": "Futebol",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/9L7I4gmkeQ4/hqdefault.jpg",
+      "startedAt": "2026-11-17T15:45:10Z"
+    },
+    {
+      "id": "esporte-live-yr96XOb7ndg",
+      "name": "Resultado do jogo do bicho ao vivo - PT - 14:20 - 17/11/2026",
+      "category": "Jogos ao Vivo",
+      "type": "youtube",
+      "videoId": "yr96XOb7ndg",
       "source": "youtube",
       "channel": "Palpites do Xerifão jb",
       "modality": "Futebol",
       "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/6aYXTTOngEc/hqdefault.jpg",
-      "startedAt": "2026-11-17T12:04:35Z"
+      "thumbnail": "https://i.ytimg.com/vi/yr96XOb7ndg/hqdefault.jpg",
+      "startedAt": "2026-11-17T16:47:53Z"
     },
     {
       "id": "esporte-live-nfPN5EFd8IY",
@@ -187,17 +161,17 @@
       "startedAt": "2026-11-17T09:30:23Z"
     },
     {
-      "id": "esporte-live-zg2yZqpkNII",
-      "name": "Amistoso Internacional | Japão x Paraguai (NARRAÇÃO AO VIVO)",
+      "id": "esporte-live-rkBkqxvqCXM",
+      "name": "VENEZUELA VS RUSIA EN VIVO ⚽️ COMO LLEGA LA VINOTINTO? 🔥 AMISTOSO INTERNACIONAL 🔥 [ FÚTBOL HOY ]",
       "category": "Jogos ao Vivo",
       "type": "youtube",
-      "videoId": "zg2yZqpkNII",
+      "videoId": "rkBkqxvqCXM",
       "source": "youtube",
-      "channel": "Rádio Mirai",
+      "channel": "Salimos Por abajo",
       "modality": "Futebol",
       "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/zg2yZqpkNII/hqdefault.jpg",
-      "startedAt": "2026-11-17T12:59:35Z"
+      "thumbnail": "https://i.ytimg.com/vi/rkBkqxvqCXM/hqdefault.jpg",
+      "startedAt": "2026-11-17T15:19:19Z"
     },
     {
       "id": "esporte-live--W5k-EQFNPM",
@@ -213,56 +187,30 @@
       "startedAt": "2026-10-21T14:12:07Z"
     },
     {
-      "id": "esporte-live-j6SvzJAPYTY",
-      "name": "BOM DIA ESPORTE | BRASIL X SINGAPURA: PÓS-JOGO! NATIONS LEAGUE, BRASILEIRÃO, NBA E MUITO MAIS!",
+      "id": "esporte-live-PPiQm4iCAYg",
+      "name": "EMMY WELLS | UEFA + BWSL | DablioMPlay FC Women’s | GTA VI 30PS5 PRO !NO! | EA SPORTS FC™ 27 PC",
       "category": "Programas Esportivos",
       "type": "youtube",
-      "videoId": "j6SvzJAPYTY",
+      "videoId": "PPiQm4iCAYg",
       "source": "youtube",
-      "channel": "Coy Esportes",
-      "modality": "Basquete",
-      "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/j6SvzJAPYTY/hqdefault.jpg",
-      "startedAt": "2026-11-17T12:36:34Z"
-    },
-    {
-      "id": "esporte-live-hj5iXA9SYAs",
-      "name": "BOM DIA ESPORTE | BRASIL X SINGAPURA: PÓS-JOGO! NATIONS LEAGUE, BRASILEIRÃO, NBA E MUITO MAIS! 📱",
-      "category": "Programas Esportivos",
-      "type": "youtube",
-      "videoId": "hj5iXA9SYAs",
-      "source": "youtube",
-      "channel": "Coy Esportes",
+      "channel": "DablioMPlay",
       "modality": "Futebol",
       "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/hj5iXA9SYAs/hqdefault.jpg",
-      "startedAt": "2026-11-17T12:36:34Z"
+      "thumbnail": "https://i.ytimg.com/vi/PPiQm4iCAYg/hqdefault.jpg",
+      "startedAt": "2026-11-17T15:01:46Z"
     },
     {
-      "id": "esporte-live-UeIGHLqKrb8",
-      "name": "BOM DIA ESPORTE | BRASIL X SINGAPURA: PÓS-JOGO! NATIONS LEAGUE, BRASILEIRÃO, NBA E MUITO MAIS!",
+      "id": "esporte-live-DuVae8D34fU",
+      "name": "CORINTHIANS AO VIVO: SEEDORF CONCEDE ENTREVISTA COLETIVA | ESPN",
       "category": "Programas Esportivos",
       "type": "youtube",
-      "videoId": "UeIGHLqKrb8",
+      "videoId": "DuVae8D34fU",
       "source": "youtube",
-      "channel": "Coy o Corintiano",
+      "channel": "ESPN Brasil",
       "modality": "Futebol",
       "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/UeIGHLqKrb8/hqdefault.jpg",
-      "startedAt": "2026-11-17T12:36:36Z"
-    },
-    {
-      "id": "esporte-live-RVmhYSLzDYc",
-      "name": "BOM DIA ESPORTE | BRASIL X SINGAPURA: PÓS-JOGO! NATIONS LEAGUE, BRASILEIRÃO, NBA E MUITO MAIS! 📱",
-      "category": "Programas Esportivos",
-      "type": "youtube",
-      "videoId": "RVmhYSLzDYc",
-      "source": "youtube",
-      "channel": "Coy o Corintiano",
-      "modality": "Futebol",
-      "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/RVmhYSLzDYc/hqdefault.jpg",
-      "startedAt": "2026-11-17T12:36:37Z"
+      "thumbnail": "https://i.ytimg.com/vi/DuVae8D34fU/hqdefault.jpg",
+      "startedAt": "2026-11-17T17:03:26Z"
     },
     {
       "id": "esporte-live-ADWI_yx6WxM",
@@ -278,17 +226,17 @@
       "startedAt": "2026-10-23T09:34:43Z"
     },
     {
-      "id": "esporte-live-B9hbtX6ktdc",
-      "name": "[AO VIVO] Pós jogo SELEÇÃO BRASILEIRA x Singapura",
+      "id": "esporte-live-DcG0u-e2TzE",
+      "name": "AO VIVO | União São Bernardo x GH Sports | Copa M2 Sub-16 2026 | Portal Brazuca",
       "category": "Programas Esportivos",
       "type": "youtube",
-      "videoId": "B9hbtX6ktdc",
+      "videoId": "DcG0u-e2TzE",
       "source": "youtube",
-      "channel": "Futebol Máximo",
+      "channel": "PORTAL BRAZUCA",
       "modality": "Futebol",
       "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/B9hbtX6ktdc/hqdefault.jpg",
-      "startedAt": "2026-11-17T12:05:30Z"
+      "thumbnail": "https://i.ytimg.com/vi/DcG0u-e2TzE/hqdefault.jpg",
+      "startedAt": "2026-11-17T15:45:40Z"
     },
     {
       "id": "esporte-live-NRvGqpq699c",
@@ -304,30 +252,17 @@
       "startedAt": "2026-09-18T11:03:24Z"
     },
     {
-      "id": "esporte-live-bXr_Avj056M",
-      "name": "FLAMENGO TERÁ PERCA DE RECEITAS SEM PATROCINADORA I VOLTA DE JOGADORES  I NOTÍCIAS DO FLA AO VIVO",
+      "id": "esporte-live-oB3NGAPJK3I",
+      "name": "CAMPO NEUTRO 17/11/2026",
       "category": "Programas Esportivos",
       "type": "youtube",
-      "videoId": "bXr_Avj056M",
+      "videoId": "oB3NGAPJK3I",
       "source": "youtube",
-      "channel": "Placar Rubro-Negro",
-      "modality": "Futebol",
+      "channel": "Rádio Caxias Esportes",
+      "modality": "Basquete",
       "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/bXr_Avj056M/hqdefault.jpg",
-      "startedAt": "2026-11-17T12:12:57Z"
-    },
-    {
-      "id": "esporte-live-2VlHLUIytAs",
-      "name": "🔴 O QUE ROLOU NO DEBATE DO CORINTHIANS | TIMÃO FAZ TREINO ABERTO NA NEO QUÍMICA ARENA ⚫⚪",
-      "category": "Programas Esportivos",
-      "type": "youtube",
-      "videoId": "2VlHLUIytAs",
-      "source": "youtube",
-      "channel": "TV Central do Timão",
-      "modality": "Futebol",
-      "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/2VlHLUIytAs/hqdefault.jpg",
-      "startedAt": "2026-11-17T13:06:58Z"
+      "thumbnail": "https://i.ytimg.com/vi/oB3NGAPJK3I/hqdefault.jpg",
+      "startedAt": "2026-11-17T15:59:43Z"
     }
   ]
 }
