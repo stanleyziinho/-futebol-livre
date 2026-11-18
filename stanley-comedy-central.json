@@ -2,7 +2,7 @@
   "version": 1,
   "source": "Comedy Central Brasil",
   "channelId": "UCgOObQ-WkK2EA4CwXWspHGQ",
-  "updatedAt": "2026-11-17T13:49:42.454371+00:00",
+  "updatedAt": "2026-11-18T13:50:48.717222+00:00",
   "playlistCount": 126,
   "playlists": [
     {
@@ -510,8 +510,59 @@
       "name": "South Park No Comedy Central"
     }
   ],
-  "count": 6416,
+  "count": 6419,
   "items": [
+    {
+      "id": "comedy-cqkw4VjYaKw",
+      "name": "A solução pra tudo era xarope quando eu era criança #TodoMundoOdeiaOChris #ChrisNoComedyCentral",
+      "category": "Comedy Central",
+      "type": "youtube",
+      "videoId": "cqkw4VjYaKw",
+      "source": "youtube",
+      "channel": "Comedy Central Brasil",
+      "playlists": [
+        {
+          "id": "PLn6ERh_yI-q1XlSRpQpmFg7PXvS2hAz6d",
+          "name": "Todo Mundo Odeia O Chris"
+        }
+      ],
+      "thumbnail": "https://i.ytimg.com/vi/cqkw4VjYaKw/hqdefault.jpg",
+      "publishedAt": "2026-11-18T13:00:34Z"
+    },
+    {
+      "id": "comedy-wAWluEMB-Gw",
+      "name": "Receita | Rei do Bairro",
+      "category": "Comedy Central",
+      "type": "youtube",
+      "videoId": "wAWluEMB-Gw",
+      "source": "youtube",
+      "channel": "Comedy Central Brasil",
+      "playlists": [
+        {
+          "id": "PLn6ERh_yI-q32nGGNMOo9UNruMxX1Qzqs",
+          "name": "O Rei do Bairro"
+        }
+      ],
+      "thumbnail": "https://i.ytimg.com/vi/wAWluEMB-Gw/hqdefault.jpg",
+      "publishedAt": "2026-11-18T00:00:38Z"
+    },
+    {
+      "id": "comedy-5Me5dwjprU8",
+      "name": "Cartão de crédito | Todo Mundo Odeia o Chris",
+      "category": "Comedy Central",
+      "type": "youtube",
+      "videoId": "5Me5dwjprU8",
+      "source": "youtube",
+      "channel": "Comedy Central Brasil",
+      "playlists": [
+        {
+          "id": "PLn6ERh_yI-q1XlSRpQpmFg7PXvS2hAz6d",
+          "name": "Todo Mundo Odeia O Chris"
+        }
+      ],
+      "thumbnail": "https://i.ytimg.com/vi/5Me5dwjprU8/hqdefault.jpg",
+      "publishedAt": "2026-11-17T21:00:48Z"
+    },
     {
       "id": "comedy-tMUbTv1-POM",
       "name": "Fome | Todo Mundo Odeia o Chris",
