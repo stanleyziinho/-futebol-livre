@@ -2,9 +2,21 @@
   "version": 1,
   "source": "Adrenalina Pura TV BR",
   "channelId": "UCWFovw8iyHBezTmaEWEV0RA",
-  "updatedAt": "2026-11-17T12:07:05.611079+00:00",
-  "count": 198,
+  "updatedAt": "2026-11-18T12:14:59.390024+00:00",
+  "count": 199,
   "items": [
+    {
+      "id": "adrenalina-nw9fU3gzWVM",
+      "name": "Milagre na Caverna - Filme Completo Dublado - Filme de Ação | Adrenalina Pura TV",
+      "category": "Filmes",
+      "type": "youtube",
+      "videoId": "nw9fU3gzWVM",
+      "source": "youtube",
+      "channel": "Adrenalina Pura TV BR",
+      "thumbnail": "https://i.ytimg.com/vi/nw9fU3gzWVM/hqdefault.jpg",
+      "durationSeconds": 6224,
+      "publishedAt": "2026-11-17T22:00:06Z"
+    },
     {
       "id": "adrenalina-SJX40BOPVwc",
       "name": "A Outra Face da Guerra - Filme Completo Dublado - Filme de Drama | Adrenalina Pura TV",
