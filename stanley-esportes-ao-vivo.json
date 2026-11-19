@@ -1,9 +1,22 @@
 {
   "version": 2,
   "source": "YouTube Data API - esportes ao vivo",
-  "updatedAt": "2026-11-19T09:16:34.178591+00:00",
-  "count": 8,
+  "updatedAt": "2026-11-19T13:27:57.772361+00:00",
+  "count": 23,
   "items": [
+    {
+      "id": "esporte-live-2J51qJOUIBA",
+      "name": "🔴 #AOVIVO CRUZEIRO X PALMEIRAS | PÓS-JOGO | BRASILEIRÃO 2026",
+      "category": "Jogos ao Vivo",
+      "type": "youtube",
+      "videoId": "2J51qJOUIBA",
+      "source": "youtube",
+      "channel": "Entre Linhas",
+      "modality": "Futebol",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/2J51qJOUIBA/hqdefault.jpg",
+      "startedAt": "2026-11-19T13:19:46Z"
+    },
     {
       "id": "esporte-live-U7_igiVbSX8",
       "name": "Bradford Prep vs Bandys | LIVE Basketball High School @North Carolina | 18-Nov 2026",
@@ -18,17 +31,69 @@
       "startedAt": "2026-09-26T18:03:20Z"
     },
     {
-      "id": "esporte-live-le5fgbF4PzU",
-      "name": "GRÊMIO X BAHIA AO VIVO | Brasileirão Série A #ecbahia",
+      "id": "esporte-live-ydVz9xji5o4",
+      "name": "AO VIVO: SÃO PAULO NC X REMO NC BRASILEIRÃO GOLKIPER 2026 | 5º RODADA | JOGO 1º",
       "category": "Jogos ao Vivo",
       "type": "youtube",
-      "videoId": "le5fgbF4PzU",
+      "videoId": "ydVz9xji5o4",
       "source": "youtube",
-      "channel": "SALVADOR TV",
+      "channel": "NC TRAINING - UNIDADE STADIUM",
       "modality": "Futebol",
       "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/le5fgbF4PzU/hqdefault.jpg",
-      "startedAt": "2026-11-18T23:19:50Z"
+      "thumbnail": "https://i.ytimg.com/vi/ydVz9xji5o4/hqdefault.jpg",
+      "startedAt": "2026-11-19T10:07:26Z"
+    },
+    {
+      "id": "esporte-live-3RL-l0xhbtY",
+      "name": "[AO VIVO] DESPORTIVO REAL X SOCCER PRO | COPA M2 SUB-16 2026 | OITAVAS DE FINAL - SÉRIE PRATA",
+      "category": "Jogos ao Vivo",
+      "type": "youtube",
+      "videoId": "3RL-l0xhbtY",
+      "source": "youtube",
+      "channel": "PORTAL BRAZUCA",
+      "modality": "Futebol",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/3RL-l0xhbtY/hqdefault.jpg",
+      "startedAt": "2026-11-19T11:56:53Z"
+    },
+    {
+      "id": "esporte-live-ixd9J8C50ak",
+      "name": "[AO VIVO] SÃO BERNARDO X CUIABÁ | COPA M2 SUB-16 2026 | OITAVAS DE FINAL - SÉRIE OURO",
+      "category": "Jogos ao Vivo",
+      "type": "youtube",
+      "videoId": "ixd9J8C50ak",
+      "source": "youtube",
+      "channel": "PORTAL BRAZUCA",
+      "modality": "Futebol",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/ixd9J8C50ak/hqdefault.jpg",
+      "startedAt": "2026-11-19T11:56:51Z"
+    },
+    {
+      "id": "esporte-live-vYVbUIkvrsk",
+      "name": "Resultado do jogo do bicho ao vivo - PPT - 09:20 - 19/11/2026",
+      "category": "Jogos ao Vivo",
+      "type": "youtube",
+      "videoId": "vYVbUIkvrsk",
+      "source": "youtube",
+      "channel": "Palpites do Xerifão jb",
+      "modality": "Futebol",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/vYVbUIkvrsk/hqdefault.jpg",
+      "startedAt": "2026-11-19T12:08:43Z"
+    },
+    {
+      "id": "esporte-live-e1kTUjjDEtQ",
+      "name": "Resultado do jogo do bicho ao VIVO PPT 09:20 HORAS  19/11/2026",
+      "category": "Jogos ao Vivo",
+      "type": "youtube",
+      "videoId": "e1kTUjjDEtQ",
+      "source": "youtube",
+      "channel": "Rainha dos palpites JB",
+      "modality": "Futebol",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/e1kTUjjDEtQ/hqdefault.jpg",
+      "startedAt": "2026-11-19T12:17:55Z"
     },
     {
       "id": "esporte-live--W5k-EQFNPM",
@@ -83,6 +148,71 @@
       "startedAt": "2026-11-01T13:54:11Z"
     },
     {
+      "id": "esporte-live-X_dFvhJhIg8",
+      "name": "GRÊMIO ESTÁ CAINDO PARA A SÉRIE B🔵 FUTEBOL ALEGRIA DO GRÊMIO - 19/11 - #681",
+      "category": "Programas Esportivos",
+      "type": "youtube",
+      "videoId": "X_dFvhJhIg8",
+      "source": "youtube",
+      "channel": "Bagé TV",
+      "modality": "Futebol",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/X_dFvhJhIg8/hqdefault.jpg",
+      "startedAt": "2026-11-19T11:59:27Z"
+    },
+    {
+      "id": "esporte-live-mtH6yWB5TFw",
+      "name": "FLAMENGO ESTÁ COM AS DUAS MÃOS NA TAÇA! | PERAÍ, PROFESSOR!",
+      "category": "Programas Esportivos",
+      "type": "youtube",
+      "videoId": "mtH6yWB5TFw",
+      "source": "youtube",
+      "channel": "CANELA NA REDE",
+      "modality": "Futebol",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/mtH6yWB5TFw/hqdefault.jpg",
+      "startedAt": "2026-11-19T12:07:17Z"
+    },
+    {
+      "id": "esporte-live-lmRLafh8QlU",
+      "name": "GOLEADA DO CORINTHIANS! VITÓRIAS DE FLAMENGO, CRUZEIRO E SANTOS + NBA E F1 | BOM DIA ESPORTE",
+      "category": "Programas Esportivos",
+      "type": "youtube",
+      "videoId": "lmRLafh8QlU",
+      "source": "youtube",
+      "channel": "Coy o Corintiano",
+      "modality": "Basquete",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/lmRLafh8QlU/hqdefault.jpg",
+      "startedAt": "2026-11-19T12:45:34Z"
+    },
+    {
+      "id": "esporte-live-gpZqQbySkiI",
+      "name": "GOLEADA DO CORINTHIANS! VITÓRIAS DE FLAMENGO, CRUZEIRO E SANTOS + NBA E F1 | BOM DIA ESPORTE 📱",
+      "category": "Programas Esportivos",
+      "type": "youtube",
+      "videoId": "gpZqQbySkiI",
+      "source": "youtube",
+      "channel": "Coy o Corintiano",
+      "modality": "Basquete",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/gpZqQbySkiI/hqdefault.jpg",
+      "startedAt": "2026-11-19T12:45:35Z"
+    },
+    {
+      "id": "esporte-live-BTT2ho83hVQ",
+      "name": "AO VIVO 🔴 CRUZEIRO VENCE O PALMEIRAS DE VIRADA 🦊 BOM DIA, CRUZEIRO!",
+      "category": "Programas Esportivos",
+      "type": "youtube",
+      "videoId": "BTT2ho83hVQ",
+      "source": "youtube",
+      "channel": "Diário Celeste",
+      "modality": "Futebol",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/BTT2ho83hVQ/hqdefault.jpg",
+      "startedAt": "2026-11-19T11:16:18Z"
+    },
+    {
       "id": "esporte-live-ADWI_yx6WxM",
       "name": "🔴 AO VIVO: Jogos Divertidos e Futebol para Crianças! ⚽",
       "category": "Programas Esportivos",
@@ -96,6 +226,45 @@
       "startedAt": "2026-10-23T09:34:43Z"
     },
     {
+      "id": "esporte-live-gusSmacnNVM",
+      "name": "FLAMENGO ESTÁ COM AS DUAS MÃOS NA TAÇA! | PERAÍ, PROFESSOR!",
+      "category": "Programas Esportivos",
+      "type": "youtube",
+      "videoId": "gusSmacnNVM",
+      "source": "youtube",
+      "channel": "Felipe Fontoura",
+      "modality": "Futebol",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/gusSmacnNVM/hqdefault.jpg",
+      "startedAt": "2026-11-19T12:07:17Z"
+    },
+    {
+      "id": "esporte-live-a7sNscxJG6w",
+      "name": "[AO VIVO] DS SPORTS X ECUS SUZANO | COPA M2 SUB-16 2026 | OITAVAS DE FINAL - SÉRIE PRATA",
+      "category": "Programas Esportivos",
+      "type": "youtube",
+      "videoId": "a7sNscxJG6w",
+      "source": "youtube",
+      "channel": "PORTAL BRAZUCA",
+      "modality": "Futebol",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/a7sNscxJG6w/hqdefault.jpg",
+      "startedAt": "2026-11-19T11:56:47Z"
+    },
+    {
+      "id": "esporte-live--19hU09cxwA",
+      "name": "[AO VIVO] UNIÃO BARBARENSE X GH SPORTS | COPA M2 SUB-16 2026 | OITAVAS DE FINAL - SÉRIE PRATA",
+      "category": "Programas Esportivos",
+      "type": "youtube",
+      "videoId": "-19hU09cxwA",
+      "source": "youtube",
+      "channel": "PORTAL BRAZUCA",
+      "modality": "Futebol",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/-19hU09cxwA/hqdefault.jpg",
+      "startedAt": "2026-11-19T11:56:50Z"
+    },
+    {
       "id": "esporte-live-NRvGqpq699c",
       "name": "Quem Vai Vencer A Corrida Suprema?! 🏁🏎️ | Patrulha Canina Patrulha Canina | PAW Patrol Temporada 12",
       "category": "Programas Esportivos",
@@ -107,6 +276,32 @@
       "liveStatus": "live",
       "thumbnail": "https://i.ytimg.com/vi/NRvGqpq699c/hqdefault.jpg",
       "startedAt": "2026-09-18T11:03:24Z"
+    },
+    {
+      "id": "esporte-live-k8gwqyqtlBA",
+      "name": "🔴 FLAMENGO COM A MÃO NA TAÇA I DERROTA DO PALMEIRAS NOS AJUDA I NOTÍCIAS DO FLA AO VIVO",
+      "category": "Programas Esportivos",
+      "type": "youtube",
+      "videoId": "k8gwqyqtlBA",
+      "source": "youtube",
+      "channel": "Placar Rubro-Negro",
+      "modality": "Futebol",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/k8gwqyqtlBA/hqdefault.jpg",
+      "startedAt": "2026-11-19T11:59:11Z"
+    },
+    {
+      "id": "esporte-live-XfNJrGONWyg",
+      "name": "[ AO VIVO]  CRUZEIRO 2X1 PALMEIRAS | PÓS JOGO | BRASILEIRÃO 2026",
+      "category": "Programas Esportivos",
+      "type": "youtube",
+      "videoId": "XfNJrGONWyg",
+      "source": "youtube",
+      "channel": "Terceira Academia Podcast",
+      "modality": "Futebol",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/XfNJrGONWyg/hqdefault.jpg",
+      "startedAt": "2026-11-19T13:19:46Z"
     }
   ]
 }
