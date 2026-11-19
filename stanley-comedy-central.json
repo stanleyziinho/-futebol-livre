@@ -2,7 +2,7 @@
   "version": 1,
   "source": "Comedy Central Brasil",
   "channelId": "UCgOObQ-WkK2EA4CwXWspHGQ",
-  "updatedAt": "2026-11-18T13:50:48.717222+00:00",
+  "updatedAt": "2026-11-19T13:52:07.103511+00:00",
   "playlistCount": 126,
   "playlists": [
     {
@@ -510,8 +510,59 @@
       "name": "South Park No Comedy Central"
     }
   ],
-  "count": 6419,
+  "count": 6422,
   "items": [
+    {
+      "id": "comedy-U0xOVy-6AXg",
+      "name": "Sua mãe é tranquila, né? Minha mãe: #TodoMundoOdeiaOChris #ChrisNoComedyCentral #ParamountPlus",
+      "category": "Comedy Central",
+      "type": "youtube",
+      "videoId": "U0xOVy-6AXg",
+      "source": "youtube",
+      "channel": "Comedy Central Brasil",
+      "playlists": [
+        {
+          "id": "PLn6ERh_yI-q1XlSRpQpmFg7PXvS2hAz6d",
+          "name": "Todo Mundo Odeia O Chris"
+        }
+      ],
+      "thumbnail": "https://i.ytimg.com/vi/U0xOVy-6AXg/hqdefault.jpg",
+      "publishedAt": "2026-11-19T13:00:24Z"
+    },
+    {
+      "id": "comedy-hPcZfY-uzhc",
+      "name": "Zumbis | Key e Peele",
+      "category": "Comedy Central",
+      "type": "youtube",
+      "videoId": "hPcZfY-uzhc",
+      "source": "youtube",
+      "channel": "Comedy Central Brasil",
+      "playlists": [
+        {
+          "id": "PLn6ERh_yI-q1IFwuNx8L5rd9ixb0-KQ-f",
+          "name": "Key & Peele"
+        }
+      ],
+      "thumbnail": "https://i.ytimg.com/vi/hPcZfY-uzhc/hqdefault.jpg",
+      "publishedAt": "2026-11-19T00:00:25Z"
+    },
+    {
+      "id": "comedy-87pM21UI194",
+      "name": "Casa de Solteiro | Todo Mundo Odeia o Chris",
+      "category": "Comedy Central",
+      "type": "youtube",
+      "videoId": "87pM21UI194",
+      "source": "youtube",
+      "channel": "Comedy Central Brasil",
+      "playlists": [
+        {
+          "id": "PLn6ERh_yI-q1XlSRpQpmFg7PXvS2hAz6d",
+          "name": "Todo Mundo Odeia O Chris"
+        }
+      ],
+      "thumbnail": "https://i.ytimg.com/vi/87pM21UI194/hqdefault.jpg",
+      "publishedAt": "2026-11-18T21:02:48Z"
+    },
     {
       "id": "comedy-cqkw4VjYaKw",
       "name": "A solução pra tudo era xarope quando eu era criança #TodoMundoOdeiaOChris #ChrisNoComedyCentral",
