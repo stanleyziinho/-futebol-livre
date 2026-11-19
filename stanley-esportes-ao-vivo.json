@@ -1,9 +1,22 @@
 {
   "version": 2,
   "source": "YouTube Data API - esportes ao vivo",
-  "updatedAt": "2026-11-18T23:32:32.300984+00:00",
-  "count": 84,
+  "updatedAt": "2026-11-19T01:24:44.056531+00:00",
+  "count": 82,
   "items": [
+    {
+      "id": "esporte-live-P-Hwhsy2-oo",
+      "name": "SANCOR LONDRINA X DENTIL PRAIA CLUBE AO VIVO DO MORINGÃO | SUPERLIGA FEMININA DE VÔLEI 26/27",
+      "category": "Jogos ao Vivo",
+      "type": "youtube",
+      "videoId": "P-Hwhsy2-oo",
+      "source": "youtube",
+      "channel": "+3 Minutos",
+      "modality": "Volei",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/P-Hwhsy2-oo/hqdefault.jpg",
+      "startedAt": "2026-11-18T23:51:08Z"
+    },
     {
       "id": "esporte-live-vcOTohUAnY8",
       "name": "PALMEIRAS X CRUZEIRO AO VIVO COM IMAGENS DO ESTÚDIO | JOGO DO PALMEIRAS AO VIVO | JOGO DO CRUZEIRO",
@@ -18,21 +31,21 @@
       "startedAt": "2026-11-18T21:31:50Z"
     },
     {
-      "id": "esporte-live-Cr5OAqZZyu4",
-      "name": "CRUZEIRO X PALMEIRAS | AO VIVO COM IMAGENS DO MINEIRÃO | BRASILEIRÃO 2026 | 18/11/26",
+      "id": "esporte-live-Y9Z97MAH7nc",
+      "name": "CORINTHIANS X BOTAFOGO | AO VIVO | BRASILEIRÃO | JOGO AO VIVO COM IMAGENS DA NEO QUIMICA | NARRAÇÃO",
       "category": "Jogos ao Vivo",
       "type": "youtube",
-      "videoId": "Cr5OAqZZyu4",
+      "videoId": "Y9Z97MAH7nc",
       "source": "youtube",
       "channel": "BFE | BATE FUNDO ESPORTIVO",
       "modality": "Futebol",
       "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/Cr5OAqZZyu4/hqdefault.jpg",
-      "startedAt": "2026-11-18T21:29:45Z"
+      "thumbnail": "https://i.ytimg.com/vi/Y9Z97MAH7nc/hqdefault.jpg",
+      "startedAt": "2026-11-18T23:58:57Z"
     },
     {
       "id": "esporte-live-r6EHe9nXTQw",
-      "name": "CRUZEIRO X PALMEIRAS | AO VIVO COM IMAGENS DO MINEIRÃO | BRASILEIRÃO 2026 | 18/11/26",
+      "name": "CRUZEIRO X PALMEIRAS | AO VIVO COM IMAGENS DO MINEIRÃO | BRASILEIRÃO 2026 | 18/11/26 | NARRAÇÃO",
       "category": "Jogos ao Vivo",
       "type": "youtube",
       "videoId": "r6EHe9nXTQw",
@@ -44,8 +57,34 @@
       "startedAt": "2026-11-18T23:09:48Z"
     },
     {
+      "id": "esporte-live-Cr5OAqZZyu4",
+      "name": "CRUZEIRO X PALMEIRAS | AO VIVO COM IMAGENS DO MINEIRÃO | BRASILEIRÃO 2026 | NARRAÇÃO | 18/11/2026",
+      "category": "Jogos ao Vivo",
+      "type": "youtube",
+      "videoId": "Cr5OAqZZyu4",
+      "source": "youtube",
+      "channel": "BFE | BATE FUNDO ESPORTIVO",
+      "modality": "Futebol",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/Cr5OAqZZyu4/hqdefault.jpg",
+      "startedAt": "2026-11-18T21:29:45Z"
+    },
+    {
+      "id": "esporte-live-wCmR5nwZ0VE",
+      "name": "FLAMENGO X ATHLETICO-PR | AO VIVO COM IMAGENS DO MARACANÃ | BRASILEIRÃO 2026 | 18/11/2026 | NARRAÇÃO",
+      "category": "Jogos ao Vivo",
+      "type": "youtube",
+      "videoId": "wCmR5nwZ0VE",
+      "source": "youtube",
+      "channel": "BFE | BATE FUNDO ESPORTIVO",
+      "modality": "Futebol",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/wCmR5nwZ0VE/hqdefault.jpg",
+      "startedAt": "2026-11-18T23:06:58Z"
+    },
+    {
       "id": "esporte-live-sNO82GjS3g8",
-      "name": "FLAMENGO X ATHLETICO-PR | AO VIVO COM IMAGENS DO MARACANÃ | BRASILEIRÃO 2026 | JOGO AO VIVO | 18/11",
+      "name": "FLAMENGO X ATHLETICO-PR | AO VIVO COM IMAGENS DO MARACANÃ | BRASILEIRÃO 2026 | NARRAÇÃO | 18/11/2026",
       "category": "Jogos ao Vivo",
       "type": "youtube",
       "videoId": "sNO82GjS3g8",
@@ -57,17 +96,17 @@
       "startedAt": "2026-11-18T20:52:04Z"
     },
     {
-      "id": "esporte-live-wCmR5nwZ0VE",
-      "name": "FLAMENGO X ATHLETICO-PR | AO VIVO COM IMAGENS DO MARACANÃ | BRASILEIRÃO 2026 | JOGO AO VIVO | 18/11",
+      "id": "esporte-live-ZgVXJ41fV7g",
+      "name": "GRÊMIO X BAHIA | AO VIVO | BRASILEIRÃO 2026 | JOGO AO VIVO COM IMAGENS DA ARENA DO GRÊMIO | NARRAÇÃO",
       "category": "Jogos ao Vivo",
       "type": "youtube",
-      "videoId": "wCmR5nwZ0VE",
+      "videoId": "ZgVXJ41fV7g",
       "source": "youtube",
       "channel": "BFE | BATE FUNDO ESPORTIVO",
       "modality": "Futebol",
       "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/wCmR5nwZ0VE/hqdefault.jpg",
-      "startedAt": "2026-11-18T23:06:58Z"
+      "thumbnail": "https://i.ytimg.com/vi/ZgVXJ41fV7g/hqdefault.jpg",
+      "startedAt": "2026-11-19T00:48:57Z"
     },
     {
       "id": "esporte-live-BfTKZPIFd74",
@@ -83,6 +122,45 @@
       "startedAt": "2026-11-18T22:44:53Z"
     },
     {
+      "id": "esporte-live-_r9CHiOY88I",
+      "name": "FLAMENGO X ATHLETICO-PR AO VIVO | BRASILEIRÃO 35ª RODADA | ESTÁDIO MARACANÃ !!",
+      "category": "Jogos ao Vivo",
+      "type": "youtube",
+      "videoId": "_r9CHiOY88I",
+      "source": "youtube",
+      "channel": "BOLA NO GOL ES",
+      "modality": "Futebol",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/_r9CHiOY88I/hqdefault.jpg",
+      "startedAt": "2026-11-19T00:00:35Z"
+    },
+    {
+      "id": "esporte-live-7O8OArZ140M",
+      "name": "🔴 CORINTHIANS X BOTAFOGO | AO VIVO | BRASILEIRÃO | CAZÉ TV | JOGO AO VIVO COM IMAGEM NA NEO QUÍMICA",
+      "category": "Jogos ao Vivo",
+      "type": "youtube",
+      "videoId": "7O8OArZ140M",
+      "source": "youtube",
+      "channel": "BTB SPORTS OFICIAL",
+      "modality": "Futebol",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/7O8OArZ140M/hqdefault.jpg",
+      "startedAt": "2026-11-18T23:35:55Z"
+    },
+    {
+      "id": "esporte-live-Yee3spPtKVs",
+      "name": "🔴 CORINTHIANS X BOTAFOGO | AO VIVO | CAZÉ TV | BRASILEIRÃO | JOGO AO VIVO COM IMAGEM NA NEO QUÍMICA",
+      "category": "Jogos ao Vivo",
+      "type": "youtube",
+      "videoId": "Yee3spPtKVs",
+      "source": "youtube",
+      "channel": "BTB SPORTS OFICIAL",
+      "modality": "Futebol",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/Yee3spPtKVs/hqdefault.jpg",
+      "startedAt": "2026-11-19T00:11:16Z"
+    },
+    {
       "id": "esporte-live-yrhGSR-F6GM",
       "name": "🔴 CRUZEIRO X PALMEIRAS | AO VIVO | BRASILEIRÃO | CAZÉ TV | JOGO AO VIVO COM IMAGENS NO MINEIRÃO",
       "category": "Jogos ao Vivo",
@@ -94,6 +172,19 @@
       "liveStatus": "live",
       "thumbnail": "https://i.ytimg.com/vi/yrhGSR-F6GM/hqdefault.jpg",
       "startedAt": "2026-11-18T22:15:10Z"
+    },
+    {
+      "id": "esporte-live-jq-l7DX3-AE",
+      "name": "🔴 FLAMENGO E ATHLETICO PR | AO VIVO | CAZÉ TV | BRASILEIRÃO | JOGO AO VIVO COM IMAGENS NO MARACANÃ",
+      "category": "Jogos ao Vivo",
+      "type": "youtube",
+      "videoId": "jq-l7DX3-AE",
+      "source": "youtube",
+      "channel": "BTB SPORTS OFICIAL",
+      "modality": "Futebol",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/jq-l7DX3-AE/hqdefault.jpg",
+      "startedAt": "2026-11-18T22:40:16Z"
     },
     {
       "id": "esporte-live-r43VVSVXzlI",
@@ -109,17 +200,43 @@
       "startedAt": "2026-11-18T21:00:33Z"
     },
     {
-      "id": "esporte-live-mbN6jmhR3OY",
-      "name": "JOGO COMPLETO: FLAMENGO x FLUMINENSE | ESTADUAL SUB-19 2026",
+      "id": "esporte-live-Fx_rnP8AvKQ",
+      "name": "🔴 FLAMENGO X ATHLETICO PR | AO VIVO | BRASILEIRÃO | CAZÉ TV | JOGO AO VIVO COM IMAGENS NO MARACANÃ",
       "category": "Jogos ao Vivo",
       "type": "youtube",
-      "videoId": "mbN6jmhR3OY",
+      "videoId": "Fx_rnP8AvKQ",
       "source": "youtube",
-      "channel": "BasqueteTV",
-      "modality": "Basquete",
+      "channel": "BTB SPORTS OFICIAL",
+      "modality": "Futebol",
       "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/mbN6jmhR3OY/hqdefault.jpg",
-      "startedAt": "2026-11-18T22:40:10Z"
+      "thumbnail": "https://i.ytimg.com/vi/Fx_rnP8AvKQ/hqdefault.jpg",
+      "startedAt": "2026-11-18T23:29:25Z"
+    },
+    {
+      "id": "esporte-live-LXtFSLQuFh0",
+      "name": "🔴 GRÊMIO X BAHIA | AO VIVO | BRASILEIRÃO | CAZÉ TV | JOGO AO VIVO COM IMAGENS NO PREMIERE",
+      "category": "Jogos ao Vivo",
+      "type": "youtube",
+      "videoId": "LXtFSLQuFh0",
+      "source": "youtube",
+      "channel": "BTB SPORTS OFICIAL",
+      "modality": "Futebol",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/LXtFSLQuFh0/hqdefault.jpg",
+      "startedAt": "2026-11-18T23:55:15Z"
+    },
+    {
+      "id": "esporte-live-64lE26VRj4I",
+      "name": "🔵 AO VIVO 🔵 JORNADA DO BAGÉ 🔵 GRÊMIO X BAHIA",
+      "category": "Jogos ao Vivo",
+      "type": "youtube",
+      "videoId": "64lE26VRj4I",
+      "source": "youtube",
+      "channel": "Bagé TV",
+      "modality": "Volei",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/64lE26VRj4I/hqdefault.jpg",
+      "startedAt": "2026-11-18T18:30:56Z"
     },
     {
       "id": "esporte-live-79C-ddCoOa4",
@@ -200,19 +317,6 @@
       "startedAt": "2026-11-18T20:31:09Z"
     },
     {
-      "id": "esporte-live-laNRcp5QSq4",
-      "name": "CRUZEIRO X PALMEIRAS AO VIVO COM IMAGEM  ( NARRAÇÃO AO VIVO )",
-      "category": "Jogos ao Vivo",
-      "type": "youtube",
-      "videoId": "laNRcp5QSq4",
-      "source": "youtube",
-      "channel": "Cruzeiro Até Morrer",
-      "modality": "Futebol",
-      "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/laNRcp5QSq4/hqdefault.jpg",
-      "startedAt": "2026-11-18T23:20:05Z"
-    },
-    {
       "id": "esporte-live-2k3vXR8jWEQ",
       "name": "FLAMENGO X ATHLETICO-PR - AO VIVO -  CAMPEONATO BRASILEIRO",
       "category": "Jogos ao Vivo",
@@ -224,19 +328,6 @@
       "liveStatus": "live",
       "thumbnail": "https://i.ytimg.com/vi/2k3vXR8jWEQ/hqdefault.jpg",
       "startedAt": "2026-11-18T21:21:29Z"
-    },
-    {
-      "id": "esporte-live-khJ9ZzPsowU",
-      "name": "AO VIVO: CRUZEIRO X PALMEIRAS BRASILEIRÃO DIRETO DO ESTÁDIO DO MINEIRÃO | NARRAÇÃO",
-      "category": "Jogos ao Vivo",
-      "type": "youtube",
-      "videoId": "khJ9ZzPsowU",
-      "source": "youtube",
-      "channel": "Dibrou Sports Brasil",
-      "modality": "Futebol",
-      "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/khJ9ZzPsowU/hqdefault.jpg",
-      "startedAt": "2026-11-18T22:48:02Z"
     },
     {
       "id": "esporte-live-p_FZ0cSMBDQ",
@@ -252,30 +343,56 @@
       "startedAt": "2026-11-18T22:46:28Z"
     },
     {
-      "id": "esporte-live-SC2gXTmcCww",
-      "name": "FINAL SUB 16 OURO - ONE AMERICANA x MOCOQUENSE (JOGO 1 - Associação Regional de Basquete)",
+      "id": "esporte-live-qM2FY5bmbOQ",
+      "name": "🔥 PRAIA CLUBE x LONDRINA AO VIVO | SUPERLIGA FEMININA DE VÔLEI | JOGO DE HOJE",
       "category": "Jogos ao Vivo",
       "type": "youtube",
-      "videoId": "SC2gXTmcCww",
+      "videoId": "qM2FY5bmbOQ",
       "source": "youtube",
-      "channel": "EM CIMA DO LANCE AO VIVO",
-      "modality": "Basquete",
+      "channel": "Dicas ML",
+      "modality": "Volei",
       "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/SC2gXTmcCww/hqdefault.jpg",
-      "startedAt": "2026-11-18T21:01:11Z"
+      "thumbnail": "https://i.ytimg.com/vi/qM2FY5bmbOQ/hqdefault.jpg",
+      "startedAt": "2026-11-18T23:41:51Z"
     },
     {
-      "id": "esporte-live-wnkSgZbd4cM",
-      "name": "AO VIVO : Copa Série Prata // Grande Final // Elo Imports Camisa 10 vs Drogaria N. Serra da Abadia",
+      "id": "esporte-live-U4rdUUV5R2Q",
+      "name": "🔴 AO VIVO: Santa Izabel do Oeste x Pato Branco | Quartas de Final (Volta) - Copa Sudoeste",
       "category": "Jogos ao Vivo",
       "type": "youtube",
-      "videoId": "wnkSgZbd4cM",
+      "videoId": "U4rdUUV5R2Q",
       "source": "youtube",
-      "channel": "Essencia Varzea",
+      "channel": "Esporte - Santa Izabel do Oeste",
       "modality": "Futsal",
       "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/wnkSgZbd4cM/hqdefault.jpg",
-      "startedAt": "2026-11-18T22:56:53Z"
+      "thumbnail": "https://i.ytimg.com/vi/U4rdUUV5R2Q/hqdefault.jpg",
+      "startedAt": "2026-11-18T23:53:43Z"
+    },
+    {
+      "id": "esporte-live-81ehYwhmTH0",
+      "name": "🏀 CAMPEONATO RORAIMENSE ANÍBAL RORAIMA 2026 | ADULTO FEMININO | JOGO 2 | ABC ANAUÁ x IBC-BVB",
+      "category": "Jogos ao Vivo",
+      "type": "youtube",
+      "videoId": "81ehYwhmTH0",
+      "source": "youtube",
+      "channel": "FEBERR TV",
+      "modality": "Basquete",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/81ehYwhmTH0/hqdefault.jpg",
+      "startedAt": "2026-11-19T01:14:21Z"
+    },
+    {
+      "id": "esporte-live-bVyX5lN3R3c",
+      "name": "🟠LIGA DE BANQUITAS🟠¡¡¡ SE DEFINEN LAS FINALES !!! LIBERTAD F.C, ARGENTINA, JOGO BONITO, LA PANDILLA",
+      "category": "Jogos ao Vivo",
+      "type": "youtube",
+      "videoId": "bVyX5lN3R3c",
+      "source": "youtube",
+      "channel": "FUTTO",
+      "modality": "Futsal",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/bVyX5lN3R3c/hqdefault.jpg",
+      "startedAt": "2026-11-19T00:32:20Z"
     },
     {
       "id": "esporte-live-GYPW5m5aIc0",
@@ -289,6 +406,19 @@
       "liveStatus": "live",
       "thumbnail": "https://i.ytimg.com/vi/GYPW5m5aIc0/hqdefault.jpg",
       "startedAt": "2026-11-18T23:30:02Z"
+    },
+    {
+      "id": "esporte-live-FNRI-cKOs0M",
+      "name": "AO VIVO: FLAMENGO X ATHLETICO-PR COM IMAGENS DO MARACANÃ! DUELO DECISIVO PELO TÍTULO! RODADA 35",
+      "category": "Jogos ao Vivo",
+      "type": "youtube",
+      "videoId": "FNRI-cKOs0M",
+      "source": "youtube",
+      "channel": "Flazoeiro TV",
+      "modality": "Futebol",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/FNRI-cKOs0M/hqdefault.jpg",
+      "startedAt": "2026-11-18T23:21:23Z"
     },
     {
       "id": "esporte-live-XSnUKOKqT7o",
@@ -343,56 +473,17 @@
       "startedAt": "2026-11-18T21:55:06Z"
     },
     {
-      "id": "esporte-live-c806xQeeNk0",
-      "name": "📻🎙️AO VIVO: CORITIBA X SANTOS - BRASILEIRÃO - 35ª RODADA - 18/11/2026",
+      "id": "esporte-live-ux6Idxh_fsc",
+      "name": "GRÊMIO X BAHIA | AO VIVO COM IMAGENS DO BRASILEIRÃO | ASSISTA AGORA | JOGO DE HOJE | PES21",
       "category": "Jogos ao Vivo",
       "type": "youtube",
-      "videoId": "c806xQeeNk0",
-      "source": "youtube",
-      "channel": "Fut Zé",
-      "modality": "Futebol",
-      "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/c806xQeeNk0/hqdefault.jpg",
-      "startedAt": "2026-11-18T22:08:28Z"
-    },
-    {
-      "id": "esporte-live-bvHnja_SYug",
-      "name": "📻🎙️AO VIVO: CORITIBA X SANTOS - BRASILEIRÃO - 35ª RODADA - 18/11/2026 📱",
-      "category": "Jogos ao Vivo",
-      "type": "youtube",
-      "videoId": "bvHnja_SYug",
-      "source": "youtube",
-      "channel": "Fut Zé",
-      "modality": "Futebol",
-      "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/bvHnja_SYug/hqdefault.jpg",
-      "startedAt": "2026-11-18T22:08:30Z"
-    },
-    {
-      "id": "esporte-live-aMDJPA4Ed9w",
-      "name": "CORITIBA X SANTOS | AO VIVO COM IMAGENS DO BRASILEIRÃO | ASSISTA AGORA | JOGO DE HOJE | PES21",
-      "category": "Jogos ao Vivo",
-      "type": "youtube",
-      "videoId": "aMDJPA4Ed9w",
+      "videoId": "ux6Idxh_fsc",
       "source": "youtube",
       "channel": "FuteOni TV",
       "modality": "Futebol",
       "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/aMDJPA4Ed9w/hqdefault.jpg",
-      "startedAt": "2026-11-18T22:30:13Z"
-    },
-    {
-      "id": "esporte-live-GTgiFsUJKvY",
-      "name": "REMO X CHAPECOENSE | AO VIVO COM IMAGENS DO BRASILEIRÃO | ASSISTA AGORA | JOGO DE HOJE | PES21",
-      "category": "Jogos ao Vivo",
-      "type": "youtube",
-      "videoId": "GTgiFsUJKvY",
-      "source": "youtube",
-      "channel": "FuteOni TV",
-      "modality": "Futebol",
-      "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/GTgiFsUJKvY/hqdefault.jpg",
-      "startedAt": "2026-11-18T23:16:37Z"
+      "thumbnail": "https://i.ytimg.com/vi/ux6Idxh_fsc/hqdefault.jpg",
+      "startedAt": "2026-11-19T00:30:11Z"
     },
     {
       "id": "esporte-live-b7ZM9n7Ih2o",
@@ -421,19 +512,6 @@
       "startedAt": "2026-11-18T23:26:33Z"
     },
     {
-      "id": "esporte-live-864VEPOa9Ec",
-      "name": "Disputa do Pódio! Adelbras x Pinheiros | Decisão de 3º Lugar Sub-14 Ao Vivo",
-      "category": "Jogos ao Vivo",
-      "type": "youtube",
-      "videoId": "864VEPOa9Ec",
-      "source": "youtube",
-      "channel": "GoLive Esportes TV",
-      "modality": "Volei",
-      "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/864VEPOa9Ec/hqdefault.jpg",
-      "startedAt": "2026-11-18T21:31:51Z"
-    },
-    {
       "id": "esporte-live-YibL2DNuOrM",
       "name": "🔴 AO VIVO | SANTA ROSA x SÃO JOSÉ DO INHACORÁ | SEMIFINAL – JOGO DE VOLTA",
       "category": "Jogos ao Vivo",
@@ -447,30 +525,17 @@
       "startedAt": "2026-11-18T22:59:30Z"
     },
     {
-      "id": "esporte-live-lb0XaLOdU5E",
-      "name": "AO VIVO: MIXTO-PB x FLUMINENSE-PB | CAMPEONATO PARAIBANO FEMININO 2026 | FINAL",
+      "id": "esporte-live-hEu-9PHbYtM",
+      "name": "Profissionais do jogo de Vôlei 🔴👏 fodase o Gta 6",
       "category": "Jogos ao Vivo",
       "type": "youtube",
-      "videoId": "lb0XaLOdU5E",
+      "videoId": "hEu-9PHbYtM",
       "source": "youtube",
-      "channel": "Jornal da Paraíba",
-      "modality": "Futebol",
+      "channel": "LagostinTV",
+      "modality": "Volei",
       "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/lb0XaLOdU5E/hqdefault.jpg",
-      "startedAt": "2026-11-18T22:23:29Z"
-    },
-    {
-      "id": "esporte-live-t5m3hGHMDy4",
-      "name": "FLAMENGO X ATHLETICO | AO VIVO",
-      "category": "Jogos ao Vivo",
-      "type": "youtube",
-      "videoId": "t5m3hGHMDy4",
-      "source": "youtube",
-      "channel": "LEO ANDRADE",
-      "modality": "Futebol",
-      "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/t5m3hGHMDy4/hqdefault.jpg",
-      "startedAt": "2026-11-18T21:33:24Z"
+      "thumbnail": "https://i.ytimg.com/vi/hEu-9PHbYtM/hqdefault.jpg",
+      "startedAt": "2026-11-19T00:12:11Z"
     },
     {
       "id": "esporte-live-U7_igiVbSX8",
@@ -510,6 +575,19 @@
       "liveStatus": "live",
       "thumbnail": "https://i.ytimg.com/vi/uQ8lrPdrnS8/hqdefault.jpg",
       "startedAt": "2026-11-18T22:02:33Z"
+    },
+    {
+      "id": "esporte-live-_TYsYJqs-kM",
+      "name": "FLAMENGO X ATHLETICO PR AO VIVO COM IMAGEM NA CAZE TV AO VIVO | JOGO DO FLAMENGO AO VIVO AGORA",
+      "category": "Jogos ao Vivo",
+      "type": "youtube",
+      "videoId": "_TYsYJqs-kM",
+      "source": "youtube",
+      "channel": "Litoral News",
+      "modality": "Futebol",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/_TYsYJqs-kM/hqdefault.jpg",
+      "startedAt": "2026-11-18T23:04:48Z"
     },
     {
       "id": "esporte-live-ZSnYFbj2yzQ",
@@ -577,19 +655,6 @@
       "startedAt": "2026-11-18T20:10:26Z"
     },
     {
-      "id": "esporte-live-l8q8EiF-7aY",
-      "name": "SESI FRANCA X CAXIAS BASQUETE | NBB CAIXA 2026/27 | 19h30 | 18/11 | AO VIVO",
-      "category": "Jogos ao Vivo",
-      "type": "youtube",
-      "videoId": "l8q8EiF-7aY",
-      "source": "youtube",
-      "channel": "NBB CAIXA",
-      "modality": "Basquete",
-      "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/l8q8EiF-7aY/hqdefault.jpg",
-      "startedAt": "2026-11-18T22:10:08Z"
-    },
-    {
       "id": "esporte-live-M7IhypRkiCw",
       "name": "🔴 CORINTHIANS X BOTAFOGO | AO VIVO | BRASILEIRÃO 2026 | JOGO AO VIVO COM IMAGENS DA NEO QUÍMICA",
       "category": "Jogos ao Vivo",
@@ -601,19 +666,6 @@
       "liveStatus": "live",
       "thumbnail": "https://i.ytimg.com/vi/M7IhypRkiCw/hqdefault.jpg",
       "startedAt": "2026-11-18T23:17:18Z"
-    },
-    {
-      "id": "esporte-live-EWajg5Wb-qc",
-      "name": "🔴 CORITIBA X SANTOS | AO VIVO | BRASILEIRÃO 2026 | JOGO AO VIVO COM IMAGENS DO COUTO PEREIRA",
-      "category": "Jogos ao Vivo",
-      "type": "youtube",
-      "videoId": "EWajg5Wb-qc",
-      "source": "youtube",
-      "channel": "Na Rede Oficial",
-      "modality": "Futebol",
-      "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/EWajg5Wb-qc/hqdefault.jpg",
-      "startedAt": "2026-11-18T20:50:15Z"
     },
     {
       "id": "esporte-live-TVWao_YKxog",
@@ -655,82 +707,56 @@
       "startedAt": "2026-11-18T23:03:09Z"
     },
     {
-      "id": "esporte-live-bf5Vhc8tIGM",
-      "name": "🔴 REMO X CHAPECOENSE | AO VIVO | BRASILEIRÃO 2026 | JOGO AO VIVO COM IMAGENS DO MANGUEIRÃO",
+      "id": "esporte-live-aZYWD3uk32A",
+      "name": "🔴 AO VIVO | RED BULL FUTSAL X COLOMBIA FUTSAL | COA VALE DE FUTSAL 2026 | COLOMBIA - SP",
       "category": "Jogos ao Vivo",
       "type": "youtube",
-      "videoId": "bf5Vhc8tIGM",
+      "videoId": "aZYWD3uk32A",
       "source": "youtube",
-      "channel": "Na Rede Oficial",
-      "modality": "Futebol",
-      "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/bf5Vhc8tIGM/hqdefault.jpg",
-      "startedAt": "2026-11-18T21:56:32Z"
-    },
-    {
-      "id": "esporte-live-k-cVkSMU25s",
-      "name": "DIA DE FINAIS - VETERANO E FEMININO - CAMPEONATO MUNICIPAL MULTISHOW DE FUTSAL 2026",
-      "category": "Jogos ao Vivo",
-      "type": "youtube",
-      "videoId": "k-cVkSMU25s",
-      "source": "youtube",
-      "channel": "PEC TV",
+      "channel": "PLAY OFF ESPORTIVO",
       "modality": "Futsal",
       "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/k-cVkSMU25s/hqdefault.jpg",
-      "startedAt": "2026-11-18T22:01:52Z"
+      "thumbnail": "https://i.ytimg.com/vi/aZYWD3uk32A/hqdefault.jpg",
+      "startedAt": "2026-11-19T00:56:03Z"
     },
     {
-      "id": "esporte-live-t6-42MPsp8g",
-      "name": "AO VIVO | SUPREMA LARANJAL X DELARA PISCINAS | REGIONAL DE FUTSAL | PALMITAL - PR",
+      "id": "esporte-live-yunYh3gmej4",
+      "name": "AO VIVO | PANIFICADORA HELLO PHARMA X RECANTO | REGIONAL DE FUTSAL | PALMITAL - PR",
       "category": "Jogos ao Vivo",
       "type": "youtube",
-      "videoId": "t6-42MPsp8g",
+      "videoId": "yunYh3gmej4",
       "source": "youtube",
       "channel": "Placar do Esporte",
       "modality": "Futsal",
       "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/t6-42MPsp8g/hqdefault.jpg",
-      "startedAt": "2026-11-18T23:26:16Z"
+      "thumbnail": "https://i.ytimg.com/vi/yunYh3gmej4/hqdefault.jpg",
+      "startedAt": "2026-11-19T00:41:06Z"
     },
     {
-      "id": "esporte-live-TF9s8eT02H8",
-      "name": "AO VIVO | Vargeão x Abelardo Luz | Final do Futsal Sub-17 – Jogos AMAI 2026",
+      "id": "esporte-live-3uX43nCSR7w",
+      "name": "2º CAMPEONATO OUTUBRO ROSA/NOVEMBRO AZUL - LAGUNA CARAPÃ/MS - FINAL FUTSAL FEMININO E VETERANOS",
       "category": "Jogos ao Vivo",
       "type": "youtube",
-      "videoId": "TF9s8eT02H8",
-      "source": "youtube",
-      "channel": "Prefeitura de Vargeão",
-      "modality": "Futsal",
-      "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/TF9s8eT02H8/hqdefault.jpg",
-      "startedAt": "2026-11-18T22:07:02Z"
-    },
-    {
-      "id": "esporte-live-nIHAmeoM_b8",
-      "name": "2º CAMPEONATO OUTUBRO ROSA/NOVEMBRO AZUL - LAGUNA CARAPÃ/MS - FINAL VÔLEI ADAPTADO FEMININO",
-      "category": "Jogos ao Vivo",
-      "type": "youtube",
-      "videoId": "nIHAmeoM_b8",
+      "videoId": "3uX43nCSR7w",
       "source": "youtube",
       "channel": "RESENHA DO ESPORTE DOURADOS",
-      "modality": "Volei",
+      "modality": "Futsal",
       "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/nIHAmeoM_b8/hqdefault.jpg",
-      "startedAt": "2026-11-18T23:02:00Z"
+      "thumbnail": "https://i.ytimg.com/vi/3uX43nCSR7w/hqdefault.jpg",
+      "startedAt": "2026-11-19T00:32:04Z"
     },
     {
-      "id": "esporte-live-BTuTFK6QVms",
-      "name": "CORITIBA x SANTOS AO VIVO | CAMPEONATO BRASILEIRO SÉRIE A 2026 | 35ª RODADA | NARRAÇÃO",
+      "id": "esporte-live-kRIGB-owet4",
+      "name": "CORINTHIANS x BOTAFOGO AO VIVO | CAMPEONATO BRASILEIRO SÉRIE A 2026 | 35ª RODADA | NARRAÇÃO",
       "category": "Jogos ao Vivo",
       "type": "youtube",
-      "videoId": "BTuTFK6QVms",
+      "videoId": "kRIGB-owet4",
       "source": "youtube",
       "channel": "RÁDIO FUTEBOL HD 3",
       "modality": "Futebol",
       "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/BTuTFK6QVms/hqdefault.jpg",
-      "startedAt": "2026-11-18T22:20:04Z"
+      "thumbnail": "https://i.ytimg.com/vi/kRIGB-owet4/hqdefault.jpg",
+      "startedAt": "2026-11-19T00:26:54Z"
     },
     {
       "id": "esporte-live-lvhUg2zfo74",
@@ -759,19 +785,6 @@
       "startedAt": "2026-11-18T23:18:08Z"
     },
     {
-      "id": "esporte-live-ZvEBjV-I8sY",
-      "name": "REMO x CHAPECOENSE AO VIVO | CAMPEONATO BRASILEIRO SÉRIE A 2026 | 35ª RODADA | NARRAÇÃO",
-      "category": "Jogos ao Vivo",
-      "type": "youtube",
-      "videoId": "ZvEBjV-I8sY",
-      "source": "youtube",
-      "channel": "RÁDIO FUTEBOL HD 3",
-      "modality": "Futebol",
-      "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/ZvEBjV-I8sY/hqdefault.jpg",
-      "startedAt": "2026-11-18T22:56:52Z"
-    },
-    {
       "id": "esporte-live-5CXkOdtEB0I",
       "name": "(AO VIVO - SEMIFINAL) SPORTING X PATO FUTSAL - INTERCONTINENTAL DE FUTSAL 2026",
       "category": "Jogos ao Vivo",
@@ -798,21 +811,21 @@
       "startedAt": "2026-11-18T20:45:19Z"
     },
     {
-      "id": "esporte-live-xzDoWJMmAdw",
-      "name": "AO VIVO DA ARENA | GRÊMIO X BAHIA - CAMPEONATO BRASILEIRO | RÁDIO GRENAL | 18/11/2026",
+      "id": "esporte-live-cXuJ7gBi_w8",
+      "name": "CRUZEIRO X PALMEIRAS AO VIVO CAMPEONATO BRASILEIRO SÉRIE A - NARRAÇÃO",
       "category": "Jogos ao Vivo",
       "type": "youtube",
-      "videoId": "xzDoWJMmAdw",
+      "videoId": "cXuJ7gBi_w8",
       "source": "youtube",
-      "channel": "Rádio Grenal",
+      "channel": "Rádio HDTVPB",
       "modality": "Futebol",
       "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/xzDoWJMmAdw/hqdefault.jpg",
-      "startedAt": "2026-11-18T22:00:25Z"
+      "thumbnail": "https://i.ytimg.com/vi/cXuJ7gBi_w8/hqdefault.jpg",
+      "startedAt": "2026-11-18T23:29:19Z"
     },
     {
       "id": "esporte-live-rEeDuRobeGM",
-      "name": "AO VIVO | PRÉ-JOGO GRÊMIO X BAHIA | BRASILEIRÃO 2026 | JORNADA IMORTAL DIRETO DA ARENA DO GRÊMIO",
+      "name": "AO VIVO | GRÊMIO (0) X (0) BAHIA | BRASILEIRÃO 2026 | JORNADA IMORTAL DIRETO DA ARENA DO GRÊMIO",
       "category": "Jogos ao Vivo",
       "type": "youtube",
       "videoId": "rEeDuRobeGM",
@@ -824,17 +837,17 @@
       "startedAt": "2026-11-18T20:32:14Z"
     },
     {
-      "id": "esporte-live-YfDgRb3B5is",
-      "name": "AO VIVO | SESI FRANCA BASQUETE X CAXIAS DO SUL | NBB 19 (2026/27)",
+      "id": "esporte-live-8amqJ2KQhhs",
+      "name": "AO VIVO | CRUZEIRO X PALMEIRAS | PRÉ-JOGO E NARRAÇÃO",
       "category": "Jogos ao Vivo",
       "type": "youtube",
-      "videoId": "YfDgRb3B5is",
+      "videoId": "8amqJ2KQhhs",
       "source": "youtube",
-      "channel": "Sesi Franca Basquete",
-      "modality": "Basquete",
+      "channel": "TV Palmeiras",
+      "modality": "Futebol",
       "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/YfDgRb3B5is/hqdefault.jpg",
-      "startedAt": "2026-11-18T22:01:36Z"
+      "thumbnail": "https://i.ytimg.com/vi/8amqJ2KQhhs/hqdefault.jpg",
+      "startedAt": "2026-11-18T21:43:29Z"
     },
     {
       "id": "esporte-live-sDLf-5h5wKs",
@@ -850,43 +863,17 @@
       "startedAt": "2026-11-18T22:47:07Z"
     },
     {
-      "id": "esporte-live-Y7JiU3H2ueM",
-      "name": "🔴 AO VIVO: Coritiba x Santos 🔴 Brasileirão 2026 ⚽ Jogo de Hoje Simulação",
+      "id": "esporte-live-yELkAHfTCNc",
+      "name": "FLAMENGO X ATHLETICO-PR AO VIVO NO MEIO DA TORCIDA 🔴 | MARACANÃ",
       "category": "Jogos ao Vivo",
       "type": "youtube",
-      "videoId": "Y7JiU3H2ueM",
+      "videoId": "yELkAHfTCNc",
       "source": "youtube",
-      "channel": "Torcida Gamers",
+      "channel": "Victor Goes",
       "modality": "Futebol",
       "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/Y7JiU3H2ueM/hqdefault.jpg",
-      "startedAt": "2026-11-18T22:21:59Z"
-    },
-    {
-      "id": "esporte-live-fHHZH-edJq4",
-      "name": "🔴 AO VIVO: Cruzeiro x Palmeiras 🔴 Brasileirão 2026 ⚽ Jogo de Hoje Simulação",
-      "category": "Jogos ao Vivo",
-      "type": "youtube",
-      "videoId": "fHHZH-edJq4",
-      "source": "youtube",
-      "channel": "Torcida Gamers",
-      "modality": "Futebol",
-      "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/fHHZH-edJq4/hqdefault.jpg",
-      "startedAt": "2026-11-18T22:22:26Z"
-    },
-    {
-      "id": "esporte-live-PAGU8PrPKX8",
-      "name": "CRUZEIRO X PALMEIRAS AO VIVO COM IMAGENS DO MINEIRÃO| JORNADA UAIZEIRO |CAMPEONATO BRASILEIRO 2026",
-      "category": "Jogos ao Vivo",
-      "type": "youtube",
-      "videoId": "PAGU8PrPKX8",
-      "source": "youtube",
-      "channel": "UAIZEIRO",
-      "modality": "Futebol",
-      "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/PAGU8PrPKX8/hqdefault.jpg",
-      "startedAt": "2026-11-18T21:49:23Z"
+      "thumbnail": "https://i.ytimg.com/vi/yELkAHfTCNc/hqdefault.jpg",
+      "startedAt": "2026-11-18T21:31:40Z"
     },
     {
       "id": "esporte-live-UTI5jiUv1yk",
@@ -902,19 +889,6 @@
       "startedAt": "2026-11-18T23:04:38Z"
     },
     {
-      "id": "esporte-live-m1mI5c_YBxk",
-      "name": "CORITIBA X SANTOS - AO VIVO | CAMPEONATO BRASILEIRO – 18/11/2026",
-      "category": "Jogos ao Vivo",
-      "type": "youtube",
-      "videoId": "m1mI5c_YBxk",
-      "source": "youtube",
-      "channel": "Voz do Esporte",
-      "modality": "Futebol",
-      "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/m1mI5c_YBxk/hqdefault.jpg",
-      "startedAt": "2026-11-18T20:58:34Z"
-    },
-    {
       "id": "esporte-live-vSXBi_MJlSk",
       "name": "CRUZEIRO X PALMEIRAS - AO VIVO | CAMPEONATO BRASILEIRO – 18/11/2026",
       "category": "Jogos ao Vivo",
@@ -926,6 +900,19 @@
       "liveStatus": "live",
       "thumbnail": "https://i.ytimg.com/vi/vSXBi_MJlSk/hqdefault.jpg",
       "startedAt": "2026-11-18T22:13:26Z"
+    },
+    {
+      "id": "esporte-live--J_Sy87BShI",
+      "name": "CRUZEIRO X PALMEIRAS - AO VIVO | CAMPEONATO BRASILEIRO – 18/11/2026",
+      "category": "Jogos ao Vivo",
+      "type": "youtube",
+      "videoId": "-J_Sy87BShI",
+      "source": "youtube",
+      "channel": "Voz do Esporte",
+      "modality": "Futebol",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/-J_Sy87BShI/hqdefault.jpg",
+      "startedAt": "2026-11-18T22:10:23Z"
     },
     {
       "id": "esporte-live-881usjCzjN4",
@@ -941,6 +928,19 @@
       "startedAt": "2026-11-18T22:01:04Z"
     },
     {
+      "id": "esporte-live-irkVIQfnfQI",
+      "name": "FLAMENGO X ATHLETICO-PR - AO VIVO | CAMPEONATO BRASILEIRO – 18/11/2026",
+      "category": "Jogos ao Vivo",
+      "type": "youtube",
+      "videoId": "irkVIQfnfQI",
+      "source": "youtube",
+      "channel": "Voz do Esporte",
+      "modality": "Futebol",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/irkVIQfnfQI/hqdefault.jpg",
+      "startedAt": "2026-11-18T21:57:02Z"
+    },
+    {
       "id": "esporte-live-O7rw_GBcMUY",
       "name": "GRÊMIO X BAHIA - AO VIVO | CAMPEONATO BRASILEIRO – 18/11/2026",
       "category": "Jogos ao Vivo",
@@ -952,6 +952,19 @@
       "liveStatus": "live",
       "thumbnail": "https://i.ytimg.com/vi/O7rw_GBcMUY/hqdefault.jpg",
       "startedAt": "2026-11-18T23:20:10Z"
+    },
+    {
+      "id": "esporte-live-YWw1JQV9vEM",
+      "name": "GRÊMIO X BAHIA - AO VIVO | CAMPEONATO BRASILEIRO – 18/11/2026",
+      "category": "Jogos ao Vivo",
+      "type": "youtube",
+      "videoId": "YWw1JQV9vEM",
+      "source": "youtube",
+      "channel": "Voz do Esporte",
+      "modality": "Futebol",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/YWw1JQV9vEM/hqdefault.jpg",
+      "startedAt": "2026-11-18T23:00:48Z"
     },
     {
       "id": "esporte-live-z4yQy7m4Fko",
@@ -967,17 +980,17 @@
       "startedAt": "2026-11-18T21:28:46Z"
     },
     {
-      "id": "esporte-live-Blra1kukthY",
-      "name": "(SU)GIRO ESPORTIVO: SUPERLIGA FEMININA, BRASILEIRÃO, SUL-AMERICANA E MUITO MAIS!",
-      "category": "Programas Esportivos",
+      "id": "esporte-live-w1k1TU0ct50",
+      "name": "Jogando o novo jogo de volei q lanço esses dia (NAO AGUENTO MAIS A LIVE CAIR)",
+      "category": "Jogos ao Vivo",
       "type": "youtube",
-      "videoId": "Blra1kukthY",
+      "videoId": "w1k1TU0ct50",
       "source": "youtube",
-      "channel": "A Torre",
-      "modality": "Futebol",
+      "channel": "abud4056",
+      "modality": "Volei",
       "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/Blra1kukthY/hqdefault.jpg",
-      "startedAt": "2026-11-18T22:29:48Z"
+      "thumbnail": "https://i.ytimg.com/vi/w1k1TU0ct50/hqdefault.jpg",
+      "startedAt": "2026-11-18T23:13:37Z"
     },
     {
       "id": "esporte-live-Ji3F5kzou90",
@@ -993,32 +1006,6 @@
       "startedAt": "2026-11-01T13:54:11Z"
     },
     {
-      "id": "esporte-live-ErvCzvCZorU",
-      "name": "AO VIVO: SEMIFINAIS I COPA INTERCONTINENTAL DE FUTSAL 2026",
-      "category": "Programas Esportivos",
-      "type": "youtube",
-      "videoId": "ErvCzvCZorU",
-      "source": "youtube",
-      "channel": "Canal GoLBrasil",
-      "modality": "Futsal",
-      "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/ErvCzvCZorU/hqdefault.jpg",
-      "startedAt": "2026-11-18T16:39:26Z"
-    },
-    {
-      "id": "esporte-live-QR8qSyjFwLc",
-      "name": "(SU)GIRO ESPORTIVO: SUPERLIGA FEMININA, BRASILEIRÃO, SUL-AMERICANA E MUITO MAIS!",
-      "category": "Programas Esportivos",
-      "type": "youtube",
-      "videoId": "QR8qSyjFwLc",
-      "source": "youtube",
-      "channel": "Fora do Eixo Sports",
-      "modality": "Futebol",
-      "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/QR8qSyjFwLc/hqdefault.jpg",
-      "startedAt": "2026-11-18T22:29:48Z"
-    },
-    {
       "id": "esporte-live-bp1pzhJ2V_0",
       "name": "[AO VIVO] 6ª COPA LALAKA DE FUTSAL | JOGOS DO DIA 18/11",
       "category": "Programas Esportivos",
@@ -1032,17 +1019,30 @@
       "startedAt": "2026-11-18T22:51:08Z"
     },
     {
-      "id": "esporte-live-4rNc0tRTV_4",
-      "name": "🔴 AO VIVO | 29ª MINI OLIMPÍADA DE CAFELÂNDIA – FUTSAL ⚽🏆",
+      "id": "esporte-live-JMPjstmBTWM",
+      "name": "🔴 AO VIVO | CITADINO DE FUTSAL 2026 | JOGA MAIS TV",
       "category": "Programas Esportivos",
       "type": "youtube",
-      "videoId": "4rNc0tRTV_4",
+      "videoId": "JMPjstmBTWM",
       "source": "youtube",
-      "channel": "ImpactOeste Notícias",
+      "channel": "Joga Mais TV",
       "modality": "Futsal",
       "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/4rNc0tRTV_4/hqdefault.jpg",
-      "startedAt": "2026-11-18T21:27:27Z"
+      "thumbnail": "https://i.ytimg.com/vi/JMPjstmBTWM/hqdefault.jpg",
+      "startedAt": "2026-11-18T21:58:01Z"
+    },
+    {
+      "id": "esporte-live-jTfkJnOKApI",
+      "name": "🔴 AO VIVO | 7ª RODADA - TAÇA CIDREIRA DE FUTSAL 2026 | MARÉ CHEIA SPORTS",
+      "category": "Programas Esportivos",
+      "type": "youtube",
+      "videoId": "jTfkJnOKApI",
+      "source": "youtube",
+      "channel": "Maré Cheia Sports",
+      "modality": "Futsal",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/jTfkJnOKApI/hqdefault.jpg",
+      "startedAt": "2026-11-18T23:53:05Z"
     },
     {
       "id": "esporte-live-vnMdo5ZmPvM",
@@ -1069,32 +1069,6 @@
       "liveStatus": "live",
       "thumbnail": "https://i.ytimg.com/vi/HrhOhQHu_fw/hqdefault.jpg",
       "startedAt": "2026-11-18T22:14:02Z"
-    },
-    {
-      "id": "esporte-live-r3SBI1LcIhs",
-      "name": "LANCE DIRETO  18/11/2026",
-      "category": "Programas Esportivos",
-      "type": "youtube",
-      "videoId": "r3SBI1LcIhs",
-      "source": "youtube",
-      "channel": "Rádio Caxias Esportes",
-      "modality": "Basquete",
-      "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/r3SBI1LcIhs/hqdefault.jpg",
-      "startedAt": "2026-11-18T22:00:55Z"
-    },
-    {
-      "id": "esporte-live-Lx4Sv4oo2zA",
-      "name": "FUTSAL AO VIVO: J.A Pinus x RK Sports | Campeonato Municipal de Futsal 2026",
-      "category": "Programas Esportivos",
-      "type": "youtube",
-      "videoId": "Lx4Sv4oo2zA",
-      "source": "youtube",
-      "channel": "StakeCast",
-      "modality": "Futsal",
-      "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/Lx4Sv4oo2zA/hqdefault.jpg",
-      "startedAt": "2026-11-18T23:21:12Z"
     }
   ]
 }
