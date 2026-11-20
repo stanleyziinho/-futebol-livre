@@ -2,7 +2,7 @@
   "version": 1,
   "source": "Comedy Central Brasil",
   "channelId": "UCgOObQ-WkK2EA4CwXWspHGQ",
-  "updatedAt": "2026-11-19T13:52:07.103511+00:00",
+  "updatedAt": "2026-11-20T13:50:17.159794+00:00",
   "playlistCount": 126,
   "playlists": [
     {
@@ -510,8 +510,42 @@
       "name": "South Park No Comedy Central"
     }
   ],
-  "count": 6422,
+  "count": 6424,
   "items": [
+    {
+      "id": "comedy-zRLxgf2lwQ4",
+      "name": "O que minha amiga espera quando descubro que ela tá de papo com o ex #KeyePeele #ComedyCentral",
+      "category": "Comedy Central",
+      "type": "youtube",
+      "videoId": "zRLxgf2lwQ4",
+      "source": "youtube",
+      "channel": "Comedy Central Brasil",
+      "playlists": [
+        {
+          "id": "PLn6ERh_yI-q1IFwuNx8L5rd9ixb0-KQ-f",
+          "name": "Key & Peele"
+        }
+      ],
+      "thumbnail": "https://i.ytimg.com/vi/zRLxgf2lwQ4/hqdefault.jpg",
+      "publishedAt": "2026-11-20T12:57:19Z"
+    },
+    {
+      "id": "comedy-frPzh3EXbMk",
+      "name": "Atrasado | Todo Mundo Odeia o Chris",
+      "category": "Comedy Central",
+      "type": "youtube",
+      "videoId": "frPzh3EXbMk",
+      "source": "youtube",
+      "channel": "Comedy Central Brasil",
+      "playlists": [
+        {
+          "id": "PLn6ERh_yI-q1XlSRpQpmFg7PXvS2hAz6d",
+          "name": "Todo Mundo Odeia O Chris"
+        }
+      ],
+      "thumbnail": "https://i.ytimg.com/vi/frPzh3EXbMk/hqdefault.jpg",
+      "publishedAt": "2026-11-19T20:51:20Z"
+    },
     {
       "id": "comedy-U0xOVy-6AXg",
       "name": "Sua mãe é tranquila, né? Minha mãe: #TodoMundoOdeiaOChris #ChrisNoComedyCentral #ParamountPlus",
