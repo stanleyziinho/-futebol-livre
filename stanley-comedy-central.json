@@ -2,7 +2,7 @@
   "version": 1,
   "source": "Comedy Central Brasil",
   "channelId": "UCgOObQ-WkK2EA4CwXWspHGQ",
-  "updatedAt": "2026-11-20T13:50:17.159794+00:00",
+  "updatedAt": "2026-11-21T13:36:33.353709+00:00",
   "playlistCount": 126,
   "playlists": [
     {
@@ -510,8 +510,59 @@
       "name": "South Park No Comedy Central"
     }
   ],
-  "count": 6424,
+  "count": 6427,
   "items": [
+    {
+      "id": "comedy-aW4ZtEQvItk",
+      "name": "PT-BR BOA VIZINHANÇA ATLETA.mp4",
+      "category": "Comedy Central",
+      "type": "youtube",
+      "videoId": "aW4ZtEQvItk",
+      "source": "youtube",
+      "channel": "Comedy Central Brasil",
+      "playlists": [
+        {
+          "id": "PLn6ERh_yI-q0rFt6WcLrh1dF0bHqliTGg",
+          "name": "A Boa Vizinhança no Comedy Central"
+        }
+      ],
+      "thumbnail": "https://i.ytimg.com/vi/aW4ZtEQvItk/hqdefault.jpg",
+      "publishedAt": "2026-11-21T13:00:22Z"
+    },
+    {
+      "id": "comedy-WyHHGNI4yXY",
+      "name": "Dia dos Namorados | Rei do Bairro",
+      "category": "Comedy Central",
+      "type": "youtube",
+      "videoId": "WyHHGNI4yXY",
+      "source": "youtube",
+      "channel": "Comedy Central Brasil",
+      "playlists": [
+        {
+          "id": "PLn6ERh_yI-q32nGGNMOo9UNruMxX1Qzqs",
+          "name": "O Rei do Bairro"
+        }
+      ],
+      "thumbnail": "https://i.ytimg.com/vi/WyHHGNI4yXY/hqdefault.jpg",
+      "publishedAt": "2026-11-21T00:00:27Z"
+    },
+    {
+      "id": "comedy-zEEe3hx2J2Q",
+      "name": "Remédio | Todo Mundo Odeia o Chris",
+      "category": "Comedy Central",
+      "type": "youtube",
+      "videoId": "zEEe3hx2J2Q",
+      "source": "youtube",
+      "channel": "Comedy Central Brasil",
+      "playlists": [
+        {
+          "id": "PLn6ERh_yI-q1XlSRpQpmFg7PXvS2hAz6d",
+          "name": "Todo Mundo Odeia O Chris"
+        }
+      ],
+      "thumbnail": "https://i.ytimg.com/vi/zEEe3hx2J2Q/hqdefault.jpg",
+      "publishedAt": "2026-11-20T20:56:53Z"
+    },
     {
       "id": "comedy-zRLxgf2lwQ4",
       "name": "O que minha amiga espera quando descubro que ela tá de papo com o ex #KeyePeele #ComedyCentral",
