@@ -19132,5 +19132,91 @@ if(document.readyState==='loading'){
 </style>
 <!-- FIM STANLEY SPORTS V62.2 -->
 
+<!-- STANLEY SPORTS V62.3 - SINCRONIZAR TRANSMISSOES -->
+<script>
+(function(){
+  'use strict';
+
+  if(window.__stanleyV623)return;
+  window.__stanleyV623=true;
+
+  const renderAnterior=window.renderBroadcastCard;
+
+  if(typeof renderAnterior!=='function')return;
+
+  function canaisValidos(ge){
+    return Array.isArray(ge?.broadcasts)
+      ? ge.broadcasts.filter(
+          nome=>typeof nome==='string' && nome.trim()
+        )
+      : [];
+  }
+
+  // A presença de emissoras permite exibir os
+  // dados, mesmo se "found" vier falso.
+  window.renderBroadcastCard=function(game,ge,box){
+    const canais=canaisValidos(ge);
+
+    if(canais.length){
+      const dados={
+        ...ge,
+        found:true,
+        broadcasts:canais
+      };
+
+      return renderAnterior.call(this,game,dados,box);
+    }
+
+    return renderAnterior.apply(this,arguments);
+  };
+
+  // Reaproveita os dados consultados ao abrir
+  // a análise e a tela Onde assistir.
+  function sincronizar(id){
+    if(typeof allGames==='undefined' ||
+       typeof geCache==='undefined')return;
+
+    const jogo=allGames.find(
+      item=>String(item.id)===String(id)
+    );
+
+    if(!jogo)return;
+
+    const chave=`${jogo.id}-${APP_VERSION}`;
+    const ge=geCache[chave];
+
+    if(!canaisValidos(ge).length)return;
+
+    const card=document.getElementById(
+      `broadcast-${jogo.id}`
+    );
+
+    if(!card)return;
+
+    window.renderBroadcastCard(jogo,ge,card);
+  }
+
+  for(const nome of [
+    'openAnalysis',
+    'openWhereToWatch'
+  ]){
+    const anterior=window[nome];
+
+    if(typeof anterior!=='function')continue;
+
+    window[nome]=async function(...args){
+      const resultado=await anterior.apply(this,args);
+      sincronizar(args[0]);
+      return resultado;
+    };
+  }
+
+  console.info(
+    'Stanley Sports V62.3: transmissões sincronizadas'
+  );
+})();
+</script>
+<!-- FIM STANLEY SPORTS V62.3 -->
+
 </body>
 </html>
