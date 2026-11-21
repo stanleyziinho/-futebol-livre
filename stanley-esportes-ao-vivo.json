@@ -1,8 +1,8 @@
 {
   "version": 2,
   "source": "YouTube Data API - esportes ao vivo",
-  "updatedAt": "2026-11-21T05:04:08.702922+00:00",
-  "count": 13,
+  "updatedAt": "2026-11-21T08:56:59.618267+00:00",
+  "count": 8,
   "items": [
     {
       "id": "esporte-live--W5k-EQFNPM",
@@ -96,19 +96,6 @@
       "startedAt": "2026-10-23T09:34:43Z"
     },
     {
-      "id": "esporte-live-JILLDBysA68",
-      "name": "Copa Farofada Fliperama de Vôlei Misto Adulto",
-      "category": "Programas Esportivos",
-      "type": "youtube",
-      "videoId": "JILLDBysA68",
-      "source": "youtube",
-      "channel": "PQJ Live",
-      "modality": "Volei",
-      "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/JILLDBysA68/hqdefault.jpg",
-      "startedAt": "2026-11-20T15:57:20Z"
-    },
-    {
       "id": "esporte-live-NRvGqpq699c",
       "name": "Quem Vai Vencer A Corrida Suprema?! 🏁🏎️ | Patrulha Canina Patrulha Canina | PAW Patrol Temporada 12",
       "category": "Programas Esportivos",
@@ -120,58 +107,6 @@
       "liveStatus": "live",
       "thumbnail": "https://i.ytimg.com/vi/NRvGqpq699c/hqdefault.jpg",
       "startedAt": "2026-09-18T11:03:24Z"
-    },
-    {
-      "id": "esporte-live--pFHRIuONLo",
-      "name": "⚪⚫eFootball 27: 🇧🇷 🏆Copa Clubista Com o Timão! Vai Corinthians🏆🦅🇧🇷 #99 #efootball27 #efootballupdate",
-      "category": "Programas Esportivos",
-      "type": "youtube",
-      "videoId": "-pFHRIuONLo",
-      "source": "youtube",
-      "channel": "Pepy Chan Gamer",
-      "modality": "Futebol",
-      "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/-pFHRIuONLo/hqdefault.jpg",
-      "startedAt": "2026-11-21T03:47:35Z"
-    },
-    {
-      "id": "esporte-live-mP192qN0-M4",
-      "name": "🎮 AO VIVO - RUMO AO TOP 100 DA LIGA EFOOTBALL #efootball2027 #efootball",
-      "category": "Programas Esportivos",
-      "type": "youtube",
-      "videoId": "mP192qN0-M4",
-      "source": "youtube",
-      "channel": "Pizzolatto FC",
-      "modality": "Futebol",
-      "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/mP192qN0-M4/hqdefault.jpg",
-      "startedAt": "2026-11-20T23:22:54Z"
-    },
-    {
-      "id": "esporte-live-Sk-mTUK-GjA",
-      "name": "🏆 AO VIVO 🔴 | PRIMEIRA DIVISÃO – FOOTBALL MOBILE 2027 ⚽🔥 | ELTON SPORTS",
-      "category": "Programas Esportivos",
-      "type": "youtube",
-      "videoId": "Sk-mTUK-GjA",
-      "source": "youtube",
-      "channel": "TON TECH",
-      "modality": "Futebol",
-      "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/Sk-mTUK-GjA/hqdefault.jpg",
-      "startedAt": "2026-11-21T04:44:09Z"
-    },
-    {
-      "id": "esporte-live-lYhduKkhInA",
-      "name": "Live de roblox!   Principais jogos: bomba de volei, amanhã tem update no bomba de volei,tão ansiosos",
-      "category": "Programas Esportivos",
-      "type": "youtube",
-      "videoId": "lYhduKkhInA",
-      "source": "youtube",
-      "channel": "VIGOR TUDO",
-      "modality": "Volei",
-      "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/lYhduKkhInA/hqdefault.jpg",
-      "startedAt": "2026-11-21T04:16:38Z"
     }
   ]
 }
