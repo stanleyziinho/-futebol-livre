@@ -2,7 +2,7 @@
   "version": 1,
   "source": "Comedy Central Brasil",
   "channelId": "UCgOObQ-WkK2EA4CwXWspHGQ",
-  "updatedAt": "2026-11-21T13:36:33.353709+00:00",
+  "updatedAt": "2026-11-22T13:36:27.783702+00:00",
   "playlistCount": 126,
   "playlists": [
     {
@@ -510,8 +510,42 @@
       "name": "South Park No Comedy Central"
     }
   ],
-  "count": 6427,
+  "count": 6429,
   "items": [
+    {
+      "id": "comedy-9wLedMjlIw0",
+      "name": "Invasor | Clarissa Sabe Tudo",
+      "category": "Comedy Central",
+      "type": "youtube",
+      "videoId": "9wLedMjlIw0",
+      "source": "youtube",
+      "channel": "Comedy Central Brasil",
+      "playlists": [
+        {
+          "id": "PLn6ERh_yI-q17yJbRxT33-5SH1CTXfQQx",
+          "name": "Clarissa Sabe Tudo"
+        }
+      ],
+      "thumbnail": "https://i.ytimg.com/vi/9wLedMjlIw0/hqdefault.jpg",
+      "publishedAt": "2026-11-22T00:00:20Z"
+    },
+    {
+      "id": "comedy-8RvGeQqYRvA",
+      "name": "Ratinho | Todo Mundo Odeia o Chris",
+      "category": "Comedy Central",
+      "type": "youtube",
+      "videoId": "8RvGeQqYRvA",
+      "source": "youtube",
+      "channel": "Comedy Central Brasil",
+      "playlists": [
+        {
+          "id": "PLn6ERh_yI-q1XlSRpQpmFg7PXvS2hAz6d",
+          "name": "Todo Mundo Odeia O Chris"
+        }
+      ],
+      "thumbnail": "https://i.ytimg.com/vi/8RvGeQqYRvA/hqdefault.jpg",
+      "publishedAt": "2026-11-21T21:00:28Z"
+    },
     {
       "id": "comedy-aW4ZtEQvItk",
       "name": "PT-BR BOA VIZINHANÇA ATLETA.mp4",
