@@ -2,12 +2,24 @@
   "version": 1,
   "source": "Adrenalina Pura TV BR",
   "channelId": "UCWFovw8iyHBezTmaEWEV0RA",
-  "updatedAt": "2026-11-21T12:00:42.224572+00:00",
-  "count": 200,
+  "updatedAt": "2026-11-22T11:59:05.838482+00:00",
+  "count": 201,
   "items": [
     {
+      "id": "adrenalina-9jE2BJloF8A",
+      "name": "Uri: Forças Especiais - Filme Completo Dublado - Filme de Ação | Adrenalina Pura TV",
+      "category": "Filmes",
+      "type": "youtube",
+      "videoId": "9jE2BJloF8A",
+      "source": "youtube",
+      "channel": "Adrenalina Pura TV BR",
+      "thumbnail": "https://i.ytimg.com/vi/9jE2BJloF8A/hqdefault.jpg",
+      "durationSeconds": 7959,
+      "publishedAt": "2026-11-21T22:00:10Z"
+    },
+    {
       "id": "adrenalina-7To0E4Zed9A",
-      "name": "Até o Limite com MEL GIBSON - Filme Completo Dublado - Filme de Suspense | Sessão Adrenalina Pura+",
+      "name": "Até o Limite com MEL GIBSON - Filme Completo Dublado - Filme de Ação | Sessão Adrenalina Pura+",
       "category": "Filmes",
       "type": "youtube",
       "videoId": "7To0E4Zed9A",
@@ -967,7 +979,7 @@
     },
     {
       "id": "adrenalina-iAJmmA8Wif0",
-      "name": "Estudo do sono se transforma em pesadelo - Filme de Suspense | Adrenalina Freezone",
+      "name": "Não Feche Os Olhos - Filme Completo Dublado - Filme de Suspense | Adrenalina Pura TV",
       "category": "Filmes",
       "type": "youtube",
       "videoId": "iAJmmA8Wif0",
@@ -979,7 +991,7 @@
     },
     {
       "id": "adrenalina-off8-MPDXGU",
-      "name": "Fora de Alcance - Filme Completo Dublado - Filme de Ação | Adrenalina Freezone",
+      "name": "Fora de Alcance - Filme Completo Dublado - Filme de Ação | Adrenalina Pura TV",
       "category": "Filmes",
       "type": "youtube",
       "videoId": "off8-MPDXGU",
@@ -1015,7 +1027,7 @@
     },
     {
       "id": "adrenalina-sr0NNae-_Pw",
-      "name": "Risco Imediato - Filme Completo Dublado - Filme de Ação | Adrenalina Freezone",
+      "name": "Risco Imediato - Filme Completo Dublado - Filme de Ação | Adrenalina Pura TV",
       "category": "Filmes",
       "type": "youtube",
       "videoId": "sr0NNae-_Pw",
@@ -1051,7 +1063,7 @@
     },
     {
       "id": "adrenalina-Ets5nhOSmX0",
-      "name": "Max Steel - Filme Completo Dublado - Filme de Ação | Adrenalina Freezone",
+      "name": "Max Steel - Filme Completo Dublado - Filme de Ação | Adrenalina Pura TV",
       "category": "Filmes",
       "type": "youtube",
       "videoId": "Ets5nhOSmX0",
@@ -1087,7 +1099,7 @@
     },
     {
       "id": "adrenalina-oPJXGZFv7-c",
-      "name": "Alex Rider Contra o Tempo - Filme Completo Dublado - Filme de Ação | Adrenalina Freezone",
+      "name": "Alex Rider Contra o Tempo - Filme Completo Dublado - Filme de Ação | Adrenalina Pura TV",
       "category": "Filmes",
       "type": "youtube",
       "videoId": "oPJXGZFv7-c",
