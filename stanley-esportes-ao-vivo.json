@@ -1,9 +1,22 @@
 {
   "version": 2,
   "source": "YouTube Data API - esportes ao vivo",
-  "updatedAt": "2026-11-22T05:07:39.541721+00:00",
+  "updatedAt": "2026-11-22T08:56:45.697043+00:00",
   "count": 7,
   "items": [
+    {
+      "id": "esporte-live-dYePPTyg14A",
+      "name": "FC Alverca 'B' x Sintrense - I Divisão Distrital Futebol Sub17 • Jornada 8",
+      "category": "Jogos ao Vivo",
+      "type": "youtube",
+      "videoId": "dYePPTyg14A",
+      "source": "youtube",
+      "channel": "AFL TV - Associação de Futebol de Lisboa",
+      "modality": "Futebol",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/dYePPTyg14A/hqdefault.jpg",
+      "startedAt": "2026-11-22T08:48:16Z"
+    },
     {
       "id": "esporte-live--W5k-EQFNPM",
       "name": "🔴 AO VIVO - O GRANDE SHOW DE FUTEBOL! 🔴 Torneio Mundial Supa Strikas ⚽ Maratona de Futebol",
@@ -81,19 +94,6 @@
       "liveStatus": "live",
       "thumbnail": "https://i.ytimg.com/vi/NRvGqpq699c/hqdefault.jpg",
       "startedAt": "2026-09-18T11:03:24Z"
-    },
-    {
-      "id": "esporte-live-wgp0nJJogr0",
-      "name": "🏆 AO VIVO 🔴 | PRIMEIRA DIVISÃO – FOOTBALL MOBILE 2027 ⚽🔥 | ELTON SPORTS",
-      "category": "Programas Esportivos",
-      "type": "youtube",
-      "videoId": "wgp0nJJogr0",
-      "source": "youtube",
-      "channel": "TON TECH",
-      "modality": "Futebol",
-      "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/wgp0nJJogr0/hqdefault.jpg",
-      "startedAt": "2026-11-22T04:10:03Z"
     }
   ]
 }
