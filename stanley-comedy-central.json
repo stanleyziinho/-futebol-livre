@@ -2,7 +2,7 @@
   "version": 1,
   "source": "Comedy Central Brasil",
   "channelId": "UCgOObQ-WkK2EA4CwXWspHGQ",
-  "updatedAt": "2026-11-22T13:36:27.783702+00:00",
+  "updatedAt": "2026-11-23T13:57:03.394530+00:00",
   "playlistCount": 126,
   "playlists": [
     {
@@ -510,8 +510,59 @@
       "name": "South Park No Comedy Central"
     }
   ],
-  "count": 6429,
+  "count": 6432,
   "items": [
+    {
+      "id": "comedy-_aBH48773H4",
+      "name": "\"Se você não decorou a tabuada, decorou o quê?\" #SouthPark #SouthParkNoComedyCentral #TáNaPlutoTV",
+      "category": "Comedy Central",
+      "type": "youtube",
+      "videoId": "_aBH48773H4",
+      "source": "youtube",
+      "channel": "Comedy Central Brasil",
+      "playlists": [
+        {
+          "id": "PLn6ERh_yI-q3ouGdlHGkZk-wW0EU6jCI2",
+          "name": "South Park No Comedy Central"
+        }
+      ],
+      "thumbnail": "https://i.ytimg.com/vi/_aBH48773H4/hqdefault.jpg",
+      "publishedAt": "2026-11-23T13:00:30Z"
+    },
+    {
+      "id": "comedy-96pZ5mcNDak",
+      "name": "Bebês | A Boa Vizinhança",
+      "category": "Comedy Central",
+      "type": "youtube",
+      "videoId": "96pZ5mcNDak",
+      "source": "youtube",
+      "channel": "Comedy Central Brasil",
+      "playlists": [
+        {
+          "id": "PLn6ERh_yI-q0rFt6WcLrh1dF0bHqliTGg",
+          "name": "A Boa Vizinhança no Comedy Central"
+        }
+      ],
+      "thumbnail": "https://i.ytimg.com/vi/96pZ5mcNDak/hqdefault.jpg",
+      "publishedAt": "2026-11-23T00:00:25Z"
+    },
+    {
+      "id": "comedy-t57GNbSSRvc",
+      "name": "Bairro | Todo Mundo Odeia o Chris",
+      "category": "Comedy Central",
+      "type": "youtube",
+      "videoId": "t57GNbSSRvc",
+      "source": "youtube",
+      "channel": "Comedy Central Brasil",
+      "playlists": [
+        {
+          "id": "PLn6ERh_yI-q1XlSRpQpmFg7PXvS2hAz6d",
+          "name": "Todo Mundo Odeia O Chris"
+        }
+      ],
+      "thumbnail": "https://i.ytimg.com/vi/t57GNbSSRvc/hqdefault.jpg",
+      "publishedAt": "2026-11-22T21:00:33Z"
+    },
     {
       "id": "comedy-9wLedMjlIw0",
       "name": "Invasor | Clarissa Sabe Tudo",
