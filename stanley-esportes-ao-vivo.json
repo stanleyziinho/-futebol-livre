@@ -1,47 +1,34 @@
 {
   "version": 2,
   "source": "YouTube Data API - esportes ao vivo",
-  "updatedAt": "2026-11-23T13:30:37.158187+00:00",
-  "count": 13,
+  "updatedAt": "2026-11-23T17:12:36.274299+00:00",
+  "count": 15,
   "items": [
     {
-      "id": "esporte-live-ypX4ajAtbZE",
-      "name": "Taça Brasil Sub 12 Masc. Divisão Especial | Goiás x MEC | 1ª Rodada | Ao Vivo",
+      "id": "esporte-live-aiHNqR-32dk",
+      "name": "CORINTHIANS X ACES/VOTORATY - OITAVAS DE FINAL - AO VIVO | SUB 12 | 23/11/2026",
       "category": "Jogos ao Vivo",
       "type": "youtube",
-      "videoId": "ypX4ajAtbZE",
+      "videoId": "aiHNqR-32dk",
       "source": "youtube",
-      "channel": "Confederação Brasileira de Futebol de Salão (CBFS)",
+      "channel": "COPA BUH BRASIL",
       "modality": "Futebol",
       "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/ypX4ajAtbZE/hqdefault.jpg",
-      "startedAt": "2026-11-23T13:10:21Z"
+      "thumbnail": "https://i.ytimg.com/vi/aiHNqR-32dk/hqdefault.jpg",
+      "startedAt": "2026-11-23T16:32:56Z"
     },
     {
-      "id": "esporte-live-rRijVTO-gyY",
-      "name": "NEFTCHI X AL-HILAL AO VIVO | CHAMPIONS DA ÁSIA | JOGO DE HOJE COM NARRAÇÃO",
+      "id": "esporte-live-J_d_GReF5-U",
+      "name": "AL AIN X ESTEGHLAL AO VIVO | AFC CHAMPIONS LEAGUE ELITE 2026/27 | NARRAÇÃO AO VIVO",
       "category": "Jogos ao Vivo",
       "type": "youtube",
-      "videoId": "rRijVTO-gyY",
+      "videoId": "J_d_GReF5-U",
       "source": "youtube",
-      "channel": "Dimensão Esportiva",
+      "channel": "Minuto do Futebol",
       "modality": "Futebol",
       "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/rRijVTO-gyY/hqdefault.jpg",
-      "startedAt": "2026-11-23T13:18:17Z"
-    },
-    {
-      "id": "esporte-live-vrxoeks_hso",
-      "name": "RESULTADO AO VIVO JOGO DO BICHO PPT RIO 9:20 horas hoje ao vivo 23/11/2026",
-      "category": "Jogos ao Vivo",
-      "type": "youtube",
-      "videoId": "vrxoeks_hso",
-      "source": "youtube",
-      "channel": "Felipe JB",
-      "modality": "Futebol",
-      "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/vrxoeks_hso/hqdefault.jpg",
-      "startedAt": "2026-11-23T12:08:45Z"
+      "thumbnail": "https://i.ytimg.com/vi/J_d_GReF5-U/hqdefault.jpg",
+      "startedAt": "2026-11-23T15:53:49Z"
     },
     {
       "id": "esporte-live-LzqPTgSiq_Q",
@@ -57,30 +44,17 @@
       "startedAt": "2026-11-23T09:58:16Z"
     },
     {
-      "id": "esporte-live-B6RLJZ0YS-Y",
-      "name": "Resultado do jogo do bicho ao vivo - PPT - 09:20 - 23/11/2026",
+      "id": "esporte-live-ohYGjngQ_2E",
+      "name": "Resultado do jogo do bicho ao vivo - PT - 14:20 - 23/11/2026",
       "category": "Jogos ao Vivo",
       "type": "youtube",
-      "videoId": "B6RLJZ0YS-Y",
+      "videoId": "ohYGjngQ_2E",
       "source": "youtube",
       "channel": "Palpites do Xerifão jb",
       "modality": "Futebol",
       "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/B6RLJZ0YS-Y/hqdefault.jpg",
-      "startedAt": "2026-11-23T11:55:08Z"
-    },
-    {
-      "id": "esporte-live-fIGish2qRRg",
-      "name": "Resultado do jogo do bicho ao VIVO PPT 09:20 HORAS  23/11/2026",
-      "category": "Jogos ao Vivo",
-      "type": "youtube",
-      "videoId": "fIGish2qRRg",
-      "source": "youtube",
-      "channel": "Rainha dos palpites JB",
-      "modality": "Futebol",
-      "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/fIGish2qRRg/hqdefault.jpg",
-      "startedAt": "2026-11-23T12:03:27Z"
+      "thumbnail": "https://i.ytimg.com/vi/ohYGjngQ_2E/hqdefault.jpg",
+      "startedAt": "2026-11-23T17:02:56Z"
     },
     {
       "id": "esporte-live--W5k-EQFNPM",
@@ -122,17 +96,17 @@
       "startedAt": "2026-11-09T16:03:18Z"
     },
     {
-      "id": "esporte-live-4NtOXM50e3E",
-      "name": "FLAMENGO DECACAMPEÃO! VEGETA RECEBE ZICO, PAPARAZZO RN, XURRASCO E MAURO ROZENSZAJN! LIVE 10 23/11",
+      "id": "esporte-live-xkT6M79DBCI",
+      "name": "FUTEBOL NO MUNDO #651: POLÊMICA DA NÃO-EXPULSÃO DE MESSI NA MLS, OLIMPIA CAMPEÃO DO CLAUSURA E MAIS",
       "category": "Programas Esportivos",
       "type": "youtube",
-      "videoId": "4NtOXM50e3E",
+      "videoId": "xkT6M79DBCI",
       "source": "youtube",
-      "channel": "Canal Zico 10",
+      "channel": "ESPN Brasil",
       "modality": "Futebol",
       "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/4NtOXM50e3E/hqdefault.jpg",
-      "startedAt": "2026-11-23T13:00:32Z"
+      "thumbnail": "https://i.ytimg.com/vi/xkT6M79DBCI/hqdefault.jpg",
+      "startedAt": "2026-11-23T16:02:19Z"
     },
     {
       "id": "esporte-live-ADWI_yx6WxM",
@@ -148,6 +122,32 @@
       "startedAt": "2026-10-23T09:34:43Z"
     },
     {
+      "id": "esporte-live-Bi8nnBIWgZw",
+      "name": "COPA AMÉRICA DE FUTEBOL 7 I 2026 I DIA 01",
+      "category": "Programas Esportivos",
+      "type": "youtube",
+      "videoId": "Bi8nnBIWgZw",
+      "source": "youtube",
+      "channel": "F7 TV PLAY",
+      "modality": "Futebol",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/Bi8nnBIWgZw/hqdefault.jpg",
+      "startedAt": "2026-11-23T11:52:17Z"
+    },
+    {
+      "id": "esporte-live-EJbHyV1MK-0",
+      "name": "CELTICS É FREGUÊS DO WARRIORS? LAKERS E SIXERS VOANDO! WEMBY FEZ 50 DE NOVO! | PÓS-RODADA NBA",
+      "category": "Programas Esportivos",
+      "type": "youtube",
+      "videoId": "EJbHyV1MK-0",
+      "source": "youtube",
+      "channel": "Gustavo NDD",
+      "modality": "Basquete",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/EJbHyV1MK-0/hqdefault.jpg",
+      "startedAt": "2026-11-23T16:34:56Z"
+    },
+    {
       "id": "esporte-live-NRvGqpq699c",
       "name": "Quem Vai Vencer A Corrida Suprema?! 🏁🏎️ | Patrulha Canina Patrulha Canina | PAW Patrol Temporada 12",
       "category": "Programas Esportivos",
@@ -161,17 +161,43 @@
       "startedAt": "2026-09-18T11:03:24Z"
     },
     {
-      "id": "esporte-live-AmFeRWPDRHs",
-      "name": "FLAMENGO COMEÇA PLANEJAMENTO PARA 2027 NESTA RETA FINAL DO BRASILEIRÃO",
+      "id": "esporte-live-S-jiMAcHUuA",
+      "name": "FLA É DECA! JARDIM FICA? BRIGA NO Z-4 AUMENTA E BOTAFOGO AMEAÇADO! Placar Aberto | 23/11",
       "category": "Programas Esportivos",
       "type": "youtube",
-      "videoId": "AmFeRWPDRHs",
+      "videoId": "S-jiMAcHUuA",
       "source": "youtube",
-      "channel": "Placar Rubro-Negro",
+      "channel": "Placar",
       "modality": "Futebol",
       "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/AmFeRWPDRHs/hqdefault.jpg",
-      "startedAt": "2026-11-23T12:17:21Z"
+      "thumbnail": "https://i.ytimg.com/vi/S-jiMAcHUuA/hqdefault.jpg",
+      "startedAt": "2026-11-23T16:27:11Z"
+    },
+    {
+      "id": "esporte-live-skEzDr_AJcg",
+      "name": "RETROSPECTIVA TÁTICA DO FUTEBOL BRASILEIRO 2026 - PARTE 1",
+      "category": "Programas Esportivos",
+      "type": "youtube",
+      "videoId": "skEzDr_AJcg",
+      "source": "youtube",
+      "channel": "Rafa Scout",
+      "modality": "Futebol",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/skEzDr_AJcg/hqdefault.jpg",
+      "startedAt": "2026-11-23T16:33:31Z"
+    },
+    {
+      "id": "esporte-live-E0GTpcAb8RE",
+      "name": "CAMPO NEUTRO 23/11/2026",
+      "category": "Programas Esportivos",
+      "type": "youtube",
+      "videoId": "E0GTpcAb8RE",
+      "source": "youtube",
+      "channel": "Rádio Caxias Esportes",
+      "modality": "Basquete",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/E0GTpcAb8RE/hqdefault.jpg",
+      "startedAt": "2026-11-23T15:56:42Z"
     }
   ]
 }
