@@ -1,8 +1,8 @@
 {
   "version": 2,
   "source": "YouTube Data API - esportes ao vivo",
-  "updatedAt": "2026-11-23T05:28:29.100651+00:00",
-  "count": 7,
+  "updatedAt": "2026-11-23T09:34:39.724762+00:00",
+  "count": 6,
   "items": [
     {
       "id": "esporte-live--W5k-EQFNPM",
@@ -55,19 +55,6 @@
       "liveStatus": "live",
       "thumbnail": "https://i.ytimg.com/vi/l4DGg6jpH3c/hqdefault.jpg",
       "startedAt": "2026-11-22T23:03:54Z"
-    },
-    {
-      "id": "esporte-live-AOvpqMPU5hc",
-      "name": "🚨 PLANTÃO URGENTE! FLAMENGO FECHA CONTRATAÇÃO DE GABIGOL! ACABOU DE ACERTAR! CHEGANDO DE GRAÇA! E+",
-      "category": "Programas Esportivos",
-      "type": "youtube",
-      "videoId": "AOvpqMPU5hc",
-      "source": "youtube",
-      "channel": "Central FLA",
-      "modality": "Futebol",
-      "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/AOvpqMPU5hc/hqdefault.jpg",
-      "startedAt": "2026-11-22T17:27:37Z"
     },
     {
       "id": "esporte-live-ADWI_yx6WxM",
