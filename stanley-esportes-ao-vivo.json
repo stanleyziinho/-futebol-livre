@@ -1,8 +1,8 @@
 {
   "version": 2,
   "source": "YouTube Data API - esportes ao vivo",
-  "updatedAt": "2026-11-24T05:18:02.555537+00:00",
-  "count": 19,
+  "updatedAt": "2026-11-24T09:18:44.195766+00:00",
+  "count": 11,
   "items": [
     {
       "id": "esporte-live-W4c_Tb5C5oc",
@@ -16,19 +16,6 @@
       "liveStatus": "live",
       "thumbnail": "https://i.ytimg.com/vi/W4c_Tb5C5oc/hqdefault.jpg",
       "startedAt": "2026-11-24T00:05:39Z"
-    },
-    {
-      "id": "esporte-live-JExMjb1nJ6M",
-      "name": "JAZZ x LAKERS AO VIVO | NBA 2026/27 🏀",
-      "category": "Jogos ao Vivo",
-      "type": "youtube",
-      "videoId": "JExMjb1nJ6M",
-      "source": "youtube",
-      "channel": "Arena Total90",
-      "modality": "Basquete",
-      "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/JExMjb1nJ6M/hqdefault.jpg",
-      "startedAt": "2026-11-24T03:12:26Z"
     },
     {
       "id": "esporte-live-opJU9YPYS74",
@@ -70,84 +57,6 @@
       "startedAt": "2026-11-24T01:01:08Z"
     },
     {
-      "id": "esporte-live-5fsBbU7SgZ8",
-      "name": "AO VIVO BOTAFOGO X SÃO PAULO AO VIVO BRASILEIRÃO",
-      "category": "Jogos ao Vivo",
-      "type": "youtube",
-      "videoId": "5fsBbU7SgZ8",
-      "source": "youtube",
-      "channel": "Jornalismo Novabrasil",
-      "modality": "Futebol",
-      "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/5fsBbU7SgZ8/hqdefault.jpg",
-      "startedAt": "2026-11-23T23:31:05Z"
-    },
-    {
-      "id": "esporte-live-U7_igiVbSX8",
-      "name": "Bexley vs Whitehall-Yearling | LIVE Girls Basketball High School @Ohio | 24-Nov 2026",
-      "category": "Jogos ao Vivo",
-      "type": "youtube",
-      "videoId": "U7_igiVbSX8",
-      "source": "youtube",
-      "channel": "Lensa HD6",
-      "modality": "Futebol",
-      "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/U7_igiVbSX8/hqdefault.jpg",
-      "startedAt": "2026-09-26T18:03:20Z"
-    },
-    {
-      "id": "esporte-live-Qiqc9fsl0q8",
-      "name": "SANTOS X GRÊMIO AO VIVO COM IMAGENS",
-      "category": "Jogos ao Vivo",
-      "type": "youtube",
-      "videoId": "Qiqc9fsl0q8",
-      "source": "youtube",
-      "channel": "MaikolVortex🌀⚡",
-      "modality": "Futebol",
-      "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/Qiqc9fsl0q8/hqdefault.jpg",
-      "startedAt": "2026-11-24T00:19:38Z"
-    },
-    {
-      "id": "esporte-live-zCrLeB407SU",
-      "name": "SANTOS X GRÊMIO AO VIVO COM IMAGENS",
-      "category": "Jogos ao Vivo",
-      "type": "youtube",
-      "videoId": "zCrLeB407SU",
-      "source": "youtube",
-      "channel": "SI DIEU DONNE ( FAMILY)📖",
-      "modality": "Futebol",
-      "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/zCrLeB407SU/hqdefault.jpg",
-      "startedAt": "2026-11-24T00:07:07Z"
-    },
-    {
-      "id": "esporte-live--wku9yikfk0",
-      "name": "AO VIVO BOTAFOGO X SÃO PAULO AO VIVO CAMPEONATO BRASILEIRO",
-      "category": "Jogos ao Vivo",
-      "type": "youtube",
-      "videoId": "-wku9yikfk0",
-      "source": "youtube",
-      "channel": "Sports Show",
-      "modality": "Futebol",
-      "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/-wku9yikfk0/hqdefault.jpg",
-      "startedAt": "2026-11-23T22:50:24Z"
-    },
-    {
-      "id": "esporte-live-BCDlstiyedQ",
-      "name": "AO VIVO SANTOS X GRÊMIO AO VIVO CAMPEONATO BRASILEIRO",
-      "category": "Jogos ao Vivo",
-      "type": "youtube",
-      "videoId": "BCDlstiyedQ",
-      "source": "youtube",
-      "channel": "Sports Show",
-      "modality": "Futebol",
-      "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/BCDlstiyedQ/hqdefault.jpg",
-      "startedAt": "2026-11-23T22:24:20Z"
-    },
-    {
       "id": "esporte-live--W5k-EQFNPM",
       "name": "🔴 AO VIVO - O GRANDE SHOW DE FUTEBOL! 🔴 Torneio Mundial Supa Strikas ⚽ Maratona de Futebol",
       "category": "Jogos ao Vivo",
@@ -185,19 +94,6 @@
       "liveStatus": "live",
       "thumbnail": "https://i.ytimg.com/vi/BxFszmyUrXE/hqdefault.jpg",
       "startedAt": "2026-11-19T11:33:13Z"
-    },
-    {
-      "id": "esporte-live-Ji3F5kzou90",
-      "name": "WATCH: Cristiano Ronaldo Jr 'Cristianinho' Trains with Portugal U17s for First Time | APT Sports",
-      "category": "Programas Esportivos",
-      "type": "youtube",
-      "videoId": "Ji3F5kzou90",
-      "source": "youtube",
-      "channel": "APT Sports",
-      "modality": "Futsal",
-      "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/Ji3F5kzou90/hqdefault.jpg",
-      "startedAt": "2026-11-01T13:54:11Z"
     },
     {
       "id": "esporte-live-7ZuJ3NrGrHY",
