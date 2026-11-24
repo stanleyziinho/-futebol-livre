@@ -1,8 +1,8 @@
 {
   "version": 2,
   "source": "YouTube Data API - esportes ao vivo",
-  "updatedAt": "2026-11-24T13:27:51.256421+00:00",
-  "count": 20,
+  "updatedAt": "2026-11-24T17:12:30.409328+00:00",
+  "count": 18,
   "items": [
     {
       "id": "esporte-live-W4c_Tb5C5oc",
@@ -18,30 +18,30 @@
       "startedAt": "2026-11-24T00:05:39Z"
     },
     {
-      "id": "esporte-live-TQs2kaEVzX0",
-      "name": "Taça Brasil Sub 12 Masc. Divisão Especial | APAFF Florianópolis x C.E.U. ABC | 2ª Rodada | Ao Vivo",
+      "id": "esporte-live-trUtQ263p2Q",
+      "name": "ART BLOCO X AMERICAN SOCCER / SUB 18 / AO VIVO / 24/11/2026 / 13:00H",
       "category": "Jogos ao Vivo",
       "type": "youtube",
-      "videoId": "TQs2kaEVzX0",
+      "videoId": "trUtQ263p2Q",
+      "source": "youtube",
+      "channel": "COPA BUH BRASIL",
+      "modality": "Futebol",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/trUtQ263p2Q/hqdefault.jpg",
+      "startedAt": "2026-11-24T16:13:57Z"
+    },
+    {
+      "id": "esporte-live-DzxS1fd8qDQ",
+      "name": "Taça Brasil Sub 12 Masc. Divisão Especial | Fortaleza x Amarante Futsal | 2ª Rodada | Ao Vivo",
+      "category": "Jogos ao Vivo",
+      "type": "youtube",
+      "videoId": "DzxS1fd8qDQ",
       "source": "youtube",
       "channel": "Confederação Brasileira de Futebol de Salão (CBFS)",
       "modality": "Futebol",
       "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/TQs2kaEVzX0/hqdefault.jpg",
-      "startedAt": "2026-11-24T13:10:45Z"
-    },
-    {
-      "id": "esporte-live-BreAdXNX7PQ",
-      "name": "🔴 AO VIVO | PAYSANDU x TUNA LUSO | Finais do\nParaense de Futsal",
-      "category": "Jogos ao Vivo",
-      "type": "youtube",
-      "videoId": "BreAdXNX7PQ",
-      "source": "youtube",
-      "channel": "DeOlhonaBaseTv",
-      "modality": "Futebol",
-      "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/BreAdXNX7PQ/hqdefault.jpg",
-      "startedAt": "2026-11-24T11:58:13Z"
+      "thumbnail": "https://i.ytimg.com/vi/DzxS1fd8qDQ/hqdefault.jpg",
+      "startedAt": "2026-11-24T16:05:25Z"
     },
     {
       "id": "esporte-live-opJU9YPYS74",
@@ -57,43 +57,43 @@
       "startedAt": "2026-11-24T00:10:53Z"
     },
     {
-      "id": "esporte-live-2ixusXwNkXM",
-      "name": "RESULTADO AO VIVO JOGO DO BICHO PPT RIO 9:20 horas hoje ao vivo 24/11/2026",
+      "id": "esporte-live-AjWrofZaYI4",
+      "name": "🔴 GALATASARAY X ASTON VILLA | AO VIVO | CHAMPIONS LEAGUE | JOGO AO VIVO COM IMAGENS DO RAMS PARK",
       "category": "Jogos ao Vivo",
       "type": "youtube",
-      "videoId": "2ixusXwNkXM",
+      "videoId": "AjWrofZaYI4",
       "source": "youtube",
-      "channel": "Felipe JB",
+      "channel": "Na Rede Oficial",
       "modality": "Futebol",
       "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/2ixusXwNkXM/hqdefault.jpg",
-      "startedAt": "2026-11-24T12:07:36Z"
+      "thumbnail": "https://i.ytimg.com/vi/AjWrofZaYI4/hqdefault.jpg",
+      "startedAt": "2026-11-24T16:46:33Z"
     },
     {
-      "id": "esporte-live-nrvOhQTmWsE",
-      "name": "🔴 ST. LOUIS CITY SC X LOS ANGELES FC AO VIVO | MLS PLAYOFFS 2026 | PLACAR EM TEMPO REAL",
+      "id": "esporte-live-sAf-M4hrP6Y",
+      "name": "Resultado do jogo do bicho ao vivo - PT - 14:20 - 24/11/2026",
       "category": "Jogos ao Vivo",
       "type": "youtube",
-      "videoId": "nrvOhQTmWsE",
-      "source": "youtube",
-      "channel": "Futebol Stats",
-      "modality": "Futebol",
-      "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/nrvOhQTmWsE/hqdefault.jpg",
-      "startedAt": "2026-11-24T01:01:08Z"
-    },
-    {
-      "id": "esporte-live-sOXUlEoRNOs",
-      "name": "Resultado do jogo do bicho ao vivo - PPT - 09:20 - 24/11/2026",
-      "category": "Jogos ao Vivo",
-      "type": "youtube",
-      "videoId": "sOXUlEoRNOs",
+      "videoId": "sAf-M4hrP6Y",
       "source": "youtube",
       "channel": "Palpites do Xerifão jb",
       "modality": "Futebol",
       "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/sOXUlEoRNOs/hqdefault.jpg",
-      "startedAt": "2026-11-24T12:06:44Z"
+      "thumbnail": "https://i.ytimg.com/vi/sAf-M4hrP6Y/hqdefault.jpg",
+      "startedAt": "2026-11-24T17:03:15Z"
+    },
+    {
+      "id": "esporte-live-nQehMfbdIWU",
+      "name": "SHABAB AL-AHLI X AL-QADSIAH AO VIVO | 5ª RODADA AFC CHAMPIONS LEAGUE ELITE 2026/27",
+      "category": "Jogos ao Vivo",
+      "type": "youtube",
+      "videoId": "nQehMfbdIWU",
+      "source": "youtube",
+      "channel": "RW Esportes 360",
+      "modality": "Futebol",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/nQehMfbdIWU/hqdefault.jpg",
+      "startedAt": "2026-11-24T15:53:41Z"
     },
     {
       "id": "esporte-live--W5k-EQFNPM",
@@ -122,19 +122,6 @@
       "startedAt": "2026-11-23T23:58:59Z"
     },
     {
-      "id": "esporte-live-D5wF0WUqUv8",
-      "name": "CRAQUES DO FUTURO X PARAENSE AO VIVO- CAMPEONATO PARAENSE DE FUTEBOL SUB- 20 2026- 24/ 11- 09:30 CEJ",
-      "category": "Jogos ao Vivo",
-      "type": "youtube",
-      "videoId": "D5wF0WUqUv8",
-      "source": "youtube",
-      "channel": "📲 TV MS LIVE ESPORTES",
-      "modality": "Futebol",
-      "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/D5wF0WUqUv8/hqdefault.jpg",
-      "startedAt": "2026-11-24T12:42:15Z"
-    },
-    {
       "id": "esporte-live-BxFszmyUrXE",
       "name": "LIVE: Kylian Mbappe, Jude Bellingham, Konate and Yan Diomandé Lead Real Madrid Training | APT Sports",
       "category": "Programas Esportivos",
@@ -161,30 +148,17 @@
       "startedAt": "2026-11-09T16:03:18Z"
     },
     {
-      "id": "esporte-live-0eTcfyOmGLE",
-      "name": "INTERVENÇÃO NO CORINTHIANS: MP ENTRA EM AÇÃO! GRÊMIO VENCE, INTERNACIONAL E SANTOS DE NEYMAR PERDE",
+      "id": "esporte-live-xbc0mX9iMh0",
+      "name": "🚨 SUPER PLANTÃO URGENTE! FLAMENGO FECHA CONTRATAÇÃO DE LUIZ HENRIQUE! É OFICIAL! R$ 152 MILHÕES! E+",
       "category": "Programas Esportivos",
       "type": "youtube",
-      "videoId": "0eTcfyOmGLE",
+      "videoId": "xbc0mX9iMh0",
       "source": "youtube",
-      "channel": "Coy o Corintiano",
-      "modality": "Basquete",
+      "channel": "Central FLA",
+      "modality": "Futebol",
       "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/0eTcfyOmGLE/hqdefault.jpg",
-      "startedAt": "2026-11-24T12:31:59Z"
-    },
-    {
-      "id": "esporte-live-p76NdibMewM",
-      "name": "INTERVENÇÃO NO CORINTHIANS: MP ENTRA EM AÇÃO! GRÊMIO VENCE, INTERNACIONAL E SANTOS DE NEYMAR PERDE📱",
-      "category": "Programas Esportivos",
-      "type": "youtube",
-      "videoId": "p76NdibMewM",
-      "source": "youtube",
-      "channel": "Coy o Corintiano",
-      "modality": "Basquete",
-      "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/p76NdibMewM/hqdefault.jpg",
-      "startedAt": "2026-11-24T12:32:01Z"
+      "thumbnail": "https://i.ytimg.com/vi/xbc0mX9iMh0/hqdefault.jpg",
+      "startedAt": "2026-11-24T15:33:29Z"
     },
     {
       "id": "esporte-live-ADWI_yx6WxM",
@@ -200,17 +174,17 @@
       "startedAt": "2026-10-23T09:34:43Z"
     },
     {
-      "id": "esporte-live-dKuoYlVdhtY",
-      "name": "LEONARDO JARDIM FORA DO FLAMENGO? | CLUBE JÁ TEM SUBSTITUTO PARA JOSÉ BOTO?",
+      "id": "esporte-live-kFVFBFWO_Ts",
+      "name": "Jasc 2026",
       "category": "Programas Esportivos",
       "type": "youtube",
-      "videoId": "dKuoYlVdhtY",
+      "videoId": "kFVFBFWO_Ts",
       "source": "youtube",
-      "channel": "Felipe Fontoura",
-      "modality": "Futebol",
+      "channel": "Jogos de vôlei feminino sub19",
+      "modality": "Volei",
       "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/dKuoYlVdhtY/hqdefault.jpg",
-      "startedAt": "2026-11-24T12:02:41Z"
+      "thumbnail": "https://i.ytimg.com/vi/kFVFBFWO_Ts/hqdefault.jpg",
+      "startedAt": "2026-11-24T16:27:32Z"
     },
     {
       "id": "esporte-live-NRvGqpq699c",
@@ -226,43 +200,43 @@
       "startedAt": "2026-09-18T11:03:24Z"
     },
     {
-      "id": "esporte-live-u8Yngj6Qckg",
-      "name": "🔴 [AO VIVO] ⚽ Esportes e Jogos com o Pocoyo! Futebol, Tênis e Mais 🏆 | Pocoyo Português Brasil",
+      "id": "esporte-live-mr2PQMAjX6A",
+      "name": "BOTAFOGO EM RISCO DE REBAIXAMENTO! INTER AFUNDA NA TABELA E GRÊMIO RESPIRA! Placar Aberto | 24/11",
       "category": "Programas Esportivos",
       "type": "youtube",
-      "videoId": "u8Yngj6Qckg",
+      "videoId": "mr2PQMAjX6A",
       "source": "youtube",
-      "channel": "Pocoyo 🇧🇷 Português Brasil - Canal Oficial",
+      "channel": "Placar",
       "modality": "Futebol",
       "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/u8Yngj6Qckg/hqdefault.jpg",
-      "startedAt": "2026-11-24T11:00:08Z"
+      "thumbnail": "https://i.ytimg.com/vi/mr2PQMAjX6A/hqdefault.jpg",
+      "startedAt": "2026-11-24T16:20:06Z"
     },
     {
-      "id": "esporte-live-JgeGjVDyg4g",
-      "name": "AO VIVO | FUTEBOL ALEGRIA DO POVO | RÁDIO GRENAL | 24/11/2026",
+      "id": "esporte-live-zsiNile07ck",
+      "name": "CAMPO NEUTRO 24/11/2026",
       "category": "Programas Esportivos",
       "type": "youtube",
-      "videoId": "JgeGjVDyg4g",
+      "videoId": "zsiNile07ck",
       "source": "youtube",
-      "channel": "Rádio Grenal",
-      "modality": "Futebol",
+      "channel": "Rádio Caxias Esportes",
+      "modality": "Basquete",
       "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/JgeGjVDyg4g/hqdefault.jpg",
-      "startedAt": "2026-11-24T11:02:33Z"
+      "thumbnail": "https://i.ytimg.com/vi/zsiNile07ck/hqdefault.jpg",
+      "startedAt": "2026-11-24T15:58:30Z"
     },
     {
-      "id": "esporte-live-vzVPopNeIu8",
-      "name": "🚨 MP PEDE INTERVENÇÃO JUDICIAL NO CORINTHIANS | TREINO AO VIVO DIRETO DA NEO QUÍMICA ARENA ⚫⚪",
+      "id": "esporte-live-JJH0G-78xAQ",
+      "name": "🔥 GRANDE FINAL DA COPA SINCOVERO 2026 AO VIVO COM IMAGENS | SPORTS SHOW",
       "category": "Programas Esportivos",
       "type": "youtube",
-      "videoId": "vzVPopNeIu8",
+      "videoId": "JJH0G-78xAQ",
       "source": "youtube",
-      "channel": "TV Central do Timão",
+      "channel": "Sports Show",
       "modality": "Futebol",
       "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/vzVPopNeIu8/hqdefault.jpg",
-      "startedAt": "2026-11-24T13:01:39Z"
+      "thumbnail": "https://i.ytimg.com/vi/JJH0G-78xAQ/hqdefault.jpg",
+      "startedAt": "2026-11-24T14:51:59Z"
     }
   ]
 }
