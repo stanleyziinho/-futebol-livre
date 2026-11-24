@@ -2,7 +2,7 @@
   "version": 1,
   "source": "Comedy Central Brasil",
   "channelId": "UCgOObQ-WkK2EA4CwXWspHGQ",
-  "updatedAt": "2026-11-23T13:57:03.394530+00:00",
+  "updatedAt": "2026-11-24T13:52:36.304024+00:00",
   "playlistCount": 126,
   "playlists": [
     {
@@ -510,8 +510,59 @@
       "name": "South Park No Comedy Central"
     }
   ],
-  "count": 6432,
+  "count": 6435,
   "items": [
+    {
+      "id": "comedy-WqWlAhpbdqk",
+      "name": "Quem nunca aumentou uma história só pra sair como o f0dão da roda? 😂 #OReiDoBairro #TáNaPlutoTV",
+      "category": "Comedy Central",
+      "type": "youtube",
+      "videoId": "WqWlAhpbdqk",
+      "source": "youtube",
+      "channel": "Comedy Central Brasil",
+      "playlists": [
+        {
+          "id": "PLn6ERh_yI-q32nGGNMOo9UNruMxX1Qzqs",
+          "name": "O Rei do Bairro"
+        }
+      ],
+      "thumbnail": "https://i.ytimg.com/vi/WqWlAhpbdqk/hqdefault.jpg",
+      "publishedAt": "2026-11-24T13:00:34Z"
+    },
+    {
+      "id": "comedy-PwIwnZWSzPQ",
+      "name": "Tudo errado | Kenan e Kel",
+      "category": "Comedy Central",
+      "type": "youtube",
+      "videoId": "PwIwnZWSzPQ",
+      "source": "youtube",
+      "channel": "Comedy Central Brasil",
+      "playlists": [
+        {
+          "id": "PLn6ERh_yI-q3RRU5C0xyO4nN2XEevbLsP",
+          "name": "Kenan & Kel"
+        }
+      ],
+      "thumbnail": "https://i.ytimg.com/vi/PwIwnZWSzPQ/hqdefault.jpg",
+      "publishedAt": "2026-11-24T00:00:20Z"
+    },
+    {
+      "id": "comedy-_Q7QAB1T2mk",
+      "name": "Vale | Todo Mundo Odeia o Chris",
+      "category": "Comedy Central",
+      "type": "youtube",
+      "videoId": "_Q7QAB1T2mk",
+      "source": "youtube",
+      "channel": "Comedy Central Brasil",
+      "playlists": [
+        {
+          "id": "PLn6ERh_yI-q1XlSRpQpmFg7PXvS2hAz6d",
+          "name": "Todo Mundo Odeia O Chris"
+        }
+      ],
+      "thumbnail": "https://i.ytimg.com/vi/_Q7QAB1T2mk/hqdefault.jpg",
+      "publishedAt": "2026-11-23T21:00:31Z"
+    },
     {
       "id": "comedy-_aBH48773H4",
       "name": "\"Se você não decorou a tabuada, decorou o quê?\" #SouthPark #SouthParkNoComedyCentral #TáNaPlutoTV",
