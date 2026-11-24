@@ -2,21 +2,9 @@
   "version": 1,
   "source": "Adrenalina Pura TV BR",
   "channelId": "UCWFovw8iyHBezTmaEWEV0RA",
-  "updatedAt": "2026-11-23T12:18:09.761176+00:00",
-  "count": 201,
+  "updatedAt": "2026-11-24T12:19:38.555226+00:00",
+  "count": 198,
   "items": [
-    {
-      "id": "adrenalina-9jE2BJloF8A",
-      "name": "Uri: Forças Especiais - Filme Completo Dublado - Filme de Ação | Adrenalina Pura TV",
-      "category": "Filmes",
-      "type": "youtube",
-      "videoId": "9jE2BJloF8A",
-      "source": "youtube",
-      "channel": "Adrenalina Pura TV BR",
-      "thumbnail": "https://i.ytimg.com/vi/9jE2BJloF8A/hqdefault.jpg",
-      "durationSeconds": 7959,
-      "publishedAt": "2026-11-21T22:00:10Z"
-    },
     {
       "id": "adrenalina-7To0E4Zed9A",
       "name": "Até o Limite com MEL GIBSON - Filme Completo Dublado - Filme de Ação | Sessão Adrenalina Pura+",
@@ -100,18 +88,6 @@
       "thumbnail": "https://i.ytimg.com/vi/ZDjAWui42pM/hqdefault.jpg",
       "durationSeconds": 6435,
       "publishedAt": "2026-11-03T22:00:08Z"
-    },
-    {
-      "id": "adrenalina-xlgTC0fWNQw",
-      "name": "Vozes do Passado - Filme Completo Dublado - Filme de Suspense | Adrenalina Pura TV",
-      "category": "Filmes",
-      "type": "youtube",
-      "videoId": "xlgTC0fWNQw",
-      "source": "youtube",
-      "channel": "Adrenalina Pura TV BR",
-      "thumbnail": "https://i.ytimg.com/vi/xlgTC0fWNQw/hqdefault.jpg",
-      "durationSeconds": 5695,
-      "publishedAt": "2026-10-31T22:00:07Z"
     },
     {
       "id": "adrenalina-yWPnpreOhGE",
@@ -1183,7 +1159,7 @@
     },
     {
       "id": "adrenalina-SQG9VLTYXTs",
-      "name": "Adult World - Filme Completo Dublado - Filme de Comédia | Adrenalina Freezone",
+      "name": "Adult World - Filme Completo Dublado - Filme de Comédia | Adrenalina Pura TV",
       "category": "Filmes",
       "type": "youtube",
       "videoId": "SQG9VLTYXTs",
@@ -1219,7 +1195,7 @@
     },
     {
       "id": "adrenalina-CO1Z71Ike7U",
-      "name": "Surto - Filme Completo Dublado - Filme de Suspense | Adrenalina Freezone",
+      "name": "Surto - Filme Completo Dublado - Filme de Suspense | Adrenalina Pura TV",
       "category": "Filmes",
       "type": "youtube",
       "videoId": "CO1Z71Ike7U",
@@ -1267,7 +1243,7 @@
     },
     {
       "id": "adrenalina-3XbnqGNdaAE",
-      "name": "O Monge à Prova de Balas - Filme Completo Dublado - Filme de Ação | Adrenalina Freezone",
+      "name": "O Monge à Prova de Balas - Filme Completo Dublado - Filme de Ação | Adrenalina Pura TV",
       "category": "Filmes",
       "type": "youtube",
       "videoId": "3XbnqGNdaAE",
@@ -1348,18 +1324,6 @@
       "thumbnail": "https://i.ytimg.com/vi/y4dBABEa9FQ/hqdefault.jpg",
       "durationSeconds": 5459,
       "publishedAt": "2024-07-04T22:00:07Z"
-    },
-    {
-      "id": "adrenalina-qUi6pk3P_zc",
-      "name": "Ring 2: O Chamado - Filme Completo Dublado - Filme de Terror | Adrenalina Pura TV",
-      "category": "Filmes",
-      "type": "youtube",
-      "videoId": "qUi6pk3P_zc",
-      "source": "youtube",
-      "channel": "Adrenalina Pura TV BR",
-      "thumbnail": "https://i.ytimg.com/vi/qUi6pk3P_zc/hqdefault.jpg",
-      "durationSeconds": 5758,
-      "publishedAt": "2024-06-27T22:00:06Z"
     },
     {
       "id": "adrenalina-wYcAt_SUa30",
