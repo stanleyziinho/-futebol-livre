@@ -2,7 +2,7 @@
   "version": 1,
   "source": "Comedy Central Brasil",
   "channelId": "UCgOObQ-WkK2EA4CwXWspHGQ",
-  "updatedAt": "2026-11-24T13:52:36.304024+00:00",
+  "updatedAt": "2026-11-25T13:53:57.423509+00:00",
   "playlistCount": 126,
   "playlists": [
     {
@@ -510,8 +510,42 @@
       "name": "South Park No Comedy Central"
     }
   ],
-  "count": 6435,
+  "count": 6437,
   "items": [
+    {
+      "id": "comedy-KX_sTrwfWn8",
+      "name": "O segredo | Fantasmas",
+      "category": "Comedy Central",
+      "type": "youtube",
+      "videoId": "KX_sTrwfWn8",
+      "source": "youtube",
+      "channel": "Comedy Central Brasil",
+      "playlists": [
+        {
+          "id": "PLn6ERh_yI-q2eWVtU7yZfxOPqjHUwkSxe",
+          "name": "Fantasmas No Comedy Central"
+        }
+      ],
+      "thumbnail": "https://i.ytimg.com/vi/KX_sTrwfWn8/hqdefault.jpg",
+      "publishedAt": "2026-11-25T00:00:54Z"
+    },
+    {
+      "id": "comedy-nJCruMvvdCg",
+      "name": "Pais | Todo mundo Odeia o Chris",
+      "category": "Comedy Central",
+      "type": "youtube",
+      "videoId": "nJCruMvvdCg",
+      "source": "youtube",
+      "channel": "Comedy Central Brasil",
+      "playlists": [
+        {
+          "id": "PLn6ERh_yI-q1XlSRpQpmFg7PXvS2hAz6d",
+          "name": "Todo Mundo Odeia O Chris"
+        }
+      ],
+      "thumbnail": "https://i.ytimg.com/vi/nJCruMvvdCg/hqdefault.jpg",
+      "publishedAt": "2026-11-24T21:00:52Z"
+    },
     {
       "id": "comedy-WqWlAhpbdqk",
       "name": "Quem nunca aumentou uma história só pra sair como o f0dão da roda? 😂 #OReiDoBairro #TáNaPlutoTV",
