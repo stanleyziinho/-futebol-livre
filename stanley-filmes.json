@@ -2,9 +2,21 @@
   "version": 1,
   "source": "Adrenalina Pura TV BR",
   "channelId": "UCWFovw8iyHBezTmaEWEV0RA",
-  "updatedAt": "2026-11-24T12:19:38.555226+00:00",
-  "count": 198,
+  "updatedAt": "2026-11-25T12:22:05.802585+00:00",
+  "count": 199,
   "items": [
+    {
+      "id": "adrenalina-0IGuWkQg7t4",
+      "name": "Um Homem Comum - Filme Completo Dublado - Filme de Suspense | Adrenalina Pura TV",
+      "category": "Filmes",
+      "type": "youtube",
+      "videoId": "0IGuWkQg7t4",
+      "source": "youtube",
+      "channel": "Adrenalina Pura TV BR",
+      "thumbnail": "https://i.ytimg.com/vi/0IGuWkQg7t4/hqdefault.jpg",
+      "durationSeconds": 5336,
+      "publishedAt": "2026-11-24T22:00:10Z"
+    },
     {
       "id": "adrenalina-7To0E4Zed9A",
       "name": "Até o Limite com MEL GIBSON - Filme Completo Dublado - Filme de Ação | Sessão Adrenalina Pura+",
@@ -1315,7 +1327,7 @@
     },
     {
       "id": "adrenalina-y4dBABEa9FQ",
-      "name": "Guerra Biológica - Filme Completo Dublado - Filme de Ação com Steven Seagal | Adrenalina Freezone",
+      "name": "Guerra Biológica - Filme Completo Dublado - Filme de Ação com Steven Seagal | Adrenalina Pura TV",
       "category": "Filmes",
       "type": "youtube",
       "videoId": "y4dBABEa9FQ",
@@ -1327,7 +1339,7 @@
     },
     {
       "id": "adrenalina-wYcAt_SUa30",
-      "name": "A Bela e a Fera - Filme Completo Dublado - Filme de Fantasia | Adrenalina Freezone",
+      "name": "A Bela e a Fera - Filme Completo Dublado - Filme de Fantasia | Adrenalina Pura TV",
       "category": "Filmes",
       "type": "youtube",
       "videoId": "wYcAt_SUa30",
@@ -1339,7 +1351,7 @@
     },
     {
       "id": "adrenalina-qXIyoy5YxWc",
-      "name": "O Sabor de uma Paixão - Filme Completo Dublado - Filme de Comédia | Adrenalina Freezone",
+      "name": "O Sabor de uma Paixão - Filme Completo Dublado - Filme de Comédia | Adrenalina Pura TV",
       "category": "Filmes",
       "type": "youtube",
       "videoId": "qXIyoy5YxWc",
@@ -1375,7 +1387,7 @@
     },
     {
       "id": "adrenalina-FY5oLLtNfwA",
-      "name": "Infidelidade - Filme Completo Dublado - Filme de Suspense | Adrenalina Freezone",
+      "name": "Infidelidade - Filme Completo Dublado - Filme de Suspense | Adrenalina Pura TV",
       "category": "Filmes",
       "type": "youtube",
       "videoId": "FY5oLLtNfwA",
