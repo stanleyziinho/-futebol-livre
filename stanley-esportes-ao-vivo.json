@@ -1,60 +1,73 @@
 {
   "version": 2,
   "source": "YouTube Data API - esportes ao vivo",
-  "updatedAt": "2026-11-25T13:33:54.375186+00:00",
-  "count": 18,
+  "updatedAt": "2026-11-25T17:12:42.974019+00:00",
+  "count": 22,
   "items": [
     {
-      "id": "esporte-live-jrs4cNXluMs",
-      "name": "Sporting Sub-19 x Manchester United Sub-19 – Liga Jovem da UEFA (25/11/2026)",
+      "id": "esporte-live-UBlCbJLHlfM",
+      "name": "SÃO CAETANO X MESC / SUB 10 / AO VIVO / 25/11/2026 / 14:00H",
       "category": "Jogos ao Vivo",
       "type": "youtube",
-      "videoId": "jrs4cNXluMs",
+      "videoId": "UBlCbJLHlfM",
       "source": "youtube",
-      "channel": "Antony Souza",
+      "channel": "COPA BUH BRASIL",
       "modality": "Futebol",
       "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/jrs4cNXluMs/hqdefault.jpg",
-      "startedAt": "2026-11-25T12:42:25Z"
+      "thumbnail": "https://i.ytimg.com/vi/UBlCbJLHlfM/hqdefault.jpg",
+      "startedAt": "2026-11-25T17:03:14Z"
     },
     {
-      "id": "esporte-live-_KfABhEYL84",
-      "name": "Taça Brasil Sub 12 Masc. Divisão Especial | Amarante Futsal x TS Futsal | 3ª Rodada | Ao Vivo",
+      "id": "esporte-live-JQfAxDv3dbg",
+      "name": "Taça Brasil Sub 12 Masc. Divisão Especial | C.E.U. ABC x Benfica | 3ª Rodada | Ao Vivo",
       "category": "Jogos ao Vivo",
       "type": "youtube",
-      "videoId": "_KfABhEYL84",
+      "videoId": "JQfAxDv3dbg",
       "source": "youtube",
       "channel": "Confederação Brasileira de Futebol de Salão (CBFS)",
       "modality": "Futebol",
       "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/_KfABhEYL84/hqdefault.jpg",
-      "startedAt": "2026-11-25T13:05:24Z"
+      "thumbnail": "https://i.ytimg.com/vi/JQfAxDv3dbg/hqdefault.jpg",
+      "startedAt": "2026-11-25T17:06:53Z"
     },
     {
-      "id": "esporte-live-uHVoz1YOW-8",
-      "name": "🔴 AO VIVO | PAYSANDU x JUVENTUDE –  Finais do Paraense de Futsal Sub 10",
+      "id": "esporte-live-yuHs2Wxus9g",
+      "name": "AO VIVO: SABAH X BARCELONA CHAMPIONS LEAGUE DIRETO DO BAKI OLIMPIYA STADIONU | NARRAÇÃO",
       "category": "Jogos ao Vivo",
       "type": "youtube",
-      "videoId": "uHVoz1YOW-8",
+      "videoId": "yuHs2Wxus9g",
       "source": "youtube",
-      "channel": "DeOlhonaBaseTv",
+      "channel": "Dibrou Sports Brasil",
       "modality": "Futebol",
       "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/uHVoz1YOW-8/hqdefault.jpg",
-      "startedAt": "2026-11-25T13:33:02Z"
+      "thumbnail": "https://i.ytimg.com/vi/yuHs2Wxus9g/hqdefault.jpg",
+      "startedAt": "2026-11-25T15:39:47Z"
     },
     {
-      "id": "esporte-live-hyduBREy-ug",
-      "name": "🔴 PIAUÍ X BAHIA AO VIVO COM IMAGENS | COPA RAINHA MARTA NORDESTE 2026 | MCZNEWS",
+      "id": "esporte-live-PlLoJcs_dbE",
+      "name": "C.T. EL ELYON X GREMIO MORRO ALTO | AO VIVO | COPA BRASILEIRINHO U13 2026",
       "category": "Jogos ao Vivo",
       "type": "youtube",
-      "videoId": "hyduBREy-ug",
+      "videoId": "PlLoJcs_dbE",
       "source": "youtube",
-      "channel": "MCZ NEWS OFICIAL",
+      "channel": "Fatalzinho TV",
       "modality": "Futebol",
       "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/hyduBREy-ug/hqdefault.jpg",
-      "startedAt": "2026-11-25T11:53:24Z"
+      "thumbnail": "https://i.ytimg.com/vi/PlLoJcs_dbE/hqdefault.jpg",
+      "startedAt": "2026-11-25T16:31:04Z"
+    },
+    {
+      "id": "esporte-live-qSR9CdcVaAc",
+      "name": "🔴 SABAH X BARCELONA | AO VIVO | CHAMPIONS LEAGUE | JOGO AO VIVO COM IMAGENS DO OLÍMPICO DE BAKÚ",
+      "category": "Jogos ao Vivo",
+      "type": "youtube",
+      "videoId": "qSR9CdcVaAc",
+      "source": "youtube",
+      "channel": "Flopyzera",
+      "modality": "Futebol",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/qSR9CdcVaAc/hqdefault.jpg",
+      "startedAt": "2026-11-25T16:02:45Z"
     },
     {
       "id": "esporte-live-Nmi1o-QUIns",
@@ -70,56 +83,43 @@
       "startedAt": "2026-11-25T10:07:06Z"
     },
     {
-      "id": "esporte-live-Y_sONLjH47s",
-      "name": "🚨 AO VIVO: ATLÉTICO-MG E CORINTHIANS FAZEM JOGO DECISIVO POR OBJETIVOS DIFERENTES!",
+      "id": "esporte-live-1DzHWA5AkYA",
+      "name": "🔴 SABAH X BARCELONA | AO VIVO | CHAMPIONS LEAGUE | JOGO AO VIVO COM IMAGENS DO OLÍMPICO DE BAKÚ",
       "category": "Jogos ao Vivo",
       "type": "youtube",
-      "videoId": "Y_sONLjH47s",
+      "videoId": "1DzHWA5AkYA",
       "source": "youtube",
-      "channel": "OWTV",
+      "channel": "Na Rede Oficial",
       "modality": "Futebol",
       "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/Y_sONLjH47s/hqdefault.jpg",
-      "startedAt": "2026-11-25T12:20:29Z"
+      "thumbnail": "https://i.ytimg.com/vi/1DzHWA5AkYA/hqdefault.jpg",
+      "startedAt": "2026-11-25T15:45:27Z"
     },
     {
-      "id": "esporte-live-8_RuWlzhly8",
-      "name": "Resultado do jogo do bicho ao vivo - PPT - 09:20 - 25/11/2026",
+      "id": "esporte-live-UT5PgCUmyFY",
+      "name": "Resultado do jogo do bicho ao vivo - PT - 14:20 - 25/11/2026",
       "category": "Jogos ao Vivo",
       "type": "youtube",
-      "videoId": "8_RuWlzhly8",
+      "videoId": "UT5PgCUmyFY",
       "source": "youtube",
       "channel": "Palpites do Xerifão jb",
       "modality": "Futebol",
       "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/8_RuWlzhly8/hqdefault.jpg",
-      "startedAt": "2026-11-25T12:13:33Z"
+      "thumbnail": "https://i.ytimg.com/vi/UT5PgCUmyFY/hqdefault.jpg",
+      "startedAt": "2026-11-25T17:06:38Z"
     },
     {
-      "id": "esporte-live-n-YWVUvWoY8",
-      "name": "Resultado do jogo do bicho ao VIVO PPT 09:20 HORAS  25/11/2026",
+      "id": "esporte-live-8Fch7-Cn0Qk",
+      "name": "FLA X VAS: QUEM LEVA LUCAS RODRIGUES? CORINTHIANS COM BASTIDORES EM CHAMAS! Placar Aberto | 25/11",
       "category": "Jogos ao Vivo",
       "type": "youtube",
-      "videoId": "n-YWVUvWoY8",
+      "videoId": "8Fch7-Cn0Qk",
       "source": "youtube",
-      "channel": "Rainha dos palpites JB",
+      "channel": "Placar",
       "modality": "Futebol",
       "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/n-YWVUvWoY8/hqdefault.jpg",
-      "startedAt": "2026-11-25T11:58:11Z"
-    },
-    {
-      "id": "esporte-live--TmwARteDpE",
-      "name": "🔴 PIAUÍ X BAHIA AO VIVO COM IMAGENS | COPA RAINHA MARTA NORDESTE 2026",
-      "category": "Jogos ao Vivo",
-      "type": "youtube",
-      "videoId": "-TmwARteDpE",
-      "source": "youtube",
-      "channel": "Selaj TV",
-      "modality": "Futebol",
-      "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/-TmwARteDpE/hqdefault.jpg",
-      "startedAt": "2026-11-25T11:58:24Z"
+      "thumbnail": "https://i.ytimg.com/vi/8Fch7-Cn0Qk/hqdefault.jpg",
+      "startedAt": "2026-11-25T16:24:25Z"
     },
     {
       "id": "esporte-live--W5k-EQFNPM",
@@ -133,6 +133,19 @@
       "liveStatus": "live",
       "thumbnail": "https://i.ytimg.com/vi/-W5k-EQFNPM/hqdefault.jpg",
       "startedAt": "2026-10-21T14:12:07Z"
+    },
+    {
+      "id": "esporte-live-Fh0bvOm1Eao",
+      "name": "AO VIVO COM IMAGENS BAHIA X VITÓRIA  | JOGO DE IDA | FINAL SUB-17 TVE BAHIA 25/11/2026",
+      "category": "Jogos ao Vivo",
+      "type": "youtube",
+      "videoId": "Fh0bvOm1Eao",
+      "source": "youtube",
+      "channel": "TVE Bahia",
+      "modality": "Futebol",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/Fh0bvOm1Eao/hqdefault.jpg",
+      "startedAt": "2026-11-25T16:15:05Z"
     },
     {
       "id": "esporte-live-BxFszmyUrXE",
@@ -161,45 +174,6 @@
       "startedAt": "2026-11-09T16:03:18Z"
     },
     {
-      "id": "esporte-live-xdvG5fJC8M4",
-      "name": "BOM DIA ESPORTE | CORINTHIANS ENTRE A JUSTIÇA E O Z4! BRASILEIRAO, CHAMPIONS LEAGUE E NBA!",
-      "category": "Programas Esportivos",
-      "type": "youtube",
-      "videoId": "xdvG5fJC8M4",
-      "source": "youtube",
-      "channel": "Coy o Corintiano",
-      "modality": "Basquete",
-      "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/xdvG5fJC8M4/hqdefault.jpg",
-      "startedAt": "2026-11-25T12:30:07Z"
-    },
-    {
-      "id": "esporte-live-Duv6rkzCajo",
-      "name": "BOM DIA ESPORTE | CORINTHIANS ENTRE A JUSTIÇA E O Z4! BRASILEIRAO, CHAMPIONS LEAGUE E NBA! 📱",
-      "category": "Programas Esportivos",
-      "type": "youtube",
-      "videoId": "Duv6rkzCajo",
-      "source": "youtube",
-      "channel": "Coy o Corintiano",
-      "modality": "Basquete",
-      "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/Duv6rkzCajo/hqdefault.jpg",
-      "startedAt": "2026-11-25T12:30:10Z"
-    },
-    {
-      "id": "esporte-live-imUKJ52de4c",
-      "name": "AO VIVO 🔴 MERCADO DO CRUZEIRO: POSSÍVEIS REFORÇOS, SAÍDAS E PLANEJAMENTO 🦊 BOM DIA, CRUZEIRO!",
-      "category": "Programas Esportivos",
-      "type": "youtube",
-      "videoId": "imUKJ52de4c",
-      "source": "youtube",
-      "channel": "Diário Celeste",
-      "modality": "Futebol",
-      "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/imUKJ52de4c/hqdefault.jpg",
-      "startedAt": "2026-11-25T11:04:46Z"
-    },
-    {
       "id": "esporte-live-ADWI_yx6WxM",
       "name": "🔴 AO VIVO: Jogos Divertidos e Futebol para Crianças! ⚽",
       "category": "Programas Esportivos",
@@ -211,6 +185,45 @@
       "liveStatus": "live",
       "thumbnail": "https://i.ytimg.com/vi/ADWI_yx6WxM/hqdefault.jpg",
       "startedAt": "2026-10-23T09:34:43Z"
+    },
+    {
+      "id": "esporte-live-h2O3d9bkPLU",
+      "name": "🎙️ AO VIVO DO PICI! JOÃO RICARDO E LUCAS SASHA PROJETAM DECISÃO NO CASTELÃO | COLETIVA PRÉ-JOGO!",
+      "category": "Programas Esportivos",
+      "type": "youtube",
+      "videoId": "h2O3d9bkPLU",
+      "source": "youtube",
+      "channel": "Expresso Tricolor",
+      "modality": "Futebol",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/h2O3d9bkPLU/hqdefault.jpg",
+      "startedAt": "2026-11-25T17:01:28Z"
+    },
+    {
+      "id": "esporte-live-sCfYJg42XQY",
+      "name": "COOPER FLAGG TEM MAIS POTENCIAL QUE WEMBANYAMA? RANKING DE JOGADORES SUB-25! | PÓS-RODADA NBA",
+      "category": "Programas Esportivos",
+      "type": "youtube",
+      "videoId": "sCfYJg42XQY",
+      "source": "youtube",
+      "channel": "Gustavo NDD",
+      "modality": "Basquete",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/sCfYJg42XQY/hqdefault.jpg",
+      "startedAt": "2026-11-25T16:35:14Z"
+    },
+    {
+      "id": "esporte-live-gEpGS8PDhT8",
+      "name": "🔴 SABAH X BARCELONA AO VIVO | CHAMPIONS LEAGUE 2026/27 | IFTV SPORTS",
+      "category": "Programas Esportivos",
+      "type": "youtube",
+      "videoId": "gEpGS8PDhT8",
+      "source": "youtube",
+      "channel": "IFTV SPORTS",
+      "modality": "Futebol",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/gEpGS8PDhT8/hqdefault.jpg",
+      "startedAt": "2026-11-25T16:18:57Z"
     },
     {
       "id": "esporte-live-NRvGqpq699c",
@@ -226,17 +239,56 @@
       "startedAt": "2026-09-18T11:03:24Z"
     },
     {
-      "id": "esporte-live-CqVT1SGvIzI",
-      "name": "CORINTHIANS TEM DECISÃO PARA FUGIR DO Z4 | JUSTIÇA COBRA ESCLARECIMENTOS DO MP SOBRE INTERVENÇÃO",
+      "id": "esporte-live-xpeifr3nRc4",
+      "name": "CAMPO NEUTRO 25/11/2026",
       "category": "Programas Esportivos",
       "type": "youtube",
-      "videoId": "CqVT1SGvIzI",
+      "videoId": "xpeifr3nRc4",
       "source": "youtube",
-      "channel": "TV Central do Timão",
+      "channel": "Rádio Caxias Esportes",
+      "modality": "Basquete",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/xpeifr3nRc4/hqdefault.jpg",
+      "startedAt": "2026-11-25T15:57:22Z"
+    },
+    {
+      "id": "esporte-live-Hm9wSIPZuMQ",
+      "name": "AO VIVO - GIRO ESPORTIVO: TJD-MS VAI ANALISAR DENÚNCIA CONTRA PAI QUE AMEAÇOU ÁRBITRA",
+      "category": "Programas Esportivos",
+      "type": "youtube",
+      "videoId": "Hm9wSIPZuMQ",
+      "source": "youtube",
+      "channel": "Rádio Futebol na Canela",
       "modality": "Futebol",
       "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/CqVT1SGvIzI/hqdefault.jpg",
-      "startedAt": "2026-11-25T13:11:26Z"
+      "thumbnail": "https://i.ytimg.com/vi/Hm9wSIPZuMQ/hqdefault.jpg",
+      "startedAt": "2026-11-25T16:01:41Z"
+    },
+    {
+      "id": "esporte-live-Ss-wJI7FWLw",
+      "name": "AEROPORCO AO VIVO - DIRETO DO CT DO PALMEIRAS!",
+      "category": "Programas Esportivos",
+      "type": "youtube",
+      "videoId": "Ss-wJI7FWLw",
+      "source": "youtube",
+      "channel": "Tv Alviverde",
+      "modality": "Futebol",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/Ss-wJI7FWLw/hqdefault.jpg",
+      "startedAt": "2026-11-25T15:56:02Z"
+    },
+    {
+      "id": "esporte-live-OdniTfVuW7o",
+      "name": "AO VIVO | EMBARQUE DO PALMEIRAS PARA ENFRENTAR O ESTUDIANTES | W7 PODCAST / W7 ESPORTE",
+      "category": "Programas Esportivos",
+      "type": "youtube",
+      "videoId": "OdniTfVuW7o",
+      "source": "youtube",
+      "channel": "W7 PODCAST",
+      "modality": "Futebol",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/OdniTfVuW7o/hqdefault.jpg",
+      "startedAt": "2026-11-25T15:32:42Z"
     }
   ]
 }
