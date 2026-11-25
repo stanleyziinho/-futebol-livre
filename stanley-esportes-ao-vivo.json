@@ -1,25 +1,12 @@
 {
   "version": 2,
   "source": "YouTube Data API - esportes ao vivo",
-  "updatedAt": "2026-11-25T05:20:23.566677+00:00",
-  "count": 11,
+  "updatedAt": "2026-11-25T09:22:55.150648+00:00",
+  "count": 6,
   "items": [
     {
-      "id": "esporte-live-YQT0IPdWMZY",
-      "name": "MAVERICKS X NUGGETS AO VIVO | NBA 2026/27 | 🏀",
-      "category": "Jogos ao Vivo",
-      "type": "youtube",
-      "videoId": "YQT0IPdWMZY",
-      "source": "youtube",
-      "channel": "Arena Total90",
-      "modality": "Basquete",
-      "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/YQT0IPdWMZY/hqdefault.jpg",
-      "startedAt": "2026-11-25T03:04:17Z"
-    },
-    {
       "id": "esporte-live-dzmym_0h3oE",
-      "name": "🔴 SAN JOSÉ EARTHQUAKES X HOUSTON DYNAMO AO VIVO | MLS PLAYOFFS 2026 | PLACAR EM TEMPO REAL",
+      "name": "🔴 FC TOKYO X SANFRECCE HIROSHIMA AO VIVO | J1 LEAGUE 2026/27 | PLACAR EM TEMPO REAL",
       "category": "Jogos ao Vivo",
       "type": "youtube",
       "videoId": "dzmym_0h3oE",
@@ -29,19 +16,6 @@
       "liveStatus": "live",
       "thumbnail": "https://i.ytimg.com/vi/dzmym_0h3oE/hqdefault.jpg",
       "startedAt": "2026-11-25T01:56:28Z"
-    },
-    {
-      "id": "esporte-live-kfQX4dAVk6k",
-      "name": "🔴 AO VIVO: MV ACADEMY x MVP SOCCER | 11ª Copa do Mundo Sub 11 R3 - Futebol Base",
-      "category": "Jogos ao Vivo",
-      "type": "youtube",
-      "videoId": "kfQX4dAVk6k",
-      "source": "youtube",
-      "channel": "Kim Live Sports",
-      "modality": "Futebol",
-      "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/kfQX4dAVk6k/hqdefault.jpg",
-      "startedAt": "2026-11-24T23:20:03Z"
     },
     {
       "id": "esporte-live--W5k-EQFNPM",
@@ -55,19 +29,6 @@
       "liveStatus": "live",
       "thumbnail": "https://i.ytimg.com/vi/-W5k-EQFNPM/hqdefault.jpg",
       "startedAt": "2026-10-21T14:12:07Z"
-    },
-    {
-      "id": "esporte-live-OcFduQo9Rq0",
-      "name": "SANTOS X GRÊMIO AO VIVO COM IMAGENS",
-      "category": "Jogos ao Vivo",
-      "type": "youtube",
-      "videoId": "OcFduQo9Rq0",
-      "source": "youtube",
-      "channel": "callmeiss221",
-      "modality": "Futebol",
-      "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/OcFduQo9Rq0/hqdefault.jpg",
-      "startedAt": "2026-11-23T23:58:59Z"
     },
     {
       "id": "esporte-live-BxFszmyUrXE",
@@ -94,32 +55,6 @@
       "liveStatus": "live",
       "thumbnail": "https://i.ytimg.com/vi/7ZuJ3NrGrHY/hqdefault.jpg",
       "startedAt": "2026-11-09T16:03:18Z"
-    },
-    {
-      "id": "esporte-live-Toq-4FodPz4",
-      "name": "AO VIVO: 1ª Copa Rômulo do Esporte - Futebol Society  em Comodoro/MT  2026",
-      "category": "Programas Esportivos",
-      "type": "youtube",
-      "videoId": "Toq-4FodPz4",
-      "source": "youtube",
-      "channel": "CONEXÃO ESPORTIVA MT",
-      "modality": "Futsal",
-      "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/Toq-4FodPz4/hqdefault.jpg",
-      "startedAt": "2026-11-24T22:54:04Z"
-    },
-    {
-      "id": "esporte-live-MuO7G5X-bHo",
-      "name": "🚨 PLANTÃO URGENTE! FLAMENGO FECHA CONTRATAÇÃO DE LUIZ HENRIQUE! É OFICIAL! R$ 152 MILHÕES! E+",
-      "category": "Programas Esportivos",
-      "type": "youtube",
-      "videoId": "MuO7G5X-bHo",
-      "source": "youtube",
-      "channel": "Central FLA",
-      "modality": "Futebol",
-      "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/MuO7G5X-bHo/hqdefault.jpg",
-      "startedAt": "2026-11-24T21:55:24Z"
     },
     {
       "id": "esporte-live-ADWI_yx6WxM",
