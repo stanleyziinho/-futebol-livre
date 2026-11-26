@@ -1,9 +1,87 @@
 {
   "version": 2,
   "source": "YouTube Data API - esportes ao vivo",
-  "updatedAt": "2026-11-26T09:20:16.391199+00:00",
-  "count": 5,
+  "updatedAt": "2026-11-26T13:32:17.384740+00:00",
+  "count": 16,
   "items": [
+    {
+      "id": "esporte-live-s0t7vNZNusE",
+      "name": "Taça Brasil Sub 12 Masc. Divisão Especial | Copag Futsal x Amarante | 13ª e 14ª Colocado | Ao Vivo",
+      "category": "Jogos ao Vivo",
+      "type": "youtube",
+      "videoId": "s0t7vNZNusE",
+      "source": "youtube",
+      "channel": "Confederação Brasileira de Futebol de Salão (CBFS)",
+      "modality": "Futebol",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/s0t7vNZNusE/hqdefault.jpg",
+      "startedAt": "2026-11-26T13:13:49Z"
+    },
+    {
+      "id": "esporte-live-ok-DuG4Bluo",
+      "name": "RESULTADO AO VIVO JOGO DO BICHO PPT RIO 9:20 horas hoje ao vivo 26/11/2026",
+      "category": "Jogos ao Vivo",
+      "type": "youtube",
+      "videoId": "ok-DuG4Bluo",
+      "source": "youtube",
+      "channel": "Felipe JB",
+      "modality": "Futebol",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/ok-DuG4Bluo/hqdefault.jpg",
+      "startedAt": "2026-11-26T12:04:25Z"
+    },
+    {
+      "id": "esporte-live-OBx1FLaIQj0",
+      "name": "🔥 AO VIVO COM IMAGENS! CEARÁ x SERGIPE | COPA RAINHA MARTA NORDESTE 2026 | MCZNEWS",
+      "category": "Jogos ao Vivo",
+      "type": "youtube",
+      "videoId": "OBx1FLaIQj0",
+      "source": "youtube",
+      "channel": "MCZ NEWS OFICIAL",
+      "modality": "Futebol",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/OBx1FLaIQj0/hqdefault.jpg",
+      "startedAt": "2026-11-26T11:40:59Z"
+    },
+    {
+      "id": "esporte-live-4BoI0A4iJuo",
+      "name": "AO VIVO: CRUZEIRO NC X BAHIA NC BRASILEIRÃO GOLKIPER 2026 | 5º RODADA | JOGO 5º",
+      "category": "Jogos ao Vivo",
+      "type": "youtube",
+      "videoId": "4BoI0A4iJuo",
+      "source": "youtube",
+      "channel": "NC TRAINING - UNIDADE STADIUM",
+      "modality": "Futebol",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/4BoI0A4iJuo/hqdefault.jpg",
+      "startedAt": "2026-11-26T10:05:13Z"
+    },
+    {
+      "id": "esporte-live-TiGX9Sw9AZs",
+      "name": "Resultado do jogo do bicho ao vivo - PPT - 09:20 - 26/11/2026",
+      "category": "Jogos ao Vivo",
+      "type": "youtube",
+      "videoId": "TiGX9Sw9AZs",
+      "source": "youtube",
+      "channel": "Palpites do Xerifão jb",
+      "modality": "Futebol",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/TiGX9Sw9AZs/hqdefault.jpg",
+      "startedAt": "2026-11-26T12:09:42Z"
+    },
+    {
+      "id": "esporte-live-itreHxzFVyg",
+      "name": "JOGOS ESCOLARES DE DOURADOS - FUTSAL MASCULINO - E.M INDÍGENA AGUSTINHO X E.M NEIL FIORAVANTI CAIC",
+      "category": "Jogos ao Vivo",
+      "type": "youtube",
+      "videoId": "itreHxzFVyg",
+      "source": "youtube",
+      "channel": "RESENHA DO ESPORTE DOURADOS",
+      "modality": "Futsal",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/itreHxzFVyg/hqdefault.jpg",
+      "startedAt": "2026-11-26T12:57:24Z"
+    },
     {
       "id": "esporte-live--W5k-EQFNPM",
       "name": "🔴 AO VIVO - O GRANDE SHOW DE FUTEBOL! 🔴 Torneio Mundial Supa Strikas ⚽ Maratona de Futebol",
@@ -16,6 +94,19 @@
       "liveStatus": "live",
       "thumbnail": "https://i.ytimg.com/vi/-W5k-EQFNPM/hqdefault.jpg",
       "startedAt": "2026-10-21T14:12:07Z"
+    },
+    {
+      "id": "esporte-live-3N39OwDtJHo",
+      "name": "🔴 IGNÁCIO NETO PROMETE FUTEBOL OFENSIVO NO PAYSANDU! | SÃO PAULO X REMO",
+      "category": "Jogos ao Vivo",
+      "type": "youtube",
+      "videoId": "3N39OwDtJHo",
+      "source": "youtube",
+      "channel": "voxesporte / Fala, Abner!",
+      "modality": "Futebol",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/3N39OwDtJHo/hqdefault.jpg",
+      "startedAt": "2026-11-26T13:01:24Z"
     },
     {
       "id": "esporte-live-BxFszmyUrXE",
@@ -44,6 +135,32 @@
       "startedAt": "2026-11-09T16:03:18Z"
     },
     {
+      "id": "esporte-live-UdUpQIzAQu0",
+      "name": "CORINTHIANS VAI SOFRER ATÉ O FIM? ATLETICO MG 1X1 TIMÃO! CHAMPIONS, NBA, F1 E BRASILEIRÃO",
+      "category": "Programas Esportivos",
+      "type": "youtube",
+      "videoId": "UdUpQIzAQu0",
+      "source": "youtube",
+      "channel": "Coy o Corintiano",
+      "modality": "Basquete",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/UdUpQIzAQu0/hqdefault.jpg",
+      "startedAt": "2026-11-26T12:32:46Z"
+    },
+    {
+      "id": "esporte-live-wg-CArZzdt4",
+      "name": "CORINTHIANS VAI SOFRER ATÉ O FIM? ATLETICO MG 1X1 TIMÃO! CHAMPIONS, NBA, F1 E BRASILEIRÃO 📱",
+      "category": "Programas Esportivos",
+      "type": "youtube",
+      "videoId": "wg-CArZzdt4",
+      "source": "youtube",
+      "channel": "Coy o Corintiano",
+      "modality": "Basquete",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/wg-CArZzdt4/hqdefault.jpg",
+      "startedAt": "2026-11-26T12:32:48Z"
+    },
+    {
       "id": "esporte-live-ADWI_yx6WxM",
       "name": "🔴 AO VIVO: Jogos Divertidos e Futebol para Crianças! ⚽",
       "category": "Programas Esportivos",
@@ -68,6 +185,32 @@
       "liveStatus": "live",
       "thumbnail": "https://i.ytimg.com/vi/NRvGqpq699c/hqdefault.jpg",
       "startedAt": "2026-09-18T11:03:24Z"
+    },
+    {
+      "id": "esporte-live-7JXrQW_ZAHM",
+      "name": "🔴 BAP ANUNCIA CORTES DE DESPESAS NO FLAMENGO E  FUTURO DE BOTO E JARDIM I VOLTA AOS TREINOS",
+      "category": "Programas Esportivos",
+      "type": "youtube",
+      "videoId": "7JXrQW_ZAHM",
+      "source": "youtube",
+      "channel": "Placar Rubro-Negro",
+      "modality": "Futebol",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/7JXrQW_ZAHM/hqdefault.jpg",
+      "startedAt": "2026-11-26T12:19:11Z"
+    },
+    {
+      "id": "esporte-live-JCeWZo_BhHw",
+      "name": "🏆⚽ É DIA DE FUTEBOL! COPA RAINHA MARTA NORDESTE 2026! 🔴 AO VIVO COM IMAGENS!",
+      "category": "Programas Esportivos",
+      "type": "youtube",
+      "videoId": "JCeWZo_BhHw",
+      "source": "youtube",
+      "channel": "Selaj TV",
+      "modality": "Futebol",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/JCeWZo_BhHw/hqdefault.jpg",
+      "startedAt": "2026-11-26T11:41:02Z"
     }
   ]
 }
