@@ -19218,5 +19218,90 @@ if(document.readyState==='loading'){
 </script>
 <!-- FIM STANLEY SPORTS V62.3 -->
 
+<!-- STANLEY SPORTS V62.4 - LINKS TV -->
+<script>
+(function(){
+  'use strict';
+
+  if(window.__stanleyTV624)return;
+  window.__stanleyTV624=true;
+
+  const destinos={
+    'TV Globo':
+      'https://globoplay.globo.com/tv-globo/ao-vivo/9909627/',
+
+    'SBT':
+      'https://www.sbt.com.br/ao-vivo',
+
+    'Band':
+      'https://www.band.com.br/ao-vivo',
+
+    'Record TV':
+      'https://www.recordplus.com/live',
+
+    'RedeTV!':
+      'https://www.redetv.uol.com.br/aovivo/',
+
+    'TV Cultura':
+      'https://cultura.uol.com.br/aovivo/',
+
+    'TV Brasil':
+      'https://tvbrasil.ebc.com.br/webtv/',
+
+    'XSports':
+      'https://www.youtube.com/@xsports.brasil/streams',
+
+    'ge TV':
+      'https://www.youtube.com/@getv/streams',
+
+    'CazéTV':
+      'https://www.youtube.com/@CazeTV/streams',
+
+    'Canal GOAT':
+      'https://www.youtube.com/@canalgoatbr/streams',
+
+    'CBF TV':
+      'https://www.youtube.com/@CBF/streams'
+  };
+
+  function atualizarLinks(){
+    const grid=document.getElementById('tvGrid');
+    if(!grid)return;
+
+    const cards=grid.querySelectorAll(
+      'a.ss-tv-poster'
+    );
+
+    cards.forEach(card=>{
+      const nome=card.querySelector(
+        '.ss-tv-poster-name'
+      )?.textContent?.trim();
+
+      if(!nome || !destinos[nome])return;
+
+      card.href=destinos[nome];
+      card.target='_blank';
+      card.rel='noopener noreferrer';
+    });
+
+    console.info(
+      'Stanley Sports V62.4: links TV corrigidos'
+    );
+  }
+
+  if(document.readyState==='loading'){
+    document.addEventListener(
+      'DOMContentLoaded',
+      atualizarLinks,
+      {once:true}
+    );
+  }else{
+    atualizarLinks();
+  }
+
+})();
+</script>
+<!-- FIM STANLEY SPORTS V62.4 -->
+
 </body>
 </html>
