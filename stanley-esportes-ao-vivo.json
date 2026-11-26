@@ -1,22 +1,9 @@
 {
   "version": 2,
   "source": "YouTube Data API - esportes ao vivo",
-  "updatedAt": "2026-11-26T05:22:38.602218+00:00",
-  "count": 8,
+  "updatedAt": "2026-11-26T09:20:16.391199+00:00",
+  "count": 5,
   "items": [
-    {
-      "id": "esporte-live-umOneGH1JV4",
-      "name": "AO VIVO  ATLÉTICO-MG x CORINTHIANS: O TIMÃO VENCE E SAI DO Z-4?",
-      "category": "Jogos ao Vivo",
-      "type": "youtube",
-      "videoId": "umOneGH1JV4",
-      "source": "youtube",
-      "channel": "Jornalismo Novabrasil",
-      "modality": "Futebol",
-      "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/umOneGH1JV4/hqdefault.jpg",
-      "startedAt": "2026-11-25T22:12:03Z"
-    },
     {
       "id": "esporte-live--W5k-EQFNPM",
       "name": "🔴 AO VIVO - O GRANDE SHOW DE FUTEBOL! 🔴 Torneio Mundial Supa Strikas ⚽ Maratona de Futebol",
@@ -55,32 +42,6 @@
       "liveStatus": "live",
       "thumbnail": "https://i.ytimg.com/vi/7ZuJ3NrGrHY/hqdefault.jpg",
       "startedAt": "2026-11-09T16:03:18Z"
-    },
-    {
-      "id": "esporte-live-JTazQuiF_xM",
-      "name": "1ª Copa Rômulo do Esporte - Futebol Society  em Comodoro/MT  2026",
-      "category": "Programas Esportivos",
-      "type": "youtube",
-      "videoId": "JTazQuiF_xM",
-      "source": "youtube",
-      "channel": "CONEXÃO ESPORTIVA MT",
-      "modality": "Futsal",
-      "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/JTazQuiF_xM/hqdefault.jpg",
-      "startedAt": "2026-11-25T22:46:01Z"
-    },
-    {
-      "id": "esporte-live-hC9p5qovtJ4",
-      "name": "🚨 SUPER PLANTÃO URGENTE! FLAMENGO FECHA CONTRATAÇÃO DE GABIGOL! ACABOU DE FECHAR! NOVO TÉCNICO! E+",
-      "category": "Programas Esportivos",
-      "type": "youtube",
-      "videoId": "hC9p5qovtJ4",
-      "source": "youtube",
-      "channel": "Central FLA",
-      "modality": "Futebol",
-      "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/hC9p5qovtJ4/hqdefault.jpg",
-      "startedAt": "2026-11-25T22:58:07Z"
     },
     {
       "id": "esporte-live-ADWI_yx6WxM",
