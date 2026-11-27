@@ -2,9 +2,21 @@
   "version": 1,
   "source": "Adrenalina Pura TV BR",
   "channelId": "UCWFovw8iyHBezTmaEWEV0RA",
-  "updatedAt": "2026-11-26T12:20:43.957083+00:00",
-  "count": 199,
+  "updatedAt": "2026-11-27T12:17:30.959900+00:00",
+  "count": 200,
   "items": [
+    {
+      "id": "adrenalina-nbjV9xH2F0I",
+      "name": "A Babá: O Chamado das Sombras - Filme Completo Dublado - Filme de Terror | Adrenalina Pura TV",
+      "category": "Filmes",
+      "type": "youtube",
+      "videoId": "nbjV9xH2F0I",
+      "source": "youtube",
+      "channel": "Adrenalina Pura TV BR",
+      "thumbnail": "https://i.ytimg.com/vi/nbjV9xH2F0I/hqdefault.jpg",
+      "durationSeconds": 5800,
+      "publishedAt": "2026-11-26T22:00:10Z"
+    },
     {
       "id": "adrenalina-0IGuWkQg7t4",
       "name": "Um Homem Comum - Filme Completo Dublado - Filme de Suspense | Adrenalina Pura TV",
