@@ -481,6 +481,14 @@ const fixed=[
   source:'youtube'
 },
 {
+  id: 'infantil-live-pyrg',
+  name: 'Infantil ao Vivo',
+  category: 'Infantis ao Vivo',
+  type: 'youtube',
+  videoId: 'pYrgUlUN5Bk',
+  source: 'youtube'
+},
+{
     id:'amazon',
     name:'Amazon Sat',
     category:'TV ao vivo',
@@ -532,6 +540,8 @@ let esportesAutomaticos = [];
 
 let comedyAutomaticos = [];
 
+let infantilAutomaticos = [];
+
 
 function items(){
   const manuais = saved.items.filter(x =>
@@ -558,6 +568,13 @@ function items(){
       !idsExistentes.has(x.videoId) &&
       !filmesAutomaticos.some(f => f.videoId === x.videoId) &&
       !esportesAutomaticos.some(e => e.videoId === x.videoId)
+    ),
+
+    ...infantilAutomaticos.filter(x =>
+      !idsExistentes.has(x.videoId) &&
+      !filmesAutomaticos.some(f => f.videoId === x.videoId) &&
+      !esportesAutomaticos.some(e => e.videoId === x.videoId) &&
+      !comedyAutomaticos.some(c => c.videoId === x.videoId)
     ),
 
     ...iptv.filter(x =>
@@ -696,6 +713,46 @@ async function carregarComedyCentral(){
 
   } catch(erro) {
     console.error('Erro Comedy Central:', erro);
+  }
+}
+
+async function carregarInfantilAutomatico(){
+  try {
+    const resposta = await fetch(
+      'stanley-infantil.json?v=' + Date.now(),
+      { cache: 'no-store' }
+    );
+
+    if(!resposta.ok){
+      throw new Error('HTTP ' + resposta.status);
+    }
+
+    const dados = await resposta.json();
+
+    infantilAutomaticos = (dados.items || [])
+      .filter(x =>
+        /^[A-Za-z0-9_-]{11}$/.test(x.videoId || '')
+      )
+      .map(x => ({
+        ...x,
+        category: 'Infantil',
+        source: 'youtube',
+        type: 'youtube'
+      }));
+
+    render();
+
+    console.log(
+      'Infantil:',
+      infantilAutomaticos.length,
+      'vídeos carregados'
+    );
+
+  } catch(erro) {
+    console.error(
+      'Erro no catálogo infantil:',
+      erro
+    );
   }
 }
 
@@ -851,6 +908,8 @@ sync();
 carregarFilmesAutomaticos();
 carregarEsportesAutomaticos();
 carregarComedyCentral();
+
+carregarInfantilAutomatico();
 
 
 })();
