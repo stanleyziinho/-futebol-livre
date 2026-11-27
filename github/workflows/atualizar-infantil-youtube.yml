@@ -1,0 +1,186 @@
+
+name: Atualizar Infantil Stanley TV
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '45 12 * * *'
+
+permissions:
+  contents: write
+
+jobs:
+  atualizar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Baixar repositorio
+        uses: actions/checkout@v4
+
+      - name: Importar videos infantis
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+        run: |
+          python3 - <<'PY'
+          import os
+          import json
+          import urllib.parse
+          import urllib.request
+          import urllib.error
+          from datetime import datetime, timezone
+
+          key = os.getenv('YOUTUBE_API_KEY', '').strip()
+          if not key:
+              raise SystemExit('Secret YOUTUBE_API_KEY ausente')
+
+          def api(endpoint, **params):
+              params['key'] = key
+              url = (
+                  'https://www.googleapis.com/youtube/v3/'
+                  + endpoint + '?'
+                  + urllib.parse.urlencode(params)
+              )
+              try:
+                  with urllib.request.urlopen(url, timeout=30) as r:
+                      return json.load(r)
+              except urllib.error.HTTPError as e:
+                  raise RuntimeError(
+                      'Erro na API do YouTube: HTTP ' + str(e.code)
+                  ) from None
+
+          canais = [
+              ('@disneyjrbr', 'Disney Jr. Brasil'),
+              ('@BRCartoonNetworkvideos', 'Cartoon Network Brasil')
+          ]
+
+          videos = []
+
+          for handle, nome in canais:
+              resposta = api(
+                  'channels',
+                  part='contentDetails',
+                  forHandle=handle
+              )
+              encontrados = resposta.get('items', [])
+              if not encontrados:
+                  print('Canal nao encontrado:', handle)
+                  continue
+
+              uploads = encontrados[0]['contentDetails'][
+                  'relatedPlaylists'
+              ]['uploads']
+
+              ids = []
+              token = None
+
+              for pagina in range(2):
+                  params = {
+                      'part': 'contentDetails',
+                      'playlistId': uploads,
+                      'maxResults': 50
+                  }
+                  if token:
+                      params['pageToken'] = token
+
+                  dados = api('playlistItems', **params)
+                  ids.extend(
+                      x['contentDetails']['videoId']
+                      for x in dados.get('items', [])
+                      if x.get('contentDetails', {}).get('videoId')
+                  )
+
+                  token = dados.get('nextPageToken')
+                  if not token:
+                      break
+
+              for inicio in range(0, len(ids), 50):
+                  dados = api(
+                      'videos',
+                      part='snippet,status,contentDetails',
+                      id=','.join(ids[inicio:inicio+50])
+                  )
+
+                  for video in dados.get('items', []):
+                      snippet = video.get('snippet', {})
+                      status = video.get('status', {})
+                      vid = video['id']
+
+                      if status.get('privacyStatus') != 'public':
+                          continue
+                      if status.get('embeddable') is not True:
+                          continue
+
+                      duracao = video.get(
+                          'contentDetails', {}
+                      ).get('duration', '')
+
+                      # Exclui a maioria dos Shorts.
+                      import re
+                      numeros = re.fullmatch(
+                          r'PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?',
+                          duracao
+                      )
+                      if not numeros:
+                          continue
+
+                      h, m, s = (
+                          int(x or 0)
+                          for x in numeros.groups()
+                      )
+                      segundos = h*3600 + m*60 + s
+
+                      if segundos < 180:
+                          continue
+
+                      videos.append({
+                          'id': 'infantil-' + vid,
+                          'name': snippet.get('title', nome),
+                          'category': 'Infantil',
+                          'type': 'youtube',
+                          'videoId': vid,
+                          'source': 'youtube',
+                          'channel': nome,
+                          'thumbnail':
+                              'https://i.ytimg.com/vi/'
+                              + vid + '/hqdefault.jpg',
+                          'publishedAt': snippet.get('publishedAt', '')
+                      })
+
+              print(nome, '- importacao concluida')
+
+          if not videos:
+              raise SystemExit(
+                  'Nenhum video incorporavel. Catalogo preservado.'
+              )
+
+          videos.sort(
+              key=lambda x: x['publishedAt'],
+              reverse=True
+          )
+
+          with open(
+              'stanley-infantil.json',
+              'w',
+              encoding='utf-8'
+          ) as arquivo:
+              json.dump({
+                  'version': 1,
+                  'updatedAt': datetime.now(
+                      timezone.utc
+                  ).isoformat(),
+                  'count': len(videos),
+                  'items': videos
+              }, arquivo, ensure_ascii=False, indent=2)
+
+          print('Total de videos infantis:', len(videos))
+          PY
+
+      - name: Publicar catalogo
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add stanley-infantil.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Atualizar desenhos Stanley TV"
+            git pull --rebase origin "${GITHUB_REF_NAME}"
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+          fi
