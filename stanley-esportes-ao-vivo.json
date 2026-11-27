@@ -1,22 +1,9 @@
 {
   "version": 2,
   "source": "YouTube Data API - esportes ao vivo",
-  "updatedAt": "2026-11-27T05:20:50.106162+00:00",
-  "count": 12,
+  "updatedAt": "2026-11-27T09:20:52.809167+00:00",
+  "count": 5,
   "items": [
-    {
-      "id": "esporte-live-1ZKjZrooGxU",
-      "name": "Leon x Cruz Azul ao vivo Liga MX",
-      "category": "Jogos ao Vivo",
-      "type": "youtube",
-      "videoId": "1ZKjZrooGxU",
-      "source": "youtube",
-      "channel": "Futebol Radar",
-      "modality": "Futebol",
-      "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/1ZKjZrooGxU/hqdefault.jpg",
-      "startedAt": "2026-11-27T03:12:58Z"
-    },
     {
       "id": "esporte-live--W5k-EQFNPM",
       "name": "🔴 AO VIVO - O GRANDE SHOW DE FUTEBOL! 🔴 Torneio Mundial Supa Strikas ⚽ Maratona de Futebol",
@@ -29,19 +16,6 @@
       "liveStatus": "live",
       "thumbnail": "https://i.ytimg.com/vi/-W5k-EQFNPM/hqdefault.jpg",
       "startedAt": "2026-10-21T14:12:07Z"
-    },
-    {
-      "id": "esporte-live-ed2WGXhVKCI",
-      "name": "OPERÁRIO X PALMEIRAS AO VIVO COM IMAGENS - COPA DO BRASIL SUB-20 AO VIVO",
-      "category": "Jogos ao Vivo",
-      "type": "youtube",
-      "videoId": "ed2WGXhVKCI",
-      "source": "youtube",
-      "channel": "VEXO",
-      "modality": "Futebol",
-      "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/ed2WGXhVKCI/hqdefault.jpg",
-      "startedAt": "2026-11-26T22:26:23Z"
     },
     {
       "id": "esporte-live-BxFszmyUrXE",
@@ -70,19 +44,6 @@
       "startedAt": "2026-11-09T16:03:18Z"
     },
     {
-      "id": "esporte-live-iE06sHcJ_xM",
-      "name": "AO VIVO: 1ª Copa Rômulo do Esporte - Futebol Society  em Comodoro/MT  2026",
-      "category": "Programas Esportivos",
-      "type": "youtube",
-      "videoId": "iE06sHcJ_xM",
-      "source": "youtube",
-      "channel": "CONEXÃO ESPORTIVA MT",
-      "modality": "Futsal",
-      "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/iE06sHcJ_xM/hqdefault.jpg",
-      "startedAt": "2026-11-26T22:45:59Z"
-    },
-    {
       "id": "esporte-live-ADWI_yx6WxM",
       "name": "🔴 AO VIVO: Jogos Divertidos e Futebol para Crianças! ⚽",
       "category": "Programas Esportivos",
@@ -96,32 +57,6 @@
       "startedAt": "2026-10-23T09:34:43Z"
     },
     {
-      "id": "esporte-live-wr7w6ItDxog",
-      "name": "AO VIVO! CORINTHIANS NO eFOOTBALL 🔥 | JOGANDO A DIVISÃO 5!",
-      "category": "Programas Esportivos",
-      "type": "youtube",
-      "videoId": "wr7w6ItDxog",
-      "source": "youtube",
-      "channel": "Operador BR",
-      "modality": "Futebol",
-      "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/wr7w6ItDxog/hqdefault.jpg",
-      "startedAt": "2026-11-26T23:20:22Z"
-    },
-    {
-      "id": "esporte-live-7ZKwfD3prsU",
-      "name": "AO VIVO! CORINTHIANS NO eFOOTBALL 🔥 | JOGANDO A DIVISÃO 5!!",
-      "category": "Programas Esportivos",
-      "type": "youtube",
-      "videoId": "7ZKwfD3prsU",
-      "source": "youtube",
-      "channel": "Operador BR",
-      "modality": "Futebol",
-      "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/7ZKwfD3prsU/hqdefault.jpg",
-      "startedAt": "2026-11-26T23:20:47Z"
-    },
-    {
       "id": "esporte-live-NRvGqpq699c",
       "name": "Quem Vai Vencer A Corrida Suprema?! 🏁🏎️ | Patrulha Canina Patrulha Canina | PAW Patrol Temporada 12",
       "category": "Programas Esportivos",
@@ -133,32 +68,6 @@
       "liveStatus": "live",
       "thumbnail": "https://i.ytimg.com/vi/NRvGqpq699c/hqdefault.jpg",
       "startedAt": "2026-09-18T11:03:24Z"
-    },
-    {
-      "id": "esporte-live-YKqCL0ivRbs",
-      "name": "🏆⚽ 5ª RODADA – COPA SONVESSO FUTSAL 2026  | SUB-10, SUB-12 E SUB-14 |🔴AO VIVO",
-      "category": "Programas Esportivos",
-      "type": "youtube",
-      "videoId": "YKqCL0ivRbs",
-      "source": "youtube",
-      "channel": "SugeradaFC",
-      "modality": "Futsal",
-      "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/YKqCL0ivRbs/hqdefault.jpg",
-      "startedAt": "2026-11-26T22:26:50Z"
-    },
-    {
-      "id": "esporte-live-5awkU6lI4sY",
-      "name": "AO VIVO  | 4ª RODADA COPA MARIO COVAS VETERANO 35+ | AO VIVO TV POLO CUBATÃO - ESPORTES - FUTEBOL",
-      "category": "Programas Esportivos",
-      "type": "youtube",
-      "videoId": "5awkU6lI4sY",
-      "source": "youtube",
-      "channel": "TV Polo - Cubatão",
-      "modality": "Futebol",
-      "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/5awkU6lI4sY/hqdefault.jpg",
-      "startedAt": "2026-11-26T22:53:48Z"
     }
   ]
 }
