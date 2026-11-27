@@ -1,9 +1,61 @@
 {
   "version": 2,
   "source": "YouTube Data API - esportes ao vivo",
-  "updatedAt": "2026-11-27T09:20:52.809167+00:00",
-  "count": 5,
+  "updatedAt": "2026-11-27T13:28:11.022870+00:00",
+  "count": 11,
   "items": [
+    {
+      "id": "esporte-live-v20PT3N6jE4",
+      "name": "Vila Nova x Atlético/GO - AO VIVO - 2º jogo do playoff da Série B - 27/11/2026",
+      "category": "Jogos ao Vivo",
+      "type": "youtube",
+      "videoId": "v20PT3N6jE4",
+      "source": "youtube",
+      "channel": "BandNews Goiânia-GO",
+      "modality": "Futebol",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/v20PT3N6jE4/hqdefault.jpg",
+      "startedAt": "2026-11-27T13:07:21Z"
+    },
+    {
+      "id": "esporte-live-lGpAg5pdUSI",
+      "name": "AO VIVO: PALMEIRAS NC X MIRASSOL NC BRASILEIRÃO GOLKIPER 2026 | 6º RODADA | JOGO 1º",
+      "category": "Jogos ao Vivo",
+      "type": "youtube",
+      "videoId": "lGpAg5pdUSI",
+      "source": "youtube",
+      "channel": "NC TRAINING - UNIDADE STADIUM",
+      "modality": "Futebol",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/lGpAg5pdUSI/hqdefault.jpg",
+      "startedAt": "2026-11-27T09:58:42Z"
+    },
+    {
+      "id": "esporte-live-y7QXliaIBrE",
+      "name": "Resultado do jogo do bicho ao vivo - PPT - 09:20 - 27/11/2026",
+      "category": "Jogos ao Vivo",
+      "type": "youtube",
+      "videoId": "y7QXliaIBrE",
+      "source": "youtube",
+      "channel": "Palpites do Xerifão jb",
+      "modality": "Futebol",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/y7QXliaIBrE/hqdefault.jpg",
+      "startedAt": "2026-11-27T12:02:29Z"
+    },
+    {
+      "id": "esporte-live-JK1P5FIja3g",
+      "name": "🔴AO VIVO - Vila Nova x Atlético-GO | Playoffs Série B (Jogo 2 de 2) - 27/11/2026",
+      "category": "Jogos ao Vivo",
+      "type": "youtube",
+      "videoId": "JK1P5FIja3g",
+      "source": "youtube",
+      "channel": "Rádio Bandeirantes Goiânia",
+      "modality": "Futebol",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/JK1P5FIja3g/hqdefault.jpg",
+      "startedAt": "2026-11-27T13:01:15Z"
+    },
     {
       "id": "esporte-live--W5k-EQFNPM",
       "name": "🔴 AO VIVO - O GRANDE SHOW DE FUTEBOL! 🔴 Torneio Mundial Supa Strikas ⚽ Maratona de Futebol",
@@ -16,6 +68,19 @@
       "liveStatus": "live",
       "thumbnail": "https://i.ytimg.com/vi/-W5k-EQFNPM/hqdefault.jpg",
       "startedAt": "2026-10-21T14:12:07Z"
+    },
+    {
+      "id": "esporte-live-zcmtbnx3QlA",
+      "name": "PARAENSE  X  CRAQUES DO FUTURO AO VIVO- PARAENSE DE FUTEBOL SUB- 20 2026- / 27 / 11- 09:30 CEJÚ 03.",
+      "category": "Jogos ao Vivo",
+      "type": "youtube",
+      "videoId": "zcmtbnx3QlA",
+      "source": "youtube",
+      "channel": "📲 TV MS LIVE ESPORTES",
+      "modality": "Futebol",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/zcmtbnx3QlA/hqdefault.jpg",
+      "startedAt": "2026-11-27T12:28:16Z"
     },
     {
       "id": "esporte-live-BxFszmyUrXE",
@@ -42,6 +107,19 @@
       "liveStatus": "live",
       "thumbnail": "https://i.ytimg.com/vi/7ZuJ3NrGrHY/hqdefault.jpg",
       "startedAt": "2026-11-09T16:03:18Z"
+    },
+    {
+      "id": "esporte-live-uKQ--hwYvug",
+      "name": "ESPORTE DELAS | Copa do Mundo Feminina: oportunidades de negócio e legado social",
+      "category": "Programas Esportivos",
+      "type": "youtube",
+      "videoId": "uKQ--hwYvug",
+      "source": "youtube",
+      "channel": "Canal FDR",
+      "modality": "Futebol",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/uKQ--hwYvug/hqdefault.jpg",
+      "startedAt": "2026-11-27T12:59:53Z"
     },
     {
       "id": "esporte-live-ADWI_yx6WxM",
