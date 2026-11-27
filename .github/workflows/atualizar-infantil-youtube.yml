@@ -1,0 +1,180 @@
+
+name: Atualizar Infantil Stanley TV
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '45 12 * * *'
+
+permissions:
+  contents: write
+
+jobs:
+  atualizar:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Baixar repositorio
+        uses: actions/checkout@v4
+
+      - name: Importar desenhos
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+        run: |
+          python3 - <<'PY'
+          import os
+          import json
+          import urllib.parse
+          import urllib.request
+          from datetime import datetime, timezone
+
+          KEY = os.getenv('YOUTUBE_API_KEY', '').strip()
+          if not KEY:
+              raise SystemExit('YOUTUBE_API_KEY ausente')
+
+          def api(endpoint, **params):
+              params['key'] = KEY
+              url = (
+                  'https://www.googleapis.com/youtube/v3/'
+                  + endpoint + '?'
+                  + urllib.parse.urlencode(params)
+              )
+              with urllib.request.urlopen(url, timeout=30) as r:
+                  return json.load(r)
+
+          canais = [
+              ('@disneyjrbr', 'Disney Jr. Brasil'),
+              ('@brcartoonnetworkvideos', 'Cartoon Network Brasil')
+          ]
+
+          videos = []
+
+          for handle, nome in canais:
+              resposta = api(
+                  'channels',
+                  part='contentDetails',
+                  forHandle=handle
+              )
+              encontrados = resposta.get('items', [])
+
+              if not encontrados:
+                  print('Canal nao encontrado:', handle)
+                  continue
+
+              uploads = encontrados[0]['contentDetails'][
+                  'relatedPlaylists'
+              ]['uploads']
+
+              ids = []
+              token = None
+
+              for pagina in range(2):
+                  params = {
+                      'part': 'contentDetails',
+                      'playlistId': uploads,
+                      'maxResults': 50
+                  }
+                  if token:
+                      params['pageToken'] = token
+
+                  dados = api('playlistItems', **params)
+
+                  ids.extend(
+                      x['contentDetails']['videoId']
+                      for x in dados.get('items', [])
+                      if x.get('contentDetails', {}).get('videoId')
+                  )
+
+                  token = dados.get('nextPageToken')
+                  if not token:
+                      break
+
+              for inicio in range(0, len(ids), 50):
+                  resposta = api(
+                      'videos',
+                      part='snippet,status,contentDetails',
+                      id=','.join(ids[inicio:inicio + 50])
+                  )
+
+                  for video in resposta.get('items', []):
+                      status = video.get('status', {})
+                      if status.get('privacyStatus') != 'public':
+                          continue
+                      if status.get('embeddable') is not True:
+                          continue
+
+                      import re
+                      duracao = video.get(
+                          'contentDetails', {}
+                      ).get('duration', '')
+
+                      match = re.fullmatch(
+                          r'PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?',
+                          duracao
+                      )
+
+                      if not match:
+                          continue
+
+                      h, m, s = (
+                          int(n or 0) for n in match.groups()
+                      )
+
+                      if h * 3600 + m * 60 + s < 180:
+                          continue
+
+                      vid = video['id']
+                      snippet = video.get('snippet', {})
+
+                      videos.append({
+                          'id': 'infantil-' + vid,
+                          'name': snippet.get('title', nome),
+                          'category': 'Infantil',
+                          'type': 'youtube',
+                          'videoId': vid,
+                          'source': 'youtube',
+                          'channel': nome,
+                          'publishedAt': snippet.get(
+                              'publishedAt', ''
+                          )
+                      })
+
+              print('Canal processado:', nome)
+
+          if not videos:
+              raise SystemExit(
+                  'Nenhum video encontrado. Arquivo anterior preservado.'
+              )
+
+          videos.sort(
+              key=lambda x: x['publishedAt'],
+              reverse=True
+          )
+
+          with open(
+              'stanley-infantil.json',
+              'w',
+              encoding='utf-8'
+          ) as f:
+              json.dump({
+                  'version': 1,
+                  'updatedAt': datetime.now(
+                      timezone.utc
+                  ).isoformat(),
+                  'count': len(videos),
+                  'items': videos
+              }, f, ensure_ascii=False, indent=2)
+
+          print('Total:', len(videos))
+          PY
+
+      - name: Publicar catalogo
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add stanley-infantil.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Atualizar catalogo infantil"
+            git pull --rebase origin "${GITHUB_REF_NAME}"
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+          fi
