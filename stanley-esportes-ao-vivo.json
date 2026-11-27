@@ -1,9 +1,22 @@
 {
   "version": 2,
   "source": "YouTube Data API - esportes ao vivo",
-  "updatedAt": "2026-11-27T13:28:11.022870+00:00",
-  "count": 11,
+  "updatedAt": "2026-11-27T17:19:17.874263+00:00",
+  "count": 20,
   "items": [
+    {
+      "id": "esporte-live--7s21fwmnSM",
+      "name": "ALANYASPOR X KONYASPOR AO VIVO DO ESTÁDIO BAHÇEŞEHIR | SÜPER LIG - CAMPEONATO TURCO 26/27",
+      "category": "Jogos ao Vivo",
+      "type": "youtube",
+      "videoId": "-7s21fwmnSM",
+      "source": "youtube",
+      "channel": "+3 Minutos",
+      "modality": "Futebol",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/-7s21fwmnSM/hqdefault.jpg",
+      "startedAt": "2026-11-27T16:53:00Z"
+    },
     {
       "id": "esporte-live-v20PT3N6jE4",
       "name": "Vila Nova x Atlético/GO - AO VIVO - 2º jogo do playoff da Série B - 27/11/2026",
@@ -18,30 +31,69 @@
       "startedAt": "2026-11-27T13:07:21Z"
     },
     {
-      "id": "esporte-live-lGpAg5pdUSI",
-      "name": "AO VIVO: PALMEIRAS NC X MIRASSOL NC BRASILEIRÃO GOLKIPER 2026 | 6º RODADA | JOGO 1º",
+      "id": "esporte-live-gSD65FhUTBo",
+      "name": "BOTAFOGO X TERCEIRO MILÊNIO / SUB 12 / AO VIVO / 27/11/2026 / 13:30H",
       "category": "Jogos ao Vivo",
       "type": "youtube",
-      "videoId": "lGpAg5pdUSI",
+      "videoId": "gSD65FhUTBo",
       "source": "youtube",
-      "channel": "NC TRAINING - UNIDADE STADIUM",
+      "channel": "COPA BUH BRASIL",
       "modality": "Futebol",
       "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/lGpAg5pdUSI/hqdefault.jpg",
-      "startedAt": "2026-11-27T09:58:42Z"
+      "thumbnail": "https://i.ytimg.com/vi/gSD65FhUTBo/hqdefault.jpg",
+      "startedAt": "2026-11-27T16:32:58Z"
     },
     {
-      "id": "esporte-live-y7QXliaIBrE",
-      "name": "Resultado do jogo do bicho ao vivo - PPT - 09:20 - 27/11/2026",
+      "id": "esporte-live-MarA6dx5z-c",
+      "name": "MINAS BRASILIA X SANTA CRUZ | AO VIVO | COPA BRASILEIRINHO U13 2026",
       "category": "Jogos ao Vivo",
       "type": "youtube",
-      "videoId": "y7QXliaIBrE",
+      "videoId": "MarA6dx5z-c",
+      "source": "youtube",
+      "channel": "Fatalzinho TV",
+      "modality": "Futebol",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/MarA6dx5z-c/hqdefault.jpg",
+      "startedAt": "2026-11-27T16:34:10Z"
+    },
+    {
+      "id": "esporte-live-Cx5kZtqvygc",
+      "name": "Resultado do jogo do bicho ao vivo - PT- RJ - 14:20   27/11/2026",
+      "category": "Jogos ao Vivo",
+      "type": "youtube",
+      "videoId": "Cx5kZtqvygc",
+      "source": "youtube",
+      "channel": "Felipe JB",
+      "modality": "Futebol",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/Cx5kZtqvygc/hqdefault.jpg",
+      "startedAt": "2026-11-27T17:15:56Z"
+    },
+    {
+      "id": "esporte-live-snnlX14SoVk",
+      "name": "Resultado do jogo do bicho ao vivo PT RIO 14HS dia 27/11/2026 - Sexta - Feira",
+      "category": "Jogos ao Vivo",
+      "type": "youtube",
+      "videoId": "snnlX14SoVk",
+      "source": "youtube",
+      "channel": "Palpites Xande JB",
+      "modality": "Futebol",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/snnlX14SoVk/hqdefault.jpg",
+      "startedAt": "2026-11-27T17:08:06Z"
+    },
+    {
+      "id": "esporte-live-z2ol-Z0xUGk",
+      "name": "Resultado do jogo do bicho ao vivo - PT - 14:20 - 27/11/2026",
+      "category": "Jogos ao Vivo",
+      "type": "youtube",
+      "videoId": "z2ol-Z0xUGk",
       "source": "youtube",
       "channel": "Palpites do Xerifão jb",
       "modality": "Futebol",
       "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/y7QXliaIBrE/hqdefault.jpg",
-      "startedAt": "2026-11-27T12:02:29Z"
+      "thumbnail": "https://i.ytimg.com/vi/z2ol-Z0xUGk/hqdefault.jpg",
+      "startedAt": "2026-11-27T17:03:23Z"
     },
     {
       "id": "esporte-live-JK1P5FIja3g",
@@ -70,17 +122,56 @@
       "startedAt": "2026-10-21T14:12:07Z"
     },
     {
-      "id": "esporte-live-zcmtbnx3QlA",
-      "name": "PARAENSE  X  CRAQUES DO FUTURO AO VIVO- PARAENSE DE FUTEBOL SUB- 20 2026- / 27 / 11- 09:30 CEJÚ 03.",
+      "id": "esporte-live-iaKP4BNKQw4",
+      "name": "Resultado do jogo do bicho ao vivo - PT - 14:20 - 27/11/2026",
       "category": "Jogos ao Vivo",
       "type": "youtube",
-      "videoId": "zcmtbnx3QlA",
+      "videoId": "iaKP4BNKQw4",
       "source": "youtube",
-      "channel": "📲 TV MS LIVE ESPORTES",
+      "channel": "Suzy e Dani JB",
       "modality": "Futebol",
       "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/zcmtbnx3QlA/hqdefault.jpg",
-      "startedAt": "2026-11-27T12:28:16Z"
+      "thumbnail": "https://i.ytimg.com/vi/iaKP4BNKQw4/hqdefault.jpg",
+      "startedAt": "2026-11-27T17:16:28Z"
+    },
+    {
+      "id": "esporte-live-bxPDsn7sPK8",
+      "name": "🏆 LIESP || Valinhos EC X Grêmio Esportivo Mauaense || SUB 20",
+      "category": "Jogos ao Vivo",
+      "type": "youtube",
+      "videoId": "bxPDsn7sPK8",
+      "source": "youtube",
+      "channel": "TV Nexus",
+      "modality": "Futebol",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/bxPDsn7sPK8/hqdefault.jpg",
+      "startedAt": "2026-11-27T16:15:11Z"
+    },
+    {
+      "id": "esporte-live-elZCZ51AaUM",
+      "name": "🔴AO VIVO - Vila Nova x Atlético-GO | Playoffs Série B (Jogo 2 de 2)",
+      "category": "Jogos ao Vivo",
+      "type": "youtube",
+      "videoId": "elZCZ51AaUM",
+      "source": "youtube",
+      "channel": "Tv Mané",
+      "modality": "Futebol",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/elZCZ51AaUM/hqdefault.jpg",
+      "startedAt": "2026-11-27T14:36:04Z"
+    },
+    {
+      "id": "esporte-live-Y5BM3igYtUw",
+      "name": "PALMEIRAS x ESTUDIANTES AO VIVO | FINAL DA LIBERTADORES 2026 | VERDÃO EM BUSCA DO TETRA",
+      "category": "Jogos ao Vivo",
+      "type": "youtube",
+      "videoId": "Y5BM3igYtUw",
+      "source": "youtube",
+      "channel": "Voz do Esporte",
+      "modality": "Futebol",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/Y5BM3igYtUw/hqdefault.jpg",
+      "startedAt": "2026-11-27T15:00:50Z"
     },
     {
       "id": "esporte-live-BxFszmyUrXE",
@@ -109,19 +200,6 @@
       "startedAt": "2026-11-09T16:03:18Z"
     },
     {
-      "id": "esporte-live-uKQ--hwYvug",
-      "name": "ESPORTE DELAS | Copa do Mundo Feminina: oportunidades de negócio e legado social",
-      "category": "Programas Esportivos",
-      "type": "youtube",
-      "videoId": "uKQ--hwYvug",
-      "source": "youtube",
-      "channel": "Canal FDR",
-      "modality": "Futebol",
-      "liveStatus": "live",
-      "thumbnail": "https://i.ytimg.com/vi/uKQ--hwYvug/hqdefault.jpg",
-      "startedAt": "2026-11-27T12:59:53Z"
-    },
-    {
       "id": "esporte-live-ADWI_yx6WxM",
       "name": "🔴 AO VIVO: Jogos Divertidos e Futebol para Crianças! ⚽",
       "category": "Programas Esportivos",
@@ -146,6 +224,45 @@
       "liveStatus": "live",
       "thumbnail": "https://i.ytimg.com/vi/NRvGqpq699c/hqdefault.jpg",
       "startedAt": "2026-09-18T11:03:24Z"
+    },
+    {
+      "id": "esporte-live-lIEgIVezSAc",
+      "name": "CAMPO NEUTRO 27/11/2026",
+      "category": "Programas Esportivos",
+      "type": "youtube",
+      "videoId": "lIEgIVezSAc",
+      "source": "youtube",
+      "channel": "Rádio Caxias Esportes",
+      "modality": "Basquete",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/lIEgIVezSAc/hqdefault.jpg",
+      "startedAt": "2026-11-27T15:58:07Z"
+    },
+    {
+      "id": "esporte-live-Fuu7Tfcj8do",
+      "name": "AO VIVO - GIRO ESPORTIVO: DECISÃO DA COPA MS COMEÇA NESTE DOMINGO",
+      "category": "Programas Esportivos",
+      "type": "youtube",
+      "videoId": "Fuu7Tfcj8do",
+      "source": "youtube",
+      "channel": "Rádio Futebol na Canela",
+      "modality": "Futebol",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/Fuu7Tfcj8do/hqdefault.jpg",
+      "startedAt": "2026-11-27T15:58:40Z"
+    },
+    {
+      "id": "esporte-live-tbrx1UwH7mo",
+      "name": "FINAIS BRONZE | SUB 07 | PARANAENSE DE FUTSAL | RODADA 1 - GRUPO B",
+      "category": "Programas Esportivos",
+      "type": "youtube",
+      "videoId": "tbrx1UwH7mo",
+      "source": "youtube",
+      "channel": "TDF Play",
+      "modality": "Futsal",
+      "liveStatus": "live",
+      "thumbnail": "https://i.ytimg.com/vi/tbrx1UwH7mo/hqdefault.jpg",
+      "startedAt": "2026-11-27T16:56:35Z"
     }
   ]
 }
