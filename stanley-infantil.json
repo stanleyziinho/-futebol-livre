@@ -1,8 +1,18 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-27T16:12:19.128318+00:00",
-  "count": 76,
+  "updatedAt": "2026-11-28T13:48:53.085465+00:00",
+  "count": 75,
   "items": [
+    {
+      "id": "infantil-W3rpzc0MMJ0",
+      "name": "Alguns dos personagens da semana ✨ Mais uma Semana no Cartoon | Cartoon Network Brasil",
+      "category": "Infantil",
+      "type": "youtube",
+      "videoId": "W3rpzc0MMJ0",
+      "source": "youtube",
+      "channel": "Cartoon Network Brasil",
+      "publishedAt": "2026-11-27T20:00:04Z"
+    },
     {
       "id": "infantil-zm_AoGLI5Lw",
       "name": "8 Minutos de Sabedoria com a Vovó Juju ✨ | Cartoon Network Brasil",
@@ -702,26 +712,6 @@
       "source": "youtube",
       "channel": "Disney Jr. Brasil",
       "publishedAt": "2026-09-09T15:00:01Z"
-    },
-    {
-      "id": "infantil-eDR0fMadETM",
-      "name": "💙 EPISÓDIOS COMPLETOS! | Big Blue 🫧 O Grande Oceano 🌊 Cartoon Network",
-      "category": "Infantil",
-      "type": "youtube",
-      "videoId": "eDR0fMadETM",
-      "source": "youtube",
-      "channel": "Cartoon Network Brasil",
-      "publishedAt": "2026-09-07T20:00:24Z"
-    },
-    {
-      "id": "infantil-bDTnz83KvJo",
-      "name": "PEQUENAS AVENTURAS, RISOS SEM PARAR: MINISÓDIOS! | URSOS SEM CURSO | CARTOON NETWORK",
-      "category": "Infantil",
-      "type": "youtube",
-      "videoId": "bDTnz83KvJo",
-      "source": "youtube",
-      "channel": "Cartoon Network Brasil",
-      "publishedAt": "2026-09-06T18:00:06Z"
     },
     {
       "id": "infantil-QJfwYYeXCto",
